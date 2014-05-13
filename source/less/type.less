@@ -1,0 +1,357 @@
+@font-path: '../fonts/';
+@icon-font-path: @font-path;
+@font-weight-thin: 300;
+@font-weight-base: 400;
+@font-weight-semi: 600;
+@font-weight-heavy: 800;
+
+// The locally hosted version of Lato renders incorrectly in some environments (IE9 confirmed). Currently using the Google CDN
+// .disable-ligatures {
+// 	-moz-font-feature-settings: "liga=0";
+// 	-moz-font-feature-settings: "liga" 0;
+// }
+
+// // lato
+// @font-face {
+//     font-family: 'Lato';
+//     src: url('@{font-path}Lato-Light.eot'); /* IE9 Compat Modes */
+//     src: url('@{font-path}Lato-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+//          url('@{font-path}Lato-Light.woff') format('woff'), /* Modern Browsers */
+//          url('@{font-path}Lato-Light.ttf') format('truetype');
+//     font-style: normal;
+//     font-weight: @font-weight-thin;
+//     text-rendering: optimizeLegibility;
+//     .disable-ligatures;
+// }
+// @font-face {
+//     font-family: 'Lato';
+//     src: url('@{font-path}Lato-Regular.eot'); /* IE9 Compat Modes */
+//     src: url('@{font-path}Lato-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+//          url('@{font-path}Lato-Regular.woff') format('woff'), /* Modern Browsers */
+//          url('@{font-path}Lato-Regular.ttf') format('truetype');
+//     font-style: normal;
+//     font-weight: @font-weight-base;
+//     text-rendering: optimizeLegibility;
+// 	.disable-ligatures;
+// }
+// @font-face {
+//     font-family: 'Lato';
+//     src: url('@{font-path}Lato-Bold.eot'); /* IE9 Compat Modes */
+//     src: url('@{font-path}Lato-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+//          url('@{font-path}Lato-Bold.woff') format('woff'), /* Modern Browsers */
+//          url('@{font-path}Lato-Bold.ttf') format('truetype');
+//     font-style: normal;
+//     font-weight: @font-weight-semi;
+//     text-rendering: optimizeLegibility;
+//     .disable-ligatures;
+// }
+// @font-face {
+//     font-family: 'Lato';
+//     src: url('@{font-path}Lato-Black.eot'); /* IE9 Compat Modes */
+//     src: url('@{font-path}Lato-Black.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+//          url('@{font-path}Lato-Black.woff') format('woff'), /* Modern Browsers */
+//          url('@{font-path}Lato-Black.ttf') format('truetype');
+//     font-style: normal;
+//     font-weight: @font-weight-heavy;
+//     text-rendering: optimizeLegibility;
+//     .disable-ligatures;
+// }
+
+// font config
+@font-family-sans-serif:	"Helvetica", "Arial", sans-serif;
+@font-family-serif:			Georgia, "Times New Roman", Times, serif;
+@font-family-monospace:		Monaco, Menlo, Consolas, "Courier New", monospace;
+@font-family-brand:			"Trebuchet MS", "Helvetica", sans-serif;
+@font-family-amp:			"Helvetica", sans-serif;
+
+@font-family-special:		"Lato", sans-serif;
+@font-family-btn:			@font-family-special;
+@font-family-base:			@font-family-sans-serif;
+@font-family-lead:			@font-family-sans-serif;
+
+@font-size-base:			16px;
+@font-size-large:			18px;
+// @font-size-small:			ceil(@font-size-base * 0.85); // ~12px
+
+// @line-height-base:			1.428571429; // 20/14
+// @line-height-computed:		floor(@font-size-base * @line-height-base); // ~20px
+@line-height: 1.5;
+
+@headings-font-family:		@font-family-special;
+@headings-font-weight:		@font-weight-thin;
+
+@nav-touch-size: 19px;
+
+.large {
+	font-size: @font-size-large;
+}
+
+.small {
+	font-size: @font-size-small;
+}
+
+h1, .h1 {
+	font-size: ceil(@font-size-base * 3.00);
+	// margin-top: 50px;
+}
+h2, .h2 {
+	font-size: ceil(@font-size-base * 2.75);
+	// margin-top: 50px;
+}
+h3, .h3 {
+	font-size: ceil(@font-size-base * 2.0);
+}
+
+h4, .h4 { font-size: ceil(@font-size-base * 1.55); }
+h5, .h5 { font-size: ceil(@font-size-base * 1.30); }
+h6, .h6 { font-size: ceil(@font-size-base * 1.15); }
+
+h1, .h1,
+h2, .h2 {
+	font-weight: @font-weight-base;
+}
+
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+	font-weight: @font-weight-base;
+}
+
+p {
+	font-size: 17px;
+	font-weight: @font-weight-base;
+	line-height: @line-height;
+	margin: 0 0 20px;
+}
+
+li {
+	font-weight: @font-weight-base;
+}
+
+.lead {
+	padding-top: @line-height-computed;
+	margin-bottom: @line-height-computed;
+
+	font-size: (@font-size-large * 1.1);
+	font-weight: @font-weight-thin;
+	line-height: 1.4;
+	font-family: @font-family-lead;
+
+	@media (min-width: @screen-tablet) {
+		// font-size: (@font-size-large * 1.2);
+	}
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+	+ .lead {
+		padding-top: 10px;
+	}
+}
+
+@pre-bg:			@pure-white;
+@pre-border-color:	@border-light;
+@code-color:		@gray;
+@code-bg:			@brand-neutral;
+
+pre {
+	.border-radius-default;
+	// overflow: auto;
+	// word-wrap: normal;
+	// white-space: pre;
+	font-size: @font-size-small;
+}
+
+code {
+	.border-radius-default;
+}
+
+.amp {
+	font-family: @font-family-amp;
+	font-weight: @font-weight-base;
+	line-height: 0px;
+}
+
+.footnote {
+	font-size: 10px;
+	margin-top: 20px;
+}
+
+q {
+	&.bubble {
+		position: relative;
+		display: block;
+		width: 100%;
+		@media screen and (min-width: @screen-tablet) {
+			min-height: 152px;
+		}
+		@media screen and (min-width: @screen-desktop) {
+			min-height: 108px;
+		}
+
+		padding: 10px;
+		background-color: @pure-white;
+		// border: 2px solid @border-med;
+
+		&:before {
+			// content: "";
+			// display: block;
+			// width: 0;
+
+			// border: 0;
+			// border-right-width: 25px;
+			// border-bottom-width: 24px;
+			// border-style: solid;
+			// border-color: transparent @border-med;
+
+			// position: absolute;
+			// bottom: -24px;
+			// left: 12px;
+		}
+
+		&:after {
+			content: "";
+			display: block;
+			width: 0;
+
+			border: 0;
+			border-right-width: 20px;
+			border-bottom-width: 20px;
+			border-style: solid;
+			border-color: transparent @pure-white;
+
+			position: absolute;
+			bottom: -20px;
+			left: 15px;
+		}
+	}
+}
+
+cite {
+	&.bubble {
+		display: block;
+		margin-left: 50px;
+		margin-top: 5px;
+
+		padding-bottom: 20px;
+		@media screen and (min-width: @screen-tablet) {
+			padding-bottom: 0px;
+		}
+	}
+}
+
+blockquote {
+	font-size: 17px;
+
+	p, ul > li, * {
+		font-size: 17px;
+		font-weight: @font-weight-thin;
+	}
+}
+
+// doc
+
+.doc {
+
+	@media screen and (min-width: @screen-tablet) {
+		padding-bottom: (@padding-standard * 2.0);
+	}
+
+	h1, h2, h3, h4, h5, h6,
+	.h1, .h2, .h3, .h4, .h5, .h6 {
+		word-wrap: break-word;
+		margin-top: 50px;
+
+		+h1, +h2, +h3, +h4, +h5, +h6,
+		+.h1, +.h2, +.h3, +.h4, +.h5, +.h6 {
+			margin-top: 0px;
+		}
+	}
+
+	h1, .h1 {
+		font-size: 38px;
+	}
+	h2, .h2 {
+		font-size: 33px;
+
+		// padding-bottom: 10px;
+		// border-bottom: 1px solid @border-light;
+	}
+	h3, .h3 {
+		margin-top: 40px;
+		font-size: 28px;
+	}
+	h4, .h4 {
+		font-size: 23px;
+	}
+	h5, .h5 {
+		font-size: 20px;
+	}
+	h6, .h6 {
+		font-size: 18px;
+	}
+
+	p {
+		// font-size: (@font-size-base * 1.05);
+	}
+}
+
+
+.glyphicon {
+	&.tile {
+		font-size: 150px;
+		margin-bottom: 20px !important; // overriding scaffolding.less's margin rules because this is essentially a semantic class
+	}
+
+	&.tile-small {
+		font-size: 100px;
+		margin-bottom: 35px !important;
+
+		@media screen and (min-width: @screen-tablet) {
+			margin-bottom: 0px !important;
+		}
+	}
+
+	&.glyphicon-heart {
+		color: @dangerzone-red;
+	}
+}
+
+.caret-right {
+
+	display: none;
+
+	@media screen and (min-width: @screen-tablet) {
+		display: inline-block;
+		width: 0;
+		height: 0;
+		margin-left: 2px;
+		vertical-align: middle;
+
+		border-left: 4px solid @dangerzone-red;
+		border-bottom: 4px solid transparent;
+		border-top: 4px solid transparent;
+	}
+}
+
+.login-caret {
+
+	.caret-right;
+
+	@media screen and (min-width: @screen-tablet) {
+		border-left-color: @brand-action;
+	}
+}
+
+.tile-list {
+	.text-center;
+
+	@media screen and (min-width: @screen-tablet) {
+		.text-right;
+	}
+}

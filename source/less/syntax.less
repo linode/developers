@@ -1,0 +1,87 @@
+// styles for prettify.js
+
+// base styles
+
+.prettyprint ol,
+.prettyprint ul {
+	list-style: none;
+}
+.prettyprint ol.linenums {
+	list-style: decimal outside;
+	padding-left: 47px;
+	color: @text-on-white;
+	font-size: 12px;
+}
+.prettyprint ol.linenums li {
+	padding-left: 15px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	border-left: 3px @sandy-beige solid;
+}
+.prettyprint li > * {
+	font-size: @font-size-small;
+	line-height: @font-size-small;
+}
+.prettyprint {
+	border: 1px solid @border-light;
+	padding: 7px 0 5px;
+}
+.prettyprint ol, .prettyprint ul {
+	padding: 5px 15px;
+}
+
+.prettyprint li.L0,
+.prettyprint li.L1,
+.prettyprint li.L2,
+.prettyprint li.L3,
+.prettyprint li.L4,
+.prettyprint li.L5,
+.prettyprint li.L6,
+.prettyprint li.L7,
+.prettyprint li.L8,
+.prettyprint li.L9 {
+	list-style: inherit;
+	background: none;
+}
+
+.prettyprint.alternate li.L1,
+.prettyprint.alternate li.L3,
+.prettyprint.alternate li.L5,
+.prettyprint.alternate li.L7,
+.prettyprint.alternate li.L9 {
+	background: @sandy-beige;
+}
+
+// theme styles
+
+.prettyprint.theme-linode {
+	font-family: @font-family-monospace;
+
+	.com { // comment
+		color: @linode-green;
+	}
+	.lit { // nums
+		color: darken(@linode-green, 5%);
+	}
+	.atv,
+	.str { // string
+		color: @jorts-blue;
+	}
+	.atn {
+		color: gray;
+	}
+	.pln { // plain
+		color: @pure-black;
+	}
+	.pun { // punctuation
+		color: @text-on-white;
+	}
+	.typ {
+		color: darken(@funky-purple, 5%); // type?
+	}
+	.tag,
+	.kwd { // keyword
+		color: darken(@jorts-blue, 15%);
+		font-weight: bold;
+	}
+}
