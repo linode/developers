@@ -1,3 +1,20 @@
 .form-center {
 	text-align: center;
 }
+
+div.library-tile {
+	min-height: 200px;
+	background-color: @brand-neutral;
+	padding: @padding-standard;
+	margin-bottom: @padding-standard;
+
+	p { color: @text-on-white; }
+
+	&:hover,
+	&:focus,
+	&:active,
+	&.active {
+		background-color: @brand-subdued;
+		p { color: @text-on-white; }
+	}
+}
