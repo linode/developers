@@ -9,7 +9,7 @@ task :less do
     css = parser.parse(f.read).to_css(:compress => true)
   end
 
-  File.open('source/stylesheets/home.css', 'w') do |f|
+  File.open 'source/stylesheets/home.css', 'w' do |f|
     f.write css
   end
 end
