@@ -1,6 +1,8 @@
 activate :directory_indexes
 
-page 'library/*', :layout => :article_layout
+page 'library/articles/*', :layout => :article_layout
+
+set :js_dir, 'js'
 
 ###
 # Compass
