@@ -1,16 +1,24 @@
 <% wrap_layout :layout do %>
-<section class="white doc">
+<section class="white doc extra-space-top">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-3">
-				<div class="sidebar">
-				</div>
-			</div>
-			<div class="col-sm-9">
-				<h1><%= current_page.data.title %></h1>
-				<%= yield %>
-			</div>
+			<%= Kramdown::Document.new(<<-EOS
+{::options parse_block_html="true"/}
+<div id="doc-sidebar" class="col-sm-3">
+<div data-spy="affix" class="sidebar" data-offset-bottom="700">
+<h3 class="h5">Sections</h3>
+* Table of Contents
+{:toc .nav .nav-sidebar}
+</div>
+</div>
+<div id="article-body" class="col-sm-9">
+<h1>#{current_page.data.title}</h1>
+#{File.read(current_page.source_file).gsub(/\A---\n(?:[[:print:]]+\s)+/m, '')}
+</div>
+EOS
+			).to_html %>
 		</div>
 	</div>
 </section>
+
 <% end %>
