@@ -1,3 +1,42 @@
+@library-category-breakpoint: @screen-desktop;
+
+.library-categories { padding-left: 0; }
+
+.library-category {
+	width: 100%;
+	margin-bottom: @padding-standard;
+	padding: 0 @padding-standard;
+
+	list-style: none;
+
+	@media screen and (min-width: @library-category-breakpoint) {
+		width: 50%;
+		padding: 0;
+	}
+
+	&:nth-child(odd)  {
+		float: left;
+		@media screen and (min-width: @library-category-breakpoint) { padding-right: (@padding-standard / 2); }
+	}
+
+	&:nth-child(even) {
+		float: right;
+		@media screen and (min-width: @library-category-breakpoint) { padding-left: (@padding-standard / 2);}
+	}
+
+	> ul {
+		padding-left: 20px;
+		list-style: disc;
+	}
+}
+
+.library-category-title {
+	padding-bottom: 10px;
+	border-bottom: 1px solid @border-light;
+
+	@media screen and (min-width: @library-category-breakpoint) { width: 80%; }
+}
+
 div.library-tile {
 	min-height: 200px;
 	background-color: @brand-neutral;
