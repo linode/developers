@@ -5,57 +5,14 @@
 @font-weight-semi: 600;
 @font-weight-heavy: 800;
 
-// The locally hosted version of Lato renders incorrectly in some environments (IE9 confirmed). Currently using the Google CDN
-// .disable-ligatures {
-// 	-moz-font-feature-settings: "liga=0";
-// 	-moz-font-feature-settings: "liga" 0;
-// }
-
-// // lato
-// @font-face {
-//     font-family: 'Lato';
-//     src: url('@{font-path}Lato-Light.eot'); /* IE9 Compat Modes */
-//     src: url('@{font-path}Lato-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-//          url('@{font-path}Lato-Light.woff') format('woff'), /* Modern Browsers */
-//          url('@{font-path}Lato-Light.ttf') format('truetype');
-//     font-style: normal;
-//     font-weight: @font-weight-thin;
-//     text-rendering: optimizeLegibility;
-//     .disable-ligatures;
-// }
-// @font-face {
-//     font-family: 'Lato';
-//     src: url('@{font-path}Lato-Regular.eot'); /* IE9 Compat Modes */
-//     src: url('@{font-path}Lato-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-//          url('@{font-path}Lato-Regular.woff') format('woff'), /* Modern Browsers */
-//          url('@{font-path}Lato-Regular.ttf') format('truetype');
-//     font-style: normal;
-//     font-weight: @font-weight-base;
-//     text-rendering: optimizeLegibility;
-// 	.disable-ligatures;
-// }
-// @font-face {
-//     font-family: 'Lato';
-//     src: url('@{font-path}Lato-Bold.eot'); /* IE9 Compat Modes */
-//     src: url('@{font-path}Lato-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-//          url('@{font-path}Lato-Bold.woff') format('woff'), /* Modern Browsers */
-//          url('@{font-path}Lato-Bold.ttf') format('truetype');
-//     font-style: normal;
-//     font-weight: @font-weight-semi;
-//     text-rendering: optimizeLegibility;
-//     .disable-ligatures;
-// }
-// @font-face {
-//     font-family: 'Lato';
-//     src: url('@{font-path}Lato-Black.eot'); /* IE9 Compat Modes */
-//     src: url('@{font-path}Lato-Black.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-//          url('@{font-path}Lato-Black.woff') format('woff'), /* Modern Browsers */
-//          url('@{font-path}Lato-Black.ttf') format('truetype');
-//     font-style: normal;
-//     font-weight: @font-weight-heavy;
-//     text-rendering: optimizeLegibility;
-//     .disable-ligatures;
-// }
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('@{icon-font-path}@{icon-font-name}.eot');
+  src: url('@{icon-font-path}@{icon-font-name}.eot?#iefix') format('embedded-opentype'),
+       url('@{icon-font-path}@{icon-font-name}.woff') format('woff'),
+       url('@{icon-font-path}@{icon-font-name}.ttf') format('truetype'),
+       url('@{icon-font-path}@{icon-font-name}.svg#glyphicons-halflingsregular') format('svg');
+}
 
 // font config
 @font-family-sans-serif:	"Helvetica", "Arial", sans-serif;
