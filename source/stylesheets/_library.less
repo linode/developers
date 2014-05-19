@@ -60,9 +60,42 @@ div#article-body {
 
 div.sidebar {
 	.text-right;
-	&.affix { h1, h2, h3, h4, h5, p { margin-right: 18px; } }
-	padding-top: 68px;
+
+	padding-top: 16px;
+	position: relative;
+
+	&.affix-top {
+		position: relative;
+	}
+
+	@media screen and (min-height: 900px) and (min-width: @screen-tablet) {
+		&.affix {
+			h1, h2, h3, h4, h5, p { margin-right: 16px; }
+			position: fixed;
+			top: 0;
+		}
+		&.affix-bottom {
+			h1, h2, h3, h4, h5, p { margin-right: 0; }
+			position: relative;
+		}
+	}
 }
+
+ul#markdown-toc {
+	li {
+		display: block;
+		margin-top: 7px;
+		margin-bottom: 0;
+	}
+
+	li > ul > li > a {
+		display: block;
+		padding-top: 7px;
+		padding-bottom: 7px;
+		padding-right: 15px;
+	}
+}
+
 
 ul.nav {
 	border-left: none;

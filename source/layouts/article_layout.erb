@@ -1,11 +1,11 @@
 <% wrap_layout :layout do %>
-<section class="white doc extra-space-top">
+<section class="white doc some-space-top">
 	<div class="container">
 		<div class="row">
 			<%= Kramdown::Document.new(<<-EOS
 {::options parse_block_html="true"/}
 <div id="doc-sidebar" class="col-sm-3">
-<div data-spy="affix" class="sidebar" data-offset-bottom="700">
+<div data-spy="affix" class="sidebar" data-offset-top="120" data-offset-bottom="700">
 <h3 class="h5">Sections</h3>
 * Table of Contents
 {:toc .nav .nav-sidebar}
