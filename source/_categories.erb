@@ -1,6 +1,6 @@
 <%
-	categories = []
-	Dir.glob("./source#{current_page.url}*").select {|f| File.directory? f }.each do |category|
+categories = []
+Dir.glob("./source#{current_page.url}*").select {|f| File.directory? f }.each do |category|
 
 	sub_category_dir = File.basename(category)
 
@@ -13,8 +13,7 @@
 	end
 
 	categories << { :articles => articles, :sub_category_dir => sub_category_dir }
-
-	end
+end
 %>
 
 
