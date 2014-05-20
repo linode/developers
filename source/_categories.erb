@@ -1,19 +1,21 @@
-<% categories = [] %>
-<% Dir.glob("./source#{current_page.url}*").select {|f| File.directory? f }.each do |category| %>
+<%
+	categories = []
+	Dir.glob("./source#{current_page.url}*").select {|f| File.directory? f }.each do |category|
 
-	<% sub_category_dir = File.basename(category) %>
+	sub_category_dir = File.basename(category)
 
-	<% articles = [] %>
-	<% Dir.glob("#{category}/*.md").each do |article| %>
-		<% article_filename = File.basename(article, '.md') %>
-		<% File.open article do |f| %>
-			<% articles << YAML.load(f.read).merge({ "href" => "#{current_page.url}#{sub_category_dir}/#{article_filename}" }) %>
-		<% end %>
-	<% end %>
+	articles = []
+	Dir.glob("#{category}/*.md").each do |article|
+		article_filename = File.basename(article, '.md')
+		File.open article do |f|
+			articles << YAML.load(f.read).merge({ "href" => "#{current_page.url}#{sub_category_dir}/#{article_filename}" })
+		end
+	end
 
-	<% categories << { :articles => articles, :sub_category_dir => sub_category_dir } %>
+	categories << { :articles => articles, :sub_category_dir => sub_category_dir }
 
-<% end %>
+	end
+%>
 
 
 <ul class="library-categories">
