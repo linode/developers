@@ -40,18 +40,6 @@
 		Page.Toggle.update($(event.target).parent()[0]);
 	});
 
-	// stackscript search
-	$(".ss-distro-li").click(function(event) {
-		var distro = $(event.target).text();
-
-		if (distro === "All distros")
-			$("#ss_vendor").val("");
-		else
-			$("#ss_vendor").val(distro);
-
-		$("#ss-search").submit();
-	});
-
 	// activate syntax hilighting
 	$.browser = { safari: null };
 	$.SyntaxHighlighter.loadedExtras = true; // extras are built in
