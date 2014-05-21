@@ -1,5 +1,15 @@
 <%
-categories = []
+categories, uncategorized_articles = [], []
+
+# Get same-level articles that are hangin' out here
+Dir.glob("./source#{current_page.url}*").reject {|f| File.directory? f or File.basename(f) == "index.md" }.each do |article|
+	article_filename = File.basename(article, '.md')
+	File.open article do |f|
+		uncategorized_articles << YAML.load(f.read).merge({ "href" => "#{current_page.url}#{article_filename}" })
+	end
+end
+
+# Reach into directories to get categorized articles
 Dir.glob("./source#{current_page.url}*").select {|f| File.directory? f }.each do |category|
 
 	sub_category_dir = File.basename(category)
@@ -17,15 +27,30 @@ end
 %>
 
 
-<ul class="library-categories">
-	<% categories.each do |category| %>
-		<li class="library-category">
-			<h4 class="library-category-title"><%= category[:articles].first["category"] || category[:sub_category_dir].capitalize %></h4>
-			<ul>
-				<% category[:articles].each do |article| %>
-					<li><a href="<%= article["href"] %>"><%= article["title"] %></a></li>
-				<% end %>
-			</ul>
-		</li>
-	<% end %>
-</ul>
+<% uncategorized_articles.each_slice(2) do |slice| %>
+	<div class="row">
+		<% slice.each do |article| %>
+			<div class="col-md-6 library-article-blurb">
+				<h4><a href="<%= article["href"] %>"><%= article["title"] %></a></h4>
+				<p><%= article["description"] %></p>
+			</div>
+		<% end %>
+	</div>
+<% end %>
+
+<div class="row">
+	<div class="col-md-12">
+		<ul class="library-category-container">
+			<% categories.each do |category| %>
+				<li class="library-category-item">
+					<h4 class="library-category-title"><%= category[:articles].first["category"] || category[:sub_category_dir].capitalize %></h4>
+					<ul>
+						<% category[:articles].each do |article| %>
+							<li><a href="<%= article["href"] %>"><%= article["title"] %></a></li>
+						<% end %>
+					</ul>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+</div>
