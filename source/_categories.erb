@@ -39,19 +39,19 @@ end
 	</div>
 <% end %>
 
-<div class="row">
-	<div class="col-md-12">
-		<ul class="library-category-container">
-			<% categories.each do |category| %>
-				<li class="library-category-item">
-					<h4 class="library-category-title"><%= category[:articles].first["category"] || category[:sub_category_dir].capitalize %></h4>
-					<ul>
-						<% category[:articles].each do |article| %>
+<div class="library-categories-row">
+	<% [0, 1].each do |i| %>
+		<div class="col-md-6">
+			<% categories.each_index do |c| %>
+				<% if c % 2 == i %>
+					<h4 class="library-category-title"><%= categories[c][:articles].first["category"] || categories[c][:sub_category_dir].capitalize %></h4>
+					<ul class="library-category-articles">
+						<% categories[c][:articles].each do |article| %>
 							<li><a href="<%= article["href"] %>"><%= article["title"] %></a></li>
 						<% end %>
 					</ul>
-				</li>
+				<% end %>
 			<% end %>
-		</ul>
-	</div>
+		</div>
+	<% end %>
 </div>
