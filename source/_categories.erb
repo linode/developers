@@ -1,23 +1,23 @@
 <%
 categories, uncategorized_articles = [], []
 
-# Get same-level articles that are hangin' out here
-Dir.glob("./source#{current_page.url}*").reject {|f| File.directory? f or File.basename(f) == "index.md" }.each do |article|
+# Uncategorized articles
+(current_page.data.featured || Dir.glob("./source#{current_page.url}*").reject {|f| File.directory? f or File.basename(f) == "index.md" }).each do |article|
 	article_filename = File.basename(article, '.md')
-	File.open article do |f|
+	File.open "./source#{current_page.url}#{article_filename}.md" do |f|
 		uncategorized_articles << YAML.load(f.read).merge({ "href" => "#{current_page.url}#{article_filename}" })
 	end
 end
 
-# Reach into directories to get categorized articles
-Dir.glob("./source#{current_page.url}*").select {|f| File.directory? f }.each do |category|
+# Categorized articles
+(current_page.data.categories || Dir.glob("./source#{current_page.url}*").select {|f| File.directory? f }).each do |category|
 
 	sub_category_dir = File.basename(category)
 
 	articles = []
-	Dir.glob("#{category}/*.md").each do |article|
+	Dir.glob("./source#{current_page.url}#{sub_category_dir}/*.md").each do |article|
 		article_filename = File.basename(article, '.md')
-		File.open article do |f|
+		File.open "./source#{current_page.url}#{sub_category_dir}/#{article_filename}.md" do |f|
 			articles << YAML.load(f.read).merge({ "href" => "#{current_page.url}#{sub_category_dir}/#{article_filename}" })
 		end
 	end
