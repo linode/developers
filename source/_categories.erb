@@ -6,7 +6,8 @@ categories, uncategorized_articles = [], []
 (current_page.data.featured || Dir.glob("#{BASE_PATH}*").reject {|f| File.directory? f or File.basename(f) == "index.md" }).each do |article|
 	article_filename = File.basename(article, '.md')
 	File.open "#{BASE_PATH}#{article_filename}.md" do |f|
-		uncategorized_articles << YAML.load(f.read).merge({ "href" => "#{current_page.url}#{article_filename}" })
+		meta = YAML.load(f.read).merge({ "href" => "#{current_page.url}#{article_filename}" })
+		uncategorized_articles << meta unless meta["deprecated"]
 	end
 end
 
@@ -19,11 +20,12 @@ end
 	Dir.glob("#{BASE_PATH}#{sub_category_dir}/*.md").each do |article|
 		article_filename = File.basename(article, '.md')
 		File.open "#{BASE_PATH}#{sub_category_dir}/#{article_filename}.md" do |f|
-			articles << YAML.load(f.read).merge({ "href" => "#{current_page.url}#{sub_category_dir}/#{article_filename}" })
+			meta = YAML.load(f.read).merge({ "href" => "#{current_page.url}#{sub_category_dir}/#{article_filename}" })
+			articles << meta unless meta["deprecated"]
 		end
 	end
 
-	categories << { :articles => articles, :sub_category_dir => sub_category_dir }
+	categories << { :articles => articles, :sub_category_dir => sub_category_dir } unless articles.empty?
 end
 %>
 
