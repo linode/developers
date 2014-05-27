@@ -5,7 +5,9 @@
 			<div class="col-sm-12">
 				<ol class="breadcrumb library-breadcrumb">
 					<li><a href="/">Guides &amp; Tutorials</a></li>
-					<li><%= link_to current_page.parent.data.title, current_page.parent %></li>
+					<% if current_page.parent %>
+						<li><%= link_to current_page.parent.data.title, current_page.parent %></li>
+					<% end %>
 					<li class="active"><%= current_page.data.title %></li>
 				</ol>
 			</div>
