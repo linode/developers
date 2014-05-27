@@ -57,27 +57,20 @@ div.library-tile {
 	}
 }
 
-div#article-body {
+#article-body {
 	.doc;
 	border-left: 1px solid #E7E6E6;
+
+	img { .img-responsive; }
+
+	#doc-title {
+		margin-top: 0;
+	}
 }
 
-.sidebar-affix {
-	position: relative;
-
-	&.affix-top { position: relative; }
-
-	@media screen and (min-height: 900px) and (min-width: @screen-tablet) {
-		&.affix {
-			h1, h2, h3, h4, h5, p { margin-right: 16px; }
-			position: fixed;
-			top: 0;
-		}
-		&.affix-bottom {
-			h1, h2, h3, h4, h5, p { margin-right: 0; }
-			position: relative;
-		}
-	}
+#doc-sidebar-title {
+	.text-right;
+	margin-top: 52px;
 }
 
 .sidebar-library {
@@ -85,19 +78,31 @@ div#article-body {
 
 	padding-left: 0;
 
-	li {
-		display: block;
-		margin-top: 0;
-		margin-bottom: 0;
-	}
-
 	ul {
 		border: 0;
+		padding-left: 0;
+
+		> li {
+			padding-left: 0;
+		}
+	}
+
+	li {
+		display: block;
+
+		> a { font-weight: @font-weight-heavy; }
+		margin-top: 20px;
+		margin-bottom: 20px;
 	}
 
 	ul > li {
+		> a { font-weight: @font-weight-base; }
+		margin-top: 5px;
+		margin-bottom: 5px;
 		padding-left: 0;
-		margin-top: 20px;
-		&:first-child { font-weight: @font-weight-heavy; }
+	}
+
+	ul > li > ul {
+		> li > a { font-size: @font-size-small; }
 	}
 }

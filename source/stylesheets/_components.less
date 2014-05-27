@@ -181,51 +181,27 @@
 
 .nav-sidebar {
 	li {
-		@border-size: 0;
-		@border-size-header: 0;
+		@border-size: 2px;
+		@border-size-header: 2px;
 
 		text-align: right;
-
-		margin-bottom: 12px;
+		border-right: @pure-white solid @border-size;
 
 		&:hover {
-			background-color: @brand-neutral;
+			border-right: @border-light solid @border-size;
 		}
 
-		ul li.active {
-			background-color: @brand-neutral;
-		}
-
-		ul li.active > a {
-			background-color: none;
+		&.active {
+			border-right: @pure-black solid @border-size;
 		}
 
 		&.header-active {
-			background-color: @brand-neutral;
+			border-right: @pure-black solid @border-size-header;
 		}
-
-		padding-right: 10px;
-		a {
-			font-size: @font-size-small;
-			white-space: pre-line;
-		}
-	}
-
-	> li {
-		&.active > a {
-			// background-color: @brand-subdued;
-		}
-
-		&:hover {
-			background-color: @pure-white;
-		}
-
-		margin: 15px 0px;
 
 		> a {
-			padding: 10px 15px;
+			padding: 3px 15px;
 			font-size: @font-size-small;
-			white-space: pre-line;
 		}
 	}
 
@@ -237,11 +213,13 @@
 		}
 	}
 
+	border-right: 1px solid @border-light;
+
 	position: static;
 	display: none;
 
 	@media screen and (min-width: @screen-md) {
-		width: 228px;
+		width: 213px;
 		top: 24px;
 		display: block;
 		&.affix {
