@@ -11,7 +11,6 @@
 }
 
 .library-category-articles { padding-left: 20px; }
-
 .library-category-articles + .library-category-title { margin-top: (@padding-standard * 2); }
 
 .library-category-title {
@@ -39,18 +38,14 @@ div.library-tile {
 }
 
 div#article-body {
+	.doc;
 	border-left: 1px solid #E7E6E6;
 }
 
-div.sidebar {
-	.text-right;
-
-	padding-top: 16px;
+.sidebar-affix {
 	position: relative;
 
-	&.affix-top {
-		position: relative;
-	}
+	&.affix-top { position: relative; }
 
 	@media screen and (min-height: 900px) and (min-width: @screen-tablet) {
 		&.affix {
@@ -65,22 +60,24 @@ div.sidebar {
 	}
 }
 
-ul#markdown-toc {
+.sidebar-library {
+	.text-right;
+
+	padding-left: 0;
+
 	li {
 		display: block;
-		margin-top: 7px;
+		margin-top: 0;
 		margin-bottom: 0;
 	}
 
-	li > ul > li > a {
-		display: block;
-		padding-top: 7px;
-		padding-bottom: 7px;
-		padding-right: 15px;
+	ul {
+		border: 0;
 	}
-}
 
-
-ul.nav {
-	border-left: none;
+	ul > li {
+		padding-left: 0;
+		margin-top: 20px;
+		&:first-child { font-weight: @font-weight-heavy; }
+	}
 }

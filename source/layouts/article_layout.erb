@@ -4,14 +4,14 @@
 		<div class="row">
 			<%= Kramdown::Document.new(<<-EOS
 {::options parse_block_html="true"/}
-<div id="doc-sidebar" class="col-sm-3">
-<div data-spy="affix" class="sidebar" data-offset-top="120" data-offset-bottom="700">
+<div id="doc-sidebar" class="col-sm-4">
+<div data-spy="affix" class="sidebar-affix" data-offset-top="120" data-offset-bottom="700">
 <h3 class="h5">Sections</h3>
 * Table of Contents
-{:toc .nav .nav-sidebar}
+{:toc .sidebar .sidebar-library}
 </div>
 </div>
-<div id="article-body" class="col-sm-9">
+<div id="article-body" class="col-sm-8">
 <h1>#{current_page.data.title}</h1>
 #{File.read(current_page.source_file).gsub(/\A---\n(?:[[:print:]]+\s)+/m, '')}
 </div>
