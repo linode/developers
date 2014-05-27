@@ -5,6 +5,26 @@
 	padding-bottom: (@padding-standard / 2);
 }
 
+.library-breadcrumb {
+	background-color: @pure-white;
+	padding: @padding-standard 0 0 0;
+
+	> li {
+
+		display: block;
+		@media screen and (min-width: @screen-tablet) { display: inline-block; }
+
+		&+li:before {
+			content: "\00BB\00a0";
+			color: @subdued-text-on-white;
+		}
+	}
+
+	> .active {
+		color: @subdued-text-on-white;
+	}
+}
+
 .library-categories-row {
 	.make-row();
 	margin-top: (@padding-standard * 2)

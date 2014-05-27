@@ -1,6 +1,16 @@
 <% wrap_layout :layout do %>
-<section class="white doc some-space-top">
+<section class="white doc">
 	<div class="container">
+		<div class="row-content">
+			<div class="col-sm-12">
+				<ol class="breadcrumb library-breadcrumb">
+					<li><a href="/">Guides &amp; Tutorials</a></li>
+					<li><%= link_to current_page.parent.data.title, current_page.parent %></li>
+					<li class="active"><%= current_page.data.title %></li>
+				</ol>
+			</div>
+		</div>
+
 		<div class="row">
 			<%= Kramdown::Document.new(<<-EOS
 {::options parse_block_html="true"/}
