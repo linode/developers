@@ -15,6 +15,8 @@ set :font_dir, 'fonts'
 #   proxy "/#{article_name}.html", "#{template}.html", :ignore => true
 # end
 
+activate :alias
+
 ###/
 # Compass
 ###
