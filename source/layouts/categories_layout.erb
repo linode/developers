@@ -1,14 +1,8 @@
 <% wrap_layout :layout do %>
 <section class="primary">
 	<div class="container">
-		<div class="row-content">
-			<div class="col-sm-12">
-				<ol class="breadcrumb library-breadcrumb">
-					<li><a href="/">Guides &amp; Tutorials</a></li>
-					<li class="active"><%= current_page.data.title %></li>
-				</ol>
-			</div>
-		</div>
+
+		<%= partial 'breadcrumb' %>
 
 		<div class="row">
 			<div class="col-sm-10 col-sm-offset-1">
