@@ -1,17 +1,15 @@
-# Docsmith
+# docsmith
 
 A [Middleman](http://middlemanapp.com) static site generator for generating Linode's documentation site.
 
 ## Prerequisites
 
 * Ruby - 1.9.3 or higher definitely works. If you're running this on a Mac, you should be fine
-* Bundler. You can check if you have bundler by running
+* Bundler. You can check if you have bundler by running `bundle -v`. If the command bombs out, you don't have it. You can install bundler with
 
-	bundle -v
-
-If the command bombs out, you don't have it. You can install bundler with
-
-	sudo gem install bundler
+```
+sudo gem install bundler
+```
 
 ## Installation
 
@@ -24,9 +22,9 @@ Run the following commands to clone this repo and install docsmith's dependencie
 
 Note: the last command might take a few minutes to run, be patient.
 
-### Updating docsmith
+## Updating docsmith
 
-In the `docsmith` directory, run:
+As we make changes to docsmith, you'll want to make sure you're running the latest version. To do so, run the following command in the `docsmith` directory:
 
 	rake update
 
