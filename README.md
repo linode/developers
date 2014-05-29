@@ -5,6 +5,11 @@ A [Middleman](http://middlemanapp.com) static site generator for generating Lino
 ## Prerequisites
 
 * Ruby - 1.9.3 or higher definitely works. If you're running this on a Mac, you should be fine
+* Rake. If you have recent Ruby then you probably already have this. If `rake --version` fails, then you don't. You can install it with
+
+```
+sudo gem install rake
+```
 * Bundler. You can check if you have bundler by running `bundle -v`. If the command bombs out, you don't have it. You can install bundler with
 
 ```
