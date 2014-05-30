@@ -15,6 +15,7 @@ sudo gem install rake
 ```
 sudo gem install bundler
 ```
+* An SSH key on GitHub. Check out [https://github.com/settings/ssh](this page) to add a key/get help doing so.
 
 ## Installation
 
