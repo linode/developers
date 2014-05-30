@@ -59,7 +59,7 @@ There are a few options for this, including [RVM](http://rvm.io) (we sponsor the
 
 ## Writing code for docsmith
 
-docsmith is a fairly simple Middleman app - you might want to take a look at [their documentation](http://middlemanapp.com/basics/getting-started/) if you're unfamiliar with what Middleman is capable of.
+docsmith is a fairly straightforward Middleman app - you might want to take a look at [their documentation](http://middlemanapp.com/basics/getting-started/) if you're unfamiliar with what Middleman is capable of.
 
 * `config.rb` - the configuration file for Middleman. Specifies global layouts, activates plugins, etc.
 * `source/layouts` - the layouts directory. `layout.erb` is applied to every page, others are applied to specific types of pages.
