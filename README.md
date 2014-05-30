@@ -44,6 +44,11 @@ To edit/preview the Library's content, you'll want to run a docsmith development
 
 This will start a Middleman development server on your local machine. Give Middleman a second to start up, then navigate to `http://0.0.0.0:4567` (your local dev server) in your browser. Now, you can make changes to the Markdown files in the `source/library` directory and navigate to the corresponding page on your development server, and any changes you have made will be reflected. If you make more changes and refresh the page, the page will be automatically rebuilt, so your changes will be reflected immediately.
 
+Notes:
+
+* To access a guide, you don't need to specify `.md` in the URL.
+* For the moment you'll need to navigate to `http://0.0.0.0:4567/library/some/guide` rather than `http://0.0.0.0:4567/some/guide`. This will be fixed soon.
+
 # Development
 
 These notes are for those who wish to develop against docsmith itself, *not* for those who wish to edit the Library.
