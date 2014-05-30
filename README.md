@@ -67,9 +67,11 @@ docsmith is a fairly simple Middleman app - you might want to take a look at [th
 
 If you have a dev server running (either with `rake server` or `bundle exec middleman server`), changes made to any of these files will be picked up automatically when you refresh a page.
 
-## Updating dependencies
+## Dependencies
 
-Add a gem(s) to `Gemfile`, then `bundle install` to update `Gemfile.lock` and install the gem(s) on your system.
+You probably won't want your gems in the `vendor` directory, so if you've run `rake install`, `rake update`, or `bundle install --deployment` on your instance of docsmith previously, you'll want to `rm -rf` the `.bundle` and `vendor` directories. From there, you can `bundle install` to install gems from the Gemfile system-wide.
+
+To include a new gem, add the gem(s) to `Gemfile`, then `bundle install` to update `Gemfile.lock` and install the gem(s) on your system.
 
 ## LESS
 
@@ -80,3 +82,6 @@ After making changes, you'll need to rebuild your stylesheet. Run the following 
 	rake less
 
 (or just `rake`). This will compile all of your LESS into `source/stylesheets/home.css`, which gets included in `layout.erb`. As a note, you'll need to have ran either `bundle install` or `rake install` before this will work. Changes will get picked up by Middleman automatically if you have a dev server running, so you can just refresh a page and see your changes immediately.
+
+Hint: if you're using Sublime Text, you can create a build system that runs `rake`. Convenient!
+
