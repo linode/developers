@@ -15,7 +15,15 @@ all_articles.each do |article|
   proxy "/#{article_name}.html", "#{template}.html", :ignore => true
 end
 
-activate :alias
+all_articles = Dir.glob 'source/library/assets/**/*.*'
+all_articles.each do |article|
+  article_name = article.match(/source\/library\/(assets\/.*)/)[1]
+  template = article.match(/^source\/(.*)$/)[1]
+  proxy "/#{article_name}", "#{template}", :ignore => true
+end
+
+# alias currently breaks the sitemap
+# activate :alias
 
 ###/
 # Compass
