@@ -1,7 +1,7 @@
 activate :directory_indexes
 
-page 'library/*', :layout => :article_layout
-page 'library/*/index.html', :layout => :categories_layout
+page '*', :layout => :article_layout
+page '*/index.html', :layout => :categories_layout
 
 set :js_dir, 'js'
 set :font_dir, 'fonts'
