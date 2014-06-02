@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'middleman', '~> 3.2.2'
-gem 'middleman-alias', :git => 'https://github.com/Octo-Labs/middleman-alias.git', :ref => 'b1038a8e18'
+gem 'middleman-alias', '~> 0.0.9'
 
 gem 'kramdown'
 gem 'therubyracer'
