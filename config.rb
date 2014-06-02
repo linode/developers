@@ -7,13 +7,13 @@ set :js_dir, 'js'
 set :font_dir, 'fonts'
 
 ### XXX FIXME: proxy articles to the top level. currently busted due to periods
-# all_articles = Dir.glob 'source/library/**/*.md'
-# all_articles.each do |article|
-#   article_name = article.match(/source\/library\/(articles\/)?(.*)\.md/)[2]
-#   template = article.match(/^source\/(.*)\.md$/)[1]
-#   # puts "#{template} => #{article_name}"
-#   proxy "/#{article_name}.html", "#{template}.html", :ignore => true
-# end
+all_articles = Dir.glob 'source/library/**/*.md'
+all_articles.each do |article|
+  article_name = article.match(/source\/library\/(articles\/)?(.*)\.md/)[2]
+  template = article.match(/^source\/(.*)\.md$/)[1]
+  # puts "#{template} => #{article_name}"
+  proxy "/#{article_name}.html", "#{template}.html", :ignore => true
+end
 
 activate :alias
 
