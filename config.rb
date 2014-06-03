@@ -24,7 +24,7 @@ all_articles.each do |article|
 end
 
 # alias currently breaks the sitemap
-# activate :alias
+activate :alias
 
 ###/
 # Compass
