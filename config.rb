@@ -17,6 +17,7 @@ end
 
 all_articles = Dir.glob 'source/library/{media,assets}/**/*.*'
 all_articles.each do |article|
+  next if article.match(/\.md$/)
   article_name = article.match(/source\/library\/((media|assets)\/.*)/)[1]
   template = article.match(/^source\/(.*)$/)[1]
   proxy "/#{article_name}", "#{template}", :ignore => true
