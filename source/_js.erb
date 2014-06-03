@@ -3,6 +3,19 @@
 <%= javascript_include_tag 'jquery.syntaxhighlighter.min.js' %>
 <%= javascript_include_tag 'main.js' %>
 
+<script type="text/javascript">
+$( "img[src^='\/assets']" ).each(function () {
+	$( this ).parent().bind('click', false);
+	$( this ).click(function(e) {
+		var image_title = $( this ).attr('alt');
+		var image_href = $( this ).parent().attr('href');
+		$( '#img-modal-image' ).attr('src', image_href);
+		$( '#img-modal-title' ).text(image_title);
+		$( '#img-modal' ).modal({ show: true });
+	});
+});
+</script>
+
 <div class="t">
 	<script type="text/javascript">
 	var _qevents = _qevents || [];
