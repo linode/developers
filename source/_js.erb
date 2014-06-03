@@ -6,7 +6,7 @@
 <script type="text/javascript">
 $( "img[src^='\/assets']" ).each(function () {
 	$( this ).parent().bind('click', false);
-	$( this ).click(function(e) {
+	$( this ).on('click', function(e) {
 		var image_title = $( this ).attr('alt');
 		var image_href = $( this ).parent().attr('href');
 		$( '#img-modal-image' ).attr('src', image_href);
