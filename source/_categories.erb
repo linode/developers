@@ -57,7 +57,7 @@ end
 	<% categories.each_with_index.partition { |obj, i| i.even? }.map { |x| x.map(&:first) }.each do |category_partition| %>
 		<div class="col-md-6">
 			<% category_partition.each do |category| %>
-				<h4 class="library-category-title"><%= category[:articles].first["category"] || category[:title] %> <a href="<%= category[:url] %>"><i class="fa fa-link"></i></a></h4>
+				<h4 class="library-category-title"><%= category[:articles].first["category"] || category[:title] %> <a href="<%= category[:url] %>"><i class="fa fa-link small"></i></a></h4>
 				<ul class="library-category-articles">
 					<% category[:articles].each do |article| %>
 						<li><a href="<%= article["url"] %>"><%= article["title"] %></a></li>
