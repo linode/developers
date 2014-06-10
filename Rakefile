@@ -41,12 +41,6 @@ task :update do
 
   log 'Updating dependencies...'
   sh 'bundle install --deployment'
-
-  library_dir = "source"
-  log 'Getting latest version of the Library...'
-  sh "cd #{library_dir} && git pull origin master"
-end
-
 desc 'Start a local docsmith development server'
 task :server do
   log 'Starting docsmith development server...'
