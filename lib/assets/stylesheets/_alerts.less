@@ -1,12 +1,36 @@
-.alert-info:before {
-	content: "Note";
-	display: inline-block;
-	padding-bottom: 11px;
+.makeAlert(@background) {
+	padding: (@padding-standard / 2);
+
+	background-color: @background;
+	border-left: 4px solid darken(@background, 15%);
+
+	&:before {
+		display: inline-block;
+		padding-bottom: 11px;
+	}
 }
 
-.alert-warning:before {
-	content: "Warning";
-	display: inline-block;
-	padding-bottom: 11px;
+.note {
+	.makeAlert(@pure-white);
+	&:before { content: "Note"; }
 }
 
+.caution {
+	.makeAlert(@pure-white);
+	&:before { content: "Caution"; }
+}
+
+.output {
+	.makeAlert(@pure-white);
+	&:before { content: "Output"; }
+}
+
+.sudo {
+	.makeAlert(@pure-white);
+	&:before { content: "sudo"; }
+}
+
+.more-information {
+	.makeAlert(@pure-white);
+	&:before { content: "More information"; }
+}
