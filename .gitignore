@@ -11,7 +11,7 @@
 /build
 
 # Ignore the source directory
-/source/library
+/source
 
 # Ignore Sass' cache
 /.sass-cache
@@ -20,7 +20,5 @@
 .DS_Store
 
 .cache
-source/library
-source/media
 
 vendor

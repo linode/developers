@@ -8,10 +8,34 @@
 		</div>
 		<div class="row">
 			<div class="col-sm-10 col-sm-offset-1">
-				<form role="form">
+				<form role="form" id="search-form">
 					<div class="input-group input-group-lg">
 						<label class="sr-only" for="search-text">Search Documentation</label>
 						<input class="form-control" type="text" id="search-text" name="search-text" placeholder="What do you need help with?" />
+						<script>
+
+  (function() {
+    var cx = '000157629893119917628:5rcen_5ss4c';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+    })();
+    google.setOnLoadCallback(
+		          function() {
+			          google.search.CustomSearchControl.attachAutoCompletionWithOptions(
+					            '000157629893119917628:5rcen_5ss4c',
+						              document.getElementById('search-text'),
+							                'search-form',
+									          {}
+										          );
+				        }
+		    );
+</script>
+<!-- <gcse:searchbox-only></gcse:searchbox-only> -->
 						<span class="input-group-btn">
 							<button type="submit" class="btn btn-lg btn-blue">Search</button>
 						</span>

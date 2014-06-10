@@ -10,14 +10,14 @@ task :less do
 
   log 'Compiling LESS...'
 
-  parser = Less::Parser.new :paths => 'source/stylesheets', :filename => '_home.less'
+  parser = Less::Parser.new :paths => 'lib/assets/stylesheets', :filename => '_home.less'
   css = ''
 
-  File.open 'source/stylesheets/_home.less' do |f|
+  File.open 'lib/assets/stylesheets/_home.less' do |f|
     css = parser.parse(f.read).to_css(:compress => true)
   end
 
-  File.open 'source/stylesheets/home.css', 'w' do |f|
+  File.open 'lib/assets/stylesheets/home.css', 'w' do |f|
     f.write css
   end
 end
@@ -27,7 +27,7 @@ task :install do
   log 'Installing dependencies...'
   sh 'bundle install --deployment'
 
-  library_dir = "source/library"
+  library_dir = "source"
   unless Dir.exists? library_dir
     log 'Getting latest version of the Library...'
     sh "git clone git@github.com/displague/library.git #{library_dir}"
@@ -42,15 +42,15 @@ task :update do
   log 'Updating dependencies...'
   sh 'bundle install --deployment'
 
-  library_dir = "source/library"
+  library_dir = "source"
   log 'Getting latest version of the Library...'
-  sh "cd #{library_dir} && git pulli origin master"
+  sh "cd #{library_dir} && git pull origin master"
 end
 
 desc 'Start a local docsmith development server'
 task :server do
   log 'Starting docsmith development server...'
-  sh 'bundle exec middleman server'
+  sh 'bundle exec middleman server --reload-paths lib'
 end
 
 task :default => [:less]

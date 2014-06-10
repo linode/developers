@@ -1,29 +1,26 @@
 activate :directory_indexes
 
+#page 'search', :layout => :search
 page '*', :layout => :article_layout
 page '*/index.html', :layout => :categories_layout
 
 set :js_dir, 'js'
 set :font_dir, 'fonts'
 
-### XXX FIXME: proxy articles to the top level. currently busted due to periods
-all_articles = Dir.glob 'source/library/**/*.md'
-all_articles.each do |article|
-  article_name = article.match(/source\/library\/(articles\/)?(.*)\.md/)[2]
-  template = article.match(/^source\/(.*)\.md$/)[1]
-  # puts "#{template} => #{article_name}"
-  proxy "/#{article_name}.html", "#{template}.html", :ignore => true
+set :partials_dir, '../lib/partials'
+set :layouts_dir,  '../lib/layouts'
+
+after_configuration do
+  sprockets.append_path '../lib/assets/js'
+  sprockets.append_path '../lib/assets/stylesheets'
+  sprockets.import_asset 'home.css'
+
+  all_js = Dir.glob 'lib/assets/js/*.js'
+  all_js.each do |js|
+    sprockets.import_asset File.basename(js)
+  end
 end
 
-all_articles = Dir.glob 'source/library/{media,assets}/**/*.*'
-all_articles.each do |article|
-  next if article.match(/\.md$/)
-  article_name = article.match(/source\/library\/((media|assets)\/.*)/)[1]
-  template = article.match(/^source\/(.*)$/)[1]
-  proxy "/#{article_name}", "#{template}", :ignore => true
-end
-
-# alias currently breaks the sitemap
 activate :alias
 
 ###/
@@ -97,3 +94,4 @@ configure :build do
 end
 
 page "/sitemap.xml", :layout => false
+
