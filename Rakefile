@@ -41,6 +41,8 @@ task :update do
 
   log 'Updating dependencies...'
   sh 'bundle install --deployment'
+end
+
 desc 'Start a local docsmith development server'
 task :server do
   log 'Starting docsmith development server...'
