@@ -68,6 +68,11 @@
 	&:before { content: "Caution"; }
 }
 
+.deprecated {
+	.make-callout(lighten(@orange, 25%));
+	&:before { content: "Deprecated"; }
+}
+
 // has outer :before
 
 .output {

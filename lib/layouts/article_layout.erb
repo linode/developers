@@ -9,6 +9,7 @@
 {::options parse_block_html="true"/}
 <div id="article-body" class="col-sm-8 col-sm-push-4">
 <h1 id="doc-title">#{current_page.data.title}</h1>
+#{ partial 'deprecated' }
 #{File.read(current_page.source_file).gsub(/\A---\n(?:[[:print:]]+\s)+/m, '')}
 #{ partial 'more' }
 </div>
