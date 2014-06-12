@@ -46,7 +46,7 @@ end
 desc 'Start a local docsmith development server'
 task :server do
   log 'Starting docsmith development server...'
-  sh 'bundle exec middleman server --reload-paths lib'
+  sh 'bundle exec middleman server --reload-paths=lib/partials,lib/layouts,lib/assets/stylesheets'
 end
 
 task :default => [:less]
