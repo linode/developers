@@ -47,7 +47,6 @@ This will start a Middleman development server on your local machine. Give Middl
 Notes:
 
 * To access a guide, you don't need to specify `.md` in the URL.
-* For the moment you'll need to navigate to `http://0.0.0.0:4567/library/some/guide` rather than `http://0.0.0.0:4567/some/guide`. This will be fixed soon.
 
 # Editing the library
 
