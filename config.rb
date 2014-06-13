@@ -11,7 +11,6 @@ class JSONFeed < Middleman::Extension
   end
 
   def generate_feed
-    feed = []
     root = app.sitemap.resources.find_all { |p| p.destination_path.match(/^index\.html$/) }
     tile_resources = root.first.data.tiles.map do |t|
       path = t['url'].gsub!(/^\//, '')
@@ -32,7 +31,7 @@ class JSONFeed < Middleman::Extension
     end
 
     result = {
-      last_modified: "1402593664",
+      last_modified: Time.now.to_i,
       sitemap: [
         relative_path: nil,
         title: 'Guides',
