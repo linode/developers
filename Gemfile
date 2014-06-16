@@ -6,6 +6,8 @@ gem 'middleman-alias', '~> 0.0.9'
 gem 'kramdown'
 gem 'therubyracer'
 
+gem 'builder', '~> 3.2.2'
+
 group :development do
   gem 'less'
   gem 'middleman-livereload', '~> 3.1.0'
