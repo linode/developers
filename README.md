@@ -172,6 +172,11 @@ You can invoke the RSS generator by running the following command from the `docs
 
 This will add the specified guides to the RSS feed located in `source/rss.xml`. You can specify as many guides as you'd like. The script will also remove old entries from the file so that there are no more than 20 items total.
 
+## Aliasing articles
+
+* If you want a URL to **redirect** to an article, you'll want to add an alias in the target article's [metadata](#metadata).
+* If you want the same article to appear in multiple locations, use relative symlinks.
+
 # Development
 
 These notes are for those who wish to develop against docsmith itself, *not* for those who wish to edit the Library.
