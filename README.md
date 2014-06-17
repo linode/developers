@@ -167,7 +167,8 @@ Assets (such as images) can be added to `source/assets` and referenced like: `as
 
 You can invoke the RSS generator by running the following command from the `docsmith` directory:
 
-	$ thor rss source/guide.md source/another/guide.md
+	$ thor rss  # Show the current RSS file contents
+	$ thor rss source/guide.md source/another/guide.md  # Add new guides to the RSS feed
 
 This will add the specified guides to the RSS feed located in `source/rss.xml`. You can specify as many guides as you'd like. The script will also remove old entries from the file so that there are no more than 20 items total.
 
