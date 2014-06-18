@@ -114,11 +114,11 @@ class Default < Thor
         xml.docs 'http://www.rssboard.org/rss-specification'
         xml.copyright "Copyright © 2009-#{Date.today.year} Linode, LLC. All rights reserved."
 
-        # xml.image do
-        #   xml.url File.join @library_url, 'media/images/rss-image.png'
-        #   xml.title 'The Linode Library'
-        #   xml.link @library_url
-        # end
+        xml.image do
+          xml.url File.join @library_url, 'images/rss/logo.png'
+          xml.title 'The Linode Library'
+          xml.link @library_url
+        end
 
         new_items.each do |item|
           xml.item do
