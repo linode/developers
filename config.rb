@@ -90,9 +90,8 @@ after_configuration do
   end
 end
 
-page "/sitemap.xml", :layout => false
-
 activate :json_feed
+activate :sitemap, :hostname => 'https://library.linode.com'
 
 # Build-specific configuration
 configure :build do

@@ -63,6 +63,8 @@ GEM
       middleman-core (>= 3.0.2)
       multi_json (~> 1.0)
       rack-livereload
+    middleman-sitemap (0.0.13)
+      middleman-core (>= 3.2.2)
     middleman-sprockets (3.3.3)
       middleman-core (>= 3.2)
       sprockets (~> 2.2)
@@ -110,5 +112,6 @@ DEPENDENCIES
   middleman (~> 3.2.2)
   middleman-alias (~> 0.0.9)
   middleman-livereload (~> 3.1.0)
+  middleman-sitemap (~> 0.0.13)
   therubyracer
   wdm (~> 0.1.0)
