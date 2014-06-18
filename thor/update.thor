@@ -1,6 +1,6 @@
 class Default
-  desc 'update', 'Update to the latest version of docsmith'
-  def update
+  desc 'upgrade', 'Update to the latest version of docsmith'
+  def upgrade
     log 'Pulling the latest version of docsmith...'
     system 'git pull origin master'
 

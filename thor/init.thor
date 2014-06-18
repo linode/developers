@@ -1,6 +1,6 @@
 class Default
-  desc 'install', 'Install dependencies and clone the library'
-  def install
+  desc 'init', 'Install dependencies and clone the library'
+  def init
     log 'Installing dependencies...'
     system 'bundle install --deployment'
 
