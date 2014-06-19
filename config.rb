@@ -83,6 +83,7 @@ after_configuration do
   sprockets.append_path '../lib/assets/js'
   sprockets.append_path '../lib/assets/stylesheets'
   sprockets.import_asset 'home.css'
+  sprockets.import_asset 'syntax.css.erb'
 
   all_js = Dir.glob 'lib/assets/js/*.js'
   all_js.each do |js|
@@ -92,6 +93,7 @@ end
 
 activate :json_feed
 activate :sitemap, :hostname => 'https://library.linode.com'
+activate :syntax, :line_numbers => true
 
 # Build-specific configuration
 configure :build do

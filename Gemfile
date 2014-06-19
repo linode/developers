@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'middleman', '~> 3.2.2'
 gem 'middleman-alias', '~> 0.0.9'
 gem 'middleman-sitemap', '~> 0.0.13'
+gem 'middleman-syntax', '~> 2.0.0'
 
 gem 'kramdown'
 gem 'therubyracer'
