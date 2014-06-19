@@ -66,8 +66,6 @@ end
 
 ::Middleman::Extensions.register(:json_feed, JSONFeed)
 
-require 'middleman-livereload'
-activate :livereload
 activate :directory_indexes
 activate :alias
 
@@ -114,3 +112,8 @@ configure :build do
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
 end
+
+configure :development do
+  require 'middleman-livereload'
+  activate :livereload
+end 
