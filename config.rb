@@ -66,6 +66,8 @@ end
 
 ::Middleman::Extensions.register(:json_feed, JSONFeed)
 
+require 'middleman-livereload'
+activate :livereload
 activate :directory_indexes
 activate :alias
 

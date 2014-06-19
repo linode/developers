@@ -12,6 +12,6 @@ gem 'builder', '~> 3.2.2'
 
 group :development do
   gem 'less'
-  gem 'middleman-livereload', '~> 3.1.0'
+  gem 'middleman-livereload', '~> 3.3.4'
   gem 'wdm', '~> 0.1.0', :platforms => [:mswin, :mingw]
 end
