@@ -69,7 +69,6 @@ end
 activate :directory_indexes
 activate :alias
 
-#page 'search', :layout => :search
 page '*', :layout => :article_layout
 page '*/index.html', :layout => :categories_layout
 
