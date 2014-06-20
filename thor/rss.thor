@@ -8,9 +8,8 @@ class Default
 
     # if no files are specified, just read the current RSS feed
     if files.empty?
-      items = existing_rss rss_file
       say 'Current RSS file contents', :yellow
-      puts_rss items
+      puts_rss existing_rss(rss_file)
       exit
     end
 
@@ -52,11 +51,11 @@ class Default
       link = File.join(@library_url, article_path)
 
       new_items << {
-        :title => meta["title"],
+        :title => meta['title'],
         :link => link,
-        :pubDate => meta["modified"],
+        :pubDate => meta['modified'],
         :author => "#{meta['author']['email']} (#{meta['author']['name']})",
-        :description => meta["description"],
+        :description => meta['description'],
         :guid => link
       }
     end
@@ -67,10 +66,10 @@ class Default
   def existing_rss(rss_file)
     require 'rss'
 
-    new_items = []
+    items = []
     if File.exists? rss_file
       RSS::Parser.parse(rss_file).items.each do |item|
-        new_items << {
+        items << {
           :title => item.title,
           :link => item.link,
           :pubDate => item.pubDate,
@@ -81,7 +80,7 @@ class Default
       end
     end
 
-    new_items
+    items
   end
 
   def puts_rss(items)
