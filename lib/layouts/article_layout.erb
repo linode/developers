@@ -7,7 +7,7 @@
 		<div class="row">
 			<%= Kramdown::Document.new(<<-EOS
 {::options parse_block_html="true"/}
-<div id="article-body" class="col-sm-8 col-sm-push-4" itemscope itemtype="http://schema.org/TechArticle">
+<div id="article-body" class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/TechArticle">
 <h1 id="doc-title" itemprop="headline">#{current_page.data.title}</h1>
 <p><small>Published <time itemprop="datePublished" datetime="#{Time.parse(current_page.data.published).iso8601}">#{current_page.data.published}</time> by <span itemprop="author">#{current_page.data.author.name}</span>.</small></p>
 #{ partial 'deprecated' }
@@ -15,7 +15,7 @@
 #{ partial 'more' }
 <p><small>Last edited by <span itemprop="editor">#{current_page.data.modified_by.name}</span> on <time itemprop="dateModified" datetime="#{Time.parse(current_page.data.modified).iso8601}">#{current_page.data.modified}</time>.</small></p>
 </div>
-<div id="doc-sidebar" class="col-sm-4 col-sm-pull-8 hidden-xs">
+<div id="doc-sidebar" class="col-sm-3 col-sm-pull-9 hidden-xs">
 <div>
 <h3 id="doc-sidebar-title" class="h5">Sections</h3>
 * Table of Contents
