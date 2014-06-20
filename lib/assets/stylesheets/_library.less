@@ -136,13 +136,24 @@ table.gsc-table-result > tbody > tr > td {
 
 // GCSE fix
 td.gsc-input { height: 45px !important; }
-.gsc-input-box { height: 42px !important; }
+.gsc-input-box { height: 45px !important; }
 input.gsc-input { height: 36px !important; }
 .gsc-search-button {
 	background-color: @jorts-blue;
 	padding-top: 2px;
 	// padding-bottom: 5px;
 }
+
+div.gsc-input-box-focus {
+	border-color: darken(@border-light, 10%);
+}
+
+div.gsc-input-box-hover,
+div.gsc-input-box-focus {
+	.remove-box-shadow;
+}
+
+div.gsc-control-cse { font-family: @font-family-sans-serif; }
 
 input.gsc-search-button, input.gsc-search-button:hover, input.gsc-search-button:focus {
 	background-color: @jorts-blue !important;
@@ -153,3 +164,5 @@ input.gsc-search-button, input.gsc-search-button:hover, input.gsc-search-button:
 	border-color: @jorts-blue !important;
 	filter: none;
 }
+
+span.gscb_a { margin-top: 10px !important; }
