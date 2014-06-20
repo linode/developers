@@ -8,7 +8,7 @@ categories, uncategorized_articles = [], []
 	article_contents = File.read "#{BASE_PATH}#{article_filename}.md"
 	url = "#{current_page.url}#{article_filename}".gsub(/index$/, '')
 
-	meta = YAML.load(f.read).merge({ 'url' => url })
+	meta = YAML.load(article_contents).merge({ 'url' => url })
 	uncategorized_articles << meta unless meta['deprecated']
 end
 
