@@ -85,7 +85,9 @@
 
 .make-inline-block(@color) {
 	background-color: @color;
-	border: 1px solid darken(@color, 10%);
+	border-width: 1px;
+	border-style: solid;
+	border-color: darken(@color, 10%) !important;
 }
 
 // inline blocks

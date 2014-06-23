@@ -1,6 +1,8 @@
 <%= Rouge::Themes::Github.render(:scope => '.highlight') %>
 
-.highlight { margin-bottom: 22px; }
+.highlight { margin: 22px 0 !important; }
+.highlight table td { padding: 0; }
+.highlight table td pre { border-color: #ddd; }
 
 td.code {
 	width: 100%;
@@ -14,4 +16,9 @@ td.code {
 	word-wrap: inherit;
 }
 
-pre.lineno { word-break: normal; }
+pre.lineno {
+	background-color: #fafafa;
+	color: #999;
+	border-right: 0 !important;
+	word-break: normal;
+}
