@@ -179,6 +179,14 @@ This will add the specified guides to the RSS feed located in `source/rss.xml`. 
 * If you want a URL to **redirect** to an article, you'll want to add an alias in the target article's [metadata](#metadata).
 * If you want the same article to appear in multiple locations, use relative symlinks.
 
+## Building the library
+
+To publish changes, run (on the library box):
+
+	$ thor deploy
+
+This will pull in the latest changes and build the library. The build may take a minute or so to run.
+
 # Development
 
 These notes are for those who wish to develop against docsmith itself, *not* for those who wish to edit the Library.
