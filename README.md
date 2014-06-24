@@ -132,8 +132,10 @@ You can create various types of callouts within an article like so:
 	> This is a scary warning! Tread lightly for there be dragons here!
 
 	{:.output}
-	> Here's the output from
-	> some cool command that I ran.
+	~~~
+	Here's the output from
+	some cool command that I ran.
+	~~~
 
 	{:.file}
 	some-file.txt
