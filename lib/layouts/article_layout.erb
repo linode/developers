@@ -1,5 +1,5 @@
 <% wrap_layout :layout do %>
-<section class="white doc">
+<section class="white">
 	<div class="container">
 
 		<%= partial 'breadcrumb' %>
@@ -7,7 +7,7 @@
 		<div class="row">
 			<%= Kramdown::Document.new(<<-EOS
 {::options parse_block_html="true"/}
-<div id="article-body" class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/TechArticle">
+<div id="article-body" class="col-sm-9 col-sm-push-3 doc" itemscope itemtype="http://schema.org/TechArticle">
 <h1 id="doc-title" itemprop="headline">#{current_page.data.title}</h1>
 <p><small>Published <time itemprop="datePublished" datetime="#{Time.parse(current_page.data.published).iso8601}">#{current_page.data.published}</time> by <span itemprop="author">#{current_page.data.author.name}</span>.</small></p>
 #{ partial 'deprecated' }

@@ -256,6 +256,21 @@ blockquote {
 	p {
 		// font-size: (@font-size-base * 1.05);
 	}
+
+	li {
+		ul, ol {
+			margin-top: 10px;
+			li { margin-top: 5px; }
+		}
+		img, blockquote { margin: 20px 0; }
+		ul + p, ol + p { margin-top: 20px; }
+	}
+	li + li { margin-top: 10px; }
+
+	code {
+		font-size: @font-size-small;
+		padding: 0 4px;
+	}
 }
 
 

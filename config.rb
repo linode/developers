@@ -115,4 +115,4 @@ end
 configure :development do
   require 'middleman-livereload'
   activate :livereload
-end 
+end

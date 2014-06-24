@@ -116,6 +116,8 @@ code { .make-inline-block(@inline-code-color); }
 	dd pre {
 		// cheat for the sake of DRYness
 		.file-name;
+
+		&.lineno { background-color: darken(@file-color, 5%); }
 	}
 }
 
