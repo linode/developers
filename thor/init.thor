@@ -7,7 +7,7 @@ class Default
     library_dir = "source"
     unless Dir.exists? library_dir
       log 'Getting latest version of the Library...'
-      system "git clone git@github.com/displague/library.git #{library_dir}"
+      system "git clone git@github.com:linode/library.git #{library_dir}"
     end
   end
 end
