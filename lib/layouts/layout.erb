@@ -1,6 +1,6 @@
 <%
 require 'pathname'
-library_url = 'https://library.linode.com'
+library_url = 'https://www.linode.com/library'
 path = Pathname.new(current_page.source_file).realpath.to_s.match(/source\/(.*)\.md$/)[1]
 canonical_url = "#{library_url}/#{path}"
 %>

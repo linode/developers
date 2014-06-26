@@ -2,8 +2,9 @@ class Default
   option :confirm, :type => :boolean
   desc 'rss [files]', 'Add the specified articles to the RSS feed'
   def rss(*files)
-    @library_url = 'https://library.linode.com/'.freeze
-    rss_file = 'source/rss.xml'.freeze
+    @library_url = 'https://www.linode.com/library'.freeze
+    @rss_url = 'rss.xml'.freeze
+    rss_file = File.join 'source', @rss_url
     max_entries = 20
 
     # if no files are specified, just read the current RSS feed
@@ -109,7 +110,7 @@ class Default
         xml.category 'Computers', :domain => 'http://www.dmoz.org'
         xml.language 'en-us'
         xml.lastBuildDate Time.now.rfc2822
-        xml.tag! 'atom:link', :rel => 'self', :type => 'application/rss+xml', :href => File.join(@library_url, rss_file)
+        xml.tag! 'atom:link', :rel => 'self', :type => 'application/rss+xml', :href => File.join(@library_url, @rss_url)
         xml.docs 'http://www.rssboard.org/rss-specification'
         xml.copyright "Copyright © 2009-#{Date.today.year} Linode, LLC. All rights reserved."
 

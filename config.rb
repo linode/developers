@@ -92,7 +92,7 @@ after_configuration do
 end
 
 activate :json_feed
-activate :sitemap, :hostname => 'https://library.linode.com'
+activate :sitemap, :hostname => 'https://www.linode.com/library'
 activate :syntax, :line_numbers => true
 
 # Build-specific configuration
