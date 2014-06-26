@@ -71,6 +71,7 @@ activate :alias
 
 page '*', :layout => :article_layout
 page '*/index.html', :layout => :categories_layout
+ignore 'README.html'
 
 set :js_dir, 'js'
 set :font_dir, 'fonts'
