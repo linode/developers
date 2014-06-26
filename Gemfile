@@ -10,6 +10,8 @@ gem 'therubyracer'
 
 gem 'builder', '~> 3.2.2'
 
+gem 'net-ssh', '~> 2.9.1'
+
 group :development do
   gem 'less'
   gem 'middleman-livereload', '~> 3.3.4'
