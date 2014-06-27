@@ -12,8 +12,9 @@ class JSONFeed < Middleman::Extension
 
   def generate_feed
     root = app.sitemap.resources.find_all { |p| p.destination_path.match(/^index\.html$/) }
+
     tile_resources = root.first.data.tiles.map do |t|
-      path = t['url'].gsub!(/^\//, '')
+      path = t['url'].gsub /^\//, ''
       app.sitemap.resources.find_all { |p| p.destination_path.match(/^#{path}\/index\.html/) }
     end
 
