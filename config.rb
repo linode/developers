@@ -11,11 +11,10 @@ class JSONFeed < Middleman::Extension
   end
 
   def generate_feed
-    root = app.sitemap.resources.find_all { |p| p.destination_path.match(/^index\.html$/) }
+    root = app.sitemap.resources.find_all { |p| p.destination_path.match(/^library\/index\.html$/) }
 
     tile_resources = root.first.data.tiles.map do |t|
-      path = t['url'].gsub /^\//, ''
-      app.sitemap.resources.find_all { |p| p.destination_path.match(/^#{path}\/index\.html/) }
+      app.sitemap.resources.find_all { |p| p.destination_path.match(/^library\/#{t.url}\/index\.html/) }
     end
 
     tiles = tile_resources.map do |t|
@@ -70,6 +69,15 @@ end
 activate :directory_indexes
 activate :alias
 
+module Middleman::Sitemap
+  class AliasResource < ::Middleman::Sitemap::Resource
+    def initialize(store, path, alias_path)
+      @alias_path = alias_path
+      super(store, "library/#{path}")
+    end
+  end
+end
+
 page '*', :layout => :article_layout
 page '*/index.html', :layout => :categories_layout
 ignore 'README.html'
@@ -93,7 +101,7 @@ after_configuration do
 end
 
 activate :json_feed
-activate :sitemap, :hostname => 'https://www.linode.com/library'
+activate :sitemap, :hostname => 'https://www.linode.com'
 activate :syntax, :line_numbers => true
 
 # Build-specific configuration
