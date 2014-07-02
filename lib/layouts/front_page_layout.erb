@@ -46,7 +46,7 @@ s.parentNode.insertBefore(gcse, s);
 		<% current_page.data.tiles.each_with_index do |tile, tile_index| %>
 			<% if (tile_index + 1) % 3 == 1 %><div class="row-tiles"><% end %>
 			<div class="col-sm-4">
-				<a class="library-tile" href="<%= tile['url'] %>">
+				<a class="library-tile" href="/library/<%= tile['url'] %>">
 					<div class="library-tile">
 						<h2 class="h4"><%= tile['title'] %></h2>
 						<p><%= tile['description'] %></p>
