@@ -42,7 +42,7 @@ To edit/preview the Library's content, you'll want to run a docsmith development
 
 	thor server
 
-This will start a Middleman development server on your local machine. Give Middleman a second to start up, then navigate to `http://0.0.0.0:4567` (your local dev server) in your browser. Now, you can make changes to the Markdown files in the `source` directory and navigate to the corresponding page on your development server, and any changes you have made will be reflected. If you make more changes and refresh the page, the page will be automatically rebuilt, so your changes will be reflected immediately.
+This will start a Middleman development server on your local machine. Give Middleman a second to start up, then navigate to `http://0.0.0.0:4567/library/` (your local dev server) in your browser. Now, you can make changes to the Markdown files in the `source` directory and navigate to the corresponding page on your development server, and any changes you have made will be reflected. If you make more changes and refresh the page, the page will be automatically rebuilt, so your changes will be reflected immediately.
 
 Notes:
 
