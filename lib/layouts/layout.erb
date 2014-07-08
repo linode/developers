@@ -1,6 +1,7 @@
 <%
 require 'pathname'
 library_url = 'https://www.linode.com/library'
+asset_prefix = environment == :build ? '/library/' : ''
 path = Pathname.new(current_page.source_file).realpath.to_s.match(/source\/(.*)\.md$/)[1]
 canonical_url = "#{library_url}/#{path}"
 %>
@@ -13,8 +14,8 @@ canonical_url = "#{library_url}/#{path}"
     <meta name="description" content="<%= current_page.data.description %>">
     <meta name="keywords" content="<%= current_page.data.keywords %>">
 
-    <%= stylesheet_link_tag 'home', {:rel=>'stylesheet', :media=>'all'} %>
-    <%= stylesheet_link_tag 'syntax', {:rel=>'stylesheet', :media=>'all'} %>
+    <link href="<%= asset_prefix %>stylesheets/home.css" rel='stylesheet' type='text/css'>
+    <link href="<%= asset_prefix %>stylesheets/syntax.css" rel='stylesheet' type='text/css'>
     <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js' %>
 
     <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
