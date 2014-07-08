@@ -1,11 +1,11 @@
 <% wrap_layout :layout do %>
 <section class="white">
-	<div class="container">
+  <div class="container">
 
-		<%= partial 'breadcrumb' %>
+    <%= partial 'breadcrumb' %>
 
-		<div class="row">
-			<%= Kramdown::Document.new(<<-EOS
+    <div class="row">
+      <%= Kramdown::Document.new(<<-EOS
 {::options parse_block_html="true"/}
 <div id="article-body" class="col-sm-9 col-sm-push-3 doc" itemscope itemtype="http://schema.org/TechArticle">
 <h1 id="doc-title" itemprop="headline">#{current_page.data.title}</h1>
@@ -23,25 +23,25 @@
 </div>
 </div>
 EOS
-			).to_html %>
-		</div>
-	</div>
+      ).to_html %>
+    </div>
+  </div>
 </section>
 
 <div class="modal fade" id="img-modal" tabindex="-1" role="dialog" aria-labelledby="imageModal" aria-hidden="true">
-	<div class="modal-dialog modal-full">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h4 id="img-modal-title" class="modal-title">Image Detail</h4>
-			</div>
-			<div class="modal-body">
-				<img id="img-modal-image" class="img-responsive">
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-blue" data-dismiss="modal">Close</button>
-			</div>
-		</div>
-	</div>
+  <div class="modal-dialog modal-full">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="img-modal-title" class="modal-title">Image Detail</h4>
+      </div>
+      <div class="modal-body">
+        <img id="img-modal-image" class="img-responsive">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-blue" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <% end %>

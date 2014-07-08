@@ -3,8 +3,8 @@ breadcrumb_pages = [current_page]
 page = current_page
 
 while page.parent
-	page = page.parent
-	breadcrumb_pages.unshift page
+  page = page.parent
+  breadcrumb_pages.unshift page
 end
 
 breadcrumb_last = breadcrumb_pages.pop
@@ -12,12 +12,12 @@ breadcrumb_last = breadcrumb_pages.pop
 
 
 <div class="row-content">
-	<div class="col-sm-12">
-		<ol class="breadcrumb library-breadcrumb">
-			<% breadcrumb_pages.each do |page| %>
-				<li><%= link_to page.data.title, page %></li>
-			<% end %>
-			<li class="active"><%= breadcrumb_last.data.title %></li>
-		</ol>
-	</div>
+  <div class="col-sm-12">
+    <ol class="breadcrumb library-breadcrumb">
+      <% breadcrumb_pages.each do |page| %>
+        <li><%= link_to page.data.title, page %></li>
+      <% end %>
+      <li class="active"><%= breadcrumb_last.data.title %></li>
+    </ol>
+  </div>
 </div>
