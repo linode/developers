@@ -1,9 +1,8 @@
 <%
 require 'pathname'
-library_url = 'https://www.linode.com/library'
 asset_prefix = environment == :build ? '/library/' : ''
 path = Pathname.new(current_page.source_file).realpath.to_s.match(/source\/(.*)\.md$/)[1]
-canonical_url = "#{library_url}/#{path}"
+canonical_url = "https://www.linode.com/#{path}"
 %>
 <!DOCTYPE html>
 <html lang="en">
