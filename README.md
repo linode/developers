@@ -181,11 +181,12 @@ This will add the specified guides to the RSS feed located in `source/rss.xml`. 
 
 ## Building the library
 
-To publish changes, run (on the library box):
+To publish changes, run:
 
-	$ thor deploy
+    $ thor publish
 
-This will pull in the latest changes and build the library. The build may take a minute or so to run.
+This will SSH into every library box, pull the latest library from GitHub, and
+build the site. You'll need to be keyed for the library boxes for this to work.
 
 # Development
 
