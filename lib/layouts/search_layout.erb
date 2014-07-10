@@ -1,0 +1,17 @@
+<% wrap_layout :layout do %>
+<section class="white">
+  <div class="container">
+    <%= partial 'breadcrumb' %>
+
+    <div class="row">
+      <div id="results"></div>
+    </div>
+  </div>
+</section>
+
+  <script type='text/javascript'>
+    $(document).ready(function() {
+      Search.run()
+    });
+  </script>
+<% end %>
