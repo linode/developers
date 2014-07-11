@@ -1,3 +1,9 @@
+PATH
+  remote: lib/extensions/JSONFeed
+  specs:
+    JSONFeed (0.0.1)
+      middleman-core (>= 3.2.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -110,6 +116,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  JSONFeed!
   builder (~> 3.2.2)
   kramdown
   less
