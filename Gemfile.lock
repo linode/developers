@@ -4,6 +4,12 @@ PATH
     JSONFeed (0.0.1)
       middleman-core (>= 3.2.2)
 
+PATH
+  remote: lib/extensions/PagesDirectory
+  specs:
+    PagesDirectory (0.0.1)
+      middleman-core (>= 3.2.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -117,6 +123,7 @@ PLATFORMS
 
 DEPENDENCIES
   JSONFeed!
+  PagesDirectory!
   builder (~> 3.2.2)
   kramdown
   less

@@ -13,6 +13,7 @@ gem 'builder', '~> 3.2.2'
 gem 'net-ssh', '~> 2.9.1'
 
 gem 'JSONFeed', path: 'lib/extensions/JSONFeed'
+gem 'PagesDirectory', path: 'lib/extensions/PagesDirectory'
 group :development do
   gem 'less'
   gem 'middleman-livereload', '~> 3.3.4'

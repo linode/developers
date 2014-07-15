@@ -12,7 +12,6 @@ end
 
 page '*', :layout => :article_layout
 page '*/index.html', :layout => :categories_layout
-ignore 'README.html'
 
 set :js_dir, 'js'
 set :font_dir, 'fonts'
@@ -33,25 +32,17 @@ after_configuration do
   end
 end
 
+activate :pages_directory, :pages_dir => '../pages'
 activate :json_feed
 activate :sitemap, :hostname => 'https://www.linode.com'
 activate :syntax, :line_numbers => true
 
 ready do
-  js = Dir.glob('lib/assets/js/*')
-  js.each do |j|
-    proxy "library/js/#{File.basename(j)}", "js/#{File.basename(j)}"
+  sitemap.resources.select do |resource|
+    if resource.path =~ /^(stylesheets|fonts|js|images)\//
+      proxy "library/#{resource.path}", resource.path
+    end
   end
-  css = Dir.glob('lib/assets/stylesheets/*.css')
-  css.each do |c|
-    proxy "library/stylesheets/#{File.basename(c)}", "stylesheets/#{File.basename(c)}"
-  end
-  fonts = Dir.glob('lib/assets/fonts/*')
-  fonts.each do |f|
-    proxy "library/fonts/#{File.basename(f)}", "fonts/#{File.basename(f)}"
-  end
-  proxy 'library/images/header/linode_logo_white.png', 'images/header/linode_logo_white.png'
-  proxy 'library/images/rss/logo.png', 'images/rss/logo.png'
 end
 
 # Build-specific configuration

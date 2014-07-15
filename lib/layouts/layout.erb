@@ -1,8 +1,9 @@
 <%
 require 'pathname'
 asset_prefix = '/library/'
-path = Pathname.new(current_page.source_file).realpath.to_s.match(/source\/(.*)\.md$/)[1]
-canonical_url = "https://www.linode.com/#{path.gsub(/index$/, '')}"
+matches = Pathname.new(current_page.source_file).realpath.to_s.match(/source\/(.*)\.md$/)
+
+canonical_url = "https://www.linode.com/#{matches[1].gsub(/index$/, '')}" unless matches.nil?
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +20,9 @@ canonical_url = "https://www.linode.com/#{path.gsub(/index$/, '')}"
 
     <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
 
-    <link rel='canonical' href="<%= canonical_url %>">
+    <% if defined? canonical_url %>
+      <link rel='canonical' href="<%= canonical_url %>">
+    <% end %>
 
     <link rel="shortcut icon" href="/favicon.ico">
   </head>
