@@ -1,17 +1,19 @@
 <% wrap_layout :layout do %>
-<section class="white">
+<section class="white extra-space bottom">
   <div class="container">
     <%= partial 'breadcrumb' %>
 
-    <div class="row">
-      <div id="results"></div>
+    <div class="row-content">
+      <div class="col-sm-12">
+        <div id="search-results"></div>
+      </div>
     </div>
+
   </div>
 </section>
 
-  <script type='text/javascript'>
-    $(document).ready(function() {
-      Search.run()
-    });
-  </script>
+<script type='text/javascript'>
+  $(document).ready(function() { Search.run() });
+</script>
+
 <% end %>
