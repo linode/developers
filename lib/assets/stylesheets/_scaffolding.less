@@ -1,6 +1,11 @@
 html {
 	.dark-moar;
+	font-size: @font-size-base;
+	@media (min-width: @screen-lg-desktop) {
+		font-size: @font-size-base * 18/16;
+	}
 }
+
 
 body {
 	background-color: @pure-white; // trick osx into rendering the scrollbar correctly

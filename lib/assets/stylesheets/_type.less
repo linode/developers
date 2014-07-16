@@ -27,7 +27,7 @@
 @font-family-lead:			@font-family-sans-serif;
 
 @font-size-base:			16px;
-@font-size-large:			18px;
+@font-size-large:			@font-size-base * 1.125;
 // @font-size-small:			ceil(@font-size-base * 0.85); // ~12px
 
 // @line-height-base:			1.428571429; // 20/14
@@ -76,8 +76,9 @@ h6, .h6 {
 }
 
 p {
-	font-size: 17px;
 	font-weight: @font-weight-base;
+	font-size: 17px;
+	font-size: 1.08rem;
 	line-height: @line-height;
 	margin: 0 0 20px;
 }
@@ -203,10 +204,10 @@ cite {
 }
 
 blockquote {
-	font-size: 17px;
+	font-size: @font-size-base * 1.0625;
 
 	p, ul > li, * {
-		font-size: 17px;
+		font-size: @font-size-base * 1.0625;
 		font-weight: @font-weight-thin;
 	}
 }
@@ -223,6 +224,7 @@ blockquote {
 	.h1, .h2, .h3, .h4, .h5, .h6 {
 		word-wrap: break-word;
 		margin-top: 50px;
+		margin-top: 3.125rem;
 
 		+h1, +h2, +h3, +h4, +h5, +h6,
 		+.h1, +.h2, +.h3, +.h4, +.h5, +.h6 {
@@ -231,26 +233,32 @@ blockquote {
 	}
 
 	h1, .h1 {
-		font-size: 38px;
+		font-size: @font-size-large * 38/18;
+		font-size: 2.375rem;
 	}
 	h2, .h2 {
-		font-size: 33px;
-
+		font-size: @font-size-large * 33/18;
+		font-size: 2.0625rem;
 		// padding-bottom: 10px;
 		// border-bottom: 1px solid @border-light;
 	}
 	h3, .h3 {
-		margin-top: 40px;
-		font-size: 28px;
+		margin-top: @font-size-large * 40/18;
+		margin-top: 2.5rem;
+		font-size: @font-size-large * 28/18;
+		font-size: 1.75rem;
 	}
 	h4, .h4 {
-		font-size: 23px;
+		font-size: @font-size-large * 23/18;
+		font-size: 1.4375rem;
 	}
 	h5, .h5 {
-		font-size: 20px;
+		font-size: @font-size-large * 20/18;
+		font-size: 1.25rem;
 	}
 	h6, .h6 {
-		font-size: 18px;
+		font-size: @font-size-large;
+		font-size: 1.125rem;
 	}
 
 	p {
