@@ -2,9 +2,11 @@
   <h6><a href="{{link}}">{{#if pagemap.article.0.name}}{{pagemap.article.0.name}}
     {{else}}{{title}}{{/if}}</a></h6>
 
-  {{#if pagemap.person }}
-    <strong class="small">by {{pagemap.person.0.name}} &middot;
-      published {{formatDate pagemap.article.0.datepublished}}</strong>
+  {{#if pagemap.person}}
+    <strong class="small">by {{pagemap.person.0.name}}
+    {{#if pagemap.article.0.datepublished}}
+      &middot; published {{formatDate pagemap.article.0.datepublished}}</strong>
+    {{/if}}
   {{/if}}
 
   {{#if pagemap.metatags.0.og:description}}
