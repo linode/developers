@@ -48,3 +48,11 @@
 		color: @link-color-hover;
 	}
 }
+
+// ---------
+
+.font-smoothing(@smoothing) when (@smoothing=antialiased) {
+       font-smoothing: @smoothing;
+       -webkit-font-smoothing: @smoothing;
+       -moz-osx-font-smoothing: grayscale;
+}

@@ -128,7 +128,17 @@ div.library-tile {
 	}
 }
 
+body>.white {
+	.container {
+		@media screen and (min-width: @screen-lg-desktop) {
+			max-width: @container-lg-desktop;
+		}
+	}
+}
+
 #article-body {
+	.font-smoothing(antialiased);
+	color:  rgb(51,51,51);
 	.doc;
 	padding-left: 20px;
 
@@ -136,6 +146,11 @@ div.library-tile {
 
 	#doc-title {
 		margin-top: 0;
+	}
+	.container {
+		@media screen and (min-width: @screen-lg-desktop) {
+			max-width: @container-lg-desktop;
+		}
 	}
 }
 
