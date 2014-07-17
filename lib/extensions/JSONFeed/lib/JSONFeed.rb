@@ -35,7 +35,7 @@ class JSONFeed < Middleman::Extension
         tile['children'] = recurse_tree(t.first)
       end
       tile
-    end
+    end.reject { |t| t.nil? }
 
     result = {
       last_modified: Time.now.to_i,
