@@ -25,7 +25,6 @@
 #{ partial 'deprecated' }
 #{File.read(current_page.source_file).gsub(/\A---\n(?:[[:print:]]+\s)+/m, '')}
 #{ partial 'more' }
-<p><small>Last edited by <span itemprop="editor">#{current_page.data.modified_by.name}</span> on <time itemprop="dateModified" datetime="#{Time.parse(current_page.data.modified).iso8601}">#{current_page.data.modified}</time>.</small></p>
 </div>
 <div id="doc-sidebar" class="col-sm-3 col-sm-pull-9 hidden-xs">
 <div>
