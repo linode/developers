@@ -27,7 +27,7 @@ class JSONFeed < Middleman::Extension
       next if t.first.data.deprecated
       type = (t.first.metadata[:options][:layout] == :categories_layout) ? 'category' : 'article'
       tile = {
-        relative_path: "/#{t.first.destination_path.gsub(/\/index\.html$/, '')}",
+        relative_path: "/#{t.first.destination_path.gsub(/\/index\.html$/, '')}?format=app",
         title: t.first.data.title,
         type: type,
       }
