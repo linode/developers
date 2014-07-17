@@ -24,9 +24,10 @@ class JSONFeed < Middleman::Extension
     end
 
     tiles = tile_resources.map do |t|
+      next if t.first.data.deprecated
       type = (t.first.metadata[:options][:layout] == :categories_layout) ? 'category' : 'article'
       tile = {
-        relative_path: "/#{t.first.destination_path.gsub(/\/index\.html$/, '')}",
+        relative_path: "/#{t.first.destination_path.gsub(/\/index\.html$/, '')}?format=app",
         title: t.first.data.title,
         type: type,
       }
@@ -53,6 +54,7 @@ class JSONFeed < Middleman::Extension
 
   def recurse_tree(parent, feed=[])
     parent.children.each do |c|
+      next if c.data.deprecated
       next unless c.data.title
       type = (c.metadata[:options][:layout] == :categories_layout) ? 'category' : 'article'
       nugget = {
