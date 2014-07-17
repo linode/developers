@@ -4,15 +4,24 @@
 
     <%= partial 'breadcrumb' %>
 
-    <div class="row">
-      <%= Kramdown::Document.new(<<-EOS
+    <div class="row" itemscope itemtype="http://schema.org/TechArticle">
+      <div class="col-sm-12">
+        <div class="row-content">
+          <div class="col-sm-12">
+
+            <p class="doc-time doc-modified-time"><small>
+              Updated <time itemprop="dateModified" datetime="#{Time.parse(current_page.data.modified).iso8601}"><%= current_page.data.published %></time>
+            </small></p>
+            <h1 id="doc-title" itemprop="headline"><%= current_page.data.title %></h1>
+          </div>
+        </div>
+
+        <div class="row">
+          <%= Kramdown::Document.new(<<-EOS
 {::options parse_block_html="true"/}
-<div id="article-body" class="col-sm-9 col-sm-push-3 doc" itemscope itemtype="http://schema.org/TechArticle">
-<h1 id="doc-title" itemprop="headline">#{current_page.data.title}</h1>
-<p><small>Published <time itemprop="datePublished" datetime="#{Time.parse(current_page.data.published).iso8601}">#{current_page.data.published}</time> by <span itemprop="author">#{current_page.data.author.name}</span>.
+<div id="article-body" class="col-sm-9 col-sm-push-3 doc">
+<p class="doc-time"><small>Published <time itemprop="datePublished" datetime="#{Time.parse(current_page.data.published).iso8601}">#{current_page.data.published}</time> by <span itemprop="author">#{current_page.data.author.name}</span>.</small></p>
 <a class="dsq-comment-count" href="#disqus_thread">Comments</a>
-</small>
-</p>
 #{ partial 'deprecated' }
 #{File.read(current_page.source_file).gsub(/\A---\n(?:[[:print:]]+\s)+/m, '')}
 #{ partial 'more' }
@@ -20,14 +29,17 @@
 </div>
 <div id="doc-sidebar" class="col-sm-3 col-sm-pull-9 hidden-xs">
 <div>
-<h3 id="doc-sidebar-title" class="h5">Sections</h3>
+<h3 id="doc-sidebar-title">In This Guide:</h3>
 * Table of Contents
 {:toc .sidebar .sidebar-library}
 </div>
 </div>
 EOS
-      ).to_html %>
-<div id="disqus_thread" class="col-sm-9 col-sm-push-3"></div>
+          ).to_html %>
+        </div>
+      </div>
+
+      <div id="disqus_thread" class="col-sm-9 col-sm-push-3"></div>
     </div>
 
   </div>
@@ -43,16 +55,15 @@ EOS
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
 
-	(function () {
-	    var s = document.createElement('script'); s.async = true;
-	    s.type = 'text/javascript';
-	    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-	    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-	}());
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    
 
 <div class="modal fade" id="img-modal" tabindex="-1" role="dialog" aria-labelledby="imageModal" aria-hidden="true">
   <div class="modal-dialog modal-full">
