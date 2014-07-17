@@ -27,7 +27,7 @@ class JSONFeed < Middleman::Extension
       next if t.first.data.deprecated
       type = (t.first.metadata[:options][:layout] == :categories_layout) ? 'category' : 'article'
       tile = {
-        relative_path: "/#{t.first.destination_path.gsub(/\/index\.html$/, '')}?format=app",
+        relative_path: "/#{t.first.destination_path.gsub(/\/index\.html$/, '')}",
         title: t.first.data.title,
         type: type,
       }
@@ -58,7 +58,7 @@ class JSONFeed < Middleman::Extension
       next unless c.data.title
       type = (c.metadata[:options][:layout] == :categories_layout) ? 'category' : 'article'
       nugget = {
-        relative_path: "/#{c.destination_path.gsub(/\/index\.html$/, '')}",
+        relative_path: "/#{c.destination_path.gsub(/\/index\.html$/, '')}?format=app",
         title: c.data.title,
         type: type,
       }
