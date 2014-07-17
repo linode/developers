@@ -9,7 +9,11 @@
     {{/if}}
   {{/if}}
 
-  {{#if pagemap.metatags.0.og:description}}
-    <p class="small">{{pagemap.metatags.0.og:description}}</p>
-  {{/if}}
+  <p class="small">
+    {{#if pagemap.metatags.0.og:description}}
+      {{pagemap.metatags.0.og:description}}
+      {{else}}
+        {{snippet}}
+    {{/if}}
+  </p>
 </div>
