@@ -4,12 +4,11 @@ page = current_page
 
 while page.parent
   page = page.parent
-  breadcrumb_pages.unshift page
+  breadcrumb_pages.unshift page if page.data.title
 end
 
 breadcrumb_last = breadcrumb_pages.pop
 %>
-
 
 <div class="row-content">
   <div class="col-sm-12">
@@ -21,3 +20,4 @@ breadcrumb_last = breadcrumb_pages.pop
     </ol>
   </div>
 </div>
+
