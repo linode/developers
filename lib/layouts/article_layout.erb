@@ -20,18 +20,18 @@
           <%= Kramdown::Document.new(<<-EOS
 {::options parse_block_html="true"/}
 <div id="article-body" class="col-sm-9 col-sm-push-3 doc">
-<p class="doc-time"><small>Published <time itemprop="datePublished" datetime="#{Time.parse(current_page.data.published).iso8601}">#{current_page.data.published}</time> by <span itemprop="author">#{current_page.data.author.name}</span>.</small></p>
-<a class="dsq-comment-count" href="#disqus_thread">Comments</a>
+<p class="doc-time"><small>Published <time itemprop="datePublished" datetime="#{Time.parse(current_page.data.published).iso8601}">#{current_page.data.published}</time> by <span itemprop="author">#{current_page.data.author.name}</span>. <a class="dsq-comment-count" href="#disqus_thread">Comments</a> </small></p>
 #{ partial 'deprecated' }
 #{File.read(current_page.source_file).gsub(/\A---\n(?:[[:print:]]+\s)+/m, '')}
 #{ partial 'more' }
 </div>
 <div id="doc-sidebar" class="col-sm-3 col-sm-pull-9 hidden-xs">
-<div>
+<div class="doc-sidebar-inner">
 <h3 id="doc-sidebar-title">In This Guide:</h3>
 * Table of Contents
 {:toc .sidebar .sidebar-library}
 </div>
+#{ partial 'github' }
 </div>
 EOS
           ).to_html %>
