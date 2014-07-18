@@ -1,0 +1,26 @@
+<%
+base_path = "source#{current_page.url}"
+uncategorized_articles = []
+
+# Uncategorized articles
+(current_page.data.featured || Dir.glob("#{base_path}*").reject {|f| File.directory? f or File.basename(f) == 'index.md' }).each do |article|
+  article_filename = File.basename(article, '.md')
+  article_contents = File.read "#{base_path}#{article_filename}.md"
+  url = "#{current_page.url}#{article_filename}".gsub(/index$/, '')
+
+  meta = YAML.load(article_contents).merge({ 'url' => url })
+  uncategorized_articles << meta unless meta['deprecated']
+end
+%>
+
+<% uncategorized_articles.each_slice(2) do |slice| %>
+  <div class="row">
+    <% slice.each do |article| %>
+      <div class="col-md-6 library-article-blurb">
+        <h4><a href="<%= article['url'] %>"><%= article['title'] %></a></h4>
+        <p><%= article['description'] %></p>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
