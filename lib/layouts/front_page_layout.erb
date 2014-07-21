@@ -1,9 +1,9 @@
 <% wrap_layout :layout do %>
-<section class="primary extra-space-top first-section">
+<section class="alt some-space first-section">
   <div class="container">
     <div class="row-content">
       <div class="col-sm-12">
-        <h1 class="h1 text-center"><%= current_page.data.title %></h1>
+        <h1 class="h1 text-center library-header"><%= current_page.data.title %></h1>
       </div>
     </div>
     <div id="search" class="row">
@@ -25,9 +25,9 @@
       <% if (tile_index + 1) % 3 == 1 %><div class="row-tiles"><% end %>
       <div class="col-sm-4">
         <a class="library-tile" href="/library/<%= tile['url'] %>">
-          <div class="library-tile">
-            <h2 class="h4"><%= tile['title'] %></h2>
-            <p><%= tile['description'] %></p>
+          <div class="library-tile text-center">
+            <% if tile['icon'] %><h2><i class="fa fa-<%= tile['icon'] %>"></i></h2><% end %>
+            <h2 class="tile-title"><%= tile['title'] %></h2>
           </div>
         </a>
       </div>

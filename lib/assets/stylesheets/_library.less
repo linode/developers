@@ -1,3 +1,8 @@
+h1.library-header {
+	// font-size: 4em;
+	// font-weight: 200;
+}
+
 @library-category-breakpoint: @screen-desktop;
 
 .library-article-blurb {
@@ -112,7 +117,6 @@
 }
 
 div.library-tile {
-	min-height: 200px;
 	background-color: @brand-neutral;
 	padding: @padding-standard;
 	margin-bottom: @padding-standard;
@@ -125,6 +129,16 @@ div.library-tile {
 	&.active {
 		background-color: @brand-subdued;
 		p { color: @text-on-white; }
+	}
+	@media screen and (min-width: @screen-tablet) {
+		min-height: 220px;
+	}
+	.tile-title {
+		.h6;
+
+		@media screen and (min-width: @screen-desktop) {
+			.h4;
+		}
 	}
 }
 
@@ -259,8 +273,11 @@ table.gsc-table-result > tbody > tr > td {
 
 .gsc-search-box-tools .gsc-search-box .gsc-input { padding-right: 0 !important; }
 
+div.gsc-input-box {
+	border-color: lighten(@jorts-blue, 10%);
+}
 div.gsc-input-box-focus {
-	border-color: darken(@border-light, 10%);
+	border-color: lighten(@jorts-blue, 10%);
 }
 
 div.gsc-input-box-hover,
