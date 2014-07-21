@@ -13,14 +13,24 @@ uncategorized_articles = []
 end
 %>
 
-<% uncategorized_articles.each_slice(2) do |slice| %>
-  <div class="row">
-    <% slice.each do |article| %>
-      <div class="col-md-6 library-article-blurb">
-        <h4><a href="<%= article['url'] %>"><%= article['title'] %></a></h4>
-        <p><%= article['description'] %></p>
+<% if !uncategorized_articles.empty? %>
+  <section class="neutral">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <% uncategorized_articles.each_slice(2) do |slice| %>
+            <div class="row">
+              <% slice.each do |article| %>
+                <div class="col-md-6 library-article-blurb">
+                  <h4><a href="<%= article['url'] %>"><%= article['title'] %></a></h4>
+                  <p><%= article['description'] %></p>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       </div>
-    <% end %>
-  </div>
+    </div>
+  </section>
 <% end %>
 
