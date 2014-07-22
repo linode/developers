@@ -78,13 +78,21 @@ h1.library-header {
 }
 
 .library-search-result {
-	margin-bottom: (@padding-standard * 1.5);
+	margin-bottom: (@padding-standard * 2.0);
 
 	&:last-child { margin-bottom: 0; }
 
 	small {
 		display: block;
 	}
+}
+
+.library-search-result-title {
+	.h4;
+}
+
+.library-search-result-desc {
+	color: @subdued-text-on-white;
 }
 
 #library-search-status {

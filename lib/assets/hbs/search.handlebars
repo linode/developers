@@ -1,15 +1,13 @@
 <div class="library-search-result">
-  <h6><a href="{{link}}">{{#if pagemap.article.0.name}}{{pagemap.article.0.name}}
-    {{else}}{{title}}{{/if}}</a></h6>
+  <h6 class="library-search-result-title">
+    <a href="{{link}}">{{#if pagemap.article.0.name}}{{pagemap.article.0.name}}{{else}}{{title}}{{/if}}</a>
+  </h6>
 
-  {{#if pagemap.person}}
-    <strong class="small">by {{pagemap.person.0.name}}
-    {{#if pagemap.article.0.datepublished}}
-      &middot; published {{formatDate pagemap.article.0.datepublished}}</strong>
-    {{/if}}
+  {{#if pagemap.article.0.datepublished}}
+    <strong class="small">Published {{formatDate pagemap.article.0.datepublished}}</strong>
   {{/if}}
 
-  <p class="small">
+  <p class="library-search-result-desc">
     {{#if pagemap.metatags.0.og:description}}
       {{pagemap.metatags.0.og:description}}
       {{else}}
