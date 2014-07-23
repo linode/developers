@@ -1,6 +1,6 @@
 <%
 require 'pathname'
-asset_prefix = '/library/'
+asset_prefix = '/docs/'
 matches = Pathname.new(current_page.source_file).realpath.to_s.match(/source\/(.*)\.md$/)
 
 canonical_url = "https://www.linode.com/#{matches[1].gsub(/index$/, '')}" unless matches.nil?
@@ -9,7 +9,13 @@ canonical_url = "https://www.linode.com/#{matches[1].gsub(/index$/, '')}" unless
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title><%= current_page.data.title || 'Linux VPS Guides and Technical Articles' %> - Linode Library</title>
+    <title>
+      <% if current_page.data.title && current_page.data.title != 'Guides & Tutorials' %>
+        <%= current_page.data.title %> - Linode Guides & Tutorials
+      <% else %>
+        Linode Guides & Tutorials
+      <% end %>
+    </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<%= current_page.data.description %>">
     <meta name="keywords" content="<%= current_page.data.keywords %>">

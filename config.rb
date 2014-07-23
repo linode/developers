@@ -33,7 +33,7 @@ activate :syntax, :line_numbers => true
 ready do
   sitemap.resources.select do |resource|
     if resource.path =~ /^(stylesheets|fonts|js|images)\//
-      proxy "library/#{resource.path}", resource.path
+      proxy "docs/#{resource.path}", resource.path
     end
   end
 end
@@ -55,7 +55,7 @@ configure :build do
   # activate :relative_assets
 
   # Or use a different image path
-  # set :http_prefix, "/library/"
+  # set :http_prefix, "/docs/"
 end
 
 configure :development do

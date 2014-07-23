@@ -17,10 +17,10 @@ class JSONFeed < Middleman::Extension
   end
 
   def generate_feed
-    root = app.sitemap.resources.find_all { |p| p.destination_path.match(/^library\/index\.html$/) }
+    root = app.sitemap.resources.find_all { |p| p.destination_path.match(/^docs\/index\.html$/) }
 
     tile_resources = root.first.data.tiles.map do |t|
-      app.sitemap.resources.find_all { |p| p.destination_path.match(/^library\/#{t.url}\/index\.html/) }
+      app.sitemap.resources.find_all { |p| p.destination_path.match(/^docs\/#{t.url}\/index\.html/) }
     end
 
     tiles = tile_resources.map do |t|
@@ -46,10 +46,10 @@ class JSONFeed < Middleman::Extension
         children: tiles,
       ]
     }
-    File.open('build/library/sitemap.json', 'w') { |f| f.write(result.to_json) }
+    File.open('build/docs/sitemap.json', 'w') { |f| f.write(result.to_json) }
 
-    @builder.say_status :create, 'build/library/sitemap.json'
-    return 'build/library/sitemap.json'
+    @builder.say_status :create, 'build/docs/sitemap.json'
+    return 'build/docs/sitemap.json'
   end
 
   def recurse_tree(parent, feed=[])
