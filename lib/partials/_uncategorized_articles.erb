@@ -4,8 +4,16 @@ uncategorized_articles = []
 
 # Uncategorized articles
 (current_page.data.featured || Dir.glob("#{base_path}*").reject {|f| File.directory? f or File.basename(f) == 'index.md' }).each do |article|
-  article_filename = File.basename(article, '.md')
-  article_contents = File.read "#{base_path}#{article_filename}.md"
+
+  if File.exists? File.join(base_path, article, 'index.md')
+    # featured directory
+    article_filename = File.join(article,'index')
+    article_contents = File.read File.join(base_path, "#{article_filename}.md")
+  else
+    article_filename = File.basename(article, '.md')
+    article_contents = File.read "#{base_path}#{article_filename}.md"
+  end
+
   url = "#{current_page.url}#{article_filename}".gsub(/index$/, '')
 
   meta = YAML.load(article_contents).merge({ 'url' => url })
