@@ -2,7 +2,7 @@ class Default
   option :confirm, :type => :boolean
   desc 'rss [files]', 'Add the specified articles to the RSS feed'
   def rss(*files)
-    @library_url = 'https://www.linode.com/library'.freeze
+    @library_url = 'https://www.linode.com/docs'.freeze
     @rss_url = 'rss.xml'.freeze
     rss_file = File.join 'source', @rss_url
     max_entries = 20
@@ -104,9 +104,9 @@ class Default
 
     xml.rss :version => '2.0', 'xmlns:atom' => 'http://www.w3.org/2005/Atom' do
       xml.channel do
-        xml.title 'The Linode Library'
+        xml.title 'Guides and Tutorials'
         xml.link @library_url
-        xml.description 'Linux VPS guides and technical documentation from the Linode Library'
+        xml.description 'Linux guides and technical documentation from Linode'
         xml.category 'Computers', :domain => 'http://www.dmoz.org'
         xml.language 'en-us'
         xml.lastBuildDate Time.now.rfc2822
@@ -116,7 +116,7 @@ class Default
 
         xml.image do
           xml.url File.join @library_url, 'images/rss/logo.png'
-          xml.title 'The Linode Library'
+          xml.title 'Guides and Tutorials'
           xml.link @library_url
         end
 
