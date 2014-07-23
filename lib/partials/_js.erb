@@ -94,7 +94,7 @@ $( "img[src^='\/library\/assets']" ).each(function () {
       var url = $(this).attr("href");
       if (e.currentTarget.host != window.location.host) {
         _gaq.push(['_trackEvent', 'Outbound Links', e.currentTarget.host, url, 0]);
-        if (e.metaKey || e.ctrlKey || e.which === 2) {
+        if (e.metaKey || e.ctrlKey || e.which === 2 || this.target!=='_self') {
           var newtab = true;
         }
         if (!newtab) {
