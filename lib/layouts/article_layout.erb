@@ -10,7 +10,7 @@
           <div class="col-sm-12">
 
             <p class="doc-time doc-modified-time"><small>
-              Updated <time itemprop="dateModified" datetime="#{Time.parse(current_page.data.modified).iso8601}"><%= current_page.data.published %></time>
+              Updated <time itemprop="dateModified" datetime="<%= Time.parse(current_page.data.modified).iso8601 %>"><%= current_page.data.published %></time>
             </small></p>
             <h1 id="doc-title" itemprop="headline"><%= current_page.data.title %></h1>
           </div>
