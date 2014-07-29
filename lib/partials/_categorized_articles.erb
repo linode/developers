@@ -42,8 +42,8 @@ end
       <% categories.each do |category| %>
         <div class="row-content">
           <div class="col-sm-12">
-            <h2 class="h3"><%= category[:title] %></h2>
-            <p><small><%= category[:description] %></small></p>
+            <h2 class="h3"><a href="<%= category[:url] %>"><%= category[:title] %></a></h2>
+            <p><%= category[:description] %></p>
             <ul class="list-group article-list">
               <% category[:articles].each_with_index do |article, index| %>
                 <li class="list-group-item library-article-item"><h3 class="h5"><a href="<%= article['url'] %>"><%= article['title'] %></a></h3></li>
