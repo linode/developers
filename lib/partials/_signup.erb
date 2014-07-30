@@ -2,5 +2,18 @@
   <i class="fa fa-cloud-upload"></i>
 
   <h6>Try this guide on a Linode!</h6>
-  <a href="https://manager.linode.com/signup" target="_blank">Create an account <span class="caret-right"></span></a>
+  <form markdown="0" action="https://manager.linode.com/session/signup_save" method="post">
+    <div class="form-group">
+      <input name="email" type="text" class="form-control input-sm" placeholder="Email address">
+    </div>
+    <div class="form-group">
+      <input name="username" type="text" class="form-control input-sm" placeholder="Username">
+    </div>
+    <div class="form-group">
+      <input name="password" type="password" class="form-control input-sm" placeholder="Password">
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-blue btn-sm btn-border">Create Account</button>
+    </div>
+  </form>
 </div>
