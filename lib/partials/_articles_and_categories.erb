@@ -1,6 +1,24 @@
 <%
 base_path = "source#{current_page.url}"
-categories = []
+categories, uncategorized_articles = [], []
+
+# Uncategorized articles
+(current_page.data.featured || Dir.glob("#{base_path}*").reject {|f| File.directory? f or File.basename(f) == 'index.md' }).each do |article|
+
+  if File.exists? File.join(base_path, article, 'index.md')
+    # featured directory
+    article_filename = File.join(article,'index')
+    article_contents = File.read File.join(base_path, "#{article_filename}.md")
+  else
+    article_filename = File.basename(article, '.md')
+    article_contents = File.read "#{base_path}#{article_filename}.md"
+  end
+
+  url = "#{current_page.url}#{article_filename}".gsub(/index$/, '')
+
+  meta = YAML.load(article_contents).merge({ 'url' => url })
+  uncategorized_articles << meta unless meta['deprecated']
+end
 
 # Categorized articles
 (current_page.data.categories || Dir.glob("#{base_path}*").select {|f| File.directory? f }).each do |category|
@@ -36,7 +54,28 @@ categories = []
 end
 %>
 
-<% if !categories.empty? %>
+<% unless uncategorized_articles.empty? %>
+  <section class="<% if categories.empty? %>primary<% else %>neutral<% end %>">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <% uncategorized_articles.each_slice(2) do |slice| %>
+            <div class="row">
+              <% slice.each do |article| %>
+                <div class="col-md-6 library-article-blurb">
+                  <h4><a href="<%= article['url'] %>"><%= article['title'] %></a></h4>
+                  <p><%= article['description'] %></p>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+<% end %>
+
+<% unless categories.empty? %>
   <section class="primary some-space">
     <div class="container">
       <% categories.each do |category| %>
