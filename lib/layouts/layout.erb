@@ -19,6 +19,7 @@ canonical_url = "https://www.linode.com/#{matches[1].gsub(/index$/, '')}" unless
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<%= current_page.data.description %>">
     <meta name="keywords" content="<%= current_page.data.keywords %>">
+    <% if current_page.data.no_index %><meta name="robots" content="noindex" /><% end %>
 
     <link href="<%= asset_prefix %>stylesheets/home.css" rel='stylesheet' type='text/css'>
     <link href="<%= asset_prefix %>stylesheets/syntax.css" rel='stylesheet' type='text/css'>
