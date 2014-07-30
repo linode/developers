@@ -43,6 +43,7 @@ canonical_url = "https://www.linode.com/#{matches[1].gsub(/index$/, '')}" unless
     <%= yield %>
 
     <footer>
+      <%= partial 'contribute_footer' %>
       <%= partial 'footer' %>
     </footer>
 
