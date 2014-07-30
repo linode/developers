@@ -2,9 +2,12 @@ activate :directory_indexes
 activate :alias
 
 require 'lib/extensions/library_alias'
+Dir['lib/pages/*.rb'].each { |f| require f }
 
 page '*', :layout => :article_layout
-page '*/index.html', :layout => :categories_layout
+page '*/index.html', :layout => :categories_layout do |app|
+  @scope = Docsmith::Pages.categories app.current_page
+end
 
 set :js_dir, 'js'
 set :font_dir, 'fonts'

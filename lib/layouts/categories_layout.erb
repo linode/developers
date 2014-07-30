@@ -14,7 +14,7 @@
   </div>
 </section>
 
-<%= partial 'uncategorized_articles' %>
-<%= partial 'categorized_articles' %>
+<%= partial 'uncategorized_articles', :locals => {:uncategorized_articles => @scope[:uncategorized_articles]} %>
+<%= partial 'categorized_articles', :locals => {:categories => @scope[:categories]} %>
 
 <% end %>

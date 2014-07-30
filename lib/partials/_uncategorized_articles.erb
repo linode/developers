@@ -1,32 +1,9 @@
-<%
-base_path = "source#{current_page.url}"
-uncategorized_articles = []
-
-# Uncategorized articles
-(current_page.data.featured || Dir.glob("#{base_path}*").reject {|f| File.directory? f or File.basename(f) == 'index.md' }).each do |article|
-
-  if File.exists? File.join(base_path, article, 'index.md')
-    # featured directory
-    article_filename = File.join(article,'index')
-    article_contents = File.read File.join(base_path, "#{article_filename}.md")
-  else
-    article_filename = File.basename(article, '.md')
-    article_contents = File.read "#{base_path}#{article_filename}.md"
-  end
-
-  url = "#{current_page.url}#{article_filename}".gsub(/index$/, '')
-
-  meta = YAML.load(article_contents).merge({ 'url' => url })
-  uncategorized_articles << meta unless meta['deprecated']
-end
-%>
-
-<% if !uncategorized_articles.empty? %>
+<% unless locals[:uncategorized_articles].empty? %>
   <section class="neutral">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <% uncategorized_articles.each_slice(2) do |slice| %>
+          <% locals[:uncategorized_articles].each_slice(2) do |slice| %>
             <div class="row">
               <% slice.each do |article| %>
                 <div class="col-md-6 library-article-blurb">
