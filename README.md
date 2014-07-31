@@ -112,6 +112,7 @@ Example:
 	external_resources:  # optional
 	 - '[some cool site](http://example.com/cool-site)'
 	 - '[another site](http://another.example.com)'
+	image: https://www.linode.com/docs/assets/some-image.png
 	---
 
 Notes:
@@ -119,6 +120,7 @@ Notes:
 * The `deprecated` key will prevent the guide from appearing on category pages, and it will add a banner to the guide itself that tells the reader that the guide is unmaintained. Instead of a boolean, you can also specify a link like this: `'[newer guide's title](https://linode.com/guides/some/newer/guide)'`, and the banner will also direct the reader to the newer version of the guide.
 * `external_resources` should be a list of Markdown links. If this is specified, a 'More Information' section will be added to the bottom of the article, and the links will be listed there.
 * `alias` should be a list of paths that should redirect to this article. For example, if I specify `example/redirect.html`, then https://linode.com/guides/example/redirect will redirect to this page.
+* `image` can be used to set the preferred thumbnail/social media image for an article. It is optional, and defaults to the Linode logo if another image is not provided. **It must be a full URL** and should point to something under the Linode domain.
 
 ### Callout sections
 
