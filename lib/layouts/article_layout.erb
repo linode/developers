@@ -20,6 +20,7 @@
 #{ partial 'deprecated' }
 #{File.read(current_page.source_file).gsub(/\A---\n(?:[[:print:]]+\s)+/m, '')}
 #{ partial 'more' }
+#{ partial 'license' }
 </div>
 <div id="doc-sidebar" class="col-sm-3 col-sm-pull-9 hidden-xs">
 <div class="doc-sidebar-inner">
@@ -36,7 +37,7 @@ EOS
       </div>
     </div>
   </div>
-</section>
+  </section>
 
 <div class="modal fade" id="img-modal" tabindex="-1" role="dialog" aria-labelledby="imageModal" aria-hidden="true">
   <div class="modal-dialog modal-full">
