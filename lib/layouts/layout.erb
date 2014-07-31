@@ -4,22 +4,27 @@ asset_prefix = '/docs/'
 matches = Pathname.new(current_page.source_file).realpath.to_s.match(/source\/(.*)\.md$/)
 
 canonical_url = "https://www.linode.com/#{matches[1].gsub(/index$/, '')}" unless matches.nil?
+default_title = 'Linode Guides & Tutorials'
+default_description = 'Guides and tutorials on the Linode platform, Linux basics, and software installation and configuration.'
+default_keywords = 'cloud hosting solutions, linux, linux guides, linux tutorials, lamp guides, lamp stack'
+default_image = 'https://www.linode.com/media/images/logos/diagonal/light/linode-logo_diagonal_light_small.png'
 %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>
-      <% if current_page.data.title && current_page.data.title != 'Guides & Tutorials' %>
-        <%= current_page.data.title %> - Linode Guides & Tutorials
-      <% else %>
-        Linode Guides & Tutorials
-      <% end %>
-    </title>
+    <title><%= (current_page.data.title && current_page.data.title != 'Guides & Tutorials') ? current_page.data.title + " - #{default_title}" : default_title %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="<%= current_page.data.description %>">
-    <meta name="keywords" content="<%= current_page.data.keywords %>">
+    <meta name="description" content="<%= current_page.data.description || default_description %>">
+    <meta name="keywords" content="<%= current_page.data.keywords || default_keywords %>">
     <% if current_page.data.no_index %><meta name="robots" content="noindex" /><% end %>
+
+    <meta property="og:title" content="<%= (current_page.data.title && current_page.data.title != default_title) ? current_page.data.title : default_title %>">
+    <meta property="og:type" content="<%= current_page.metadata[:options][:layout] == :article_layout ? 'article' : 'website' %>">
+    <meta property="og:url" content="<%= canonical_url %>">
+    <meta property="og:image" content="<%= current_page.data.image ? current_page.data.image : default_image %>">
+    <meta property="og:description" content="<%= current_page.data.description || default_description %>">
+    <meta property="og:site_name" content="<%= default_title %>">
 
     <link href="<%= asset_prefix %>stylesheets/home.css" rel='stylesheet' type='text/css'>
     <link href="<%= asset_prefix %>stylesheets/syntax.css" rel='stylesheet' type='text/css'>
