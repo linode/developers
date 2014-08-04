@@ -10,7 +10,7 @@ class Default
       system "git clone git@github.com:Linode/docs.git #{library_dir}"
     end
 
-    rss_dir = 'pages/rss'
+    rss_dir = 'pages/docs/rss'
     unless Dir.exists? rss_dir
       log 'Getting the latest RSS feed...'
       system "git clone git@github.com:Linode/docs-rss.git #{rss_dir}"

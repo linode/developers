@@ -6,8 +6,8 @@ class RSS < Thor
     @library_url = 'https://www.linode.com/docs/'
     @doc_url_prefix = 'https://www.linode.com'
     @rss_url = 'rss/index.xml'
-    @rss_file = File.join 'pages', @rss_url
-    @rss_dir = 'pages/rss'
+    @rss_file = File.join 'pages/docs', @rss_url
+    @rss_dir = 'pages/docs/rss'
     max_entries = 20
 
     # first pull latest
@@ -50,7 +50,7 @@ class RSS < Thor
 
   desc 'pull', 'Pull latest RSS feed'
   def pull
-    system "cd pages/rss; git pull --rebase origin master"
+    system "cd pages/docs/rss; git pull --rebase origin master"
   end
 
 
@@ -154,7 +154,7 @@ class RSS < Thor
 
   def push(new_items)
     msg = new_items.map { |item| item[:title] }.join ', '
-    system %(cd pages/rss; git commit -am "Add: #{msg}"; git push origin master)
+    system %(cd pages/docs/rss; git commit -am "Add: #{msg}"; git push origin master)
   end
 end
 

@@ -14,7 +14,7 @@
 /source
 
 # Ignore the RSS directory
-/pages/rss
+/pages/docs/rss
 
 # Ignore Sass' cache
 /.sass-cache

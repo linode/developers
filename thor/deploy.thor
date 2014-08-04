@@ -5,7 +5,7 @@ class Default
     system 'cd source && git pull git@github.com:Linode/docs.git master'
 
     log 'Getting RSS changes...'
-    system 'cd pages/rss; git pull --rebase origin master'
+    system 'cd pages/docs/rss; git pull --rebase origin master'
 
     log 'Building docs...'
     system 'bundle exec middleman build'
