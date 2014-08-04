@@ -53,6 +53,11 @@ class RSS < Thor
     system "cd pages/docs/rss; git pull --rebase origin master"
   end
 
+  desc 'show', 'Show the current RSS feed contents'
+  def show
+    say 'Current RSS file contents', :yellow
+    puts_rss existing_rss('pages/docs/rss/index.xml')
+  end
 
   private
   def new_rss(files)
@@ -77,12 +82,12 @@ class RSS < Thor
     new_items
   end
 
-  def existing_rss
+  def existing_rss(rss_file = @rss_file)
     require 'rss'
 
     items = []
-    if File.exists? @rss_file
-      ::RSS::Parser.parse(@rss_file).items.each do |item|
+    if File.exists? rss_file
+      ::RSS::Parser.parse(rss_file).items.each do |item|
         items << {
           :title => item.title,
           :link => item.link,
