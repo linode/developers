@@ -1,16 +1,22 @@
-class Default
+class RSS < Thor
   option :confirm, :type => :boolean
-  desc 'rss [files]', 'Add the specified articles to the RSS feed'
-  def rss(*files)
-    @library_url = 'https://www.linode.com/docs'.freeze
-    @rss_url = 'rss.xml'.freeze
-    rss_file = File.join 'source', @rss_url
+  desc 'add [files]', 'Add the specified articles to the RSS feed'
+  def add(*files)
+    @library_dir = '/opt/docsmith'
+    @library_url = 'https://www.linode.com/docs/'
+    @doc_url_prefix = 'https://www.linode.com'
+    @rss_url = 'rss/index.xml'
+    @rss_file = File.join 'pages', @rss_url
+    @rss_dir = 'pages/rss'
     max_entries = 20
+
+    # first pull latest
+    pull
 
     # if no files are specified, just read the current RSS feed
     if files.empty?
       say 'Current RSS file contents', :yellow
-      puts_rss existing_rss(rss_file)
+      puts_rss existing_rss
       exit
     end
 
@@ -24,7 +30,7 @@ class Default
 
     # load in existing rss feed if it exists
     begin
-      new_items.concat existing_rss(rss_file)
+      new_items.concat existing_rss
     rescue => e
       say "[ERROR] Something's wrong with the current RSS file. Try to fix it manually?", :red
       exit
@@ -35,11 +41,18 @@ class Default
 
     # write or preview
     if options[:confirm]
-      write_rss! new_items, rss_file
+      write_rss! new_items
+      push new_rss(files)
     else
       rss_dry_run new_items
     end
   end
+
+  desc 'pull', 'Pull latest RSS feed'
+  def pull
+    system "cd pages/rss; git pull --rebase origin master"
+  end
+
 
   private
   def new_rss(files)
@@ -49,7 +62,7 @@ class Default
     files.each do |file|
       meta = YAML.load File.read(file)
       article_path = file.match(/^source(.*)\.md$/)[1]
-      link = File.join(@library_url, article_path)
+      link = File.join(@doc_url_prefix, article_path)
 
       new_items << {
         :title => meta['title'],
@@ -64,12 +77,12 @@ class Default
     new_items
   end
 
-  def existing_rss(rss_file)
+  def existing_rss
     require 'rss'
 
     items = []
-    if File.exists? rss_file
-      RSS::Parser.parse(rss_file).items.each do |item|
+    if File.exists? @rss_file
+      ::RSS::Parser.parse(@rss_file).items.each do |item|
         items << {
           :title => item.title,
           :link => item.link,
@@ -79,6 +92,8 @@ class Default
           :guid => item.guid.content
         }
       end
+    else
+      say '[ERROR] RSS file does not currently exist', :red
     end
 
     items
@@ -93,10 +108,10 @@ class Default
   def rss_dry_run(new_items)
     say 'New RSS will be:', :yellow
     puts_rss new_items
-    say 'To write the file, rerun this command with --confirm', :yellow
+    say 'To write the file and push to GHE, rerun this command with --confirm', :yellow
   end
 
-  def write_rss!(new_items, rss_file)
+  def write_rss!(new_items)
     require 'builder'
 
     xml = Builder::XmlMarkup.new( :indent => 2 )
@@ -110,7 +125,7 @@ class Default
         xml.category 'Computers', :domain => 'http://www.dmoz.org'
         xml.language 'en-us'
         xml.lastBuildDate Time.now.rfc2822
-        xml.tag! 'atom:link', :rel => 'self', :type => 'application/rss+xml', :href => File.join(@library_url, @rss_url)
+        xml.tag! 'atom:link', :rel => 'self', :type => 'application/rss+xml', :href => 'https://linode.com/docs/rss'
         xml.docs 'http://www.rssboard.org/rss-specification'
         xml.copyright "Copyright © 2009-#{Date.today.year} Linode, LLC. All rights reserved."
 
@@ -134,6 +149,12 @@ class Default
     end
 
     # write
-    File.open(rss_file, 'w') { |f| f.write new_feed }
+    File.open(@rss_file, 'w') { |f| f.write new_feed }
+  end
+
+  def push(new_items)
+    msg = new_items.map { |item| item[:title] }.join ', '
+    system %(cd pages/rss; git commit -am "Add: #{msg}"; git push origin master)
   end
 end
+
