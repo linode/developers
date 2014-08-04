@@ -169,12 +169,14 @@ Assets (such as images) can be added to `source/assets` and referenced like: `as
 
 ## Generating RSS
 
-You can invoke the RSS generator by running the following command from the `docsmith` directory:
+You can invoke the RSS generator like so from the `docsmith` directory:
 
-	$ thor rss  # Show the current RSS file contents
-	$ thor rss source/guide.md source/another/guide.md  # Add new guides to the RSS feed
+	$ thor rss:show  # Show the current RSS file contents
+	$ thor rss:add source/guide.md source/another/guide.md  # Add new guides to the RSS feed
 
-This will add the specified guides to the RSS feed located in `source/rss.xml`. You can specify as many guides as you'd like. The script will also remove old entries from the file so that there are no more than 20 items total.
+`thor rss:add` will pull the latest RSS file from GitHub and then add the specified guides to the RSS feed located in `source/rss.xml`. You can specify as many guides as you'd like. The script will also remove old entries from the file so that there are no more than 20 items total. When you're satisfied, you can re-run the command with --confirm to write the file and push it to GitHub.
+
+After the file has been pushed to GitHub, it will go live the next time you run `thor publish`.
 
 ## Aliasing articles
 
