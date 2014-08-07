@@ -206,7 +206,9 @@ a while:
 
 	$ thor old -m 6
 
-This will show all articles that haven't been modified in over 6 months.
+This will show all articles that haven't been modified in over 6 months. It
+normally doesn't include deprecated articles, but you can add a `-d` if you want
+it to.
 
 # Development
 

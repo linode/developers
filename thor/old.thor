@@ -1,6 +1,7 @@
 class Default
   desc 'old -m [months]', 'List articles older than the specified number of months'
   option :m, :type => :numeric
+  option :d, :type => :boolean
   def old
     require 'yaml'
 
@@ -8,7 +9,9 @@ class Default
       begin
         article_meta = YAML.load File.read(article_path)
         date = Date.parse article_meta['modified']
-        puts "#{article_meta['title']} (#{date})" if date < Date.today << options[:m]
+        if !article_meta['deprecated'] || options[:d]
+          puts "#{article_meta['title']} (#{date})" if date < Date.today << options[:m]
+        end
       rescue
         next
       end
