@@ -1,4 +1,4 @@
 <h1 class="doc-title" itemprop="headline"><%= current_page.data.title %></h1>
 <p class="doc-time doc-modified-time">
-<small>Updated <time itemprop="dateModified" datetime="<%= Time.parse(current_page.data.modified).iso8601 %>"><%= current_page.data.published %></time> by <%= current_page.data.modified_by.name %></small>
+<small>Updated <time itemprop="dateModified" datetime="<%= Time.parse(current_page.data.modified).iso8601 %>"><%= current_page.data.modified %></time> by <%= current_page.data.modified_by.name %></small>
 </p>
