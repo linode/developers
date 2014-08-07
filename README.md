@@ -192,6 +192,13 @@ To publish changes, run:
 This will SSH into every library box, pull the latest library from GitHub, and
 build the site. You'll need to be keyed for the library boxes for this to work.
 
+If you want to build locally for testing purposes, you can do so like this:
+
+	$ bundle exec middleman build
+
+This optionally takes a --verbose flag as well. Piping the output of this
+command into `grep error` is a good way to spot broken files.
+
 # Development
 
 These notes are for those who wish to develop against docsmith itself, *not* for those who wish to edit the Library.
