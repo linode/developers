@@ -199,6 +199,15 @@ If you want to build locally for testing purposes, you can do so like this:
 This optionally takes a --verbose flag as well. Piping the output of this
 command into `grep error` is a good way to spot broken files.
 
+## Old article checker
+
+Run the following command to get a list of articles that haven't been edited in
+a while:
+
+	$ thor old -m 6
+
+This will show all articles that haven't been modified in over 6 months.
+
 # Development
 
 These notes are for those who wish to develop against docsmith itself, *not* for those who wish to edit the Library.
