@@ -130,6 +130,7 @@ class RSS < Thor
   end
 
   def write_rss!(new_items)
+    require 'bundler/setup'
     require 'builder'
 
     xml = Builder::XmlMarkup.new( :indent => 2 )
