@@ -14,9 +14,19 @@ h1.library-header {
 	padding-top: 30px;
 }
 
+.library-breadcrumb-search {
+	padding: 20px 15px 55px 15px;
+	@media screen and (min-width: @screen-tablet) {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
 .library-breadcrumb {
 	background-color: @pure-white;
-	padding: @padding-standard 0 60px 0;
+	padding: @padding-standard 0 0 0;
+
+	@media screen and (min-width: @screen-tablet) { padding: @padding-standard 0 60px 0; }
 
 	> li {
 
