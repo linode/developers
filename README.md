@@ -174,7 +174,7 @@ You can invoke the RSS generator like so from the `docsmith` directory:
 	$ thor rss:show  # Show the current RSS file contents
 	$ thor rss:add source/guide.md source/another/guide.md  # Add new guides to the RSS feed
 
-`thor rss:add` will pull the latest RSS file from GitHub and then add the specified guides to the RSS feed located in `source/rss.xml`. You can specify as many guides as you'd like. The script will also remove old entries from the file so that there are no more than 20 items total. When you're satisfied, you can re-run the command with --confirm to write the file and push it to GitHub.
+`thor rss:add` will pull the latest RSS file from GitHub and then add the specified guides to the RSS feed located in `pages/docs/rss/index.xml`. You can specify as many guides as you'd like. The script will also remove old entries from the file so that there are no more than 20 items total. When you're satisfied, you can re-run the command with --confirm to write the file and push it to GitHub.
 
 After the file has been pushed to GitHub, it will go live the next time you run `thor publish`.
 
