@@ -1,4 +1,14 @@
 <h1 class="doc-title" itemprop="headline"><%= current_page.data.title %></h1>
-<p class="doc-time doc-modified-time">
-<small>Updated <time itemprop="dateModified" datetime="<%= Time.parse(current_page.data.modified).iso8601 %>"><%= current_page.data.modified %></time> by <%= current_page.data.modified_by.name %></small>
+<p markdown="0" class="doc-time doc-modified-time">
+  <% if current_page.data.contributor %>
+    <small>Contributed by <a href="<%= current_page.data.contributor.link %>"><%= current_page.data.contributor.name %>
+    <% if current_page.data.contributor.link =~ /twitter\.com/ %>
+      <i class="fa fa-twitter"></i>
+    <% elsif current_page.data.contributor.link =~ /github\.com/ %>
+      <i class="fa fa-github"></i>
+    <% end %>
+    </a></small><br>
+  <% end %>
+  <small>Updated <time itemprop="dateModified" datetime="<%= Time.parse(current_page.data.modified).iso8601 %>"><%= current_page.data.modified %></time> by <%= current_page.data.modified_by.name %></small>
 </p>
+
