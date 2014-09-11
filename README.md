@@ -124,7 +124,7 @@ Notes:
 * `external_resources` should be a list of Markdown links. If this is specified, a 'More Information' section will be added to the bottom of the article, and the links will be listed there.
 * `alias` should be a list of paths that should redirect to this article. For example, if I specify `example/redirect.html`, then https://linode.com/guides/example/redirect will redirect to this page.
 * `image` can be used to set the preferred thumbnail/social media image for an article. It is optional, and defaults to the Linode logo if another image is not provided. **It must be a full URL** and should point to something under the Linode domain.
-* `contributor` is optional. If provided, it needs `name` and `link`, and will appear right below the title. If `link` is a link to a Twitter or Github account, an icon will be displayed as well.
+* `contributor` is optional. If provided, it needs `name` and optionally `link`, and will appear right below the title. If `link` is a link to a Twitter or Github account, an icon will be displayed as well.
 
 ### Callout sections
 
