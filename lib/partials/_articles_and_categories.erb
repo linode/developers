@@ -85,7 +85,7 @@ end
             <p><%= category[:description] %></p>
             <ul class="list-group article-list">
               <% category[:articles].each_with_index do |article, index| %>
-                <li class="list-group-item library-article-item"><h3 class="h5"><a href="<%= article['url'] %>"><%= article['title'] %></a></h3></li>
+                <li class="list-group-item library-article-item"><h3 class="h5"><a href="<%= article['url'] %>"><%= article['title'] %><% if article['has_video'] %>&nbsp;<i class="fa fa-youtube-play"></i><% end %></a></h3></li>
               <% end %>
             </ul>
           </div>
