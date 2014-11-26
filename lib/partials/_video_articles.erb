@@ -19,7 +19,7 @@ video_articles = []
   meta = YAML.load(article_contents).merge({ 'url' => url })
   video_articles << meta unless meta['deprecated']
   
-  video_articles.sort_by { |x| -x.published  }
+  video_articles.sort_by! { |x| Date.parse x['published']  }.reverse!
 end
 %>
 
