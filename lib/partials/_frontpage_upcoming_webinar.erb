@@ -1,5 +1,5 @@
 <% if current_page.data.upcoming_webinar.webinar_datetime %>
-  <% theDate = Date.parse current_page.data.upcoming_webinar.webinar_datetime %>
+  <% theDate = Date.parse(current_page.data.upcoming_webinar.webinar_datetime) %>
   <% theDate = theDate.strftime('%Y-%m-%d') %>
   <% nowDate = Date.today.to_s %>
   <% if nowDate <= theDate %>
