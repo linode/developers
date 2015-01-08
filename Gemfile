@@ -9,6 +9,7 @@ gem 'kramdown'
 gem 'therubyracer'
 
 gem 'builder', '~> 3.2.2'
+gem 'libv8', '~> 3.16.14.7'
 
 gem 'net-ssh', '~> 2.9.1'
 
