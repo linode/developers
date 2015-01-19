@@ -13,7 +13,6 @@ breadcrumb_last = breadcrumb_pages.pop
 <div class="row breadcrumb-row">
   <div class="col-sm-12">
     <ol class="breadcrumb library-breadcrumb">
-      <a href="https://www.linode.com/docs/rss"> <i class="fa fa-rss-square"></i></a>
       <% breadcrumb_pages.each do |page| %>
         <li><%= link_to page.data.title, page %></li>
       <% end %>
