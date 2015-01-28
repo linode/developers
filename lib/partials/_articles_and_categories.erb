@@ -25,7 +25,8 @@ end
 
   sub_category_dir = File.basename(category)
   sub_category_index = "#{base_path}#{sub_category_dir}/index.md"
-  category_title = sub_category_dir.capitalize
+  get_category_title = YAML.load(File.read(sub_category_index))
+  category_title = get_category_title["title"]
   category_meta = File.exists?(sub_category_index) ? YAML.load(File.read(sub_category_index)) : {}
 
   articles = []
