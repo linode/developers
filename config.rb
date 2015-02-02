@@ -60,5 +60,7 @@ end
 
 configure :development do
   require 'middleman-livereload'
+  config[:file_watcher_ignore] += [ /.git\// ]
   activate :livereload
 end
+
