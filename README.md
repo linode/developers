@@ -38,29 +38,29 @@ This will pull down the latest version of docsmith and any new dependencies it r
 
 ## Running a development server
 
-To edit/preview the Library's content, you'll want to run a docsmith development server. In the `docsmith` directory, run:
+To edit/preview the Guides & Tutorials' content, you'll want to run a docsmith development server. In the `docsmith` directory, run:
 
 	thor server
 
-This will start a Middleman development server on your local machine. Give Middleman a second to start up, then navigate to `http://0.0.0.0:4567/library/` (your local dev server) in your browser. Now, you can make changes to the Markdown files in the `source` directory and navigate to the corresponding page on your development server, and any changes you have made will be reflected. If you make more changes and refresh the page, the page will be automatically rebuilt, so your changes will be reflected immediately.
+This will start a Middleman development server on your local machine. Give Middleman a second to start up, then navigate to `http://0.0.0.0:4567/docs/` (your local dev server) in your browser. Now, you can make changes to the Markdown files in the `source` directory and navigate to the corresponding page on your development server, and any changes you have made will be reflected. If you make more changes and refresh the page, the page will be automatically rebuilt, so your changes will be reflected immediately.
 
 Notes:
 
 * To access a guide, you don't need to specify `.md` in the URL.
 
-# Editing the library
+# Editing the guides
 
-The library itself lives in the `source` folder. The articles are written in a superset of Markdown named kramdown. Please refer to [this guide](http://kramdown.gettalong.org/quickref.html) for an overview of its syntax.
+The guides live in the `source` folder. The articles are written in a superset of Markdown named kramdown. Please refer to [this guide](http://kramdown.gettalong.org/quickref.html) for an overview of its syntax.
 
 `source` is a git repo. Once we go live, you'll want remotes for both Github and GitHub. [This site](http://rogerdudler.github.io/git-guide/) is a great resource for understanding git workflows.
 
 ## Metadata
 
-Every Markdown file in the library contains metadata in a YAML section at the top of the file (surrounded by `---`). See [the YAML spec](http://www.yaml.org/spec/1.2/spec.html) to learn more about writing YAML, or better yet, just take a look at a library article for examples.
+Every Markdown file in the guides contains metadata in a YAML section at the top of the file (surrounded by `---`). See [the YAML spec](http://www.yaml.org/spec/1.2/spec.html) to learn more about writing YAML, or better yet, just take a look at an article for examples.
 
 ## The front page
 
-`source/index.md` is the front page of the library. In the `tiles` attribute of the page's metadata, you can specify an arbitrary number of tiles with a `title`, `description`, and `url` (see the file for examples).
+`source/index.md` is the front page of the guides. In the `tiles` attribute of the page's metadata, you can specify an arbitrary number of tiles with a `title`, `description`, and `url` (see the file for examples).
 
 ## Category pages
 
@@ -187,14 +187,14 @@ After the file has been pushed to GitHub, it will go live the next time you run 
 * If you want a URL to **redirect** to an article, you'll want to add an alias in the target article's [metadata](#metadata).
 * If you want the same article to appear in multiple locations, use relative symlinks.
 
-## Building the library
+## Building the docs
 
 To publish changes, run:
 
     $ thor publish
 
-This will SSH into every library box, pull the latest library from GitHub, and
-build the site. You'll need to be keyed for the library boxes for this to work.
+This will SSH into every docs box, pull the latest repo from git, and
+build the site. You'll need SSH access for this to work (Linode employees only).
 
 If you want to build locally for testing purposes, you can do so like this:
 
@@ -216,7 +216,7 @@ it to.
 
 # Development
 
-These notes are for those who wish to develop against docsmith itself, *not* for those who wish to edit the Library.
+These notes are for those who wish to develop against docsmith itself, *not* for those who wish to edit the guides.
 
 ## On virtual environments
 
@@ -246,7 +246,7 @@ To include a new gem, add the gem(s) to `Gemfile`, then `bundle install` to upda
 
 ## LESS
 
-[LESS](http://lesscss.org) is a CSS preprocessor that we use to generate styles for the Library. All LESS files are included in `lib/assets/stylesheets/` - make your changes there. Try not to mess with anything in the `bootstrap` directory.
+[LESS](http://lesscss.org) is a CSS preprocessor that we use to generate styles for the docs. All LESS files are included in `lib/assets/stylesheets/` - make your changes there. Try not to mess with anything in the `bootstrap` directory.
 
 After making changes, you'll need to rebuild your stylesheet. Run the following command:
 
