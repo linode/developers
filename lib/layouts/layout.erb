@@ -8,6 +8,8 @@ default_title = 'Linode Guides & Tutorials'
 default_description = 'Guides and tutorials on the Linode platform, Linux basics, and software installation and configuration.'
 default_keywords = 'cloud hosting solutions, linux, linux guides, linux tutorials, lamp guides, lamp stack'
 default_image = 'https://www.linode.com/media/images/logos/diagonal/light/linode-logo_diagonal_light_small.png'
+default_image_width = '101'
+default_image_height = '120'
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,10 +23,6 @@ default_image = 'https://www.linode.com/media/images/logos/diagonal/light/linode
 
     <% if current_page.data.twitter %>
         <% if current_page.data.twitter.card %><meta name="twitter:card" content="<%= current_page.data.twitter.card %>"><% end %>	
-        <% if current_page.data.twitter.image %>
-            <% if current_page.data.twitter.image.width %><meta name="twitter:image:width" content="<%= current_page.data.twitter.image.width %>"><% end %>	
-            <% if current_page.data.twitter.image.height %><meta name="twitter:image:height" content="<%= current_page.data.twitter.image.height %>"><% end %>
-        <% end %>
     <% end %>
     <meta name="twitter:site" content="@linode">
     <% if current_page.data.contributor %>
@@ -36,9 +34,21 @@ default_image = 'https://www.linode.com/media/images/logos/diagonal/light/linode
     <meta property="og:title" content="<%= (current_page.data.title && current_page.data.title != default_title) ? current_page.data.title : default_title %>">
     <meta property="og:type" content="<%= current_page.metadata[:options][:layout] == :article_layout ? 'article' : 'website' %>">
     <meta property="og:url" content="<%= canonical_url %>">
-    <meta property="og:image" content="<%= current_page.data.image ? current_page.data.image : default_image %>">
     <meta property="og:description" content="<%= current_page.data.description || default_description %>">
     <meta property="og:site_name" content="<%= default_title %>">
+    <% if current_page.data.image %>
+        <% if current_page.data.image.is_a? String %>
+            <meta property="og:image" content="<%= current_page.data.image %>">
+        <% else %>
+            <% if current_page.data.image.file %><meta name="og:image" content="<%= current_page.data.image.file %>"><% end %>
+            <% if current_page.data.image.width %><meta name="og:image:width" content="<%= current_page.data.image.width %>"><% end %>
+            <% if current_page.data.image.height %><meta name="og:image:height" content="<%= current_page.data.image.height %>"><% end %>
+        <% end %>
+	<% else %>
+        <meta property="og:image" content="<%= default_image %>">
+        <meta name="og:image:width" content="<%= default_image_width %>">
+        <meta name="og:image:height" content="<%= default_image_height %>">
+    <% end %>
 
     <link rel="alternate" type="application/rss+xml" title="RSS" href="https://www.linode.com/docs/rss" />
     <link href="<%= asset_prefix %>stylesheets/home.css" rel='stylesheet' type='text/css'>
