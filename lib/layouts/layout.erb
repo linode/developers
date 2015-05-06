@@ -42,14 +42,14 @@ default_image_height = '400'
         <% if current_page.data.image.is_a? String %>
             <meta property="og:image" content="<%= current_page.data.image %>">
         <% else %>
-            <% if current_page.data.image.file %><meta name="og:image" content="<%= current_page.data.image.file %>"><% end %>
-            <% if current_page.data.image.width %><meta name="og:image:width" content="<%= current_page.data.image.width %>"><% end %>
-            <% if current_page.data.image.height %><meta name="og:image:height" content="<%= current_page.data.image.height %>"><% end %>
+            <% if current_page.data.image.file %><meta property="og:image" content="<%= current_page.data.image.file %>"><% end %>
+            <% if current_page.data.image.width %><meta property="og:image:width" content="<%= current_page.data.image.width %>"><% end %>
+            <% if current_page.data.image.height %><meta property="og:image:height" content="<%= current_page.data.image.height %>"><% end %>
         <% end %>
 	<% else %>
         <meta property="og:image" content="<%= default_image %>">
-        <meta name="og:image:width" content="<%= default_image_width %>">
-        <meta name="og:image:height" content="<%= default_image_height %>">
+        <meta property="og:image:width" content="<%= default_image_width %>">
+        <meta property="og:image:height" content="<%= default_image_height %>">
     <% end %>
 
     <link rel="alternate" type="application/rss+xml" title="RSS" href="https://www.linode.com/docs/rss" />
