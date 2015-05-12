@@ -27,11 +27,6 @@ default_image_height = '120'
         <meta name="twitter:card" content="summary">
     <% end %>
     <meta name="twitter:site" content="@linode">
-    <% if current_page.data.contributor %>
-        <% if current_page.data.contributor.link =~ /twitter\.com/ %>
-            <meta name="twitter:creator" content="<%= current_page.data.contributor.link.sub("https://twitter.com/", "@") %>">
-        <% end %>
-    <% end %>
 
     <meta property="og:title" content="<%= (current_page.data.title && current_page.data.title != default_title) ? current_page.data.title : default_title %>">
     <meta property="og:type" content="<%= current_page.metadata[:options][:layout] == :article_layout ? 'article' : 'website' %>">
