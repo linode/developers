@@ -93,7 +93,7 @@ Sub-categories are directories within a category directory. They should also hav
 
 ### Metadata
 
-Example:
+Example 1:
 
 	---
 	author:
@@ -118,6 +118,28 @@ Example:
 		link: https://twitter.com/bokstuff # optional
 	---
 
+Example 2:
+
+	---
+	author:
+	  name: your name
+	  email: your-email@linode.com
+	description: 'A short description for the article. May appear on categories page'
+	keywords: 'comma,separated,keywords'
+	license: '[CC BY-ND 3.0](http://creativecommons.org/licenses/by-nd/3.0/us/)'
+	modified: Friday, April 4th, 2014
+	modified_by:
+	  name: your name
+	published: 'Wednesday, March 26th, 2014'
+	title: 'article title'
+	twitter:
+	  card: summary_large_image
+	image: 
+	  file: https://www.linode.com/docs/assets/some-image.png
+	  width: 280px
+	  height: 150px
+	---
+
 Notes:
 
 * The `deprecated` key will prevent the guide from appearing on category pages, and it will add a banner to the guide itself that tells the reader that the guide is unmaintained. Instead of a boolean, you can also specify a link like this: `'[newer guide's title](https://linode.com/guides/some/newer/guide)'`, and the banner will also direct the reader to the newer version of the guide.
@@ -125,6 +147,11 @@ Notes:
 * `alias` should be a list of paths that should redirect to this article. For example, if I specify `example/redirect.html`, then https://linode.com/guides/example/redirect will redirect to this page.
 * `image` can be used to set the preferred thumbnail/social media image for an article. It is optional, and defaults to the Linode logo if another image is not provided. **It must be a full URL** and should point to something under the Linode domain.
 * `contributor` is optional. If provided, it needs `name` and optionally `link`, and will appear right below the title. If `link` is a link to a Twitter or Github account, an icon will be displayed as well.
+ 
+Twitter & Other Social Notes:
+
+* Twitters cards are either summary (default) or summary_large_image.
+* Images can be handled like Example 1 or Example 2.  If you are going to nest tags into image, like Example 2, all 3 are required.  This is for social media websites like Twitter and Facebook.  Images **must be a full URL**.
 
 ### Callout sections
 
