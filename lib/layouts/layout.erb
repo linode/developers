@@ -21,13 +21,6 @@ default_image_height = '120'
     <meta name="keywords" content="<%= current_page.data.keywords || default_keywords %>">
     <% if current_page.data.no_index %><meta name="robots" content="noindex" /><% end %>
 
-    <% if current_page.data.twitter %>
-        <% if current_page.data.twitter.card %><meta name="twitter:card" content="<%= current_page.data.twitter.card %>"><% end %>
-    <% else %>
-        <meta name="twitter:card" content="summary">
-    <% end %>
-    <meta name="twitter:site" content="@linode">
-
     <meta property="og:title" content="<%= (current_page.data.title && current_page.data.title != default_title) ? current_page.data.title : default_title %>">
     <meta property="og:type" content="<%= current_page.metadata[:options][:layout] == :article_layout ? 'article' : 'website' %>">
     <meta property="og:url" content="<%= canonical_url %>">
@@ -46,6 +39,13 @@ default_image_height = '120'
         <meta property="og:image:width" content="<%= default_image_width %>">
         <meta property="og:image:height" content="<%= default_image_height %>">
     <% end %>
+
+    <% if current_page.data.twitter %>
+        <% if current_page.data.twitter.card %><meta name="twitter:card" content="<%= current_page.data.twitter.card %>"><% end %>
+    <% else %>
+        <meta name="twitter:card" content="summary">
+    <% end %>
+    <meta name="twitter:site" content="@linode">
 
     <link rel="alternate" type="application/rss+xml" title="RSS" href="https://www.linode.com/docs/rss" />
     <link href="<%= asset_prefix %>stylesheets/home.css" rel='stylesheet' type='text/css'>
