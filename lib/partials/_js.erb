@@ -96,7 +96,7 @@ $( "img[src^='\/docs\/assets']" ).each(function () {
   <script type="text/javascript">
     $("a").on('click',function(e){
       var url = $(this).attr("href");
-	  $(".link-offsite :link, .link-offsite:link, [href^='/docs/assets/']:link").attr('target','_blank');
+	 // $(".link-offsite :link, .link-offsite:link, [href^='/docs/assets/']:link").attr('target','_blank');
       if (e.currentTarget.host != window.location.host) {
         _gaq.push(['_trackEvent', 'Outbound Links', e.currentTarget.host, url, 0]);
         if (e.metaKey || e.ctrlKey || e.which === 2 || this.target!=='_self') {
@@ -108,6 +108,7 @@ $( "img[src^='\/docs\/assets']" ).each(function () {
         }
       }
     });
+	$(".link-offsite :link, .link-offsite:link, [href^='/docs/assets/']:link").attr('target','_blank');
   </script>
 </div>
 
