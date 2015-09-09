@@ -18,7 +18,6 @@ after_configuration do
   sprockets.append_path '../lib/assets/stylesheets'
   sprockets.import_asset 'home.css'
   sprockets.import_asset 'syntax.css'
-  sprockets.import_asset 'linode.css'
 
   all_js = Dir.glob 'lib/assets/js/*.js'
   all_js.each do |js|
