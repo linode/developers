@@ -50,27 +50,18 @@ p.lin-term {
 		max-height: 350px;
 		overflow: scroll;
 		line-height: 1.2em;
-		-webkit-user-select: none;
-		-moz-user-select: none;
-		-khtml-user-select: none;
-		user-select: none;
+		.user-select(none);
 	}
 
 	.term-line {
 		font-size: 16px;
-		-moz-user-select: none;
-		-khtml-user-select: none;
-		-webkit-user-select: none;
-		user-select: none;
+		.user-select(none);
 	}
 
 	.prompt {
 		margin-right: 10px;
 		color: #00FF00;
-		-webkit-user-select: none;
-		-moz-user-select: none;
-		-khtml-user-select: none;
-		user-select: none;
+		.user-select(none);
 	}
 
 	code {
@@ -80,9 +71,6 @@ p.lin-term {
 		color: #FFFFFF;
 		font-size: 16px !important;
 		white-space: normal;
-		-webkit-user-select: text;
-		-moz-user-select: text;
-		-khtml-user-select: text;
-		user-select: text;
+		.user-select(none);
 	}
 }
