@@ -5,7 +5,7 @@ class Default
     system 'git pull git@github.com:Linode/docsmith.git master'
 
     log 'Pulling the latest RSS...'
-    system 'pushd pages/docs/rss && git pull origin master && popd'
+    system 'git --git-dir=$(pwd)/pages/docs/rss/.git/ --work-tree=$(pwd)/pages/docs/rss/ pull origin master'
 
     log 'Updating dependencies...'
     system 'bundle install --deployment'
