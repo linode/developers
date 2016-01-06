@@ -4,7 +4,7 @@ asset_prefix = '/docs/'
 matches = Pathname.new(current_page.source_file).realpath.to_s.match(/source\/(.*)\.md$/)
 
 canonical_url = "https://www.linode.com/#{matches[1].gsub(/index$/, '')}" unless matches.nil?
-default_title = 'Linode'
+default_title = 'Linode Guides & Tutorials'
 default_description = 'Guides and tutorials on the Linode platform, Linux basics, and software installation and configuration.'
 default_keywords = 'cloud hosting solutions, linux, linux guides, linux tutorials, lamp guides, lamp stack'
 default_image = 'https://www.linode.com/docs/images/linode_logo_120x120.png'
