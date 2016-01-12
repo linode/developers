@@ -15,7 +15,7 @@ default_image_height = '120'
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title><%= (current_page.data.title && current_page.data.title != '') ? "#{current_page.data.title}" : default_title %></title>
+    <title><%= current_page.data.title || default_title %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<%= current_page.data.description || default_description %>">
     <meta name="keywords" content="<%= current_page.data.keywords || default_keywords %>">
