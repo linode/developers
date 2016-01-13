@@ -6,19 +6,23 @@ class Default
   def blame
     require 'yaml'
 
+    results = Array.new
+
     Dir['source/docs/**/*.md'].each do |article_path|
       begin
         article_meta = YAML.load File.read(article_path)
         date = Date.parse article_meta['published']
         author = article_meta['author']['name']
         if !article_meta['deprecated'] || options[:d]
-        if date >= Date.today << options[:m] && author == options[:a]
-          puts "(#{date}) - #{author} - #{article_meta['title']}"
-        end
+            if date >= Date.today << options[:m] && author == options[:a]
+              results << "#{date}, #{author}, #{article_meta['title']}"
+            end
         end
       rescue
         next
       end
     end
+
+    puts results.sort
   end
 end
