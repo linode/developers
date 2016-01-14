@@ -9,12 +9,19 @@ gem 'kramdown'
 gem 'therubyracer'
 
 gem 'builder', '~> 3.2.2'
-gem 'libv8', '~> 3.16.14.7'
-
 gem 'net-ssh', '~> 2.9.1'
 
-gem 'JSONFeed', path: 'lib/extensions/JSONFeed'
-gem 'PagesDirectory', path: 'lib/extensions/PagesDirectory'
+# Support Mac OS X 10.11
+gem 'eventmachine', '~> 1.0.9'
+gem 'json', '~> 1.8.3'
+gem 'libv8', '~> 3.16.14.13'
+
+# Custom gems
+path 'lib/extensions' do
+  gem 'JSONFeed'
+  gem 'PagesDirectory'
+end
+
 group :development do
   gem 'less'
   gem 'middleman-livereload', '~> 3.3.4'
