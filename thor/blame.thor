@@ -1,8 +1,9 @@
 class Default
-  desc 'old -m [months] -a [author] -d', 'List articles published within the specified date range from today, by the specified author. Use -d to include deprecated guides.'
-  option :m, :type => :numeric
-  option :d, :type => :boolean
-  option :a, :type => :string
+  desc 'blame', 'List articles published since -m MONTHS from today, by -a AUTHOR. Use -d to include deprecated guides.'
+  option :months, :aliases =>  :m , :required => true, :type => :numeric, :banner => 'MONTHS', :desc => 'How many MONTHS from today you wish to look at'
+  option :author, :aliases =>  :a , :required => true, :type => :string, :desc => 'The AUTHOR of the Docs you care about. Can be a partial match and is case-insensitive'
+  option :deprecated, :alias => :d, :type => :boolean, :desc => 'Should deprecated docs be included?, Default is no'
+
   def blame
     require 'yaml'
 
@@ -13,9 +14,12 @@ class Default
         article_meta = YAML.load File.read(article_path)
         date = Date.parse article_meta['published']
         author = article_meta['author']['name']
-        if !article_meta['deprecated'] || options[:d]
-            if date >= Date.today << options[:m] && author == options[:a]
-              results << "#{date}, #{author}, #{article_meta['title']}"
+
+        if !article_meta['deprecated'] || options[:deprecated]
+            if author =~ /#{options[:author]}/i
+                if date >= Date.today << options[:months]
+                  results << "#{date}, #{author}, #{article_meta['title']}"
+                end
             end
         end
       rescue
