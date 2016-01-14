@@ -12,7 +12,7 @@ class Default
         article_meta = YAML.load File.read(article_path)
         date = Date.parse article_meta['published']
         if !article_meta['deprecated'] || options[:d]
-          results << "#{date}, #{article_meta['title']} " if date >= Date.today << options[:m]
+          results << "#{date}, #{article_meta['author']['name']}, #{article_meta['title']}" if date >= Date.today << options[:m]
         end
       rescue
         next
