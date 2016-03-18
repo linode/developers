@@ -46,7 +46,7 @@ class Search < Thor
     Dir['source/docs/**/*.md'].each do |article_path|
       begin
         article_meta = YAML.load File.read(article_path)
-        date = Date.parse article_meta['published']
+        date = Date.parse article_meta['modified']
         author = article_meta['author']['name']
 
         if !article_meta['deprecated'] || options[:deprecated]
