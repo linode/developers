@@ -2,11 +2,12 @@
   github_path = current_page.path.sub /.html$/, '.md'
 %>
 
-<div class="library-github">
+<div class="library-github" markdown="0">
   <i class="fa fa-github"></i>
-
-  <h6>Contribute on GitHub</h6>
-
-  [View Project](https://github.com/linode/docs) | [View File](https://github.com/linode/docs/blob/master/<%= github_path %>) | [Edit File](https://github.com/linode/docs/edit/master/<%= github_path %>)
+  <strong>Contribute on GitHub</strong>
+  <p>
+    <a href="https://github.com/linode/docs">View Project</a> |
+    <a href="https://github.com/linode/docs/blob/master/<%= github_path %>">View Field</a> |
+    <a href="https://github.com/linode/docs/edit/master/<%= github_path %>">Edit File</a>
+  </p>
 </div>
-
