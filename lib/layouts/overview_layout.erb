@@ -1,0 +1,49 @@
+<% wrap_layout :layout do %>
+<section class="primary first-section">
+  <div class="container">
+
+    <%= partial 'breadcrumb' %>
+
+    <div class="row" itemscope itemtype="http://schema.org/TechArticle">
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-sm-9 col-sm-offset-3">
+
+          </div>
+        </div>
+
+        <div class="row">
+          <%= Kramdown::Document.new(<<-EOS
+{::options parse_block_html="true"/}
+<div id="article-body" class="col-sm-11 doc">
+#{ partial 'article_header' }
+#{ partial 'deprecated' }
+#{File.read(current_page.source_file).gsub(/\A---\n(?:[[:print:]]+\s)+/m, '')}
+#{ partial 'more' }
+#{ partial 'license' }
+</div>
+EOS
+          ).to_html %>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+<div class="modal fade" id="img-modal" tabindex="-1" role="dialog" aria-labelledby="imageModal" aria-hidden="true">
+  <div class="modal-dialog modal-full">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="img-modal-title" class="modal-title">Image Detail</h4>
+      </div>
+      <div class="modal-body">
+        <img id="img-modal-image" class="img-responsive">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-blue" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% end %>
