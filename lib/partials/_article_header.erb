@@ -1,5 +1,6 @@
 <h1 class="doc-title" itemprop="headline"><%= current_page.data.title %></h1>
 <p markdown="0" class="doc-time doc-modified-time">
+  <small class="updated">Updated <time itemprop="dateModified" datetime="<%= Time.parse(current_page.data.modified).iso8601 %>"><%= current_page.data.modified %></time> by <%= current_page.data.modified_by.name %></small>
   <% if current_page.data.contributor %>
     <small class="contributed-by">Contributed by
     <% if current_page.data.contributor.link %>
@@ -15,5 +16,4 @@
     <% end %>
     </small>
   <% end %>
-  <small class="updated">Updated <time itemprop="dateModified" datetime="<%= Time.parse(current_page.data.modified).iso8601 %>"><%= current_page.data.modified %></time> by <%= current_page.data.modified_by.name %></small>
 </p>
