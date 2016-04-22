@@ -198,6 +198,23 @@ You can create various types of callouts within an article like so:
 
 Assets (such as images) can be added to `source/assets` and referenced like: `assets/my-sweet-image.png`
 
+## Overview Pages
+
+Essentially an Article page without the sidebar.
+
+To use this layout, you must include a new metadata tag:
+
+### Metadata
+
+Example 1:
+
+	---
+	layout: overview_layout
+	---
+
+The rest of the metadata is the same as an Article page.
+
+
 ## Generating RSS
 
 You can invoke the RSS generator like so from the `docsmith` directory:
