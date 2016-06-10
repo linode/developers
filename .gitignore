@@ -25,3 +25,5 @@
 .cache
 
 vendor
+
+publish.config.json
