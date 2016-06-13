@@ -238,7 +238,7 @@ To publish changes, run:
     $ thor publish
 
 This will SSH into every docs box, pull the latest repo from git, and
-build the site. You'll need SSH access for this to work (Linode employees only).
+build the site. You'll need SSH access and a config file for this to work (Linode employees only).
 
 If you want to build locally for testing purposes, you can do so like this:
 
