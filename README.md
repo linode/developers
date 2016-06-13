@@ -15,7 +15,7 @@ sudo gem install thor
 ```
 sudo gem install bundler
 ```
-* An SSH key on GitHub. Check out [this page](https://github.com/settings/ssh) to add a key/get help doing so.
+* An SSH key on GitHub. Check out [this page](https://github.com/settings/keys) to add a key/get help doing so.
 
 ## Installation
 
@@ -52,7 +52,7 @@ Notes:
 
 The guides live in the `source` folder. The articles are written in a superset of Markdown named kramdown. Please refer to [this guide](http://kramdown.gettalong.org/quickref.html) for an overview of its syntax.
 
-`source` is a git repo. Once we go live, you'll want remotes for both Github and GitHub. [This site](http://rogerdudler.github.io/git-guide/) is a great resource for understanding git workflows.
+`source` is a git repo. Once we go live, you'll want remotes for Github. [This site](http://rogerdudler.github.io/git-guide/) is a great resource for understanding git workflows.
 
 ## Metadata
 
