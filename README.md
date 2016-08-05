@@ -4,6 +4,62 @@ docsmith
 A [Middleman](http://middlemanapp.com) static site generator for generating
 Linode's documentation site.
 
+# Installing on a VM with Vagrant
+
+This uses Vagrant and VirtualBox to install docsmith on a virtual machine.
+
+## Prerequisites
+
+Install git, VirtualBox, and Vagrant. Example for Debian/Ubuntu:
+
+```bash
+apt-get install git virtualbox vagrant
+```
+
+For macOS:
+
+```bash
+brew install vim
+brew cask install virtualbox
+brew cask install vagrant
+```
+
+## Download
+
+Clone the docsmith repository with git:
+
+```bash
+git clone https://github.com/Linode/docsmith.git
+cd docsmith
+```
+
+## Building the VM
+
+```bash
+vagrant up
+```
+
+This may take awhile. It will need to download Debian, create a new virtual
+machine, start it up, configure it with various software packages, and
+finally bring up docsmith.
+
+After it's finished (maybe 5+ minutes), visit <http://localhost:4567/> and you
+should see your very own local copy of the Linode docs site
+<https://www.linode.com/docs/>. You can now edit the guides in the `source`
+folder and as you make changes, docsmith will detect those changes and reload.
+
+## Running manually
+
+For working on layout or docsmith internals, kill the automatically run
+process and run it yourself so you can restart it as needed:
+
+```bash
+vagrant ssh
+sudo killall thor
+cd /vagrant/repos/docsmith
+thor server
+```
+
 # Local installation
 
 ## Prerequisites
@@ -73,62 +129,6 @@ rebuilt, so your changes will be reflected immediately.
 Notes:
 
 * To access a guide, you don't need to specify `.md` in the URL.
-
-# Installing on a virtual machine with Vagrant
-
-Vagrant environment for docsmith.
-
-## Prerequisites
-
-Install git, VirtualBox, and Vagrant. Example for Debian/Ubuntu:
-
-```bash
-apt-get install git virtualbox vagrant
-```
-
-For macOS:
-
-```bash
-brew install vim
-brew cask install virtualbox
-brew cask install vagrant
-```
-
-## Download
-
-Clone the docsmith repository with git:
-
-```bash
-git clone https://github.com/Linode/docsmith.git
-cd docsmith
-```
-
-## Building the VM
-
-```bash
-vagrant up
-```
-
-This may take awhile. It will need to download Debian, create a new virtual
-machine, start it up, configure it with various software packages, and
-finally bring up docsmith.
-
-After it's finished (maybe 5+ minutes), visit <http://localhost:4567/> and you
-should see your very own local copy of the Linode docs site
-<https://www.linode.com/docs/>. You can now edit the guides in the `source`
-folder and as you make changes, docsmith will detect those changes and reload.
-
-## Running manually
-
-For working on layout or docsmith internals, kill the automatically run
-process and run it yourself so you can restart it as needed:
-
-```bash
-vagrant ssh
-sudo killall thor
-cd /vagrant/repos/docsmith
-thor server
-```
 
 # Editing the guides
 
