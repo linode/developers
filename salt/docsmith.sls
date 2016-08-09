@@ -22,10 +22,4 @@ docsmith_thor_init:
   cmd.run:
     - name: thor init
     - cwd: /vagrant
-    - user: vagrant
-
-docsmith_run:
-  cmd.run:
-    - name: thor server > /dev/null 2>&1 &
-    - cwd: /vagrant
-    - user: vagrant
+    - runas: vagrant
