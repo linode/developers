@@ -19,7 +19,6 @@ apt-get install git virtualbox vagrant
 For macOS:
 
 ```bash
-brew install vim
 brew cask install virtualbox
 brew cask install vagrant
 ```
