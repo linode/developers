@@ -19,6 +19,11 @@ class JSONFeed < Middleman::Extension
   def generate_feed
     root = app.sitemap.resources.find_all { |p| p.destination_path.match(/^docs\/index\.html$/) }
 
+    if root.empty?
+      @builder.say_status :error, 'Unable to build sitemap.json'
+      return ''
+    end
+
     tile_resources = root.first.data.tiles.map do |t|
       app.sitemap.resources.find_all { |p| p.destination_path.match(/^docs\/#{t.url}\/index\.html/) }
     end
