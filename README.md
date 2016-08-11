@@ -54,8 +54,8 @@ process and run it yourself so you can restart it as needed:
 
 ```bash
 vagrant ssh
-sudo killall thor
-cd /vagrant/repos/docsmith
+sudo killall ruby2.1
+cd /vagrant
 thor server
 ```
 
