@@ -8,6 +8,10 @@ Linode's documentation site.
 
 This uses Vagrant and VirtualBox to install docsmith on a virtual machine.
 
+*Note: LiveReload doesn't work with the Vagrant option. You can run docsmith
+locally if you want your changes to appear automatically without refreshing
+the page.*
+
 ## Prerequisites
 
 Install git, VirtualBox, and Vagrant. Example for Debian/Ubuntu:
@@ -63,8 +67,11 @@ thor server
 
 ## Prerequisites
 
-* Ruby - 1.9.3 or higher definitely works. If you're running this on a Mac, you
-  should be fine
+This was most recently tested on macOS 10.11.6. Older versions may not work.
+Use the Vagrant option if you're running an older operating system or if you
+have problems with this.
+
+* Ruby - 1.9.3 or higher definitely works
 * Thor. You can install it with
 
 ```bash
