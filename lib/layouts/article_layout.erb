@@ -17,6 +17,7 @@
 {::options parse_block_html="true"/}
 <div id="article-body" class="col-sm-9 col-sm-push-3 doc">
 #{ partial 'article_header' }
+#{ partial 'signup' }
 #{ partial 'github' }
 #{ partial 'deprecated' }
 #{File.read(current_page.source_file).gsub(/\A---\n(?:[[:print:]]+\s)+/m, '')}
@@ -31,7 +32,7 @@
 {:toc .sidebar .sidebar-library}
 </div>
 #{ partial 'rss' }
-#{ partial 'signup' }
+#{ partial 'monthly_updates' }
 </div>
 EOS
           ).to_html %>
