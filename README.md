@@ -2,7 +2,7 @@ docsmith
 ========
 
 A [Middleman](http://middlemanapp.com) static site generator for generating
-Linode's documentation site.
+[Linode's documentation site](https://www.linode.com/docs).
 
 # Installing on a VM with Vagrant
 
