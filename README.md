@@ -71,6 +71,15 @@ This was most recently tested on macOS 10.11.6. Older versions may not work.
 Use the Vagrant option if you're running an older operating system or if you
 have problems with this.
 
+If you're using a Debian-based Linux distribution, you will need
+build-essential and ruby-dev. Install them with:
+
+```bash
+sudo apt-get install build-essential ruby-dev
+```
+
+All operating system will need the following:
+
 * Ruby - 1.9.3 or higher definitely works
 * Thor. You can install it with
 
