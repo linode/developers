@@ -75,13 +75,13 @@ If you're using a Debian-based Linux distribution, you will need
 build-essential and ruby-dev. Install them with:
 
 ```bash
-sudo apt-get install build-essential ruby-dev
+sudo apt-get install git build-essential ruby ruby-all-dev
 ```
 
-All operating system will need the following:
+All operating systems will need the following:
 
 * Ruby - 1.9.3 or higher definitely works
-* Thor. You can install it with
+* Thor - You can install it with:
 
 ```bash
 sudo gem install thor
