@@ -21,7 +21,7 @@ default_image_height = '120'
     <meta name="keywords" content="<%= current_page.data.keywords || default_keywords %>">
     <% if current_page.data.no_index %><meta name="robots" content="noindex" /><% end %>
 
-    <meta property="og:title" content="<%= current_page.data.title || default_title %>
+    <meta property="og:title" content="<%= current_page.data.title || default_title %>">
     <meta property="og:type" content="<%= current_page.metadata[:options][:layout] == :article_layout ? 'article' : 'website' %>">
     <meta property="og:url" content="<%= canonical_url %>">
     <meta property="og:description" content="<%= current_page.data.description || default_description %>">
