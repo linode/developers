@@ -413,7 +413,7 @@ Run the following command to get a list of articles that haven't been edited in
 a while:
 
 ```bash
-thor old -m 6
+thor search:old -m 6
 ```
 
 This will show all articles that haven't been modified in over 6 months. It
