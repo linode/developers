@@ -9,6 +9,7 @@ $script = <<SCRIPT
     sleep 1
     status=`curl -s -o /dev/null -I -w "%{http_code}" http://localhost:4567`
     if [ $status -eq 200 ]; then
+      echo "docsmith is running on http://$(hostname -I | cut -d' ' -f1):4567"
       exit 0
     fi
   done
