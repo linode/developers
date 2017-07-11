@@ -59,10 +59,39 @@ default_image_height = '120'
     <% end %>
 
     <link rel="shortcut icon" href="/favicon.ico">
+      
+    <style type="text/css">
+    .bftn-ribbon {
+        font-family: "Lato", sans-serif;
+        z-index: 9003;
+        position:absolute;
+        padding:0;
+        margin:0;
+        text-align:center;
+        white-space:nowrap;
+        overflow:hidden;
+        transform-origin:0 100%;
+        box-shadow:0 1px 6px 0 rgba(0,0,0,.12),0 1px 6px 0 rgba(0,0,0,.12);
+        background: rgba(255,0,38,.90);
+        color: white;
+        height:50px;
+        width:250px;
+        top:-50px;
+        transform:rotateZ(45deg);
+        padding-left:40px;
+        padding-right:50px;
+        line-height:50px;
+        right:-73.223304703363px;
+        -webkit-transform:rotateZ(45deg);
+        -moz-transform:rotateZ(45deg);
+        -o-transform:rotateZ(45deg);
+    }
+    </style>
   </head>
 
   <body class="no-subnav">
     <header>
+      <a href="https://www.battleforthenet.com/"><div class="bftn-ribbon hidden-sm hidden-md"><span>SAVE THE INTERNET!</span></div></a>
       <%= partial 'nav' %>
       <%= partial 'subnav' %>
     </header>
