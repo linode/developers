@@ -1,3 +1,25 @@
+## Instructions for Bjorn:
+
+Clone this repo. Create a folder `/source/` and inside the `/source/` clone our documentation into the source folder:
+
+`https://github.com/linode/docs.git` 
+
+In the Docsmith folder:
+
+`sudo gem install thor`
+`sudo gem install bundler`
+
+Now you should be able to run: 
+
+`thor update` followed by `thor server` to boot into the local server development environment.
+
+
+
+
+
+
+
+
 docsmith
 ========
 
