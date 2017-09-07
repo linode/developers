@@ -1,0 +1,3 @@
+[submodule "hugo/content_old"]
+	path = hugo/content_old
+	url = https://github.com/linode/docs.git
