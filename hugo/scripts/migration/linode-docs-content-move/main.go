@@ -81,9 +81,8 @@ func (m *mover) copyFile(path string, info os.FileInfo) error {
 	sourceFilename := path
 	targetFilename := m.targetFilename(sourceFilename)
 	targetDir := filepath.Dir(targetFilename)
-	perm := os.FileMode(0755)
 
-	err := os.MkdirAll(targetDir, perm)
+	err := os.MkdirAll(targetDir, os.FileMode(0755))
 	if err != nil {
 		return err
 	}
@@ -94,12 +93,15 @@ func (m *mover) copyFile(path string, info os.FileInfo) error {
 	}
 	defer in.Close()
 
-	out, err := os.OpenFile(targetFilename, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, perm)
+	out, err := os.OpenFile(targetFilename, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, info.Mode())
 	if err != nil {
 		return err
 	}
 	defer out.Close()
 
-	_, err = io.Copy(out, in)
-	return err
+	if _, err = io.Copy(out, in); err != nil {
+		return err
+	}
+
+	return nil
 }
