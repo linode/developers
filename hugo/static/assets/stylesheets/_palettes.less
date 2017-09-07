@@ -1,0 +1,437 @@
+.makePalette(@bg, @text) {
+	background-color: @bg;
+	color: @text;
+
+	.lead {
+		a {
+			font-weight: @font-weight-thin;
+		}
+	}
+
+	h1 > a,
+	h2 > a,
+	h3 > a,
+	h4 > a,
+	h5 > a,
+	h6 > a,
+	p > a,
+	em > a,
+	li > a,
+	td > a,
+	address > a,
+	.span > a {
+		&:hover, &:active {
+			text-decoration: none;
+		}
+
+		.transition(@transition-speed-base color);
+	}
+
+	.nav {
+		li > a {
+			text-decoration: none;
+		}
+	}
+
+	&.separated {
+		border-bottom-color: darken(@bg, 15%);
+	}
+}
+
+.makeLightPalette(@bg, @text) {
+	.makePalette(@bg, @text);
+
+	h1, .h1,
+	h2, .h2,
+	h3, .h3,
+	h4, .h4,
+	h5, .h5,
+	h6, .h6 {
+		color: @pure-black;
+	}
+
+	&.jumbotron {
+		h1, .h1 {
+			color: darken(@text, 25%);
+		}
+
+		h2, .h2,
+		h3, .h3,
+		h4, .h4,
+		h5, .h5,
+		h6, .h6 {
+			color: @text;
+		}
+	}
+
+	h1 > a,
+	h2 > a,
+	h3 > a,
+	h4 > a,
+	h5 > a,
+	h6 > a,
+	p > a,
+	em > a,
+	li > a,
+	td > a,
+	address > a,
+	.span > a {
+
+		.link-standard;
+
+		.glyphicon {
+			&.tile {
+				.transition-base;
+				color: @pure-black;
+				&:hover, &:active {
+					color: darken(@text, 15%);
+				}
+			}
+		}
+	}
+
+	.lead {
+		// color: @gray-dark;
+	}
+
+	ul.nav-sidebar > li {
+		&.active > a {
+			color: @pure-black;
+		}
+
+		&.header > a {
+			color: lighten(@gray, 5%);
+			font-weight: @font-weight-heavy;
+		}
+
+		> a {
+			color: lighten(@text, 10%);
+			transition: 0.1s all;
+
+			&:hover {
+				color: @pure-black;
+			}
+		}
+	}
+
+	ul.dropdown-menu > li > a {
+		&:link {
+			.transition(none);
+			text-decoration: none;
+		}
+		&:hover {
+			color: @dropdown-link-hover-color;
+		}
+	}
+
+	&.subnav {
+
+		opacity: 0.96;
+
+		.navbar-brand {
+			color: @pure-black;
+			@media screen and (min-width: @screen-tablet) {
+				// padding-bottom: 0px;
+			}
+
+			a {
+				text-decoration: none;
+				color: @pure-black;
+			}
+		}
+
+		li > a {
+			color: #aaa;
+
+			&.active {
+				color: @pure-black;
+			}
+
+			&:hover {
+				color: darken(@text, 10%);
+			}
+
+			@media screen and (min-width: @screen-tablet) {
+				// margin-top: 20px;
+				// padding-bottom: 0px;
+				// &.active, &:hover {
+				// 	padding-bottom: 5px;
+				// }
+
+				// &:hover {
+				// 	border-bottom: 2px solid @border-light;
+				// }
+
+				// &.active {
+				// 	border-bottom: 2px solid @pure-black;
+				// }
+			}
+		}
+
+		.navbar-toggle {
+			color: @pure-black;
+
+			&:hover {
+				background-color: transparent;
+			}
+		}
+
+		.navbar-collapse {
+			border-top-color: @border-light;
+		}
+
+		.subnav-divider {
+			border-bottom: 1px solid @border-light;
+		}
+	}
+
+	.sidebar {
+		strong { color: @pure-black; }
+		a strong {
+			color: @link-color;
+			.link-standard;
+		}
+	}
+
+	cite.bubble {
+		strong { color: darken(@text-on-white, 20%); }
+		a { .link-standard; }
+	}
+
+	blockquote {
+		color: @text-on-white;
+
+		p, ul > li, * {
+			color: @text-on-white;
+		}
+	}
+}
+
+.makeColoredPalette(@bg, @text) {
+	.makePalette(@bg, @text);
+
+	h1, .h1,
+	h2, .h2,
+	h3, .h3,
+	h4, .h4,
+	h5, .h5,
+	h6, .h6 {
+		color: @text;
+	}
+
+	h1 > a,
+	h2 > a,
+	h3 > a,
+	h4 > a,
+	h5 > a,
+	h6 > a,
+	p > a,
+	em > a,
+	li > a,
+	td > a,
+	address > a {
+		color: lighten(@text, 5%);
+		text-decoration: underline;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	&.subnav {
+		.navbar-brand {
+			color: @text;
+			a {
+				text-decoration: none;
+			}
+		}
+
+		li > a {
+			color: lighten(@bg, 28%);
+
+			&.active {
+				color: @text;
+			}
+
+			&:hover {
+				color: @text;
+			}
+		}
+
+		.navbar-toggle {
+			color: darken(@bg, 20%);
+
+			&:hover {
+				background-color: transparent;
+			}
+		}
+
+		.navbar-collapse {
+			border-top-color: darken(@bg, 20%);
+		}
+
+		.subnav-divider {
+			border-bottom: 1px solid @bg;
+		}
+	}
+
+	.form-control {
+		border: 0 !important;
+	}
+}
+
+// light palettes
+
+.white {
+	.makeLightPalette(@pure-white, @text-on-white);
+}
+
+.sand {
+	.makeLightPalette(@sandy-beige, lighten(@gray, 10%));
+}
+
+.light-gray {
+	.makeLightPalette(lighten(@gray-lighter, 2%), lighten(@gray, 10%));
+}
+
+.striped {
+	.makeLightPalette(#f8f8f8, @text-on-white);
+
+	background: url("/media/images/common/stripes.png");
+
+	h1, .h1,
+	h2, .h2,
+	h3, .h3,
+	h4, .h4,
+	h5, .h5,
+	h6, .h6 {
+		color: darken(@text-on-white, 15%);
+	}
+}
+
+.cubes {
+	.makeLightPalette(#f8f8f8, @text-on-white);
+
+	background: url("/media/images/common/cube_tile_lt_gray.png");
+
+	h1, .h1,
+	h2, .h2,
+	h3, .h3,
+	h4, .h4,
+	h5, .h5,
+	h6, .h6 {
+		color: darken(@text-on-white, 15%);
+	}
+}
+
+// colored palettes
+
+.green {
+	.makeColoredPalette(@green, @pure-white);
+}
+
+.dark-green {
+	.makeColoredPalette(@green-accent, @pure-white);
+}
+
+.blue {
+	.makeColoredPalette(@blue, @pure-white);
+}
+
+.dark-blue {
+	.makeColoredPalette(@blue-accent, @pure-white);
+}
+
+.light-blue {
+	.makeLightPalette(@blue-alt, @text-on-white);
+}
+
+.red {
+	.makeColoredPalette(desaturate(@dangerzone-red, 15%), @pure-white);
+}
+
+.purple {
+	.makeColoredPalette(@purple, @pure-white);
+}
+
+.dark-purple {
+	.makeColoredPalette(@purple-accent, @pure-white);
+}
+
+.light-purple {
+	.makeColoredPalette(@purple-alt, @pure-white);
+}
+
+// shades of black-ish
+
+.dark {
+	background-color: darken(@gray-darker, 5%);
+	color: darken(@gray-light, 20%);
+
+	a {
+		.transition-base;
+
+		color: lighten(@link-dark-color, 15%);
+
+		&:hover, &:active {
+			color: lighten(@link-dark-color-hover, 25%);
+			text-decoration: none;
+		}
+	}
+}
+
+.dark-moar {
+	.dark;
+	background-color: lighten(@pure-black, 4%);
+}
+
+.dark-less {
+	.dark;
+	background-color: @gray-darker;
+	color: @pure-white;
+}
+
+.charcoal {
+	.dark;
+	background-color: #353535;
+}
+
+.logo-bg-dark {
+	.makeColoredPalette(@brand-dark, @pure-white);
+}
+
+// semantic
+
+.hero {
+	.green;
+}
+
+.hero-accent {
+	.makeColoredPalette(@green-accent, @pure-white);
+}
+
+.primary {
+	.white;
+}
+
+.alt {
+	.light-blue;
+}
+
+.bold {
+	.makeColoredPalette(@brand-dark, @pure-white);
+}
+
+.accent {
+	.makeColoredPalette(@blue-accent, @pure-white);
+}
+
+.neutral {
+	// .light-gray;
+	.makeLightPalette(@brand-neutral, @text-on-white);
+}
+
+.smart {
+	.makeColoredPalette(@jorts-blue, @pure-white);
+}
+

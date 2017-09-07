@@ -1,0 +1,97 @@
+<%
+base_path = "source#{current_page.url}"
+categories, uncategorized_articles = [], []
+
+# Uncategorized articles
+(current_page.data.featured || Dir.glob("#{base_path}*").reject {|f| File.directory? f or File.basename(f) == 'index.md' }).each do |article|
+
+  if File.exists? File.join(base_path, article, 'index.md')
+    # featured directory
+    article_filename = File.join(article,'index')
+    article_contents = File.read File.join(base_path, "#{article_filename}.md")
+  else
+    article_filename = File.basename(article, '.md')
+    article_contents = File.read "#{base_path}#{article_filename}.md"
+  end
+
+  url = "#{current_page.url}#{article_filename}".gsub(/index$/, '')
+
+  meta = YAML.load(article_contents).merge({ 'url' => url })
+  uncategorized_articles << meta unless meta['deprecated']
+end
+
+# Categorized articles
+(current_page.data.categories || Dir.glob("#{base_path}*").select {|f| File.directory? f }).each do |category|
+
+  sub_category_dir = File.basename(category)
+  sub_category_index = "#{base_path}#{sub_category_dir}/index.md"
+  category_meta = File.exists?(sub_category_index) ? YAML.load(File.read(sub_category_index)) : {}
+  category_title = category_meta.fetch('title', sub_category_dir.capitalize)
+
+  articles = []
+  (category_meta['featured'] || Dir.glob("#{base_path}#{sub_category_dir}/*.md")).each do |article|
+    article_filename = File.basename(article, '.md')
+    article_contents = File.read "#{base_path}#{sub_category_dir}/#{article_filename}.md"
+    url = "#{current_page.url}#{sub_category_dir}/#{article_filename}".gsub(/index$/, '')
+
+    if (yaml = YAML.load article_contents)
+      meta = yaml.merge({ 'url' => url })
+      unless article_filename == 'index'
+        articles << meta unless meta['deprecated']
+      else
+        category_title = meta['title'] if meta['title']
+      end
+    end
+  end
+
+  categories << {
+    :url => "#{current_page.url}#{sub_category_dir}/",
+    :title => category_title,
+    :articles => articles,
+    :sub_category_dir => sub_category_dir,
+    :description => category_meta['description']
+  } unless articles.empty?
+end
+%>
+
+<% unless uncategorized_articles.empty? %>
+  <section class="<% if categories.empty? %>primary<% else %>neutral<% end %>">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <% uncategorized_articles.each_slice(2) do |slice| %>
+            <div class="row">
+              <% slice.each do |article| %>
+                <div class="col-md-6 library-article-blurb">
+                  <h4><a href="<%= article['url'] %>"><%= article['title'] %></a></h4>
+                  <p><%= article['description'] %></p>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+<% end %>
+
+<% unless categories.empty? %>
+  <section class="primary some-space">
+    <div class="container">
+      <% categories.each do |category| %>
+        <div class="row-content">
+          <div class="col-sm-12">
+            <h2 class="h3"><a href="<%= category[:url] %>"><%= category[:title] %></a></h2>
+            <p><%= category[:description] %></p>
+            <ul class="list-group article-list">
+              <% category[:articles].each_with_index do |article, index| %>
+                <li class="list-group-item library-article-item"><h3 class="h5"><a href="<%= article['url'] %>"><%= article['title'] %><% if article['has_video'] %>&nbsp;<i class="fa fa-youtube-play"></i><% end %></a></h3></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </section>
+<% end %>
+

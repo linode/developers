@@ -1,0 +1,23 @@
+<%
+breadcrumb_pages = [current_page]
+page = current_page
+
+while page.parent
+  page = page.parent
+  breadcrumb_pages.unshift page if page.data.title
+end
+
+breadcrumb_last = breadcrumb_pages.pop
+%>
+
+<div class="row breadcrumb-row">
+  <div class="col-sm-12">
+    <ol class="breadcrumb library-breadcrumb">
+      <% breadcrumb_pages.each do |page| %>
+        <li><%= link_to page.data.title, page %></li>
+      <% end %>
+      <li class="active"><%= breadcrumb_last.data.title %></li>
+    </ol>
+  </div>
+</div>
+

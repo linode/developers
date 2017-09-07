@@ -1,0 +1,145 @@
+// colors:
+@file-color: @sandy-beige;
+@variable-color: lighten(@linode-green, 40%);
+@inline-code-color: @brand-subdued;
+
+// formatting for styles with :before
+
+.callout-title {
+	&:before {
+		.h6;
+		color: @pure-black;
+	}
+}
+
+.callout-text {
+	* {
+		font-size: @font-size-base;
+		font-weight: @font-weight-base;
+		line-height: @line-height;
+	}
+}
+
+.has-inner-before {
+	.callout-title;
+
+	&:before {
+		display: inline-block;
+		margin-bottom: 10px;
+	}
+}
+
+.has-outer-before {
+	.callout-title;
+	margin-top: 40px;
+
+	&:before {
+		position: relative;
+		display: block;
+		height: 0;
+		top: -40px;
+		left: -10.5px;
+	}
+}
+
+// generate standard callouts
+
+.make-callout(@background) {
+	.has-inner-before;
+	.callout-text;
+
+	padding: (@padding-standard / 2);
+
+	background-color: @background;
+	border-left: 4px solid darken(@background, 10%);
+
+	&:before { .h6; }
+}
+
+// standard callouts
+
+.note {
+	.make-callout(@brand-subdued);
+	&:before { content: "Note"; }
+	strong { font-weight: bold; }
+}
+
+.caution {
+	.make-callout(lighten(@dangerzone-red, 40%));
+	&:before { content: "Caution"; }
+	strong { font-weight: bold; }
+}
+
+.deprecated {
+	.make-callout(lighten(@orange, 25%));
+	&:before { content: "Deprecated"; }
+	strong { font-weight: bold; }
+}
+
+// has outer :before
+
+.output {
+	.has-outer-before;
+	background-color: lighten(@border-light, 7%);
+	&:before { content: "Output"; }
+}
+
+// generate inline blocks
+
+.make-inline-block(@color) {
+	background-color: @color;
+	border-width: 1px;
+	border-style: solid;
+	border-color: darken(@color, 10%) !important;
+}
+
+// inline blocks
+
+code { .make-inline-block(@inline-code-color); }
+.variable { .make-inline-block(@variable-color); }
+.file-name { .make-inline-block(@file-color); }
+
+// file
+
+.file {
+	dt {
+		margin-bottom: 5px;
+
+		color: @pure-black;
+		font-family: @font-family-monospace;
+
+		&:before {
+			.h6;
+			padding-right: 5px;
+			content: "File: ";
+		}
+	}
+	dd + dt { margin-top: 20px; }
+
+	dd pre {
+		// cheat for the sake of DRYness
+		.file-name;
+
+		&.lineno { background-color: darken(@file-color, 5%); }
+	}
+}
+
+.file-excerpt {
+	.file;
+	dt:before { content: "File excerpt: "; }
+}
+
+// .more-information {
+// 	.callout-text;
+
+// 	padding-left: 0;
+// 	border-left: 0;
+// 	&:before {
+// 		display: inline-block;
+// 		margin-bottom: 10px;
+
+// 		font-family: @font-family-base;
+// 		color: @text-on-white;
+// 		content: "You may wish to consult the following resources for additional information on this topic. While these are provided in the hope that they will be useful, please note that we cannot vouch for the accuracy or timeliness of externally hosted materials.";
+// 	}
+// }

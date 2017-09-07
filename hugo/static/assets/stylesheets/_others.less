@@ -1,0 +1,337 @@
+// dump whatever here
+
+.add-ons-log-in {
+	margin-top: 16px;
+}
+
+.docs-list {
+	list-style: none;
+	padding-left: 20px;
+
+	> li {
+		line-height: 30px;
+
+		.glyphicon {
+			.large;
+		}
+	}
+}
+
+#footer-copyright {
+	font-size: @nav-touch-size;
+	line-height: 39px;
+
+	@media screen and (min-width: @screen-tablet) {
+		padding: 0px 50px;
+		font-size: 14px;
+
+		line-height: 14px;
+	}
+
+	@media screen and (min-width: @screen-desktop) {
+		padding: 0px;
+	}
+}
+
+#footer-copyright .col {
+	@media screen and (min-width: @screen-tablet) {
+		width: 19.5%;
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
+
+.footer-col {
+	.make-sm-column(3);
+	@width: 130px;
+
+	> h5, > h5 > a {
+		@media screen and (min-width: @screen-tablet) {
+			width: @width;
+			margin: 0 auto;
+			font-size: 16px;
+		}
+
+		line-height: 25px;
+		color: white;
+	}
+
+	ul {
+		margin-bottom: @padding-standard !important;
+
+		@media screen and (min-width: @screen-tablet) {
+			width: @width;
+			margin: 0 auto;
+		}
+
+		padding-left: 0px;
+		line-height: 25px;
+		list-style: none;
+
+		> li {
+
+			padding: 7px 0;
+			font-size: @nav-touch-size;
+			white-space: nowrap;
+
+			&:first-child {
+				padding-top: 0;
+			}
+
+			&:last-child {
+				padding-bottom: 0;
+			}
+
+			> ul {
+				margin-top: (@padding-standard / 2) !important;
+				> li {
+					@media screen and (min-width: @screen-tablet) {
+						padding: 1px 0px;
+					}
+					padding: 7px 0px;
+				}
+			}
+
+			.fa {
+				font-size: 17px;
+			}
+
+
+			@media screen and (min-width: @screen-tablet) {
+				font-size: 14px;
+				padding: 0;
+			}
+		}
+	}
+}
+
+.kernels {
+
+}
+
+div.landing-tile {
+
+	padding: 30px;
+	margin: (@padding-standard / 2) 0;
+
+	background-color: @brand-neutral;
+
+	img {
+		width: 100%;
+		max-width: 300px;
+
+		@media screen and (min-width: @screen-tablet) {
+			width: 300px;
+		}
+	}
+
+	p.description {
+		margin-bottom: @padding-standard;
+
+		@media screen and (min-width: @screen-tablet) {
+			margin-bottom: 0;
+			min-height: 150px;
+		}
+
+		@media screen and (min-width: @screen-desktop) {
+			min-height: 120px;
+		}
+	}
+
+	p.cta {
+		.text-center;
+		margin-bottom: 0;
+	}
+
+	.btn {
+		.transition-base;
+	}
+}
+
+.legal {
+	font-weight: @font-weight-heavy;
+	> li {
+		padding: 10px 0px;
+		> p {
+			font-weight: @font-weight-base;
+		}
+		> ol > li {
+			padding: 5px 0px;
+			font-weight: @font-weight-base;
+		}
+	}
+
+	address {
+		font-weight: @font-weight-base;
+	}
+}
+
+img.logo-img {
+	max-height: 200px;
+}
+
+div.logo-tile {
+
+	min-height: 360px;
+
+	padding: 30px;
+	&.standard { padding: 61px 30px; }
+	margin: (@padding-standard / 2) 0;
+
+	.neutral;
+	&.dark { .bold; }
+
+	img {
+		display: block;
+		margin: 0 auto;
+	}
+
+	p {
+		margin-top: @padding-standard;
+		margin-bottom: 0;
+		text-align: center;
+	}
+}
+
+#main-nav {
+	z-index: (@zindex-navbar + 1);
+
+	span {
+		color: darken(@pure-white, 10%);
+	}
+}
+
+#navbar-logo {
+	@vertical-padding: ceil((@navbar-height - 45px) / 2);
+	padding: @vertical-padding 0px @vertical-padding 15px;
+	@media screen and (min-width: @screen-sm) {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+}
+
+.mobile-badge {
+	display: block;
+}
+
+.mobile-badge-apple {
+	margin-left: auto;
+	margin-right: 0px;
+}
+
+.mobile-badge-google {
+
+}
+
+#pre-footer {
+
+	padding: @padding-standard 0;
+	.dark-less;
+	.text-center;
+
+	font-family: @font-family-special;
+	font-size: 21px;
+	font-weight: @font-weight-thin;
+
+	span {
+		@media screen and (min-width: @screen-tablet) {
+			font-size: 24px;
+			line-height: 38px;
+		}
+
+		@media screen and (min-width: @screen-desktop) {
+			font-size: 30px;
+		}
+	}
+}
+
+.resumator-basic-widget {
+
+	@padding: @padding-standard;
+
+	.resumator-jobs-text {
+		> p {
+			margin-bottom: @padding-standard;
+		}
+		> p, li {
+			font-family: @font-family-base;
+			font-size: @font-size-base;
+			line-height: 1.6em;
+			color: @text-on-white;
+		}
+		strong {
+			color: darken(@text-on-white, 20%);
+		}
+	}
+
+	.resumator-job-title {
+
+		.h5;
+		color: @pure-black;
+
+		padding-top: @padding !important;
+
+		font-family: @font-family-special;
+		font-weight: @font-weight-base;
+
+		border-top-color: @border-light;
+	}
+
+	.resumator-job-view-details {
+		margin-bottom: @padding;
+	}
+
+	.resumator-job-link {
+		.link-standard;
+		margin-bottom: @padding !important;
+
+		font-size: 16px;
+	}
+
+	input[type="button"] {
+		.btn;
+		.btn-action;
+	}
+}
+
+.sidebar-modal-footer-close {
+	.text-center;
+	a {
+		display: block;
+	}
+}
+
+#sidebar-modal {
+	.modal-header * {
+		line-height: 20px;
+	}
+}
+
+// tracking voodoo
+.t {
+	display: none;
+}
+
+.toc-bar {
+	.text-center;
+
+	@media screen and (min-width: @screen-md) {
+		display: none;
+	}
+}
+
+#___gcse_0 { 
+	margin-top: 60px;
+}
+
+.h3 {
+	padding-top: 40px;
+}
+
+.row-content:first-of-type .h3:nth-child(1) {
+	padding-top: 0px;
+}
+
+#search-results {
+	margin-top: 40px;
+}

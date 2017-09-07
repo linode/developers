@@ -1,0 +1,25 @@
+<% if current_page.data.upcoming_webinar && current_page.data.upcoming_webinar.webinar_datetime %>
+  <% theDate = Date.parse(current_page.data.upcoming_webinar.webinar_datetime) %>
+  <% theDate = theDate.strftime('%Y-%m-%d') %>
+  <% nowDate = Date.today.to_s %>
+  <% if nowDate <= theDate %>
+	<hr />
+	  <div align="center">
+		  <p>Our Next Live Webinar:</p>
+		  <h3><%= current_page.data.upcoming_webinar.webinar_title %></h3>
+		  <%= current_page.data.upcoming_webinar.webinar_datetime %>
+		  <p></p>
+		  <p><small>
+			<%= current_page.data.upcoming_webinar.webinar_description %>
+		  </small></p>
+		  <p>
+		    <form action="<%= current_page.data.upcoming_webinar.webinar_registration_url %>" method="post" role="form">
+		      <span class="input-group-btn">
+		        <button type="submit" class="btn btn-blue">Register for the webinar</button>
+		      </span>
+		    </form>
+		  </p>
+	  </div>
+	<hr />
+  <% end %>
+<% end %>

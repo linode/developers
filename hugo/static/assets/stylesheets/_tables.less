@@ -1,0 +1,136 @@
+.table {
+	> thead {
+		> tr > th {
+			color: white;
+			font-family: @font-family-special;
+			padding: 17px 10px;
+			vertical-align: middle;
+			text-align: left;
+
+			color: @gray;
+			background-color: @pure-white;
+			border-bottom: 2px solid @brand-accent;
+
+			font-weight: 400;
+			font-size: 18px;
+		}
+	}
+
+	> tbody {
+		> tr {
+			@border: 1px solid #e7e6e6;
+
+			&:first-child {
+				border-top: none;
+			}
+			&:last-child {
+				border-bottom: @border;
+			}
+
+			> td {
+				background-color: @pure-white;
+
+				padding: 17px 10px;
+				vertical-align: middle;
+				text-align: left;
+
+				color: @text-on-white;
+
+				&:last-child {
+					border-right: none;
+				}
+
+				&.large {
+					font-size: 20px;
+					color: black;
+
+					small {
+						display: block;
+						font-size: 16px;
+						color: @text-on-white;
+					}
+				}
+			}
+		}
+	}
+}
+
+.table-responsive > .table > tbody > tr:last-child {
+	border-bottom-width: 0px;
+
+	@media screen and (min-width: @screen-tablet) {
+		border-bottom-width: 1px;
+	}
+}
+
+.table-shadow {
+	box-shadow: 0px 1px 1px 1px rgba(174, 174, 174, 0.2);
+}
+
+.table-pricing {
+	border: none;
+
+	> thead {
+		> tr > th {
+			border-top: none;
+		}
+
+		> tr > th {
+			text-align: center;
+			margin-right: 12px;
+		}
+	}
+
+	> tbody > tr > td {
+		text-align: center;
+		font-weight: @font-weight-thin;
+	}
+}
+
+.table-pricing-green {
+	.table-pricing;
+
+	> thead {
+		> tr > th {
+			background-color: lighten(@brand-action, 50%);
+			border-bottom: 2px solid @brand-action;
+		}
+	}
+}
+
+.table-pricing-neutral {
+	.table-pricing;
+
+	> thead {
+		> tr > th {
+			background-color: lighten(#8ab, 33%);
+			border-bottom: 2px solid #8ab;
+		}
+	}
+}
+
+.table-pricing-total {
+	> tbody {
+		> tr {
+			&:last-child {
+				> td {
+					font-family: @font-family-special;
+					color: @pure-black;
+					.small {
+						font-weight: 100;
+					}
+				}
+
+				font-size: 18px;
+				font-weight: 300;
+				border-bottom: none;
+
+				@media screen and (min-width: @screen-tablet) {
+					font-size: 22px;
+					font-weight: 300;
+					border-bottom: none;
+				}
+			}
+		}
+	}
+}
