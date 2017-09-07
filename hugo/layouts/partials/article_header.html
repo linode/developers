@@ -1,18 +1,18 @@
-<h1 class="doc-title" itemprop="headline">{{ .data.title }}</h1>
+<h1 class="doc-title" itemprop="headline">{{ .Params.title }}</h1>
 <p markdown="0" class="doc-time doc-modified-time">
-  <small class="updated">Updated <time itemprop="dateModified" datetime="{{ Time.parse(.data.modified).iso8601 }}">{{ .data.modified }}</time> by {{ .data.modified_by.name }}</small>
-  {{ if .data.contributor }}
+  <small class="updated">Updated <time itemprop="dateModified" datetime="{{ Time.parse(.Params.modified).iso8601 }}">{{ .Params.modified }}</time> by {{ .Params.modified_by.name }}</small>
+  {{ if .Params.contributor }}
     <small class="contributed-by">Contributed by
-    {{ if .data.contributor.link }}
-      <a href="{{ .data.contributor.link }}">{{ .data.contributor.name }}
-      {{ if .data.contributor.link =~ /twitter\.com/ }}
+    {{ if .Params.contributor.link }}
+      <a href="{{ .Params.contributor.link }}">{{ .Params.contributor.name }}
+      {{ if .Params.contributor.link =~ /twitter\.com/ }}
         <i class="fa fa-twitter"></i>
-      {{ elsif .data.contributor.link =~ /github\.com/ }}
+      {{ elsif .Params.contributor.link =~ /github\.com/ }}
         <i class="fa fa-github"></i>
       {{ end }}
     </a>
     {{ else }}
-      {{ .data.contributor.name }}
+      {{ .Params.contributor.name }}
     {{ end }}
     </small>
   {{ end }}

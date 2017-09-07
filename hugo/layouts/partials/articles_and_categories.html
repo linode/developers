@@ -3,7 +3,7 @@ base_path = "source#{.url}"
 categories, uncategorized_articles = [], []
 
 # Uncategorized articles
-(.data.featured || Dir.glob("#{base_path}*").reject {|f| File.directory? f or File.basename(f) == 'index.md' }).each do |article|
+(.Params.featured || Dir.glob("#{base_path}*").reject {|f| File.directory? f or File.basename(f) == 'index.md' }).each do |article|
 
   if File.exists? File.join(base_path, article, 'index.md')
     # featured directory
@@ -21,7 +21,7 @@ categories, uncategorized_articles = [], []
 end
 
 # Categorized articles
-(.data.categories || Dir.glob("#{base_path}*").select {|f| File.directory? f }).each do |category|
+(.Params.categories || Dir.glob("#{base_path}*").select {|f| File.directory? f }).each do |category|
 
   sub_category_dir = File.basename(category)
   sub_category_index = "#{base_path}#{sub_category_dir}/index.md"

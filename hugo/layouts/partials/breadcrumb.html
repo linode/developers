@@ -4,7 +4,7 @@ page = current_page
 
 while page.parent
   page = page.parent
-  breadcrumb_pages.unshift page if page.data.title
+  breadcrumb_pages.unshift page if page.Params.title
 end
 
 breadcrumb_last = breadcrumb_pages.pop
@@ -14,9 +14,9 @@ breadcrumb_last = breadcrumb_pages.pop
   <div class="col-sm-12">
     <ol class="breadcrumb library-breadcrumb">
       {{ breadcrumb_pages.each do |page| }}
-        <li>{{ link_to page.data.title, page }}</li>
+        <li>{{ link_to page.Params.title, page }}</li>
       {{ end }}
-      <li class="active">{{ breadcrumb_last.data.title }}</li>
+      <li class="active">{{ breadcrumb_last.Params.title }}</li>
     </ol>
   </div>
 </div>

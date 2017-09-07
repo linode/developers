@@ -1,19 +1,19 @@
-{{ if .data.upcoming_webinar && .data.upcoming_webinar.webinar_datetime }}
-  {{ theDate = Date.parse(.data.upcoming_webinar.webinar_datetime) }}
+{{ if .Params.upcoming_webinar && .Params.upcoming_webinar.webinar_datetime }}
+  {{ theDate = Date.parse(.Params.upcoming_webinar.webinar_datetime) }}
   {{ theDate = theDate.strftime('%Y-%m-%d') }}
   {{ nowDate = Date.today.to_s }}
   {{ if nowDate <= theDate }}
 	<hr />
 	  <div align="center">
 		  <p>Our Next Live Webinar:</p>
-		  <h3>{{ .data.upcoming_webinar.webinar_title }}</h3>
-		  {{ .data.upcoming_webinar.webinar_datetime }}
+		  <h3>{{ .Params.upcoming_webinar.webinar_title }}</h3>
+		  {{ .Params.upcoming_webinar.webinar_datetime }}
 		  <p></p>
 		  <p><small>
-			{{ .data.upcoming_webinar.webinar_description }}
+			{{ .Params.upcoming_webinar.webinar_description }}
 		  </small></p>
 		  <p>
-		    <form action="{{ .data.upcoming_webinar.webinar_registration_url }}" method="post" role="form">
+		    <form action="{{ .Params.upcoming_webinar.webinar_registration_url }}" method="post" role="form">
 		      <span class="input-group-btn">
 		        <button type="submit" class="btn btn-blue">Register for the webinar</button>
 		      </span>

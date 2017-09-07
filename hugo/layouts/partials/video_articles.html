@@ -3,7 +3,7 @@ base_path = "source#{.url}"
 video_articles = []
 
 # Tutorials articles
-(.data.featured || Dir.glob("#{base_path}*").reject {|f| File.directory? f or File.basename(f) == 'index.md' }).each do |article|
+(.Params.featured || Dir.glob("#{base_path}*").reject {|f| File.directory? f or File.basename(f) == 'index.md' }).each do |article|
 
   if File.exists? File.join(base_path, article, 'index.md')
     # featured directory

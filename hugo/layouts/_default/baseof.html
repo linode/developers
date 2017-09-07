@@ -1,35 +1,26 @@
 
-
-<%
-
-default_description = 'Guides and tutorials on the Linode platform, Linux basics, and software installation and configuration.'
-default_keywords = 'cloud hosting solutions, linux, linux guides, linux tutorials, lamp guides, lamp stack'
-default_image = 'https://www.linode.com/docs/images/linode_logo_120x120.png'
-default_image_width = '120'
-default_image_height = '120'
-%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <title>{{ .Title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{{ .data.description || default_description }}">
-    <meta name="keywords" content="{{ .data.keywords || default_keywords }}">
-    {{ if .data.no_index }}<meta name="robots" content="noindex" />{{ end }}
+    <meta name="description" content="{{ .Params.description || default_description }}">
+    <meta name="keywords" content="{{ .Params.keywords || default_keywords }}">
+    {{ if .Params.no_index }}<meta name="robots" content="noindex" />{{ end }}
 
-    <meta property="og:title" content="{{ .data.og_title || .data.title || default_title }}">
+    <meta property="og:title" content="{{ .Params.og_title || .Params.title || default_title }}">
     <meta property="og:type" content="{{ .metadata[:options][:layout] == :article_layout ? 'article' : 'website' }}">
     <meta property="og:url" content="{{ .Permalink }}">
-    <meta property="og:description" content="{{ .data.og_description || .data.description || default_description }}">
+    <meta property="og:description" content="{{ .Params.og_description | default .Param "description" }}">
     <meta property="og:site_name" content="{{ default_title }}">
-    {{ if .data.image }}
-        {{ if .data.image.is_a? String }}
-            <meta property="og:image" content="{{ .data.image }}">
+    {{ if .Params.image }}
+        {{ if not (index .Params.image.file)  }}
+            <meta property="og:image" content="{{ .Params.image }}">
         {{ else }}
-            {{ if .data.image.file }}<meta property="og:image" content="{{ .data.image.file }}">{{ end }}
-            {{ if .data.image.width }}<meta property="og:image:width" content="{{ .data.image.width }}">{{ end }}
-            {{ if .data.image.height }}<meta property="og:image:height" content="{{ .data.image.height }}">{{ end }}
+            {{ with .Params.image.file }}<meta property="og:image" content="{{ . }}">{{ end }}
+            {{ with .Params.image.width }}<meta property="og:image:width" content="{{ . }}">{{ end }}
+            {{ if .Params.image.height }}<meta property="og:image:height" content="{{ . }}">{{ end }}
         {{ end }}
 	{{ else }}
         <meta property="og:image" content="{{ default_image }}">
@@ -37,8 +28,8 @@ default_image_height = '120'
         <meta property="og:image:height" content="{{ default_image_height }}">
     {{ end }}
 
-    {{ if .data.twitter }}
-        {{ if .data.twitter.card }}<meta name="twitter:card" content="{{ .data.twitter.card }}">{{ end }}
+    {{ if .Params.twitter }}
+        {{ with .Params.twitter.card }}<meta name="twitter:card" content="{{ .}}">{{ end }}
     {{ else }}
         <meta name="twitter:card" content="summary">
     {{ end }}

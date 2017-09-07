@@ -16,7 +16,7 @@ var (
 	basic   = regexp.MustCompile(`<%=?\s*(.*?)\s*%>`)
 
 	replacements = strings.NewReplacer(
-		"current_page.", ".",
+		"current_page.data.", ".",
 	)
 )
 

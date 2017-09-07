@@ -3,7 +3,7 @@ BASE_PATH = "./source#{.url}"
 categories, uncategorized_articles = [], []
 
 # Uncategorized articles
-(.data.featured || Dir.glob("#{BASE_PATH}*").reject {|f| File.directory? f or File.basename(f) == "index.md" }).each do |article|
+(.Params.featured || Dir.glob("#{BASE_PATH}*").reject {|f| File.directory? f or File.basename(f) == "index.md" }).each do |article|
   article_filename = File.basename(article, '.md')
   File.open "#{BASE_PATH}#{article_filename}.md" do |f|
     url = "#{.url}#{article_filename}".gsub(/index$/, '')
@@ -13,7 +13,7 @@ categories, uncategorized_articles = [], []
 end
 
 # Categorized articles
-(.data.categories || Dir.glob("#{BASE_PATH}*").select {|f| File.directory? f }).each do |category|
+(.Params.categories || Dir.glob("#{BASE_PATH}*").select {|f| File.directory? f }).each do |category|
 
   sub_category_dir = File.basename(category)
 
