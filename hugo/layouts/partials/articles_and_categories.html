@@ -1,9 +1,9 @@
 <%
-base_path = "source#{current_page.url}"
+base_path = "source#{.url}"
 categories, uncategorized_articles = [], []
 
 # Uncategorized articles
-(current_page.data.featured || Dir.glob("#{base_path}*").reject {|f| File.directory? f or File.basename(f) == 'index.md' }).each do |article|
+(.data.featured || Dir.glob("#{base_path}*").reject {|f| File.directory? f or File.basename(f) == 'index.md' }).each do |article|
 
   if File.exists? File.join(base_path, article, 'index.md')
     # featured directory
@@ -14,14 +14,14 @@ categories, uncategorized_articles = [], []
     article_contents = File.read "#{base_path}#{article_filename}.md"
   end
 
-  url = "#{current_page.url}#{article_filename}".gsub(/index$/, '')
+  url = "#{.url}#{article_filename}".gsub(/index$/, '')
 
   meta = YAML.load(article_contents).merge({ 'url' => url })
   uncategorized_articles << meta unless meta['deprecated']
 end
 
 # Categorized articles
-(current_page.data.categories || Dir.glob("#{base_path}*").select {|f| File.directory? f }).each do |category|
+(.data.categories || Dir.glob("#{base_path}*").select {|f| File.directory? f }).each do |category|
 
   sub_category_dir = File.basename(category)
   sub_category_index = "#{base_path}#{sub_category_dir}/index.md"
@@ -32,7 +32,7 @@ end
   (category_meta['featured'] || Dir.glob("#{base_path}#{sub_category_dir}/*.md")).each do |article|
     article_filename = File.basename(article, '.md')
     article_contents = File.read "#{base_path}#{sub_category_dir}/#{article_filename}.md"
-    url = "#{current_page.url}#{sub_category_dir}/#{article_filename}".gsub(/index$/, '')
+    url = "#{.url}#{sub_category_dir}/#{article_filename}".gsub(/index$/, '')
 
     if (yaml = YAML.load article_contents)
       meta = yaml.merge({ 'url' => url })
@@ -45,7 +45,7 @@ end
   end
 
   categories << {
-    :url => "#{current_page.url}#{sub_category_dir}/",
+    :url => "#{.url}#{sub_category_dir}/",
     :title => category_title,
     :articles => articles,
     :sub_category_dir => sub_category_dir,
@@ -54,44 +54,44 @@ end
 end
 %>
 
-<% unless uncategorized_articles.empty? %>
-  <section class="<% if categories.empty? %>primary<% else %>neutral<% end %>">
+{{ unless uncategorized_articles.empty? }}
+  <section class="{{ if categories.empty? }}primary{{ else }}neutral{{ end }}">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <% uncategorized_articles.each_slice(2) do |slice| %>
+          {{ uncategorized_articles.each_slice(2) do |slice| }}
             <div class="row">
-              <% slice.each do |article| %>
+              {{ slice.each do |article| }}
                 <div class="col-md-6 library-article-blurb">
-                  <h4><a href="<%= article['url'] %>"><%= article['title'] %></a></h4>
-                  <p><%= article['description'] %></p>
+                  <h4><a href="{{ article['url'] }}">{{ article['title'] }}</a></h4>
+                  <p>{{ article['description'] }}</p>
                 </div>
-              <% end %>
+              {{ end }}
             </div>
-          <% end %>
+          {{ end }}
         </div>
       </div>
     </div>
   </section>
-<% end %>
+{{ end }}
 
-<% unless categories.empty? %>
+{{ unless categories.empty? }}
   <section class="primary some-space">
     <div class="container">
-      <% categories.each do |category| %>
+      {{ categories.each do |category| }}
         <div class="row-content">
           <div class="col-sm-12">
-            <h2 class="h3"><a href="<%= category[:url] %>"><%= category[:title] %></a></h2>
-            <p><%= category[:description] %></p>
+            <h2 class="h3"><a href="{{ category[:url] }}">{{ category[:title] }}</a></h2>
+            <p>{{ category[:description] }}</p>
             <ul class="list-group article-list">
-              <% category[:articles].each_with_index do |article, index| %>
-                <li class="list-group-item library-article-item"><h3 class="h5"><a href="<%= article['url'] %>"><%= article['title'] %><% if article['has_video'] %>&nbsp;<i class="fa fa-youtube-play"></i><% end %></a></h3></li>
-              <% end %>
+              {{ category[:articles].each_with_index do |article, index| }}
+                <li class="list-group-item library-article-item"><h3 class="h5"><a href="{{ article['url'] }}">{{ article['title'] }}{{ if article['has_video'] }}&nbsp;<i class="fa fa-youtube-play"></i>{{ end }}</a></h3></li>
+              {{ end }}
             </ul>
           </div>
         </div>
-      <% end %>
+      {{ end }}
     </div>
   </section>
-<% end %>
+{{ end }}
 

@@ -13,7 +13,7 @@ import (
 
 var (
 	partial = regexp.MustCompile(`<%= partial '(.*?)' %>`)
-	basic   = regexp.MustCompile(`<%=? (.*?) %>`)
+	basic   = regexp.MustCompile(`<%=?\s*(.*?)\s*%>`)
 
 	replacements = strings.NewReplacer(
 		"current_page.", ".",
