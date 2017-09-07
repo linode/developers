@@ -4,6 +4,6 @@ title = "Linode Guides & Tutorials"
 
 [params]
 description = "Guides and tutorials on the Linode platform, Linux basics, and software installation and configuration."
-keywords = [cloud hosting solutions, linux, linux guides, linux tutorials, lamp guides, lamp stack]
+keywords = ["cloud hosting solutions", "linux, linux guides", "linux tutorials", "lamp guides", "lamp stack"]
 default_image_width = 120
 default_image_height = 120
