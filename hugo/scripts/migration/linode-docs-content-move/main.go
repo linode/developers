@@ -42,9 +42,8 @@ func main() {
 
 func (m *mover) move() error {
 	fmt.Println("Move Content from", m.fromDir, "to", m.toDir)
-	count := 0
+
 	return filepath.Walk(m.fromDir, func(path string, info os.FileInfo, err error) error {
-		count++
 		// TODO(bep) symbolic links
 
 		if skipFiles[info.Name()] {
@@ -55,11 +54,7 @@ func (m *mover) move() error {
 			return nil
 		}
 
-		if count >= 100 {
-			return nil
-		}
-
-		if !info.IsDir() {
+		if info.Mode().IsRegular() {
 			// For now, just copy the file to destination.
 			return m.copyFile(path, info)
 
@@ -72,8 +67,14 @@ func (m *mover) move() error {
 
 func (m *mover) targetFilename(sourceFilename string) string {
 	// sourceFilename: /path/docs/some-path/file.md"
-	// We remove the "/docs" prefix
-	return filepath.Join(m.toDir, strings.TrimPrefix(sourceFilename, m.fromDir))
+
+	// Rules:
+	// * We remove the "/docs" prefix
+	// * Rename index.md to _index.md
+	filename := filepath.Join(m.toDir, strings.TrimPrefix(sourceFilename, m.fromDir))
+	filename = strings.Replace(filename, "index.md", "_index.md", 1)
+
+	return filename
 }
 
 func (m *mover) copyFile(path string, info os.FileInfo) error {
