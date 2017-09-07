@@ -1,0 +1,79 @@
+<%
+require 'pathname'
+asset_prefix = '/docs/'
+matches = Pathname.new(current_page.source_file).realpath.to_s.match(/source\/(.*)\.md$/)
+
+canonical_url = "https://www.linode.com/#{matches[1].gsub(/index$/, '')}" unless matches.nil?
+default_title = 'Linode Guides & Tutorials'
+default_description = 'Guides and tutorials on the Linode platform, Linux basics, and software installation and configuration.'
+default_keywords = 'cloud hosting solutions, linux, linux guides, linux tutorials, lamp guides, lamp stack'
+default_image = 'https://www.linode.com/docs/images/linode_logo_120x120.png'
+default_image_width = '120'
+default_image_height = '120'
+%>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title><%= current_page.data.title || default_title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="<%= current_page.data.description || default_description %>">
+    <meta name="keywords" content="<%= current_page.data.keywords || default_keywords %>">
+    <% if current_page.data.no_index %><meta name="robots" content="noindex" /><% end %>
+
+    <meta property="og:title" content="<%= current_page.data.og_title || current_page.data.title || default_title %>">
+    <meta property="og:type" content="<%= current_page.metadata[:options][:layout] == :article_layout ? 'article' : 'website' %>">
+    <meta property="og:url" content="<%= canonical_url %>">
+    <meta property="og:description" content="<%= current_page.data.og_description || current_page.data.description || default_description %>">
+    <meta property="og:site_name" content="<%= default_title %>">
+    <% if current_page.data.image %>
+        <% if current_page.data.image.is_a? String %>
+            <meta property="og:image" content="<%= current_page.data.image %>">
+        <% else %>
+            <% if current_page.data.image.file %><meta property="og:image" content="<%= current_page.data.image.file %>"><% end %>
+            <% if current_page.data.image.width %><meta property="og:image:width" content="<%= current_page.data.image.width %>"><% end %>
+            <% if current_page.data.image.height %><meta property="og:image:height" content="<%= current_page.data.image.height %>"><% end %>
+        <% end %>
+	<% else %>
+        <meta property="og:image" content="<%= default_image %>">
+        <meta property="og:image:width" content="<%= default_image_width %>">
+        <meta property="og:image:height" content="<%= default_image_height %>">
+    <% end %>
+
+    <% if current_page.data.twitter %>
+        <% if current_page.data.twitter.card %><meta name="twitter:card" content="<%= current_page.data.twitter.card %>"><% end %>
+    <% else %>
+        <meta name="twitter:card" content="summary">
+    <% end %>
+    <meta name="twitter:site" content="@linode">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://www.linode.com/docs/rss" />
+    <link href="<%= asset_prefix %>stylesheets/home.css?4" rel='stylesheet' type='text/css'>
+    <link href="<%= asset_prefix %>stylesheets/syntax.css" rel='stylesheet' type='text/css'>
+    <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js' %>
+
+    <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
+
+    <% if defined? canonical_url %>
+      <link rel='canonical' href="<%= canonical_url %>">
+    <% end %>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+  </head>
+
+  <body class="no-subnav">
+    <header>
+      <%= partial 'nav' %>
+      <%= partial 'subnav' %>
+    </header>
+
+    <%= yield %>
+
+    <footer>
+      <%= partial 'contribute_footer' %>
+      <%= partial 'footer' %>
+    </footer>
+
+    <%= partial 'js' %>
+  </body>
+</html>
