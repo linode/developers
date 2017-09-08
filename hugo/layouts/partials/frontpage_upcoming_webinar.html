@@ -1,8 +1,9 @@
-{{ if .Params.upcoming_webinar && .Params.upcoming_webinar.webinar_datetime }}
-  {{ theDate = Date.parse(.Params.upcoming_webinar.webinar_datetime) }}
-  {{ theDate = theDate.strftime('%Y-%m-%d') }}
-  {{ nowDate = Date.today.to_s }}
-  {{ if nowDate <= theDate }}
+{{ if and .Params.upcoming_webinar .Params.upcoming_webinar.webinar_datetime }}
+  {{ $theDate := .Params.upcoming_webinar.webinar_datetime | time }}
+  
+  {{/* TODO(bep) truncate */}}
+
+  {{ if ge $theDate now }}
 	  <div id="frontpage_upcoming_webinar" align="center" style="background:#2d8ec6;">
 		  <div id="frontpage_upcoming_webinar_text">
 			<a href="{{ .Params.upcoming_webinar.webinar_registration_url }}"><i class="fa fa-youtube-play"></i> Next Live Tutorial: <strong>{{ .Params.upcoming_webinar.webinar_title }}</strong></a>

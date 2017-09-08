@@ -1,8 +1,8 @@
-{{ if .data["deprecated"] }}
+{{ with .Params.deprecated }}
 <blockquote class="deprecated">
 This guide has been deprecated and is no longer being maintained.
-{{ if .data["deprecated"].is_a? String }}
-Please refer to the updated version of this guide: {{ .data["deprecated"] }}
+{{ if ne (printf "%T" .) "bool" }}
+Please refer to the updated version of this guide: {{ . }}
 {{ end }}
 </blockquote>
 {{ end }}

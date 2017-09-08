@@ -12,7 +12,7 @@
     <meta property="og:title" content="{{ .Params.og_title | default .Title }}">
     <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
     <meta property="og:url" content="{{ .Permalink }}">
-    <meta property="og:description" content="{{ .Params.og_description | default .Param "description" }}">
+    <meta property="og:description" content="{{ .Params.og_description | default (.Param "description") }}">
     <meta property="og:site_name" content="{{ .Site.Title }}">
     {{ if .Params.image }}
         {{ if not (index .Params.image.file)  }}
