@@ -3,12 +3,15 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
 	"io"
 	"log"
 	"os"
 	"path/filepath"
+	"regexp"
 	"strings"
+	"time"
 )
 
 var skipFiles = map[string]bool{
@@ -21,7 +24,14 @@ var skipFiles = map[string]bool{
 
 layouts in _index.md
 
+Dates:
+
+published: 'Wednesday, December 2nd, 2015'
+modified: Wednesday, December 2nd, 2015
+
+
 */
+
 type mover struct {
 	fromDir string
 	toDir   string
@@ -60,8 +70,8 @@ func (m *mover) move() error {
 		}
 
 		if info.Mode().IsRegular() {
-			// For now, just copy the file to destination.
-			return m.copyFile(path, info)
+
+			return m.handleFile(path, info)
 
 		}
 
@@ -82,7 +92,7 @@ func (m *mover) targetFilename(sourceFilename string) string {
 	return filename
 }
 
-func (m *mover) copyFile(path string, info os.FileInfo) error {
+func (m *mover) handleFile(path string, info os.FileInfo) error {
 	sourceFilename := path
 	targetFilename := m.targetFilename(sourceFilename)
 	targetDir := filepath.Dir(targetFilename)
@@ -104,9 +114,43 @@ func (m *mover) copyFile(path string, info os.FileInfo) error {
 	}
 	defer out.Close()
 
-	if _, err = io.Copy(out, in); err != nil {
+	var buff bytes.Buffer
+	if _, err = io.Copy(&buff, in); err != nil {
+		return err
+	}
+
+	fixed := fixContent(path, buff.String())
+
+	if _, err = io.Copy(out, strings.NewReader(fixed)); err != nil {
 		return err
 	}
 
 	return nil
+}
+
+var (
+	dateRe = regexp.MustCompile("(published|modified): '?(.*)'?")
+)
+
+func fixContent(path, src string) string {
+	return dateRe.ReplaceAllStringFunc(src, func(s string) string {
+		m := dateRe.FindAllStringSubmatch(s, -1)
+		key, val := m[0][1], m[0][2]
+		tt, err := time.Parse("Monday, January 2, 2006", dateCleaner(val))
+		if err != nil {
+			log.Fatalf("%s: %s", path, err)
+		}
+
+		return fmt.Sprintf("%s: %s", key, tt.Format("2006-01-02"))
+	})
+
+}
+
+func dateCleaner(s string) string {
+	cleaned := strings.Trim(strings.NewReplacer("th", "", "nd", "", "st", "").Replace(s), "'")
+
+	if strings.Count(cleaned, ",") == 1 {
+		cleaned = strings.Replace(cleaned, " ", ", ", 1)
+	}
+	return cleaned
 }
