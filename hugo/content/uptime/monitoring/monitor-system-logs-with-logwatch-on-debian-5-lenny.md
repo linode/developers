@@ -7,10 +7,10 @@ description: 'Use logwatch to monitor system logs and generate reports.'
 keywords: 'logwatch,security,logging,audit'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['server-monitoring/logwatch/debian-5-lenny/']
-modified: Wednesday, April 27th, 2011
+modified: 2011-04-27
 modified_by:
   name: Linode
-published: 'Saturday, September 11th, 2010'
+published: 2010-09-11
 title: 'Monitor System Logs with Logwatch on Debian 5 (Lenny)'
 ---
 

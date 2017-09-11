@@ -7,10 +7,10 @@ description: 'How to build a LAMP application server with Debian 5.0 (Lenny).'
 keywords: 'Debian LAMP Server,Debian LAMP guide,LAMP howto'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['lamp-guides/debian-5-lenny/','websites/lamp/lamp-server-on-debian-5-lenny/']
-modified: Wednesday, October 3rd, 2012
+modified: 2012-10-03
 modified_by:
   name: Linode
-published: 'Thursday, July 16th, 2009'
+published: 2009-07-16
 title: 'LAMP Server on Debian 5 (Lenny)'
 external_resources:
   - '[Debian Linux Home Page](http://www.debian.org/)'

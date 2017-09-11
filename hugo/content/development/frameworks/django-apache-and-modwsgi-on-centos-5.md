@@ -7,10 +7,10 @@ description: 'Installing and configuring the Django web application development 
 keywords: 'django,python,apache,mod\_wsgi'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/django-apache-mod-wsgi/centos-5/','websites/frameworks/django-apache-and-modwsgi-on-centos-5/']
-modified: Monday, August 22nd, 2011
+modified: 2011-08-22
 modified_by:
   name: Linode
-published: 'Tuesday, May 18th, 2010'
+published: 2010-05-18
 title: 'Django, Apache and mod_wsgi on CentOS 5'
 external_resources:
  - '[The Django Project Home Page](http://www.djangoproject.com/)'

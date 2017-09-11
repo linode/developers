@@ -7,10 +7,10 @@ description: 'Getting started with the open source edition of Zimbra groupware o
 keywords: 'zimbra debian 5,zimbra lenny,zimbra on debian,zimbra groupware,zimbra mail server,linux mail server'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/zimbra/install-zimbra-debian-5-lenny/']
-modified: Monday, October 8th, 2012
+modified: 2012-10-08
 modified_by:
   name: Linode
-published: 'Monday, April 26th, 2010'
+published: 2010-04-26
 title: 'Email and Calendars with Zimbra 6 on Debian 5 (Lenny)'
 ---
 

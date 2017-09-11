@@ -8,10 +8,10 @@ license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['networking/file-transfer/basic-nfs-debian/']
 contributor:
     
-modified: Thursday, February 27th, 2014
+modified: 2014-02-27
 modified_by:
   name: Linode
-published: 'Thursday, February 27th, 2014'
+published: 2014-02-27
 title: Basic NFS Configuration on Debian 7
 ---
 

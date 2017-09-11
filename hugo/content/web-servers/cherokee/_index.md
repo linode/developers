@@ -5,7 +5,7 @@ author:
 keywords: 'cherokee web server,cherokee on linode,Linode web server'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['websites/cherokee/']
-published: 'Thursday, September 10th, 2009'
+published: 2009-09-10
 title: Hosting Websites with Cherokee
 ---
 

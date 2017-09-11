@@ -6,8 +6,8 @@ description: 'A Garrys Mod Server for CentOS 7.'
 keywords: 'garry''s mod,centos,centos 7'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/game-servers/minecraft-ubuntu12-04/','applications/game-servers/garrys-mod-server-on-centos-7/']
-published: 'Wednesday, January 21, 2015'
-modified: Thursday, February 25th, 2016
+published: 2015-01-21
+modified: 2016-02-25
 modified_by:
   name: Linode
 title: 'Garry''s Mod on CentOS 7'

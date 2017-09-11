@@ -6,10 +6,10 @@ description: 'How to serve multiple SSL-enabled websites from a single public IP
 keywords: 'openssl,apache ssl,subjectaltname,ssl linux'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['security/ssl-certificates/subject-alternate-names/']
-modified: Wednesday, November 14th, 2012
+modified: 2012-11-14
 modified_by:
   name: Lukas Sabota
-published: 'Monday, November 16th, 2009'
+published: 2009-11-16
 title: Multiple SSL Sites Using SubjectAltName
 external_resources:
  - '[OpenSSL Documentation](http://www.openssl.org/docs/)'

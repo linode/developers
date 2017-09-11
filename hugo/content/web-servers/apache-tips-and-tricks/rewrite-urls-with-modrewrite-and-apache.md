@@ -6,10 +6,10 @@ description: 'How to use the mod_rewrite engine to generate URLs with the Apache
 keywords: 'mod_rewrite,REST,URLs,redirect,apache,httpd'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/configuration/rewriting-urls/','websites/apache-tips-and-tricks/rewrite-urls-with-modrewrite-and-apache/']
-modified: Tuesday, February 21st, 2017
+modified: 2017-02-21
 modified_by:
   name: Phil Zona
-published: 'Friday, November 6th, 2009'
+published: 2009-11-06
 title: 'Rewrite URLs with mod_rewrite and Apache'
 external_resources:
  - '[Installing Apache](/docs/websites/apache/)'

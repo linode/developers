@@ -6,10 +6,10 @@ description: 'Use the FlatPress blogging tool to manage your blog and manage web
 keywords: 'flatpress,cms,php,content management,content management systems'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/cms-guides/flatpress/']
-modified: Wednesday, October 2nd, 2013
+modified: 2013-10-02
 modified_by:
   name: Linode
-published: 'Monday, May 3rd, 2010'
+published: 2010-05-03
 title: Manage Web Content with FlatPress
 deprecated: true
 ---

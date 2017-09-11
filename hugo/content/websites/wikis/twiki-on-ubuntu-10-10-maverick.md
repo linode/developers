@@ -7,10 +7,10 @@ description: 'Install and configure a structured wiki with TWiki.'
 keywords: 'wiki,twiki,structured wiki,enterprise wiki'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/wikis/twiki/ubuntu-10-10-maverick/']
-modified: Monday, October 8th, 2012
+modified: 2012-10-08
 modified_by:
   name: Linode
-published: 'Tuesday, February 15th, 2011'
+published: 2011-02-15
 title: 'TWiki on Ubuntu 10.10 (Maverick)'
 ---
 

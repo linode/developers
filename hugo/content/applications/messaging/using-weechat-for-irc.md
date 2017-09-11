@@ -7,10 +7,10 @@ keywords: 'weechat,irc,oftc,real time,chat'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 contributor:
   name: Samuel Damashek
-modified: Thursday, March 10th, 2016
+modified: 2016-03-10
 modified_by: 
     name: 'Linode'
-published: 'Wednesday, August 27th, 2014'
+published: 2014-08-27
 title: 'Using WeeChat for Internet Relay Chat'
 external_resources:
  - '[WeeChat Home Page](http://www.weechat.org/)'

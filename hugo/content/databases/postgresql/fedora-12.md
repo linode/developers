@@ -6,10 +6,10 @@ author:
 description: 'Using the PostgreSQL relational database server with Fedora 12.'
 keywords: 'postgresql fedora 12,postgresql database,relational database'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Friday, April 29th, 2011
+modified: 2011-04-29
 modified_by:
   name: Linode
-published: 'Sunday, September 13th, 2009'
+published: 2009-09-13
 title: Use PostgreSQL Relational Databases on Fedora 12
 ---
 

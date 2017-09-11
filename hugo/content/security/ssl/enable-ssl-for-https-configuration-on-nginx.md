@@ -6,10 +6,10 @@ description: 'This guide will teach you how to provide encrypted access to resou
 keywords: 'ssl,tls,nginx,https,secure http,encryption for HTTP,SSL certificates with Nginx,certificate signing request'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/nginx/configuration/ssl/','security/ssl/ssl-certificates-with-nginx/index.cfm/','websites/ssl/ssl-certificates-with-nginx.cfm/','security/ssl/ssl-certificates-with-nginx/','security/ssl/how-to-provide-encrypted-access-to-resources-using-ssl-certificates-on-nginx/index.cfm/','security/ssl/how-to-provide-encrypted-access-to-resources-using-ssl-certificated-on-nginx/','security/ssl/provide-encrypted-resource-access-using-ssl-certificates-on-nginx/']
-modified: Tuesday, June 10th, 2014
+modified: 2014-06-10
 modified_by:
   name: Alex Fornuto
-published: 'Monday, November 8th, 2010'
+published: 2010-11-08
 title: 'Enable SSL for HTTPS Configuration on nginx'
 external_resources:
  - '[Nginx Project Home Page](http://nginx.org)'

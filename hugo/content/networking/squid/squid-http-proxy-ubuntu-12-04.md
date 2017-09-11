@@ -6,12 +6,12 @@ author:
 description: Use Squid to create an HTTP proxy server on your Linode
 keywords: 'squid,proxy,ubuntu,12.04,http,'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Sunday, August 7th, 2016
+modified: 2016-08-07
 modified_by:
   name: Andhika Maheva Wicaksono
   email: me@andhika.id
   website: https://andhikamaheva.com
-published: 'Monday, March 3rd, 2014'
+published: 2014-03-03
 title: 'Creating an HTTP Proxy Using Squid on Ubuntu 12.04'
 external_resources:
  - '[Squid Official Site](http://www.squid-cache.org/)'

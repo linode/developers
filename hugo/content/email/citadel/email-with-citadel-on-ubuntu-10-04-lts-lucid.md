@@ -7,10 +7,10 @@ description: 'Setting up an email and groupware server using Citadel on an Ubunt
 keywords: 'citadel,citadel ubuntu 10.04,ubuntu 10.04 mail server,groupware,email server'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/citadel/ubuntu-10-04-lucid/']
-modified: Wednesday, September 25th, 2013
+modified: 2013-09-25
 modified_by:
   name: Linode
-published: 'Sunday, May 9th, 2010'
+published: 2010-05-09
 title: 'Email with Citadel on Ubuntu 10.04 LTS (Lucid)'
 ---
 

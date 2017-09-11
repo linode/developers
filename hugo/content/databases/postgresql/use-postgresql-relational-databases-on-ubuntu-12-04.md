@@ -6,10 +6,10 @@ author:
 description: 'Using the PostgreSQL relational database server with Ubuntu 12.04 LTS (Precise Pangolin).'
 keywords: 'postgresql,ubuntu 12.04,postgresql database,open source database,relational database'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Monday, October 8th, 2012
+modified: 2012-10-08
 modified_by:
   name: Linode
-published: 'Monday, October 8th, 2012'
+published: 2012-10-08
 title: 'Use PostgreSQL Relational Databases on Ubuntu 12.04'
 alias: ['databases/postgresql/ubuntu-12-04-precise-pangolin/']
 external_resources:

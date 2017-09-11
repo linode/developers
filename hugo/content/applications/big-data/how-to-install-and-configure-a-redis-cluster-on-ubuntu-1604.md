@@ -6,10 +6,10 @@ description: 'Learn to set up a Redis cluster using three Linode servers and pro
 keywords: 'redis cluster installation,data store,cache,sharding'
 license: '[CC BY-ND 4.0](http://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['applications/big-data/redis-cluster']
-modified: Monday, August 14th, 2017
+modified: 2017-08-14
 modified_by:
   name: Linode 
-published: 'Monday, August 14th, 2017'
+published: 2017-08-14
 title: 'How to Install and Configure a Redis Cluster on Ubuntu 16.04'
 external_resources:
  - '[Redis Official Website](https://redis.io/)'

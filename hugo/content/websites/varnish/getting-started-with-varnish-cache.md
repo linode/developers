@@ -6,12 +6,12 @@ description: Use Varnish Cache to increase your site's speed and optimize server
 keywords: 'Varnish,Ubuntu,Debian,Cache,'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/varnish/']
-modified: Friday, February 24, 2017
+modified: 2017-02-24
 contributor:
     name: Kevin Cupp
 modified_by:
   name: Edward Angert
-published: 'Wednesday, February 5th, 2014'
+published: 2014-02-05
 title: Getting Started with Varnish Cache
 external_resources:
  - '[Official Varnish Documentation](https://www.varnish-cache.org/docs)'

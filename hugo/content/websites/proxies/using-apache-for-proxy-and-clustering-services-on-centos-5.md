@@ -7,10 +7,10 @@ description: 'How to cluster Apache web servers and proxy requests for content t
 keywords: 'clusters,proxy,proxy pass,apache,httpd'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/proxy-configuration/proxy-and-clustering-services-centos-5/']
-modified: Friday, April 29th, 2011
+modified: 2011-04-29
 modified_by:
   name: Linode
-published: 'Monday, March 22nd, 2010'
+published: 2010-03-22
 title: Using Apache for Proxy and Clustering Services on CentOS 5
 external_resources:
  - '[Official Apache Documentation for Proxy Pass](http://httpd.apache.org/docs/2.2/mod/mod_proxy.html)'

@@ -6,10 +6,10 @@ description: 'This guide shows how to install and configure MySQL Workbench and 
 keywords: 'mysql,mysql workbench,mysql sample database'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/mysql/mysql-workbench']
-modified: Tuesday, August 8, 2017
+modified: 2017-08-08
 modified_by:
   name: Linode
-published: 'Tuesday, August 8, 2017'
+published: 2017-08-08
 title: 'Install and Configure MySQL Workbench on Ubuntu 16.04'
 external_resources:
  - '[MySQL Workbench Manual](https://dev.mysql.com/doc/workbench/en/)'

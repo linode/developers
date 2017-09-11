@@ -5,8 +5,8 @@ author:
 description: 'Tips to improve the security of your SSH server'
 keywords: 'SSH,secure shell,Ubuntu,CentOS,security,2FA,server,Linux'
 license: '[CC BY-ND 4.0](http://creativecommons.org/licenses/by-nd/4.0)'
-published: 'Friday, April 7th, 2017'
-modified: 'Friday, April 7th, 2017'
+published: 2017-04-07
+modified: 2017-04-07
 modified_by:
   name: Linode
 title: 'Use Advanced OpenSSH Features to Harden Access to Your Linode'

@@ -8,10 +8,10 @@ contributor:
 description: 'An introduction to using Docker, containers, and dockerfiles on your Linode.'
 keywords: 'docker,container,dockerfile'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Wednesday, June 28, 2017
+modified: 2017-06-28
 modified_by:
   name: Linode
-published: 'Wednesday, June 28, 2017'
+published: 2017-06-28
 title: 'An Introduction to Docker'
 external_resources:
  - '[Docker Docs](http://docs.docker.com/)'

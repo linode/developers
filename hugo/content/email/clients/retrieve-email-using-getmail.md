@@ -6,10 +6,10 @@ description: 'This guide shows how-to configure getmail to download email from r
 keywords: 'email,getmail,mda'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/getmail/']
-modified: Tuesday, August 22nd, 2017
+modified: 2017-08-22
 modified_by:
   name: Linode
-published: 'Monday, February 1st, 2010'
+published: 2010-02-01
 title: Retrieve Email Using Getmail
 external_resources:
  - '[Official Getmail Documentation](http://pyropus.ca/software/getmail/documentation.html)'

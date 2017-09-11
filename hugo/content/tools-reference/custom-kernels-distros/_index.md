@@ -5,7 +5,7 @@ author:
 keywords: 'linode instances,pv grub,linux kernel,linode platform,linux distributions'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['custom-instances/']
-published: 'Thursday, July 16th, 2009'
+published: 2009-07-16
 title: Run Custom Kernels and Distribution Templates on Linode Instances
 ---
 

@@ -7,10 +7,10 @@ description: DirectAdmin
 keywords: directadmin
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/control-panels/directadmin/']
-modified: Thursday, October 3rd, 2013
+modified: 2013-10-03
 modified_by:
   name: Linode
-published: 'Wednesday, November 2nd, 2011'
+published: 2011-11-02
 title: DirectAdmin
 ---
 

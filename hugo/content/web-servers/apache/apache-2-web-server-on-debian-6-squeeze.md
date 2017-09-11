@@ -7,10 +7,10 @@ description: 'Instructions for getting started with the Apache web server on Deb
 keywords: 'apache debian 6,apache debian squeeze,linux web server,apache on debian,apache squeeze'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/installation/debian-6-squeeze/','websites/apache/apache-2-web-server-on-debian-6-squeeze/']
-modified: Friday, October 4th, 2013
+modified: 2013-10-04
 modified_by:
   name: Linode
-published: 'Wednesday, February 23rd, 2011'
+published: 2011-02-23
 title: 'Apache 2 Web Server on Debian 6 (Squeeze)'
 ---
 

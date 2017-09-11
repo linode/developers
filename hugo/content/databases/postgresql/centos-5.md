@@ -6,10 +6,10 @@ author:
 description: 'Using the PostgreSQL relational database server with CentOS 5.'
 keywords: 'postgresql,postgresql database,postgresql on centos,relational database'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Tuesday, September 24th, 2013
+modified: 2013-09-24
 modified_by:
   name: Linode
-published: 'Sunday, September 13th, 2009'
+published: 2009-09-13
 title: Use PostgreSQL Relational Databases on CentOS 5
 ---
 

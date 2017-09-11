@@ -5,8 +5,8 @@ author:
 description: 'Install and configure a Just Cause 2 Multiplayer Server on Ubuntu 14.04.'
 keywords: 'just cause 2,game servers,ubuntu,ubuntu 14.04,steamcmd,steam,multiplayer game server'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 'Friday, October 9th, 2015'
-modified: Thursday, February 25th, 2016
+published: 2015-10-09
+modified: 2016-02-25
 modified_by:
     name: Linode
 title: 'Deploy a Just Cause 2 Multiplayer Server on Ubuntu 14.04'

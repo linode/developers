@@ -7,10 +7,10 @@ description: 'The Planet feed aggregator provides an overview of a community by 
 keywords: 'planet,blogs,aggregator,feed,rss'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/social-networking/planet/ubuntu-9-10-karmic/']
-modified: Monday, October 8th, 2012
+modified: 2012-10-08
 modified_by:
   name: Linode
-published: 'Tuesday, August 10th, 2010'
+published: 2010-08-10
 title: 'Create an Aggregate Blog using Planet on Ubuntu 9.10 (Karmic)'
 external_resources:
     - '[The Planet''s Project''s Home Page](http://www.planetplanet.org)'

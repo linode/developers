@@ -4,7 +4,7 @@ author:
   email: afornuto@linode.com
 keywords: 'networking,sqiud,proxy,cache'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 'Friday, June 20th, 2014'
+published: 2014-06-20
 title: 'Squid Proxy/Cache'
 ---
 

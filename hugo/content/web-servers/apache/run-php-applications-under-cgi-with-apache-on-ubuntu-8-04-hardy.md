@@ -7,10 +7,10 @@ description: 'Methods for enabling dynamic content to run as individual users wi
 keywords: 'php cgi,php apache,php scripts,dynamic apache,web applications'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/php-cgi/ubuntu-8-04-hardy/','websites/apache/run-php-applications-under-cgi-with-apache-on-ubuntu-8-04-hardy/']
-modified: Monday, October 8th, 2012
+modified: 2012-10-08
 modified_by:
   name: Linode
-published: 'Monday, February 22nd, 2010'
+published: 2010-02-22
 title: 'Run PHP Applications under CGI with Apache on Ubuntu 8.04 (Hardy)'
 ---
 

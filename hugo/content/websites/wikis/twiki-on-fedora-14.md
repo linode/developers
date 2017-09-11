@@ -7,10 +7,10 @@ description: 'Install and configure a structured wiki with TWiki.'
 keywords: 'wiki,twiki,structured wiki,enterprise wiki'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/wikis/twiki/fedora-14/']
-modified: Friday, October 4th, 2013
+modified: 2013-10-04
 modified_by:
   name: Linode
-published: 'Tuesday, April 5th, 2011'
+published: 2011-04-05
 title: TWiki on Fedora 14
 ---
 

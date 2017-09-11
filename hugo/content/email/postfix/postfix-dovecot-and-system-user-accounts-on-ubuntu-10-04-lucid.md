@@ -7,10 +7,10 @@ description: 'Use system user accounts, postfix, and dovecot to provide'
 keywords: 'postfix,dovecot,system users,email'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/postfix/dovecot-system-users-ubuntu-10-04-lucid/']
-modified: Wednesday, September 25th, 2013
+modified: 2013-09-25
 modified_by:
   name: Linode
-published: 'Tuesday, November 9th, 2010'
+published: 2010-11-09
 title: 'Postfix, Dovecot, and System User Accounts on Ubuntu 10.04 (Lucid)'
 ---
 

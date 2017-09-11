@@ -6,10 +6,10 @@ description: 'This guide will show you how to configure a native IPv6 network on
 keywords: 'ipv6, networking'
 alias: ['networking/native-ipv6-networking/']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Friday, June 24, 2016
+modified: 2016-06-24
 modified_by:
     name: Phil Zona
-published: 'Tuesday, May 3rd, 2011'
+published: 2011-05-03
 title: How to Enable Native IPv6 on Linux
 external_resources:
  - '[Understanding IP Addressing](http://www.ripe.net/internet-coordination/press-centre/understanding-ip-addressing)'

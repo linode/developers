@@ -7,10 +7,10 @@ description: 'Install web applications with "LEMP," a LAMP-like stack using ngin
 keywords: 'nginx,lemp,php,linux,web applications'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['lemp-guides/ubuntu-10-04-lucid/','websites/lemp/lemp-server-on-ubuntu-10-04-lucid/']
-modified: Monday, September 23rd, 2013
+modified: 2013-09-23
 modified_by:
   name: Linode
-published: 'Tuesday, June 29th, 2010'
+published: 2010-06-29
 title: 'LEMP Server on Ubuntu 10.04 (Lucid)'
 ---
 

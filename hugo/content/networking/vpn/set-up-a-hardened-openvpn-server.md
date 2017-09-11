@@ -6,10 +6,10 @@ description: 'Learn how to securely tunnel your traffic with OpenVPN and OpenSSL
 keywords: 'openvpn,vpn,vpn tunnel,openssl'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['networking/vpn/set-up-a-hardened-openvpn-server-on-debian-8/']
-modified: 'Thursday, March 30th, 2017'
+modified: 2017-03-30
 modified_by:
   name: Linode
-published: 'Wednesday, December 9th, 2015'
+published: 2015-12-09
 title: 'Set up a Hardened OpenVPN Server on Debian 8'
 external_resources:
  - '[Official OpenVPN Documentation](https://openvpn.net/index.php/open-source/documentation/howto.html)'

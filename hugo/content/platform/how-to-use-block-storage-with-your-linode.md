@@ -5,10 +5,10 @@ author:
 description: This tutorial explains how to use Linode's block storage service.
 keywords: 'block storage, volume, media, resize, storage, disk'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Friday, June 16, 2017
+modified: 2017-06-16
 modified_by:
   name: Linode
-published: 'Friday, June 16, 2017'
+published: 2017-06-16
 title: How to Use Block Storage with Your Linode
 ---
 

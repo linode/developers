@@ -7,10 +7,10 @@ description: 'Use the Mono project''s Apache module to run ASP.NET applications.
 keywords: 'apache,mono,.net,asp.net,mod\_mono'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/mod-mono/ubuntu-9-10-karmic/','websites/frameworks/build-aspnetmono-applications-with-modmono-and-apache-on-ubuntu-9-10-karmic/']
-modified: Wednesday, June 15th, 2011
+modified: 2011-06-15
 modified_by:
   name: Linode
-published: 'Sunday, August 1st, 2010'
+published: 2010-08-01
 title: 'Build ASP.NET/Mono Applications with mod_mono and Apache on Ubuntu 9.10 (Karmic)'
 ---
 

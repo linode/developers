@@ -6,10 +6,10 @@ description: 'This Quick Answer guide will explain how to use wget.'
 keywords: 'linux,how to,grep,wget'
 alias: ['quick-answers/how-to-use-wget/']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: 'Monday, June 12th, 2017'
+modified: 2017-06-12
 modified_by:
   name: Angel
-published: 'Monday, June 19th, 2017'
+published: 2017-06-19
 title: How to Use Wget
 external_resources:
  - '[Windows Wget Download](http://gnuwin32.sourceforge.net/packages/wget.htm)'

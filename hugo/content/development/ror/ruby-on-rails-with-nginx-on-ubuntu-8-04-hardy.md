@@ -7,10 +7,10 @@ description: 'Using the Ruby on Rails framework for Nginx web applications on th
 keywords: 'ruby on rails,rails on ubuntu,ruby on nginx,rails apps'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/ruby-on-rails-nginx/ubuntu-8-04-hardy/','websites/ror/ruby-on-rails-with-nginx-on-ubuntu-8-04-hardy/']
-modified: Friday, April 29th, 2011
+modified: 2011-04-29
 modified_by:
   name: Linode
-published: 'Friday, August 21st, 2009'
+published: 2009-08-21
 title: 'Ruby on Rails with Nginx on Ubuntu 8.04 LTS (Hardy)'
 ---
 

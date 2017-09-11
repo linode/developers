@@ -7,10 +7,10 @@ description: 'Setting up an email and groupware server using Citadel on a Debian
 keywords: 'citadel debian 6,citadel debian squeeze,debian 6 mail server,groupware,email server'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/citadel/debian-6-squeeze/']
-modified: Wednesday, November 9th, 2011
+modified: 2011-11-09
 modified_by:
   name: Linode
-published: 'Wednesday, November 9th, 2011'
+published: 2011-11-09
 title: 'Email with Citadel on Debian 6 (Squeeze)'
 ---
 

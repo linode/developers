@@ -6,10 +6,10 @@ description: Longview App for Nginx
 keywords: 'Longview, Nginx, statistics, HttpStubStatusModule'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['longview/longview-for-nginx/']
-modified: Tuesday, November 12th, 2013
+modified: 2013-11-12
 modified_by:
   name: Linode
-published: 'Tuesday, November 5th, 2013'
+published: 2013-11-05
 title: Longview App for Nginx
 ---
 

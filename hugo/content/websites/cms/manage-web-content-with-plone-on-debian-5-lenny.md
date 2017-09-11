@@ -7,10 +7,10 @@ description: 'Using the Plone Content Management System, built on the Zope frame
 keywords: 'plone,zope,python,debian,web framework,content management systems,cms'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/cms-guides/plone/']
-modified: Friday, June 3rd, 2011
+modified: 2011-06-03
 modified_by:
   name: Linode
-published: 'Friday, January 29th, 2010'
+published: 2010-01-29
 title: 'Manage Web Content with Plone on Debian 5 (Lenny)'
 ---
 

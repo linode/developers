@@ -7,10 +7,10 @@ description: 'Instructions for getting started with the Cherokee web server on U
 keywords: 'cherokee,web sever,cherokee on ubuntu,ubuntu jaunty'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/cherokee/installing-cherokee-ubuntu-9-04-jaunty/','websites/cherokee/websites-with-the-cherokee-web-server-on-ubuntu-9-04-jaunty/']
-modified: Friday, April 29th, 2011
+modified: 2011-04-29
 modified_by:
   name: Linode
-published: 'Monday, September 14th, 2009'
+published: 2009-09-14
 title: 'Websites with the Cherokee Web Server on Ubuntu 9.04 (Jaunty)'
 ---
 

@@ -6,10 +6,10 @@ description: 'Install the Oracle Java development kit'
 keywords: 'oracle,java,JDK,install java,ubuntu'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['applications/development/install-java-on-ubuntu-16-04/']
-modified: 'Tuesday, May 30th, 2017'
+modified: 2017-05-30
 modified_by:
   name: Phil Zona
-published: 'Tuesday, May 30th, 2017'
+published: 2017-05-30
 title: 'Install Java on Ubuntu 16.04'
 contributor:
   name: Phil Zona

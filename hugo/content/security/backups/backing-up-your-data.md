@@ -5,10 +5,10 @@ author:
 description: Backing Up Your Linode
 keywords: 'backup,backups,rsync,cron,getting started,tutorial'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Thursday, April 4th, 2013
+modified: 2013-04-04
 modified_by:
   name: Linode
-published: 'Thursday, April 4th, 2013'
+published: 2013-04-04
 title: Backing Up Your Data
 external_resources:
  - '[rsync Man Page](http://linux.die.net/man/1/rsync)'

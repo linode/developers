@@ -7,10 +7,10 @@ description: 'Installing and configuring the Django web application development 
 keywords: 'django,python,apache,mod\_wsgi'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/django-apache-mod-wsgi/ubuntu-10-04-lucid/','apache/apache-and-modwsgi-on-ubuntu-10-04-lucid/']
-modified: Monday, August 22nd, 2011
+modified: 2011-08-22
 modified_by:
   name: Linode
-published: 'Tuesday, May 18th, 2010'
+published: 2010-05-18
 title: 'Django, Apache and mod_wsgi on Ubuntu 10.04 (Lucid)'
 ---
 

@@ -6,10 +6,10 @@ description: 'Use the Linux command tail to view and follow the end of text file
 keywords: 'tail,linux commands,linux,common commands,unix,cli'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['linux-tools/common-commands/tail/']
-modified: Tuesday, May 17th, 2011
+modified: 2011-05-17
 modified_by:
   name: Linode
-published: 'Monday, November 29th, 2010'
+published: 2010-11-29
 title: View and Follow the End of Text Files with tail
 ---
 

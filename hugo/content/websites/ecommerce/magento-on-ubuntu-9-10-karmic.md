@@ -7,10 +7,10 @@ description: 'Installing Magento on an Ubuntu 9.10 LAMP stack.'
 keywords: 'magento,ecommerce,store,cart,shop,shopping'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/e-commerce/magento/ubuntu-9-10-karmic/']
-modified: Tuesday, May 17th, 2011
+modified: 2011-05-17
 modified_by:
   name: Linode
-published: 'Friday, February 5th, 2010'
+published: 2010-02-05
 title: 'Magento on Ubuntu 9.10 (Karmic)'
 ---
 

@@ -6,10 +6,10 @@ description: 'Deploying and configuring granular access control with the Apache 
 keywords: 'apache,access control,security,http,web server'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/configuration/rule-based-access-control/','websites/apache-tips-and-tricks/rulebased-access-control-for-apache/']
-modified: Wednesday, August 30, 2017
+modified: 2017-08-30
 modified_by:
   name: Linode
-published: 'Monday, December 7th, 2009'
+published: 2009-12-07
 title: 'Rule-based Access Control for Apache'
 external_resources:
  - '[LAMP Stack Guides](/docs/lamp/)'

@@ -7,10 +7,10 @@ description: 'Serve dynamic websites and applications with the lightweight nginx
 keywords: 'nginx,nginx debian 6,nginx fastcgi,nginx php'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/nginx/php-fastcgi/debian-6-squeeze/','websites/nginx/nginx-and-phpfastcgi-on-debian-6-squeeze/']
-modified: Wednesday, June 15th, 2011
+modified: 2011-06-15
 modified_by:
   name: Tim Heckman
-published: 'Monday, May 9th, 2011'
+published: 2011-05-09
 title: 'Nginx and PHP-FastCGI on Debian 6 (Squeeze)'
 ---
 

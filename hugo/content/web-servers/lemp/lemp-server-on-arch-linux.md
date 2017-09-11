@@ -7,10 +7,10 @@ description: 'Install a LEMP stack to serve websites and applications on Arch Li
 keywords: 'nginx,lemp,php,linux,web applications'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['lemp-guides/arch-linux/','websites/lemp/lemp-server-on-arch-linux/']
-modified: Thursday, June 21st, 2012
+modified: 2012-06-21
 modified_by:
   name: Linode
-published: 'Thursday, July 8th, 2010'
+published: 2010-07-08
 title: LEMP Server on Arch Linux
 ---
 

@@ -6,10 +6,10 @@ description: 'The Planet Venus feed aggregator provides an overview of a communi
 keywords: 'planet,blogs,aggregator,feed,rss'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/social-networking/planet/ubuntu-12-04-precise-pangolin/']
-modified: Friday, October 4th, 2013
+modified: 2013-10-04
 modified_by:
   name: Linode
-published: 'Monday, October 22nd, 2012'
+published: 2012-10-22
 title: 'Create an Aggregate Blog using Planet Venus on Ubuntu 12.04 (Precise Pangolin)'
 deprecated: true
 external_resources:

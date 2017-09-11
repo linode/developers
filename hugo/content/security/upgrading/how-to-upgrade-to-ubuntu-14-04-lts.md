@@ -5,10 +5,10 @@ author:
 description: 'Our guide to upgrading to Ubuntu 14.04 LTS'
 keywords: 'upgrading,ubuntu,ubuntu 14.04'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Sunday, February 22, 2015
+modified: 2015-02-22
 modified_by:
   name: Dave Russell
-published: 'Tuesday, October 21st, 2014'
+published: 2014-10-21
 title: 'How to Upgrade to Ubuntu 14.04 LTS'
 ---
 

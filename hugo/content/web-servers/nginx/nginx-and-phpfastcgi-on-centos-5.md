@@ -7,10 +7,10 @@ description: 'Serve dynamic websites and applications with the lightweight nginx
 keywords: 'nginx,nginx centos 5,nginx fastcgi,nginx php'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/nginx/php-fastcgi/centos-5/','websites/nginx/nginx-and-phpfastcgi-on-centos-5/']
-modified: Tuesday, May 17th, 2011
+modified: 2011-05-17
 modified_by:
   name: Linode
-published: 'Monday, December 14th, 2009'
+published: 2009-12-14
 title: 'Nginx and PHP-FastCGI on CentOS 5'
 external_resources:
  - '[The nginx Homepage](http://nginx.org/)'

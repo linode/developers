@@ -7,10 +7,10 @@ description: 'Installing and configuring the Django web application development 
 keywords: 'django,python,apache,mod\_wsgi'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/django-apache-mod-wsgi/fedora-14/','websites/apache/apache-and-modwsgi-on-fedora-14/']
-modified: Thursday, September 26th, 2013
+modified: 2013-09-26
 modified_by:
   name: Linode
-published: 'Tuesday, April 5th, 2011'
+published: 2011-04-05
 title: 'Django, Apache and mod_wsgi on Fedora 14'
 ---
 

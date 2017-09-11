@@ -5,8 +5,8 @@ author:
 description: 'Introduction to high availability concepts'
 keywords: 'high availability,hosting,website,failover'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 'Tuesday, July 12th, 2016'
-modified: Tuesday, July 12th, 2016
+published: 2016-07-12
+modified: 2016-07-12
 modified_by:
   name: Phil Zona
 title: 'Introduction to High Availability'

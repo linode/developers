@@ -6,7 +6,7 @@ description: This guide will teach you how to install a LEMP stack (Linux, Nginx
 keywords: 'nginx,lemp,php,fastcgi,linux,web applications, CentOS'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['websites/lemp-guides/centos-7','websites/lemp/lemp-server-on-centos-7-with-fastcgi/','web-servers/lemp/lemp-server-on-centos-7-with-fastcgi/']
-modified: Thursday, December 11, 2014
+modified: 2014-12-11
 modified_by:
     name: Ryan Arlan
 published:

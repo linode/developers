@@ -7,10 +7,10 @@ description: 'Getting started with ejabberd, an instant messaging server written
 keywords: 'ejabberd,ejabberd ubuntu karmic,ejabberd ubuntu 9.10,ejabberd on linux,real-time messaging,xmpp server,collaboration software,chat software,linux jabber server'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['communications/xmpp/ejabberd/ubuntu-9-10-karmic/']
-modified: Wednesday, October 31st, 2012
+modified: 2012-10-31
 modified_by:
   name: Linode
-published: 'Monday, November 9th, 2009'
+published: 2009-11-09
 title: 'Instant Messaging Services with ejabberd on Ubuntu 9.10 (Karmic)'
 ---
 

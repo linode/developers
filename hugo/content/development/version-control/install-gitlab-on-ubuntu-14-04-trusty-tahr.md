@@ -9,10 +9,10 @@ alias: ['gitlab-with-ubuntu/','applications/development/gitlab-on-ubuntu-14-04/'
 contributor:
     name: Nashruddin Amin
     link: https://twitter.com/bsd_noobz
-modified: Wednesday, June 21st, 2017
+modified: 2017-06-21
 modified_by:
   name: Linode
-published: 'Thursday, September 4th, 2014'
+published: 2014-09-04
 title: 'Install GitLab on Ubuntu 14.04 (Trusty Tahr)'
 alias: ['applications/development/how-to-install-and-configure-gitlab-on-ubuntu-14-04-trusty-tahr/']
 external_resources:

@@ -5,10 +5,10 @@ author:
 description: 'Install Magento Community Edition on CentOS 7 to manage your e-commerce site.'
 keywords: 'magento,centos,e-commerce,magento centos'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Wednesday, December 28th, 2016
+modified: 2016-12-28
 modified_by:
   name: Phil Zona
-published: 'Wednesday, December 28th, 2016'
+published: 2016-12-28
 title: Install Magento on CentOS 7
 external_resources:
  - '[Magento Documentation](http://docs.magento.com/m2/ce/user_guide/getting-started.html)'

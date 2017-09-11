@@ -7,10 +7,10 @@ description: 'Deploy applications that depend on the high performance key-value 
 keywords: 'redis ubuntu 10.04,redis lucid,nosql,database,key-value store'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/redis/ubuntu-10-04-lucid/']
-modified: Tuesday, September 24th, 2013
+modified: 2013-09-24
 modified_by:
   name: Linode
-published: 'Wednesday, July 28th, 2010'
+published: 2010-07-28
 title: 'Redis on Ubuntu 10.04 (Lucid)'
 ---
 

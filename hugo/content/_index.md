@@ -19,4 +19,3 @@ tiles:
   - { title: 'Tools & Reference', description: 'Useful tools for experts & beginners', url: 'tools-reference', icon: 'wrench' }
 ---
 
-TODO(bep) move the tiles metadata into page params.

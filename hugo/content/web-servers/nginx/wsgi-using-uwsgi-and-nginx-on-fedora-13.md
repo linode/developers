@@ -7,10 +7,10 @@ description: 'Use uWSGI to deploy Python application servers in conjunction with
 keywords: 'uwsgi,wsgi,nginx,python'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/nginx/python-uwsgi/fedora-13/','websites/nginx/wsgi-using-uwsgi-and-nginx-on-fedora-13/']
-modified: Friday, April 29th, 2011
+modified: 2011-04-29
 modified_by:
   name: Linode
-published: 'Wednesday, November 10th, 2010'
+published: 2010-11-10
 title: WSGI using uWSGI and nginx on Fedora 13
 ---
 

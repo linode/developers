@@ -6,10 +6,10 @@ description: This tutorial will guide you through installing a Simple Machines F
 keywords: 'smf,forum software,web applications,PHP'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/bulletin-boards/smf/','websites/forums/discussion-forums-with-smf/']
-modified: Wednesday, February 11, 2015
+modified: 2015-02-11
 modified_by:
   name: Elle Krout
-published: 'Thursday, March 18th, 2010'
+published: 2010-03-18
 title: How to Install a Simple Machines Discussion Forum (SMF) on Linux 
 deprecated: false
 external_resources:

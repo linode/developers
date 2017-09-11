@@ -7,10 +7,10 @@ description: 'How to cluster Apache web servers and proxy requests for content t
 keywords: 'clusters,proxy,proxy pass,apache,httpd'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/proxy-configuration/proxy-and-clustering-services-debian-5-lenny/']
-modified: Tuesday, June 7th, 2011
+modified: 2011-06-07
 modified_by:
   name: Linode
-published: 'Wednesday, March 24th, 2010'
+published: 2010-03-24
 title: 'Using Apache for Proxy and Clustering Services on Debian 5 (Lenny)'
 ---
 

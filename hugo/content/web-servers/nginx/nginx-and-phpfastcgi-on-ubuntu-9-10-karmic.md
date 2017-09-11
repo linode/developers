@@ -6,10 +6,10 @@ description: 'Serve dynamic websites and applications with the lightweight nginx
 keywords: 'nginx,nginx ubuntu 9.10,nginx fastcgi,nginx php'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/nginx/php-fastcgi/ubuntu-9-10-karmic/','websites/nginx/nginx-and-phpfastcgi-on-ubuntu-9-10-karmic/']
-modified: Tuesday, May 17th, 2011
+modified: 2011-05-17
 modified_by:
   name: Linode
-published: 'Monday, December 14th, 2009'
+published: 2009-12-14
 title: 'Nginx and PHP-FastCGI on Ubuntu 9.10 (Karmic)'
 deprecated: true
 ---

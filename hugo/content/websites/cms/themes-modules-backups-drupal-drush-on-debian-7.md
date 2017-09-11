@@ -5,10 +5,10 @@ author:
 description: 'Using Drush to install themes, modules, and backup systems'
 keywords: 'drupal,WordPress,joomla,cms,content management system,content management framework,debian,drush'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Friday, December 5th, 2014
+modified: 2014-12-05
 modified_by:
     name: Linode
-published: 'Friday, December 5th, 2014'
+published: 2014-12-05
 title: 'Themes, Modules, & Backups with Drupal Drush on Debian 7'
 external_resources:
  - '[SSL Certificates](/docs/security/ssl/)'

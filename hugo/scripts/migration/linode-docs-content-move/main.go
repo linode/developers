@@ -119,9 +119,17 @@ func (m *mover) handleFile(path string, info os.FileInfo) error {
 		return err
 	}
 
-	fixed := fixContent(path, buff.String())
+	var r io.Reader
 
-	if _, err = io.Copy(out, strings.NewReader(fixed)); err != nil {
+	fixed, err := fixContent(buff.String())
+	if err != nil {
+		fmt.Printf("%s\t%s\n", path, err)
+		r = &buff
+	} else {
+		r = strings.NewReader(fixed)
+	}
+
+	if _, err = io.Copy(out, r); err != nil {
 		return err
 	}
 
@@ -129,28 +137,41 @@ func (m *mover) handleFile(path string, info os.FileInfo) error {
 }
 
 var (
-	dateRe = regexp.MustCompile("(published|modified): '?(.*)'?")
+	dateRe   = regexp.MustCompile("(published|modified): '?(.*)'?")
+	ndRe     = regexp.MustCompile("(\\d+)(th|nd|st|rd)")
+	commaRe1 = regexp.MustCompile(`([0-9])\s([0-9])`)
+	commaRe2 = regexp.MustCompile(`([a-zA-Z])\s([a-zA-Z])`)
 )
 
-func fixContent(path, src string) string {
+func fixContent(src string) (string, error) {
+	var err error
 	return dateRe.ReplaceAllStringFunc(src, func(s string) string {
+		if err != nil {
+			return ""
+		}
 		m := dateRe.FindAllStringSubmatch(s, -1)
 		key, val := m[0][1], m[0][2]
-		tt, err := time.Parse("Monday, January 2, 2006", dateCleaner(val))
+		var tt time.Time
+		cleaned := dateCleaner(val)
+		if cleaned == "" {
+			return ""
+		}
+		tt, err = time.Parse("Monday, January 2, 2006", cleaned)
 		if err != nil {
-			log.Fatalf("%s: %s", path, err)
+			err = fmt.Errorf("%s: %s", key, err)
+			return ""
 		}
 
 		return fmt.Sprintf("%s: %s", key, tt.Format("2006-01-02"))
-	})
+	}), err
 
 }
 
 func dateCleaner(s string) string {
-	cleaned := strings.Trim(strings.NewReplacer("th", "", "nd", "", "st", "").Replace(s), "'")
+	cleaned := ndRe.ReplaceAllString(s, "$1")
+	cleaned = strings.Trim(cleaned, "' ")
+	cleaned = commaRe1.ReplaceAllString(cleaned, "$1, $2")
+	cleaned = commaRe2.ReplaceAllString(cleaned, "$1, $2")
 
-	if strings.Count(cleaned, ",") == 1 {
-		cleaned = strings.Replace(cleaned, " ", ", ", 1)
-	}
 	return cleaned
 }

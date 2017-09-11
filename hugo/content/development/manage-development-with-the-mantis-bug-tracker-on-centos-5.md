@@ -7,10 +7,10 @@ description: 'Track development bugs and coordinate with team members using Mant
 keywords: 'mantis,mantis fedora,mantis linux,bug tracker,development'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/project-management/mantis/centos-5/','applications/development/manage-development-with-the-mantis-bug-tracker-on-centos-5/']
-modified: Friday, April 29th, 2011
+modified: 2011-04-29
 modified_by:
   name: Linode
-published: 'Tuesday, April 5th, 2011'
+published: 2011-04-05
 title: Manage Development with the Mantis Bug Tracker on CentOS 5
 external_resources:
  - '[MantisBT Website](http://www.mantisbt.org/)'

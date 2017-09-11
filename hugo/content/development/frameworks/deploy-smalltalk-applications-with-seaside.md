@@ -6,10 +6,10 @@ description: An introductory guide to deploying applications with the Seaside Fr
 keywords: 'seaside,smalltalk,pharo,squeak,apache,framework'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/seaside/','websites/frameworks/deploy-smalltalk-applications-with-seaside/']
-modified: Friday, September 27th, 2013
+modified: 2013-09-27
 modified_by:
   name: Linode
-published: 'Tuesday, January 12th, 2010'
+published: 2010-01-12
 title: Deploy Smalltalk Applications with Seaside
 deprecated: true
 ---

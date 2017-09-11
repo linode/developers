@@ -6,10 +6,10 @@ description: 'Our guide to testing and troubleshooting Postfix, Dovecot, and MyS
 keywords: 'postfix,dovecot,mysql'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/postfix/troubleshooting/']
-modified: Monday, March 24th, 2014
+modified: 2014-03-24
 modified_by:
   name: Linode
-published: 'Monday, July 22nd, 2013'
+published: 2013-07-22
 title: 'Troubleshooting Problems with Postfix, Dovecot, and MySQL'
 ---
 

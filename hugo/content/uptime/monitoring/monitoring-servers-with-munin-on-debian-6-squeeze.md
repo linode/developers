@@ -7,10 +7,10 @@ description: 'Keep track of vital system statistics and troubleshoot performance
 keywords: 'munin,monitoring'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['server-monitoring/munin/debian-6-squeeze/']
-modified: Friday, November 18th, 2011
+modified: 2011-11-18
 modified_by:
   name: Tim Heckman
-published: 'Tuesday, April 5th, 2011'
+published: 2011-04-05
 title: 'Monitoring Servers with Munin on Debian 6 (Squeeze)'
 ---
 

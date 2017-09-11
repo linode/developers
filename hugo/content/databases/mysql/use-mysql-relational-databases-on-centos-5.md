@@ -7,10 +7,10 @@ description: 'Getting started with MySQL for web and server applications on Cent
 keywords: 'MySQL on Linux,MySQL CentOS,MySQL Linode'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/mysql/centos-5/']
-modified: Wednesday, January 22nd, 2014
+modified: 2014-01-22
 modified_by:
   name: Alex Fornuto
-published: 'Tuesday, August 11th, 2009'
+published: 2009-08-11
 title: Use MySQL Relational Databases on CentOS 5
 ---
 

@@ -7,10 +7,10 @@ description: 'Installing and configuring the ISPConfig control panel to maintain
 keywords: 'ispconfig,control panel,cpanel,plesk,gui'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/control-panels/ispconfig/fedora-13/']
-modified: Monday, October 8th, 2012
+modified: 2012-10-08
 modified_by:
   name: Linode
-published: 'Monday, October 25th, 2010'
+published: 2010-10-25
 title: Manage a Fedora 13 Linode with ISPConfig
 ---
 

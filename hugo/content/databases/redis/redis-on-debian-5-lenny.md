@@ -7,10 +7,10 @@ description: 'Deploy applications that depend on the high performance key-value 
 keywords: 'redis debian 5,redis lenny,nosql,database,key-value store'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/redis/debian-5-lenny/']
-modified: Monday, October 8th, 2012
+modified: 2012-10-08
 modified_by:
   name: Linode
-published: 'Tuesday, July 27th, 2010'
+published: 2010-07-27
 title: 'Redis on Debian 5 (Lenny)'
 ---
 

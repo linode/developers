@@ -5,8 +5,8 @@ author:
 description: "Let's Encrypt is an SSL certificate authority managed by the Internet Security Research Group. It utilizes the Automated Certificate Management Environment to automatically deploy browser-trusted SSL certificates to anyone for free."
 keywords: "ACME,HTTPS,Let's Encrypt,SSL,SSL certificates"
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 'Thursday, February 25th, 2016'
-modified: 'Thursday, September 29th, 2016'
+published: 2016-02-25
+modified: 2016-09-29
 modified_by:
   name: 'Linode'
 title: "Install Let's Encrypt to Create SSL Certificates"

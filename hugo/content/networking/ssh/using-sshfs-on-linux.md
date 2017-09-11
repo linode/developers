@@ -6,10 +6,10 @@ description: 'Securely accessing remote filesystems with SSHFS on Linux.'
 keywords: 'sshfs,ssh filesystem,sshfs linux,sshfs macos'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['networking/ssh-filesystems/','networking/ssh/using-sshfs-on-linux-and-macos-x/']
-modified: Tuesday, May 23rd, 2017
+modified: 2017-05-23
 modified_by:
   name: Angel Guarisma
-published: 'Monday, October 26th, 2009'
+published: 2009-10-26
 title: Using SSHFS To Mount Remote Directories
 external_resources:
  - '[SSHFS Home Page](http://fuse.sourceforge.net/sshfs.html)'

@@ -5,10 +5,10 @@ author:
 description: 'Installing and Configuring ownCloud on Debian 7.4'
 keywords: 'ownCloud,Debian,MySQL,cloud storage'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Wednesday, June 21st, 2017
+modified: 2017-06-21
 modified_by:
     name: Alex Fornuto
-published: Tuesday, June 10th, 2014
+published: 2014-06-10
 title: 'Installing and Configuring ownCloud on Debian 7.4'
 ---
 

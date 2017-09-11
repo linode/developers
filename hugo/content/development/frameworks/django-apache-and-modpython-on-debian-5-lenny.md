@@ -6,10 +6,10 @@ description: 'Installing and configuring the Django web application development 
 keywords: 'django,python,apache,mod\_python'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/django-apache-mod-python/debian-5-lenny/','websites/frameworks/django-apache-and-modpython-on-debian-5-lenny/']
-modified: Friday, September 27th, 2013
+modified: 2013-09-27
 modified_by:
   name: Linode
-published: 'Thursday, September 10th, 2009'
+published: 2009-09-10
 title: 'Django, Apache and mod_python on Debian 5 (Lenny)'
 deprecated: true
 ---

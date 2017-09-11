@@ -7,10 +7,10 @@ description: 'How to install and configure configuring a LAMP stack with the Har
 keywords: 'ubuntu 8.04 lamp,lamp guide,ubuntu lamp'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['lamp-guides/ubuntu-8-04-hardy/','websites/lamp/lamp-server-on-ubuntu-8-04-lts-hardy/']
-modified: Monday, May 2nd, 2011
+modified: 2011-05-02
 modified_by:
   name: Linode
-published: 'Thursday, July 16th, 2009'
+published: 2009-07-16
 title: 'LAMP Server on Ubuntu 8.04 LTS (Hardy)'
 external_resources:
 - '[Ubuntu Linux Home Page](http://www.ubuntu.com/)'

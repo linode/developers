@@ -7,10 +7,10 @@ description: 'Get Started with MySQL for Web and Server Applications on Ubuntu 1
 keywords: 'mysql,ubuntu 12.04,mysql ubuntu,mysql on linux,mysql Linode'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/mysql/ubuntu-12-04-precise-pangolin/','databases/using-mysql-relational-databases-on-ubuntu-12-04-precise-pangolin']
-modified: Friday, September 11th, 2015
+modified: 2015-09-11
 modified_by:
     name: Linode
-published: 'Monday, October 8th, 2012'
+published: 2012-10-08
 title: 'Deploy MySQL Relational Databases on Ubuntu 12.04 (Precise Pangolin)'
 external_resources:
     - '[MySQL 5.1 Reference Manual](http://dev.mysql.com/doc/refman/5.1/en/)'

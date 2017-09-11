@@ -7,10 +7,10 @@ description: 'Securely copying files to and from your Linode with WinSCP, a free
 keywords: 'winscp,ftp,windows scp,sftp,windows sftp program'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['networking/file-transfer/transfer-files-winscp/']
-modified: Monday, August 22nd, 2011
+modified: 2011-08-22
 modified_by:
   name: Linode
-published: 'Monday, October 19th, 2009'
+published: 2009-10-19
 title: Transfer Files with WinSCP on Windows
 ---
 

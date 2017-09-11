@@ -5,10 +5,10 @@ author:
 description: 'How to use top to monitor a server''s performance.'
 keywords: 'top,htop,iotop,monitoring,server monitoring'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Thursday, February 19th, 2015
+modified: 2015-02-19
 modified_by:
   name: Elle Krout
-published: 'Thursday, February 19th, 2015'
+published: 2015-02-19
 title: Using top to Monitor Server Performance
 external_resources:
  - '[htop](http://hisham.hm/htop/)'

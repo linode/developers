@@ -7,10 +7,10 @@ description: 'Creating a LAMP stack with Apache, MySQL, PHP, and Python on a Fed
 keywords: 'fedora 13 lamp,lamp server,linux lamp,fedora 13 apache'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['lamp-guides/fedora-13/','websites/lamp/lamp-server-on-fedora-13/']
-modified: Monday, May 2nd, 2011
+modified: 2011-05-02
 modified_by:
   name: Linode
-published: 'Tuesday, May 25th, 2010'
+published: 2010-05-25
 title: LAMP Server on Fedora 13
 external_resources:
   - '[Fedora Home Page](http://www.fedoraproject.org/)'

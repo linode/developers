@@ -5,8 +5,8 @@ author:
 description: 'This how-to guide shows you how to configure the Vim text editor and begin to customize it.'
 keywords: 'vim, editor'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: Monday, August 21, 2017
-modified: Tuesday, August 22, 2017
+published: 2017-08-21
+modified: 2017-08-22
 modified_by:
   name: 'Linode'
 title: 'Introduction To Vim Customization'

@@ -7,10 +7,10 @@ description: 'Using Ikiwiki on Fedora 13 to power a standard wiki implementation
 keywords: 'ikiwiki,fedora,fedora 12,wiki,perl,git,markdown'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/wikis/ikiwiki/fedora-13/']
-modified: Friday, April 29th, 2011
+modified: 2011-04-29
 modified_by:
   name: Linode
-published: 'Wednesday, September 15th, 2010'
+published: 2010-09-15
 title: Ikiwiki on Fedora 13
 ---
 

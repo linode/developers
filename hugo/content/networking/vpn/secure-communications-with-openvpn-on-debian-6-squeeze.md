@@ -6,10 +6,10 @@ description: 'Use OpenVPN to securely connect separate networks on a Debian 6 (S
 keywords: 'openvpn debian 6,openvpn debian,debian vpn'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['networking/openvpn/debian-6-squeeze/']
-modified: Thursday, August 22nd, 2013
+modified: 2013-08-22
 modified_by:
   name: Linode
-published: 'Tuesday, April 5th, 2011'
+published: 2011-04-05
 title: 'Secure Communications with OpenVPN on Debian 6 (Squeeze)'
 deprecated: true
 ---

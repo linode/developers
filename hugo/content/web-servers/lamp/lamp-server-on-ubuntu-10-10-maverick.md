@@ -7,10 +7,10 @@ description: 'Configuring a LAMP stack with Apache, MySQL, PHP and on Ubuntu Lin
 keywords: 'ubuntu lamp server,ubuntu 10.10 lamp,maverick lamp,ubuntu web server,ubuntu maverick'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['lamp-guides/ubuntu-10-10-maverick/','websites/lamp/lamp-server-on-ubuntu-10-10-maverick/']
-modified: Wednesday, October 3rd, 2012
+modified: 2012-10-03
 modified_by:
   name: Linode
-published: 'Wednesday, October 13th, 2010'
+published: 2010-10-13
 title: 'LAMP Server on Ubuntu 10.10 (Maverick)'
 external_resources:
   - '[Ubuntu Server Edition Homepage](http://www.ubuntu.com/server)'

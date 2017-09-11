@@ -7,10 +7,10 @@ description: 'Serve dynamic websites and applications with the lightweight nginx
 keywords: 'nginx,nginx fedora 12,nginx fastcgi,nginx perl'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/nginx/perl-fastcgi/fedora-12/','websites/nginx/nginx-and-perlfastcgi-on-fedora-12/']
-modified: Tuesday, May 17th, 2011
+modified: 2011-05-17
 modified_by:
   name: Linode
-published: 'Thursday, March 11th, 2010'
+published: 2010-03-11
 title: 'Nginx and Perl-FastCGI on Fedora 12'
 ---
 

@@ -6,10 +6,10 @@ author:
 description: 'Use the PostgreSQL relational database server with Debian 6 (Squeeze).'
 keywords: 'postgresql debian 6,postgresql squeeze,postgresql database,relational database'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Friday, March 8th, 2013
+modified: 2013-03-08
 modified_by:
   name: Linode
-published: 'Friday, February 18th, 2011'
+published: 2011-02-18
 title: 'Use PostgreSQL Relational Databases on Debian 6 (Squeeze)'
 ---
 

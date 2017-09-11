@@ -5,8 +5,8 @@ author:
 description: 'This guide shows you how to install and access a Jupyter notebook on a Linode remotely and securely through an Apache reverse proxy.'
 keywords: 'Apache2,Jupyter notebook,SSL,websocket'
 license: '[CC BY-ND 4.0](http://creativecommons.org/licenses/by-nd/4.0/)'
-published: 'Wednesday, August 22, 2017'
-modified: Wednesday, August 22, 2017
+published: 2017-08-22
+modified: 2017-08-22
 modified_by:
     name: Sam Foo
 title: 'Install a Jupyter Notebook Server on a Linode Behind an Apache Reverse Proxy'

@@ -7,10 +7,10 @@ description: 'Setting up an email and groupware server using Citadel on an Ubunt
 keywords: 'citadel,citadel ubuntu 12.04,ubuntu 12.04 mail server,groupware,email server'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/citadel/ubuntu-12-04-precise-pangolin/']
-modified: Friday, August 15, 2014
+modified: 2014-08-15
 modified_by:
   name: Alex Fornuto
-published: 'Monday, November 5th, 2012'
+published: 2012-11-05
 title: 'Email with Citadel on Ubuntu 12.04 LTS (Precise Pangolin)'
 ---
 

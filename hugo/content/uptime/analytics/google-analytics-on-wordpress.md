@@ -5,10 +5,10 @@ author:
 description: 'Get in-depth website visitor statistics with Google Analytics on your WordPress website.'
 keywords: 'analytics,google analytics,wordpress,analytics,tracking,statistics'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Thursday, January 29th, 2015
+modified: 2015-01-29
 modified_by:
   name: Elle Krout
-published: 'Thursday, January 29th, 2015'
+published: 2015-01-29
 title: Google Analytics for WordPress
 external_resources:
  - '[Analytics Help](https://support.google.com/analytics/?hl=en#topic=3544906)'

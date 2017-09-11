@@ -7,10 +7,10 @@ description: 'Instructions for installing and using the Apache Tomcat Java Servl
 keywords: 'apache tomcat fedora 14,java,java fedora 14,java servlets fedora 14,java fedora'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/apache-tomcat/fedora-14/','websites/frameworks/apache-tomcat-on-fedora-14/']
-modified: Friday, September 27th, 2013
+modified: 2013-09-27
 modified_by:
   name: Linode
-published: 'Tuesday, December 7th, 2010'
+published: 2010-12-07
 title: Apache Tomcat on Fedora 14
 ---
 

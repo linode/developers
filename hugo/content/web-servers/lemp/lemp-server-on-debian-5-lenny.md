@@ -7,10 +7,10 @@ description: 'Install web applications with "LEMP," a LAMP-like stack using ngin
 keywords: 'nginx,lemp,lepp,perl,python,php,linux,web applications'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['lemp-guides/debian-5-lenny/','websites/lemp/lemp-server-on-debian-5-lenny/']
-modified: Monday, February 18th, 2013
+modified: 2013-02-18
 modified_by:
   name: Linode
-published: 'Tuesday, June 22nd, 2010'
+published: 2010-06-22
 title: 'LEMP Server on Debian 5 (Lenny)'
 ---
 

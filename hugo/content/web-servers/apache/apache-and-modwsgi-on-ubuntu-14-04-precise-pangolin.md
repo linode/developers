@@ -6,10 +6,10 @@ description: 'Deploy Python WSGI Applications with Apache and mod_wsgi.'
 keywords: 'python,apache,mod\_wsgi,django'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['websites/apache/apache-and-modwsgi-on-ubuntu-14-04-precise-pangolin/']
-modified: Wednesday, November 18th, 2015
+modified: 2015-11-18
 modified_by:
   name: Linode
-published: 'Wednesday, November 18th, 2015'
+published: 2015-11-18
 title: 'Apache and mod_wsgi on Ubuntu 14.04 (Trusty Tahr)'
 external_resources:
  - '[A Basic "Hello World" Django Application](http://runnable.com/UWRVp6lLuONCAABD/hello-world-in-django-for-python)'

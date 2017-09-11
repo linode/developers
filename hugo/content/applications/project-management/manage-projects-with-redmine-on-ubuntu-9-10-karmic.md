@@ -7,10 +7,10 @@ description: 'Installing and configuring Redmine, an open source project managem
 keywords: 'redmine,redmine ubuntu 9.10,project management software,redmine postgresql,redmine linux'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/project-management/redmine/ubuntu-9-10-karmic/']
-modified: Tuesday, May 17th, 2011
+modified: 2011-05-17
 modified_by:
   name: Linode
-published: 'Monday, November 23rd, 2009'
+published: 2009-11-23
 title: 'Manage Projects with Redmine on Ubuntu 9.10 (Karmic)'
 ---
 

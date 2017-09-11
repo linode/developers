@@ -6,10 +6,10 @@ description: 'A look into Chef''s primary components, features, and configuratio
 keywords: 'chef,automation,chefdk,chef server,chef development kit,cookbooks,beginners,server automation,configuration management'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['applications/chef/beginners-guide-chef/']
-modified: Wednesday, June 10th, 2015
+modified: 2015-06-10
 modified_by:
   name: Elle Krout
-published: 'Wednesday, June 10th, 2015'
+published: 2015-06-10
 title: A Beginner's Guide to Chef
 external_resources:
  - '[Chef](http://www.chef.io)'

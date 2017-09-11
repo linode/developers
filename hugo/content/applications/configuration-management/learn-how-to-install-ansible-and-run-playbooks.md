@@ -6,8 +6,8 @@ description: 'An introduction to configuration management with the Ansible IT au
 keywords: 'ansible,ansible configuration,ansible provisioning,ansible infrastructure,ansible automation,ansible configuration,ansible configuration change management,ansible server automation'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['applications/ansible/getting-started-with-ansible/','applications/configuration-management/getting-started-with-ansible/']
-published: 'Monday, September 8, 2015'
-modified: Monday, September 8, 2015
+published: 2015-09-08
+modified: 2015-09-08
 modified_by:
     name: Linode
 title: 'Learn How to Install Ansible and Run Playbooks'

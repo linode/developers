@@ -7,10 +7,10 @@ description: 'Use the GNU Mailman software to manage email listservs.'
 keywords: 'mailman,listserv,email,postfix'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/mailman/ubuntu-12-04-precise-pangolin/']
-modified: Tuesday, October 9th, 2012
+modified: 2012-10-09
 modified_by:
   name: Linode
-published: 'Tuesday, October 9th, 2012'
+published: 2012-10-09
 title: 'Manage Email Lists with GNU Mailman on Ubuntu 12.04 (Precise Pangolin)'
 ---
 

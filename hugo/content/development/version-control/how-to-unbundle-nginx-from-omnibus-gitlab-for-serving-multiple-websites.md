@@ -9,10 +9,10 @@ alias: ['applications/development/how-to-unbundle-nginx-from-omnibus-gitlab-for-
 contributor:
     name: Jordi Bassagañas
     link: https://twitter.com/programarivm
-modified: Wednesday, June 21st, 2017
+modified: 2017-06-21
 modified_by:
   name: Phil Zona
-published: 'Monday, February 29th, 2016'
+published: 2016-02-29
 title: 'How to Unbundle nginx from Omnibus GitLab for Serving Multiple Websites'
 external_resources:
  - '[Updating GitLab via Omnibus GitLab](https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/doc/update.md)'

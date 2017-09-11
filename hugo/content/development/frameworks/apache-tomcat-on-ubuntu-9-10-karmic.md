@@ -7,10 +7,10 @@ description: 'Instructions for installing the Apache Tomcat Java servlet engine 
 keywords: 'apache tomcat ubuntu 9.10,java,java ubuntu 9.10,java servlets ubuntu karmic,java ubuntu'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/apache-tomcat/ubuntu-9-10-karmic/','websites/frameworks/apache-tomcat-on-ubuntu-9-10-karmic/']
-modified: Friday, April 29th, 2011
+modified: 2011-04-29
 modified_by:
   name: Linode
-published: 'Friday, July 23rd, 2010'
+published: 2010-07-23
 title: 'Apache Tomcat on Ubuntu 9.10 (Karmic)'
 ---
 

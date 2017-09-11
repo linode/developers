@@ -5,10 +5,10 @@ author:
 description: Configure a MongoDB Replica Set
 keywords: 'mongodb,nosql,clusters,replica set'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Monday, February 27th, 2017
+modified: 2017-02-27
 modified_by:
   name: Phil Zona
-published: 'Friday, December 2nd, 2016'
+published: 2016-12-02
 title: 'Create a MongoDB Replica Set'
 external_resources:
  - '[Getting Started with the mongo Shell](https://docs.mongodb.com/manual/mongo/)'

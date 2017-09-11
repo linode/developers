@@ -7,10 +7,10 @@ description: 'Serve dynamic websites and applications with the lightweight nginx
 keywords: 'nginx,fastscgi perl,nginx ubuntu 10.10,nginx fastcgi,nginx perl'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/nginx/perl-fastcgi/ubuntu-10-10-maverick/','websites/nginx/nginx-and-perlfastcgi-on-ubuntu-10-10-maverick/']
-modified: Monday, October 8th, 2012
+modified: 2012-10-08
 modified_by:
   name: Linode
-published: 'Friday, October 15th, 2010'
+published: 2010-10-15
 title: 'Nginx and Perl-FastCGI on Ubuntu 10.10 (Maverick)'
 ---
 

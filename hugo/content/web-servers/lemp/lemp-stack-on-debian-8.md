@@ -6,10 +6,10 @@ description: 'This tutorial will teach you how to install a LEMP stack to serve 
 keywords: 'nginx,lemp,lepp,perl,python,php,linux,web applications'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['websites/lemp/lemp-server-on-debian-8/','web-servers/lemp/lemp-server-on-debian-8/']
-modified: Monday, August 21st, 2017
+modified: 2017-08-21
 modified_by:
   name: Linode
-published: 'Friday, February 7th, 2014'
+published: 2014-02-07
 title: Install a LEMP (Linux, Nginx, MariaDB, PHP) Stack on Debian 8 
 external_resources:
     - '[Basic Nginx Configuration](/docs/websites/nginx/basic-nginx-configuration)'

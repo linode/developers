@@ -5,10 +5,10 @@ author:
 description: 'Configuring OpenVPN Access Server on your Linode.'
 keywords: 'openvpn,networking,vpn,debian,ubuntu,centos,fedora'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Thursday, April 30th, 2015
+modified: 2015-04-30
 modified_by:
     name: James Stewart
-published: 'Thursday, April 30th, 2015'
+published: 2015-04-30
 title: Secure Communications with OpenVPN Access Server
 ---
 

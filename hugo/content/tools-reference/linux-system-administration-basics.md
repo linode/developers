@@ -6,10 +6,10 @@ description: 'Troubleshooting tips, basic Linux commands, and software usage sug
 keywords: 'linux tips,linux beginners,systems administration,admin,linux,mail,http,troubleshooting'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['using-linux/administration-basics/']
-modified: Wednesday, October 5th, 2016
+modified: 2016-10-05
 modified_by:
   name: Linode
-published: 'Sunday, December 13th, 2009'
+published: 2009-12-13
 title: Linux System Administration Basics
 ---
 

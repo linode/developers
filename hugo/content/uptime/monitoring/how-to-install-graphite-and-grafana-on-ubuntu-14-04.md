@@ -6,10 +6,10 @@ description: 'This guide provides an introduction to the installation and basic 
 keywords: 'graphite,grafana,monitor,monitoring,monitoring tool,analytics'
 alias: ['deploy-graphite-with-grafana-on-ubuntu-14-04/','uptime/monitoring/deploy-graphite-with-grafana-on-ubuntu-14-04/']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: 'Wednesday, December 2nd, 2015'
+modified: 2015-12-02
 modified_by:
   name: Sergey Pariev
-published: 'Wednesday, December 2nd, 2015'
+published: 2015-12-02
 title: 'Deploy Graphite with Grafana on Ubuntu 14.04'
 contributor:
   name: Sergey Pariev

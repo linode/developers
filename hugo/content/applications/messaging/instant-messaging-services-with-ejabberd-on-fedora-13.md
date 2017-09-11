@@ -7,10 +7,10 @@ description: 'Getting started with ejabberd, an instant messaging server written
 keywords: 'ejabberd,ejabberd on linux,real-time messaging,xmpp server,collaboration software,chat software,linux jabber server'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['communications/xmpp/ejabberd/fedora-13/']
-modified: Tuesday, September 24th, 2013
+modified: 2013-09-24
 modified_by:
   name: Linode
-published: 'Monday, September 13th, 2010'
+published: 2010-09-13
 title: Instant Messaging Services with ejabberd on Fedora 13
 ---
 

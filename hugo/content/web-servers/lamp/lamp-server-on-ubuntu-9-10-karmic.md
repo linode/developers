@@ -7,10 +7,10 @@ description: 'Configuring a LAMP stack with Apache, MySQL, PHP and on Ubuntu Lin
 keywords: 'ubuntu lamp server,ubuntu 9.10 lamp,karmic lamp,ubuntu web server,ubuntu karmic'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['lamp-guides/ubuntu-9-10-karmic/','websites/lamp/lamp-server-on-ubuntu-9-10-karmic/']
-modified: Monday, May 2nd, 2011
+modified: 2011-05-02
 modified_by:
   name: Linode
-published: 'Thursday, October 29th, 2009'
+published: 2009-10-29
 title: 'LAMP Server on Ubuntu 9.10 (Karmic)'
 external_resource:
   - '[Ubuntu Linux Homepage](http://www.ubuntu.com/)'

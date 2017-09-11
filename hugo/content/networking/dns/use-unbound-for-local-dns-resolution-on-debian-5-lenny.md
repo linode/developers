@@ -7,10 +7,10 @@ description: 'Configure and run your own DNS resolver using the Unbound Server o
 keywords: 'dns,resolving,caching,unbound,debian'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['dns-guides/unbound-dns-resolver-debian-5-lenny/']
-modified: Monday, October 8th, 2012
+modified: 2012-10-08
 modified_by:
   name: Linode
-published: 'Friday, January 22nd, 2010'
+published: 2010-01-22
 title: 'Use Unbound for Local DNS Resolution on Debian 5 (Lenny)'
 ---
 

@@ -6,10 +6,10 @@ description: 'Computer networks frequently use DHCP to assign IP addresses, rout
 keywords: 'multiple ip addresses,linux static ip,change ip address,network configuration,dns,DHCP'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['networking/configuring-static-ip-interfaces/']
-modified: Thursday, June 8th, 2017
+modified: 2017-06-08
 modified_by:
   name: Linode
-published: 'Thursday, July 20th, 2014'
+published: 2014-07-20
 title: Linux Static IP Configuration
 ---
 

@@ -7,10 +7,10 @@ description: 'Deploy applications that depend on the high performance key-value 
 keywords: 'redis ubuntu 12.04,redis precise pangolin,nosql,database,key-value store'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/redis/ubuntu-12-04-precise-pangolin/']
-modified: Thursday, October 25th, 2012
+modified: 2012-10-25
 modified_by:
   name: Linode
-published: 'Thursday, October 25th, 2012'
+published: 2012-10-25
 title: 'Redis on Ubuntu 12.04 (Precise Pangolin)'
 external_resources:
  - '[Redis Project Home Page](http://redis.io/)'

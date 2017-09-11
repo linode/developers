@@ -7,10 +7,10 @@ description: 'Configuring Virus and Spam protection for your mail server.'
 keywords: 'email,mail,postfix,dovecot,mysql,ubuntu,12.04,clamav,spamassassin,amavis'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/postfix/clamav-spamassasin-ubuntu-12-04/']
-modified: Friday, April 4th, 2014
+modified: 2014-04-04
 modified_by:
   name: Alex Fornuto
-published: 'Wednesday, March 26th, 2014'
+published: 2014-03-26
 title: 'Installing Mail Filtering for Ubuntu 12.04'
 external_resources:
  - '[The Official SpamAssassin Site](http://spamassassin.apache.org/)'

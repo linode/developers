@@ -7,10 +7,10 @@ description: 'Get in-depth website visitor statistics with Piwik, a self-hosted,
 keywords: 'open source analytics,piwik ubuntu 10.10,piwik,analytics,ubuntu,tracking,statistics'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/analytics/piwik/ubuntu-10-10-maverick/']
-modified: Monday, October 8th, 2012
+modified: 2012-10-08
 modified_by:
   name: Linode
-published: 'Tuesday, January 25th, 2011'
+published: 2011-01-25
 title: 'Piwik on Ubuntu 10.10 (Maverick)'
 ---
 

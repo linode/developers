@@ -6,10 +6,10 @@ description: 'This is a starting point of best practices for hardening a product
 keywords: 'security,secure,firewall,ssh,add user,quick start'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['securing-your-server/','security/linux-security-basics/','security/basics']
-modified: 'Wednesday, July 12th, 2017'
+modified: 2017-07-12
 modified_by:
   name: Linode
-published: 'Friday, February 17th, 2012'
+published: 2012-02-17
 title: Securing Your Server
 ---
 

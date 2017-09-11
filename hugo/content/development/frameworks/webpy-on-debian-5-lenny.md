@@ -6,10 +6,10 @@ description: 'Use the Web.py Python framework to develop powerful and innovative
 keywords: 'web.py,web applications,python,web frameworks'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/webpy/debian-5-lenny/','websites/frameworks/webpy-on-debian-5-lenny/']
-modified: Monday, October 8th, 2012
+modified: 2012-10-08
 modified_by:
   name: Linode
-published: 'Wednesday, April 14th, 2010'
+published: 2010-04-14
 title: 'Web.py on Debian 5 (Lenny)'
 deprecated: true
 ---

@@ -6,10 +6,10 @@ description: 'Steps to take if your Linode becomes compromised by unauthorized p
 keywords: 'root compromise,Linode troubleshooting,Linode troubleshooting,Linux configuration'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['troubleshooting/compromise-recovery/']
-modified: Friday, July 12th, 2013
+modified: 2013-07-12
 modified_by:
   name: Linode
-published: 'Wednesday, August 26th, 2009'
+published: 2009-08-26
 title: Recovering from a System Compromise
 ---
 

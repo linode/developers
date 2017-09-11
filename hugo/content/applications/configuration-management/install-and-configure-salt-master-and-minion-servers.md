@@ -6,10 +6,10 @@ description: 'Salt is a server management platform that can control a number of 
 keywords: 'Install salt, salt configuration management, salt master'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['applications/salt/install-salt/','applications/configuration-management/install-salt/']
-modified: Monday, July 10th, 2017
+modified: 2017-07-10
 modified_by:
     name: Linode
-published: 'Tuesday, September 22nd, 2015'
+published: 2015-09-22
 title: Install and Configure Salt Master and Minion Servers
 ---
 

@@ -6,10 +6,10 @@ description: 'Mango publishes markdown documents from plain text files into a dy
 keywords: 'markdown,content management systems,cms,plain text'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/cms-guides/mango/ubuntu-10-10-maverick/']
-modified: Wednesday, October 2nd, 2013
+modified: 2013-10-02
 modified_by:
   name: Linode
-published: 'Tuesday, April 5th, 2011'
+published: 2011-04-05
 title: 'Manage Content with Markdown and Mango on Ubuntu 10.10 (Maverick)'
 deprecated: true
 ---

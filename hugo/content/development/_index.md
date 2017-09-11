@@ -6,7 +6,7 @@ description: 'These guides will show you how to create development environments 
 keywords: 'development,linux,ruby,python,nodejs'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['applications/development/']
-published: 'Friday, April 14th, 2017'
+published: 2017-04-14
 title: Development
 categories:
  - nodejs

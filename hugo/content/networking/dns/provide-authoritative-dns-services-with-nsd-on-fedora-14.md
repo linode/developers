@@ -7,10 +7,10 @@ description: 'Install and configure NSD to handle DNS queries.'
 keywords: 'NSD,DNS,resolving,Fedora 14,networking'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['dns-guides/nsd-authoritative-dns-fedora-14/']
-modified: Wednesday, September 25th, 2013
+modified: 2013-09-25
 modified_by:
   name: Linode
-published: 'Tuesday, January 25th, 2011'
+published: 2011-01-25
 title: Provide Authoritative DNS Services with NSD on Fedora 14
 ---
 

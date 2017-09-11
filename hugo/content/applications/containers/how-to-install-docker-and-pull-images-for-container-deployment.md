@@ -8,10 +8,10 @@ contributor:
 description: 'An introduction to using Docker, containers, and dockerfiles on your Linode.'
 keywords: 'docker,container,dockerfile,install docker'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Monday, July 17, 2017
+modified: 2017-07-17
 modified_by:
   name: Linode
-published: 'Monday, July 17, 2017'
+published: 2017-07-17
 title: 'How to Install Docker and Pull Images for Container Deployment'
 external_resources:
  - '[Docker Docs](http://docs.docker.com/)'

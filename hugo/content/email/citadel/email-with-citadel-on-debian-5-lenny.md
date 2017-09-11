@@ -7,10 +7,10 @@ description: 'Setting up an email and groupware server using Citadel on a Debian
 keywords: 'citadel,debian mail server,groupware,email server,email howto'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/citadel/debian-5-lenny/']
-modified: Monday, October 8th, 2012
+modified: 2012-10-08
 modified_by:
   name: Linode
-published: 'Monday, November 9th, 2009'
+published: 2009-11-09
 title: 'Email with Citadel on Debian 5 (Lenny)'
 ---
 

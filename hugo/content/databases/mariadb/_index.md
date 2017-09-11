@@ -5,7 +5,7 @@ author:
 keywords: 'mariadb, database'
 description: 'Learn how to use, install, configure and perform tasks on database management platform MariaDB in these tutorials.'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 'Thursday, June 12th, 2014'
+published: 2014-06-12
 title: MariaDB Tutorials, Installation Guides, Resources – Linode
 ---
 

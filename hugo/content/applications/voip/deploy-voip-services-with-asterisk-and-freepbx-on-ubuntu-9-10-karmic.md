@@ -7,10 +7,10 @@ description: 'Install Asterisk and FreePBX on your Linode to use and manage a te
 keywords: 'asterisk ubuntu 9.10,asterisk,asterisk linux,freepbx,freepbx ubuntu,pbx,voip'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['communications/voip-services-ubuntu9-10/']
-modified: Friday, August 2nd, 2013
+modified: 2013-08-02
 modified_by:
   name: Linode
-published: 'Friday, April 23rd, 2010'
+published: 2010-04-23
 title: 'Deploy VoIP Services with Asterisk and FreePBX on Ubuntu 9.10 (Karmic)'
 ---
 

@@ -6,10 +6,10 @@ description: 'This guide will teach you basic setup and configuration of Linux, 
 keywords: 'nginx,lemp,php,ubuntu 16.04'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['websites/lemp/lemp-server-on-ubuntu-16-04/','websites/lemp/lemp-server-on-ubuntu-16-04/','web-servers/lemp/lemp-server-on-ubuntu-16-04/']
-modified: Friday, May 6th 2016
+modified: 2016-05-06
 modified_by:
   name: Phil Zona
-published: 'Friday, May 6th, 2016'
+published: 2016-05-06
 title: 'How to Install a LEMP (Linux, Nginx, MySQL, PHP) Stack on Ubuntu 16.04'
 external_resources:
  - '[Basic nginx Configuration](/docs/websites/nginx/basic-nginx-configuration)'

@@ -5,10 +5,10 @@ author:
 description: 'How to upgrade from Debian 7 (Wheezy) to Debian 8 (Jessie).'
 keywords: 'debian,upgrade,wheezy,jessie'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Wednesday, April 29th, 2015
+modified: 2015-04-29
 modified_by:
   name: Alex Fornuto
-published: 'Wednesday, April 29th, 2015'
+published: 2015-04-29
 title: 'Upgrading to Debian 8 (Jessie)'
 ---
 

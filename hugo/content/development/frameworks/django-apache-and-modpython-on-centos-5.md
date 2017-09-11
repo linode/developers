@@ -6,10 +6,10 @@ description: 'Installing and configuring the Django web application development 
 keywords: 'django,python,apache,mod\_python,centos'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/django-apache-mod-python/centos-5/','websites/frameworks/django-apache-and-modpython-on-centos-5/']
-modified: Friday, September 27th, 2013
+modified: 2013-09-27
 modified_by:
   name: Linode
-published: 'Wednesday, February 3rd, 2010'
+published: 2010-02-03
 title: 'Django, Apache and mod_python on CentOS 5'
 deprecated: true
 ---

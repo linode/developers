@@ -5,10 +5,10 @@ author:
 description: 'Install and configure Postfix on Debian and Ubuntu to send email through Gmail and Google Apps.'
 keywords: 'Postfix, Ubuntu, Debian, SMTP, Gmail'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Tuesday, September 5, 2017
+modified: 2017-09-05
 modified_by:
   name: Edward Angert
-published: 'Tuesday, December 13, 2016'
+published: 2016-12-13
 title: Configure Postfix to Send Mail Using Gmail and Google Apps on Debian or Ubuntu
 ---
 

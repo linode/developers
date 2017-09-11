@@ -7,10 +7,10 @@ description: 'Configuring the phpBB system for hosting web-based discussion foru
 keywords: 'phpBB,forum software,web applications,PHP'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/bulletin-boards/phpbb/debian-6-squeeze/']
-modified: Monday, May 9th, 2011
+modified: 2011-05-09
 modified_by:
   name: Linode
-published: 'Tuesday, April 5th, 2011'
+published: 2011-04-05
 title: 'Discussion Forums with phpBB on Debian 6 (Squeeze)'
 ---
 

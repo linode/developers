@@ -7,10 +7,10 @@ description: 'Use Nagios to monitor services and send status updates on your Gen
 keywords: 'nagios,monitoring'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['server-monitoring/nagios/gentoo/']
-modified: Tuesday, October 1st, 2013
+modified: 2013-10-01
 modified_by:
   name: Linode
-published: 'Monday, November 15th, 2010'
+published: 2010-11-15
 title: Monitor Services with Nagios on Gentoo Linux
 ---
 

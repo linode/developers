@@ -6,8 +6,8 @@ description: 'PageSpeed is an open source Google project created to optimize web
 keywords: 'nginx,PageSpeed,ngx_pagespeed,pagespeed,ubuntu,Ubuntu 14.04,'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['websites/nginx/nginx-with-pagespeed-on-ubuntu-14-04/']
-published: 'Tuesday, November 3rd, 2015'
-modified: Tuesday, November 3rd, 2015
+published: 2015-11-03
+modified: 2015-11-03
 modified_by:
     name: Linode
 title: 'nginx with PageSpeed on Ubuntu 14.04'

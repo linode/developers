@@ -6,10 +6,10 @@ description: 'OSQA provides an advanced knowledge exchange system for vibrant co
 keywords: 'knowledge exchange,question and answers,q&a,debian lenny'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/social-networking/osqa/']
-modified: Friday, October 4th, 2013
+modified: 2013-10-04
 modified_by:
   name: Linode
-published: 'Monday, May 10th, 2010'
+published: 2010-05-10
 title: 'Question and Answer Communities with OSQA on Debian 5 (Lenny)'
 deprecated: true
 ---

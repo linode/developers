@@ -6,10 +6,10 @@ description: 'Manage email retrieval via multiple protocols with Fetchmail.'
 keywords: 'mail,fetchmail,unix,esr,mda'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/fetchmail/']
-modified: Wednesday, September 11th, 2013
+modified: 2013-09-11
 modified_by:
   name: Linode
-published: 'Thursday, January 7th, 2010'
+published: 2010-01-07
 title: Using Fetchmail to Retrieve Email
 external_resources:
  - '[Mailfilter MDA](http://mailfilter.sourceforge.net/)'

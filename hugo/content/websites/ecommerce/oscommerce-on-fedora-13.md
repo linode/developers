@@ -7,10 +7,10 @@ description: 'How to set up an online store using the open source osCommerce sys
 keywords: 'osCommerce,Fedora,Store,Ecommerce'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/e-commerce/oscommerce/fedora-13/']
-modified: Thursday, October 3rd, 2013
+modified: 2013-10-03
 modified_by:
   name: Linode
-published: 'Wednesday, October 13th, 2010'
+published: 2010-10-13
 title: osCommerce on Fedora 13
 ---
 

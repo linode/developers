@@ -7,10 +7,10 @@ description: 'Use logwatch to monitor system logs and generate reports.'
 keywords: 'logwatch,security,logging,audit'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['server-monitoring/logwatch/ubuntu-12-04-precise-pangolin/']
-modified: Monday, October 22nd, 2012
+modified: 2012-10-22
 modified_by:
   name: Linode
-published: 'Monday, October 22nd, 2012'
+published: 2012-10-22
 title: 'Monitor System Logs with Logwatch on Ubuntu 12.04 (Precise Pangolin)'
 ---
 

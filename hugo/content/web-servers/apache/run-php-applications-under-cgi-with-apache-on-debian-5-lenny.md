@@ -7,10 +7,10 @@ description: 'Methods for enabling dynamic content run as individual users with 
 keywords: 'php cgi,php apache,php scripts,dynamic apache,web applications'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/php-cgi/debian-5-lenny/','websites/apache/run-php-applications-under-cgi-with-apache-on-debian-5-lenny/']
-modified: Monday, January 13th, 2014
+modified: 2014-01-13
 modified_by:
   name: Linode
-published: 'Friday, December 18th, 2009'
+published: 2009-12-18
 title: 'Run PHP Applications under CGI with Apache on Debian 5 (Lenny)'
 ---
 

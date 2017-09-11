@@ -5,8 +5,8 @@ author:
 description: 'How to Install Nginx from Source on Debian 8 (Jessie)'
 keywords: 'nginx,http,web servers,debian,debian jessie,debian 8'
 license: '[CC BY-ND 3.0](http://creativecommons.org/licenses/by-nd/3.0/us/)'
-published: 'Thursday, July 9th, 2015'
-modified: Thursday, August 18th, 2016
+published: 2015-07-09
+modified: 2016-08-18
 modified_by:
     name: Phil Zona
 title: 'Install Nginx Web Server on Debian 8'

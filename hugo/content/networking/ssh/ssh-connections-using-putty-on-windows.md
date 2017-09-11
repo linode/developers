@@ -6,10 +6,10 @@ description: 'Accessing remote servers with PuTTY, a free and open source SSH cl
 keywords: 'putty,putty ssh,windows ssh client'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['networking/using-putty/'] 
-modified: Tuesday, July 25th, 2017
+modified: 2017-07-25
 modified_by:
   name: Linode
-published: 'Sunday, September 20th, 2009'
+published: 2009-09-20
 title: SSH Connections Using PuTTY on Windows
 external_resources:
  - '[PuTTY Documentation](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html)'

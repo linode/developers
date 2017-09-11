@@ -7,10 +7,10 @@ description: 'Setting up a mail server with Postfix, Dovecot and MySQL on Ubuntu
 keywords: 'postfix ubuntu 10.10,dovecot ubuntu 10.10,ubuntu 10.10 mail server,dovecot,email,ubuntu,maverick'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/postfix/dovecot-mysql-ubuntu-10-10-maverick/']
-modified: Monday, October 8th, 2012
+modified: 2012-10-08
 modified_by:
   name: Linode
-published: 'Tuesday, October 12th, 2010'
+published: 2010-10-12
 title: 'Email with Postfix, Dovecot and MySQL on Ubuntu 10.10 (Maverick)'
 ---
 

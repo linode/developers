@@ -7,10 +7,10 @@ description: 'Deploy applications that depend on the high performance key-value 
 keywords: 'redis centos 5,redis,nosql,database,key-value store'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/redis/centos-5/']
-modified: Sunday, July 7th, 2013
+modified: 2013-07-07
 modified_by:
   name: Linode
-published: 'Thursday, August 5th, 2010'
+published: 2010-08-05
 title: Redis on CentOS 5
 external_resources:
  - '[Redis Project Home Page](http://redis.io/)'

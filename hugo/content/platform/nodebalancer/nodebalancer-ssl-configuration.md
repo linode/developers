@@ -5,10 +5,10 @@ author:
 description: 'Forcing all connections to use SSL with NodeBalancers.'
 keywords: 'Linode,NodeBalancer,SSL,redirect,load balancing,install,certificate,configuration'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Thursday, April 6th, 2017
+modified: 2017-04-06
 modified_by:
   name: Nick Brewer
-published: Tuesday, September 1st, 2015
+published: 2015-09-01
 title: NodeBalancer SSL Configuration
 ---
 

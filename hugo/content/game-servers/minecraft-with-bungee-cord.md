@@ -10,8 +10,8 @@ external_resources:
  - '[The Official Minecraft Wiki](http://minecraft.gamepedia.com/Minecraft_Wiki)'
  - '[Official BungeeCord Site](https://www.spigotmc.org/wiki/bungeecord/)'
  - '[BungeeCord and Spigot Forums](https://www.spigotmc.org/)'
-published: 'Wednesday, September 9th, 2015'
-modified: Wednesday, September 9th, 2015
+published: 2015-09-09
+modified: 2015-09-09
 modified_by:
     name: linode
 title: 'How to Set Up BungeeCord to Link Spigot Servers'

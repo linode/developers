@@ -6,10 +6,10 @@ description: 'This guide will show you how to use the logrotate tool to manage l
 keywords: 'logrotate,log files,access logs'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['linux-tools/utilities/logrotate/']
-modified: Tuesday, August 22nd, 2017
+modified: 2017-08-22
 modified_by:
   name: Linode
-published: 'Monday, October 11th, 2010'
+published: 2010-10-11
 title: How to Use logrotate to Manage Log Files
 ---
 

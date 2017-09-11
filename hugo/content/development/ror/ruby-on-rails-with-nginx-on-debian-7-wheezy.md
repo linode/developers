@@ -6,10 +6,10 @@ description: Using the Ruby on Rails framework for Nginx web applications on Deb
 keywords: 'ruby on rails,ruby on nginx,rails apps'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/ruby-on-rails-nginx/debian-7-wheezy/','websites/ror/ruby-on-rails-with-nginx-on-debian-7-wheezy/']
-modified: Tuesday, December 9th, 2014
+modified: 2014-12-09
 modified_by:
   name: James Stewart
-published: 'Tuesday, February 11th, 2014'
+published: 2014-02-11
 title: 'Ruby on Rails with Nginx on Debian 7 (Wheezy)'
 external_resources:
  - '[Ruby on Rails Home Page](http://rubyonrails.org/)'

@@ -7,10 +7,10 @@ description: 'Configuring a LAMP stack with Apache, MySQL, PHP and on Ubuntu 12.
 keywords: 'ubuntu lamp server,ubuntu 12.04 lamp,lamp,ubuntu server,ubuntu,apache,mysql,php,lamp stacks'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['lamp-guides/ubuntu-12-04-precise-pangolin/','websites/lamp/lamp-server-on-ubuntu-12-04-precise-pangolin/']
-modified: Tuesday, June 30th, 2015
+modified: 2015-06-30
 modified_by:
   name: Alex Fornuto
-published: 'Monday, October 3rd, 2012'
+published: 2012-10-03
 title: 'LAMP Server on Ubuntu 12.04 (Precise Pangolin)'
 external_resources:
  - '[Ubuntu Server Edition Homepage](http://www.ubuntu.com/server)'

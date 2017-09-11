@@ -6,10 +6,10 @@ description: 'An introduction to mod\_alias for managing file system resources w
 keywords: 'resources,http,files,management,mod\_alias,Alias,apache'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/configuration/managing-resources-with-apache-alias/','websites/apache-tips-and-tricks/managing-resources-with-apache-modalias/']
-modified: Monday, August 22nd, 2011
+modified: 2011-08-22
 modified_by:
   name: Linode
-published: 'Wednesday, February 24th, 2010'
+published: 2010-02-24
 title: 'Managing Resources with Apache mod_alias'
 external_resources:
  - '[Apache Installation](/docs/web-servers/apache/)'

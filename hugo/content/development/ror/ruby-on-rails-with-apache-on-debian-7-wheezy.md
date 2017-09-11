@@ -6,10 +6,10 @@ description: 'Using the Apache web server with Debian 7 Wheezy to serve Ruby on 
 keywords: 'ruby on rails,rails on debian,rails apps,rails and apache'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/ruby-on-rails-apache/debian-7-wheezy/','websites/ror/ruby-on-rails-with-apache-on-debian-7-wheezy/']
-modified: Friday, September 13th, 2013
+modified: 2013-09-13
 modified_by:
   name: Linode
-published: 'Friday, September 13th, 2013'
+published: 2013-09-13
 title: 'Ruby on Rails with Apache on Debian 7 (Wheezy)'
 external_resources:
  - '[Ruby on Rails Homepage](http://rubyonrails.org/)'

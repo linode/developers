@@ -7,10 +7,10 @@ description: 'Build a groupware system with eGroupware.'
 keywords: 'groupware,email,collaboration,centos'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/project-management/egroupware/centos-5/']
-modified: Monday, August 22nd, 2011
+modified: 2011-08-22
 modified_by:
   name: Linode
-published: 'Wednesday, February 3rd, 2010'
+published: 2010-02-03
 title: Power Team Collaboration with eGroupware on CentOS 5
 external_resources:
  - '[eGroupware Home Page](http://www.egroupware.org/)'

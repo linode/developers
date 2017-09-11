@@ -6,10 +6,10 @@ description: 'Niche and community social networking with Elgg.'
 keywords: 'social networking,lamp,elgg,elgg debian lenny'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/social-networking/elgg/']
-modified: Friday, October 4th, 2013
+modified: 2013-10-04
 modified_by:
   name: Linode
-published: 'Tuesday, December 8th, 2009'
+published: 2009-12-08
 title: 'Social Networking with Elgg on Debian 5 (Lenny)'
 deprecated: true
 ---

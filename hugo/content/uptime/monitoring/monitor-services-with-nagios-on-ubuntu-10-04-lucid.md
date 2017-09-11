@@ -7,10 +7,10 @@ description: 'Use Nagios to monitor services and send status updates on your Ubu
 keywords: 'nagios,monitoring'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['server-monitoring/nagios/ubuntu-10-04-lucid/']
-modified: Tuesday, October 1st, 2013
+modified: 2013-10-01
 modified_by:
   name: Linode
-published: 'Wednesday, May 26th, 2010'
+published: 2010-05-26
 title: 'Monitor Services with Nagios on Ubuntu 10.04 (Lucid)'
 ---
 

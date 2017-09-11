@@ -6,10 +6,10 @@ description: 'Use phpMyAdmin to manage MySQL databases and users though a web in
 keywords: 'mysql,phpmyadmin,sql,debian'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/mysql/phpmyadmin-debian-5-lenny/']
-modified: Wednesday, January 22nd, 2014
+modified: 2014-01-22
 modified_by:
   name: Alex Fornuto
-published: 'Thursday, January 28th, 2010'
+published: 2010-01-28
 title: 'Manage MySQL with phpMyAdmin on Debian 5 (Lenny)'
 deprecated: true
 external_resources:

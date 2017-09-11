@@ -7,10 +7,10 @@ description: 'Configure and run your own DNS resolver using the Unbound Server o
 keywords: 'ubuntu dns,open source dns,dns,resolving,caching,unbound'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['dns-guides/unbound-dns-resolver-ubuntu-11-04-natty/']
-modified: Monday, February 18th, 2013
+modified: 2013-02-18
 modified_by:
   name: Linode
-published: 'Wednesday, June 8th, 2011'
+published: 2011-06-08
 title: 'Use Unbound for Local DNS Resolution on Ubuntu 11.04 (Natty)'
 ---
 

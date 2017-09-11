@@ -6,10 +6,10 @@ description: This how-to tutorial will let you install Java on Debian 8
 keywords: 'install Java,Debian,OpenJDK,Java JDK'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['development/INSTALLING-JAVA-ON-DEBIAN/']
-modified: Thursday, June 1st, 2017
+modified: 2017-06-01
 modified_by:
   name: Angel Guarisma
-published: 'Thursday, June 1st, 2017'
+published: 2017-06-01
 title: Install Java on Debian 8
 external_resources:
 - '[Java Debian Wiki](https://wiki.debian.org/Java)'

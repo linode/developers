@@ -5,10 +5,10 @@ author:
 description: "Use the Linode Manager's GRUB 2 boot setting to run your distribution's native Linux kernel"
 keywords: 'kvm,custom linux, kernel,custom linode,grub,grub 2'
 license: '[CC BY-ND 4.0](http://creativecommons.org/licenses/by-nd/4.0/)'
-modified: 'Friday, March 3, 2017'
+modified: 2017-03-03
 modified_by:
   name: Linode
-published: 'Monday, June 29th, 2015'
+published: 2015-06-29
 title: 'Run a Distribution-Supplied Kernel on a KVM Linode'
 ---
 

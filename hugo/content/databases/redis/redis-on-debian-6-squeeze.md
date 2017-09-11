@@ -7,10 +7,10 @@ description: 'Deploy applications that depend on the high performance key-value 
 keywords: 'redis,nosql,database,key-value store'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/redis/debian-6-squeeze/']
-modified: Sunday, July 7th, 2013
+modified: 2013-07-07
 modified_by:
   name: Linode
-published: 'Tuesday, April 5th, 2011'
+published: 2011-04-05
 title: 'Redis on Debian 6 (Squeeze)'
 ---
 

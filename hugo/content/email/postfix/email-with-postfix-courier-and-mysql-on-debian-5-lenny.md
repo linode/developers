@@ -6,10 +6,10 @@ description: 'Installing and configuring the Postfix MTA to work with Courier an
 keywords: 'postfix,courier,mail server,imap,postfix on debian,postfix on linux,postfix with courier,postfix with mysql,mysql virtual domains'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/postfix/courier-mysql-debian-5-lenny/']
-modified: Tuesday, May 17th, 2011
+modified: 2011-05-17
 modified_by:
   name: Linode
-published: 'Saturday, September 12th, 2009'
+published: 2009-09-12
 title: 'Email with Postfix, Courier and MySQL on Debian 5 (Lenny)'
 deprecated: true
 ---

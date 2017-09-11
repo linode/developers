@@ -7,10 +7,10 @@ description: 'Getting started with ejabberd, an instant messaging server written
 keywords: 'ejabberd,ejabberd on linux,real-time messaging,xmpp server,collaboration software,chat software,linux jabber server'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['communications/xmpp/ejabberd/debian-5-lenny/']
-modified: Monday, August 22nd, 2011
+modified: 2011-08-22
 modified_by:
   name: Linode
-published: 'Wednesday, October 7th, 2009'
+published: 2009-10-07
 title: 'Instant Messaging Services with ejabberd on Debian 5 (Lenny)'
 ---
 

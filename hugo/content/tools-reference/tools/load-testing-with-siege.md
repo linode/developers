@@ -5,10 +5,10 @@ author:
 description: 'Load testing your web server with regression testing and benchmarking utility Siege'
 keywords: 'siege,load testing,benchmarking'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Wednesday, February 18th, 2015
+modified: 2015-02-18
 modified_by:
   name: Elle Krout
-published: 'Wednesday, February 18th, 2015'
+published: 2015-02-18
 title: Load Testing Web Servers with Siege
 external_resources:
  - '[Siege Home](http://www.joedog.org/siege-home)'

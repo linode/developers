@@ -6,10 +6,10 @@ description: 'Install the Apache Tomcat Java servlet engine on Ubuntu 16.04 (Xen
 keywords: 'apache tomcat ubuntu 16.04,tomcat java,java ubuntu 16.04,tomcat ubuntu'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['websites/frameworks/apache-tomcat-on-ubuntu-16-04/']
-modified: Monday, May 9th 2016
+modified: 2016-05-09
 modified_by:
   name: Phil Zona
-published: 'Monday, May 9th 2016'
+published: 2016-05-09
 title: 'Install Apache Tomcat on Ubuntu 16.04'
 external_resources:
  - '[Tomcat Home Page](http://tomcat.apache.org/)'

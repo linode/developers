@@ -6,10 +6,10 @@ description: 'An introduction to Linux and Unix-like systems covering history, s
 keywords: 'Linux,Unix-Like systems,history'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['using-linux/linux-concepts/']
-modified: Thursday, December 19th, 2013
+modified: 2013-12-19
 modified_by:
   name: Linode
-published: 'Monday, August 31st, 2009'
+published: 2009-08-31
 title: Introduction to Linux Concepts
 external_resources:
  - '[Getting Started](/docs/getting-started/)'

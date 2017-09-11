@@ -6,10 +6,10 @@ description: 'Serve dynamic websites and applications with the lightweight nginx
 keywords: 'nginx,nginx ubuntu 11.04,nginx fastcgi,nginx php'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/nginx/php-fastcgi/ubuntu-11-04-natty/','websites/nginx/nginx-and-phpfastcgi-on-ubuntu-11-04-natty/']
-modified: Monday, February 18th, 2013
+modified: 2013-02-18
 modified_by:
   name: Linode
-published: 'Friday, May 6th, 2011'
+published: 2011-05-06
 title: 'Nginx and PHP-FastCGI on Ubuntu 11.04 (Natty)'
 deprecated: true
 ---

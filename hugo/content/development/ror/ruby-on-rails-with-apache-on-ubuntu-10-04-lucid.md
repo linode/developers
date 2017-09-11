@@ -7,10 +7,10 @@ description: 'Using the Apache web server with Ubuntu 10.04 to serve Ruby on Rai
 keywords: 'ruby on rails,rails on ubuntu,rails apps,rails and apache'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/ruby-on-rails-apache/ubuntu-10-04-lucid/','websites/ror/ruby-on-rails-with-apache-on-ubuntu-10-04-lucid/']
-modified: Monday, August 22nd, 2011
+modified: 2011-08-22
 modified_by:
   name: Linode
-published: 'Monday, August 2nd, 2010'
+published: 2010-08-02
 title: 'Ruby on Rails with Apache on Ubuntu 10.04 (Lucid)'
 external_resources:
   - '[Ruby on Rails Homepage](http://rubyonrails.org/)'

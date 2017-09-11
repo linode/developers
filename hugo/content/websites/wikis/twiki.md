@@ -7,10 +7,10 @@ description: 'Installation, configuration and usage guides for the Ikiwiki wiki 
 keywords: 'twiki,wiki,perl,markdown'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/wikis/twiki/']
-modified: Friday, October 4th, 2013
+modified: 2013-10-04
 modified_by:
   name: Linode
-published: 'Wednesday, March 31st, 2010'
+published: 2010-03-31
 title: TWiki
 ---
 

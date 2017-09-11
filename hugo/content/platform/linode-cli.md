@@ -6,10 +6,10 @@ description: 'An introduction to the Linode command line interface.'
 keywords: 'linode cli, command line interface, man pages, api key'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['cli/']
-modified: Monday, June 20th, 2016
+modified: 2016-06-20
 modified_by:
   name: Alex Fornuto
-published: 'Monday, January 27th, 2014'
+published: 2014-01-27
 title: Linode CLI
 external_resources:
  - '[Github Linode CLI](https://github.com/linode/cli)'

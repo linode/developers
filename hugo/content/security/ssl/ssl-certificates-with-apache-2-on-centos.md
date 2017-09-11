@@ -7,10 +7,10 @@ description: 'Serve SSL-enabled websites with the Apache 2 web server on CentOS.
 keywords: 'apache ssl,ssl on centos,web server,centos 5,centos 6,centos 7'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/ssl-guides/centos/','security/ssl/ssl-certificates-with-apache-2-on-centos-5-6','web-servers/ssl/ssl-certificates-with-apache-2-on-centos-5-6']
-modified: Tuesday, October 21st, 2014
+modified: 2014-10-21
 modified_by:
   name: Dave Russell
-published: 'Friday, February 26th, 2010'
+published: 2010-02-26
 title: 'SSL Certificates with Apache 2 on CentOS'
 ---
 

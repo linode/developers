@@ -6,10 +6,10 @@ description: Use the Find command from the Linux command line to locate files in
 keywords: 'find command,linux,command line'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['linux-tools/common-commands/find/','tools-reference/tools/filter-file-systems-with-the-find-command/']
-modified: Thursday, September 15, 2016
+modified: 2016-09-15
 modified_by: 
   name: Edward Angert
-published: 'Monday, October 25th, 2010'
+published: 2010-10-25
 title: Find Files in Linux, Using the Command Line
 external_resources:
 - '[Online man Pages](http://man7.org/linux/man-pages/man1/find.1.html)'

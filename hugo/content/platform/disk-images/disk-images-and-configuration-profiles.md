@@ -6,10 +6,10 @@ description: Our guide to disks and configuration profiles
 keywords: 'disks,config profiles'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['disk-images-config-profiles/','migrate-to-linode/disk-images/disk-images-and-configuration-profiles/']
-modified: Thursday, June 19th, 2014
+modified: 2014-06-19
 modified_by:
   name: Linode
-published: 'Tuesday, April 24th, 2012'
+published: 2012-04-24
 title: Disks and Configuration Profiles
 ---
 

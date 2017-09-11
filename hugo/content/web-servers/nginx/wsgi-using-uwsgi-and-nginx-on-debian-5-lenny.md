@@ -7,10 +7,10 @@ description: 'Use uWSGI to deploy Python application servers in conjunction with
 keywords: 'uwsgi,wsgi,nginx,python'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/nginx/python-uwsgi/debian-5-lenny/','websites/nginx/wsgi-using-uwsgi-and-nginx-on-debian-5-lenny/']
-modified: Monday, October 8th, 2012
+modified: 2012-10-08
 modified_by:
   name: Linode
-published: 'Monday, November 8th, 2010'
+published: 2010-11-08
 title: 'WSGI using uWSGI and nginx on Debian 5 (Lenny)'
 ---
 

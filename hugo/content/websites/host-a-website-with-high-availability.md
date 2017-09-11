@@ -5,8 +5,8 @@ author:
 description: 'How to configure a highly available web server stack'
 keywords: 'high availability,web server,failover, '
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 'Tuesday, July 12th, 2016'
-modified: Tuesday, June 7th, 2017
+published: 2016-07-12
+modified: 2017-06-07
 modified_by:
   name: Angel Guarisma
 title: 'Host a Website with High Availability'

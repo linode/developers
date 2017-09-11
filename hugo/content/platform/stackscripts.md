@@ -6,10 +6,10 @@ description: 'Create Custom Instances and Automate Deployment with StackScripts.
 keywords: 'ami,automation,elasticity,cloud,custom instance'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['stackscripts/']
-modified: Wednesday, November 12, 2014
+modified: 2014-11-12
 modified_by:
   name: Ricardo Feliciano
-published: 'Tuesday, April 5th, 2011'
+published: 2011-04-05
 title: Automate Deployment with StackScripts
 external_resources:
   - '[StackScript Community Library](http://linode.com/stackscripts)'

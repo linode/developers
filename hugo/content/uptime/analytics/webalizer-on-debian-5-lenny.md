@@ -7,10 +7,10 @@ description: 'Get detailed website statistics such as visitor counts, pageviews,
 keywords: 'webalizer,statistics,analytics,stats,server monitoring,debian'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/analytics/webalizer/debian-5-lenny/']
-modified: Tuesday, May 17th, 2011
+modified: 2011-05-17
 modified_by:
   name: Linode
-published: 'Wednesday, January 27th, 2010'
+published: 2010-01-27
 title: 'Webalizer on Debian 5 (Lenny)'
 ---
 

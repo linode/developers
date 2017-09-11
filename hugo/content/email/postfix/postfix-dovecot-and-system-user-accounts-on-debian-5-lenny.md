@@ -7,10 +7,10 @@ description: 'Use system user accounts, postfix, and dovecot to provide'
 keywords: 'postfix,dovecot,system users,email'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/postfix/dovecot-system-users-debian-5-lenny/']
-modified: Monday, October 8th, 2012
+modified: 2012-10-08
 modified_by:
   name: Linode
-published: 'Thursday, February 17th, 2011'
+published: 2011-02-17
 title: 'Postfix, Dovecot, and System User Accounts on Debian 5 (Lenny)'
 ---
 

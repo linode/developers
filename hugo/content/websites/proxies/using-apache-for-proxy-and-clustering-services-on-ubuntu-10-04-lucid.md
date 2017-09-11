@@ -7,10 +7,10 @@ description: 'How to cluster Apache web servers and proxy requests for content t
 keywords: 'clusters,proxy,proxy pass,apache,httpd'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/proxy-configuration/proxy-and-clustering-services-ubuntu-10-04-lucid/']
-modified: Friday, October 4th, 2013
+modified: 2013-10-04
 modified_by:
   name: Linode
-published: 'Tuesday, May 4th, 2010'
+published: 2010-05-04
 title: 'Using Apache for Proxy and Clustering Services on Ubuntu 10.04 (Lucid)'
 ---
 

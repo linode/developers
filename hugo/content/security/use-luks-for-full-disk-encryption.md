@@ -6,10 +6,10 @@ description: This tutorial will guide you through creating a secure, LUKS-encryp
 alias: ['security/full-disk-encryption/']
 keywords: full disk encryption, debian, luks
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Wednesday, November 2nd, 2016
+modified: 2016-11-02
 modified_by:
   name: Linode
-published: 'Wednesday, November 2nd, 2016'
+published: 2016-11-02
 title: How to Use LUKS for Full Disk Encryption on Linux
 image: https://linode.com/docs/assets/full_disk_encryption.png
 ---

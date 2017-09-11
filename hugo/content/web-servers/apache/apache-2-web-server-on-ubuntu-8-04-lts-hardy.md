@@ -7,10 +7,10 @@ description: 'Instructions for getting started with the Apache web server on Ubu
 keywords: 'apache,apache ubuntu 8.04,apache ubuntu hardy,web server,apache on ubuntu,apache hardy'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/installation/ubuntu-8-04-hardy/','web-servers/apache/apache-2-web-server-on-ubuntu-8-04-lts-hardy/','websites/apache/apache-2-web-server-on-ubuntu-8-04-lts-hardy/']
-modified: Tuesday, May 17th, 2011
+modified: 2011-05-17
 modified_by:
   name: Linode
-published: 'Tuesday, August 11th, 2009'
+published: 2009-08-11
 title: 'Apache 2 Web Server on Ubuntu 8.04 LTS (Hardy)'
 ---
 

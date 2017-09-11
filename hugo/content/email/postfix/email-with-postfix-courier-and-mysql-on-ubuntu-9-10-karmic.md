@@ -6,10 +6,10 @@ description: 'Installing and configuring the Postfix MTA to work with Courier an
 keywords: 'postfix,courier,mail server,postfix ubuntu karmic,postfix ubuntu 9.10,imap,postfix on ubuntu,postfix on linux,postfix with courier,postfix with mysql,mysql virtual domains'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/postfix/courier-mysql-ubuntu-9-10-karmic/']
-modified: Tuesday, May 17th, 2011
+modified: 2011-05-17
 modified_by:
   name: Linode
-published: 'Thursday, October 29th, 2009'
+published: 2009-10-29
 title: 'Email with Postfix, Courier and MySQL on Ubuntu 9.10 (Karmic)'
 deprecated: true
 ---

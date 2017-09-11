@@ -6,10 +6,10 @@ description: 'Restricting remote users to their home directories, only allowing 
 keywords: 'sftp,sftp jail,openssh,ssh jail'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['security/sftp-jails/']
-modified: Tuesday, April 16th, 2014
+modified: 2014-04-16
 modified_by:
   name: Linode
-published: 'Wednesday, January 6th, 2010'
+published: 2010-01-06
 title: Limiting Access with SFTP Jails on Debian and Ubuntu
 external_resources:
 - '[OpenSSH Documentation](http://www.openssh.org/manual.html)'

@@ -6,10 +6,10 @@ description: 'This tutorial will teach you how to generate and manipulate dates 
 keywords: 'date,time,linux commands,shell,timey wimey'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['linux-tools/common-commands/date/','tools-reference/tools/linux-date-command/']
-modified: Monday, August 21st, 2017
+modified: 2017-08-21
 modified_by:
   name: Linode
-published: 'Monday, August 23rd, 2010'
+published: 2010-08-23
 title: How to Use the Date Command in Linux 
 ---
 

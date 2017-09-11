@@ -7,10 +7,10 @@ description: 'Use PHP CGI to run PHP scripts as indivudual users.'
 keywords: 'php cgi,php,apache,cgi,php scripts,web apps,web applications'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/php-cgi/debian-7-wheezy/','websites/apache/run-php-applications-under-cgi-with-apache-on-debian-7-wheezy/','websites/apache/run-php-cgi-apapache-debian-7/']
-modified: Wednesday, November 18th, 2015
+modified: 2015-11-18
 modified_by:
   name: Linode
-published: 'Monday, January 13th, 2014'
+published: 2014-01-13
 title: 'Run PHP with CGI and Apache on Debian 7 (Wheezy)'
 external_resources:
  - '[The PHP Homepage](http://php.net/)'

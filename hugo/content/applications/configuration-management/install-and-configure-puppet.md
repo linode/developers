@@ -6,10 +6,10 @@ description: 'Basic instructions to set up and configure a Puppet master and age
 keywords: 'puppet installation,configuration change management,server automation'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['websites/puppet/basic-puppet-setup-and-configuration/','websites/puppet/manage-and-automate-systems-configuration-with-puppet/','applications/puppet/set-up-puppet-master-agent/','applications/puppet/install-and-configure-puppet']
-modified: Wednesday, March 8th, 2017
+modified: 2017-03-08
 modified_by:
     name: Phil Zona
-published: 'Thursday, September 17th, 2015'
+published: 2015-09-17
 title: Install and Configure Puppet
 external_resources:
     - '[Puppet Labs](https://puppetlabs.com/)'

@@ -6,10 +6,10 @@ description: 'Learn about DNS records and system structure.'
 keywords: 'dns records,domain names,dns record types,dns resolution'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['dns-guides/introduction-to-dns-records/','dns-guides/introduction-to-dns/','networking/dns/introduction-to-dns-records/']
-modified: Tuesday, January 20, 2015
+modified: 2015-01-20
 modified_by:
   name: Elle Krout
-published: 'Wednesday, July 29th, 2009'
+published: 2009-07-29
 title: "DNS Records: an Introduction"
 external_resources:
 - '[DNS Manager](/docs/networking/dns/dns-manager)'

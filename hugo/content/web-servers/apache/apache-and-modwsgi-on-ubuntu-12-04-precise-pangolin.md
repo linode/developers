@@ -7,10 +7,10 @@ description: 'Deploy Python WSGI Applications with Apache and mod_wsgi.'
 keywords: 'python,apache,mod_wsgi,django'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/mod-wsgi/ubuntu-12-04-precise-pangolin/','websites/apache/apache-and-modwsgi-on-ubuntu-12-04-precise-pangolin/']
-modified: Wednesday, November 18th, 2015
+modified: 2015-11-18
 modified_by:
   name: Linode
-published: 'Thursday, October 18th, 2012'
+published: 2012-10-18
 title: 'Apache and mod_wsgi on Ubuntu 12.04 (Precise Pangolin)'
 external_resources:
  - '[A Basic "Hello World" Django Application](http://runnable.com/UWRVp6lLuONCAABD/hello-world-in-django-for-python)'

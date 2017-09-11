@@ -6,10 +6,10 @@ description: 'Use the Web.py Python framework to develop powerful and innovative
 keywords: 'web.py,web applications,python,web frameworks'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/webpy/ubuntu-12-04-precise-pangolin/','websites/frameworks/webpy-on-ubuntu-12-04-precise-pangolin/']
-modified: Friday, September 27th, 2013
+modified: 2013-09-27
 modified_by:
   name: Linode
-published: 'Thursday, October 25th, 2012'
+published: 2012-10-25
 title: 'Web.py on Ubuntu 12.04 (Precise Pangolin)'
 deprecated: true
 ---

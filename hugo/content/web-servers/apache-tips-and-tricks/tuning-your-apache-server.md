@@ -6,10 +6,10 @@ description: Tuning your Apache server to optimize your website.
 keywords: 'configuration,apache,web server,resource tuning'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['websites/apache-tips-and-tricks/tuning-your-apache-server/']
-modified: Friday, August 11, 2017
+modified: 2017-08-11
 modified_by:
   name: AMiller
-published: 'Friday, February 27, 2015'
+published: 2015-02-27
 title: Tuning Your Apache Server
 external_resources:
  - '[Apache Performance Tuning](http://httpd.apache.org/docs/2.2/misc/perf-tuning.html)'

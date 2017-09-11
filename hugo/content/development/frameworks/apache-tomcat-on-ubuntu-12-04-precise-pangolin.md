@@ -7,10 +7,10 @@ description: 'Instructions for installing the Apache Tomcat Java servlet engine 
 keywords: 'apache tomcat ubuntu 12.04,java,java ubuntu 12.04,java servlets ubuntu lucid,java ubuntu'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/apache-tomcat/ubuntu-12-04-precise-pangolin/','websites/frameworks/apache-tomcat-on-ubuntu-12-04-precise-pangolin/']
-modified: Tuesday, November 13th, 2012
+modified: 2012-11-13
 modified_by:
   name: Linode
-published: 'Tuesday, November 13th, 2012'
+published: 2012-11-13
 title: 'Apache Tomcat on Ubuntu 12.04 (Precise Pangolin)'
 external_resources:
  - '[Tomcat Home Page](http://tomcat.apache.org/)'

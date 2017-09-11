@@ -7,10 +7,10 @@ description: 'Configuring a LAMP stack with Apache, MySQL, PHP and on Ubuntu Lin
 keywords: 'ubuntu lamp server,ubuntu 11.10 lamp,oneiric lamp,ubuntu web server,ubuntu oneiric'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['lamp-guides/ubuntu-11-10-oneiric/','websites/lamp/lamp-server-on-ubuntu-11-10-oneiric/']
-modified: Monday, September 23rd, 2013
+modified: 2013-09-23
 modified_by:
   name: Linode
-published: 'Wednesday, November 2nd, 2011'
+published: 2011-11-02
 title: 'LAMP Server on Ubuntu 11.10 (Oneiric)'
 external_resources:
   - '[Ubuntu Server Edition Homepage](http://www.ubuntu.com/business/server/overview)'

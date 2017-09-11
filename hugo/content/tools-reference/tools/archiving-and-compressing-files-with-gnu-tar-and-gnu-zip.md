@@ -6,10 +6,10 @@ description: 'Use GNU tools to compress and archive files.'
 keywords: 'tar,gnu tar,gzip,gnu zip,tar.gz. tgz,file archive'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['linux-tools/common-commands/tar-gzip/']
-modified: Monday, August 22nd, 2011
+modified: 2011-08-22
 modified_by:
   name: Linode
-published: 'Tuesday, July 27th, 2010'
+published: 2010-07-27
 title: Archiving and Compressing files with GNU Tar and GNU Zip
 external_resources:
  - '[GNU tar](http://www.gnu.org/software/tar/)'

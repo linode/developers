@@ -7,10 +7,10 @@ description: 'Use OpenVPN to securely connect separate networks on a Debian 5 (L
 keywords: 'openvpn,networking,vpn,debian,lenny'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['networking/openvpn/debian-5-lenny/']
-modified: Monday, October 8th, 2012
+modified: 2012-10-08
 modified_by:
   name: Linode
-published: 'Wednesday, February 24th, 2010'
+published: 2010-02-24
 title: 'Secure Communications with OpenVPN on Debian 5 (Lenny)'
 ---
 

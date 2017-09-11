@@ -7,10 +7,10 @@ description: 'How to upgrade from Debian 6 (Squeeze) to Debian 7 (Wheezy).'
 keywords: 'debian upgrade,upgrade distro,wheezy upgrade,wheezy'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['upgrading/upgrade-to-debian-7-wheezy/']
-modified: Friday, May 10th, 2013
+modified: 2013-05-10
 modified_by:
   name: Linode
-published: 'Friday, May 10th, 2013'
+published: 2013-05-10
 title: 'How to Upgrade to Debian 7 (Wheezy)'
 ---
 

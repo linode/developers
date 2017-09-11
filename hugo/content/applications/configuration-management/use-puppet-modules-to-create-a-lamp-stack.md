@@ -6,10 +6,10 @@ description: 'Learn how to efficiently use Puppet modules to manage files and se
 keywords: 'puppet,automation,puppet master,puppet agent,modules,server automation,configuration management'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['applications/puppet/create-puppet-module/','applications/configuration-management/create-puppet-module/']
-modified: Thursday, November 12th, 2015
+modified: 2015-11-12
 modified_by:
     name: Elle Krout
-published: 'Thursday, November 12th, 2015'
+published: 2015-11-12
 title: Use Puppet Modules to Create a LAMP Stack
 ---
 

@@ -6,10 +6,10 @@ description: 'Configuring the MyBB system for hosting web-based discussion forum
 keywords: 'mybb,forum software,web applications,PHP'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/bulletin-boards/mybb/']
-modified: Tuesday, October 1st, 2013
+modified: 2013-10-01
 modified_by:
   name: Linode
-published: 'Thursday, March 18th, 2010'
+published: 2010-03-18
 title: Discussion Forums with MyBB
 deprecated: true
 ---

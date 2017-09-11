@@ -7,10 +7,10 @@ description: 'Use unison to synchronize files between two machines.'
 keywords: 'backup,syncronize files,unison,debian,debian lenny'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['linux-tools/unison/']
-modified: Wednesday, August 23rd, 2017
+modified: 2017-08-23
 modified_by:
   name: Linode
-published: 'Tuesday, April 20th, 2010'
+published: 2010-04-20
 title: Synchronize Files with Unison
 external_resources:
  - '[Unison Project Home Page](http://www.cis.upenn.edu/~bcpierce/unison/)'

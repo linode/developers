@@ -7,10 +7,10 @@ description: 'Install and configure NSD to handle DNS queries.'
 keywords: 'NSD,DNS,resolving,Ubuntu 9.10,networking'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['dns-guides/nsd-authoritative-dns-ubuntu-9-10-karmic/']
-modified: Tuesday, May 17th, 2011
+modified: 2011-05-17
 modified_by:
   name: Linode
-published: 'Friday, August 27th, 2010'
+published: 2010-08-27
 title: 'Provide Authoritative DNS Services with NSD on Ubuntu 9.10 (Karmic)'
 ---
 

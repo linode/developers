@@ -5,7 +5,7 @@ author:
 keywords: upgrading
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['upgrading/']
-published: 'Friday, June 1st, 2012'
+published: 2012-06-01
 title: Upgrading
 ---
 

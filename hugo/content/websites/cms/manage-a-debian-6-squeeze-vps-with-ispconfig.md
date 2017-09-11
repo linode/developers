@@ -7,10 +7,10 @@ description: 'Installing and configuring the ISPConfig control panel to maintain
 keywords: 'ispconfig,control panel,cpanel,plesk,gui'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/control-panels/ispconfig/debian-6-squeeze/']
-modified: Friday, April 29th, 2011
+modified: 2011-04-29
 modified_by:
   name: Linode
-published: 'Tuesday, April 5th, 2011'
+published: 2011-04-05
 title: 'Manage a Debian 6 (Squeeze) Linode with ISPConfig'
 ---
 

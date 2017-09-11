@@ -5,10 +5,10 @@ author:
 description: 'Get your website or web application online by setting up Apache, MySQL, and PHP'
 keywords: 'debian 8 LAMP server,debian LAMP,LAMP howto,lamp,debian,debian 8,websites,apache,mysql,php,apache 2.4,lamp debian'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Tuesday, December 1st, 2015
+modified: 2015-12-01
 modified_by:
   name: Alex Fornuto
-published: 'Monday, June 29th, 2015'
+published: 2015-06-29
 title: 'LAMP on Debian 8 (Jessie)'
 alias: ['websites/lamp/lamp-server-debian-8/','websites/lamp/lamp-on-debian-8-jessie/']
 external_resources:

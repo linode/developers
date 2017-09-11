@@ -8,10 +8,10 @@ license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 external_resources:
  - '[Multicraft Documentation](http://www.multicraft.org/site/userguide?view=index)'
  - '[Minecraft.net](https://minecraft.net/)'
-modified: Wednesday, February 4, 2015
+modified: 2015-02-04
 modified_by:
   name: Alex Fornuto
-published: ''
+
 title: 'Installing Multicraft on Debian'
 alias: ['applications/game-servers/multicraft-on-debian/']
 ---

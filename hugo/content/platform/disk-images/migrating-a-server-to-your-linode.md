@@ -7,10 +7,10 @@ description: 'How to copy an existing Linux server to your new Linode'
 keywords: 'migrate to linode,linode migration,migrate linux'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['migration/migrate-server-to-linode/','migrate-to-linode/disk-images/migrating-a-server-to-your-linode/']
-modified: Monday, April 3rd, 2017
+modified: 2017-04-03
 modified_by:
   name: Nick Brewer
-published: 'Thursday, May 24th, 2012'
+published: 2012-05-24
 title: Migrating a Server to Your Linode
 ---
 

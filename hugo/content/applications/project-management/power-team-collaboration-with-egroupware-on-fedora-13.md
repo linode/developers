@@ -7,10 +7,10 @@ description: 'Build a groupware system with eGroupware.'
 keywords: 'groupware,email,collaboration,fedora'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/project-management/egroupware/fedora-13/']
-modified: Friday, October 4th, 2013
+modified: 2013-10-04
 modified_by:
   name: Linode
-published: 'Thursday, September 16th, 2010'
+published: 2010-09-16
 title: Power Team Collaboration with eGroupware on Fedora 13
 ---
 

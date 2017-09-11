@@ -5,10 +5,10 @@ author:
 description: Convert your prepaid account to Hourly billing
 keywords: 'prepaid,billing,payments,hourly'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Wednesday, February 15th, 2017
+modified: 2017-02-15
 modified_by:
   name: Linode
-published: 'Wednesday, February 15th, 2017'
+published: 2017-02-15
 title: 'Upgrade to Hourly Billing'
 ---
 

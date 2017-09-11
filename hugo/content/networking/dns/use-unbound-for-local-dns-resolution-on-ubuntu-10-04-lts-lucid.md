@@ -7,10 +7,10 @@ description: 'Configure and run your own DNS resolver using the Unbound Server o
 keywords: 'ubuntu dns,open source dns,dns,resolving,caching,unbound'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['dns-guides/unbound-dns-resolver-ubuntu-10-04-lucid/']
-modified: Wednesday, September 25th, 2013
+modified: 2013-09-25
 modified_by:
   name: Linode
-published: 'Monday, May 3rd, 2010'
+published: 2010-05-03
 title: 'Use Unbound for Local DNS Resolution on Ubuntu 10.04 LTS (Lucid)'
 ---
 

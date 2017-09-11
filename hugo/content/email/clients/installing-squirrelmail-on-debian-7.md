@@ -6,10 +6,10 @@ description: 'A guide to installing the SquirrelMail web client for email on Deb
 keywords: 'squirrelmail, debian, debian 7, mail client'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/squirrelmail-debian7/']
-modified: Wednesday, January 15th, 2014
+modified: 2014-01-15
 modified_by:
   name: Alex Fornuto
-published: 'Tuesday, January 14th, 2014'
+published: 2014-01-14
 title: Installing SquirrelMail on Debian 7
 external_resources:
  - '[Official SquirrelMail Documentation](http://squirrelmail.org/documentation/)'

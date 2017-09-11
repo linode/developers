@@ -6,10 +6,10 @@ description: Our guide to installing and using Linode Longview.
 keywords: 'system monitoring,longview,troubleshooting'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['longview/']
-modified: Friday, May 26, 2017
+modified: 2017-05-26
 modified_by:
   name: Angel Guarisma
-published: 'Wednesday, March 27th, 2013'
+published: 2013-03-27
 title: Longview
 ---
 

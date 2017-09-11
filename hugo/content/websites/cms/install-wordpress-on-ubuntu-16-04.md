@@ -5,10 +5,10 @@ author:
 description: 'Install and optimize the WordPress blogging and content management system on your Linode.'
 keywords: 'install WordPress, WordPress on Linode, how to configure WordPress, Permalink'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Friday, October 21, 2016
+modified: 2016-10-21
 modified_by:
   name: Edward Angert
-published: 'Friday, October 21, 2016'
+published: 2016-10-21
 title: Install WordPress on Ubuntu 16.04
 external_resources:
 - '[WordPress.org](http://wordpress.org)'

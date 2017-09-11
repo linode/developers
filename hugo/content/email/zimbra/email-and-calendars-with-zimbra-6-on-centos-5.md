@@ -7,10 +7,10 @@ description: 'Getting started with the open source edition of Zimbra groupware o
 keywords: 'zimbra on centos,zimbra groupware,zimbra mail server,linux mail server'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/zimbra/install-zimbra-centos-5/']
-modified: Tuesday, May 17th, 2011
+modified: 2011-05-17
 modified_by:
   name: Linode
-published: 'Sunday, September 13th, 2009'
+published: 2009-09-13
 title: Email and Calendars with Zimbra 6 on CentOS 5
 external_resources:
  - '[Zimbra Community Documentation](http://www.zimbra.com/community/documentation.html)'

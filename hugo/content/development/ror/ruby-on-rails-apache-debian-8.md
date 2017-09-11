@@ -6,10 +6,10 @@ description: 'Using the Apache web server with Debian 7 Wheezy to serve Ruby on 
 keywords: 'ruby on rails,rails on debian,rails apps,rails and apache'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['websites/ror/ruby-on-rails-apache-debian-8/']
-modified: Monday, July 13th, 2015
+modified: 2015-07-13
 modified_by:
   name: Elle Krout
-published: 'Monday, July 13th, 2013'
+published: 2013-07-13
 title: 'Ruby on Rails with Apache on Debian 8'
 external_resources:
  - '[Ruby on Rails Homepage](http://rubyonrails.org/)'

@@ -6,10 +6,10 @@ description: 'This step-by-step guide shows you how to assess your MySQL databas
 keywords: 'mysql, mysqltuner, tune mysql, resource tuning'
 alias: ['databases/mysql/tuning-your-mysql-database/','databases/mysql/mysql-performance-tuning-tutorial/']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Tuesday, June 27th, 2017
+modified: 2017-06-27
 modified_by:
   name: Linode
-published: 'Friday, February 27th, 2015'
+published: 2015-02-27
 title: How to Optimize MySQL Performance Using MySQLTuner
 external_resources:
  - '[MySQL Documentation Library](http://dev.mysql.com/doc/index.html)'

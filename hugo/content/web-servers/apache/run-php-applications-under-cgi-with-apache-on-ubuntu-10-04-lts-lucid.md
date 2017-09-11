@@ -7,10 +7,10 @@ description: 'Methods for enabling dynamic content run as individual users with 
 keywords: 'php cgi,php ubuntu 10.04,php ubuntu lucid,php apache,php scripts,dynamic apache,web applications'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/php-cgi/ubuntu-10-04-lucid/','websites/apache/run-php-applications-under-cgi-with-apache-on-ubuntu-10-04-lts-lucid/']
-modified: Friday, October 4th, 2013
+modified: 2013-10-04
 modified_by:
   name: Linode
-published: 'Monday, May 3rd, 2010'
+published: 2010-05-03
 title: 'Run PHP Applications under CGI with Apache on Ubuntu 10.04 LTS (Lucid)'
 ---
 

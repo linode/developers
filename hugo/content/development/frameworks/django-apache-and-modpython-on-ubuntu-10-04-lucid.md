@@ -6,10 +6,10 @@ description: 'Installing and configuring the Django web application development 
 keywords: 'django,python,apache,mod\_python,ubuntu,ubuntu 10.04,lucid'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/django-apache-mod-python/ubuntu-10-04-lucid/','websites/frameworks/django-apache-and-modpython-on-ubuntu-10-04-lucid/']
-modified: Friday, September 27th, 2013
+modified: 2013-09-27
 modified_by:
   name: Linode
-published: 'Thursday, May 13th, 2010'
+published: 2010-05-13
 title: 'Django, Apache and mod_python on Ubuntu 10.04 (Lucid)'
 deprecated: true
 ---

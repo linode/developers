@@ -6,10 +6,10 @@ description: Longview App for Apache
 keywords: 'Longview, Apache, statistics, mod\_status'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['longview/longview-for-apache/']
-modified: Monday, January 6th, 2014
+modified: 2014-01-06
 modified_by:
   name: Linode
-published: 'Monday, November 4th, 2013'
+published: 2013-11-04
 title: Longview App for Apache
 external_resources:
  - '[cPanel Products News](https://news.cpanel.com/category/products/)'

@@ -5,10 +5,10 @@ author:
 description: 'Use Logwatch to generate digests and analyze your server logs'
 keywords: 'logwatch,security,logging,audit,logs'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Tuesday, August 12th, 2015
+modified: 2015-08-12
 modified_by:
   name: Elle Krout
-published: 'Tuesday, August 12th, 2015'
+published: 2015-08-12
 title: Monitor System Logs with Logwatch
 ---
 

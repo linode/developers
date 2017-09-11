@@ -7,10 +7,10 @@ description: 'Configure the Postfix MTA as a basic email gateway.'
 keywords: 'email,postfix,mta,forwarding,'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/postfix/gateway-ubuntu-10-04-lucid/']
-modified: Wednesday, September 25th, 2013
+modified: 2013-09-25
 modified_by:
   name: Linode
-published: 'Tuesday, November 9th, 2010'
+published: 2010-11-09
 title: 'Basic Postfix Email Gateway on Ubuntu 10.04 (Lucid)'
 ---
 

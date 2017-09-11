@@ -7,10 +7,10 @@ description: 'Use Confluence on CentOS 5 to power a full-featured wiki system.'
 keywords: 'confluence centos 5,confluence,confluence wiki,confluence linux'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/wikis/confluence/centos-5/']
-modified: Tuesday, June 7th, 2011
+modified: 2011-06-07
 modified_by:
   name: Linode
-published: 'Thursday, September 9th, 2010'
+published: 2010-09-09
 title: Confluence on CentOS 5
 external_resources:
  - '[Confluence Homepage](http://www.atlassian.com/software/confluence/)'

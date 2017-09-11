@@ -7,10 +7,10 @@ description: 'Using Ikiwiki on Ubuntu 9.10 (Karmic) to power a standard wiki imp
 keywords: 'ikiwiki,ubuntu,wiki,perl,git,markdown,karmic'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/wikis/ikiwiki/ubuntu-9-10-karmic/']
-modified: Friday, April 29th, 2011
+modified: 2011-04-29
 modified_by:
   name: Linode
-published: 'Tuesday, March 23rd, 2010'
+published: 2010-03-23
 title: 'Ikiwiki on Ubuntu 9.10 (Karmic)'
 ---
 

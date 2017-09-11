@@ -7,10 +7,10 @@ description: 'Getting started with Openfire, an open source instant messaging se
 keywords: 'openfire,openfire ubuntu 10.04,openfire linux,instant messaging,real-time messaging,xmpp server,collaboration software,chat software,linux jabber server'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['communications/xmpp/openfire/ubuntu-10-04-lucid/']
-modified: Tuesday, September 24th, 2013
+modified: 2013-09-24
 modified_by:
   name: Linode
-published: 'Monday, May 3rd, 2010'
+published: 2010-05-03
 title: 'Instant Messaging Services with Openfire on Ubuntu 10.04 LTS (Lucid)'
 ---
 

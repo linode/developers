@@ -7,10 +7,10 @@ description: 'Use OpenVPN to securely connect separate networks on an Ubuntu 12.
 keywords: 'openvpn,networking,vpn,ubuntu,ubuntu precise,12.04,debian 7,debian'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['networking/openvpn/ubuntu-12-04-precise/']
-modified: Monday, February 17th, 2014
+modified: 2014-02-17
 modified_by:
   name: Alex Fornuto
-published: 'Thursday, August 22nd, 2013'
+published: 2013-08-22
 title: 'Secure Communications with OpenVPN on Ubuntu 12.04 (Precise) and Debian 7'
 external_resources:
  - '[Official OpenVPN Documentation](http://openvpn.net/index.php/open-source/documentation/howto.html)'

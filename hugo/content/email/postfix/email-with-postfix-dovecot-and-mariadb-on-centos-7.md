@@ -6,10 +6,10 @@ description: 'Installing Postfix with Dovecot and MariaDB on CentOS.'
 keywords: 'postfix centos 7,dovecot centos 7,linux mail server,email,centos 7'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/postfix/email-with-postfix-dovecot-and-mysql-on-centos-7']
-modified: Thursday, July 16th, 2015
+modified: 2015-07-16
 modified_by:
   name: Elle Krout
-published: 'Thursday, March 26th, 2015'
+published: 2015-03-26
 title: 'Email with Postfix, Dovecot and MariaDB on CentOS 7'
 external_resources:
  - '[Postfix MySQL Howto](http://www.postfix.org/MYSQL_README.html)'

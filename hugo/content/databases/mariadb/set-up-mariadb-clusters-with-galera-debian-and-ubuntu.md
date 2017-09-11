@@ -6,10 +6,10 @@ description: 'A guide to configuring MariaDB database replication with Galera on
 keywords: 'mariadb,mysql,highavailability,high availability,HA,cluster,debian,ubuntu'
 alias: ['databases/mariadb/clustering-with-mariadb-and-galera/']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Wednesday, February 18th, 2015
+modified: 2015-02-18
 modified_by:
   name: James Stewart
-published: 'Wednesday, February 18th, 2015'
+published: 2015-02-18
 title: Set Up MariaDB Clusters with Galera Debian and Ubuntu 
 external_resources:
  - '[MariaDB Foundation: Installing MariaDB Galera Cluster on Debian/Ubuntu](https://blog.mariadb.org/installing-mariadb-galera-cluster-on-debian-ubuntu/)'

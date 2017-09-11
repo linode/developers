@@ -6,8 +6,8 @@ description: 'Fine tune nginx for maximum performance'
 keywords: 'nginx,performance,tuning,optimize,web servers'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['websites/nginx/configure-nginx-for-optimized-performance/']
-published: 'Wednesday, September 9th, 2015'
-modified: Wednesday, September 9th, 2015
+published: 2015-09-09
+modified: 2015-09-09
 modified_by:
     name: Linode
 title: 'How to Configure nginx for Optimized Performance'

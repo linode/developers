@@ -7,10 +7,10 @@ description: 'Use the GNU Mailman software to manage email listservs.'
 keywords: 'mailman,listserv,email,postfix'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/mailman/debian-5-lenny/']
-modified: Monday, October 8th, 2012
+modified: 2012-10-08
 modified_by:
   name: Linode
-published: 'Friday, February 12th, 2010'
+published: 2010-02-12
 title: 'Manage Email Lists with GNU Mailman on Debian 5 (Lenny)'
 ---
 

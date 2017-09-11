@@ -7,10 +7,10 @@ description: 'Use OpenVPN to securely connect separate networks on an Ubuntu 10.
 keywords: 'openvpn,networking,vpn,ubuntu,ubuntu lucid,ubuntu 10.4'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['networking/openvpn/ubuntu-10-04-lucid/']
-modified: Thursday, August 22nd, 2013
+modified: 2013-08-22
 modified_by:
   name: Linode
-published: 'Monday, May 10th, 2010'
+published: 2010-05-10
 title: 'Secure Communications with OpenVPN on Ubuntu 10.04 (Lucid)'
 ---
 

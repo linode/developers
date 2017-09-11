@@ -2,14 +2,14 @@
 author:
   name: Linode
   email: docs@linode.com
-published: 'Tuesday, August 18th, 2009'
+published: 2009-08-18
 description: 'How to run a custom Linux distribution or pre-built Linux appliance on your Linode.'
 keywords: 'custom distro,custom distribution,advanced Linux'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['platform/custom-kernels-distros/running-a-custom-linux-distro-on-a-linode-vps/', 'custom-instances/custom-distro-howto/']
 modified_by:
   name: Linode
-modified: Wednesday, October 8, 2014
+modified: 2014-10-08
 title: Install a Custom Distribution on a Xen Linode
 ---
 

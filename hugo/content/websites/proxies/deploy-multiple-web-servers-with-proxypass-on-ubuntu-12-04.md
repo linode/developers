@@ -7,10 +7,10 @@ description: 'Deploy Separate Web Servers to Host Sites or Applications Using Pr
 keywords: 'apache,proxypass,apache on ubuntu,multiple web servers,lighttpd'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/proxy-configuration/multiple-webservers-proxypass-ubuntu-12-04-precise/','websites/proxies/multiple-web-services-with-proxypass-on-ubuntu-12-04-precise-pangolin/']
-modified: Wednesday, November 7th, 2012
+modified: 2012-11-07
 modified_by:
   name: Linode
-published: 'Wednesday, November 7th, 2012'
+published: 2012-11-07
 title: 'Deploy Multiple Web Servers with ProxyPass on Ubuntu 12.04'
 external_resources:
  - '[Apache Module mod\_proxy](http://httpd.apache.org/docs/2.2/mod/mod_proxy.html)'

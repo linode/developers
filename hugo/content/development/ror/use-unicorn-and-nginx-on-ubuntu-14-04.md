@@ -6,8 +6,8 @@ description: 'Use Unicorn and Nginx to Configure a Ruby on Rails Stack on Ubuntu
 keywords: 'ruby on rails,unicorn rails,ruby on rails ubuntu 14.04, nginx,reverse proxy,ubuntu 14.04'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['websites/ror/use-unicorn-and-nginx-on-ubuntu-14-04/']
-published: 'Wednesday, March 30, 2016'
-modified: Wednesday, March 30, 2016
+published: 2016-03-30
+modified: 2016-03-30
 modified_by:
     name: Alex Fornuto
 title: 'Use Unicorn and Nginx to Configure Ruby on Rails Applications on Ubuntu 14.04'

@@ -6,10 +6,10 @@ description: 'How to create and interpret MTR reports on your Linode or home com
 keywords: 'mtr,traceroute,latency,loss'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['linux-tools/mtr/','networking/diagnosing-network-issues-with-mtr/']
-modified: Monday, December 15, 2014
+modified: 2014-12-15
 modified_by:
   name: Linode
-published: 'Wednesday, April 28th, 2010'
+published: 2010-04-28
 title: Diagnosing Network Issues with MTR
 external_resources:
  - '[The Official MTR Web Site](http://www.bitwizard.nl/mtr/)'

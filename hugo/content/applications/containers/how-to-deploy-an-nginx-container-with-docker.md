@@ -8,10 +8,10 @@ contributor:
 description: 'An introduction to deploying and using Docker containers on your Linode.'
 keywords: 'docker,container,dockerfile,nginx container'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Wednesday, July 19, 2017
+modified: 2017-07-19
 modified_by:
   name: Linode
-published: 'Wednesday, July 19, 2017'
+published: 2017-07-19
 title: 'How to Deploy an nginx Container with Docker on Linode'
 external_resources:
  - '[Docker Docs](http://docs.docker.com/)'

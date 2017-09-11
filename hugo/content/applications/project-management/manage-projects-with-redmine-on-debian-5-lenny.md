@@ -7,10 +7,10 @@ description: 'Installing and configuring Redmine, an open source project managem
 keywords: 'redmine,redmine debian,redmine linux,project management software,redmine postgresql,redmine linux'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/project-management/redmine/debian-5-lenny/']
-modified: Tuesday, May 17th, 2011
+modified: 2011-05-17
 modified_by:
   name: Linode
-published: 'Monday, November 30th, 2009'
+published: 2009-11-30
 title: 'Manage Projects with Redmine on Debian 5 (Lenny)'
 ---
 

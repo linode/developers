@@ -7,10 +7,10 @@ description: 'Getting started with MySQL for web and server applications on Ubun
 keywords: 'mysql ubuntu 10.04,mysql ubuntu,mysql on linux,mysql Linode'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/mysql/ubuntu-10-04-lucid/']
-modified: Tuesday, September 24th, 2013
+modified: 2013-09-24
 modified_by:
   name: Linode
-published: 'Friday, April 30th, 2010'
+published: 2010-04-30
 title: 'Use MySQL Relational Databases on Ubuntu 10.04 LTS (Lucid)'
 ---
 

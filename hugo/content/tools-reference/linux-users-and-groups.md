@@ -6,10 +6,10 @@ description: 'An introduction to the principal concepts and use of the users and
 keywords: 'users,permissions,access control lists,chmod,chown,linux'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['docs/using-linux/users-and-groups/']
-modified: Thursday, March 23rd, 2017
+modified: 2017-03-23
 modified_by:
   name: Linode
-published: 'Monday, August 31st, 2009'
+published: 2009-08-31
 title: Linux Users and Groups
 external_resources:
  - '[User Account and Group Management @ UWISC''s Center for Computer Aided Engineering](http://www.cae.wisc.edu/linaccounts)'

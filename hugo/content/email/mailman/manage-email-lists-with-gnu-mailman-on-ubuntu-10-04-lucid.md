@@ -7,10 +7,10 @@ description: 'Use the GNU Mailman software to manage email listservs.'
 keywords: 'mailman,listserv,email,postfix'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/mailman/ubuntu-10-04-lucid/']
-modified: Thursday, September 26th, 2013
+modified: 2013-09-26
 modified_by:
   name: Linode
-published: 'Thursday, August 5th, 2010'
+published: 2010-08-05
 title: 'Manage Email Lists with GNU Mailman on Ubuntu 10.04 (Lucid)'
 ---
 

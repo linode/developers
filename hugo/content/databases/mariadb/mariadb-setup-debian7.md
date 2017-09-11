@@ -5,13 +5,13 @@ author:
 description: 'Install and configure the MariaDB database server on Debian 7.'
 keywords: 'mariadb, debian 7, reset, root, password, install, configure'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Thursday, June 12th, 2014
+modified: 2014-06-12
 contributor:
     name: Nashruddin Amin
     link: https://twitter.com/bsd_noobz
 modified_by:
   name: Linode
-published: 'Thursday, June 12th, 2014'
+published: 2014-06-12
 title: MariaDB Setup on Debian 7
 external_resources:
  - '[MariaDB Knowledge Base](https://mariadb.com/kb/en)'

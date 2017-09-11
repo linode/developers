@@ -5,10 +5,10 @@ author:
 description: 'Box is a popular cloud storage and file sharing service. This article will show you how to access your Box account from your Linode using WebDAV.'
 keywords: 'box,box.com,cloud,cloud storage,file storage,file,webdav,davfs,davfs2'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Friday, November 6th 2015
+modified: 2015-11-06
 modified_by:
   name: Tyler Nelson
-published: 'Friday, November 6th 2015'
+published: 2015-11-06
 title: 'Access Your Box.com Account from Your Linode'
 ---
 

@@ -6,10 +6,10 @@ description: 'Configure MongoDB for use in clustered environments.'
 keywords: 'mongodb,nosql,clusters,databases'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/mongodb/clusters/']
-modified: Monday, February 27th, 2017
+modified: 2017-02-27
 modified_by:
   name: Phil Zona
-published: 'Thursday, September 30th, 2010'
+published: 2010-09-30
 title: Build Database Clusters with MongoDB
 external_resources:
  - '[MongoDB Documentation for Replica Sets](https://docs.mongodb.com/manual/reference/replica-configuration/)'

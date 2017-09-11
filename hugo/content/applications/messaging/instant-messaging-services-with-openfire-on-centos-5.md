@@ -7,10 +7,10 @@ description: 'Getting started with Openfire on CentOS 5, an open source instant 
 keywords: 'openfire,openfire centos,openfire on linux,instant messaging,real-time messaging,xmpp server,collaboration software,chat software,linux jabber server'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['communications/xmpp/openfire/centos-5/']
-modified: Monday, August 22nd, 2011
+modified: 2011-08-22
 modified_by:
   name: Linode
-published: 'Thursday, August 5th, 2010'
+published: 2010-08-05
 title: Instant Messaging Services with Openfire on CentOS 5
 external_resources:
  - '[Openfire Documentation](http://www.igniterealtime.org/projects/openfire/documentation.jsp)'

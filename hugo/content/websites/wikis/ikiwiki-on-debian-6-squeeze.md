@@ -6,10 +6,10 @@ description: 'Use Ikiwiki on Debian 6 to power a standard wiki implementation.'
 keywords: 'ikiwiki debian squeeze,ikiwiki debian 6,ikiwiki,wiki,perl,git,markdown,debian'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/wikis/ikiwiki/debian-6-squeeze/']
-modified: Friday, October 4th, 2013
+modified: 2013-10-04
 modified_by:
   name: Linode
-published: 'Tuesday, April 5th, 2011'
+published: 2011-04-05
 title: 'Ikiwiki on Debian 6 (Squeeze)'
 deprecated: true
 ---

@@ -7,10 +7,10 @@ description: 'Instructions for getting started with the Apache web server on Deb
 keywords: 'apache debian 5,apache web server,apache debian lenny,web server,apache on debian,apache lenny'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/installation/debian-5-lenny/','websites/apache/apache-2-web-server-on-debian-5-lenny/']
-modified: Monday, October 8th, 2012
+modified: 2012-10-08
 modified_by:
   name: Linode
-published: 'Monday, July 27th, 2009'
+published: 2009-07-27
 title: 'Apache 2 Web Server on Debian 5 (Lenny)'
 ---
 

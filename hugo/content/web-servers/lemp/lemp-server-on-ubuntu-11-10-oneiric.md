@@ -7,10 +7,10 @@ description: 'Install web applications with "LEMP," a LAMP-like stack using ngin
 keywords: 'nginx,lemp,php,linux,web applications'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['lemp-guides/ubuntu-11-10-oneiric/','websites/lemp/lemp-server-on-ubuntu-11-10-oneiric/']
-modified: Monday, September 23rd, 2013
+modified: 2013-09-23
 modified_by:
   name: Linode
-published: 'Monday, November 7th, 2011'
+published: 2011-11-07
 title: 'LEMP Server on Ubuntu 11.10 (Oneiric)'
 ---
 

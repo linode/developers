@@ -7,10 +7,10 @@ description: 'Get in-depth website visitor statistics with Piwik, a self-hosted,
 keywords: 'open source analytics,piwik ubuntu 9.10,piwik,analytics,ubuntu,tracking,statistics'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/analytics/piwik/ubuntu-9-10-karmic/']
-modified: Wednesday, April 27th, 2011
+modified: 2011-04-27
 modified_by:
   name: Linode
-published: 'Wednesday, December 23rd, 2009'
+published: 2009-12-23
 title: 'Piwik on Ubuntu 9.10 (Karmic)'
 ---
 

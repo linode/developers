@@ -7,10 +7,10 @@ description: 'Creating a LAMP stack with Apache, MySQL, and PHP on a Gentoo Linu
 keywords: 'LAMP,Gentoo Linux,Gentoo'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['lamp-guides/gentoo-10-2013/','websites/lamp/lamp-server-on-gentoo/']
-modified: Monday, February 10th, 2014
+modified: 2014-02-10
 modified_by:
   name: Alex Fornuto
-published: 'Thursday, October 24th, 2013'
+published: 2013-10-24
 title: LAMP Server on Gentoo
 external_resources:
   - '[Gentoo Documentation](http://www.gentoo.org/doc/en/index.xml)'

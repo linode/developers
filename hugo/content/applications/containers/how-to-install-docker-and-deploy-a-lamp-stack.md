@@ -6,10 +6,10 @@ description: 'LAMP container with Docker on Linode'
 keywords: 'docker,lamp,LAMP,ubuntu,debian'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['applications/containers/install-docker-and-lamp-stack/','applications/containers/linode-lamp-container-docker/']
-modified: Monday, February 23rd, 2015
+modified: 2015-02-23
 modified_by:
   name: Linode
-published: 'Monday, February 23rd, 2015'
+published: 2015-02-23
 title: 'How to install Docker and deploy a LAMP Stack'
 external_resources:
  - '[Linode Docker Hub Page](https://hub.docker.com/u/linode/)'

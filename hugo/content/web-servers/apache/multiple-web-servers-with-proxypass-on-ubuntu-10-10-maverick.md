@@ -7,10 +7,10 @@ description: 'How to use separate web servers to host sites or applications usin
 keywords: 'apache,proxypass,apache on ubuntu,multiple web servers'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/proxy-configuration/multiple-webservers-proxypass-ubuntu-10-10-maverick/','websites/apache/multiple-web-servers-with-proxypass-on-ubuntu-10-10-maverick/']
-modified: Monday, October 8th, 2012
+modified: 2012-10-08
 modified_by:
   name: Linode
-published: 'Friday, October 22nd, 2010'
+published: 2010-10-22
 title: 'Multiple Web Servers with ProxyPass on Ubuntu 10.10 (Maverick)'
 ---
 

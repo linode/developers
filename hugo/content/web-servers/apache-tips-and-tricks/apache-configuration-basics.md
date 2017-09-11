@@ -6,10 +6,10 @@ description: An advanced overview of configuration for the Apache web server inc
 keywords: 'configuration,apache,web server,virtual hosting,http'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/configuration/configuration-basics/','websites/apache-tips-and-tricks/apache-configuration-basics/']
-modified: Monday, August 22nd, 2011
+modified: 2011-08-22
 modified_by:
   name: Linode
-published: 'Friday, November 6th, 2009'
+published: 2009-11-06
 title: Apache Configuration Basics
 external_resources:
  - '[Apache Installation](/docs/websites/apache/)'

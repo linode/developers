@@ -6,10 +6,10 @@ description: 'Reverse DNS (rDNS) resolves an IP address to the designated domain
 keywords: 'reverse dns,dns manager,dns configuration,IP address,PTR record'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['dns-manager/','dns-guides/configuring-dns-with-the-linode-manager/','networking/dns/setting-reverse-dns/','networking/Setting-Up-Reverse-DNS-Lookup/','networking/configure-your-linode-for-reverse-dns/']
-modified: Thursday, July 27th, 2017
+modified: 2017-07-27
 modified_by:
   name: Linode
-published: 'Thursday, July 9, 2015'
+published: 2015-07-09
 title: Configure Your Linode for Reverse DNS (rDNS)
 ---
 

@@ -5,10 +5,10 @@ author:
 description: 'Install and configure a Ghost blog on your Linode running Ubuntu 16.04.'
 keywords: 'Ghost,install Ghost,Ghost on Linode,how to configure Ghost'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Thursday, March 30th, 2017
+modified: 2017-03-30
 modified_by:
   name: Nick Brewer
-published: 'Thursday, March 30th, 2017'
+published: 2017-03-30
 title: Install Ghost on Ubuntu 16.04
 contributor:
   name: Elliot Blackburn

@@ -6,10 +6,10 @@ description: Using the Ruby on Rails framework for Nginx web applications on Deb
 keywords: 'ruby on rails,ruby on nginx,rails apps,debian,debian 8, ruby, nginx'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['websites/ror/ruby-on-rails-nginx-debian-8/']
-modified: Thursday, June 25th, 2015
+modified: 2015-06-25
 modified_by:
   name: Elle Krout
-published: 'Thursday, June 25th, 2015'
+published: 2015-06-25
 title: 'Ruby on Rails with Nginx on Debian 8'
 external_resources:
  - '[Ruby on Rails Home Page](http://rubyonrails.org/)'

@@ -7,10 +7,10 @@ description: 'Installing and configuring the Django web application development 
 keywords: 'django,python,apache,mod\_python,ubuntu,ubuntu 8.04,hardy'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/django-apache-mod-python/ubuntu-8-04-hardy/','websites/frameworks/django-apache-and-modpython-on-ubuntu-8-04-hardy/']
-modified: Tuesday, May 17th, 2011
+modified: 2011-05-17
 modified_by:
   name: Linode
-published: 'Thursday, September 10th, 2009'
+published: 2009-09-10
 title: 'Django, Apache and mod_python on Ubuntu 8.04 (Hardy)'
 ---
 

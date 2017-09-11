@@ -7,10 +7,10 @@ description: 'The Planet Venus feed aggregator provides an overview of a communi
 keywords: 'planet,blogs,aggregator,feed,rss'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/social-networking/planet/ubuntu-10-04-lucid/']
-modified: Friday, October 4th, 2013
+modified: 2013-10-04
 modified_by:
   name: Linode
-published: 'Tuesday, August 10th, 2010'
+published: 2010-08-10
 title: 'Create an Aggregate Blog using Planet Venus on Ubuntu 10.04 (Lucid)'
 external_resources:
     - '[The Planet''s Project''s Home Page](http://www.planetplanet.org)'

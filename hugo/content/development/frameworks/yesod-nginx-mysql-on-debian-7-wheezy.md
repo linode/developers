@@ -8,10 +8,10 @@ license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['websites/frameworks/yesod-nginx-mysql-on-debian-7-wheezy/']
 contributor:
     name: Si-Qi Liu
-modified: Thursday, September 25, 2014
+modified: 2014-09-25
 modified_by:
   name: Linode
-published: Thursday, September 25, 2014
+published: 2014-09-25
 title: 'Yesod, Nginx, and MySQL on Debian 7 (Wheezy)'
 external_resources:
  - '[Haskell Platform](http://www.haskell.org/platform/)'

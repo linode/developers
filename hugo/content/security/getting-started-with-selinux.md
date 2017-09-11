@@ -6,10 +6,10 @@ description: 'This guide will walk you through the basics of installing and runn
 keywords: 'Security-enhanced Linux, secure open source, firewall, SELinux, getting-started' 
 license: '[CC BY-ND 4.0](https://creativecommons.org/license/by-nd/4.0)'
 alias: 
-modified: 'Friday July 21, 2017'
+modified: 2017-07-21
 modified_by: 
   name: Angel
-published: 'Friday July 21, 2017' 
+published: 2017-07-21
 title: Getting Started with SELinux
 external_resources:
  - '[Graphical Guide to Policies](https://opensource.com/business/13/11/selinux-policy-guide)'

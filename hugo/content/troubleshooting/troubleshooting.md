@@ -6,10 +6,10 @@ description: Our guide to performing basic troubleshooting.
 keywords: troubleshooting
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['quick-start-troubleshooting/']
-modified: Monday, March 6th, 2017
+modified: 2017-03-06
 modified_by:
   name: Nick Brewer
-published: 'Thursday, April 5th, 2012'
+published: 2012-04-05
 title: Troubleshooting
 ---
 

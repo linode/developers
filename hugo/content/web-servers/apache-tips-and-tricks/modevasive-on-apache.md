@@ -6,10 +6,10 @@ description: 'mod_evasive'
 keywords: 'mod_evasive, modevasive, evasive, apache'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/mod-evasive/','websites/apache-tips-and-tricks/modevasive-on-apache/']
-modified: Tuesday, February 5th, 2013
+modified: 2013-02-05
 modified_by:
   name: Linode
-published: 'Monday, November 14th, 2011'
+published: 2011-11-14
 title: 'mod_evasive on Apache'
 external_resources:
  - '[mod_evasive Home Page](http://www.zdziarski.com/blog/?page_id=442)'

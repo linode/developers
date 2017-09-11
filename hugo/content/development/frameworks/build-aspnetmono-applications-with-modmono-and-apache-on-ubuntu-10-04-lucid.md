@@ -6,10 +6,10 @@ description: 'Use the Mono project''s Apache module to run ASP.NET applications.
 keywords: 'apache,mono,.net,asp.net,mod\_mono'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/mod-mono/ubuntu-10-04-lucid/','websites/frameworks/build-aspnetmono-applications-with-modmono-and-apache-on-ubuntu-10-04-lucid/']
-modified: Friday, September 27th, 2013
+modified: 2013-09-27
 modified_by:
   name: Linode
-published: 'Thursday, August 5th, 2010'
+published: 2010-08-05
 title: 'Build ASP.NET/Mono Applications with mod_mono and Apache on Ubuntu 10.04 (Lucid)'
 deprecated: true
 ---

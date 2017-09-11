@@ -5,10 +5,10 @@ author:
 description: 'An overview of Drush the Drupal Shell or Command Line Tool'
 keywords: 'drupal,WordPress,joomla,cms,content management system,content management framework, debian, '
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Friday, November 21st, 2014
+modified: 2014-11-21
 modified_by:
     name: Linode
-published: 'Friday, November 21st, 2014'
+published: 2014-11-21
 title: 'Installing & Using Drupal Drush on Debian 7'
 external_resources:
  - '[SSL Certificates](/docs/security/ssl/)'

@@ -6,10 +6,10 @@ description: 'nginx is a high-performance web server that delivers large amounts
 keywords: 'nginx, web server, nginx.conf, install'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/nginx/configuration/basic/','websites/nginx/basic-nginx-configuration/index.cfm/','websites/nginx/basic-nginx-configuration/','websites/nginx/how-to-configure-nginx/index.cfm/','websites/nginx/how-to-configure-nginx/']
-modified: Wednesday, February 24th, 2016
+modified: 2016-02-24
 modified_by:
   name: Alex Fornuto
-published: 'Monday, January 18th, 2010'
+published: 2010-01-18
 title: How to Configure nginx
 external_resources:
  - '[Linode nginx guides](/docs/web-servers/nginx/)'

@@ -6,10 +6,10 @@ description: 'Installing, configuring, and optimizing the Drupal content managem
 keywords: 'drupal,cms,web framework,web application,php,content management system,content management framwork'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/cms-guides/drupal/']
-modified: Thursday, November 6th, 2014
+modified: 2014-11-06
 modified_by:
   name: Linode
-published: 'Tuesday, September 29th, 2009'
+published: 2009-09-29
 title: Installing Drupal 7
 ---
 

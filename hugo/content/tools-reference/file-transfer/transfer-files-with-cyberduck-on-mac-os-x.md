@@ -7,10 +7,10 @@ description: 'Securely copying files to and from your Linode with Cyberduck, a f
 keywords: 'cyberduck,ftp,mac os scp,sftp,mac os sftp program,mac os ftp'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['networking/file-transfer/transfer-files-cyberduck/']
-modified: Monday, August 22nd, 2011
+modified: 2011-08-22
 modified_by:
   name: Linode
-published: 'Friday, November 13th, 2009'
+published: 2009-11-13
 title: Transfer Files with Cyberduck on Mac OS X
 ---
 

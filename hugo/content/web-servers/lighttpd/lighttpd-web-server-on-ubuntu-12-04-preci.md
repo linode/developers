@@ -7,10 +7,10 @@ description: 'Using lighttpd to host multiple websites on Ubuntu 12.04 (Precise)
 keywords: 'lighttpd,web server,web hosting'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/lighttpd/ubuntu-12-04-precise/','websites/lighttpd/lighttpd-web-server-on-ubuntu-12-04-preci/']
-modified: Wednesday, September 11th, 2013
+modified: 2013-09-11
 modified_by:
   name: Linode
-published: 'Wednesday, September 11th, 2013'
+published: 2013-09-11
 title: 'lighttpd Web Server on Ubuntu 12.04 (Precise)'
 external_resources:
  - '[Optimizing FastCGI Performance (lighttpd wiki)](http://redmine.lighttpd.net/projects/lighttpd/wiki/Docs:PerformanceFastCGI)'

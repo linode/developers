@@ -5,7 +5,7 @@ author:
 keywords: 'linode api, api key, key'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['api/']
-published: 'Monday, January 27th, 2014'
+published: 2014-01-27
 title: Linode API
 ---
 

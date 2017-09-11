@@ -7,10 +7,10 @@ description: 'Creating a LAMP stack on a CentOS 5 Linode.'
 keywords: 'LAMP,CentOS,CentOS 5'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['lamp-guides/centos-5/','websites/lamp/lamp-server-on-centos-5/']
-modified: Tuesday, July 19th, 2011
+modified: 2011-07-19
 modified_by:
   name: Linode
-published: 'Monday, October 19th, 2009'
+published: 2009-10-19
 title: LAMP Server on CentOS 5
 external_resources:
   - '[CentOS Linux Home Page](http://www.centos.org/)'

@@ -7,10 +7,10 @@ description: 'Getting started with MySQL for web and server applications on Ubun
 keywords: 'MySQL on Linux,MySQL Ubuntu,MySQL Jaunty,MySQL Linode'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/mysql/ubuntu-9-04-jaunty/']
-modified: Monday, October 8th, 2012
+modified: 2012-10-08
 modified_by:
   name: Linode
-published: 'Tuesday, August 11th, 2009'
+published: 2009-08-11
 title: 'Use MySQL Relational Databases on Ubuntu 9.04 (Jaunty)'
 ---
 

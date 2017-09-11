@@ -6,10 +6,10 @@ description: 'Automating offsite backups with the open source Rdiff-backup packa
 keywords: 'rdiff-backup,sshfs,network backup,linux backup'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['linux-tools/rdiff-backup/']
-modified: Friday, April 13th, 2012
+modified: 2012-04-13
 modified_by:
   name: James Sinclair
-published: 'Monday, September 14th, 2009'
+published: 2009-09-14
 title: 'Using Rdiff-backup with SSHFS'
 external_resources:
  - '[Rdiff-backup Documentation](http://rdiff-backup.nongnu.org/docs.html)'

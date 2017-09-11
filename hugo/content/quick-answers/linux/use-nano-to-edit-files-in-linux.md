@@ -6,8 +6,8 @@ description: 'Use GNU nano to edit text and system files from the command line.'
 keywords: 'nano,terminal,command line,shell'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['quick-answers/use-nano-to-edit-files-in-linux/']
-published: 'Thursday, May 4, 2017'
-modified: 'Thursday, May 4, 2017'
+published: 2017-05-04
+modified: 2017-05-04
 modified_by:
   name: Edward Angert
 title: 'Use nano to Edit Files in Linux'

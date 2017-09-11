@@ -8,10 +8,10 @@ contributor:
 description: 'This guide introduces Dockerfiles and how to use them to build a Docker Image on your Linode.'
 keywords: 'docker,container,dockerfile'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Friday, August 29, 2017
+modified: 2017-08-29
 modified_by:
   name: Linode
-published: 'Friday, August 11, 2017'
+published: 2017-08-11
 title: 'How to Use Dockerfiles'
 external_resources:
  - '[Dockerfile Best Practices](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices)'

@@ -5,10 +5,10 @@ author:
 description: 'Setting up a mail server with Postfix, Dovecot, and MySQL.'
 keywords: 'email, mail, server, postfix, dovecot, mysql, debian, ubuntu, dovecot 2'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Wednesday, April 29th, 2015
+modified: 2015-04-29
 modified_by:
   name: Phil Zona
-published: 'Monday, May 13th, 2013'
+published: 2013-05-13
 title: 'Email with Postfix, Dovecot, and MySQL'
 ---
 

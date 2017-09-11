@@ -7,10 +7,10 @@ description: 'Instructions for installing the Apache Tomcat Java Servlet engine 
 keywords: 'java,apache tomcat,java ubuntu,java hardy'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/apache-tomcat/ubuntu-8-04-hardy/','websites/frameworks/installing-apache-tomcat-on-ubuntu-8-04-lts-hardy/']
-modified: Friday, April 29th, 2011
+modified: 2011-04-29
 modified_by:
   name: Linode
-published: 'Wednesday, September 23rd, 2009'
+published: 2009-09-23
 title: 'Installing Apache Tomcat on Ubuntu 8.04 LTS (Hardy)'
 ---
 

@@ -5,10 +5,10 @@ author:
 description: 'Install MongoDB for document-oriented data storage on Ubuntu 16.04 (Xenial).'
 keywords: 'nosql,database,mongodb,key store,ubuntu,mongodb tutorial'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Friday, December 30th, 2016
+modified: 2016-12-30
 modified_by:
   name: Phil Zona
-published: 'Friday, May 20th, 2016'
+published: 2016-05-20
 title: 'Install MongoDB on Ubuntu 16.04 (Xenial)'
 external_resources:
  - '[Official MongoDB Documentation](https://docs.mongodb.org/v3.2/)'

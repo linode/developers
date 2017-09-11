@@ -8,10 +8,10 @@ license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 contributor:
     name: Karthik Shiraly
     link: https://twitter.com/pathbreaksoft
-modified: Friday, April 3, 2015
+modified: 2015-04-03
 modified_by:
     name: James Stewart
-published: 'Friday, April 3, 2015'
+published: 2015-04-03
 title: 'Turbocharge Your WordPress Search Using Solr'
 ---
 

@@ -7,10 +7,10 @@ description: 'Getting started with Openfire on Debian 5 (Lenny), an open source 
 keywords: 'openfire,openfire on linux,instant messaging,real-time messaging,xmpp server,collaboration software,chat software,linux jabber server'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['communications/xmpp/openfire/debian-5-lenny/']
-modified: Wednesday, October 3rd, 2012
+modified: 2012-10-03
 modified_by:
   name: Linode
-published: 'Friday, September 18th, 2009'
+published: 2009-09-18
 title: 'Instant Messaging Services with Openfire on Debian 5 (Lenny)'
 ---
 

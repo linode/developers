@@ -12,10 +12,10 @@ contributor:
 external_resources:
  - '[Securely set up smartcard](https://gist.github.com/abeluck/3383449)'
  - '[Instructions for GPG 2.1](https://incenp.org/notes/2015/gnupg-for-ssh-authentication.html)'
-modified: Monday, October 3rd, 2016
+modified: 2016-10-03
 modified_by:
   name: Alex Fornuto
-published: 'Monday, October 3rd, 2016'
+published: 2016-10-03
 ---
 
 *This is a Linode Community guide. Write for us and earn $250 per published guide.*

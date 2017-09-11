@@ -6,10 +6,10 @@ description: 'Use the graphic shell, Glish, to Manage Graphic Environments on Yo
 keywords: 'Console,Shell,glish,graphic'
 alias: ['networking/using-the-graphic-shell-glish/','networking/use-the-graphic-shell-glish/']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Wednesday, March 9th, 2015
+modified: 2015-03-09
 modified_by:
   name: Linode
-published: 'Friday, August 28th, 2015'
+published: 2015-08-28
 title: 'Using the Linode Graphical Shell (Glish)'
 ---
 

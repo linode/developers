@@ -6,10 +6,10 @@ description: 'Use phpMyAdmin to manage MySQL databases and users though a web in
 keywords: 'mysql,phpmyadmin,sql,ubuntu,precise,ubuntu 14.04,lts,ubuntu lts,localhost phpmyadmin,php mysql,http localhost phpmyadmin'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/mysql/phpmyadmin-ubuntu-12-04-precise/','databases/mysql/mysql-phpmyadmin-ubuntu-14-04']
-modified: 'Tuesday, August 1st, 2017'
+modified: 2017-08-01
 modified_by:
     name: Linode
-published: 'Thursday, September 12th, 2013'
+published: 2013-09-12
 title: 'How to Install MySQL with phpMyAdmin on Ubuntu 14.04'
 external_resources:
     - '[phpMyAdmin Home page](http://www.phpmyadmin.net/home_page/index.php)'

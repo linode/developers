@@ -6,7 +6,7 @@ description: 'Installing, configuring, and managing the nginx web server for bot
 keywords: 'nginx,nginx linux,nginx tutorials, how to install nginx, Linode, configure nginx, managing nginx, cloud server, install nginx on cloud server'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['websites/nginx/index.cfm/','websites/nginx/']
-published: 'Monday, December 14th, 2009'
+published: 2009-12-14
 title: 'Nginx'
 ---
 

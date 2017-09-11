@@ -7,10 +7,10 @@ description: 'How to use separate web servers to host sites or applications usin
 keywords: 'apache,proxypass,apache on debian,multiple web servers'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/proxy-configuration/multiple-webservers-proxypass-debian-5-lenny/','websites/apache/multiple-web-servers-with-proxypass-on-debian-5-lenny/']
-modified: Monday, October 8th, 2012
+modified: 2012-10-08
 modified_by:
   name: Linode
-published: 'Monday, November 30th, 2009'
+published: 2009-11-30
 title: 'Multiple Web Servers with ProxyPass on Debian 5 (Lenny)'
 ---
 

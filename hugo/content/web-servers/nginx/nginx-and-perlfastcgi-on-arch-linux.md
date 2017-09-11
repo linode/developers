@@ -7,10 +7,10 @@ description: 'Serve dynamic websites and applications with the lightweight nginx
 keywords: 'perl fastcgi arch linux,fastcgi,nginx arch linux,nginx arch,nginx perl'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/nginx/perl-fastcgi/arch-linux/','websites/nginx/nginx-and-perlfastcgi-on-arch-linux/']
-modified: Monday, October 7th, 2013
+modified: 2013-10-07
 modified_by:
   name: Linode
-published: 'Thursday, February 3rd, 2011'
+published: 2011-02-03
 title: 'Nginx and Perl-FastCGI on Arch Linux'
 ---
 

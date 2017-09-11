@@ -6,10 +6,10 @@ description: 'Instructions for backing up MySQL databases using various methods.
 keywords: 'mysql,backup,mysqldump'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/mysql/backup-options/']
-modified: Wednesday, September 11th, 2013
+modified: 2013-09-11
 modified_by:
   name: Linode
-published: 'Monday, April 19th, 2010'
+published: 2010-04-19
 title: Back Up Your MySQL Databases
 external_resources:
  - '[The Official MySQL Web Site](http://www.mysql.com/)'

@@ -7,10 +7,10 @@ description: Zabbix
 keywords: 'zabbix, server monitoring, monitoring, server monitor'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['server-monitoring/zabbix/']
-modified: Monday, August 20th, 2012
+modified: 2012-08-20
 modified_by:
   name: Linode
-published: 'Monday, August 20th, 2012'
+published: 2012-08-20
 title: Monitoring Servers with Zabbix
 ---
 

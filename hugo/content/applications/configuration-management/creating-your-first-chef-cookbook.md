@@ -6,10 +6,10 @@ description: 'Learn how to create Chef cookbooks by creating a LAMP stack in Che
 keywords: 'chef,automation,cookbooks,opscode,lamp,lamp stack,beginner,server automation'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['applications/chef/creating-your-first-chef-cookbook/']
-modified: Wednesday, June 10th, 2015
+modified: 2015-06-10
 modified_by:
   name: Elle Krout
-published: 'Wednesday, June 10th, 2015'
+published: 2015-06-10
 title: Creating Your First Chef Cookbook
 external_resources:
  - '[Chef](http://www.chef.io)'

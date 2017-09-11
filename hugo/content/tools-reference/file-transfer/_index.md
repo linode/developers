@@ -5,7 +5,7 @@ author:
 keywords: 'file transfer,file transferring,cyberduck,filezilla,winscp'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['networking/file-transfer/']
-published: 'Thursday, July 16th, 2009'
+published: 2009-07-16
 title: File Transfer
 ---
 

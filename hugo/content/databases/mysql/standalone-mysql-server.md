@@ -6,10 +6,10 @@ author:
 description: 'Deploying a standalone MySQL database server on a separate Linode for increased application performance.'
 keywords: 'mysql,standalone myql,separate mysql,wordpress'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Friday, April 29th, 2011
+modified: 2011-04-29
 modified_by:
   name: Linode
-published: 'Wednesday, September 30th, 2009'
+published: 2009-09-30
 title: Standalone MySQL Server
 ---
 

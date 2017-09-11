@@ -8,10 +8,10 @@ license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/postfix/pflogsumm-centos-6/']
 contributor: 
     name: Robert Accettura
-modified: Wednesday, February 5th, 2014
+modified: 2014-02-05
 modified_by:
   name: Linode
-published: 'Wednesday, February 5th, 2014'
+published: 2014-02-05
 title: Pflogsumm for Postfix Monitoring on CentOS 6
 external_resources:
  - '[Pflogsumm](http://jimsun.linxnet.com/postfix_contrib.html)'

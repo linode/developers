@@ -5,7 +5,7 @@ author:
 description: 'Using Linode for cloud storage.'
 keywords: 'cloud,cloud storage'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 'Tuesday, May 23, 2017'
+published: 2017-05-23
 title: Cloud Storage
 ---
 

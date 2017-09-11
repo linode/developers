@@ -5,8 +5,8 @@ author:
 description: 'Install Black Mesa on Debian or Ubuntu'
 keywords: 'black mesa,steam,steamcmd,sourcemod,metamod'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 'Friday, February 26th, 2016'
-modified: Friday, February 26th, 2016
+published: 2016-02-26
+modified: 2016-02-26
 modified_by:
   name: Linode
 title: 'Install Black Mesa on Debian or Ubuntu'

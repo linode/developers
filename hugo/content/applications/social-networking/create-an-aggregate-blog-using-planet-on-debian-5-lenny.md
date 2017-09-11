@@ -6,10 +6,10 @@ description: 'The Planet feed aggregator provides an overview of a community by 
 keywords: 'planet,blogs,aggregator,feed,rss'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/social-networking/planet/debian-5-lenny/']
-modified: Friday, October 4th, 2013
+modified: 2013-10-04
 modified_by:
   name: Linode
-published: 'Wednesday, April 7th, 2010'
+published: 2010-04-07
 title: 'Create an Aggregate Blog using Planet on Debian 5 (Lenny)'
 deprecated: true
 external_resources:

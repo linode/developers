@@ -6,10 +6,10 @@ description: 'Using lighttpd to host multiple websites on Ubuntu 9.10 (Karmic).'
 keywords: 'lighttpd,web server,web hosting'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/lighttpd/ubuntu-9-10-karmic/','websites/lighttpd/lighttpd-web-server-on-ubuntu-9-10-karmic/']
-modified: Monday, October 7th, 2013
+modified: 2013-10-07
 modified_by:
   name: Linode
-published: 'Monday, May 10th, 2010'
+published: 2010-05-10
 title: 'lighttpd Web Server on Ubuntu 9.10 (Karmic)'
 deprecated: true
 ---

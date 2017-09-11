@@ -7,10 +7,10 @@ description: 'Configure and run your own DNS resolver using the Unbound Server o
 keywords: 'fedora dns,open source dns,dns,resolving,caching,unbound'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['dns-guides/unbound-dns-resolver-fedora-13/']
-modified: Monday, July 15th, 2013
+modified: 2013-07-15
 modified_by:
   name: Linode
-published: 'Tuesday, September 7th, 2010'
+published: 2010-09-07
 title: Use Unbound for Local DNS Resolution on Fedora 13
 ---
 

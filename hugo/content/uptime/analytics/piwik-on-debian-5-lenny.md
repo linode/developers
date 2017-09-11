@@ -7,10 +7,10 @@ description: 'Get in-depth web analytics with Piwik, a self-hosted, open source 
 keywords: 'open source analytics,piwik debian,piwik,analytics,debian. tracking,statistics'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/analytics/piwik/debian-5-lenny/']
-modified: Tuesday, January 28th, 2014
+modified: 2014-01-28
 modified_by:
   name: Linode
-published: 'Thursday, December 10th, 2009'
+published: 2009-12-10
 title: 'Piwik on Debian 5 (Lenny)'
 ---
 

@@ -7,10 +7,10 @@ description: 'Install Asterisk and FreePBX on Your Linode to Use and Manage a Te
 keywords: 'ubuntu 12.04,asterisk,freepbx,pbx,voip,google voice,grub,lamp stack,apache,php'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: [ 'communications/voip-services-ubuntu-12-04/' ]
-modified: Tuesday, June 17th, 2014
+modified: 2014-06-17
 modified_by:
   name: Alex Fornuto
-published: 'Tuesday, June 17th, 2014'
+published: 2014-06-17
 title: 'Deploy VoIP Services with Asterisk and Freepbx on Ubuntu 12.04'
 external_resources:
  - '[Asterisk Documentation](http://www.asterisk.org/docs)'

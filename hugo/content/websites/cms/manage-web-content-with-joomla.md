@@ -7,10 +7,10 @@ description: 'Using the Joomla! content management system to ease administration
 keywords: 'joomla,cms,content management systems'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/cms-guides/joomla/']
-modified: Tuesday, April 19th, 2011
+modified: 2011-04-19
 modified_by:
   name: Linode
-published: 'Friday, January 22nd, 2010'
+published: 2010-01-22
 title: 'Manage Web Content with Joomla!'
 ---
 

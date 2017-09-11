@@ -5,10 +5,10 @@ author:
 description: 'The PostgreSQL relational database is a powerful open source database platform. Learn how to install it on CentOS 7 in this simple tutorial.'
 keywords: 'postgresql,CentOS 7,open source database,relational database'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Monday, December 12th, 2016
+modified: 2016-12-12
 modified_by:
   name: Nick Brewer
-published: 'Monday, December 12th, 2016'
+published: 2016-12-12
 title: 'How to Install PostgreSQL Relational Databases on CentOS 7'
 external_resources:
  - '[PostgreSQL Online Documentation](http://www.postgresql.org/docs/)'

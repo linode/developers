@@ -6,10 +6,10 @@ description: 'Migrate your website from a shared host to a Linode cloud server r
 keywords: 'shared hosting,migrate,website migration'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['migrate-from-shared/','migrate-to-linode/migrate-from-shared-hosting/','migrate-to-linode/migrate-from-shared-hosting-to-linode/']
-modified: 'Monday, September 19th, 2016'
+modified: 2016-09-19
 modified_by:
   name: Linode
-published: 'Friday, October 18th, 2013'
+published: 2013-10-18
 title: Migrate from Shared Hosting to Linode
 ---
 

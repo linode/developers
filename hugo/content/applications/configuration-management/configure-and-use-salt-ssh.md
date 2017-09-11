@@ -5,8 +5,8 @@ author:
 description: 'Learn how to configure and use Salt SSH in this simple tutorial'
 keywords: 'Saltstack, salt, salt-ssh'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 'Wednesday, July 25, 2017'
-modified: 'Tuesday, August 15th, 2017'
+published: 2017-07-25
+modified: 2017-08-15
 modified_by:
   name: Linode
 title: 'Configure and Use Salt SSH to Manage Your Linodes'

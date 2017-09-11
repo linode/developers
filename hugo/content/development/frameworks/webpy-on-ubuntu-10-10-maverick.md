@@ -6,10 +6,10 @@ description: 'Use the Web.py Python framework to develop powerful and innovative
 keywords: 'web.py,web applications,python,web frameworks'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/webpy/ubuntu-10-10-maverick/','websites/frameworks/webpy-on-ubuntu-10-10-maverick/']
-modified: Monday, October 8th, 2012
+modified: 2012-10-08
 modified_by:
   name: Linode
-published: 'Tuesday, January 25th, 2011'
+published: 2011-01-25
 title: 'Web.py on Ubuntu 10.10 (Maverick)'
 deprecated: true
 ---

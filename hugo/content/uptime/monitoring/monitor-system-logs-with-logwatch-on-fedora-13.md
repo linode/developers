@@ -7,10 +7,10 @@ description: 'Use logwatch to monitor system logs and generate reports.'
 keywords: 'logwatch,security,logging,audit'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['server-monitoring/logwatch/fedora-13/']
-modified: Monday, October 8th, 2012
+modified: 2012-10-08
 modified_by:
   name: Linode
-published: 'Monday, October 25th, 2010'
+published: 2010-10-25
 title: Monitor System Logs with Logwatch on Fedora 13
 ---
 

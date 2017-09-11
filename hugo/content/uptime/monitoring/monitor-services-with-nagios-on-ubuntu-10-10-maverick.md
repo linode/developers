@@ -7,10 +7,10 @@ description: 'Use Nagios to monitor services and send status updates on your Ubu
 keywords: 'nagios,monitoring'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['server-monitoring/nagios/ubuntu-10-10-maverick/']
-modified: Monday, October 8th, 2012
+modified: 2012-10-08
 modified_by:
   name: Linode
-published: 'Monday, November 15th, 2010'
+published: 2010-11-15
 title: 'Monitor Services with Nagios on Ubuntu 10.10 (Maverick)'
 ---
 

@@ -6,10 +6,10 @@ description: 'A tutorial on installing and configuring the PostgreSQL relational
 keywords: 'postgresql,ubuntu 16.04,postgresql database,open source database,relational database'
 alias: ['databases/postgresql/use-postgresql-relational-databases-on-ubuntu-16-04/']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Friday, May 20th, 2016
+modified: 2016-05-20
 modified_by:
   name: Phil Zona
-published: 'Friday, May 20th, 2016'
+published: 2016-05-20
 title: 'How to Install PostgreSQL On Ubuntu 16.04'
 external_resources:
  - '[PostgreSQL Online Documentation](http://www.postgresql.org/docs/)'

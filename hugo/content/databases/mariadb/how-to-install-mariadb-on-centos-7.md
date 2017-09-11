@@ -5,10 +5,10 @@ author:
 description: 'Getting started with MariaDB on CentOS 7'
 keywords: 'MariaDB on Linux,CentOS,cloud,cloud hosting,Linux,MariaDB,database,MySQL,install MariaDB,secure MariaDB,mysqltuner'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Friday, August 21st 2015
+modified: 2015-08-21
 modified_by:
     name: Linode
-published: 'Friday, August 21st, 2015'
+published: 2015-08-21
 title: 'How to Install MariaDB on CentOS 7'
 external_resources:
  - '[MariaDB Documentation](https://mariadb.com/kb/en/mariadb/documentation/)'

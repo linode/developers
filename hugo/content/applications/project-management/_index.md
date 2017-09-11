@@ -6,7 +6,7 @@ description: 'Using open source systems and tools to manage a variety of project
 keywords: 'open source project management,redmine'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/project-management/']
-published: 'Friday, November 20th, 2009'
+published: 2009-11-20
 title: Project Management
 ---
 

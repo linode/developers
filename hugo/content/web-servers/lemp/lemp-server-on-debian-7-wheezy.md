@@ -6,10 +6,10 @@ description: 'Install a LEMP stack to serve websites and applications on Debian 
 keywords: 'nginx,lemp,lepp,perl,python,php,linux,web applications'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['lemp-guides/debian-7-wheezy/','websites/lemp/lemp-server-on-debian-7-wheezy/']
-modified: Friday, February 7th, 2014
+modified: 2014-02-07
 modified_by:
   name: Alex Fornuto
-published: 'Friday, February 7th, 2014'
+published: 2014-02-07
 title: 'LEMP Server on Debian 7 (Wheezy)'
 external_resources:
  - '[Basic Nginx Configuration](/docs/websites/nginx/basic-nginx-configuration)'

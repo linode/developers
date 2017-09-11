@@ -8,10 +8,10 @@ license: '[CC BY-ND 3.0](http://creativecommons.org/licenses/by-nd/3.0/us/)'
 external_resources:
  - '[PlayARK.com](http://www.playark.com/)'
  - '[The Official ARK: Survival Evolved Wiki](http://ark.gamepedia.com/ARK_Survival_Evolved_Wiki)'
-modified: Wednesday, December 28th, 2016
+modified: 2016-12-28
 modified_by:
   name: Nick Brewer
-published: 'Wednesday, December 28th, 2016'
+published: 2016-12-28
 title: 'Create an ARK: Survival Evolved Server on Ubuntu 16.04'
 alias: ['applications/game-servers/create-an-ark-survival-evolved-server-on-ubuntu-16-04/']
 ---

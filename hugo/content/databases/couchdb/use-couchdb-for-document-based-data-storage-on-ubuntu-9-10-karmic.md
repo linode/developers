@@ -7,10 +7,10 @@ description: 'An introduction and getting started guide for CouchDB on Ubuntu 9.
 keywords: 'couchdb,nosql,json,ubuntu'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/couchdb/ubuntu-9-10-karmic/']
-modified: Friday, April 29th, 2011
+modified: 2011-04-29
 modified_by:
   name: Linode
-published: 'Thursday, February 18th, 2010'
+published: 2010-02-18
 title: 'Use CouchDB for Document Based Data Storage on Ubuntu 9.10 (Karmic)'
 ---
 

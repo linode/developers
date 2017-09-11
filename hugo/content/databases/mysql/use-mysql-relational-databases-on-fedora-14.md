@@ -7,10 +7,10 @@ description: 'Getting started with MySQL for web and server applications on Fedo
 keywords: 'mysql fedora 14,mysql linux,mysql fedora'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/mysql/fedora-14/']
-modified: Tuesday, January 28th, 2014
+modified: 2014-01-28
 modified_by:
   name: Alex Fornuto
-published: 'Tuesday, December 7th, 2010'
+published: 2010-12-07
 title: Use MySQL Relational Databases on Fedora 14
 ---
 

@@ -5,7 +5,7 @@ author:
 keywords: 'LEMP,LEMP stack,LEMP server'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['lemp-guides/','websites/lemp/']
-published: 'Tuesday, June 29th, 2010'
+published: 2010-06-29
 title: LEMP Guides
 ---
 

@@ -6,10 +6,10 @@ description: 'Use system user accounts, postfix, and dovecot to provide'
 keywords: 'postfix,dovecot,system users,email'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/postfix/dovecot-system-users-ubuntu-10-10-maverick/']
-modified: Monday, October 8th, 2012
+modified: 2012-10-08
 modified_by:
   name: Linode
-published: 'Tuesday, December 7th, 2010'
+published: 2010-12-07
 title: 'Postfix, Dovecot, and System User Accounts on Ubuntu 10.10 (Maverick)'
 deprecated: true
 ---

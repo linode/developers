@@ -7,10 +7,10 @@ description: 'Install web applications with "LEMP," a LAMP-like stack using ngin
 keywords: 'nginx,lemp,php,linux,web applications'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['lemp-guides/fedora-15/','websites/lemp/lemp-server-on-fedora-15/']
-modified: Thursday, June 21st, 2012
+modified: 2012-06-21
 modified_by:
   name: Linode
-published: 'Friday, June 24th, 2011'
+published: 2011-06-24
 title: LEMP Server on Fedora 15
 ---
 

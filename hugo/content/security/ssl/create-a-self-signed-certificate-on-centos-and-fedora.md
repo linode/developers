@@ -6,10 +6,10 @@ description: 'Create an SSL Certificate on a Linux Server Running Centos or Fedo
 keywords: 'ssl certificate,ssl cert,self signed,centos,fedora'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['security/ssl-certificates/self-signed/']
-modified: Friday, August 16th, 2016
+modified: 2016-08-16
 modified_by:
   name: Nick Brewer
-published: 'Monday, November 16th, 2009'
+published: 2009-11-16
 title: 'Create a Self-Signed Certificate on CentOS and Fedora'
 external_resources:
  - '[OpenSSL documentation](http://openssl.org/docs/)'

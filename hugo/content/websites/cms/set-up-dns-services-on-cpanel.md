@@ -6,10 +6,10 @@ description: How to set up DNS on your cPanel server
 keywords: 'DNS, cPanel'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/control-panels/cpanel/dns-on-cpanel/']
-modified: Wednesday, February 15th, 2017
+modified: 2017-02-15
 modified_by:
   name: Linode
-published: 'Friday, November 4th, 2011'
+published: 2011-11-04
 title: Set Up DNS Services on cPanel
 external_links:
  - '[cPanel Home Page](https://www.cpanel.com/)'

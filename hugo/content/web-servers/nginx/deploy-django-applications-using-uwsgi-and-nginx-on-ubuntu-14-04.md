@@ -5,10 +5,10 @@ author:
 description: 'Deploy Django Applications Using uWSGI and Nginx on Ubuntu 14.04'
 keywords: 'django,uwsgi,nginx,python'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: 'Wednesday, November 25th, 2015'
+modified: 2015-11-25
 modified_by:
   name: Sergey Pariev
-published: 'Wednesday, November 25th, 2015'
+published: 2015-11-25
 title: 'Deploy Django Applications Using uWSGI and Nginx on Ubuntu 14.04'
 contributor:
   name: Sergey Pariev

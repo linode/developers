@@ -5,9 +5,9 @@ author:
 description: 'Set up and configure WildFly as your Java Application Server to develop, test, and run, Java applications'
 keywords: 'java,jboss,jboss as,wildfly,apache,mysql,mariaDB'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 'Friday, September 18th, 2015'
+published: 2015-09-18
 alias: ['applications/development/java-development-wildfly-centos-7/']
-modified: Friday, September 18th, 2015
+modified: 2015-09-18
 modified_by:
     name: Linode
 title: 'Java Development with WildFly on CentOS 7'

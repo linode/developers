@@ -7,10 +7,10 @@ description: 'Getting started with MySQL for web and server applications on Gent
 keywords: 'MySQL,Gentoo,database,rdbms'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/mysql/gentoo/']
-modified: Tuesday, January 28th, 2014
+modified: 2014-01-28
 modified_by:
   name: Alex Fornuto
-published: 'Friday, January 21st, 2011'
+published: 2011-01-21
 title: Using MySQL Relational Databases on Gentoo
 ---
 

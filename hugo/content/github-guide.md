@@ -5,10 +5,10 @@ author:
 description: 'The Linode Guides & Tutorials GitHub guide.'
 keywords: 'GitHub guide, write for us, article submissions,linode guides and tutorials'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Wednesday, December 2nd, 2015
+modified: 2015-12-02
 modified_by:
     name: Linode
-published: 'Wednesday, December 2nd, 2015'
+published: 2015-12-02
 title: GitHub Beginner's Guide
 ---
 

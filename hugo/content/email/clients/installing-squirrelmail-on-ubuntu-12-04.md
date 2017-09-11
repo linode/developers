@@ -6,10 +6,10 @@ description: 'A guide to installing the SquirrelMail web client for email on Ubu
 keywords: 'squirrelmail, ubuntu, 12.04, mail client'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/squirrelmail-ubuntu12-04/']
-modified: Wednesday, January 15th, 2014
+modified: 2014-01-15
 modified_by:
   name: Alex Fornuto
-published: 'Tuesday, January 14th, 2014'
+published: 2014-01-14
 title: 'Installing SquirrelMail on Ubuntu 12.04'
 external_resources:
  - '[Official SquirrelMail Documentation](http://squirrelmail.org/documentation/)'

@@ -6,10 +6,10 @@ description: 'Use the Web.py Python framework to develop powerful and innovative
 keywords: 'web.py,web applications,python,web frameworks'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/webpy/ubuntu-10-04-lucid/','websites/frameworks/webpy-on-ubuntu-10-04-lucid/']
-modified: Friday, September 27th, 2013
+modified: 2013-09-27
 modified_by:
   name: Linode
-published: 'Monday, January 3rd, 2011'
+published: 2011-01-03
 title: 'Web.py on Ubuntu 10.04 (Lucid)'
 deprecated: true
 ---

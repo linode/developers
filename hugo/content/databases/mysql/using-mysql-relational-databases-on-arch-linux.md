@@ -7,10 +7,10 @@ description: 'Getting started with MySQL for web and server applications on Arch
 keywords: 'mysql arch linux,mysql linux,arch linux'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/mysql/arch-linux/']
-modified: Thursday, January 23rd, 2014
+modified: 2014-01-23
 modified_by:
   name: Alex Fornuto
-published: 'Tuesday, April 5th, 2011'
+published: 2011-04-05
 title: Using MySQL Relational Databases on Arch Linux
 ---
 

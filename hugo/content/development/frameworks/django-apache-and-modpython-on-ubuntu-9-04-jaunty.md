@@ -7,10 +7,10 @@ description: 'Installing and configuring the Django web application development 
 keywords: 'django,python,apache,mod\_python,ubuntu,ubuntu 9.04,jaunty'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/django-apache-mod-python/ubuntu-9-04-jaunty/','websites/frameworks/django-apache-and-modpython-on-ubuntu-9-04-jaunty/']
-modified: Tuesday, May 17th, 2011
+modified: 2011-05-17
 modified_by:
   name: Linode
-published: 'Monday, August 31st, 2009'
+published: 2009-08-31
 title: 'Django, Apache and mod_python on Ubuntu 9.04 (Jaunty)'
 ---
 

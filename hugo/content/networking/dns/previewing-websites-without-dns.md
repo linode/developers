@@ -6,10 +6,10 @@ description: 'A guide to testing a website for a domain before the DNS records a
 keywords: 'dns, website, preview'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['dns-guides/preview-websites/']
-modified: Monday, June 22, 2015
+modified: 2015-06-22
 modified_by:
   name: Steve Piercy
-published: 'Thursday, January 16th, 2014'
+published: 2014-01-16
 title: Previewing Websites Without DNS
 external_resources:
  - '[Wikipedia](http://en.wikipedia.org/wiki/Hosts_(file))'

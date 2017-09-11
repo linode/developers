@@ -7,10 +7,10 @@ description: 'Instructions for getting started with the Apache web server on Fed
 keywords: 'apache fedora 14,fedora web server,linux web server'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/installation/fedora-14/','websites/apache/apache-2-web-server-on-fedora-14/']
-modified: Friday, October 4th, 2013
+modified: 2013-10-04
 modified_by:
   name: Linode
-published: 'Tuesday, December 7th, 2010'
+published: 2010-12-07
 title: Apache 2 Web Server on Fedora 14
 ---
 

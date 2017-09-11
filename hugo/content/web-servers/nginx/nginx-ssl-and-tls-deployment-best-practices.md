@@ -6,8 +6,8 @@ description: 'This guide details best practices for deploying SSL and TLS in con
 keywords: 'nginx,ssl,tls'
 license: '[CC BY-ND 4.0](http://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['websites/nginx/nginx-ssl-and-tls-deployment-best-practices/']
-published: 'Thursday, August 18th, 2016'
-modified: Thursday, August 18th, 2016
+published: 2016-08-18
+modified: 2016-08-18
 modified_by:
   name: Linode
 title: 'Nginx SSL and TLS Deployment Best Practices'

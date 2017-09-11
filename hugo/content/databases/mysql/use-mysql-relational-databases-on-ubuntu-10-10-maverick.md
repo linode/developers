@@ -7,10 +7,10 @@ description: 'Getting started with MySQL for web and server applications on Ubun
 keywords: 'mysql ubuntu 10.10,mysql maverick,mysql ubuntu,mysql on linux,mysql Linode'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/mysql/ubuntu-10-10-maverick/']
-modified: Monday, October 8th, 2012
+modified: 2012-10-08
 modified_by:
   name: Linode
-published: 'Thursday, October 21st, 2010'
+published: 2010-10-21
 title: 'Use MySQL Relational Databases on Ubuntu 10.10 (Maverick)'
 ---
 

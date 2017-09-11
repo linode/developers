@@ -7,10 +7,10 @@ description: 'Install MongoDB for use in application development on Ubuntu 12.04
 keywords: 'nosql,database,mongodb,key store'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/mongodb/ubuntu-12-04-precise-pangolin/']
-modified: Monday, October 8th, 2012
+modified: 2012-10-08
 modified_by:
   name: Linode
-published: 'Monday, October 8th, 2012'
+published: 2012-10-08
 title: 'Use MongoDB to Store Application Data on Ubuntu 12.04 (Precise)'
 ---
 

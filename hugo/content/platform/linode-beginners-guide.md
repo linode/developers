@@ -6,10 +6,10 @@ description: 'Beginner''s Guide to Linode''s Platform answers common configurati
 keywords: 'linode beginners guide,linux beginner,linode beginner,Linode guide'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['beginners-guide/']
-modified: Thursday, March 2nd, 2017
+modified: 2017-03-02
 modified_by:
   name: Phil Zona
-published: 'Monday, November 16th, 2009'
+published: 2009-11-16
 title: 'Linode Beginner''s Guide'
 ---
 

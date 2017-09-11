@@ -7,10 +7,10 @@ description: 'How to use separate web servers to host sites or applications usin
 keywords: 'apache,proxypass,apache on centos,multiple web servers'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/proxy-configuration/multiple-webservers-proxypass-centos-5/']
-modified: Friday, July 22nd, 2011
+modified: 2011-07-22
 modified_by:
   name: Linode
-published: 'Thursday, February 4th, 2010'
+published: 2010-02-04
 title: Multiple Web Servers with ProxyPass on CentOS 5
 external_resources:
  - '[Apache Module mod\_proxy](http://httpd.apache.org/docs/2.2/mod/mod_proxy.html)'

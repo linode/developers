@@ -6,10 +6,10 @@ description: 'Use OpenVPN to securely connect separate networks on a CentOS 6 Li
 keywords: 'openvpn,networking,vpn,centos'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['networking/openvpn/centos-6/']
-modified: Monday, December 23rd, 2013
+modified: 2013-12-23
 modified_by:
   name: Linode
-published: 'Thursday, February 25th, 2010'
+published: 2010-02-25
 title: Secure Communications with OpenVPN on CentOS 6
 external_resources:
  - '[Official OpenVPN Documentation](http://openvpn.net/index.php/open-source/documentation/howto.html)'

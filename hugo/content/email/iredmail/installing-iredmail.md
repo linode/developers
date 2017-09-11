@@ -9,10 +9,10 @@ alias: ['installing-iredmail/']
 contributor:
     name: Nick Reichley
     link: https://github.com/reichley
-modified: Monday, October 6, 2014
+modified: 2014-10-06
 modified_by:
   name: James Stewart
-published: 'Monday, October 6, 2014'
+published: 2014-10-06
 title: 'Installing iRedMail on your Linode'
 ---
 

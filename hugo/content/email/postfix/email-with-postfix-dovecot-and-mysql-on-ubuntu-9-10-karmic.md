@@ -7,10 +7,10 @@ description: 'Installing Postfix with Dovecot and MySQL on Ubuntu 9.10 (Karmic).
 keywords: 'postfix ubuntu 9.10,postfix karmic,postfix dovecot,ubuntu mail server,linux mail server'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/postfix/dovecot-mysql-ubuntu-9-10-karmic/']
-modified: Tuesday, May 17th, 2011
+modified: 2011-05-17
 modified_by:
   name: Linode
-published: 'Friday, February 26th, 2010'
+published: 2010-02-26
 title: 'Email with Postfix, Dovecot and MySQL on Ubuntu 9.10 (Karmic)'
 ---
 

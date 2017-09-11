@@ -6,10 +6,10 @@ author:
 description: Full Disk Encryption.
 keywords: full disk encryption debian wheezy security cryptsetup
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Thursday, June 19th, 2014
+modified: 2014-06-19
 modified_by:
   name: Linode
-published: 'Friday, July 5th, 2013'
+published: 2013-07-05
 title: Full Disk Encryption
 ---
 

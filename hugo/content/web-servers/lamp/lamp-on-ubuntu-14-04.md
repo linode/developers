@@ -6,10 +6,10 @@ description: 'How to install a LAMP (Linux, Apache, MySQL, PHP) stack on an Ubun
 keywords: 'ubuntu lamp,ubuntu 14.04 lamp,lamp install,ubuntu web server,apache,mysql,php,ubuntu 14.04'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['websites/lamp/lamp-server-on-ubuntu-14-04/','websites/lamp/how-to-install-a-lamp-stack-on-ubuntu-14-04/','websites/lamp/lamp-on-ubuntu-14-04/']
-modified: Monday, December 7th, 2015
+modified: 2015-12-07
 modified_by:
   name: Alex Fornuto
-published: 'Wednesday, January 28th, 2015'
+published: 2015-01-28
 title: 'LAMP on Ubuntu 14.04'
 external_resources:
  - '[Ubuntu Server Edition Homepage](http://www.ubuntu.com/server)'

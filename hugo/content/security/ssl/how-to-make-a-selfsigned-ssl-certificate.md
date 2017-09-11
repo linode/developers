@@ -7,10 +7,10 @@ description: 'Creating an SSL certificate for personal or internal organizationa
 keywords: 'ssl certificate,ssl cert,self signed ssl,ssl linux,ssl cert linux'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['security/ssl-certificates/self-signed/']
-modified: Tuesday, June 14th, 2011
+modified: 2011-06-14
 modified_by:
   name: Linode
-published: 'Monday, November 16th, 2009'
+published: 2009-11-16
 title: 'How to Make a Self-Signed SSL Certificate'
 external_resources:
  - '[OpenSSL documentation](http://openssl.org/docs/)'

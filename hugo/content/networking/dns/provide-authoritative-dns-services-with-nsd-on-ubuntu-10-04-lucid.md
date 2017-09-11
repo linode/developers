@@ -7,10 +7,10 @@ description: 'Install and configure NSD to handle DNS queries.'
 keywords: 'NSD,DNS,resolving,Ubuntu,networking'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['dns-guides/nsd-authoritative-dns-ubuntu-10-04-lucid/']
-modified: Wednesday, September 25th, 2013
+modified: 2013-09-25
 modified_by:
   name: Linode
-published: 'Monday, December 6th, 2010'
+published: 2010-12-06
 title: 'Provide Authoritative DNS Services with NSD on Ubuntu 10.04 (Lucid)'
 ---
 

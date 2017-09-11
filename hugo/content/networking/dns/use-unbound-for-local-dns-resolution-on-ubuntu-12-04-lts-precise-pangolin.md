@@ -7,10 +7,10 @@ description: 'Configure and run your own DNS resolver using the Unbound Server o
 keywords: 'ubuntu dns,open source dns,dns,resolving,caching,unbound'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['dns-guides/unbound-dns-resolver-ubuntu-12-04-precise-pangolin/']
-modified: Tuesday, October 9th, 2012
+modified: 2012-10-09
 modified_by:
   name: Linode
-published: 'Tuesday, October 9th, 2012'
+published: 2012-10-09
 title: 'Use Unbound for Local DNS Resolution on Ubuntu 12.04 LTS (Precise Pangolin)'
 ---
 

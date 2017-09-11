@@ -7,10 +7,10 @@ description: 'Use OpenVPN to securely connect separate networks on an Ubuntu 9.1
 keywords: 'openvpn,networking,vpn,ubuntu,ubuntu karmic,ubuntu 9.10'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['networking/openvpn/ubuntu-9-10-karmic/']
-modified: Tuesday, May 17th, 2011
+modified: 2011-05-17
 modified_by:
   name: Linode
-published: 'Wednesday, February 24th, 2010'
+published: 2010-02-24
 title: 'Secure Communications with OpenVPN on Ubuntu 9.10 (Karmic)'
 ---
 

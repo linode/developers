@@ -5,10 +5,10 @@ author:
 description: 'Create a LAMP stack on a CentOS 7 Linode.'
 keywords: 'LAMP,CentOS,CentOS 7,apache,mysql,php,centos lamp'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Wednesday, October 26th, 2016
+modified: 2016-10-26
 modified_by:
     name: Alex Fornuto
-published: 'Tuesday, December 1st, 2015'
+published: 2015-12-01
 title: LAMP on CentOS 7
 alias: ['websites/lamp/lamp-server-on-centos-7/','websites/lamp/lamp-on-centos-7/']
 external_resources:

@@ -7,10 +7,10 @@ description: 'Keep track of vital system statistics and troubleshoot performance
 keywords: 'munin,monitoring'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['server-monitoring/munin/ubuntu-10-04-lucid/']
-modified: Tuesday, October 1st, 2013
+modified: 2013-10-01
 modified_by:
   name: Linode
-published: 'Thursday, May 20th, 2010'
+published: 2010-05-20
 title: 'Monitoring Servers with Munin on Ubuntu 10.04 (Lucid)'
 ---
 

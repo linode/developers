@@ -6,10 +6,10 @@ description: 'How to identify and solve common configuration problems encountere
 keywords: 'apache,webserver,httpd,troubleshooting'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/troubleshooting/']
-modified: Thursday, August 1st, 2013
+modified: 2013-08-01
 modified_by:
   name: Linode
-published: 'Friday, November 6th, 2009'
+published: 2009-11-06
 title: Troubleshooting Common Apache Issues
 external_resources:
  - '[Apache documentation](http://httpd.apache.org/docs/)'

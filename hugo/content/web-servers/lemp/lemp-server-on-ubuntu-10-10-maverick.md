@@ -7,10 +7,10 @@ description: 'Install web applications with "LEMP," a LAMP-like stack using ngin
 keywords: 'nginx,lemp,php,linux,web applications'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['lemp-guides/ubuntu-10-10-maverick/','websites/lemp/lemp-server-on-ubuntu-10-10-maverick/']
-modified: Wednesday, October 3rd, 2012
+modified: 2012-10-03
 modified_by:
   name: Linode
-published: 'Monday, November 22nd, 2010'
+published: 2010-11-22
 title: 'LEMP Server on Ubuntu 10.10 (Maverick)'
 ---
 

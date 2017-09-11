@@ -7,10 +7,10 @@ description: 'Install web applications with "LEMP", a LAMP-like stack using ngin
 keywords: 'nginx,lemp,lepp,perl,python,php,linux,web applications'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['lemp-guides/debian-6-squeeze/','websites/lemp/lemp-server-on-debian-6-squeeze/']
-modified: Thursday, June 21st, 2012
+modified: 2012-06-21
 modified_by:
   name: Linode
-published: 'Wednesday, June 22nd, 2011'
+published: 2011-06-22
 title: 'LEMP Server on Debian 6 (Squeeze)'
 ---
 

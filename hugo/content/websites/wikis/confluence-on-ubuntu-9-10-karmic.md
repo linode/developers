@@ -7,10 +7,10 @@ description: 'Use Confluence on Ubuntu 9.10 (Karmic) to power a full-featured wi
 keywords: 'confluence ubuntu 9.10,confluence,confluence wiki,confluence linux'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/wikis/confluence/ubuntu-9-10-karmic/']
-modified: Monday, October 8th, 2012
+modified: 2012-10-08
 modified_by:
   name: Linode
-published: 'Monday, September 6th, 2010'
+published: 2010-09-06
 title: 'Confluence on Ubuntu 9.10 (Karmic)'
 ---
 

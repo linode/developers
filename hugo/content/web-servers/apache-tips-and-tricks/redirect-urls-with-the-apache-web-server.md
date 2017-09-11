@@ -6,10 +6,10 @@ description: 'An introduction to redirecting existing URLs to new resources with
 keywords: 'apache,redirect,mod_alias,URLs,REST'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/configuration/redirecting-urls/','websites/apache-tips-and-tricks/redirect-urls-with-the-apache-web-server/']
-modified: Tuesday, February 21st, 2017
+modified: 2017-02-21
 modified_by:
   name: Phil Zona
-published: 'Tuesday, October 13th, 2009'
+published: 2009-10-13
 title: Redirect URLs with the Apache Web Server
 external_resources:
  - '[Installing Apache](/docs/websites/apache/)'

@@ -7,10 +7,10 @@ description: 'Configuring the LAMP stack on Ubuntu Linux 9.04 (Jaunty).'
 keywords: 'ubuntu lamp server,ubuntu web server,ubuntu jaunty'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['lamp-guides/ubuntu-9-04-jaunty/','websites/lamp/lamp-server-on-ubuntu-9-04-jaunty/']
-modified: Monday, May 2nd, 2011
+modified: 2011-05-02
 modified_by:
   name: Linode
-published: 'Thursday, July 16th, 2009'
+published: 2009-07-16
 title: 'LAMP Server on Ubuntu 9.04 (Jaunty)'
 external_resources:
   - '[Ubuntu Linux Home Page](http://www.ubuntu.com/)'

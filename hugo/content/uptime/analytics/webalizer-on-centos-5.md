@@ -7,10 +7,10 @@ description: 'Get detailed website statistics such as visitor counts, pageviews,
 keywords: 'webalizer,statistics,analytics,stats,server monitoring,centos'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/analytics/webalizer/centos-5/']
-modified: Friday, December 2nd, 2011
+modified: 2011-12-02
 modified_by:
   name: Lee Matos
-published: 'Saturday, April 17th, 2010'
+published: 2010-04-17
 title: Webalizer on Centos 5
 external_resources:
  - '[Webalizer Homepage](http://www.mrunix.net/webalizer/)'

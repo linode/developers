@@ -6,10 +6,10 @@ description: 'Fail2ban monitors system logs for symptoms of an automated attack,
 keywords: 'fail2ban,ip whitelisting,jail.local'
 alias: ['tools-reference/tools/using-fail2ban-to-block-network-probes/']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Wednesday, August 23, 2017
+modified: 2017-08-23
 modified_by:
   name: Linode
-published: 'Monday, October 12th, 2015'
+published: 2015-10-12
 title: Using Fail2ban to Secure Your Server
 ---
 

@@ -6,10 +6,10 @@ description: 'Install a LEMP stack to serve websites and applications on CentOS 
 keywords: 'nginx,lemp,php,linux,web applications'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['lemp-guides/centos-6/','websites/lemp/lemp-server-on-centos-6/']
-modified: Tuesday, January 8th, 2013
+modified: 2013-01-08
 modified_by:
   name: Doug Freed
-published: 'Thursday, November 3rd, 2011'
+published: 2011-11-03
 title: LEMP Server on CentOS 6
 external_resources:
  - '[Basic nginx Configuration](/docs/websites/nginx/basic-nginx-configuration)'

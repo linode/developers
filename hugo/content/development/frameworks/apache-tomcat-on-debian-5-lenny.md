@@ -7,10 +7,10 @@ description: 'Instructions for installing and using the Apache Tomcat Java Servl
 keywords: 'java,apache tomcat,java debian,java lenny'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/apache-tomcat/debian-5-lenny/','websites/frameworks/apache-tomcat-on-debian-5-lenny/']
-modified: Monday, October 8th, 2012
+modified: 2012-10-08
 modified_by:
   name: Linode
-published: 'Wednesday, September 23rd, 2009'
+published: 2009-09-23
 title: 'Apache Tomcat on Debian 5 (Lenny)'
 ---
 

@@ -7,10 +7,10 @@ description: 'Instructions for installing the Apache Tomcat Java servlet engine 
 keywords: 'apache tomcat ubuntu 10.04,java,java ubuntu 10.04,java servlets ubuntu lucid,java ubuntu'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/apache-tomcat/ubuntu-10-04-lucid/','websites/frameworks/apache-tomcat-on-ubuntu-10-04-lucid/']
-modified: Friday, September 27th, 2013
+modified: 2013-09-27
 modified_by:
   name: Linode
-published: 'Friday, July 23rd, 2010'
+published: 2010-07-23
 title: 'Apache Tomcat on Ubuntu 10.04 (Lucid)'
 ---
 

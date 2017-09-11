@@ -8,10 +8,10 @@ license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['networking/socks-proxy/']
 contributor:
     name: Arnaldo Ariel Arrieta
-modified: Monday, February 17th, 2014
+modified: 2014-02-17
 modified_by:
   name: Linode
-published: 'Monday, February 17th, 2014'
+published: 2014-02-17
 title: Setting up an SSH Tunnel with Your Linode for Safe Browsing
 external_resources:
  - '[Wikipedia](http://en.wikipedia.org/wiki/SOCKS)'

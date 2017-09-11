@@ -7,10 +7,10 @@ description: 'Keep track of vital system statistics and troubleshoot performance
 keywords: 'munin,monitoring'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['server-monitoring/munin/ubuntu-8-04-hardy/']
-modified: Tuesday, May 17th, 2011
+modified: 2011-05-17
 modified_by:
   name: Linode
-published: 'Monday, February 22nd, 2010'
+published: 2010-02-22
 title: 'Monitoring Servers with Munin on Ubuntu 8.04 (Hardy)'
 ---
 

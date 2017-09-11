@@ -8,10 +8,10 @@ license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 location: ['email/postfix/postfix-smtp-debian7/']
 contributor:
     name: Santiago Ti
-modified: Friday, May 30th, 2014
+modified: 2014-05-30
 modified_by:
   name: Linode
-published: 'Friday, May 30th, 2014'
+published: 2014-05-30
 title: Configure Postfix to Send Mail Using an External SMTP Server
 image: https://linode.com/docs/assets/external_smtp_tg.png
 ---

@@ -6,7 +6,7 @@ description: 'Installation, configuration and usage guides for social networking
 keywords: 'social networking,micro blog,elgg'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/social-networking/']
-published: 'Monday, March 1st, 2010'
+published: 2010-03-01
 title: Social Networking
 ---
 

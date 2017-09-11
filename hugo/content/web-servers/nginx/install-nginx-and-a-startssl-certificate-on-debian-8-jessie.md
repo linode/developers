@@ -6,8 +6,8 @@ description: 'How to Install Nginx and a StartSSL Certificate on Debian 8 (Jessi
 keywords: 'startssl,nginx,debian 8,ssl certificate,generate CSR'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['websites/nginx/how-to-install-nginx-and-a-startssl-certificate-on-debian-8-jessie/','websites/nginx/install-nginx-and-a-startssl-certificate-on-debian-8-jessie/']
-published: Friday, October 21st, 2015
-modified: Thursday, August 18th, 2016
+published: 2015-10-21
+modified: 2016-08-18
 modified_by:
   name: Phil Zona
 title: 'Install nginx and a StartSSL Certificate on Debian 8 (Jessie)'

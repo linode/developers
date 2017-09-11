@@ -6,10 +6,10 @@ description: 'Configure the Postfix MTA as a basic email gateway.'
 keywords: 'email,postfix,mta,forwarding,'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/postfix/gateway-debian-6-squeeze/']
-modified: Wednesday, September 25th, 2013
+modified: 2013-09-25
 modified_by:
   name: Linode
-published: 'Thursday, February 17th, 2011'
+published: 2011-02-17
 title: 'Basic Postfix Email Gateway on Debian 6 (Squeeze)'
 deprecated: true
 ---

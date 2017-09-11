@@ -6,10 +6,10 @@ description: 'This guide provides an introduction to rsync, the incremental file
 keywords: 'rsync,unix,liunx,samba,utilities,backup'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['linux-tools/utilities/rsync/']
-modified: Friday, August 31st, 2012
+modified: 2012-08-31
 modified_by:
   name: Linode
-published: 'Tuesday, September 8th, 2009'
+published: 2009-09-08
 title: Introduction to Rsync
 external_resources:
  - '[Rsync tips at Calomel.org](https://calomel.org/rsync_tips.html)'

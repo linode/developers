@@ -7,10 +7,10 @@ description: 'Serve SSL-enabled websites with the Apache 2 web server on Ubuntu 
 keywords: 'apache ssl,ssl ubuntu,web sever,ubuntu,ubuntu lucid,ubuntu 10.04'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/ssl-guides/ubuntu-10-04-lucid/']
-modified: Friday, October 4th, 2013
+modified: 2013-10-04
 modified_by:
   name: Linode
-published: 'Monday, August 9th, 2010'
+published: 2010-08-09
 title: 'SSL Certificates with Apache 2 on Ubuntu 10.04 (Lucid)'
 ---
 

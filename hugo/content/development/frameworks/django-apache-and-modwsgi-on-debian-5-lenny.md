@@ -7,10 +7,10 @@ description: 'Installing and configuring the Django web application development 
 keywords: 'django,python,apache,mod\_wsgi'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/django-apache-mod-wsgi/debian-5-lenny/','websites/frameworks/django-apache-and-modwsgi-on-debian-5-lenny/']
-modified: Monday, October 8th, 2012
+modified: 2012-10-08
 modified_by:
   name: Linode
-published: 'Tuesday, May 11th, 2010'
+published: 2010-05-11
 title: 'Django, Apache and mod_wsgi on Debian 5 (Lenny)'
 ---
 

@@ -6,10 +6,10 @@ description: Mosh is a free alternative to SSH. This guide will teach you how to
 keywords: 'mosh, ssh,'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['networking/mosh/','networking/ssh/mosh/', 'tools-reference/ssh/mosh/']
-modified: Friday, August 18th, 2017
+modified: 2017-08-18
 modified_by:
   name: Linode
-published: 'Sunday, January 20th, 2013'
+published: 2013-01-20
 title: Install a Mosh Server as SSH Alternative on Linux
 ---
 

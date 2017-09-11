@@ -7,10 +7,10 @@ description: 'Instructions for getting started with the Cherokee web server on U
 keywords: 'cherokee,web sever,cherokee ubuntu 10.04,cherokee ubuntu lucid,ubuntu lucid'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/cherokee/installing-cherokee-ubuntu-10-04-lucid/','websites/cherokee/websites-with-the-cherokee-web-server-on-ubuntu-10-04-lts-lucid/']
-modified: Monday, October 7th, 2013
+modified: 2013-10-07
 modified_by:
   name: Linode
-published: 'Monday, May 3rd, 2010'
+published: 2010-05-03
 title: 'Websites with the Cherokee Web Server on Ubuntu 10.04 LTS (Lucid)'
 ---
 

@@ -2,13 +2,13 @@
 author:
   name: Andrew Miller
   email: docs@linode.com
-published: 'Friday, June 16, 2017'
+published: 2017-06-16
 description: 'Install NixOS, which is known for its declarative approach to configuration management, configuration rollback, reliability, and for being DevOps-friendly.'
 keywords: 'custom distro,NixOS,advanced Linux,kvm'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified_by:
   name: Andrew Miller
-modified: 'Friday, June 16, 2017'
+modified: 2017-06-16
 title: Install and Configure NixOS on a Linode
 external_resources:
  - '[NixOS](https://nixos.org/nixos/manual/)'

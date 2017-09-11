@@ -6,10 +6,10 @@ description: 'An overview of the three content management systems that Linode su
 keywords: 'drupal,WordPress,joomla,cms,content management system,content management framwork, '
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: 
-modified: Wednesday, February 15th, 2017
+modified: 2017-02-15
 modified_by:
   name: Linode
-published: 'Friday, October 17th, 2014'
+published: 2014-10-17
 title: 'Content Management Systems: an Overview'
 ---
 

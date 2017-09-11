@@ -7,10 +7,10 @@ description: 'Getting started with the open source edition of Zimbra groupware o
 keywords: 'zimbra ubuntu 10.04,zimbra lucid,zimbra on ubuntu,zimbra groupware,zimbra mail server,linux mail server'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/zimbra/install-zimbra-ubuntu-10-04-lucid/']
-modified: Tuesday, May 17th, 2011
+modified: 2011-05-17
 modified_by:
   name: Linode
-published: 'Monday, May 3rd, 2010'
+published: 2010-05-03
 title: 'Email and Calendars with Zimbra 6 on Ubuntu 10.04 LTS (Lucid)'
 ---
 

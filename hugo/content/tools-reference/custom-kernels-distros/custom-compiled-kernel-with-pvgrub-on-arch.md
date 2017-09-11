@@ -5,10 +5,10 @@ author:
 description: 'Instructions for configuring your Linode to run a custom compiled kernel with PV-GRUB on Arch Linux'
 keywords: 'compile kernel,kernel compiling,pv-grub,pvgrub,custom linux kernel,custom linode, arch'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Thursday, June 19th, 2014
+modified: 2014-06-19
 modified_by:
     name: Linode
-published: 'Saturday, July 17th, 2010'
+published: 2010-07-17
 title: 'Custom Compiled Kernel with PV-GRUB on Arch Linux'
 ---
 

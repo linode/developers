@@ -7,10 +7,10 @@ description: 'Get in-depth website visitor statistics with Piwik, a self-hosted,
 keywords: 'open source analytics,piwik fedora 13,piwik,analytics,centos,tracking,statistics'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/analytics/piwik/fedora-13/']
-modified: Tuesday, October 1st, 2013
+modified: 2013-10-01
 modified_by:
   name: Linode
-published: 'Tuesday, December 28th, 2010'
+published: 2010-12-28
 title: Piwik on Fedora 13
 ---
 

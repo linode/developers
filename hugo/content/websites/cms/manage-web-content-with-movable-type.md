@@ -6,10 +6,10 @@ description: 'Using the Movable Type dynamic content platform to publish a websi
 keywords: 'Movable Type,MT HOWTO'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/cms-guides/movable-type/']
-modified: Wednesday, October 2nd, 2013
+modified: 2013-10-02
 modified_by:
   name: Linode
-published: 'Thursday, July 23rd, 2009'
+published: 2009-07-23
 title: Manage Web Content with Movable Type
 deprecated: true
 ---

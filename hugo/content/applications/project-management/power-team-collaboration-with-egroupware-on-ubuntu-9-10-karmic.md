@@ -7,10 +7,10 @@ description: 'Build a groupware system with eGroupware on Ubuntu 9.10 (Karmic).'
 keywords: 'groupware,email,collaboration,ubuntu,karmic'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/project-management/egroupware/ubuntu-9-10-karmic/']
-modified: Monday, August 22nd, 2011
+modified: 2011-08-22
 modified_by:
   name: Linode
-published: 'Monday, February 1st, 2010'
+published: 2010-02-01
 title: 'Power Team Collaboration with eGroupware on Ubuntu 9.10 (Karmic)'
 ---
 

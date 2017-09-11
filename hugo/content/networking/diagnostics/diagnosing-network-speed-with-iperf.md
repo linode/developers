@@ -5,10 +5,10 @@ author:
 description: 'How to diagnose network speed issues using Iperf.'
 keywords: 'networking,diagnostic,speed,iperf'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Tuesday, February 28th, 2017
+modified: 2017-02-28
 modified_by:
   name: Nick Brewer
-published: 'Monday, January 12, 2015'
+published: 2015-01-12
 title: Diagnosing Network Speed with Iperf
 external_resources:
   - '[Iperf Official Website](https://iperf.fr)'

@@ -6,10 +6,10 @@ description: 'Create hard and symbolic links with ln on Linux Systems.'
 keywords: 'linux,common commands,unix,command line,file systems'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['linux-tools/common-commands/ln/']
-modified: Tuesday, May 17th, 2011
+modified: 2011-05-17
 modified_by:
   name: Linode
-published: 'Monday, October 11th, 2010'
+published: 2010-10-11
 title: Create File System Links with ln
 ---
 

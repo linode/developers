@@ -6,10 +6,10 @@ description: Longview App for MySQL
 keywords: 'Longview, MySQL, statistics'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['longview/longview-for-mysql/']
-modified: Wednesday, November 6th, 2013
+modified: 2013-11-06
 modified_by:
   name: Linode
-published: 'Wednesday, November 6th, 2013'
+published: 2013-11-06
 title: Longview App for MySQL
 ---
 

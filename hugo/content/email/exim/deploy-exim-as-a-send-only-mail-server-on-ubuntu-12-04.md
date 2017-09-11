@@ -7,10 +7,10 @@ description: 'Configure Exim to Serve as a Lightweight, Send-only SMTP Server on
 keywords: 'exim,ubuntu 12.04,send-only email,mail server,linux mail,smtp server'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/exim/send-only-mta-ubuntu-12-04-precise-pangolin/','email/exim/sendonly-mail-server-withexim-on-ubuntu-12-04-lts-precise-pangolin/']
-modified: Tuesday, January 21st, 2014
+modified: 2014-01-21
 modified_by:
   name: Alex Fornuto
-published: 'Monday, November 12th, 2012'
+published: 2012-11-12
 title: 'Deploy Exim as a Send-only Mail Server on Ubuntu 12.04 '
 external_resources:
  - '[Exim Homepage](http://www.exim.org/)'

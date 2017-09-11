@@ -5,10 +5,10 @@ author:
 description: 'Installing Postfix with Dovecot and MySQL on CentOS.'
 keywords: 'postfix centos 6,dovecot centos 6,linux mail server,email,centos 6'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Thursday, March 26th, 2015
+modified: 2015-03-26
 modified_by:
   name: Elle Krout
-published: 'Thursday, March 26th, 2015'
+published: 2015-03-26
 title: 'Email with Postfix, Dovecot and MySQL on CentOS 6'
 external_resources:
  - '[ISP-style Email Server with Debian-Lenny and Postfix 2.5 guide](http://workaround.org/ispmail/lenny)'

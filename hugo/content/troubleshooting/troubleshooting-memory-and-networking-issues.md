@@ -6,10 +6,10 @@ description: 'Help with common Linode memory use and networking issues.'
 keywords: 'Linode troubleshooting,Linode troubleshooting,Linux configuration'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['troubleshooting/memory-networking/']
-modified: Tuesday, November 19th, 2013
+modified: 2013-11-19
 modified_by:
   name: Linode
-published: 'Wednesday, August 5th, 2009'
+published: 2009-08-05
 title: Troubleshooting Memory and Networking Issues
 ---
 

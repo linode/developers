@@ -6,10 +6,10 @@ description: 'Install and optimize the WordPress blogging and content management
 keywords: 'install WordPress,WordPress on Linode,WordPress how-to, how to install wordpress, how to configure wordpress'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/cms-guides/wordpress/','websites/cms/manage-web-content-with-wordpress/']
-modified: Monday, October 5th, 2015
+modified: 2015-10-05
 modified_by:
   name: Elle Krout
-published: 'Tuesday, July 27th, 2010'
+published: 2010-07-27
 title: How to Install and Configure WordPress
 external_resources:
 - '[WordPress.org](http://wordpress.org)'

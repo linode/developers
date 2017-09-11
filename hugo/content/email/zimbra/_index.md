@@ -4,7 +4,7 @@ author:
   email: docs@linode.com
 keywords: 'zimbra,zimbra groupware,zimbra on linux,linux mail server,linux email'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 'Sunday, September 13th, 2009'
+published: 2009-09-13
 title: Zimbra Groupware Guides
 ---
 

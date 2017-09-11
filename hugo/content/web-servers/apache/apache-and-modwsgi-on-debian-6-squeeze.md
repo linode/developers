@@ -7,10 +7,10 @@ description: 'Deploy Python WSGI Applications with Apache and mod\_wsgi.'
 keywords: 'python,apache,mod\_wsgi'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/mod-wsgi/debian-6-squeeze/','websites/apache/apache-and-modwsgi-on-debian-6-squeeze/']
-modified: Thursday, January 26th, 2012
+modified: 2012-01-26
 modified_by:
   name: Linode
-published: 'Tuesday, April 5th, 2011'
+published: 2011-04-05
 title: 'Apache and mod_wsgi on Debian 6 (Squeeze)'
 ---
 

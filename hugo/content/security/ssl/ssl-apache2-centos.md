@@ -5,10 +5,10 @@ author:
 description: 'Serve SSL-enabled websites with the HTTPD web server.'
 keywords: 'apache SSL,ssl on centos,ssl on fedora,ssl,contos,fedora,apache,httpd'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Wednesday, August 17th, 2016
+modified: 2016-08-17
 modified_by:
   name: Nick Brewer
-published: 'Wednesday, November 19th, 2014'
+published: 2014-11-19
 title: 'SSL Certificates with Apache on CentOS 7'
 external_resources:
  - '[Apache HTTP Server Version 2.0 Documentation](http://httpd.apache.org/docs/2.0/)'

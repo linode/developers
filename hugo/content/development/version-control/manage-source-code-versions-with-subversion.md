@@ -6,10 +6,10 @@ description: 'Managing source control with Subversion, an open source version co
 keywords: 'svn,version control,source control management'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['linux-tools/version-control/svn/','applications/development/manage-source-code-versions-with-subversion/']
-modified: Tuesday, June 7th, 2011
+modified: 2011-06-07
 modified_by:
   name: Linode
-published: 'Tuesday, December 15th, 2009'
+published: 2009-12-15
 title: Manage Source Code Versions with Subversion
 external_resources:
  - '[Subversion Project Homepage](http://subversion.tigris.org/)'

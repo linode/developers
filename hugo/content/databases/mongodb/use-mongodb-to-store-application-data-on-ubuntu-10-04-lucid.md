@@ -7,10 +7,10 @@ description: 'Install MongoDB for use in application development on Ubuntu 10.04
 keywords: 'nosql,database,mongodb,key store'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/mongodb/ubuntu-10-04-lucid/']
-modified: Tuesday, September 24th, 2013
+modified: 2013-09-24
 modified_by:
   name: Linode
-published: 'Monday, May 3rd, 2010'
+published: 2010-05-03
 title: 'Use MongoDB to Store Application Data on Ubuntu 10.04 (Lucid)'
 ---
 

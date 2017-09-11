@@ -7,10 +7,10 @@ description: 'Using the Apache web server with Ubuntu 9.10 to serve Ruby on Rail
 keywords: 'ruby on rails,rails on ubuntu,rails apps,rails and apache'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/ruby-on-rails-apache/ubuntu-9-10-karmic/','websites/ror/ruby-on-rails-with-apache-on-ubuntu-9-10-karmic/']
-modified: Tuesday, May 17th, 2011
+modified: 2011-05-17
 modified_by:
   name: Linode
-published: 'Thursday, July 29th, 2010'
+published: 2010-07-29
 title: 'Ruby on Rails with Apache on Ubuntu 9.10 (Karmic)'
 external_links:
     - '[Ruby on Rails Homepage](http://rubyonrails.org/)'

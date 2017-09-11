@@ -5,10 +5,10 @@ author:
 description: 'This guide will show you how to install, configure and fine-tune OpenVPN clients on Android, iOS, Linux, OS X and Windows.'
 keywords: 'openvpn,vpn,vpn tunnel,ios,os x,mac,windows,android'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: 'Thursday, July 13th, 2017'
+modified: 2017-07-13
 modified_by:
   name: Steven Jacobs
-published: 'Wednesday, December 9th, 2015'
+published: 2015-12-09
 title: 'Configuring OpenVPN Client Devices'
 external_resources:
  - '[Official OpenVPN Documentation](https://openvpn.net/index.php/open-source/documentation/howto.html)'

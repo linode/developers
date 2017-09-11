@@ -7,10 +7,10 @@ distributions'
 keywords: 'minecraft server,ubuntu,debian'
 alias: ['applications/game-servers/minecraft-on-debian-and-ubuntu' ]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Monday, July 30th, 2017
+modified: 2017-07-30
 modified_by:
   name: Angel Guarisma
-published: 'Wednesday, January 28, 2015'
+published: 2015-01-28
 title: 'How to Set Up a Minecraft Server on Ubuntu or Debian'
 external_resources:
  - '[Minecraft.net](https://minecraft.net/)'

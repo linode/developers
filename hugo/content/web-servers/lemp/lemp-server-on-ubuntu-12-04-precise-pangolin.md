@@ -7,10 +7,10 @@ description: 'Install a LEMP stack to serve websites and applications on Ubuntu 
 keywords: 'nginx,lemp,php,linux,web applications'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['lemp-guides/ubuntu-12-04-precise-pangolin/','websites/lemp/lemp-server-on-ubuntu-12-04-precise-pangolin/']
-modified: Thursday, September 12th, 2013
+modified: 2013-09-12
 modified_by:
   name: Linode
-published: 'Tuesday, October 9th, 2012'
+published: 2012-10-09
 title: 'LEMP Server on Ubuntu 12.04 (Precise Pangolin)'
 external_resources:
  - '[Basic nginx Configuration](/docs/websites/nginx/basic-nginx-configuration)'

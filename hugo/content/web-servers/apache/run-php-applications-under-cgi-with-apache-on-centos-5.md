@@ -7,10 +7,10 @@ description: 'Methods for enabling dynamic content to run as individual users wi
 keywords: 'php cgi,php apache,php scripts,dynamic apache,web applications'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/php-cgi/centos-5/','websites/apache/run-php-applications-under-cgi-with-apache-on-centos-5/']
-modified: Tuesday, January 14th, 2014
+modified: 2014-01-14
 modified_by:
   name: Linode
-published: 'Wednesday, February 3rd, 2010'
+published: 2010-02-03
 title: Run PHP Applications under CGI with Apache on CentOS 5
 ---
 

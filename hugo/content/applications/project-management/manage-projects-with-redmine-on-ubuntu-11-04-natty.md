@@ -6,10 +6,10 @@ description: 'Installing and configuring Redmine, an open source project managem
 keywords: 'redmine,redmine ubuntu 11.04,redmine linux,project management software,redmine postgresql'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/project-management/redmine/ubuntu-11-04-natty/']
-modified: Monday, February 18th, 2013
+modified: 2013-02-18
 modified_by:
   name: Linode
-published: 'Tuesday, May 17th, 2011'
+published: 2011-05-17
 title: 'Manage Projects with Redmine on Ubuntu 11.04 (Natty)'
 deprecated: true
 ---

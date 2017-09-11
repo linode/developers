@@ -6,10 +6,10 @@ description: 'Install Apache on your Debian 7 server, configure virtual hosting,
 keywords: 'apache,apache 2,debian,debian 7,wheezy,apache web server'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/installation/debian-7-wheezy/','websites/apache/apache-2-web-server-on-debian-7-wheezy/','websites/apache/how-to-install-and-configure-the-apache-web-server-on-debian-7-wheezy/','websites/apache/apache-web-server-debian-7/']
-modified: Friday, January 10th, 2014
+modified: 2014-01-10
 modified_by:
   name: Linode
-published: 'Thursday, September 5th, 2013'
+published: 2013-09-05
 title: 'Apache Web Server on Debian 7 (Wheezy)'
 external_resources:
  - '[Apache HTTP Server Version 2.2 Documentation](http://httpd.apache.org/docs/2.2/)'

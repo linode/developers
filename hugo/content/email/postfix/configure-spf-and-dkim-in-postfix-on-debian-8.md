@@ -5,10 +5,10 @@ author:
 description: 'Configure SPF and DKIM in Postfix on Debian 8.'
 keywords: 'email,postfix,spf,dkim,debian 8,opendkim,dns,dmarc'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: Monday, March 27th, 2017
+modified: 2017-03-27
 modified_by:
     name: Linode
-published: 'Wednesday, February 3rd, 2016'
+published: 2016-02-03
 title: 'Configure SPF and DKIM With Postfix on Debian 8'
 contributor:
     name: Todd Knarr

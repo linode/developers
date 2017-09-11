@@ -7,10 +7,10 @@ description: 'Serve SSL-enabled websites with the Apache 2 web server on Ubuntu 
 keywords: 'apache ssl,ssl ubuntu,web sever,ubuntu,ubuntu maverick,ubuntu 10.10'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/ssl-guides/ubuntu-10-10-maverick/']
-modified: Monday, October 8th, 2012
+modified: 2012-10-08
 modified_by:
   name: Linode
-published: 'Tuesday, December 7th, 2010'
+published: 2010-12-07
 title: 'SSL Certificates with Apache 2 on Ubuntu 10.10 (Maverick)'
 ---
 

@@ -5,10 +5,10 @@ author:
 description: 'Instructions for compiling and configuring a custom kernel on your CentOS 7 Linode'
 keywords: 'compile kernel,kernel compiling,custom linux kernel,custom linode, centos'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: 'Tuesday, August 1st, 2017'
+modified: 2017-08-01
 modified_by:
   name: Linode
-published: 'Tuesday, August 2nd, 2016'
+published: 2016-08-02
 title: 'Custom Compiled Kernel on CentOS 7'
 ---
 

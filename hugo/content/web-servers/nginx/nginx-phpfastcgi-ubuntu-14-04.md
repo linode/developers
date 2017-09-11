@@ -6,10 +6,10 @@ description: 'Serve dynamic websites and applications with the lightweight nginx
 keywords: 'nginx,nginx ubuntu 14.04,nginx fastcgi,nginx php,php,fastcgi,ubuntu'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/nginx/php-fastcgi/ubuntu-12-04-precise-pangolin/','websites/nginx/nginx-phpfastcgi-ubuntu-14-04/']
-modified: Friday, June 12th, 2015
+modified: 2015-06-12
 modified_by:
   name: Elle Krout
-published: 'Friday, June 12th, 2015'
+published: 2015-06-12
 title: 'Nginx and PHP-FastCGI on Ubuntu 14.04'
 external_resources:
  - '[The nginx Homepage](http://nginx.org/)'

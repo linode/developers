@@ -7,10 +7,10 @@ description: 'Install Oracle 10g to power server-side applications and web apps 
 keywords: 'oracle ubuntu 9.10,oracle ubuntu,oracle linux,sql database,relational database,rdbms,oracle 10g'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/oracle/10g-ubuntu-9-10-karmic/']
-modified: Wednesday, August 13, 2014
+modified: 2014-08-13
 modified_by:
   name: Linode
-published: 'Sunday, May 9th, 2010'
+published: 2010-05-09
 title: 'Oracle 10g Express Edition on Ubuntu 9.10 (Karmic)'
 ---
 

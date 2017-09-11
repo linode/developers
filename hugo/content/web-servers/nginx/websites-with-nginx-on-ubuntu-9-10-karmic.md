@@ -7,10 +7,10 @@ description: 'A basic guide to installing nginx from source on Ubuntu 9.10 (Karm
 keywords: 'nginx,http,web servers,ubuntu,ubuntu 9.10,ubuntu karmic'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/nginx/installation/ubuntu-9-10-karmic/','websites/nginx/websites-with-nginx-on-ubuntu-9-10-karmic/']
-modified: Friday, April 29th, 2011
+modified: 2011-04-29
 modified_by:
   name: Linode
-published: 'Wednesday, February 24th, 2010'
+published: 2010-02-24
 title: 'Websites with nginx on Ubuntu 9.10 (Karmic)'
 ---
 

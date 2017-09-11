@@ -6,10 +6,10 @@ description: 'Drupal 8 is the lastest version of the popular Drupal content mana
 keywords: 'drupal,cms,apache,php,content management system,drupal 8'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/cms-guides/drupal/','websites/cms/managing-web-content-with-drupal-8-beta/']
-modified: Thursday, November 19, 2015
+modified: 2015-11-19
 modified_by:
     name: Linode
-published: 'Thursday, November 19, 2015'
+published: 2015-11-19
 title: Install and Configure Drupal 8
 ---
 

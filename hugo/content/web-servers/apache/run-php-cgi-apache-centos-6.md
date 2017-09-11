@@ -7,10 +7,10 @@ description: 'Use PHP CGI to run PHP scripts as indivudual users.'
 keywords: 'php cgi,php,apache,cgi,http,php scripts,web apps,web applications'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/php-cgi/centos-6/','websites/apache/run-php-applications-under-cgi-with-apache-on-centos-6/','websites/apache/run-php-cgi-apache-centos-6/']
-modified: Tuesday, January 14th, 2014
+modified: 2014-01-14
 modified_by:
   name: Linode
-published: 'Tuesday, January 14th, 2014'
+published: 2014-01-14
 title: Run PHP with CGI and Apache on CentOS 6
 external_resources:
  - '[The PHP Homepage](http://php.net/)'

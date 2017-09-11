@@ -6,10 +6,10 @@ description: 'Install Apache on your Debian 8 (Jessie) server, configure virtual
 keywords: 'apache debian 8,apache debian jessie,linux web server,apache on debian,apache jessie,apache,debian,web server'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['websites/apache/apache-web-server-debian-8/']
-modified: Tuesday, September 5, 2017
+modified: 2017-09-05
 modified_by:
   name: Linode
-published: 'Monday, June 29th, 2015'
+published: 2015-06-29
 title: 'Apache Web Server on Debian 8 (Jessie)'
 external_resources:
  - '[Apache HTTP Server Version 2.4 Documentation](http://httpd.apache.org/docs/2.4/)'

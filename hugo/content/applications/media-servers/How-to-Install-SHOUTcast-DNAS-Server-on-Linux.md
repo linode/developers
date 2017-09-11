@@ -6,10 +6,10 @@ description: 'This tutorial will guide you through setup and configuration of a 
 keywords: 'shoutcast, internet radio, streaming media, streaming audio'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['communications/media-servers/shoutcast/','applications/media-servers/shoutcast/']
-modified: Wednesday, June 21st, 2017
+modified: 2017-06-21
 modified_by:
   name: Linode
-published: 'Thursday, June 7th, 2012'
+published: 2012-06-07
 title: How to Install A SHOUTcast DNAS Server on Linux
 external_resources:
  - '[SHOUTcast Home Page](http://www.shoutcast.com)'

@@ -6,10 +6,10 @@ description: 'Using the Apache web server with Ubuntu 10.10 to serve Ruby on Rai
 keywords: 'ruby on rails,rails on ubuntu,rails apps,rails and apache'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/ruby-on-rails-apache/ubuntu-10-10-maverick/','websites/ror/ruby-on-rails-with-apache-on-ubuntu-10-10-maverick/']
-modified: Monday, October 8th, 2012
+modified: 2012-10-08
 modified_by:
   name: Linode
-published: 'Thursday, February 17th, 2011'
+published: 2011-02-17
 title: 'Ruby on Rails with Apache on Ubuntu 10.10 (Maverick)'
 deprecated: true
 external_resource:

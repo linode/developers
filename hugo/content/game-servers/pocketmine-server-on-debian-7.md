@@ -8,10 +8,10 @@ license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 external_resources:
  - '[PocketMine.net](https://www.pocketmine.net/)'
  - '[PocketMine Documentation](http://pocketmine-mp.readthedocs.org/en/latest/)'
-modified: Thursday, April 2, 2015
+modified: 2015-04-02
 modified_by:
   name: Alex Fornuto
-published: 'Thursday, April 2, 2015'
+published: 2015-04-02
 title: 'PocketMine Server on Debian 7'
 alias: ['applications/game-servers/pocketmine-server-on-debian-7/']
 ---

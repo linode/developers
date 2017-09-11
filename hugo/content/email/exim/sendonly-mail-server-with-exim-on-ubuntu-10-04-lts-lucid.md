@@ -7,10 +7,10 @@ description: 'Configuring Exim to serve as a lightweight, send-only SMTP server 
 keywords: 'exim,exim ubuntu 10.04,send email ubuntu,mail server,linux mail,smtp server,ubuntu exim'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/exim/send-only-mta-ubuntu-10-04-lucid/']
-modified: Thursday, September 26th, 2013
+modified: 2013-09-26
 modified_by:
   name: Linode
-published: 'Monday, May 3rd, 2010'
+published: 2010-05-03
 title: 'Send-only Mail Server with Exim on Ubuntu 10.04 LTS (Lucid)'
 ---
 

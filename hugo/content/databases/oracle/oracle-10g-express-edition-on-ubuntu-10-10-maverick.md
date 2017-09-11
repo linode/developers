@@ -7,10 +7,10 @@ description: 'Install Oracle 10g to power server-side applications and web apps 
 keywords: 'oracle ubuntu maverick,oracle 10g ubuntu 10.10,oracle ubuntu 10.10,oracle ubuntu,oracle linux,sql database,relational database,rdbms,oracle 10g'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/oracle/10g-ubuntu-10-10-maverick/']
-modified: Wednesday, August 13, 2014
+modified: 2014-08-13
 modified_by:
   name: Linode
-published: 'Tuesday, April 5th, 2011'
+published: 2011-04-05
 title: 'Oracle 10g Express Edition on Ubuntu 10.10 (Maverick)'
 ---
 

@@ -6,13 +6,13 @@ description: 'This tutorial is an introduction to developing with Git and GitHub
 keywords: 'git,dvcs,vcs,scm,gitweb,github'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['applications/development/developing-git-github/','development/version-control/developing-git-github/']
-modified: Friday, February 6th, 2015
+modified: 2015-02-06
 external_resources:
  - '[Working with the Git Repository](/docs/applications/development/git-source-control-management#working-with-the-repository)'
  - '[GitHub Help Pages](https://help.github.com/)'
 modified_by:
   name: Linode
-published: 'Friday, February 6th, 2015'
+published: 2015-02-06
 title: How to Install Git and Clone a GitHub Repository
 ---
 

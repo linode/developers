@@ -7,10 +7,10 @@ description: 'A collection of guides for installing and configuring the Logwatch
 keywords: 'logwatch,security,logging,audit'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['server-monitoring/logwatch/']
-modified: Tuesday, April 19th, 2011
+modified: 2011-04-19
 modified_by:
   name: Linode
-published: 'Friday, September 10th, 2010'
+published: 2010-09-10
 title: Logwatch Log Monitoring
 ---
 

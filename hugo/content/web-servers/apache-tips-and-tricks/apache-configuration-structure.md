@@ -6,10 +6,10 @@ description: 'An introduction to the structure of the Apache web server configur
 keywords: 'apache,httpd,configuration'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/configuration/configuration-structure/','websites/apache-tips-and-tricks/apache-configuration-structure/']
-modified: Monday, August 22nd, 2011
+modified: 2011-08-22
 modified_by:
   name: Linode
-published: 'Wednesday, February 24th, 2010'
+published: 2010-02-24
 title: Apache Configuration Structure
 external_resources:
  - '[Apache Installation](/docs/web-servers/apache/)'

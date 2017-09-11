@@ -7,10 +7,10 @@ description: 'Getting started with ejabberd, an instant messaging server written
 keywords: 'ejabberd,ejabberd ubuntu jaunty,ejabberd on linux,real-time messaging,xmpp server,collaboration software,chat software,linux jabber server'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['communications/xmpp/ejabberd/ubuntu-9-04-jaunty/']
-modified: Friday, April 29th, 2011
+modified: 2011-04-29
 modified_by:
   name: Linode
-published: 'Tuesday, October 13th, 2009'
+published: 2009-10-13
 title: 'Instant Messaging Services with ejabberd on Ubuntu 9.04 (Jaunty)'
 ---
 

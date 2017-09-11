@@ -5,7 +5,7 @@ author:
 keywords: 'nodebalancer,load balancing,load,load balance'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['nodebalancers/']
-published: 'Tuesday, July 17th, 2012'
+published: 2012-07-17
 title: NodeBalancers
 ---
 

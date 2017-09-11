@@ -7,10 +7,10 @@ description: 'Installing and configuring Redmine, an open source project managem
 keywords: 'redmine,redmine debian 6,redmine linux,project management software,redmine postgresql'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/project-management/redmine/debian-6-squeeze/']
-modified: Tuesday, June 7th, 2011
+modified: 2011-06-07
 modified_by:
   name: Linode
-published: 'Monday, May 16th, 2011'
+published: 2011-05-16
 title: 'Manage Projects with Redmine on Debian 6 (Squeeze)'
 ---
 

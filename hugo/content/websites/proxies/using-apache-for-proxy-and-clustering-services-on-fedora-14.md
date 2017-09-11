@@ -7,10 +7,10 @@ description: 'How to cluster Apache web servers and proxy requests for content t
 keywords: 'clusters,proxy,proxy pass,apache,httpd'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/proxy-configuration/proxy-and-clustering-services-fedora-14/']
-modified: Friday, October 4th, 2013
+modified: 2013-10-04
 modified_by:
   name: Linode
-published: 'Wednesday, February 23rd, 2011'
+published: 2011-02-23
 title: Using Apache for Proxy and Clustering Services on Fedora 14
 ---
 

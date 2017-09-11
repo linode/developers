@@ -5,10 +5,10 @@ author:
 description: 'A common use case for a VPN tunnel is to access the internet from behind it to evade censorship or geolocation and protect your connection from untrusted internet service providers, WiFi hotspots, and sites and services you connect to.'
 keywords: 'openvpn,vpn,vpn tunnel,openssl'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: 'Monday, January 26th, 2016'
+modified: 2016-01-26
 modified_by:
   name: Linode
-published: 'Wednesday, December 9th, 2015'
+published: 2015-12-09
 title: 'Tunnel Your Internet Traffic Through an OpenVPN Server'
 external_resources:
  - '[Official OpenVPN Documentation](https://openvpn.net/index.php/open-source/documentation/howto.html)'

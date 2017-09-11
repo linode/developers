@@ -6,8 +6,8 @@ description: 'Set up, configure, and customize a Minecraft server using Spigot'
 keywords: 'minecraft,spigot,'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/game-servers/minecraft-ubuntu12-04/','applications/game-servers/minecraft-with-spigot-ubuntu/']
-published: 'Tuesday, April 21st, 2015'
-modified: Tuesday, April 21st, 2015
+published: 2015-04-21
+modified: 2015-04-21
 modified_by:
   name: Elle Krout
 title: 'Running a Spigot Minecraft Server on Ubuntu 14.04 and 14.10'

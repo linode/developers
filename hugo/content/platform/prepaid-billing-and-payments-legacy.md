@@ -7,10 +7,10 @@ description: Our guide to billing and payments
 keywords: 'prepaid,billing,payments,credit,referral,invoice'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['prepaid-billing/']
-modified: Wednesday, February 15th, 2017
+modified: 2017-02-15
 modified_by:
   name: Linode
-published: 'Thursday, April 5th, 2012'
+published: 2012-04-05
 title: 'Prepaid Billing and Payments (Legacy)'
 ---
 

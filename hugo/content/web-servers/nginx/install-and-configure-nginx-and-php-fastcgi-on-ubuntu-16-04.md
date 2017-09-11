@@ -6,10 +6,10 @@ description: 'Serve Dynamic Websites and Applications with the Lightweight Nginx
 keywords: 'nginx,ubuntu 16.04,fastcgi,php'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/nginx/php-fastcgi/ubuntu-12-04-precise-pangolin/','websites/nginx/install-and-configure-nginx-and-php-fastcgi-on-ubuntu-16-04/']
-modified: Tuesday, September 13, 2016
+modified: 2016-09-13
 modified_by:
   name: Edward Angert
-published: 'Friday, June 12th, 2015'
+published: 2015-06-12
 title: 'Install and configure nginx and PHP-FastCGI on Ubuntu 16.04'
 external_resources:
  - '[The nginx Homepage](http://nginx.org/)'

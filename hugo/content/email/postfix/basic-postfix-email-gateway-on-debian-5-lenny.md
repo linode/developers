@@ -7,10 +7,10 @@ description: 'Configure the Postfix MTA as a basic email gateway.'
 keywords: 'email,postfix,mta,forwarding,'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/postfix/gateway-debian-5-lenny/']
-modified: Monday, October 8th, 2012
+modified: 2012-10-08
 modified_by:
   name: Linode
-published: 'Wednesday, June 23rd, 2010'
+published: 2010-06-23
 title: 'Basic Postfix Email Gateway on Debian 5 (Lenny)'
 ---
 

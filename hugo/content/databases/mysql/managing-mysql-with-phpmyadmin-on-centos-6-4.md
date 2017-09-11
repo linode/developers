@@ -6,10 +6,10 @@ description: 'Use phpMyAdmin to manage MySQL databases and users though a web in
 keywords: 'mysql,phpmyadmin,sql,centos'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/mysql/phpmyadmin-centos-6/']
-modified: 'Tuesday, August 1st, 2017'
+modified: 2017-08-01
 modified_by:
     name: Linode
-published: 'Tuesday, February 4th, 2014'
+published: 2014-02-04
 title: 'How to Install and Configure phpMyAdmin on CentOS 6'
 external_resources:
     - '[phpMyAdmin Home page](http://www.phpmyadmin.net/home_page/index.php)'

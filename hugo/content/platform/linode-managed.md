@@ -6,10 +6,10 @@ description: How to configure service monitoring with Linode Managed.
 keywords: 'linode managed,service monitoring'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['linode-managed/']
-modified: Saturday, May 10th, 2014
+modified: 2014-05-10
 modified_by:
   name: Zack Buhman
-published: 'Tuesday, February 12th, 2013'
+published: 2013-02-12
 title: Linode Managed
 ---
 

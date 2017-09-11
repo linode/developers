@@ -6,10 +6,10 @@ description: 'Use IRC and GNU Screen to maintain persistent connections to IRC n
 keywords: 'irssi,irc,oftc,freenode,real time,chat'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['communications/irc/irssi/']
-modified: Friday, January 9th, 2015
+modified: 2015-01-09
 modified_by:
   name: Elle Krout
-published: 'Monday, March 29th, 2010'
+published: 2010-03-29
 title: Using Irssi for Internet Relay Chat
 external_resources:
  - '[Irssi Project Home Page](http://www.irssi.org/)'

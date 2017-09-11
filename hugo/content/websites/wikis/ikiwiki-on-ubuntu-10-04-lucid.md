@@ -7,10 +7,10 @@ description: 'Using Ikiwiki on Ubuntu 10.04 (Lucid) to power a standard wiki imp
 keywords: 'ikiwiki,ubuntu,wiki,perl,git,markdown,lucid'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/wikis/ikiwiki/ubuntu-10-04-lucid/']
-modified: Friday, October 4th, 2013
+modified: 2013-10-04
 modified_by:
   name: Linode
-published: 'Tuesday, April 5th, 2011'
+published: 2011-04-05
 title: 'Ikiwiki on Ubuntu 10.04 (Lucid)'
 ---
 

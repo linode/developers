@@ -6,10 +6,10 @@ description: 'Deploy Python WSGI Applications with Apache and mod\_wsgi'
 keywords: 'python,apache,mod\_wsgi'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/mod-wsgi/ubuntu-10-10-maverick/','websites/apache/apache-and-mod-wsgi-on-ubuntu-10-10-maverick/']
-modified: Monday, October 8th, 2012
+modified: 2012-10-08
 modified_by:
   name: Linode
-published: 'Thursday, February 24th, 2011'
+published: 2011-02-24
 title: 'Apache and mod_wsgi on Ubuntu 10.10 (Maverick)'
 deprecated: true
 ---

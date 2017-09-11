@@ -6,10 +6,10 @@ description: 'Installing and configuring Symfony for developing PHP applications
 keywords: 'cakephp,cakephp debian,php framework,debian,develop php'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/symfony/','websites/frameworks/symfony-on-centos-5/']
-modified: Friday, September 27th, 2013
+modified: 2013-09-27
 modified_by:
   name: Linode
-published: 'Tuesday, June 8th, 2010'
+published: 2010-06-08
 title: Symfony on CentOS 5
 deprecated: true
 ---

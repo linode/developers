@@ -6,10 +6,10 @@ description: 'Installing git on GNU/Linux, MacOSX, and Windows'
 keywords: 'git,dvcs,vcs,scm,gitweb'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['linux-tools/version-control/git/','applications/development/git-source-control-management/','development/version-control/git-source-control-management/']
-modified: Monday, July 3, 2017
+modified: 2017-07-03
 modified_by:
   name: Linode
-published: 'Friday, September 4th, 2009'
+published: 2009-09-04
 title: How to Install Git on Mac and Windows
 external_resources:
  - '[Refspec Information](http://git-scm.com/book/ch9-5.html)'

@@ -6,10 +6,10 @@ description: 'Practical examples for using sed to transform text files and strea
 keywords: 'sed,find and replace,regular expression,unix'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['linux-tools/common-commands/sed/']
-modified: Thursday, March 23rd, 2017
+modified: 2017-03-23
 modified_by:
   name: Linode
-published: 'Thursday, July 1st, 2010'
+published: 2010-07-01
 title: Manipulate Text from the Command Line with sed
 external_resources:
  - '[Administration Basics](/docs/using-linux/administration-basics)'
