@@ -12,8 +12,9 @@ import (
 )
 
 var (
-	partial = regexp.MustCompile(`<%= partial '(.*?)' %>`)
-	basic   = regexp.MustCompile(`<%=?\s*(.*?)\s*%>`)
+	partial  = regexp.MustCompile(`<%= partial '(.*?)' %>`)
+	partial2 = regexp.MustCompile(`#{ partial '(.*?)' }`)
+	basic    = regexp.MustCompile(`<%=?\s*(.*?)\s*%>`)
 
 	replacements = strings.NewReplacer(
 		"current_page.data.", ".Params.",
@@ -50,6 +51,7 @@ func main() {
 
 func convert(content string) (string, error) {
 	conv := partial.ReplaceAllString(content, `{{ partial "$1" . }}`)
+	conv = partial2.ReplaceAllString(content, `{{ partial "$1" . }}`)
 	conv = basic.ReplaceAllString(conv, `{{ $1 }}`)
 	conv = replacements.Replace(conv)
 	return conv, nil
