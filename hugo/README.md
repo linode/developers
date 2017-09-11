@@ -19,8 +19,9 @@ Note: As this repo contains a submodule, clone it with the `--recursive` flag.
 - [ ] Assets
 - [ ] Check docs/assets, move outside /content
 - [ ] Check symbolic links how-to-make-a-selfsigned-ssl-certificate.md -> ../../security/ssl/how-to-make-a-selfsigned-ssl-certificate.md
-
+- [ ] Filter deprecated
+- [ ] Clean up date handling (params vs page)
+- [ ] Date content front matter format fix
 
 ## Notes
 
-- Filter deprecated
