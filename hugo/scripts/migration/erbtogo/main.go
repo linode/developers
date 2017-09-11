@@ -17,19 +17,9 @@ var (
 
 	replacements = strings.NewReplacer(
 		"current_page.data.", ".Params.",
-		".data.", ".Params."
+		".data.", ".Params.",
 	)
 )
-
-
-
-/*
-
-// TODO(bep)
-
-* remove layout: front_page_layout from _index.md files
-
-*/
 
 // This script is not perfect, but it removes much manual work.
 func main() {

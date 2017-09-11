@@ -17,6 +17,11 @@ var skipFiles = map[string]bool{
 	".DS_Store": true,
 }
 
+/* TODO(bep)
+
+layouts in _index.md
+
+*/
 type mover struct {
 	fromDir string
 	toDir   string

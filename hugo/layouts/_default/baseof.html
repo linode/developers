@@ -15,7 +15,8 @@
     <meta property="og:description" content="{{ .Params.og_description | default (.Param "description") }}">
     <meta property="og:site_name" content="{{ .Site.Title }}">
     {{ if .Params.image }}
-        {{ if not (index .Params.image.file)  }}
+        {{/* TODO(bep) */}}
+        {{ if true }}
             <meta property="og:image" content="{{ .Params.image }}">
         {{ else }}
             {{ with .Params.image.file }}<meta property="og:image" content="{{ . }}">{{ end }}
