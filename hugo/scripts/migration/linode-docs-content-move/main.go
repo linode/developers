@@ -200,6 +200,7 @@ $2
 func fixContent(path, src string) (string, error) {
 
 	// TODO(bep) Add some sanity checks to make sure we are only matching in front matter
+	// TODO(bep) check aliases
 	var err error
 	s := dateRe.ReplaceAllStringFunc(src, func(s string) string {
 		if err != nil {
