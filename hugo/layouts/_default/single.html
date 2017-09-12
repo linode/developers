@@ -22,9 +22,12 @@
             {{ partial "sidebar_search" . }}
             <div class="doc-sidebar-inner">
               <h3 id="doc-sidebar-title">In This Guide:</h3>
-              <div class="sidebar" id=".sidebar-library">
-                TODO(bep) {{ .TableOfContents }}
-              </div>
+              <ul class="sidebar sidebar-library" id="markdown-toc">
+                {{/* TODO(bep) */}}
+                <li>
+                  {{ .TableOfContents }}
+                </li>
+              </ul>
             </div>
             {{ partial "rss" . }}
             {{ partial "monthly_updates" . }}
