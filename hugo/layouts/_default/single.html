@@ -1,45 +1,39 @@
 {{ define "main" }}
 <section class="primary first-section">
   <div class="container">
-
     {{ partial "breadcrumb" . }}
-
     <div class="row" itemscope itemtype="http://schema.org/TechArticle">
       <div class="col-sm-12">
         <div class="row">
           <div class="col-sm-9 col-sm-offset-3">
-
           </div>
         </div>
-
         <div class="row">
-
-<div id="article-body" class="col-sm-9 col-sm-push-3 doc">
-{{ partial "article_header" . }}
-{{ partial "signup" . }}
-{{ partial "github" . }}
-{{ partial "deprecated" . }}
-{{ .Content }}
-{{ partial "more" . }}
-{{ partial "license" . }}
-</div>
-<div id="doc-sidebar" class="col-sm-3 col-sm-pull-9 hidden-xs">
-{{ partial "sidebar_search" . }}
-<div class="doc-sidebar-inner">
-<h3 id="doc-sidebar-title">In This Guide:</h3>
-<div class="sidebar" id=".sidebar-library">
-TODO(bep) {{ .TableOfContents }}
-</div>
-</div>
-{{ partial "rss" . }}
-{{ partial "monthly_updates" . }}
-</div>
+          <div id="article-body" class="col-sm-9 col-sm-push-3 doc">
+            {{ partial "article_header" . }}
+            {{ partial "signup" . }}
+            {{ partial "github" . }}
+            {{ partial "deprecated" . }}
+            {{ .Content }}
+            {{ partial "more" . }}
+            {{ partial "license" . }}
+          </div>
+          <div id="doc-sidebar" class="col-sm-3 col-sm-pull-9 hidden-xs">
+            {{ partial "sidebar_search" . }}
+            <div class="doc-sidebar-inner">
+              <h3 id="doc-sidebar-title">In This Guide:</h3>
+              <div class="sidebar" id=".sidebar-library">
+                TODO(bep) {{ .TableOfContents }}
+              </div>
+            </div>
+            {{ partial "rss" . }}
+            {{ partial "monthly_updates" . }}
+          </div>
         </div>
       </div>
     </div>
   </div>
-  </section>
-
+</section>
 <div class="modal fade" id="img-modal" tabindex="-1" role="dialog" aria-labelledby="imageModal" aria-hidden="true">
   <div class="modal-dialog modal-full">
     <div class="modal-content">

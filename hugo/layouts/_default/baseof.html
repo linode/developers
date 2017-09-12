@@ -1,65 +1,55 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>{{ .Title }}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{{ .Param "description" }}">
-    <meta name="keywords" content="{{ .Param "keywords"  }}">
-    {{ if .Params.no_index }}<meta name="robots" content="noindex" />{{ end }}
-
-    <meta property="og:title" content="{{ .Params.og_title | default .Title }}">
-    <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
-    <meta property="og:url" content="{{ .Permalink }}">
-    <meta property="og:description" content="{{ .Params.og_description | default (.Param "description") }}">
-    <meta property="og:site_name" content="{{ .Site.Title }}">
-    {{ if .Params.image }}
+    <head>
+        <meta charset="utf-8">
+        <title>{{ .Title }}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="{{ .Param "description" }}">
+        <meta name="keywords" content="{{ .Param "keywords"  }}">
+        {{ if .Params.no_index }}<meta name="robots" content="noindex" />{{ end }}
+        <meta property="og:title" content="{{ .Params.og_title | default .Title }}">
+        <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+        <meta property="og:url" content="{{ .Permalink }}">
+        <meta property="og:description" content="{{ .Params.og_description | default (.Param "description") }}">
+        <meta property="og:site_name" content="{{ .Site.Title }}">
+        {{ if .Params.image }}
         {{/* TODO(bep) */}}
         {{ if true }}
-            <meta property="og:image" content="{{ .Params.image }}">
+        <meta property="og:image" content="{{ .Params.image }}">
         {{ else }}
-            {{ with .Params.image.file }}<meta property="og:image" content="{{ . }}">{{ end }}
-            {{ with .Params.image.width }}<meta property="og:image:width" content="{{ . }}">{{ end }}
-            {{ if .Params.image.height }}<meta property="og:image:height" content="{{ . }}">{{ end }}
+        {{ with .Params.image.file }}<meta property="og:image" content="{{ . }}">{{ end }}
+        {{ with .Params.image.width }}<meta property="og:image:width" content="{{ . }}">{{ end }}
+        {{ with .Params.image.height }}<meta property="og:image:height" content="{{ . }}">{{ end }}
         {{ end }}
-	{{ else }}
+        {{ else }}
         <meta property="og:image" content="{{ .Site.Params.default_image }}">
         <meta property="og:image:width" content="{{ .Site.Params.default_image_width }}">
         <meta property="og:image:height" content="{{ .Site.Params.default_image_height }}">
-    {{ end }}
-
-    {{ if .Params.twitter }}
+        {{ end }}
+        {{ if .Params.twitter }}
         {{ with .Params.twitter.card }}<meta name="twitter:card" content="{{ . }}">{{ end }}
-    {{ else }}
+        {{ else }}
         <meta name="twitter:card" content="summary">
-    {{ end }}
-    <meta name="twitter:site" content="@linode">
-
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://www.linode.com/docs/rss" />
-    <link href="{{ relURL "assets/stylesheets/home.css?4" }}" rel='stylesheet' type='text/css'>
-    <link href="{{ relURL "assets/stylesheets/syntax.css" }}" rel='stylesheet' type='text/css'>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-     <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
-
-    <link rel='canonical' href="TODO(bep)">
-    <link rel="shortcut icon" href="/favicon.ico">
-  </head>
-
-  <body class="no-subnav">
-    <header>
-      {{ partial "nav" . }}
-      {{ partial "subnav" . }}
-    </header>
-
-   {{block "main" .}}{{ end }}
-
-    <footer>
-      {{ partial "contribute_footer" . }}
-      {{ partial "footer" . }}
-    </footer>
-
-    {{ partial "js" . }}
-  </body>
+        {{ end }}
+        <meta name="twitter:site" content="@linode">
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="https://www.linode.com/docs/rss" />
+        <link href="{{ relURL "assets/stylesheets/home.css?4" }}" rel='stylesheet' type='text/css'>
+        <link href="{{ relURL "assets/stylesheets/syntax.css" }}" rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
+        <link rel='canonical' href="TODO(bep)">
+        <link rel="shortcut icon" href="/favicon.ico">
+    </head>
+    <body class="no-subnav">
+        <header>
+            {{ partial "nav" . }}
+            {{ partial "subnav" . }}
+        </header>
+        {{block "main" .}}{{ end }}
+        <footer>
+            {{ partial "contribute_footer" . }}
+            {{ partial "footer" . }}
+        </footer>
+        {{ partial "js" . }}
+    </body>
 </html>

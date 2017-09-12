@@ -1,8 +1,8 @@
 {{ with .Params.deprecated }}
 <blockquote class="deprecated">
-This guide has been deprecated and is no longer being maintained.
-{{ if ne (printf "%T" .) "bool" }}
-Please refer to the updated version of this guide: {{ . }}
-{{ end }}
+	This guide has been deprecated and is no longer being maintained.
+	{{ if ne (printf "%T" .) "bool" }}
+	Please refer to the updated version of this guide: {{ . }}
+	{{ end }}
 </blockquote>
 {{ end }}

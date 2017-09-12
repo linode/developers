@@ -1,13 +1,12 @@
 {{ if and .Params.upcoming_webinar .Params.upcoming_webinar.webinar_datetime }}
-  {{ $theDate := .Params.upcoming_webinar.webinar_datetime | time }}
-  
-  {{/* TODO(bep) truncate */}}
+{{ $theDate := .Params.upcoming_webinar.webinar_datetime | time }}
 
-  {{ if ge $theDate now }}
-	  <div id="frontpage_upcoming_webinar" align="center" style="background:#2d8ec6;">
-		  <div id="frontpage_upcoming_webinar_text">
-			<a href="{{ .Params.upcoming_webinar.webinar_registration_url }}"><i class="fa fa-youtube-play"></i> Next Live Tutorial: <strong>{{ .Params.upcoming_webinar.webinar_title }}</strong></a>
-		  </div>
-	  </div>
-  {{ end }}
+{{/* TODO(bep) truncate */}}
+{{ if ge $theDate now }}
+<div id="frontpage_upcoming_webinar" align="center" style="background:#2d8ec6;">
+	<div id="frontpage_upcoming_webinar_text">
+		<a href="{{ .Params.upcoming_webinar.webinar_registration_url }}"><i class="fa fa-youtube-play"></i> Next Live Tutorial: <strong>{{ .Params.upcoming_webinar.webinar_title }}</strong></a>
+	</div>
+</div>
+{{ end }}
 {{ end }}
