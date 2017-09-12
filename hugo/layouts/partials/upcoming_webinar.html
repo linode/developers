@@ -1,8 +1,7 @@
 {{ if and .Params.upcoming_webinar .Params.upcoming_webinar.webinar_datetime }}
 {{ $theDate := .Params.upcoming_webinar.webinar_datetime | time }}
-
-{{/* TODO(bep) truncate */}}
-{{ if ge $theDate now }}
+{{ $today := now.Truncate ( duration "hour" 24 ) }}
+{{ if ge $theDate $today }}
 <hr />
 <div align="center">
 	<p>Our Next Live Webinar:</p>
