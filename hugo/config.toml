@@ -15,4 +15,4 @@ default_image_height = 120
 
 # Date and time formatting, see https://gohugo.io/functions/format/
 time_format_RFC3339 = "2006-01-02T15:04:05Z07:00"
-time_format_default = "2006-01-02"
+time_format_default = "Monday, January 2, 2006"
