@@ -15,4 +15,9 @@ categories:
  - nginx
  - lighttpd
  - cherokee
+show_on_frontpage: true
+title_short: "Web Servers"
+weight: 50
+icon: "globe"
 ---
+

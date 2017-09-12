@@ -26,4 +26,9 @@ categories:
  - nodebalancer
  - disk-images
  - api
+show_on_frontpage: true
+title_short: "Linode Platform"
+weight: 30
+icon: "cube"
 ---
+

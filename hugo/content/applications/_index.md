@@ -17,4 +17,9 @@ categories:
  - configuration-management
  - project-management
  - big-data
+show_on_frontpage: true
+title_short: "Applications"
+weight: 110
+icon: "cogs"
 ---
+

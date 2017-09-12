@@ -18,7 +18,12 @@ categories:
  - exim
  - mailman
  - iredmail
+show_on_frontpage: true
+title_short: "Email"
+weight: 80
+icon: "envelope"
 ---
 
 Every organization needs email service. Whether you're running a personal blog or an entire company's web infrastructure on your Linodes, these guides will assist you in getting a stable mail/groupware server up and running quickly.
+
 

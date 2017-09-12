@@ -22,4 +22,9 @@ categories:
  - firewalls
  - vpn
  - squid
+show_on_frontpage: true
+title_short: "IPs, Networking & Domains"
+weight: 60
+icon: "sitemap"
 ---
+

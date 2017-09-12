@@ -14,11 +14,15 @@ import (
 	"time"
 )
 
-var skipFiles = map[string]bool{
-	// Handle these by manual copy.
-	"assets":    true,
-	".DS_Store": true,
-}
+var (
+	skipFiles = map[string]bool{
+		// Handle these by manual copy.
+		"assets":    true,
+		".DS_Store": true,
+	}
+
+	try = false
+)
 
 /* TODO(bep)
 
@@ -58,6 +62,8 @@ func main() {
 func (m *mover) move() error {
 	fmt.Println("Move Content from", m.fromDir, "to", m.toDir)
 
+	counter := 0
+
 	return filepath.Walk(m.fromDir, func(path string, info os.FileInfo, err error) error {
 		// TODO(bep) symbolic links
 
@@ -70,7 +76,10 @@ func (m *mover) move() error {
 		}
 
 		if info.Mode().IsRegular() {
-
+			counter++
+			if try && counter > 5 {
+				return filepath.SkipDir
+			}
 			return m.handleFile(path, info)
 
 		}
@@ -121,7 +130,7 @@ func (m *mover) handleFile(path string, info os.FileInfo) error {
 
 	var r io.Reader
 
-	fixed, err := fixContent(buff.String())
+	fixed, err := fixContent(path, buff.String())
 	if err != nil {
 		fmt.Printf("%s\t%s\n", path, err)
 		r = &buff
@@ -136,16 +145,63 @@ func (m *mover) handleFile(path string, info os.FileInfo) error {
 	return nil
 }
 
+type frontmatterAddon struct {
+	weight      int
+	icon        string
+	short_title string
+}
+
 var (
 	dateRe   = regexp.MustCompile("(published|modified): '?(.*)'?")
 	ndRe     = regexp.MustCompile("(\\d+)(th|nd|st|rd)")
 	commaRe1 = regexp.MustCompile(`([0-9])\s([0-9])`)
 	commaRe2 = regexp.MustCompile(`([a-zA-Z])\s([a-zA-Z])`)
+
+	frontmatterRe = regexp.MustCompile(`(?s)---
+(.*)
+---\n?(.*)\n?`)
+
+	// We will add the "essential" category and some other metadata needed for the front page.
+	fundamentalPages = map[string]frontmatterAddon{
+		"getting-started.md":       frontmatterAddon{10, "book", "Getting Started"},
+		"quick-answers/index.md":   frontmatterAddon{20, "bolt", "Quick Answers"},
+		"platform/index.md":        frontmatterAddon{30, "cube", "Linode Platform"},
+		"websites/index.md":        frontmatterAddon{40, "laptop", "Websites"},
+		"web-servers/index.md":     frontmatterAddon{50, "globe", "Web Servers"},
+		"networking/index.md":      frontmatterAddon{60, "sitemap", "IPs, Networking & Domains"},
+		"security/index.md":        frontmatterAddon{70, "lock", "Security, Upgrades & Backups"},
+		"email/index.md":           frontmatterAddon{80, "envelope", "Email"},
+		"databases/index.md":       frontmatterAddon{90, "database", "Databases"},
+		"uptime/index.md":          frontmatterAddon{100, "bar-chart-o", "Uptime & Analytics"},
+		"applications/index.md":    frontmatterAddon{110, "cogs", "Applications"},
+		"game-servers/index.md":    frontmatterAddon{120, "gamepad", "Game Servers"},
+		"development/index.md":     frontmatterAddon{130, "code", "Development"},
+		"troubleshooting/index.md": frontmatterAddon{140, "question-circle", "Troubleshooting"},
+		"tools-reference/index.md": frontmatterAddon{150, "wrench", "Tools & Reference"},
+	}
 )
 
-func fixContent(src string) (string, error) {
+func addToFrontpage(src string, addon frontmatterAddon) string {
+	addition := fmt.Sprintf(`show_on_frontpage: true
+title_short: %q
+weight: %d
+icon: %q`, addon.short_title, addon.weight, addon.icon)
+
+	replaced := frontmatterRe.ReplaceAllString(src, fmt.Sprintf(`---
+$1
+%s
+---
+$2
+`, addition))
+
+	return replaced
+}
+
+func fixContent(path, src string) (string, error) {
+
+	// TODO(bep) Add some sanity checks to make sure we are only matching in front matter
 	var err error
-	return dateRe.ReplaceAllStringFunc(src, func(s string) string {
+	s := dateRe.ReplaceAllStringFunc(src, func(s string) string {
 		if err != nil {
 			return ""
 		}
@@ -163,7 +219,19 @@ func fixContent(src string) (string, error) {
 		}
 
 		return fmt.Sprintf("%s: %s", key, tt.Format("2006-01-02"))
-	}), err
+	})
+
+	if err != nil {
+		return "", err
+	}
+
+	relPath := path[strings.Index(path, "content_old")+17:]
+
+	if addon, ok := fundamentalPages[relPath]; ok {
+		s = addToFrontpage(s, addon)
+	}
+
+	return s, nil
 
 }
 

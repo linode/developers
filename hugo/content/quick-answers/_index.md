@@ -10,4 +10,9 @@ title: Quick Answers
 categories:
  - linux
  - linode-platform
+show_on_frontpage: true
+title_short: "Quick Answers"
+weight: 20
+icon: "bolt"
 ---
+
