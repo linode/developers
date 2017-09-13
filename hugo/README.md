@@ -6,6 +6,7 @@
 Then talk about the next sprint; in general, this is what's left:
 
 - [ ] Complete the content and layout migration, incl. fixing all the TODOs
+  - Dates: `publishDate`, `expiryDate`, `date`, `lastMod`, text vs "YAML dates", `GitInfo`
 - [ ] Handle callouts in markdown (shortcodes?)
 - [ ] Asset handling, minify JSS, CSS (and maybe also deployment, development, i.e. a "hugo server wrapper")
 - [ ] Social sharing buttons
@@ -13,6 +14,7 @@ Then talk about the next sprint; in general, this is what's left:
 - [ ] Floating ToC in sidebar
 - [ ] Search (`lunr.js`)
 - [ ] Disqus
+- [ ] Google analytics
 - [ ] Configure and add Releated Content (re. Hugo 0.27)
 
 # Links / notes
