@@ -9,7 +9,7 @@ Then talk about the next sprint; in general, this is what's left:
     * Dates: `publishDate`, `expiryDate`, `date`, `lastMod`, text vs "YAML dates", `GitInfo`
 - [ ] Handle callouts in markdown (shortcodes?)
 - [ ] Asset handling, minify JSS, CSS (and maybe also deployment, development, i.e. a "hugo server wrapper")
-    * Boostrap 4 moves to SASS: http://v4-alpha.getbootstrap.com/getting-started/download/#package-managers
+    * Bootstrap 4 moves to SASS: http://v4-alpha.getbootstrap.com/getting-started/download/#package-managers
     * My "Poor man's bundler": https://github.com/bep/docuapi/blob/master/bundler.go
     * WebPack, Gulp
 - [ ] Social sharing buttons
