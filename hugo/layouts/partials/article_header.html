@@ -5,12 +5,11 @@
   <small class="contributed-by">Contributed by
   {{ if .Params.contributor.link }}
   <a href="{{ .Params.contributor.link }}">{{ .Params.contributor.name }}
-    {{/* if .Params.contributor.link =~ /twitter\.com/ }}
-    TODO(bep)
+    {{ if strings.Contains .Params.contributor.link "twitter.com" }}
     <i class="fa fa-twitter"></i>
-    {{ elsif .Params.contributor.link =~ /github\.com/ }}
+    {{ else if strings.Contains .Params.contributor.link "github.com" }}
     <i class="fa fa-github"></i>
-    {{ end */}}
+    {{ end }}
   </a>
   {{ else }}
   {{ .Params.contributor.name }}
