@@ -155,6 +155,8 @@ var (
 	dateRe     = regexp.MustCompile(`(published|modified): '?(.*)'?\s*\n`)
 	keywordsRe = regexp.MustCompile(`keywords: '(.*)'\s*\n?`)
 
+	calloutsRe = regexp.MustCompile(`(?s){: \.(\w*)}(.*?)\n\n`)
+
 	ndRe     = regexp.MustCompile(`(\d+)(th|nd|st|rd)`)
 	commaRe1 = regexp.MustCompile(`([0-9])\s([0-9])`)
 	commaRe2 = regexp.MustCompile(`([a-zA-Z])\s([a-zA-Z])`)
@@ -199,10 +201,30 @@ $2
 	return replaced
 }
 
-func fixContent(path, src string) (string, error) {
+func fixContent(path, s string) (string, error) {
+
+	// Replace callouts with shortcodes
+	s = calloutsRe.ReplaceAllStringFunc(s, func(s string) string {
+		m := calloutsRe.FindAllStringSubmatch(s, -1)
+		if len(m) > 0 {
+			first := m[0]
+			name, content := first[1], first[2]
+			content = strings.TrimSpace(content)
+			name = strings.TrimSpace(name)
+
+			return fmt.Sprintf(`{{< %s >}}
+%s
+{{< /%s >}}
+
+`, name, content, name)
+
+		}
+
+		return s
+	})
 
 	// Make keywords into proper arrays
-	s := keywordsRe.ReplaceAllStringFunc(src, func(s string) string {
+	s = keywordsRe.ReplaceAllStringFunc(s, func(s string) string {
 		m := keywordsRe.FindAllStringSubmatch(s, -1)
 		if len(m) > 0 {
 			kw := m[0][1]
