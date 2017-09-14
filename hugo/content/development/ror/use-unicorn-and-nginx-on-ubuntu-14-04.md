@@ -31,9 +31,10 @@ Unicorn is an HTTP server, just like Passenger or Puma. Since Unicorn cannot be 
 
 Before starting this guide, make sure that  you have read through and completed our [Getting Started](/docs/getting-started) and [Securing Your Server](/docs/security/securing-your-server/) guides. 
 
-{: .note}
+{{< note >}}
 >
 >This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< /note >}}
 
 1.  Before you install any package, ensure that your hostname is correct:
 
@@ -94,13 +95,14 @@ Before starting this guide, make sure that  you have read through and completed 
 
 2.  Create the file `config/unicorn.rb` which contains the unicorn configuration and paste the following configuration in the file.
 
-    {: .file}
-    /home/username/example/config/unicorn.rb
+    {{< file >}}
+/home/username/example/config/unicorn.rb
     :   ~~~config
         # set path to the application
         app_dir git File.expand_path("../..", __FILE__)
         shared_dir = "#{app_dir}/shared"
         working_directory app_dir
+{{< /file >}}
 
         # Set unicorn options
         worker_processes 2
@@ -122,9 +124,10 @@ Before starting this guide, make sure that  you have read through and completed 
 
         mkdir -p shared/pids shared/sockets shared/log
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >Please note that we are still in the Rails application directory.
+{{< /note >}}
 
 ## Install and Configure Nginx
 
@@ -143,9 +146,10 @@ Before starting this guide, make sure that  you have read through and completed 
         }
         ~~~
 
-    {: .note}
-    >
+    {{< note >}}
+>
     > Edit `username` and `example` with appropriate values.
+{{< /note >}}
 
 3.  Remove the default nginx site configuration:
 
@@ -153,12 +157,13 @@ Before starting this guide, make sure that  you have read through and completed 
 
 4.  Create new nginx site configuration file for the Rails application:
 
-    {: .file}
-    /etc/nginx/sites-available/example
+    {{< file >}}
+/etc/nginx/sites-available/example
     :   ~~~ nginx
         server {
         listen 80;
         server_name localhost;
+{{< /file >}}
 
         root /home/username/example;
 
@@ -177,9 +182,10 @@ Before starting this guide, make sure that  you have read through and completed 
         }
         ~~~
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >Make sure you change the username and example with the appropriate values.
+{{< /note >}}
 
 5.  Create a symlink to nginx’s `sites-enabled` directory to enable your site configuration file:
 
@@ -199,9 +205,10 @@ Before starting this guide, make sure that  you have read through and completed 
 
       sudo unicorn -c config/unicorn.rb -E production -D
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >Make sure you are in the application directory; otherwise, you will need to type in the whole path	name.
+{{< /note >}}
 
 - To stop Unicorn, issue the following command:
 

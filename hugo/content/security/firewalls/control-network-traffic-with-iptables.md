@@ -294,16 +294,18 @@ This rule breaks down as follows:
 
 Appropriate firewall rules depend on the services being run. Below are iptables rulesets to secure your Linode if you're running a web server.
 
-{: .caution}
+{{< caution >}}
 >
 > **These rules are given only as an example.** A real production web server may require more or less configuration, and these rules would not be appropriate for a database, Minecraft or VPN server. Iptables rules can always be modified or reset later, but these basic rulesets serve as a demonstration.
+{{< /caution >}}
 
 **IPv4**
 
-{: .file}
+{{< file >}}
 /tmp/v4
 :   ~~~ conf
     *filter
+{{< /file >}}
 
     # Allow all loopback (lo0) traffic and reject traffic
     # to localhost that does not originate from lo0.
@@ -357,10 +359,11 @@ Appropriate firewall rules depend on the services being run. Below are iptables 
 
 If you would like to supplement your web server's IPv4 rules with IPv6 as well, this ruleset will allow HTTP/S access and all ICMP functions.
 
-{: .file}
+{{< file >}}
 /tmp/v6
 :   ~~~ conf
     *filter
+{{< /file >}}
 
     # Allow all loopback (lo0) traffic and reject traffic
     # to localhost that does not originate from lo0.
@@ -394,11 +397,12 @@ If you would like to supplement your web server's IPv4 rules with IPv6 as well, 
     COMMIT
     ~~~
 
-{: .note}
+{{< note >}}
 >
 >[APT](http://linux.die.net/man/8/apt) attempts to resolve mirror domains to IPv6 as a result of `apt-get update`. If you choose to entirely disable and deny IPv6, this will slow down the update process for Debian and Ubuntu because APT waits for each resolution to time out before moving on.
 >
 >To remedy this, uncomment the line `precedence ::ffff:0:0/96  100` in `/etc/gai.conf`.
+{{< /note >}}
 
 ## Deploy Your iptables Rulesets
 

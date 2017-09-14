@@ -22,9 +22,10 @@ The *Apache HTTP Web Sever* (Apache) is an open source web application for deplo
 
 If instead you would like to install a full LAMP (Linux, Apache, MySQL and PHP) stack, please see the [LAMP on Debian 8](/docs/websites/lamp/lamp-server-debian-8) guide.
 
-{: .note}
+{{< note >}}
 >
 >This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< /note >}}
 
 
 ## Before You Begin
@@ -64,8 +65,8 @@ Apache 2.4 offers various multi-processing modules (MPMs) to handle connections.
 
 1.  Open `/etc/apache2/mods-available/mpm_prefork.conf` in your text editor and edit the values as needed. The following is optimized for a 2GB Linode:
 
-    {: .file}
-    /etc/apache2/mods-available/mpm_prefork.conf
+    {{< file >}}
+/etc/apache2/mods-available/mpm_prefork.conf
     :   ~~~ conf
         # prefork MPM
         # StartServers: number of server processes to start
@@ -73,6 +74,7 @@ Apache 2.4 offers various multi-processing modules (MPMs) to handle connections.
         # MaxSpareServers: maximum number of server processes which are kept spare
         # MaxRequestWorkers: maximum number of server processes allowed to start
         # MaxConnectionsPerChild: maximum number of requests a server process serves
+{{< /file >}}
 
         <IfModule mpm_prefork_module>
                 StartServers              4
@@ -99,8 +101,8 @@ If you choose to keep the *event module* enabled, these settings are suggested f
 
 1.  Open `/etc/apache2/mods-available/mpm_event.conf` in your text editor and edit the values as needed:
 
-    {: .file}
-    /etc/apache2/mods-available/mpm_event.conf
+    {{< file >}}
+/etc/apache2/mods-available/mpm_event.conf
     :   ~~~ conf
         # event MPM
         # StartServers: initial number of server processes to start
@@ -119,6 +121,7 @@ If you choose to keep the *event module* enabled, these settings are suggested f
                 MaxConnectionsPerChild   3000
         </IfModule>
         ~~~
+{{< /file >}}
 
 2.  Restart Apache:
 

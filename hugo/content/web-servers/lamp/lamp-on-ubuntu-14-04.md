@@ -20,9 +20,10 @@ external_resources:
 
 A LAMP (Linux, Apache, MySQL, PHP) stack is a common web stack used for hosting web content. This guide shows you hot to install a LAMP stack on an Ubuntu 14.04 (LTS) server.
 
-{: .note}
+{{< note >}}
 >
 >This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< /note >}}
 
 ## Before You Begin
 
@@ -50,8 +51,8 @@ A LAMP (Linux, Apache, MySQL, PHP) stack is a common web stack used for hosting 
 
 3.  The default *multi-processing module* (MPM) for Apache is the *event* module, but by default PHP uses the *prefork* module. Open the `mpm_prefork.conf` file located in `/etc/apache2/mods-available` and edit the configuration. Below is the suggested values for a **2GB Linode**:
 
-    {: .file}
-    /etc/apache2/mods-available/mpm_prefork.conf
+    {{< file >}}
+/etc/apache2/mods-available/mpm_prefork.conf
     :   ~~~ conf
         <IfModule mpm_prefork_module>
                 StartServers            4
@@ -61,6 +62,7 @@ A LAMP (Linux, Apache, MySQL, PHP) stack is a common web stack used for hosting 
                 MaxConnectionsPerChild  4500
         </IfModule>
         ~~~
+{{< /file >}}
 
 4.  Disable the event module and enable prefork:
 
@@ -94,9 +96,10 @@ There are several different ways to set up virtual hosts; however, below is the 
         </VirtualHost>
         ~~~
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >The `ErrorLog` and `CustomLog` entries are suggested for more fine-grained logging, but are not required. If they are defined (as shown above), the `logs` directories must be created before you restart Apache.
+{{< /note >}}
 
 2.  Create the above-referenced directories:
 
@@ -107,11 +110,12 @@ There are several different ways to set up virtual hosts; however, below is the 
 
         sudo a2ensite example.com.conf
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >If you later need to disable your website, run:
     >
     >     a2dissite example.com.conf
+{{< /note >}}
 
 4.  Reload Apache:
 
@@ -173,9 +177,10 @@ There are several different ways to set up virtual hosts; however, below is the 
         max_input_time = 30
         ~~~
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >Ensure the lines above are uncommented. Commented lines begin with a semicolon (**;**).
+{{< /note >}}
 
 3.  Create the log directory for PHP and give the Apache user ownership:
 

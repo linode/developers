@@ -91,12 +91,13 @@ Please understand that when using this method, you will be responsible for updat
 
 10. Create a systemd service script to run nginx:
 
-    {: .file}
-    /lib/systemd/system/nginx.service
+    {{< file >}}
+/lib/systemd/system/nginx.service
     :   ~~~ shell
         [Unit]
         Description=A high performance web server and a reverse proxy server
         After=network.target
+{{< /file >}}
 
         [Service]
         Type=forking
@@ -126,8 +127,9 @@ Please understand that when using this method, you will be responsible for updat
 
         systemctl enable nginx
 
-{: .note}
+{{< note >}}
 >If you compile from a source distribution as above, some of the files referenced in this and other nginx guides may not be created by default. You may create those files yourself at their specified file paths, and nginx will work as intended. For more information, refer to our guide on [how to configure nginx](/docs/websites/nginx/how-to-configure-nginx).
+{{< /note >}}
 
 ## Generate a Private Key and Certificate Signing Request (CSR)
 
@@ -217,8 +219,9 @@ You should now be logged into your StartSSL account.
 
 6.  Within the archive, extract the `NginxServer.zip` archive, which contains a file with the extension `.crt`. This is your SSL certificate. Open the file in a text editor on your local computer and copy the *entire* contents to your clipboard.
 
-    {: .note}
-    > The text of the `.crt` file will appear to have two certificates in it. It is important to copy everything in this file, in the order shown. Failure to do so will prevent your SSL certificate from working properly.
+    {{< note >}}
+> The text of the `.crt` file will appear to have two certificates in it. It is important to copy everything in this file, in the order shown. Failure to do so will prevent your SSL certificate from working properly.
+{{< /note >}}
 
 7.  Paste the content of this file into a new file called `/etc/ssl/nginx/server.crt` on your Linode and save it. You can replace `server.crt` with your own certificate name, but it is recommended to leave the `.crt` extension for organization.
 
@@ -244,14 +247,15 @@ You should now be logged into your StartSSL account.
 
 1.  By default, nginx is configured to only serve HTTP requests on TCP port 80. To make use of SSL, you will need to configure nginx to serve HTTPS requests on TCP port 443. Open the sample nginx SSL server block configuration file and adjust your configuration so that it matches the example below.
 
-    {: .file}
-    /etc/nginx/conf.d/example_ssl.conf
+    {{< file >}}
+/etc/nginx/conf.d/example_ssl.conf
     :   ~~~ conf
         # HTTPS server
         #
         server {
             listen       443 ssl;
             server_name  example.com;
+{{< /file >}}
 
             ssl_certificate      /etc/ssl/nginx/nginx.crt;
             ssl_certificate_key  /etc/ssl/nginx/server.key;

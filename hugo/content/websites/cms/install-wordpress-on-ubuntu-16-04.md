@@ -20,13 +20,14 @@ In this guide, you'll learn to how to install WordPress on a Linode running Ubun
 
 ![Install WordPress on Ubuntu 16.04](/docs/assets/wordpress-ubuntu-16-04-title.png "Install WordPress on Ubuntu 16.04")
 
-{: .note}
+{{< note >}}
 >
 >This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
 >
 >All configuration files should be edited with elevated privileges. Remember to include `sudo` before running your text editor.
 >
 >Replace each instance of `example.com` in this guide with your site's domain name.
+{{< /note >}}
 
 ## Before You Begin
 
@@ -96,8 +97,9 @@ In this guide, you'll learn to how to install WordPress on a Linode running Ubun
 
     WordPress will test the credentials and if authentication is successful, prompt you to **Run the install**.
 
-    {: .note}
-    > If Wordpress doesn't display when you visit your domain, try adding `/wp-admin` to the end of the URL. This sometimes happens if you previously created an index file in your site's home directory.
+    {{< note >}}
+> If Wordpress doesn't display when you visit your domain, try adding `/wp-admin` to the end of the URL. This sometimes happens if you previously created an index file in your site's home directory.
+{{< /note >}}
 
 2.  Fill out the administration information and click **Install WordPress**.
 

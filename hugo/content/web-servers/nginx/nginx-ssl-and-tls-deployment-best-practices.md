@@ -32,9 +32,10 @@ This guide is intended to inform you of some additional configuration options th
 
         apt-get update && apt-get upgrade
 
-{: .note}
+{{< note >}}
 >
 >The commands in this guide are written for a root user. If you're following along as a non-root user, commands that require elevated privileges should prefixed with `sudo`. If you’re not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< /note >}}
 
 For more information, please review our guides on [basic nginx configuration](/docs/websites/nginx/how-to-configure-nginx), [Linux security basics](/docs/security/linux-security-basics) and [securing your server](/docs/security/securing-your-server).
 
@@ -66,15 +67,17 @@ In September 2010, Google released the SPDY protocol for all versions of Chrome 
 
     nginx -v
 
-{: .note}
+{{< note >}}
 > If you installed nginx from source without modifying your environment variables, invoke the full path to the binary:
 >
 >     /opt/nginx/sbin/nginx -v
+{{< /note >}}
 
 HTTP/2 is a new version of the HTTP standard replacing HTTP/1.1 to reduce page load time. Traditionally, when a user accessed a web page, a separate HTTP connection was established to load each resource (e.g. HTML, CSS, JavaScript, or images). HTTP/2 allows concurrent requests on a single connection to download assests in parallel. The server also compresses assets before sending them to the client, which requires less bandwdith.
 
-{: .note}
+{{< note >}}
 > Chrome has deprecated Next Protocol Negotiation (NPN) and now requires Application-Layer Protocol Negotiation (ALPN) for HTTP/2 compatibility. However, ALPN requires OpenSSL 1.0.2+. Many distributions, such as Debian 8 (Jessie) do not include this package in their repositories. If you intend to enable HTTP/2, you will need to use a version of nginx compiled with OpenSSL 1.0.2+. See our instructions on [compiling nginx from source](/docs/websites/nginx/install-nginx-and-a-startssl-certificate-on-debian-8-jessie#compile-nginx-from-source) for more information.
+{{< /note >}}
 
 1.  To enable HTTP/2, open your nginx SSL virtual host configuration file. Depending on how you installed nginx, this could be located at `/etc/nginx/sites-enabled/default` or at `/etc/nginx/conf.d/example_ssl.conf`. Look for the `listen` line within the "SSL Configuration" section. Uncomment the following line if necessary and add `http2` to the end before the semicolon.
 
@@ -186,9 +189,10 @@ With all traffic being redirected from HTTP to HTTPS, you may want to allow user
 
 3.  Navigate to the [Qualys SSL Labs SSL Server Test](https://www.ssllabs.com/ssltest/). Enter the domain name or hostname of your Linode and click "Submit." Optionally, you may uncheck the checkbox to not show your results on the boards.
 
-    {: .note}
-    >
+    {{< note >}}
+>
     > If you've already conducted a test from one of the above sections, use the **Clear cache** link to initiate a new scan.
+{{< /note >}}
 
     Once the test is complete, scroll down to the "Protocol Details" section. Look for the "Strict Transport Security (HSTS)" line. If nginx is configured correctly this test will return "Yes."
 
@@ -198,21 +202,23 @@ With all traffic being redirected from HTTP to HTTPS, you may want to allow user
 
 Content sniffing allows browsers to inspect a byte stream in order to "guess" the file format of its contents. It is generally used to help sites that do not correctly identify the MIME type of their web content, but it also presents a vulnerability to cross-site scripting and other attacks. To disable content sniffing, add the following line to your nginx SSL configuration file in the `server` block:
 
-{: .file}
+{{< file >}}
 /etc/nginx/conf.d/example_ssl.conf
 :   ~~~ conf
     add_header X-Content-Type-Options nosniff;
     ~~~
+{{< /file >}}
 
 ## Disable or Limit Embedding
 
 The HTTPS header `X-Frame-Options` can specify whether a page is able to be rendered in a frame, iframe, or object. If left unset, your site's content may be embedded into other sites' HTML code in a clickjacking attack. To disable the embedding of your content, add the following line to your SSL configuration file in the `server` block:
 
-{: .file}
+{{< file >}}
 /etc/nginx/conf.d/example_ssl.conf
 :   ~~~ conf
     add_header X-Frame-Options DENY;
     ~~~
+{{< /file >}}
 
 If you'd like to limit embedding rather than disabling it altogether, you can replace `DENY` with `SAMEORIGIN`. This will allow you to use your page in a frame as long as the site attempting to do so is the same one serving your page.
 
@@ -230,11 +236,12 @@ We're using a 4096-bit RSA private key to sign the Diffie-Hellman key exchange, 
 
 3.  Specify the new parameter by adding the following line to your nginx SSL configuration file in the `server` block:
 
-    {: .file}
-    /etc/nginx/conf.d/example_ssl.conf
+    {{< file >}}
+/etc/nginx/conf.d/example_ssl.conf
     :   ~~~ conf
         ssl_dhparam /etc/ssl/certs/dhparam.pem;
         ~~~
+{{< /file >}}
 
 4.  Save your changes and restart nginx:
 
@@ -244,13 +251,14 @@ We're using a 4096-bit RSA private key to sign the Diffie-Hellman key exchange, 
 
 If you have been following along, starting with the guide on installing the latest version of nginx for Debian Wheezy or Jessie and getting a StartSSL certificate, your `/etc/nginx/conf.d/example_ssl.conf` should now look similar to this:
 
-{: .file}
+{{< file >}}
 /etc/nginx/conf.d/example_ssl.conf
 :   ~~~ conf
     # HTTPS server
     #
     server {
         listen       443 ssl http2;
+{{< /file >}}
 
         add_header   Strict-Transport-Security "max-age=31536000; includeSubdomains";
         add_header   X-Content-Type-Options nosniff;

@@ -110,9 +110,10 @@ The `-exec` or `-execdir` options run without further prompts. If you prefer to 
 
 ## How to Find and Delete Files in the Linux Command Line
 
-{: .caution}
+{{< caution >}}
 >
 >Use this option with extreme caution.
+{{< /caution >}}
 
 Add the option `-delete` to the end of a match expression to delete all files that match. Use this option when you are certain that the results *only* match the files that you wish to delete.
 

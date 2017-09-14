@@ -55,14 +55,15 @@ Ruby on Rails is a rapid development web framework that allows web designers and
 
         sudo gem install rails
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >If you require a specific version of Ruby On Rails, issue one of the following commands for the version you need:
     >
     >     gem install rails --version 2.1.2
     >     gem install rails --version 2.2.2
     >     gem install rails --version 2.3.5
     >     gem install rails --version 3.0.4
+{{< /note >}}
 
     This will install the appropriate versions of all required packages including ruby, rack, and other dependencies needed for basic Rails development.
 
@@ -78,11 +79,12 @@ Ruby on Rails is a rapid development web framework that allows web designers and
         ls /var/lib/gems
         PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/var/lib/gems/VERSION/bin"
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >The step above will only add this PATH to your current session. To retain the change persistently, add the PATH to your local \~/.bashrc file:
     >
     >     echo "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/var/lib/gems/VERSION/bin" >> ~/.bashrc
+{{< /note >}}
 
 6.  In your website's public folder start a new rails project, to ensure everything is properly configured. Replace `application` with your application's name:
 

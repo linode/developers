@@ -21,10 +21,11 @@ The *DNS Manager* is a comprehensive DNS management interface available within t
 
 The Domain Name System (DNS) attaches human-readable domain names to machine-usable IP addresses. In many ways, it is the phone book of the Internet. Just like a phone book can help you find the phone number of a business, DNS can take a domain name like `google.com` and translate it into an IP address like `74.125.19.147`, the IP address for Google's homepage. This global system allows users to remember the names of websites instead of their numeric IP addresses.
 
-{: .note}
+{{< note >}}
 >All steps within this guide are completed within the **[DNS Manager](https://manager.linode.com/dns)** tab of your Linode Manager.
 >
 >DNS records are only actively hosted on accounts with at least one Linode.
+{{< /note >}}
 
 ## DNS Set-Up Checklist
 
@@ -89,8 +90,8 @@ This video runs through the process of adding a new domain zone:
 
 6.  If you want to add a *slave zone* instead of a master zone, click the **I wanted a slave zone** link to the lower right.
 
-    {: .note}
-    > In order for Linode's DNS servers to function as slaves, your DNS master server must notify and allow AXFR requests from the following IP addresses:
+    {{< note >}}
+> In order for Linode's DNS servers to function as slaves, your DNS master server must notify and allow AXFR requests from the following IP addresses:
     >
     >     104.237.137.10
     >     65.19.178.10
@@ -102,6 +103,7 @@ This video runs through the process of adding a new domain zone:
     >     2600:3c02::a
     >     2600:3c03::a
     >     2a01:7e00::a
+{{< /note >}}
 
 If you selected the option to have the DNS Manager insert basic DNS records, those records will be visible, as shown above. If you elected to keep the zone empty, you can start adding DNS records now. Skip to the [Adding DNS Records](#adding-1) section for instructions.
 
@@ -242,8 +244,9 @@ However, there are times when you'll want the TTL to be as low as possible. For 
 
 The solution is to lower your TTL before making a DNS change. You'll want to lower the TTL first, on its own, before making any other DNS changes. Here's a general overview of what should happen during a smooth DNS update:
 
-{: .note}
+{{< note >}}
 >TTL is always written out in seconds, so 24 hours = 86400 seconds.
+{{< /note >}}
 
 1.  Check the TTL on your current zone file. Typically, this will be 24 or 48 hours.
 2.  Update your current zone file 48 (for a 24-hour record) to 96 (for a 48-hour record) hours early, taking into account any intermediate DNS servers. Lower the TTL to five minutes (300 seconds, or the lowest allowed value). Do not make any other changes at this time. If you're using Linode's DNS Manager, lower the TTL to 5 minutes for each entry you're going to change.

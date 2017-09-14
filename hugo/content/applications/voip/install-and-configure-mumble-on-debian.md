@@ -52,8 +52,8 @@ external_resources:
 
     [![Image description](/docs/assets/murmur-debian-auto-start-resized.png)](/docs/assets/murmur-debian-auto-start.png)
 
-    {: .note}
-    >
+    {{< note >}}
+>
     > If you wish to disable the server starting at boot, you can use your init system to disable it.
     >
     > For Debian 8:
@@ -63,6 +63,7 @@ external_resources:
     > For Debian 7 or earlier:
     >
     >     sudo service mumble-server disable
+{{< /note >}}
 
 4.  Mumble will then ask if you want to reduce latency by setting a higher CPU and network priority.
 

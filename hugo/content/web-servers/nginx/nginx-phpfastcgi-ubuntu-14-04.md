@@ -55,7 +55,7 @@ In this guide, the domain `example.com` is used as an example site. You should s
 
 Next, you'll need to define the site's virtual host file. This example uses a UNIX socket to connect to fcgiwrap. Be sure to change all instances of `example.com` to your domain name.
 
-{: .file}
+{{< file >}}
 /etc/nginx/sites-available/example.com
 :   ~~~ nginx
     server {
@@ -63,6 +63,7 @@ Next, you'll need to define the site's virtual host file. This example uses a UN
         access_log /var/www/example.com/logs/access.log;
         error_log /var/www/example.com/logs/error.log;
         root /var/www/example.com/public_html;
+{{< /file >}}
 
         location / {
             index  index.html index.htm;
@@ -152,7 +153,7 @@ If you're planning to run applications that support file uploads (images, for ex
 
 To mitigate this issue, you may wish to modify your configuration to include a `try_files` directive. Please note that this fix requires nginx and the php-fcgi workers to reside on the same server.
 
-{: .file}
+{{< file >}}
 /etc/nginx/sites-available/example.com
 :   ~~~ nginx
     location ~ \.php$ {
@@ -163,10 +164,11 @@ To mitigate this issue, you may wish to modify your configuration to include a `
         fastcgi_param SCRIPT_FILENAME /var/www/example.com/public_html/$fastcgi_script_name;
     }
     ~~~
+{{< /file >}}
 
 Additionally, it's a good idea to secure any upload directories your applications may use. The following configuration excerpt demonstrates securing an "/images" directory.
 
-{: .file}
+{{< file >}}
 /etc/nginx/sites-available/example.com
 :   ~~~ nginx
     location ~ \.php$ {
@@ -178,6 +180,7 @@ Additionally, it's a good idea to secure any upload directories your application
         fastcgi_param SCRIPT_FILENAME /var/www/example.com/public_html/$fastcgi_script_name;
     }
     ~~~
+{{< /file >}}
 
 ### Enable and Start Services
 

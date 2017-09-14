@@ -30,9 +30,10 @@ This guide describes an alternative to the *LAMP* (Linux, Apache, MySQL, and PHP
 
       sudo apt-get update && sudo apt-get upgrade
 
-{: .note}
+{{< note >}}
 >
 >This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups Guide](/docs/tools-reference/linux-users-and-groups).
+{{< /note >}}
 
 ## Nginx
 
@@ -182,10 +183,11 @@ The MySQL database engine is one of the leading open-source relational database 
 
         sudo systemctl restart php7.0-fpm
 
-{: .note}
+{{< note >}}
 > If at any point you need to change the root password, log in as shown in Step 2 and enter the following command, replacing `password` with the new root password:
 >
 >      ALTER USER 'root'@'localhost' IDENTIFIED WITH 'mysql_native_password' BY 'password';
+{{< /note >}}
 
 ## Optional: Test and Troubleshoot the LEMP Stack
 

@@ -23,9 +23,10 @@ The standard search that is built into WordPress does not provide the best searc
 
 In this guide, you will learn how to install Java, install and configure Solr on Ubuntu 14.x or Debian 7.x, and integrate it into your WordPress blog using the WPSolr plugin.
 
-{: .note}
+{{< note >}}
 >
 >This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< /note >}}
 
 ## Prerequisites
 
@@ -86,9 +87,10 @@ Since Solr is a Java web application, it requires a *Java Runtime Environment (J
 
 4.  Click on the highest available 4.x version to see the files in that release:
     
-    {: .note}
-    >
+    {{< note >}}
+>
     > Since Solr 5.x is still in beta, its configuration procedures are different from 4.x, and WPSolr is not yet compatible with the 5.x release.
+{{< /note >}}
 
     ![Solr release directory listing](/docs/assets/wpsolr_directory_files.png)
 
@@ -182,9 +184,10 @@ By default, Solr listens for search requests on all IP addresses at port 8983. F
 
 For security purposes, Solr should run with its own user account and group.
 
-{: .note}
+{{< note >}}
 >
 >The following commands should be run on the server where **Solr** is installed.
+{{< /note >}}
 
 1.  Create a group named `solr`:
 
@@ -203,9 +206,10 @@ For security purposes, Solr should run with its own user account and group.
 
 ### Configure Solr as a Startup Service
 
-{: .note}
+{{< note >}}
 >
 >Run the following commands on the server where **Solr** is installed.
+{{< /note >}}
 
 1.  Use a text editor to create a new script `/etc/init.d/solr`.  Alternatively, you can download it from [this link](/docs/assets/solr):
 
@@ -213,9 +217,10 @@ For security purposes, Solr should run with its own user account and group.
 
 2.  Copy the following text into the editor, save and close it:
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >If using a different version of Solr, change the `JETTY_HOME=/opt/solr-4.10.4/example` line to match the installed version.
+{{< /note >}}
 
     {:.file }
     /etc/init.d/solr
@@ -513,9 +518,10 @@ If Solr is installed on a different server from WordPress, repeat the test from 
 
 11. Go to the **Solr Operations** tab and click the **Synchronize Wordpress with my Solr index** button. 
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >Whenever you publish a new post or page or attachment, this button must be selected for the new pages to be indexed.
+{{< /note >}}
 
     ![Solr Operations](/docs/assets/wpsolr_wpsolr_solr_operations.png)
 

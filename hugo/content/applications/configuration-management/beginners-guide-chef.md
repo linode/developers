@@ -57,7 +57,7 @@ Originally the `chef-repo` had to be pulled from GitHub using git commands, but 
 
 The `knife` command communicates between the `chef-repo` located on a workstation and the Chef server. `knife` is configured with the `knife.rb` file, and is used from the workstation:
 
-{: .file}
+{{< file >}}
 ~/chef-repo/.chef/knife.rb
 :	~~~ ruby
 	log_level                :info
@@ -70,6 +70,7 @@ The `knife` command communicates between the `chef-repo` located on a workstatio
 	syntax_check_cache_path  '~/chef-repo/.chef/syntax_check_cache'
 	cookbook_path [ '~/chef-repo/cookbooks' ]
 	~~~
+{{< /file >}}
 
 The default `knife.rb` file is defined with the following properties:
 
@@ -117,7 +118,7 @@ Environments are defined in `chef-repo/environments` and saved as Ruby or JSON f
 
 As a Ruby file:
 
-{: .file}
+{{< file >}}
 chef-repo/environments/environame.rb
 :	~~~ ruby
 	name "environmentname"
@@ -128,14 +129,16 @@ chef-repo/environments/environame.rb
 	~~~
 	
 As a JSON:
+{{< /file >}}
 
-{: .file}
+{{< file >}}
 chef-repo/environments/environame.json
 :	~~~ json
 	{
 	  "name": "environmentname",
 	  "description": "a description of the environment",
 	  "cookbook_versions": {
+{{< /file >}}
 
 	  },
 	  "json_class": "Chef::Environment",

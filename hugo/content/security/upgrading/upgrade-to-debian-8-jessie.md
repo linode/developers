@@ -80,9 +80,10 @@ You are now ready to install Debian 8 on your Linode.
         deb-src http://ftp.us.debian.org/debian/ jessie-updates main
         ~~~
 
-    {: .note}
-    >
+    {{< note >}}
+>
     > Check your `/etc/apt/sources.list.d` for additional package repositories, and ensure that they are querying for packages from `jessie`.  You will need to check with the maintainers of each package to ensure that their own repositories have been updated.
+{{< /note >}}
 
 2.  Update your package lists:
 

@@ -60,8 +60,8 @@ Prior to installing your LAMP stack ensure that:
 
 3.  Open `/etc/apache2/mods-available/mpm_prefork.conf` in your text editor and edit the values as needed. The following is optimized for a 2GB Linode:
 
-    {: .file}
-    /etc/apache2/mods-available/mpm_prefork.conf
+    {{< file >}}
+/etc/apache2/mods-available/mpm_prefork.conf
     :   ~~~ conf
         # prefork MPM
         # StartServers: number of server processes to start
@@ -69,6 +69,7 @@ Prior to installing your LAMP stack ensure that:
         # MaxSpareServers: maximum number of server processes which are kept spare
         # MaxRequestWorkers: maximum number of server processes allowed to start
         # MaxConnectionsPerChild: maximum number of requests a server process serves
+{{< /file >}}
 
         <IfModule mpm_prefork_module>
                 StartServers              4
@@ -140,9 +141,10 @@ There can be as many virtual hosts files as needed to support the amount of doma
         sudo a2ensite example.com.conf
         sudo a2ensite example.org.conf
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >Should you need to disable a site, you can use `a2dissite example.com`.
+{{< /note >}}
 
 4.  Restart Apache:
 
@@ -204,9 +206,10 @@ PHP makes it possible to produce dynamic and interactive pages using your own sc
         max_input_time = 30
         ~~~
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >Ensure that all values are uncommented, by making sure they do not start with a semicolon (**;**).
+{{< /note >}}
 
 3.  Create the log directory for PHP and give the Apache user ownership:
 

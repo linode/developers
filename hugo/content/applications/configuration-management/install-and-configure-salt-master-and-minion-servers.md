@@ -15,9 +15,10 @@ title: Install and Configure Salt Master and Minion Servers
 
 [Salt](https://saltstack.com/) is a server management platform, designed to control a number of servers from a single master server. The following directions will walk you through configuring a Salt master and multiple Salt minions, and deploying your first Salt Formula. These instructions assume that you are using Debian 8 but can be adjusted to function on other distributions.
 
-{: .note}
+{{< note >}}
 >
 >The steps required in this guide require root privileges. Be sure to run the steps below as **root** or with the `sudo` prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< /note >}}
 
 ##Before You Begin
 
@@ -27,9 +28,10 @@ title: Install and Configure Salt Master and Minion Servers
 
 ##Add the Salt Repository
 
-{: .note}
+{{< note >}}
 >
 > The steps in this section will need to be run on *each* of your Linodes.
+{{< /note >}}
 
 1.  Create the file `/etc/apt/sources.list.d/salt.list` and enter the following lines to add the Salt repository: 
     
@@ -50,9 +52,10 @@ title: Install and Configure Salt Master and Minion Servers
 
 ##Configure Your Salt Master
 
-{: .note}
+{{< note >}}
 >
 > The following steps will be run only on the Linode designated as your Salt master.
+{{< /note >}}
 
 1.  Install the Salt master package:
 
@@ -67,13 +70,14 @@ title: Install and Configure Salt Master and Minion Servers
           interface: <master Linode IP address>
         ~~~
 
-        {: .note}
-        >
+        {{< note >}}
+>
         >As part of this step, you can also configure the user you wish to issue Salt commands to your minions. Uncomment the `#user:` line and enter your desired username to modify this setting. You will also need to issue the following command to set the required permissions for the user in question.
         >
         >     chown -R user /etc/salt /var/cache/salt /var/log/salt /var/run/salt
         >       
         >Once this setting has been modified, you will need to issue any further Salt commands on your Salt Master while logged in as that user.
+{{< /note >}}
 
 3.  Restart Salt:
 
@@ -81,9 +85,10 @@ title: Install and Configure Salt Master and Minion Servers
 
 ##Installing and Configuring a Salt Minion
 
-{: .note}
+{{< note >}}
 >
 > The following steps will need to be run on *each* of your Salt minions.
+{{< /note >}}
 
 1.  Install Salt:
 

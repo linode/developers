@@ -82,11 +82,12 @@ We'll compile the [Spigot](https://spigotmc.com) Minecraft server (1.8.3 at the 
 
 3.	We'll make a few scripts to make sure that your server's always up. Open a file called `wrapper.sh` in your preferred text editor. In the text editor, insert the following:
 
-    {: .file}
-    /home/minecraft/server/wrapper.sh
+    {{< file >}}
+/home/minecraft/server/wrapper.sh
     :   ~~~ sh
         #!/bin/bash
         cd /home/minecraft/server;
+{{< /file >}}
 
         java -XX:MaxPermSize=1024M -Xms512M -Xmx1536M -jar spigot.jar
         ~~~
@@ -107,13 +108,14 @@ We'll compile the [Spigot](https://spigotmc.com) Minecraft server (1.8.3 at the 
 
 6.  Open `eula.txt` and set the value to `true`:
 
-    {: .file}
-    /home/minecraft/server/eula.txt
+    {{< file >}}
+/home/minecraft/server/eula.txt
     :   ~~~
         By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).
         #Fri Apr 17 17:02:15 UTC 2015
         eula=true
         ~~~
+{{< /file >}}
 
 ## Configure SpigotMC to start on boot
 

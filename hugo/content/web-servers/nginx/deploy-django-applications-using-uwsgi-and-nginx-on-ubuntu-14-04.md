@@ -36,9 +36,10 @@ external_resources:
 
         sudo apt-get update && sudo apt-get upgrade
 
-{: .note}
+{{< note >}}
 >
 >This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< /note >}}
 
 
 ## Install nginx, Python Tools and uWSGI
@@ -47,9 +48,10 @@ external_resources:
 
         sudo apt-get install build-essential nginx python-dev python-pip python-sqlite sqlite
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >If your application uses another database, skip installing `python-sqlite` and `sqlite`.
+{{< /note >}}
 
 4.  Install [virtualenv](https://virtualenv.pypa.io/en/latest/) and [virtualenvwrapper](http://virtualenvwrapper.readthedocs.org/en/latest/):
 
@@ -114,12 +116,13 @@ external_resources:
 
 2.  Create configuration file `sample.ini` with the following contents:
 
-    {: .file}
-    /etc/uwsgi/sites/sample.ini
+    {{< file >}}
+/etc/uwsgi/sites/sample.ini
     :   ~~~ ini
         [uwsgi]
         project = sample
         base = /home/django
+{{< /file >}}
 
         chdir = %(base)/%(project)
         home = %(base)/Env/%(project)
@@ -135,13 +138,14 @@ external_resources:
 
 3.  Create an Upstart job for uWSGI:
 
-    {: .file}
-    /etc/init/uwsgi.conf
+    {{< file >}}
+/etc/init/uwsgi.conf
     :   ~~~ conf
         description "uWSGI"
         start on runlevel [2345]
         stop on runlevel [06]
         respawn
+{{< /file >}}
 
         env UWSGI=/usr/local/bin/uwsgi
         env LOGTO=/var/log/uwsgi.log
@@ -163,12 +167,13 @@ external_resources:
 
 2.  Create an nginx site configuration file for your Django application:
 
-    {: .file}
-    /etc/nginx/sites-available/sample
+    {{< file >}}
+/etc/nginx/sites-available/sample
     :   ~~~ conf
         server {
             listen 80;
             server_name example.com;
+{{< /file >}}
 
             location = /favicon.ico { access_log off; log_not_found off; }
             location /static/ {

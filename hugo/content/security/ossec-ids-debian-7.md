@@ -26,9 +26,10 @@ When installed and configured, OSSEC will provide a real-time view of what's tak
 
 This guide covers how to install and configure OSSEC on a single Linode running Debian 7 in such a manner that if a file is modified, added or deleted, OSSEC will notify you by email in real-time. OSSEC can also provide notifications for other acitivies.
 
-{: .note}
+{{< note >}}
 >
 >This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< /note >}}
 
 ## Prerequisites
 
@@ -71,9 +72,10 @@ Debian 7 does not have an installation candidate for OSSEC in its repository, so
         sha1sum: WARNING: 1 line is improperly formatted
 
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >In both outputs, ignore the **WARNING** line. As long as the first line reads **OK**, the file is good.
+{{< /note >}}
 
 
 
@@ -195,9 +197,10 @@ Although you specified an email and OSSEC auto-discovered the SMTP server, there
           </global>
         ~~~
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >The `< email_to >` and `< email_from >` values can be the same. If you are running your own mail server and it's on the same server that OSSEC is installed, you may change the `< smtp_server >` value to `localhost`.
+{{< /note >}}
 
     After making changes to the email settings, save and close the file.
 

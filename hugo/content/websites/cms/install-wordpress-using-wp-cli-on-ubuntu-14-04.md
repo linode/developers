@@ -38,9 +38,10 @@ This guide is written for Ubuntu 14.04. Before moving ahead, make sure you have 
 * [Securing your Server](/docs/security/securing-your-server)
 * [How to Install a LAMP Stack on Ubuntu 14.04](/docs/websites/lamp/lamp-on-ubuntu-14-04)
 
-{: .note}
+{{< note >}}
 >
 >This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< /note >}}
 
 ## Install WP-CLI
 

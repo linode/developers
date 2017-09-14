@@ -66,9 +66,10 @@ Install the PostgreSQL database, Python, and other necessary server libraries:
 
 3.  Press **CTRL+D** to exit the `postgres` user session.
 
-{: .note}
+{{< note >}}
 >
 >If you want to run multiple Odoo instances on the same Linode remember to check your PostgreSQL client configuration file (as of the date this guide is published, located at `/etc/postgresql/9.5/main/pg_hba.conf`) and modify it according your needs.
+{{< /note >}}
 
 ## Create an Odoo User
 
@@ -76,9 +77,10 @@ In order to separate Odoo from other services, create a new Odoo system user to 
 
     sudo adduser --system --home=/opt/odoo --group odoo
 
-{: .note}
+{{< note >}}
 >
 >If you're running multiple Odoo versions on the same Linode, you may want to use different users and directories for each instance.
+{{< /note >}}
 
 ## Configure Logs
 
@@ -96,9 +98,10 @@ Clone the Odoo files onto your server:
 
     sudo git clone https://www.github.com/odoo/odoo --depth 1 --branch 10.0 --single-branch /opt/odoo
 
-{: .note}
+{{< note >}}
 >
 >Using git offers great flexibility. When a new upgrade is available, pull the new branch. You can even install a different version alongside the production one, just change the destination directory and the `--branch X.x` flag. Before upgrading, remember to make a full backup of your database and custom files.
+{{< /note >}}
 
 ### Install Dependencies for Odoo Applications 
 
@@ -148,9 +151,10 @@ These commands use the `requirements.txt` files provided with your Odoo installa
         sudo cp /usr/local/bin/wkhtmltopdf /usr/bin
         sudo cp /usr/local/bin/wkhtmltoimage /usr/bin
 
-{: .note}
+{{< note >}}
 >
 >While wkhtmltopdf version 0.12.2.4 is available in the official Ubuntu 16.04 repository, we don't advise installing it from there due to the large number of dependencies including: `xserver`, `gstreamer`, `libcups`, `wayland`, `qt5` and many more. There isn't an official Xenial package from the project page yet, but the Trusty package from Ubuntu 14.04 is compatible as of this publication.
+{{< /note >}}
 
 ## Odoo Server Configuration
 
@@ -160,8 +164,8 @@ These commands use the `requirements.txt` files provided with your Odoo installa
 
 2.  Next, modify the configuration file. The complete file should look similar to this, depending on your deployment needs:
 
-      {: .file}
-      /etc/odoo-server.conf
+      {{< file >}}
+/etc/odoo-server.conf
       :   ~~~ conf
           [options]
           admin_passwd = admin
@@ -174,6 +178,7 @@ These commands use the `requirements.txt` files provided with your Odoo installa
           ;logfile = /var/log/odoo/odoo-server.log
           xmlrpc_port = 8069
           ~~~
+{{< /file >}}
 
           *  `admin_passwd = admin` - This is the password that allows database operations. Be sure to change `admin` to something more secure.
           *  `db_host = False` - Unless you plan to connect to a different database server address, leave this line untouched.
@@ -184,15 +189,16 @@ These commands use the `requirements.txt` files provided with your Odoo installa
           *  Include the path to log files, and add a new line: `logfile = /var/log/odoo/odoo-server.log`. You can skip this line if you plan to only use `journald` for logging.
           *  Optionally, we could include a new line specifying the Odoo Frontend port used for connection: `xmlrpc_port = 8069`. This only makes sense if you're planning to run multiple Odoo instances (or versions) on the same server. For normal installation, you can skip this line and this instance of Odoo will connect by default to port `8069`.
 
-          {: .note}
-          >
+          {{< note >}}
+>
           >As explained in the [Configure Logs](#configure-logs) section, you have many options for Odoo logging in Ubuntu 16.04. This configuration file assumes you'll use Ubuntu system journals in addition to a custom log path.
+{{< /note >}}
 
 ### Create an Odoo Service
 
 Create a systemd unit called `odoo-server` to allow your application to behave as a service. Create a new file at `/lib/systemd/system/odoo-server.service` and add the following contents:
 
-{: .file}
+{{< file >}}
 /lib/systemd/system/odoo-server.service
 :   ~~~ shell
     [Unit]
@@ -213,6 +219,7 @@ Create a systemd unit called `odoo-server` to allow your application to behave a
     [Install]
     WantedBy=multi-user.target
     ~~~
+{{< /file >}}
 
 The most relevant line in this file is `StandardOutput=journal+console`. As configured in the example above, Odoo logs will be completely managed by the system journal (Option 2 in the [Configure Logs](#configure-logs) section). If you want a separate log file, omit that line and configure `odoo-server.conf` accordingly, specifying the location of your log file. Remember that `journald` will always capture main Odoo service activity (service start, stop, reboot, errors), using a separate log file will only exclude journal "info" messages like webserver messages, rendering engine, etc.
 
@@ -341,8 +348,8 @@ The advantage of using the same server is that all dependencies are already meet
 
 2.  Modify the configuration file, paying attention to changes from previous installation especially the inclusion of `logfile` and the communication port:
 
-    {: .file}
-    /etc/odoo-server.conf
+    {{< file >}}
+/etc/odoo-server.conf
     :   ~~~ conf
         [options]
         admin_passwd = admin
@@ -354,16 +361,18 @@ The advantage of using the same server is that all dependencies are already meet
         logfile = /var/log/odoo-te/odoo-server-te.log
         xmlrpc_port = 8080
         ~~~
+{{< /file >}}
 
 3.  Create a systemd unit for the Odoo testing environment. This allows you to run it as an independent service:
 
-    {: .file}
-    /lib/systemd/system/odoo-server-te.service
+    {{< file >}}
+/lib/systemd/system/odoo-server-te.service
     :   ~~~ shell
         [Unit]
         Description=Odoo Open Source ERP and CRM (Test Env)
         Requires=postgresql.service
         After=network.target postgresql.service
+{{< /file >}}
 
         [Service]
         Type=simple

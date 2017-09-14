@@ -18,9 +18,10 @@ external_resources:
 
 ![Install Plex Media Server on Ubuntu 16.04](/docs/assets/install-plex-media-server-on-ubuntu-16-04.png)
 
-{: .note}
+{{< note >}}
 >
 > This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< /note >}}
 
 ## Before you Begin
 

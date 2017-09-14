@@ -23,8 +23,8 @@ Use the Docker-maintained install script for Debian or Ubuntu. For other operati
 
         curl -sSL https://get.docker.com/ | sh
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >The current version of the Docker script checks for AUFS support and displays the warning below if support is not found:
     >
     >     Warning: current kernel is not supported by the linux-image-extra-virtual
@@ -33,6 +33,7 @@ Use the Docker-maintained install script for Debian or Ubuntu. For other operati
           + sleep 10
     >
     >This message can be safely ignored, as the script will continue the installation using DeviceMapper or OverlayFS. If you require AUFS support, you will need to configure a [distribution supplied](/docs/tools-reference/custom-kernels-distros/run-a-distributionsupplied-kernel-with-pvgrub) or [custom compiled](/docs/tools-reference/custom-kernels-distros/custom-compiled-kernel-with-pvgrub-debian-ubuntu) kernel.
+{{< /note >}}
 
 2.  If necessary, add the non-root user to the "docker" group:
 
@@ -41,9 +42,10 @@ Use the Docker-maintained install script for Debian or Ubuntu. For other operati
 ##Download the Docker Node.js Server Image
 The Docker Hub user page for Linode can be accessed [here](https://hub.docker.com/u/linode/). Select the **server-node-js** image for configuration information.
 
-{: .note}
+{{< note >}}
 >
 >Docker images made for one operating system can be used on servers running a different OS. The **server-node-js** Ubuntu 14.04 image was tested on Debian 7, Ubuntu 14.04, Centos 7 and Fedora 21. After Docker installation on Centos and Fedora, run the `sudo service docker start` command.
+{{< /note >}}
 
 1.  Search for **linode** images:
 

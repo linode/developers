@@ -57,7 +57,7 @@ TCP wrappers rely on two files in order to work: `/etc/hosts.allow` and `/etc/ho
 
 You can edit hosts.allow and hosts.deny with any text editor you like. Open the `hosts.deny` file in your preferred text editor. If you've never opened *hosts.deny* before it will look something like this:
 
-{: .file}
+{{< file >}}
 /etc/hosts.deny
 :   ~~~
     #
@@ -74,6 +74,7 @@ You can edit hosts.allow and hosts.deny with any text editor you like. Open the 
 	#		See 'man tcpd' for information on tcp_wrappers
 	#
     ~~~
+{{< /file >}}
 
 Rules can be added to this file. *hosts.deny* rules have to be inserted in a certain order, rules lower down in the file will be ignored if a rule higher up applies. Rules also have a specific syntax that you must adhere to. A rule looks like this:
 

@@ -23,9 +23,10 @@ external_resources:
 
 ![Install Ghost on Ubuntu 16.04](/docs/assets/install-ghost-on-ubuntu-16-04.png)
 
-{: .note}
+{{< note >}}
 >
 >This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< /note >}}
 
 ## Before you Begin
 
@@ -70,11 +71,12 @@ Next you'll configure nginx to receive requests and pass them along to Ghost.
 
 4. Paste the following configuration code into the file. Change `example.com` to your blog's domain.
 
-    {: .file}
-    /etc/nginx/sites-available/ghost
+    {{< file >}}
+/etc/nginx/sites-available/ghost
     :   ~~~ conf
         server {
           listen 80;
+{{< /file >}}
 
           server_name example.com;
 

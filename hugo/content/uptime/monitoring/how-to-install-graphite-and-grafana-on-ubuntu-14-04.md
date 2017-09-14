@@ -158,11 +158,12 @@ external_resources:
 
 2.  Change Graphite's port from 80 to 8080 (port 80 will be used for Grafana later).
 
-	{: .file}
-	/etc/apache2/sites-available/apache2-graphite.conf
+	{{< file >}}
+/etc/apache2/sites-available/apache2-graphite.conf
 	:   ~~~ conf
 		<VirtualHost *:8080>		
     	~~~
+{{< /file >}}
 
 3.  Make sure Apache is listening on port 8080. Add `Listen 8080` after `Listen 80` in `ports.conf`:
 
@@ -252,8 +253,8 @@ external_resources:
 
 7.  Create an Apache site configuration file to proxy requests to Grafana. Remember to change `example.com` to your own domain:
 
-	{: .file}
-	/etc/apache2/sites-available/apache2-grafana.conf
+	{{< file >}}
+/etc/apache2/sites-available/apache2-grafana.conf
 	:   ~~~ conf
 		<VirtualHost *:80>
 	 	ProxyPreserveHost On
@@ -262,6 +263,7 @@ external_resources:
 	 	ServerName example.com
 		</VirtualHost>
 		~~~
+{{< /file >}}
 
 7.  Enable Grafana's site configuration with:
 

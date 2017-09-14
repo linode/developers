@@ -30,9 +30,10 @@ earn $250 per published guide.*
 
 2.  Complete our guide: [Install SteamCMD for a Steam Game Server](/docs/applications/game-servers/install-steamcmd-for-a-steam-game-server). This will get SteamCMD installed and running on your Linode and this guide will pick up where the SteamCMD page leaves off.
 
-{: .note}
+{{< note >}}
 >
 >This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< /note >}}
 
 
 ## Prerequisites for Don't Starve Together
@@ -81,9 +82,10 @@ From the SteamCMD guide, two additional steps are needed specifically for DST.
 
         quit
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >To update DST, run the above 4 commands again.
+{{< /note >}}
 
 ## Configure Don’t Starve Together
 
@@ -203,8 +205,9 @@ You will need Don’t Starve Together installed on your personal computer to get
 
         cd ~/ && ./startdst.sh
 
-    {: .caution}
-    >From this point, do not press the **Control+C** keys while in the console unless you want to stop DST.
+    {{< caution >}}
+>From this point, do not press the **Control+C** keys while in the console unless you want to stop DST.
+{{< /caution >}}
 
 2.  To detach from the screen session running the server console, press these two key combinations in succession:
 

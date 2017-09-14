@@ -33,8 +33,9 @@ It's regularly updated with security patches, and runs on the [grsecurity](https
 
 4.  This guide assumes a consistent present working directory, meaning all commands should be run from the same directory. In most cases, it will be `/alpine` or a chroot of said directory.
 
-{: .caution}
+{{< caution >}}
 > While this guide will provide you with a fully operational Alpine installation, be aware that Linode does not provide official support for Alpine Linux and cannot guarantee its stability or security. Please consider this before proceeding.
+{{< /caution >}}
 
 ## Prepare the Linode
 
@@ -46,17 +47,19 @@ In this section, we'll create the disk images necessary to install Alpine Linux.
 
 2.  Create your boot disk image by selecting **Create a new Disk** under the Disks section. The size should be between 128 and 256 MB, and the type should be **ext4**.
 
-    {: .note}
-    >
+    {{< note >}}
+>
     > Boot drives (disk images) will need to store your kernel and your initramfs. Currently, Alpine will need about 21 MB for each kernel/initramfs combination, so even 128 MB is enough for several kernel versions, just remember to keep an eye on the available storage in `/boot` when you perform upgrades of the kernel.
+{{< /note >}}
 
 3.  Create your root disk image with as much space as you need, although if you want a swap disk image, make sure you leave room for it. The root disk image should be of the **ext4** type as well.
 
 4.  Optionally, create a swap disk image with type **swap**.
 
-    {: .note}
-    >
+    {{< note >}}
+>
     > Between 256 and 512 MB of swap is a good estimate. Many sources recommend much more than this, but a new installation of Alpine will use less than 50 MB of RAM when fully booted.
+{{< /note >}}
 
 ### Configuration Profile
 

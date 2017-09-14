@@ -31,9 +31,10 @@ external_resources:
 
 2.  Complete our guide: [Install SteamCMD for a Steam Game Server](/docs/applications/game-servers/install-steamcmd-for-a-steam-game-server). This will get SteamCMD installed and running on your Linode and this guide will pick up where the SteamCMD page leaves off.
 
-{: .note}
+{{< note >}}
 >
 >This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< /note >}}
 
 ## Prerequisites for Counter-Strike: Global Offensive
 
@@ -72,9 +73,10 @@ From the SteamCMD guide, one additional step is needed specifically for CS:GO.
 
         quit
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >To update CS:GO, run the above 4 commands again.
+{{< /note >}}
 
 ## Game Server Login Token
 
@@ -84,8 +86,8 @@ CS:GO requires a server token unless you want to limit players to only clients c
 
 1.  Create a file called `server.cfg` using your prefered text editor. Choose a hostname and a unique RCON password that you don't use elsewhere.
 
-    {: .file}
-    ~/Steam/csgo-ds/csgo/cfg/server.cfg
+    {{< file >}}
+~/Steam/csgo-ds/csgo/cfg/server.cfg
     :   ~~~ config
         hostname "server_hostname"
         sv_password "server_password"
@@ -96,6 +98,7 @@ CS:GO requires a server token unless you want to limit players to only clients c
         writeid
         writeip
         ~~~
+{{< /file >}}
 
     For an extensive list of `server.cfg` options, see [this page](http://csgodev.com/csgodev-server-cfg-for-csgo/).
 
@@ -122,8 +125,9 @@ CS:GO requires a server token unless you want to limit players to only clients c
 
         cd ~/ && ./startcsgo.sh
 
-    {: .caution}
-    >From this point, do not press the **Control+C** keys while in the console unless you want to stop CS:GO.
+    {{< caution >}}
+>From this point, do not press the **Control+C** keys while in the console unless you want to stop CS:GO.
+{{< /caution >}}
 
 2.  To detach from the screen session running the server console, press these two key combinations in succession:
 

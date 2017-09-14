@@ -20,9 +20,10 @@ Linode Guides and Tutorials manages bounty guides through the use of GitHub. In 
 
 This guide assumes that you've signed up for a [GitHub Account](https://www.github.com), and that you've followed the sections for installing and configuring Git on your local machine contained within our [Git Source Control Management](/docs/development/version-control/how-to-install-git-on-mac-and-windows/) guide.
 
-{: .note}
+{{< note >}}
 >
 > If you are following these instructions on a Windows system, all commands will need to be run via the [Git Bash console](http://git-scm.com/downloads).
+{{< /note >}}
 
 ## Submitting New Guides or Changes with Git
 
@@ -100,9 +101,10 @@ Once you've cloned a local copy of your repository, you will need to make a bran
 
 4.  Using your preferred text editor, you should now be able to edit and create documents within your new branch:
 
-    {: .note}
-    >
+    {{< note >}}
+>
     > The folder structure within the repository's `docs` folder matches the structure used by the Linode Guides and Tutorials website.  Please ensure that your guides are located in the appropriate directory within that file structure.  If you have any questions regarding the folder structure or where your new guide should be located, please email [contribute@linode.com](mailto:contribute@linode.com) for more information.
+{{< /note >}}
 
 5.  Once you have completed composing or making edits to a guide, you can use the `git status` command to view the status of your changes.  You should receive output resembling the following:
 
@@ -194,9 +196,10 @@ If you are working on multiple guide submissions or changes, you will need to ut
 		git checkout master
 		git branch -d guide-title-2
 
-    {: .note}
-    >
+    {{< note >}}
+>
     > Git will warn you if you attempt to delete a branch with unmerged changes.  If you wish to remove a branch with unmerged changes, you can force removal by substituting the `-D` flag.
+{{< /note >}}
 
 ## Reporting Issues with Existing Guides
 

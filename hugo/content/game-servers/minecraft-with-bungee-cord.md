@@ -23,9 +23,10 @@ alias: ['applications/game-servers/minecraft-with-bungee-cord/']
 
 After you’ve got a Minecraft server up and running with [Spigot on Debian and Ubuntu](/docs/game-servers/minecraft-with-spigot-ubuntu), you may want to connect different servers with different collections of plugins. BungeeCord acts as a proxy between the Minecraft client and the server, and allows for simple and easy switching between your Spigot servers. It allows for players to connect to one address, yet also access a wider variety of activities than can be easily set up on a single Minecraft server instance.
 
-{: .note}
+{{< note >}}
 >
 >This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< /note >}}
 
 ## Setting Up Your Linode
 
@@ -65,9 +66,10 @@ If you're using iptables or ufw to act as a firewall, you'll need to make a rule
 
 For BungeeCord, the Spigot servers need to be in offline mode, as the BungeeCord proxy handles the authentication. This can make the servers vulnerable to people connecting directly, as they can connect with any username, potentially allowing for connection as a user with adminsitrative permissions. To prevent this, you can set up iptables to limit connections to only the BungeeCord server.
 
-{: .note}
+{{< note >}}
 >
 > This section assumes that you've only got a Spigot server running on each Linode. If you have other services, you'll need to modify the rules to allow them to continue working.
+{{< /note >}}
 
 1.  Delete existing rules and then allow SSH. If you've changed your SSH port, make sure to change the `22` below:
 
@@ -78,9 +80,10 @@ For BungeeCord, the Spigot servers need to be in offline mode, as the BungeeCord
 
         sudo iptables -A INPUT -p tcp -s `203.0.113.0` --dport 25565 -j ACCEPT
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >If you're running other Spigot servers on the same Linode, then you will need to run step 2 again, but changing `25565` to the port of the other servers.
+{{< /note >}}
 
 3.  Allow loopback traffic through the firewall:
 
@@ -103,9 +106,10 @@ Log into the BungeeCord Linode as the `bungeecord` user created earlier, and dow
 
 	wget -O BungeeCord.jar http://ci.md-5.net/job/BungeeCord/lastSuccessfulBuild/artifact/bootstrap/target/BungeeCord.jar
 
-{: .note}
+{{< note >}}
 >
 > This downloads the latest version of BungeeCord. You can find older versions for older Minecraft server versions, [here](http://ci.md-5.net/job/BungeeCord/).
+{{< /note >}}
 
 
 ### Setting up BungeeCord
@@ -161,13 +165,14 @@ Log into the BungeeCord Linode as the `bungeecord` user created earlier, and dow
 
 1.  Create the file:
 
-    {: .file}
-    /home/bungeecord/bungeestart.sh
+    {{< file >}}
+/home/bungeecord/bungeestart.sh
     :   ~~~ shell
         #!/bin/bash	
     
         screen -dmS "bungeecord" java -jar BungeeCord.jar
         ~~~
+{{< /file >}}
 
 2.  Run `chmod +x bungeestart.sh`, to make the file executable.
 

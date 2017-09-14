@@ -36,19 +36,21 @@ PHP-FPM also offers more security, since scripts are not run as the Apache user.
 
         sudo apt-get update && sudo apt-get upgrade
 
-{: .note}
+{{< note >}}
 >
 >This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< /note >}}
 
 ## Install Apache and PHP-FPM
 
 1.  Due to the PHP-FPM's licensing, it's not available in Debian's main repository. Open the `sources.list` file and add `contrib` and `non-free` to each source line:
 
-    {: .file}
-    /etc/apt/sources.list
+    {{< file >}}
+/etc/apt/sources.list
     :   ~~~
         deb http://mirrors.linode.com/debian/ jessie main contrib non-free
         deb-src http://mirrors.linode.com/debian/ jessie main contrib non-free
+{{< /file >}}
 
         deb http://security.debian.org/ jessie/updates main contrib non-free
         deb-src http://security.debian.org/ jessie/updates main non-free
@@ -81,8 +83,8 @@ PHP-FPM also offers more security, since scripts are not run as the Apache user.
 
 3.  Replace the contents of `fastcgi.conf` with the following:
 
-    {: .file}
-    /etc/apache2/mods-enabled/fastcgi.conf
+    {{< file >}}
+/etc/apache2/mods-enabled/fastcgi.conf
     :   ~~~ conf
         <IfModule mod_fastcgi.c>
             AddType application/x-httpd-fastphp5 .php
@@ -94,6 +96,7 @@ PHP-FPM also offers more security, since scripts are not run as the Apache user.
             </Directory>
         </IfModule>
         ~~~
+{{< /file >}}
 
 4.  Confirm that you've properly copied the correct configuration:
 
@@ -107,11 +110,12 @@ PHP-FPM also offers more security, since scripts are not run as the Apache user.
 
 6.  To confirm that PHP is working, create an `info.php` file in one of your web directories:
 
-    {: .file}
-    /var/www/example.com/public_html/info.php
+    {{< file >}}
+/var/www/example.com/public_html/info.php
     :   ~~~ php
         <?php phpinfo(); ?>
         ~~~
+{{< /file >}}
 
     Navigate to `http://example.com/info.php` and look for the **Server API** line:
 
@@ -163,8 +167,9 @@ This is particularly useful when running multiple client sites because you can g
         listen = /var/run/php5-fpm-site1.com.sock
         ~~~
 
-    {: .note}
-    > In the file excerpt above, three sequential dots - `...`  - denote that there is more in this file than is being shown. The three sequential dots are not a literal section to be copied.
+    {{< note >}}
+> In the file excerpt above, three sequential dots - `...`  - denote that there is more in this file than is being shown. The three sequential dots are not a literal section to be copied.
+{{< /note >}}
 
 3.  Restart the PHP-FPM service:
 

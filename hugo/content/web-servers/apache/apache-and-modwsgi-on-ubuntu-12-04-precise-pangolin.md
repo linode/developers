@@ -35,9 +35,10 @@ The WSGI specification provides a standard and efficient method for dynamic web 
         sudo apt-get update
         sudo apt-get upgrade
 
-{: .note}
+{{< note >}}
 >
 >The steps required in this guide require root privileges. Be sure to run the steps below as **root** or with the `sudo` prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< /note >}}
 
 ## Install Dependencies
 

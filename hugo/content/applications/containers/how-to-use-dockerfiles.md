@@ -30,10 +30,11 @@ You can use a Dockerfile to automate installation and configuration of an image 
 
 A `dockerfile` is a text file that contains the necessary commands to assemble an image. Once a Dockerfile is created, the administrator uses the `docker build` command to create an image based on the commands within the file. The commands and information within the `dockerfile` can be configured to use specific software versions and dependencies to ensure consistent and stable deployments.
 
-{: .note}
+{{< note >}}
 >Do not store the Dockerfile in your root directory.
 >
 >Create a separate directory for the Dockerfile and place all necessary files within the same directory as the Dockerfile.
+{{< /note >}}
 
 A Dockerfile uses the following commands for building the images:
 

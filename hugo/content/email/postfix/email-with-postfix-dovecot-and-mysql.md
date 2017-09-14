@@ -38,11 +38,12 @@ Ensure that the MX record is changed for all domains and subdomains that might r
 
 Dovecot offers a default self-signed certificate for free. This certificate encrypts the mail connections similar to a purchased certificate. However, the email users receive warnings about the certificate when they attempt to set up their email accounts. Optionally, you can purchase and configure a commercial SSL certificate to avoid the warnings. For information about SSL certificates, see [Linode's SSL Certificate guides](/docs/security/ssl/).
 
-{: .note}
+{{< note >}}
 >
 > As of version 2.2.13-7, Dovecot no longer provides a default SSL certificate. This affects Debian 8 users, and means that if you wish to use SSL encryption (recommended), you must generate your own self-signed certificate or use a trusted certificate from a Certificate Authority.
 >
 > Many email service providers such as Gmail will only accept commercial SSL certificates for secure IMAP/POP3 connections. To communicate with these providers, follow our guide for obtaining a commercial SSL certificate for [Debian and Ubuntu](/docs/security/ssl/obtain-a-commercially-signed-ssl-certificate-on-debian-and-ubuntu) or [CentOS and Fedora](/docs/security/ssl/obtain-a-commercially-signed-ssl-certificate-on-centos-and-fedora).
+{{< /note >}}
 
 ## Installing Packages
 

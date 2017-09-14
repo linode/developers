@@ -153,13 +153,15 @@ The process of obtaining a trusted certificate is outside the scope of this guid
 
 The next section assumes you have the .key and .crt (or .pem) file in hand and are ready to go.
 
-{: .note}
+{{< note >}}
 >Be sure to apply for a certificate covering either your subdomain (mail.yourdomain.com) or a wildcard of your domain so all subdomains are covered).
+{{< /note >}}
 
 After first logging in to the postmaster account, you should have two emails waiting for you. The first is titled "Helpful Links iRedMail" and the second is titled "Details of this iRedMail installation." In the 2nd email, there are various file paths we'll need, since we'll be replacing the SSL certificate and need to know the DKIM public key for our DNS TXT entry. First up, certificate replacement.
 
-{: .note}
+{{< note >}}
 >For if your certificate issuer uses `.pem` files instead of `.crt`, be sure to replace the file extension in the instructions below.
+{{< /note >}}
 
 ### Certificates
 
@@ -281,14 +283,15 @@ AWStats quickly analyzes and displays log files/server activity via a few web-ba
 
 4.  Edit `awstats.conf` to mirror the example text below, by adding the `mod_authn_dbd` section and commenting out the `Auth_MySQL` section.
 
-    {: .file}
-    /etc/apache2/conf-available/awstats.conf
+    {{< file >}}
+/etc/apache2/conf-available/awstats.conf
     :   ~~~ conf
         <Directory /usr/lib/cgi-bin/>
             DirectoryIndex awstats.pl
             Options ExecCGI
             AuthType Basic
             AuthName "Authorization Required"
+{{< /file >}}
 
             ##############################
             # mod_auth_mysql (deprecated)#
@@ -322,13 +325,14 @@ AWStats quickly analyzes and displays log files/server activity via a few web-ba
 
 5.  Edit `cluebringer.conf` to mirror the example text below, by adding the `mod_authn_dbd` section and commenting out `Auth_MySQL` section).
 
-    {: .file}
-    /etc/apache2/conf-available/cluebringer.conf
+    {{< file >}}
+/etc/apache2/conf-available/cluebringer.conf
     :   ~~~ conf
          <Directory /usr/share/postfix-cluebringer-webui/webui/>
             DirectoryIndex index.php
             AuthType basic
             AuthName "Authorization Required"
+{{< /file >}}
 
             ##############################
             # mod_auth_mysql (deprecated)#

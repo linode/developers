@@ -191,8 +191,8 @@ The workstation is used to add and edit cookbooks and other configuration files.
 
 2.	Copy the following configuration into the `knife.rb` file:
 
-	{: .file}
-	~/chef-repo/.chef/knife.rb
+	{{< file >}}
+~/chef-repo/.chef/knife.rb
 	:	~~~
 		log_level                :info
 		log_location             STDOUT
@@ -204,6 +204,7 @@ The workstation is used to add and edit cookbooks and other configuration files.
 		syntax_check_cache_path  '~/chef-repo/.chef/syntax_check_cache'
 		cookbook_path [ '~/chef-repo/cookbooks' ]
 		~~~
+{{< /file >}}
 
 	Change the following:
 

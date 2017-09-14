@@ -47,8 +47,8 @@ This guide explains how to set up [Subsonic](http://subsonic.org) on a Linode ru
 
 3. Open the configuration file `/etc/default/subsonic`:
 
-    {: .file}
-    /etc/default/subsonic
+    {{< file >}}
+/etc/default/subsonic
     :   ~~~
         # 
         # This is the configuration file for the Subsonic service
@@ -67,6 +67,7 @@ This guide explains how to set up [Subsonic](http://subsonic.org) on a Linode ru
         # SUBSONIC_ARGS="--port=80 --https-port=443 --max-memory=200"
         
         SUBSONIC_ARGS="--max-memory=150"
+{{< /file >}}
 
         # The user which should run the Subsonic process. Default "root".
         # Note that non-root users are by default not allowed to use ports
@@ -95,9 +96,10 @@ This guide explains how to set up [Subsonic](http://subsonic.org) on a Linode ru
         SUBSONIC_USER=subsonic
         ~~~
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >If you have a firewall set up on your Linode, be sure to edit the permissions to allow connections from the port Subsonic is listening on.
+{{< /note >}}
 
 3. Start Subsonic:
 
@@ -126,9 +128,10 @@ This guide explains how to set up [Subsonic](http://subsonic.org) on a Linode ru
 
 5. Create a password for your admin account. You can also set up any other accounts at this time. 
 
-    {: .note}
-    >
+    {{< note >}}
+>
 	>Passwords in the Subsonic database are stored in hex format, but not encrypted.
+{{< /note >}}
 
 6.  Click on the **Media folders** link. Here you will need to point Subsonic to where you wish to store your music. If you decide to store your music files in `/var/music`, Subsonic's default directory, you can skip this step. Once you've pointed Subsonic to the correct directory and uploaded your music, you can press **Scan media folders now**. Subsonic will then create a database of music files.
 

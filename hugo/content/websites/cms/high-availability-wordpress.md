@@ -19,8 +19,9 @@ This guide configures a high availability WordPress site with a two-Linode clust
 This guide is written for Debian 7 or Ubuntu 14.04. To complete this guide, ensure that there are two Linodes and a NodeBalancer present on your account.  Both Linodes need a [Private IP address](/docs/networking/remote-access#adding-private-ip-addresses). Also ensure that both of your Linodes have been configured with SSH keys, and place the opposing Linode's SSH key in the other's `/.ssh/authorized_keys` file.
 
 
-{: .note}
+{{< note >}}
 >This guide is written for a non-root user. Commands that require elevated privileges are prefixed with ``sudo``. If you're not familiar with the ``sudo`` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< /note >}}
 
 ##Install Required Software Packages
 
@@ -137,8 +138,9 @@ Use the following commands to install Apache, PHP, and MySQL on each of the Lino
 
 The steps in this section will need to be performed on **both** of your Linodes.
 
-{: .note}
+{{< note >}}
 >For the following sections of this guide, replace "example.com" with your domain name.
+{{< /note >}}
 
 1.  Disable the default Apache virtual host by entering the following command:
 
@@ -217,19 +219,21 @@ The steps in this section will need to be performed on **both** of your Linodes.
 
 4.  Connect to your Linode's IP address using your web browser, and walk through the configuration steps to fully install WordPress.
 
-    {: .caution}
-    >In order to ensure that each of your WordPress instances addresses the local database, you will need to ensure that the Database Host value in this step is set to `localhost`.  This should be filled in by default.
+    {{< caution >}}
+>In order to ensure that each of your WordPress instances addresses the local database, you will need to ensure that the Database Host value in this step is set to `localhost`.  This should be filled in by default.
+{{< /caution >}}
 
 5.  Configure your WordPress URL and Site Address via the General Settings in the WordPress admin interface. Ensure that your domain is configured in both fields.
 
     [![WordPressURL](/docs/assets/WP-site-address-rs.png)](/docs/assets/WP-site-address.png)
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >After completing your WordPress installation steps and logging in for the first time, you should reset permissions on your Document Root directory to ensure additional security. You can do so with the following command:
     >
     >
     >     chmod 755 /var/www/example.com/public_html/
+{{< /note >}}
 
 6.  Once the WordPress installation steps have been completed, copy the configurations to your second Linode. Replace `x.x.x.x` with the second Linode's IP address:
 

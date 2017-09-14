@@ -21,8 +21,9 @@ If you intend to use your SSL certificate on a website powered by Apache, contin
 
 For an SSL setup with Nginx, please start with our [Nginx and SSL](/docs/security/ssl/provide-encrypted-resource-access-using-ssl-certificates-on-nginx) guide.
 
-{: .note}
+{{< note >}}
 >The steps in this guide require root privileges. Be sure to run the steps below as **root** or with the `sudo` prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< /note >}}
 
 ## Before You Begin
 

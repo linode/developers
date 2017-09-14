@@ -47,9 +47,10 @@ Linux and OS X can use SCP natively from the command line. To download your clie
 
     scp example_user@server_ip_address:/etc/openvpn/client1.tar.gz ~/
 
-{: .note}
+{{< note >}}
 >
 >`example_user` is the VPN server's user account you want to connect as.
+{{< /note >}}
 
 ### Windows
 
@@ -103,9 +104,10 @@ Apple's iOS for iPhones and iPads uses OpenVPN Connect to manage OpenVPN connect
 
     [![iTunes device summary](/docs/assets/itunes-device-summary-small.png)](/docs/assets/itunes-device-summary.png)
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >If this is the first time connecting your iOS device to iTunes, you'll need to click on the overflow menu (the three horizontal dots) and choose **Apps**, then click **Get Started**.
+{{< /note >}}
 
 4.  In the left sidebar, choose **Apps** and scroll down to the **File Sharing** category in the main window. You will see the icon for OpenVPN Connect. Click it, then click **Add** in the **OpenVPN Documents** box. Navigate to your `ta.key` file and `.opvn` client profile and drag them into the window from Finder. If you add them individually, add the key before the client profile. Otherwise, OpenVPN Connect will say it can't find the key.
 

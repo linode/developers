@@ -37,9 +37,10 @@ Now that the Linode is running in Rescue Mode, you can transfer the disk from th
 
         ssh root@123.45.67.89 "dd if=/dev/sda " | dd of=/home/archive/linode.img
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >The device `/dev/sda` is used for Linodes running on top of KVM. If you Linode is still using XEN, then throughout this guide you must use `/dev/xvda` instead.
+{{< /note >}}
 
 2.  The receiving machine will connect to the Linode. Type `yes` and press Enter to continue connecting:
 
@@ -61,9 +62,10 @@ Now that the Linode is running in Rescue Mode, you can transfer the disk from th
         4096000+0 records out
         2097152000 bytes (2.1 GB) copied, 364.002 s, 5.8 MB/s
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >Copying your disk can take a while. Please be patient. If you receive a `Write failed: Broken pipe` error, repeat this step.
+{{< /note >}}
 
 
 
@@ -119,9 +121,10 @@ Once you have a copy of your Linode's disk you may want to upload that copy from
         49807360+0 records out
         25501368320 bytes (26 GB) copied, 9462.12 s, 2.7 MB/s
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >Copying your disk can take a while. Please be patient. If you receive a `Write failed: Broken pipe` error, repeat this step.
+{{< /note >}}
 
 ###Verifying the Disk
 

@@ -26,8 +26,9 @@ Ubuntu 16.04 is a Long-Term Support (LTS) release that will be supported by Cano
 >
 >**Important:** Ubuntu 16.04 ships with OpenSSH 7.2p2, which does not allow `ssh-dss` host authentication, or use of the SSH version 1 protocol. 
 
-{: .note}
+{{< note >}}
 >The steps required in this guide require root privileges. Be sure to run the steps below as **root** or with the `sudo` prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< /note >}}
 
 ## Prepare to Upgrade
 
@@ -75,10 +76,11 @@ Remember to perform these steps in a Lish or Glish session:
 
 2.  Open `/etc/update-manager/release-upgrades` and verify that the `Prompt` value is set to `lts`:
 
-    {: .file}
-    /etc/update-manager/release-upgrades
+    {{< file >}}
+/etc/update-manager/release-upgrades
     :   ~~~
         # Default behavior for the release upgrader.
+{{< /file >}}
 
         [DEFAULT]
         # Default prompting behavior, valid options:

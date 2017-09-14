@@ -31,9 +31,10 @@ This guide explains how to install a graphic desktop environment on your Linode 
 
         sudo apt-get update && sudo apt-get upgrade
 
-{: .note}
+{{< note >}}
 >
 >This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< /note >}}
 
 ## Install a Desktop and VNC Server on your Linode
 
@@ -41,10 +42,11 @@ This guide explains how to install a graphic desktop environment on your Linode 
 
         sudo apt-get install ubuntu-desktop gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal
 
-    {: .note}
-    > This will install the full Ubuntu desktop environment, including office and web browsing tools. To install the desktop without these packages, run:
+    {{< note >}}
+> This will install the full Ubuntu desktop environment, including office and web browsing tools. To install the desktop without these packages, run:
     >
     >     sudo apt-get install --no-install-recommends ubuntu-desktop gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal
+{{< /note >}}
 
     During the install process, you will be asked whether or not to change a system file to the new version:
 

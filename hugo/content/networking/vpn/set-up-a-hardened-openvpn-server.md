@@ -61,10 +61,11 @@ For these reasons, this series assumes your VPN will operate over IPv4 only. If 
 
 2.  See our [Securing Your Server](/docs/security/securing-your-server/#configuring-a-firewall) guide and complete the section on iptables for Debian **using the ruleset below**:
 
-    {: .file}
-    /tmp/v4
+    {{< file >}}
+/tmp/v4
     :   ~~~ conf
         *filter
+{{< /file >}}
 
         # Allow all loopback (lo) traffic and reject anything
         # to localhost that does not originate from lo.
@@ -143,10 +144,11 @@ If you are exclusively using IPv4 on your VPN, IPv6 should be disabled unless yo
 
 4.  Add an ip6tables ruleset to reject all v6 traffic. Your `rules.v6` file should look like this:
 
-    {: .file}
-    /etc/iptables/rules.v6
+    {{< file >}}
+/etc/iptables/rules.v6
     :   ~~~ conf
         *filter
+{{< /file >}}
 
         -A INPUT -j REJECT
         -A FORWARD -j REJECT
@@ -339,9 +341,10 @@ Each client device connecting to the VPN should have its own unique key. Further
 
     cd /etc/openvpn/easy-rsa && source ./vars && ./build-key client1
 
-{: .note}
+{{< note >}}
 >
 >Anyone with access to `client1.key` will be able to access your VPN. To better protect against this scenario, you can issue `./build-key-pass client1` instead to build a client key which is encrypted with a passphrase.
+{{< /note >}}
 
 ## Client Configuration File
 
@@ -424,9 +427,10 @@ Each client needs a configuration file defining the OpenVPN server's settings fo
     tar -C /etc/openvpn/easy-rsa/keys -cvzf /etc/openvpn/client1.tar.gz {ca.crt,client1.crt,client1.key,client.ovpn,ta.key}
     ~~~
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >Windows will need [7zip](http://www.7-zip.org/) to extract `.tar` files, or you can use the package [zip](http://linux.die.net/man/1/zip) to create a `.zip` archive.
+{{< /note >}}
 
 8.  You no longer need to be `root`, so exit back to your standard user:
 

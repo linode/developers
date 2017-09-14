@@ -30,9 +30,10 @@ The [PostgreSQL](http://www.postgresql.org/) relational database system is a pow
 
         sudo yum update
 
-{: .note}
+{{< note >}}
 >
 >This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, visit the [Users and Groups guide](/docs/tools-reference/linux-users-and-groups) for more information.
+{{< /note >}}
 
 ## Install PostgreSQL
 
@@ -59,9 +60,10 @@ Unless otherwise noted, the instructions in subsequent sections of this guide wi
 
 Alternatively, you can install the latest version from the Postgres repositories. As of this publication, PostgreSQL `9.6.3` is the most recent version available for CentOS 7, but these steps can be applied to any RPM-based installation.
 
-{: .note}
+{{< note >}}
 >
 >When Postgres is installed using this method, the version number is included in its configuration directories. For example, `/var/lib/pgsql` becomes `/var/lib/pgsql/9.6`. This is also the case with systemd units; `systemctl status postgresql` becomes `systemctl status postgresql-9.6`.
+{{< /note >}}
 
 1.  Select the version you wish to install from the [Postgres Yum repositories](https://yum.postgresql.org/repopackages.php). Locate the CentOS 7 link for your chosen version and download it to your Linode:
 
@@ -91,9 +93,10 @@ Alternatively, you can install the latest version from the Postgres repositories
 
 By default, PostgreSQL will create a Linux user named `postgres` to access the database software.
 
-{: .caution}
+{{< caution >}}
 >
 >The `postgres` user should not be used for other purposes (e.g., connecting to other networks). Doing so presents a serious risk to the security of your databases.
+{{< /caution >}}
 
 1.  Change the `postgres` user's Linux password:
 
@@ -186,8 +189,9 @@ You can delete, or *drop*, databases with the `dropdb` command. For example, to 
 
     dropdb mytestdb
 
-{: .caution}
+{{< caution >}}
 >Deleted databases cannot be recovered.
+{{< /caution >}}
 
 ## Work With Tables
 
@@ -447,9 +451,10 @@ Commands in this section should be run as the `postgres` Linux user unless other
 
     Replace `peer` with `md5` on this line to activate password authentication using an MD5 hash.
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >If you installed PostgreSQL from the [Postgres repositories](#install-from-the-postgres-repositories), you will need to specify your version number in this file path, for example: `/var/lib/pgsql/9.6/data/pg_hba.conf`.
+{{< /note >}}
 
 2.  To enable these changes, you need to restart PostgreSQL. However, you did not grant the `postgres` user sudo privileges for security reasons. Return to the normal user shell:
 

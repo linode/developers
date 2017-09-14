@@ -20,9 +20,10 @@ external_resources:
 
 A LAMP (Linux, Apache, MySQL, PHP) stack is a common web stack used to prepare servers for hosting web content. This guide shows you how to install a LAMP stack on a Debian 7 (Wheezy) Linode.
 
-{: .note}
+{{< note >}}
 >
 >This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< /note >}}
 
 ## Before You Begin
 
@@ -83,9 +84,10 @@ There are different ways to set up virtual hosts; however, the method below is r
         </VirtualHost>
         ~~~
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >The `ErrorLog` and `CustomLog` entries are suggested for more fine-grained logging, but are not required. If they are defined (as shown above), the `logs` directories must be created before you restart Apache.
+{{< /note >}}
 
 2.  Create the above-referenced directories:
 
@@ -96,11 +98,12 @@ There are different ways to set up virtual hosts; however, the method below is r
 
         sudo a2ensite example.com.conf
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >If you need to disable your website later, run:
     >
     >     sudo a2dissite example.com.conf
+{{< /note >}}
 
 4.  Restart Apache:
 
@@ -164,9 +167,10 @@ With Apache and MySQL installed, you are now ready to move on to installing PHP.
         max_input_time = 30
         ~~~
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >Ensure the lines above are uncommented. Commented lines begin with a semicolon (**;**).
+{{< /note >}}
 
 3.  Create the log directory for PHP and give the Apache user ownership:
 

@@ -348,10 +348,11 @@ Warp is a fast http server, but it lacks some advanced features like virtual hos
 
 Create the file ``/etc/nginx/sites-available/myblog``:
 
-{: .file}
+{{< file >}}
 /etc/nginx/sites-available/myblog
 :   ~~~ nginx
     server {
+{{< /file >}}
 
         listen 80;
 

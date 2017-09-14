@@ -40,9 +40,10 @@ Preconfigured software stacks sometimes bring a series of challenges to those wh
 
         sudo apt-get update && sudo apt-get upgrade
 
-{: .note}
+{{< note >}}
 >
 >This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, visit our [Users and Groups guide](/docs/tools-reference/linux-users-and-groups) for more information.
+{{< /note >}}
 
 ## Install Omnibus GitLab
 
@@ -98,14 +99,16 @@ Now that GitLab's bundled nginx has been disabled, the next step is to install a
 
 3.  Add Passenger's APT repository by adding the following lines to `/etc/apt/sources.list.d/passenger.list`:
 
-    {: .file}
-    /etc/apt/sources.list.d/passenger.list
+    {{< file >}}
+/etc/apt/sources.list.d/passenger.list
     :   ~~~
         deb https://oss-binaries.phusionpassenger.com/apt/passenger trusty main
         ~~~
+{{< /file >}}
 
-    {: .note}
-    > If you're using Ubuntu 16.04, replace `trusty` with `xenial` in the above command.
+    {{< note >}}
+> If you're using Ubuntu 16.04, replace `trusty` with `xenial` in the above command.
+{{< /note >}}
 
 4.  Update your package repositories:
 
@@ -143,12 +146,13 @@ In this section, we'll create a new virtual host to serve GitLab. Since we've un
 
 2.  Edit your new virtual host file to match the following, replacing `example.com` with your own hostname:
 
-    {: .file}
-    /etc/nginx/sites-available/example.com
+    {{< file >}}
+/etc/nginx/sites-available/example.com
     :   ~~~
         upstream gitlab {
        	    server unix:/var/opt/gitlab/gitlab-rails/sockets/gitlab.socket;
         }
+{{< /file >}}
 
 	    server {
             listen 80;

@@ -21,8 +21,9 @@ In this guide you'll learn how to install Magento on CentOS 7. Magento Community
 
 Considering the resources some Magento plugins demand, we strongly recommend that you have at least a **Linode 4GB**. You'll need to allocate up to 2GB of memory for PHP and Magento to use; running Magento on a smaller Linode may result in server crashes or unreliability under medium to heavy traffic. For more memory-intensive Magento setups, we recommend using a [high memory Linode](https://www.linode.com/pricing#high-memory).
 
-{: .note}
+{{< note >}}
 > This guide explains how to install the latest Magento release at the time of publication. For the Community Edition, this will be version 2.1.x. If you plan to use data, themes and extensions from an older Magento site, be sure to check for compatibility issues between the two versions since not everything may function as it did in older releases.
+{{< /note >}}
 
 ## Before You Begin
 
@@ -36,9 +37,10 @@ Considering the resources some Magento plugins demand, we strongly recommend tha
 
         sudo yum update
 
-{: .note}
+{{< note >}}
 >
 >This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< /note >}}
 
 ## Prepare Your Server for Magento
 
@@ -56,8 +58,8 @@ Since Magento will be served by Apache, some additional configuration is needed 
 
 2.  Modify the virtual host file for your Magento site to resemble the example below. If you have not previously created a virtual host file, do so now and refer to our [Apache on CentOS 7](/docs/websites/apache/install-and-configure-apache-on-centos-7) guide for additional guidance.
 
-    {: .file}
-    /etc/httpd/conf.d/vhost.conf
+    {{< file >}}
+/etc/httpd/conf.d/vhost.conf
     :   ~~~ conf
         <Directory /var/www/html/example.com/public_html>
             Require all granted
@@ -67,6 +69,7 @@ Since Magento will be served by Apache, some additional configuration is needed 
             ServerAlias www.example.com
             ServerAdmin webmaster@localhost
             DocumentRoot /var/www/html/example.com/public_html
+{{< /file >}}
 
             ErrorLog /var/www/html/example.com/logs/error.log
             CustomLog /var/www/html/example.com/logs/access.log combined
@@ -106,8 +109,9 @@ As of this guide's publication, Magento 2 is not compatible with MariaDB, which 
 
         sudo grep 'temporary password' /var/log/mysqld.log
 
-    {: .note}
-    > If you previously installed MariaDB or MySQL and set a root password, this installation may not override your existing database credentials. If that's the case, use the root password you set previously.
+    {{< note >}}
+> If you previously installed MariaDB or MySQL and set a root password, this installation may not override your existing database credentials. If that's the case, use the root password you set previously.
+{{< /note >}}
 
 4.  Secure your MySQL installation and change the root password with the `mysql_secure_installation` script:
 
@@ -125,10 +129,11 @@ As of this guide's publication, Magento 2 is not compatible with MariaDB, which 
 
     This section assumes that your database is hosted on the same server as your Magento application. If this is not the case, perform these steps and then refer to Magento's guide on using a [remote database server](http://devdocs.magento.com/guides/v2.0/install-gde/prereq/mysql_remote.html).
 
-    {: .note}
-    > You may receive an error about the complexity of your password if it is not secure enough. By default, CentOS 7 enables the `validate-password` plugin for MySQL. For more information, refer to the official [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/validate-password-plugin.html).
+    {{< note >}}
+> You may receive an error about the complexity of your password if it is not secure enough. By default, CentOS 7 enables the `validate-password` plugin for MySQL. For more information, refer to the official [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/validate-password-plugin.html).
     >
     > Don't use an exclamation point (`!`) in your password. The Magento installation script does not parse them correctly in its command options.
+{{< /note >}}
 
 7.  Exit the MySQL shell:
 
@@ -162,8 +167,9 @@ Magento is a PHP application, so you will need to install PHP 7 and make some ad
 
     This sets the time zone for PHP's `date()` function and imposes a 2GB limit to the amount of memory PHP can use. This value is recommended for a 4GB Linode, but could be increased for a larger server.
 
-    {: .note}
-    > The value for `date.timezone` will vary based on your system's time zone. Refer to the [PHP time zone documentation](http://php.net/manual/en/timezones.php) and ensure this value matches the time zone you set when you configured your Linode.
+    {{< note >}}
+> The value for `date.timezone` will vary based on your system's time zone. Refer to the [PHP time zone documentation](http://php.net/manual/en/timezones.php) and ensure this value matches the time zone you set when you configured your Linode.
+{{< /note >}}
 
 4.  Create the log directory for PHP and give the Apache user ownership:
 
@@ -176,11 +182,12 @@ Magento is a PHP application, so you will need to install PHP 7 and make some ad
 
 6.  **Optional**: You may want to take this opportunity to create a `phpinfo.php` page to ensure that PHP is active and working properly with Apache:
 
-    {: .file}
-    /var/www/html/example.com/public_html/phpinfo.php
+    {{< file >}}
+/var/www/html/example.com/public_html/phpinfo.php
     :   ~~~ php
         <?php phpinfo(); ?>
         ~~~
+{{< /file >}}
 
     Once you've visited this page in your browser and confirmed that PHP is working, delete the test page.
 
@@ -200,8 +207,9 @@ In this section, we'll explain how to get the Magento Community Edition (CE) sof
 
     In this step, you'll also be able to download the software with optional sample data. Whether you choose this or the basic version is up to you.
 
-    {: .note}
-    > When choosing a version, refer to Magento's [prerequisites](http://devdocs.magento.com/guides/v2.0/install-gde/prereq/prereq-overview.html) to ensure a particular version's compatibility with the components of your LAMP stack. As of this writing, Magento version 2.1.2 is compatible with all package versions covered in this guide.
+    {{< note >}}
+> When choosing a version, refer to Magento's [prerequisites](http://devdocs.magento.com/guides/v2.0/install-gde/prereq/prereq-overview.html) to ensure a particular version's compatibility with the components of your LAMP stack. As of this writing, Magento version 2.1.2 is compatible with all package versions covered in this guide.
+{{< /note >}}
 
 2.  From your local computer, copy the file to your Linode. Replace `/path/on/local/` with the path of your downloaded file, `user` with your standard user account on your Linode, and `yourhost` with your Linode's hostname or IP address:
 
@@ -243,8 +251,9 @@ In this section, we'll explain how to get the Magento Community Edition (CE) sof
 
     This allows your `magento` user (and members of the `apache` group) to write to the various files they need to run and serve Magento on your site.
 
-    {: .note}
-    > The first two commands may take some time to run because they are matching various files and directories in your installation folder. It may appear that the system is inactive, but be sure to allow a couple minutes before cancelling the operations. You can always start a new SSH connection, or run these commands in a [screen](/docs/networking/ssh/using-gnu-screen-to-manage-persistent-terminal-sessions) session, and use tools like [htop & iotop](/docs/uptime/monitoring/top-htop-iotop#additional-top-like-programs) to monitor progress.
+    {{< note >}}
+> The first two commands may take some time to run because they are matching various files and directories in your installation folder. It may appear that the system is inactive, but be sure to allow a couple minutes before cancelling the operations. You can always start a new SSH connection, or run these commands in a [screen](/docs/networking/ssh/using-gnu-screen-to-manage-persistent-terminal-sessions) session, and use tools like [htop & iotop](/docs/uptime/monitoring/top-htop-iotop#additional-top-like-programs) to monitor progress.
+{{< /note >}}
 
 4.  Restart Apache:
 
@@ -271,8 +280,9 @@ In this section, we'll explain how to get the Magento Community Edition (CE) sof
     -   **db-user** - This is the MySQL database user you set up previously. In our example, we called it `magento` but if you chose a different name, use that here instead.
     -   **db-password** - This will be the password you configured for the `magento` MySQL user.
 
-    {: .note}
-    > These are just a few of the available options to configure your Magento installation. For more information, refer to the [Magento Installation Guide](http://devdocs.magento.com/guides/v2.1/install-gde/install/cli/install-cli-install.html) and feel free to use additional options when running the script.
+    {{< note >}}
+> These are just a few of the available options to configure your Magento installation. For more information, refer to the [Magento Installation Guide](http://devdocs.magento.com/guides/v2.1/install-gde/install/cli/install-cli-install.html) and feel free to use additional options when running the script.
+{{< /note >}}
 
 3.  The installation script may take several minutes to run. Once it's finished, you'll see a success message:
 
@@ -336,8 +346,9 @@ At a minimum, you should restrict write access to the `app/etc` directory before
 
 Depending on whether you install custom themes or extensions, you may need to do additional configuration. This will vary depending on what you have installed. Once you're ready to deploy your site into production mode, refer to [Magento's ownership and permissions guide](http://devdocs.magento.com/guides/v2.1/config-guide/prod/prod_file-sys-perms.html) for a more comprehensive set of recommendations.
 
-{: .note}
+{{< note >}}
 > If you need to make additional configuration changes in the future, you'll need to manually add write permissions again before you can do so. For more information, see our guide on [Linux users and groups](/docs/tools-reference/linux-users-and-groups).
+{{< /note >}}
 
 ### Secure your Site with SSL
 
@@ -345,10 +356,11 @@ Secure sockets layer (SSL) certificates are a vital part of e-commerce. They ena
 
 For instructions on how to use SSL certificates in your store, see our guides on [obtaining a commercially signed SSL certificate](/docs/security/ssl/obtain-a-commercially-signed-ssl-certificate-on-centos-and-fedora) and [using SSL certificates with Apache](/docs/security/ssl/ssl-apache2-centos).
 
-{: .note}
+{{< note >}}
 > Many payment vendors that require SSL do not support self-signed certificates. Depending on how you handle payments, it is likely you will need to purchase a commercially signed certificate.
 >
 > When you [configure Apache to use the SSL certificate](/docs/security/ssl/ssl-apache2-centos#configure-apache-to-use-the-ssl-certificate), if you installed Magento in a subdirectory of your site and only want that section to be encrypted, make sure to modify your `<VirtualHost *:443>` block to match.
+{{< /note >}}
 
 Once you've installed your SSL certificate and configured Apache to serve your site securely, you'll need to configure Magento to use secure URLs.
 

@@ -14,8 +14,9 @@ title: 'Install ZNC from Source on Debian'
 
 ZNC is an IRC bouncer. It's designed to run on a server that remains connected to an IRC network and buffer messages. With ZNC, a local IRC client can connect and disconnect without losing a chat session or missing any messages. In this guide, ZNC will be installed from source and then configured.
 
-{: .note}
+{{< note >}}
 >This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< /note >}}
 
 
 ## Before You Begin
@@ -161,8 +162,9 @@ ZNC is an IRC bouncer. It's designed to run on a server that remains connected t
 
     Once you've completed the configuration and launched ZNC, you can access the web interface by going to your Linode's IP address in your web browser. Be sure to specify the port you defined during the configuration script and prefix it with `https://` .
 
-    {: .note}
-    >If the [Firewall portion](/docs/security/securing-your-server#creating-a-firewall) of the [Securing Your Server](/docs/securing-your-server/) guide has been completed, add a line to `/etc/iptables.firewall.rules` allowing traffic to your IRC port.
+    {{< note >}}
+>If the [Firewall portion](/docs/security/securing-your-server#creating-a-firewall) of the [Securing Your Server](/docs/securing-your-server/) guide has been completed, add a line to `/etc/iptables.firewall.rules` allowing traffic to your IRC port.
+{{< /note >}}
 
     [![ZNC's Web Admin](/docs/assets/znc-web-admin_small.png)](/docs/assets/znc-web-admin.png)
 

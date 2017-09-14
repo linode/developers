@@ -21,9 +21,10 @@ external_links:
 
 Nginx is a lightweight, high performance web server designed to deliver large amounts of static content quickly and with efficient use of system resources. In contrast to the [Apache server](/docs/web-servers/apache/), Nginx uses an asynchronous event-driven model which provides more predictable performance under load.
 
-{: .note}
+{{< note >}}
 >
 >This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< /note >}}
 
 ## Before You Begin
 
@@ -74,9 +75,10 @@ The binary packages from Nginx's repo will update you to new versions of the web
         deb-src http://nginx.org/packages/ubuntu/ trusty nginx
         ~~~
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >The `deb-src` line is only needed if you want repository access to Nginx's source code.
+{{< /note >}}
 
 2.  Download and add Nginx's repository key to your GPG keyring:
 
@@ -172,10 +174,11 @@ Compiling from source gives you the most flexibility and choice for optimization
 
 8.  Installing from source doesn't include an init file to control when Nginx starts and stops during boot and shutdown. You can either extract that file from the *[nginx-common](http://packages.ubuntu.com/trusty/nginx-common)* package at packages.ubuntu.com, or create an SysV script to manage NGINX as shown below:
 
-    {: .file}
-    /etc/init.d/nginx
+    {{< file >}}
+/etc/init.d/nginx
     :   ~~~
         #! /bin/sh
+{{< /file >}}
 
         ### BEGIN INIT INFO
         # Provides:          nginx

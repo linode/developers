@@ -131,8 +131,8 @@ If you want Siege to hit a number of pages on your website at random, configure 
 
 1.  Open the `urls.txt` file generally created at `/usr/local/etc/urls.txt`. Add a list of URLs or IP addresses to that file:
 
-	{: .file}
-	/usr/local/etc/urls.txt
+	{{< file >}}
+/usr/local/etc/urls.txt
 	:	~~~
 		# URLS file for siege
 		# --
@@ -149,6 +149,7 @@ If you want Siege to hit a number of pages on your website at random, configure 
 		# You may also set and reference variables inside this file,
 		# for more information, man urls_txt
 		# -------------------------------------------------------
+{{< /file >}}
 
 		www.example.com
 		www.example.org

@@ -68,8 +68,9 @@ Please refer to our guide on [Linux package management](/docs/tools-reference/li
 
 You may add an additional public IP address from the "Remote Access" tab in the Linode Manager. After you've added a new IP address, you must [configure static networking](/docs/networking/linux-static-ip-configuration/) or enable [Network Helper](/docs/platform/network-helper#turn-network-helper-on-for-individual-configuration-profiles) and reboot your Linode before it can be used.
 
-{: .note}
+{{< note >}}
 > We require technical justification for the issuance of new IP addresses; you may need to open a ticket from the "Support" tab of the Linode Manager explaining the reason for the new IP.
+{{< /note >}}
 
 If you'd like to take advantage of our private networking feature, you may add a private IP to your Linode from the "Remote Access" tab of the Linode Manager. Private IP addresses are not publicly accessible, although they are accessible from other Linodes in the same datacenter. Although we take measures to prevent others from intercepting your private IP traffic, you may still wish to configure a firewall to allow access from only the Linodes that you operate.
 

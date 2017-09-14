@@ -34,11 +34,12 @@ This document provides both instructions for deploying the Redis server, and an 
 
         sudo yum update
 
-{: .note}
+{{< note >}}
 >
 >This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
 >
 > To utilize the [replication](#set-up-masterslave-replication) steps in this guide, you will need at least two Linodes.
+{{< /note >}}
 
 ## Install Redis
 
@@ -132,9 +133,10 @@ The following steps will guide you through master/slave replication, with the sl
 
 For this section, you will use two Linodes, a master and a slave.
 
-{: .note}
+{{< note >}}
 >
 > To communicate over the private network, your master and slave Linodes must reside in the same datacenter.
+{{< /note >}}
 
 ###  Prepare Your Linodes
 

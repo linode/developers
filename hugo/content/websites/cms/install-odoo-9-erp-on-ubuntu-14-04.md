@@ -61,9 +61,10 @@ Now we're going to install the PostgreSQL database and other necessary server li
 
         sudo mkdir /var/log/odoo
 
-{: .note}
+{{< note >}}
 >
 >In the scenario of running multiple Odoo versions on the same Linode you may want to use different users and directories for each instance.
+{{< /note >}}
 
 ###Install Odoo Server Files from Source
 
@@ -75,9 +76,10 @@ Now we're going to install the PostgreSQL database and other necessary server li
 
         sudo git clone https://www.github.com/odoo/odoo --depth 1 --branch 9.0 --single-branch .
 
-{: .note}
+{{< note >}}
 >
 >Using Git allows great flexibility because any time a new upgrade ,is available you only need to pull that branch, You can even install a different one alongside the production version; just change the destination directory and the  `--branch X.x` flag. Before performing any operation, remember to make a full backup of your database and custom files.
+{{< /note >}}
 
 ###Create PostgreSQL User
 
@@ -91,15 +93,17 @@ Now we're going to install the PostgreSQL database and other necessary server li
 
 3.  You'll be prompted for a password, **save it**, we'll need it shortly.
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >In the scenario of a testing or development environment you could create a user with no password using `createuser odoo -U postgres -dRS`.
+{{< /note >}}
 
 4.  Press **CTRL+D** to exit from `postgres` user session.
 
-{: .note}
+{{< note >}}
 >
 >If you want to run multiple Odoo instances on the same Linode remember to check pg_hba.conf and change it according your needs.
+{{< /note >}}
 
 ##Specific Dependencies for Odoo Applications
 
@@ -153,8 +157,8 @@ Install Python libraries using the following commands:
 
 2.  Next we need to modify the configuration file. The finished file should look similar to this depending on your deploying needs:
 
-    {: .file}
-    /etc/odoo-server.conf
+    {{< file >}}
+/etc/odoo-server.conf
     :   ~~~ conf
         [options]
         admin_passwd = admin
@@ -166,6 +170,7 @@ Install Python libraries using the following commands:
         logfile = /var/log/odoo/odoo-server.log
         xmlrpc_port = 8069
         ~~~
+{{< /file >}}
 
     *  `admin_passwd = admin` This is the password that allows database operations.
     *  `db_host = False` Unless you plan to connect to a different database server address, leave this line untouched.
@@ -180,7 +185,7 @@ Install Python libraries using the following commands:
 
 Next step is creating a boot script called `odoo-server` to gain control over Odoo's behavior and use it at server startup and shutdown.
 
-{: .file}
+{{< file >}}
 /etc/init.d/odoo-server
 :   ~~~ shell
     #!/bin/sh
@@ -195,6 +200,7 @@ Next step is creating a boot script called `odoo-server` to gain control over Od
     # Short-Description: Odoo ERP
     # Description: Odoo is a complete ERP business solution.
     ### END INIT INFO
+{{< /file >}}
 
     PATH=/bin:/sbin:/usr/bin
     # Change the Odoo source files location according your needs.

@@ -21,9 +21,10 @@ WordPress is a popular, dynamic, blog-focused content management system. The sof
 
 If you're using Ubuntu 16.04, please use our guide on how to [Install Wordpress on Ubuntu 16.04](/docs/websites/cms/install-wordpress-on-ubuntu-16-04).
 
-{: .note}
+{{< note >}}
 >
 >This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< /note >}}
 
 <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="//fast.wistia.net/embed/iframe/weh2nc2dad?videoFoam=true" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="100%" height="100%"></iframe></div></div>
 <script src="//fast.wistia.net/assets/external/E-v1.js" async></script>
@@ -111,8 +112,8 @@ If you're using Ubuntu 16.04, please use our guide on how to [Install Wordpress 
     
     Restart Apache.
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >If using permalinks to set your posts' URLs, Apache will need to be updated to allow individual sites to update the `.htaccess` file. To permit this, add the following to you WordPress website's *VirtualHosts* codeblock:
     >
     >     <Directory /var/www/>
@@ -120,6 +121,7 @@ If you're using Ubuntu 16.04, please use our guide on how to [Install Wordpress 
     >         AllowOverride All
     >         Require all granted
     >     </Directory>
+{{< /note >}}
 
 You will now be able to login to your new WordPress-powered website. You can continue the configuration of your WordPress site from the web-based interface.
 

@@ -171,8 +171,9 @@ Use the `Alt` key and the window number to change to a different window. Window 
 
     /win number
 
-{: .note}
+{{< note >}}
 >If the `Alt` + `num` command does not switch windows, use `esc` followed by the window number.
+{{< /note >}}
 
 Below are more commands for navigating between windows:
 

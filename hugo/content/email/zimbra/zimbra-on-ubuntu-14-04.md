@@ -22,7 +22,7 @@ external_resources:
 
 [Zimbra](https://www.zimbra.com/) is a complete mail server that provides a configured Postfix with OpenDKIM, Amavis, ClamAV, and Nginx, ready to handle mail for one or more domains. Zimbra on a Linode is one of the quickest paths to an up-and-running mail server that you will find. This guide will take you through the Zimbra installation procedure.
  
-{: .note}
+{{< note >}}
 >
 >The steps required in this guide require root privileges. Be sure to run the steps below as **root** or with the `sudo` prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
  
@@ -39,13 +39,15 @@ external_resources:
 ## Download Zimbra
  
 1.  Download the latestet release of [Zimbra Open Source Edition](https://www.zimbra.com/downloads/zimbra-collaboration-open-source). It's a good idea to read the release notes and understand the requirements and caveats before installing. Choose the Ubuntu 14.04 LTS 64-bit release and download it to your Linode with `wget`. To do this, right-click the _64bit x86_ link in your browser and copy the link from the Zimbra page. Paste it into your shell command and execute it.
+{{< /note >}}
 
     For example:
  
         wget https://files.zimbra.com/downloads/8.6.0_GA/zcs-8.6.0_GA_1153.UBUNTU14_64.20141215151116.tgz
  
-     {: .note}
-    >This Guide is about setting up a new Zimbra Linode, but if you are upgrading an existing Zimbra installation, it is very important that you read the release notes that Zimbra provides! The notes are found on the Download page where you found the software. There may be steps that are required to be performed before or after you upgrade.
+     {{< note >}}
+>This Guide is about setting up a new Zimbra Linode, but if you are upgrading an existing Zimbra installation, it is very important that you read the release notes that Zimbra provides! The notes are found on the Download page where you found the software. There may be steps that are required to be performed before or after you upgrade.
+{{< /note >}}
 
 2.  Download the SHA256 checksum in the same way you just downloaded the Zimbra tarball.
 
@@ -163,10 +165,11 @@ external_resources:
                         
     By default, no administrative password is set. To set a password, enter **6** to display the `zimbra-store` menu, then **4** to type a new password at the prompt. Enter **r** to return to the main menu. For DNS, enter the `zimbra-dnscache` menu, then change the `Master DNS` IP addresses and return to the main menu.
  
-    {: .note}
-    >It is common to run mail servers on UTC, as they regularly accept mail from all over the world. This helps when tracing mail flow, when Daylight Saving kicks in or out, and just makes reading logs easier. You may choose to use local time if you prefer.
+    {{< note >}}
+>It is common to run mail servers on UTC, as they regularly accept mail from all over the world. This helps when tracing mail flow, when Daylight Saving kicks in or out, and just makes reading logs easier. You may choose to use local time if you prefer.
  
 8.  Finalize the installation.
+{{< /note >}}
 
     Enter **a** to apply your changes to the settings. Finally, enter **Y** to continue the install.
  
@@ -196,9 +199,10 @@ external_resources:
  
     Visit your Linode's hostname or IP address in your browser using https. For example, `https://mail.example.com`. This will open the login page. Log in using the admin account and password created during the install.
 
-    {: .caution}
-    >
+    {{< caution >}}
+>
     >Since you haven't installed a trusted cert yet, you will likely get a browser warning about an untrusted site. Bypass the warning for now. Later you can either add Zimbra's self-signed cert to your browser or install a trusted cert in Zimbra.
+{{< /caution >}}
 
     ![Zimbra admin console](/docs/assets/AdminConsole.png)
  

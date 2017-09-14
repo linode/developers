@@ -36,15 +36,17 @@ external_resources:
 
 The DNS instructions for setting up SPF, DKIM and DMARC are generic. The instructions for configuring the SPF policy agent and OpenDKIM into Postfix should work on any distribution after making respective code adjustments for the package tool, and identifying the exact path to the Unix socket file.
 
-{: .note}
+{{< note >}}
 >
 >The steps required in this guide require root privileges. Be sure to run the steps below as **root** or with the `sudo` prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< /note >}}
 
-{: .caution}
+{{< caution >}}
 >
 >You must already have Postfix installed, configured and working. Refer to the [Linode Postfix Guides](https://www.linode.com/docs/email/postfix/) for assistance.
 >
 >Publishing an SPF DNS record without having the SPF policy agent configured within Postfix is safe; however, publishing DKIM DNS records without having OpenDKIM working correctly within Postfix can result in your email being discarded by the recipient's email server.
+{{< /caution >}}
 
 ## Install DKIM, SPF and Postfix
 
@@ -90,9 +92,10 @@ If you're using Linode's DNS Manager, go to the domain zone page for the selecte
 
 If your DNS provider allows it (DNS Manager doesn't), you should also add a record of type SPF, filling it in the same way as you did the TXT record.
 
-{: .note}
+{{< note >}}
 >
 >The values for the DNS records above - and for the rest of this guide - are done in the style that Linode's DNS Manager needs them to be in. If you're using another provider, that respective system may require the values in a different style. For example freedns.afraid.org requires the values to be written in the style found in BIND zonefiles. Thus, the above SPF record's value would need to be wrapped in double-quotes like this: `"v=spf1 mx -all"`. You'll need to consult your DNS provider's documentation for the exact style required.
+{{< /note >}}
 
 ### Add the SPF policy agent to Postfix
 
@@ -156,12 +159,13 @@ DKIM involves setting up the OpenDKIM package, hooking it into Postfix, and addi
 
 1.  The main OpenDKIM configuration file `/etc/opendkim.conf` needs to look like this:
 
-    {: .file}
-    /etc/opendkim.conf
+    {{< file >}}
+/etc/opendkim.conf
     :   ~~~ conf
         # This is a basic configuration that can easily be adapted to suit a standard
         # installation. For more advanced options, see opendkim.conf(5) and/or
         # /usr/share/doc/opendkim/examples/opendkim.conf.sample.
+{{< /file >}}
 
         # Log to syslog
         Syslog          yes
@@ -238,14 +242,15 @@ DKIM involves setting up the OpenDKIM package, hooking it into Postfix, and addi
     - The second section is a selector used when looking up key records in DNS.
     - The third section names the file containing the signing key for the domain.
 
-    {: .note}
-    >
+    {{< note >}}
+>
     > The flow for DKIM lookup starts with the sender's address. The signing table is scanned until an entry whose pattern (first item) matches the address is found. Then, the second item's value is used to locate the entry in the key table whose key information will be used. For incoming mail the domain and selector are then used to find the public key TXT record in DNS and that public key is used to validate the signature. For outgoing mail the private key is read from the named file and used to generate the signature on the message.
+{{< /note >}}
 
 6.  Create the trusted hosts file `/etc/opendkim/trusted.hosts`. Its contents need to be:
 
-    {: .file}
-    /etc/opendkim/trusted.hosts
+    {{< file >}}
+/etc/opendkim/trusted.hosts
     :   ~~~ text
         127.0.0.1
         ::1
@@ -254,6 +259,7 @@ DKIM involves setting up the OpenDKIM package, hooking it into Postfix, and addi
         myhostname.example.com
         example.com
         ~~~
+{{< /file >}}
 
     When creating the file, change `myhostname` to the name of your server and replace `example.com` with your own domain name. We're identifying the hosts that users will be submitting mail through and should have outgoing mail signed, which for basic configurations will be your own mail server.
 
@@ -293,12 +299,13 @@ DKIM involves setting up the OpenDKIM package, hooking it into Postfix, and addi
 
 As with SPF, DKIM uses TXT records to hold information about the signing key for each domain. Using YYYYMM as above, you need to make a TXT record for the host `YYYYMM._domainkey` for each domain you handle mail for. Its value can be found in the `example.txt` file for the domain. Those files look like this:
 
-{: .file}
+{{< file >}}
 example.txt
 :   ~~~ text
     201510._domainkey  IN  TXT ( "**v=DKIM1; h=rsa-sha256; k=rsa; s=email; "
         "p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAu5oIUrFDWZK7F4thFxpZa2or6jBEX3cSL6b2TJdPkO5iNn9vHNXhNX31nOefN8FksX94YbLJ8NHcFPbaZTW8R2HthYxRaCyqodxlLHibg8aHdfa+bxKeiI/xABRuAM0WG0JEDSyakMFqIO40ghj/h7DUc/4OXNdeQhrKDTlgf2bd+FjpJ3bNAFcMYa3Oeju33b2Tp+PdtqIwXR"
         "ZksfuXh7m30kuyavp3Uaso145DRBaJZA55lNxmHWMgMjO+YjNeuR6j4oQqyGwzPaVcSdOG8Js2mXt+J3Hr+nNmJGxZUUW4Uw5ws08wT9opRgSpn+ThX2d1AgQePpGrWOamC3PdcwIDAQAB**" )  ; ----- DKIM key 201510 for example.com
+{{< /file >}}
 
     ~~~
 
@@ -335,8 +342,8 @@ If everything is OK you shouldn't get any output. If you want to see more inform
 
 2.  Set the correct socket for Postfix in the OpenDKIM defaults file `/etc/default/opendkim`:
 
-    {: .file}
-    /etc/default/opendkim
+    {{< file >}}
+/etc/default/opendkim
     :   ~~~ conf
         # Command-line options specified here will override the contents of
         # /etc/opendkim.conf. See opendkim(8) for a complete list of options.
@@ -349,6 +356,7 @@ If everything is OK you shouldn't get any output. If you want to see more inform
         #SOCKET="inet:12345@localhost" # listen on loopback on port 12345
         #SOCKET="inet:12345@192.0.2.1" # listen on 192.0.2.1 on port 12345
         ~~~
+{{< /file >}}
 
 
     Uncomment the first SOCKET line and edit it so it matches the uncommented line in the above file. The path to the socket is different from the default because on Debian 8 the Postfix process that handles mail runs in a chroot jail and can't access the normal location.

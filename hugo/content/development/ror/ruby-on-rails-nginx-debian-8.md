@@ -23,9 +23,10 @@ Ruby on Rails is a rapid development web framework that allows web designers and
 
 ![Ruby on Rails with nginx on Debian 8](/docs/assets/ruby_on_rails_with_nginx_debian_8_smg.png "Ruby on Rails with nginx on Debian 8")
 
-{: .note}
+{{< note >}}
 >
 >This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< /note >}}
 
 ## Before You Begin
 
@@ -61,11 +62,12 @@ Ruby on Rails is a rapid development web framework that allows web designers and
 
 3.  With `sudo` or as the root user, create the file `/etc/apt/sources.list.d/passenger.list` with the following contents:
 
-    {: .file}
-    /etc/apt/sources.list.d/passenger.list
+    {{< file >}}
+/etc/apt/sources.list.d/passenger.list
     :   ~~~ conf
         deb https://oss-binaries.phusionpassenger.com/apt/passenger jessie main
         ~~~
+{{< /file >}}
 
 4.  Enable HTTPS support for APT:
 

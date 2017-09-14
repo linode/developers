@@ -42,9 +42,10 @@ Drupal 8 is the lastest version of the popular [Drupal](https://www.drupal.org/)
         cd /var/www/html/example.com
         sudo wget http://ftp.drupal.org/files/projects/drupal-8.0.5.tar.gz
 
-    {: .caution}
-    >
+    {{< caution >}}
+>
     >Ensure that the version number matches the Drupal 8 version you wish to download.
+{{< /caution >}}
 
 2.  Extract the downloaded tarball's contents into Apache's DocumentRoot:
 
@@ -71,9 +72,10 @@ Drupal 8 is the lastest version of the popular [Drupal](https://www.drupal.org/)
           );
         ~~~
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >*trusted_host_patterns* also accepts IP addresses or localhost.
+{{< /note >}}
 
 ## Configure Apache 2.4
 

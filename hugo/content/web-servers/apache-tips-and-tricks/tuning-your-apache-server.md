@@ -21,9 +21,10 @@ Apache configuration has a major affect on your Linode's performance. The easies
 
 ![Tuning Your Apache Server](/docs/assets/tuning-your-apache-server.png "Tuning Your Apache Server")
 
-{: .note}
+{{< note >}}
 >
 >The steps in this guide require root privileges. Be sure to run the steps below as **root** or with the `sudo` prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< /note >}}
 
 ##Tools
 
@@ -63,9 +64,10 @@ Apache `mod_status` diplays information related to incoming server connections b
 		ExtendedStatus On
 		~~~
 
-	{: .note}
-	>
+	{{< note >}}
+>
 	>Enabling ExtendedStatus consumes additional system resources.
+{{< /note >}}
 
 4.  Restart Apache:
 
@@ -99,7 +101,7 @@ The Apache2Buddy script, similar to MySQLTuner, reviews your Apache setup, and m
 
 ##Multi Processing Modules
 
-{: .note}
+{{< note >}}
 >
 >Before making any changes to your Apache configuration, be sure to back up the configuration file:
 >
@@ -110,6 +112,7 @@ The Apache2Buddy script, similar to MySQLTuner, reviews your Apache setup, and m
 >On CentOS/Fedora:
 >
 >	cp /etc/httpd/conf/httpd.config ~/httpd.conf.backup
+{{< /note >}}
 
 Apache offers two Multi Processing Modules, three if on Apache 2.4, for managing your settings.
 
@@ -148,9 +151,10 @@ The next step to reconfiguring your Apache server is altering the above settings
 
 Again, the best way to make configuration changes is to make incremental changes and then monitor the effects.
 
-{: .note}
+{{< note >}}
 >
 >After making alterations to the Apache configuration, restart the service using `service apache restart` on Debian/Ubuntu or `/bin/systemctl reload httpd.service` on CentOS/Fedora.
+{{< /note >}}
 
 ###StartServers
 The `StartServers` value indicates the number of child processes created at startup, and is dynamically controlled depending on load. There is often little reason to alter this number, unless your server is restarted frequently and contains a large number of requests upon reboot.

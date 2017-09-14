@@ -225,8 +225,9 @@ For all steps in this section, replace `203.0.113.100` with your Linodes public 
                }
             ~~~
 
-        {: .note}
-        > This is the final setting to be placed inside the `sub vcl_recv` routine. All directives in the following steps (from Step 6 onward) should be placed after the closing `}`.
+        {{< note >}}
+> This is the final setting to be placed inside the `sub vcl_recv` routine. All directives in the following steps (from Step 6 onward) should be placed after the closing `}`.
+{{< /note >}}
 
 6.  Redirect HTTP to HTTPS using the `sub vcl_synth` directive with the following settings:
 
@@ -494,9 +495,10 @@ Before configuring nginx, we have to install *PHP-FPM*. FPM is short for FastCGI
 
     For an SSL-encrypted website, you need one server block to receive traffic on port 443 and pass decrypted traffic to Varnish on port `80`, and another server block to serve unencrypted traffic to Varnish on port `8080`, when Varnish asks for it.
 
-    {: .caution}
-    >
+    {{< caution >}}
+>
     >The `ssl_certificate` directive must specify the location and name of the SSL certificate file. Take a look at our guide to using [SSL on nginx](https://www.linode.com/docs/security/ssl/provide-encrypted-resource-access-using-ssl-certificates-on-nginx) for more information, and update the `ssl_certificate` and `ssl_certificate_key` values as needed.
+{{< /caution >}}
 
     Alternately, if you don't have a commercially-signed SSL certificate (issued by a CA), you can issue a self-signed SSL certificate using *openssl*, but this should be done only for testing purposes. Self-signed sites will return a "This Connection is Untrusted" message when opened in a browser.
 

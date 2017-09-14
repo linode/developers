@@ -47,8 +47,9 @@ When a request reaches the nginx front-end proxy server, here's an overview of t
 
 In this section, you'll configure Apache to listen on an alternate port so it can respond to the nginx front end. 
 
-{: .note}
+{{< note >}}
 > This guide assumes you are using Apache 2.4. Some path names will be slightly different if you are using an older version.
+{{< /note >}}
 
 1.  The first thing you will configure is the port on which Apache listens. This needs to be a port other than 80, so that you can proxy requests to Apache on the alternate port. This has the added benefit of preventing conflicts between Apache and nginx listening on the same port. First, open up the `/etc/apache2/ports.conf` file for editing, and configure it as shown below:
 

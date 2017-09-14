@@ -85,10 +85,11 @@ Since now the server should forward traffic out to the internet from clients, ac
 
 2.  Create a new IPv4 rule file using the ruleset below. The path `/etc/iptables/rules.v4` assumes Debian or Ubuntu with `iptables-persistent` installed.
 
-    {: .file}
-    /etc/iptables/rules.v4
+    {{< file >}}
+/etc/iptables/rules.v4
     :   ~~~ conf
         *filter
+{{< /file >}}
 
         # Allow all loopback (lo) traffic and reject traffic
         # to localhost that does not originate from lo.

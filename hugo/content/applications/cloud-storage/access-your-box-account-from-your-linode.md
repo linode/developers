@@ -26,9 +26,10 @@ If you've discovered [Box](https://www.box.com/) then you know that it can be a 
 
 3.  Update your operating system.
 
-{: .note}
+{{< note >}}
 >
 >This guide requires having a Box account.
+{{< /note >}}
 
 ## Set Box's Mount Point
 
@@ -38,9 +39,10 @@ The following step will create an empty directory where Box will live and all of
 
         mkdir ~/box
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >If only your `example_user` needs access to the Box account contents, making the mount point in that user's `/home` directory will be fine. If multiple system users (other than root) need access to the Box account, then the mount point should be placed in a system directory such as `/mnt/box`. For more info, see [the davfs man page](http://linux.die.net/man/8/mount.davfs).
+{{< /note >}}
 
 2.  Add Box to fstab.
 
@@ -89,9 +91,10 @@ The following step will create an empty directory where Box will live and all of
 
         echo 'https://dav.box.com/dav email password' >> ~/.davfs2/secrets
 
-    {: .note}
-    >
+    {{< note >}}
+>
     >If your password contains quotation characters (`'` or `"`), you'll need to edit the secrets file directly in a text editor.
+{{< /note >}}
 
 7. Make the `secrets` file readable to only its owner:
 
