@@ -12,22 +12,17 @@
         <meta property="og:url" content="{{ .Permalink }}">
         <meta property="og:description" content="{{ .Params.og_description | default (.Param "description") }}">
         <meta property="og:site_name" content="{{ .Site.Title }}">
-        {{ if .Params.image }}
-        {{/* TODO(bep) */}}
-        {{ if true }}
-        <meta property="og:image" content="{{ .Params.image }}">
+        {{ with .Params.image }}
+        {{ if eq (printf "%T" .) "string"}}
+        <meta property="og:image" content="{{ . }}">
         {{ else }}
-        {{ with .Params.image.file }}<meta property="og:image" content="{{ . }}">{{ end }}
-        {{ with .Params.image.width }}<meta property="og:image:width" content="{{ . }}">{{ end }}
-        {{ with .Params.image.height }}<meta property="og:image:height" content="{{ . }}">{{ end }}
+        {{ with .file }}<meta property="og:image" content="{{ . }}">{{ end }}
+        {{ with .width }}<meta property="og:image:width" content="{{ . }}">{{ end }}
+        {{ with .height }}<meta property="og:image:height" content="{{ . }}">{{ end }}
         {{ end }}
-        {{ else }}
-        <meta property="og:image" content="{{ .Site.Params.default_image }}">
-        <meta property="og:image:width" content="{{ .Site.Params.default_image_width }}">
-        <meta property="og:image:height" content="{{ .Site.Params.default_image_height }}">
         {{ end }}
-        {{ if .Params.twitter }}
-        {{ with .Params.twitter.card }}<meta name="twitter:card" content="{{ . }}">{{ end }}
+        {{ with .Params.twitter }}
+        {{ with .card }}<meta name="twitter:card" content="{{ . }}">{{ end }}
         {{ else }}
         <meta name="twitter:card" content="summary">
         {{ end }}
