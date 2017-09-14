@@ -86,11 +86,13 @@ To check that Postfix and Dovecot are running and to find startup errors, follow
         May 22 17:48:09 master: Info: Dovecot v2.0.19 starting up (core dumps disabled)
         ~~~
 
-    {:.note}
-    >
-    > If you moved the Dovecot logs, the normal Dovecot startup messages will be in `/var/log/dovecot.log` instead. If you can't find the Dovecot logs, locate them with the following command:
-    >
-    >     doveadm log find
+    {{< note >}}
+
+If you moved the Dovecot logs, the normal Dovecot startup messages will be in `/var/log/dovecot.log` instead. If you can't find the Dovecot logs, locate them with the following command:
+
+doveadm log find
+
+{{< /note >}}
 
 10. If you don't see these normal startup messages, check for errors instead. Search for errors online.
 11. If there's a problem during Dovecot's startup, you should also check `/var/log/upstart/dovecot.log`. On a normal startup, nothing will be logged to this file. However, if there is a startup problem, an entry will be added in this log which can be quite helpful. To view this file, run the following command:
@@ -352,9 +354,11 @@ In this section, you'll install Postfix and configure it to deliver mail for you
 
         service postfix restart
 
-    {:.note}
-    >
-    > Use that command whenever the instructions tell you to restart Postfix. Substitute `dovecot` for `postfix` when the instructions tell you to restart Dovecot.
+    {{< note >}}
+
+Use that command whenever the instructions tell you to restart Postfix. Substitute `dovecot` for `postfix` when the instructions tell you to restart Dovecot.
+
+{{< /note >}}
 
 6.  Send your Linux system user a test message. This is the same user that you use for SSH. You should use the format <**myuser@example.com**>.
 7.  Install Mailutils by entering the following command:
@@ -462,9 +466,11 @@ You may want to reference [Postfix's Virtual Readme](http://www.postfix.org/VIRT
         virtual_mailbox_domains = example.com, hostname, hostname.example.com, localhost.example.com
         ~~~
 
-    {:.note}
-    >
-    > There can be no overlap between the `mydestination` and `virtual_mailbox_domains` lists.
+    {{< note >}}
+
+There can be no overlap between the `mydestination` and `virtual_mailbox_domains` lists.
+
+{{< /note >}}
 
 4.  Also in `/etc/postfix/main.cf`, add the line `virtual_mailbox_base` and set it to `/var/mail/vhosts` so mail gets delivered to the new mailboxes. The final part of the path for each user is in the `virtual_users_list` file from Step 1.
 
@@ -540,9 +546,11 @@ You may want to reference [Postfix's Virtual Readme](http://www.postfix.org/VIRT
 
     > mail\_location = maildir:/var/mail/vhosts/%d/%n
 
-    {:.note}
-    >
-    > This sets the new mailbox location, `/var/mail/vhosts/example.com/user`. `%d` tells Dovecot to grab whatever is after the `@` symbol from the person's username when they log in, and `%n` tells it to grab whatever is before the `@` symbol from the person's username. This path MUST match the `virtual_mailbox_base` + `/etc/postfix/virtual_users_list` relative path in Postfix's settings.
+    {{< note >}}
+
+This sets the new mailbox location, `/var/mail/vhosts/example.com/user`. `%d` tells Dovecot to grab whatever is after the `@` symbol from the person's username when they log in, and `%n` tells it to grab whatever is before the `@` symbol from the person's username. This path MUST match the `virtual_mailbox_base` + `/etc/postfix/virtual_users_list` relative path in Postfix's settings.
+
+{{< /note >}}
 
 15. Now you have to tell Dovecot how to find and interpret our list of virtual users so that people can authenticate and access their inboxes. See [Dovecot's wiki article about virtual users in a flat file](http://wiki2.dovecot.org/HowTo/VirtualUserFlatFilesPostfix) for more information. Add the following settings to `/etc/dovecot/conf.d/auth-passwdfile.conf.ext`:
 
@@ -559,11 +567,13 @@ You may want to reference [Postfix's Virtual Readme](http://www.postfix.org/VIRT
         }
         ~~~
 
-    {:.note}
-    >
-    > The `passdb` section details how email users can authenticate. The `driver` line tells Dovecot you're using a flat file, and the `args` line tells it where it is and what format to expect. (This is the `/etc/dovecot/users` file you made in Step 2.)
-    >
-    > The `userdb` line tells Dovecot where to find the mail on the server and which system user it should use to access the mail files. Since the format for each mailbox's location is the same, the `userdb` can be static. You're telling it to use the `vmail` user to access the mailboxes. Finally, the `home=` parameter tells Dovecot to look for mail in `var/mail/vhosts/example.com/user`. This setting MUST match the `virtual_mailbox_base` + `/etc/postfix/virtual_users_list` relative path in Postfix's settings. You have to tell Dovecot to look for mail in the same place you told Postfix to put the mail.
+    {{< note >}}
+
+The `passdb` section details how email users can authenticate. The `driver` line tells Dovecot you're using a flat file, and the `args` line tells it where it is and what format to expect. (This is the `/etc/dovecot/users` file you made in Step 2.)
+
+The `userdb` line tells Dovecot where to find the mail on the server and which system user it should use to access the mail files. Since the format for each mailbox's location is the same, the `userdb` can be static. You're telling it to use the `vmail` user to access the mailboxes. Finally, the `home=` parameter tells Dovecot to look for mail in `var/mail/vhosts/example.com/user`. This setting MUST match the `virtual_mailbox_base` + `/etc/postfix/virtual_users_list` relative path in Postfix's settings. You have to tell Dovecot to look for mail in the same place you told Postfix to put the mail.
+
+{{< /note >}}
 
 16. Now you just need to tell Dovecot to use `auth-passwdfile.conf.ext` instead of `auth-system.conf.ext`, so it uses that lovely new password file you created in Step 2. In `/etc/dovecot/conf.d/10-auth.conf`, add `#` to comment out the system user file, and remove `#` to enable the passwdfile config file:
 
@@ -622,9 +632,11 @@ See [Dovecot's wiki article about LMTP](http://wiki2.dovecot.org/HowTo/PostfixDo
         }
         ~~~
 
-    {:.note}
-    >
-    > Make sure you count your brackets. An extra or missing bracket in this section will produce a syntax error that prevents Dovecot from starting.
+    {{< note >}}
+
+Make sure you count your brackets. An extra or missing bracket in this section will produce a syntax error that prevents Dovecot from starting.
+
+{{< /note >}}
 
 4.  Restart Dovecot.
 5.  Make sure the socket exists:
@@ -681,9 +693,11 @@ This process is very similar to the one for LMTP, because you're first creating 
         }
         ~~~
 
-    {:.note}
-    >
-    > Again, watch your brackets.
+    {{< note >}}
+
+Again, watch your brackets.
+
+{{< /note >}}
 
 2.  In the `service auth-worker` section, set `user` to `vmail`.
 
@@ -782,9 +796,11 @@ Now that you've got authentication set up securely, you need to configure SMTP. 
         smtpd_recipient_restrictions = permit_sasl_authenticated, permit_mynetworks, reject_unauth_destination
         ~~~
 
-    {:.note}
-    >
-    > The `smtpd_recipient_restrictions` line lists the criteria Postfix uses to decide which emails it can relay. `permit_sasl_authenticated` allows authenticated users to send mail. It should be listed first. Next we have `permit_mynetworks`, which allows users who are already logged into the server to send mail. Finally, `reject_unauth_destination` prevents your server from delivering mail for domains for which it is not configured. **Never remove this last setting!** Basically, this means that authenticated users and local users are always allowed to send mail anywhere. Non-authenticated and non-local users are allowed to send mail only to domains for which this server is responsible. These restrictions prevent your server from being used as an open relay that can send spam from anyone to anywhere.
+    {{< note >}}
+
+The `smtpd_recipient_restrictions` line lists the criteria Postfix uses to decide which emails it can relay. `permit_sasl_authenticated` allows authenticated users to send mail. It should be listed first. Next we have `permit_mynetworks`, which allows users who are already logged into the server to send mail. Finally, `reject_unauth_destination` prevents your server from delivering mail for domains for which it is not configured. **Never remove this last setting!** Basically, this means that authenticated users and local users are always allowed to send mail anywhere. Non-authenticated and non-local users are allowed to send mail only to domains for which this server is responsible. These restrictions prevent your server from being used as an open relay that can send spam from anyone to anywhere.
+
+{{< /note >}}
 
 2.  You'll also want to force outgoing authentication to be encrypted. Still in `/etc/postfix/main.cf`, set the following lines:
 
@@ -797,9 +813,11 @@ Now that you've got authentication set up securely, you need to configure SMTP. 
         smtpd_tls_auth_only = yes
         ~~~
 
-    {:.note}
-    >
-    > First, you're going to tell Postfix to use Dovecot's SSL certificate and key, because some mail clients will choke if the certificates for the incoming and outgoing servers don't match. Then you're telling Postfix to use (only) TLS encryption. This means that users can connect on the standard port (25), but before they are allowed to send any authentication information, they have to establish an encrypted connection.
+    {{< note >}}
+
+First, you're going to tell Postfix to use Dovecot's SSL certificate and key, because some mail clients will choke if the certificates for the incoming and outgoing servers don't match. Then you're telling Postfix to use (only) TLS encryption. This means that users can connect on the standard port (25), but before they are allowed to send any authentication information, they have to establish an encrypted connection.
+
+{{< /note >}}
 
 3.  Make a copy of the `/etc/postfix/master.cf` file:
 

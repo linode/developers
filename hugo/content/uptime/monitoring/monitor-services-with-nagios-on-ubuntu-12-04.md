@@ -79,9 +79,11 @@ Nagios can send alerts by email, but to receive them you'll need to add your ema
         }
         ~~~
 
-    {:.note}
-    >
-    > To send email alerts to more than one user, duplicate the `define contact` section for as many users as you want. Or, to configure notifications to a [group](/docs/tools-reference/linux-users-and-groups), edit the `define contactgroup` section.
+    {{< note >}}
+
+To send email alerts to more than one user, duplicate the `define contact` section for as many users as you want. Or, to configure notifications to a [group](/docs/tools-reference/linux-users-and-groups), edit the `define contactgroup` section.
+
+{{< /note >}}
 
 3.  Save the changes to the configuration file by pressing `Control + x` and then pressing `y`.
 4.  Restart Nagios to apply the changes:

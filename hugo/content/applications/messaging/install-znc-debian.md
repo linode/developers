@@ -73,8 +73,10 @@ This guide is written for a non-root user. Commands that require elevated privil
 
 2.  This will launch an interactive script asking you for input on a variety of parameters. Below is an example output of the `makeconf` script with standard options selected. To match your needs, you can use or change the provided input at your discretion. If you're not sure, use the default option. Many of these options can be adjusted later through the web interface.
 
-    {:.note}
-    > Make sure to change the `username` variable.
+    {{< note >}}
+Make sure to change the `username` variable.
+
+{{< /note >}}
 
 
         [ .. ] Checking for list of available modules...

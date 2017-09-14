@@ -127,9 +127,11 @@ Now you'll set up a Cron job to run the Pflogsumm Perl script and send the mail 
     {: .file }
 root's Crontab
 
-    {:.note}
-    >
-    > If this is your first time using Cron, you will have to select your preferred text editor.
+    {{< note >}}
+
+If this is your first time using Cron, you will have to select your preferred text editor.
+
+{{< /note >}}
 
 3.  Save the changes to your Cron file. For **nano**, this is `Ctrl-x y`.
 

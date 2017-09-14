@@ -129,9 +129,11 @@ iptables will be used to secure the Linode against unwanted traffic. The Linode 
         COMMIT
         ~~~
 
-    {:.note}
-    >
-    >Leave IAX commented out unless you know you need it. IAX is "Inter-Asterisk Exchange" and was meant to allow multiple Asterisk servers to communicate with one another. Some VOIP trunking providers use this, but most use SIP. Unless your VOIP provider requires it or you are running multiple Asterisk servers, you probably won't need IAX or IAX2.
+    {{< note >}}
+
+Leave IAX commented out unless you know you need it. IAX is "Inter-Asterisk Exchange" and was meant to allow multiple Asterisk servers to communicate with one another. Some VOIP trunking providers use this, but most use SIP. Unless your VOIP provider requires it or you are running multiple Asterisk servers, you probably won't need IAX or IAX2.
+
+{{< /note >}}
 
 ### Start Firewall at Boot
 

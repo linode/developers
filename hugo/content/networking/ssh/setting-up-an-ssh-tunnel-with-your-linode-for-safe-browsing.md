@@ -49,10 +49,12 @@ The first step is to launch the SOCKS server and establish a connection to your 
     ssh -D 12345 user@host.domain
     ~~~
 
-    {:.note}
-    > **-D 12345** tells SSH to run the SOCKS server on port 12345.
-    >
-    > You can choose any port number greater than 1024. Lower numbers could be used but you will need to log in as root, and make sure the port is not in use by another service.
+    {{< note >}}
+**-D 12345** tells SSH to run the SOCKS server on port 12345.
+
+You can choose any port number greater than 1024. Lower numbers could be used but you will need to log in as root, and make sure the port is not in use by another service.
+
+{{< /note >}}
 
 2.  You will be prompted for your password. After entering it, you will be logged in to your Linode. Minimize the terminal because you will not need it until you are finished with your browsing session.
 

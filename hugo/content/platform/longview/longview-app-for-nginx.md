@@ -37,9 +37,11 @@ If you already have Longview installed, and later want to install Ngnix and enab
 
     [![Longview has detected Nginx running on this server but was unable to access the server status page. Would you like to attempt to automatically configure the Nginx status module? This will require restarting Nginx to enable. Autoconfigure Mod\_Status: \<Yes\> \<No\>](/docs/assets/1456-longview_ngnix_popup_crop.png)](/docs/assets/1456-longview_ngnix_popup_crop.png)
 
-    {:.note}
-    >
-    > It's also possible that Longview will be able to locate the status page on its own. In that case, you won't get the popup, and you can go directly to Step 5.
+    {{< note >}}
+
+It's also possible that Longview will be able to locate the status page on its own. In that case, you won't get the popup, and you can go directly to Step 5.
+
+{{< /note >}}
 
 4.  This popup occurs when Longview can't locate the Nginx status page. In turn, this could indicate that the status page is in an unusual and unspecified location, or that the status module isn't enabled, or that Nginx itself is misconfigured. Select one of the options:
 
@@ -53,9 +55,11 @@ If you already have Longview installed, and later want to install Ngnix and enab
             [ ok ] Starting Longview Agent: longview.
             update-rc.d: using dependency based boot sequencing
 
-    {:.note}
-    >
-    > The automatic configuration sets the status page location to `http://127.0.0.2/nginx_status`.
+    {{< note >}}
+
+The automatic configuration sets the status page location to `http://127.0.0.2/nginx_status`.
+
+{{< /note >}}
 
 5.  Refresh the Longview Nginx tab in the Linode Manager to verify that it's working now.
 

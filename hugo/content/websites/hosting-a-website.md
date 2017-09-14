@@ -118,8 +118,10 @@ Now that Apache is optimized for performance, it's time to starting hosting one 
 
         sudo nano /etc/apache2/sites-available/example.com.conf
 
-    {:.caution}
-    > The file name *must* end with `.conf` in Apache versions 2.4 and later, which is the default version in Ubuntu 14.04. The `.conf` extension is backwards-compatible with earlier versions.
+    {{< caution >}}
+The file name *must* end with `.conf` in Apache versions 2.4 and later, which is the default version in Ubuntu 14.04. The `.conf` extension is backwards-compatible with earlier versions.
+
+{{< /caution >}}
 
 6.  Now it's time to create a configuration for your virtual host. We've created some basic settings to get your started. Copy and paste the settings shown below in to the virtual host file you just created. Replace all instances of `example.com` with your domain name.
 

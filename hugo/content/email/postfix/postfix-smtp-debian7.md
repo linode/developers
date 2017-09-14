@@ -97,16 +97,18 @@ If you want to use [Mandrill](#settings-for-mandrill), or [SendGrid](#settings-f
         [mail.isp.example] username:password
         ~~~
 
-    {:.note}
-    >
-    > If you want to specify a non-default TCP Port (such as 587), then use the following format:
-    >
-    > {: .file }
-    > /etc/postfix/sasl\_passwd
-    > :   ~~~
-    >     [mail.isp.example]:587 username:password
-    >     ~~~
+    {{< note >}}
+
+If you want to specify a non-default TCP Port (such as 587), then use the following format:
+
+{: .file }
+/etc/postfix/sasl\_passwd
+:   ~~~
+[mail.isp.example]:587 username:password
+~~~
 3.  Create the hash db file for Postfix by running the `postmap` command:
+
+{{< /note >}}
 
         sudo postmap /etc/postfix/sasl_passwd
 
@@ -138,9 +140,11 @@ In this section, you will configure the `/etc/postfix/main.cf` file to use the e
         relayhost = [mail.isp.example]:587
         ~~~
 
-    {:.note}
-    >
-    > Check the appropriate [Google Apps](#settings-for-google-apps), [Mandrill](#settings-for-mandrill), or [SendGrid](#settings-for-sendgrid) section for the details to enter here.
+    {{< note >}}
+
+Check the appropriate [Google Apps](#settings-for-google-apps), [Mandrill](#settings-for-mandrill), or [SendGrid](#settings-for-sendgrid) section for the details to enter here.
+
+{{< /note >}}
 
 3.  At the end of the file, add the following parameters to enable authentication:
 

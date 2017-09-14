@@ -245,9 +245,11 @@ CentOS 7 users can find a sample file containing all the configuration options a
 
 {{< /note >}}
 
-{:.file}
+{{< file >}}
 .cassandra/cqlshrc
 : ~~~ conf
+
+{{< /file >}}
 
 	;; Options that are common to both COPY TO and COPY FROM
 

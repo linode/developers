@@ -23,10 +23,12 @@ Linode does not support SELinux by default. To boot a distribution-specific kern
 
 ### Remove AppArmor
 
-{:.caution}
->
->At this point in the tutorial AppArmor is your default security module. Removing but not replacing AppArmor can put your system at risk.
->Do not purge AppArmor if you believe you may reuse it in the future. 
+{{< caution >}}
+
+At this point in the tutorial AppArmor is your default security module. Removing but not replacing AppArmor can put your system at risk.
+Do not purge AppArmor if you believe you may reuse it in the future.
+
+{{< /caution >}}
 
 1. Stop the AppArmor script in `/etc/init.d/`: 
 

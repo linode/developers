@@ -105,9 +105,11 @@ With the certificate authority generated, you can generate the private key for t
 
         ./build-key client1
 
-    {:.note}
-    >
-    > Anyone with access to `client1.key` will be able to access your VPN. To better protect against this scenario, you can issue `./build-key-pass client1` instead to build a client key which is encrypted with a passphrase.
+    {{< note >}}
+
+Anyone with access to `client1.key` will be able to access your VPN. To better protect against this scenario, you can issue `./build-key-pass client1` instead to build a client key which is encrypted with a passphrase.
+
+{{< /note >}}
 
 5.  Repeat the previous step for each client, replacing `client1` with an appropriate identifier.
 
@@ -138,9 +140,11 @@ Move all of the secure keys to their proper locations by following these instruc
     -   `client1.crt`
     -   `client1.key`
 
-    {:.note}
-    >
-    > Transfer these keys with the utmost attention to security. Anyone who has the key or is able to intercept an unencrypted copy of the key will be able to gain full access to your virtual private network. Typically we recommend that you encrypt the keys for transfer, either by using a protocol like SSH, or by encrypting them with the PGP tool.
+    {{< note >}}
+
+Transfer these keys with the utmost attention to security. Anyone who has the key or is able to intercept an unencrypted copy of the key will be able to gain full access to your virtual private network. Typically we recommend that you encrypt the keys for transfer, either by using a protocol like SSH, or by encrypting them with the PGP tool.
+
+{{< /note >}}
 
 2.  On your server, change to the `/etc/openvpn/easy-rsa/keys` directory:
 

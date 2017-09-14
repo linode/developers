@@ -510,9 +510,11 @@ Dovecot allows users to log in and check their email using POP3 and IMAP. In thi
 
 4.  Open the `/etc/dovecot/conf.d/10-mail.conf` file. This file controls how Dovecot interacts with the server's file system to store and retrieve messages.
 
-    {:.note}
-    >
-    > Click [this link](/docs/assets/1239-dovecot_10-mail.conf.txt) to see the final, complete version of `10-mail.conf` example file. This is a long file, so you may need to use your text editor's search feature to find the values you need to edit.
+    {{< note >}}
+
+Click [this link](/docs/assets/1239-dovecot_10-mail.conf.txt) to see the final, complete version of `10-mail.conf` example file. This is a long file, so you may need to use your text editor's search feature to find the values you need to edit.
+
+{{< /note >}}
 
     Modify the following variables within the configuration file:
 
@@ -589,9 +591,11 @@ Dovecot allows users to log in and check their email using POP3 and IMAP. In thi
 	  #!include auth-static.conf.ext
 	  ~~~
 
-    {:.note}
-    >
-    > Click here to see the final, complete version of <a href="/docs/assets/1238-dovecot_10-auth.conf.txt" target="_blank">`10-auth.conf`<a/>.
+    {{< note >}}
+
+Click here to see the final, complete version of <a href="/docs/assets/1238-dovecot_10-auth.conf.txt" target="_blank">`10-auth.conf`<a/>.
+
+{{< /note >}}
 
     Save the changes to the `/etc/dovecot/conf.d/10-auth.conf` file.
 
@@ -646,15 +650,19 @@ Dovecot allows users to log in and check their email using POP3 and IMAP. In thi
 	    password_query = SELECT email as user, password FROM virtual_users WHERE email='%u';
 	    ~~~
 
-	{:.note}
-    >
-    > This password query lets you use an email address listed in the `virtual_users` table as the username credential for an email account. If you want to be able to use the alias as the username instead (listed in the `virtual_aliases` table), first add every primary email address to the `virtual_aliases` table (directing to themselves) and then use the following line in `/etc/dovecot/dovecot-sql.conf.ext` instead:
-    >
-    >     password_query = SELECT email as user, password FROM virtual_users WHERE email=(SELECT destination FROM virtual_aliases WHERE source = '%u');
+	{{< note >}}
 
-    {:.note}
-    >
-    > Click the link to see the final, complete version of <a href="/docs/assets/1284-dovecot__dovecot-sql.conf.ext.txt" target="_blank">dovecot-sql.conf.ext</a>.
+This password query lets you use an email address listed in the `virtual_users` table as the username credential for an email account. If you want to be able to use the alias as the username instead (listed in the `virtual_aliases` table), first add every primary email address to the `virtual_aliases` table (directing to themselves) and then use the following line in `/etc/dovecot/dovecot-sql.conf.ext` instead:
+
+password_query = SELECT email as user, password FROM virtual_users WHERE email=(SELECT destination FROM virtual_aliases WHERE source = '%u');
+
+{{< /note >}}
+
+    {{< note >}}
+
+Click the link to see the final, complete version of <a href="/docs/assets/1284-dovecot__dovecot-sql.conf.ext.txt" target="_blank">dovecot-sql.conf.ext</a>.
+
+{{< /note >}}
 
     Save the changes to the `/etc/dovecot/dovecot-sql.conf.ext` file.
 
@@ -668,9 +676,11 @@ Dovecot allows users to log in and check their email using POP3 and IMAP. In thi
 
 15. Open the sockets configuration file, located at `/etc/dovecot/conf.d/10-master.conf`
 
-    {:.note}
-    >
-    > Click this link to see the final version of <a href="/docs/assets/1240-dovecot_10-master.conf.txt" target="_blank">10-master.conf</a>. There are many nested blocks of code in this file, so please pay close attention to the brackets. It's probably better if you edit line by line, rather than copying large chunks of code. If there's a syntax error, Dovecot will crash silently, but you can check `/var/log/upstart/dovecot.log` to help you find the error.
+    {{< note >}}
+
+Click this link to see the final version of <a href="/docs/assets/1240-dovecot_10-master.conf.txt" target="_blank">10-master.conf</a>. There are many nested blocks of code in this file, so please pay close attention to the brackets. It's probably better if you edit line by line, rather than copying large chunks of code. If there's a syntax error, Dovecot will crash silently, but you can check `/var/log/upstart/dovecot.log` to help you find the error.
+
+{{< /note >}}
 
 16. Disable unencrypted IMAP and POP3 by setting the protocols' ports to 0, as shown below. Ensure that the entries for port and ssl below the IMAPS and pop3s entries are uncommented:
 
@@ -698,9 +708,11 @@ Dovecot allows users to log in and check their email using POP3 and IMAP. In thi
 		  }
 	    ~~~
 
-    {:.note}
-    >
-    > Leave the secure versions unedited, specifically the `imaps` and `pop3s`, so that their ports still work. The default settings for `imaps` and `pop3s` are fine. Optionally, leave the `port` lines commented out, as the default ports are the standard 993 and 995.
+    {{< note >}}
+
+Leave the secure versions unedited, specifically the `imaps` and `pop3s`, so that their ports still work. The default settings for `imaps` and `pop3s` are fine. Optionally, leave the `port` lines commented out, as the default ports are the standard 993 and 995.
+
+{{< /note >}}
 
     Find the `service lmtp` section and use the configuration shown below:
 
@@ -775,17 +787,21 @@ Dovecot allows users to log in and check their email using POP3 and IMAP. In thi
         ls /etc/dovecot/dovecot.pem
         ls /etc/dovecot/private/dovecot.pem
 
-    {:.note}
-    >
-    > As noted above, these files are not provided in Dovecot 2.2.13-7 and above, and will not be present on Debian 8 and other newer systems, as well as some older ones.
-    >
-    > If using a different SSL certificate, upload the certificate to the server and make a note of its location and the key's location.
+    {{< note >}}
+
+As noted above, these files are not provided in Dovecot 2.2.13-7 and above, and will not be present on Debian 8 and other newer systems, as well as some older ones.
+
+If using a different SSL certificate, upload the certificate to the server and make a note of its location and the key's location.
+
+{{< /note >}}
 
 18. Open `/etc/dovecot/conf.d/10-ssl.conf`.
 
-    {:.note}
-    >
-    > Click the link to see the final, complete version of <a href="/docs/assets/1241-dovecot_10-ssl.conf.txt" target="_blank">10-ssl.conf</a>.
+    {{< note >}}
+
+Click the link to see the final, complete version of <a href="/docs/assets/1241-dovecot_10-ssl.conf.txt" target="_blank">10-ssl.conf</a>.
+
+{{< /note >}}
 
 19. Verify that the `ssl_cert` setting has the correct path to the certificate, and that the `ssl_key` setting has the correct path to the key. The default setting displayed uses Dovecot's built-in certificate, so you can leave this as-is if using the Dovecot certificate. Update the paths accordingly if you are using a different certificate and key.
 

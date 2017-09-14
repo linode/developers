@@ -45,9 +45,11 @@ Install Docker:
 
 You will be presented with all necessary dependencies and asked to accept the installation. Type `y` to accept and complete the installation.
 
-{:.note}
->
->If you are using CentOS 7, use `sudo yum check-update && curl-fsSL https://get.docker.com/ | sh`
+{{< note >}}
+
+If you are using CentOS 7, use `sudo yum check-update && curl-fsSL https://get.docker.com/ | sh`
+
+{{< /note >}}
 
 Docker installation adds the group `docker` to your Linode. Create the user `exampleuser`, give it `sudo` privileges, and add it to the Docker group:
 

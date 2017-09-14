@@ -267,9 +267,11 @@ You can read the entire list of parameters on the [Valve Wiki](https://developer
 
 		wget http://www.metamodsource.net/mmsdrop/1.10/mmsource-1.10.7-git951-linux.tar.gz
 
-      {:.note}
-      >
-      > This URL costantly changes as MetaMod is updated. Please check the downloads [page](http://www.metamodsource.net/snapshots) for the current URL.
+      {{< note >}}
+
+This URL costantly changes as MetaMod is updated. Please check the downloads [page](http://www.metamodsource.net/snapshots) for the current URL.
+
+{{< /note >}}
 
 3.  Extract the downloaded archive:
 
@@ -298,9 +300,11 @@ It is recommended that you install the **SourceMod** add-on. It provides useful 
 
 		wget https://www.sourcemod.net/smdrop/1.8/sourcemod-1.8.0-git5829-linux.tar.gz
 
-	{:.note}
-	>
+	{{< note >}}
+
 	> This URL constantly changes as SourceMod is updated. Please check the downloads [page](https://www.sourcemod.net/downloads.php) for the current URL.
+
+{{< /note >}}
 
 3.  Extract the downloaded archive:
 
@@ -321,9 +325,11 @@ If you get similar output, it means that MetaMod and SourceMod are working.
 
 Now, SourceMod will be automatically loaded by MetaMod when starting the Black Mesa Dedicated Server.
 
-{:.note}
->
-> Read the [MetaMod Official Wiki](https://wiki.alliedmods.net/Category:Metamod:Source_Documentation) and the [SourceMod Official Wiki](https://wiki.alliedmods.net/index.php/Category:SourceMod_Documentation) for info about configurations, plug-ins, files, etc.
+{{< note >}}
+
+Read the [MetaMod Official Wiki](https://wiki.alliedmods.net/Category:Metamod:Source_Documentation) and the [SourceMod Official Wiki](https://wiki.alliedmods.net/index.php/Category:SourceMod_Documentation) for info about configurations, plug-ins, files, etc.
+
+{{< /note >}}
 
 
 Enjoy!

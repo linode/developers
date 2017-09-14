@@ -56,10 +56,12 @@ Follow the [Getting Started](/docs/getting-started) guide to configure your basi
         systemctl start sendmail
         systemctl enable sendmail
 
-    {:.note}
-    > Should you encounter the error that there is "*no directory /var/run/fail2ban to contain the socket file /var/run/fail2ban/fail2ban.sock*", create the directory manually:
-    >
-    > 'mkdir /var/run/fail2ban`
+    {{< note >}}
+Should you encounter the error that there is "*no directory /var/run/fail2ban to contain the socket file /var/run/fail2ban/fail2ban.sock*", create the directory manually:
+
+'mkdir /var/run/fail2ban`
+
+{{< /note >}}
 
 ### Debian
 

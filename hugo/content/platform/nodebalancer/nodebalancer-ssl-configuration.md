@@ -89,12 +89,14 @@ This guide has been written with the assumption that you are logged in as the ro
 
         LoadModule rewrite_module modules/mod_rewrite.so
 
-    {:.note}
-    > Depending on your distribution, this file's location may vary. For example, it can be found at the following paths on Debian and Red Hat based distributions, respectively:
-    >
-    >     /etc/apache2/apache2.conf
-    >
-    >     /etc/httpd/httpd.conf
+    {{< note >}}
+Depending on your distribution, this file's location may vary. For example, it can be found at the following paths on Debian and Red Hat based distributions, respectively:
+
+/etc/apache2/apache2.conf
+
+/etc/httpd/httpd.conf
+
+{{< /note >}}
 
 2.  Edit the Apache virtual host configuration file to establish the rewrite rules necessary to redirect all incoming traffic from port 80/HTTP back to the NodeBalancer on port 443/HTTPS:
 

@@ -91,17 +91,19 @@ Apache supports *name-based virtual hosting*, which allows you to host multiple 
         </VirtualHost>
         ~~~
 
-    {:.note}
-    >
-    > If you would like to enable Perl support, add the following lines to the `VirtualHost` entry, right above the closing `</VirtualHost>` tag:
-    >
-    > {: .file-excerpt }
-    > /etc/apache2/sites-available/example.com.conf
-    > :   ~~~ apache
-    >     Options ExecCGI
-    >     AddHandler cgi-script .pl
-    >     ~~~
-    >
+    {{< note >}}
+
+If you would like to enable Perl support, add the following lines to the `VirtualHost` entry, right above the closing `</VirtualHost>` tag:
+
+{: .file-excerpt }
+/etc/apache2/sites-available/example.com.conf
+:   ~~~ apache
+Options ExecCGI
+AddHandler cgi-script .pl
+~~~
+
+
+{{< /note >}}
 
 3.  Create the directories for **example.com's** website files and logs:
 

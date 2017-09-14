@@ -22,8 +22,10 @@ Before beginning this guide, we assume you have completed the [getting started g
 
 ## Install Unison on a Linode
 
-{:.caution}
-> Unison is no longer [maintained under active development](https://www.cis.upenn.edu/~bcpierce/unison/status.html).
+{{< caution >}}
+Unison is no longer [maintained under active development](https://www.cis.upenn.edu/~bcpierce/unison/status.html).
+
+{{< /caution >}}
 
 ### Debian 5 (Lenny)
 
@@ -39,17 +41,19 @@ Debian also includes packages for Unison version 2.13 (packaged as `unison2.13.1
 
 Edit the `/etc/apt/sources.list` to enable to the Universe repositories, so that it resembles the following:
 
-{:.file}
+{{< file >}}
 /etc/apt/sources.list
 :   ~~~
-    ## main & restricted repositories deb <http://us.archive.ubuntu.com/ubuntu/> lucid main restricted deb-src <http://us.archive.ubuntu.com/ubuntu/> lucid main restricted
-    
-    deb <http://security.ubuntu.com/ubuntu> lucid-security main restricted deb-src <http://security.ubuntu.com/ubuntu> lucid-security main restricted
-    
-    ## universe repositories deb <http://us.archive.ubuntu.com/ubuntu/> lucid universe deb-src <http://us.archive.ubuntu.com/ubuntu/> lucid universe deb <http://us.archive.ubuntu.com/ubuntu/> lucid-updates universe deb-src <http://us.archive.ubuntu.com/ubuntu/> lucid-updates universe
-    
-    deb <http://security.ubuntu.com/ubuntu> lucid-security universe deb-src <http://security.ubuntu.com/ubuntu> lucid-security universe
-    ~~~
+## main & restricted repositories deb <http://us.archive.ubuntu.com/ubuntu/> lucid main restricted deb-src <http://us.archive.ubuntu.com/ubuntu/> lucid main restricted
+
+deb <http://security.ubuntu.com/ubuntu> lucid-security main restricted deb-src <http://security.ubuntu.com/ubuntu> lucid-security main restricted
+
+## universe repositories deb <http://us.archive.ubuntu.com/ubuntu/> lucid universe deb-src <http://us.archive.ubuntu.com/ubuntu/> lucid universe deb <http://us.archive.ubuntu.com/ubuntu/> lucid-updates universe deb-src <http://us.archive.ubuntu.com/ubuntu/> lucid-updates universe
+
+deb <http://security.ubuntu.com/ubuntu> lucid-security universe deb-src <http://security.ubuntu.com/ubuntu> lucid-security universe
+~~~
+
+{{< /file >}}
 
 Finally, issue the following sequence of commands to: ensure that your system's package database is up to date, that all installed packages are up to date, and install Unison:
 

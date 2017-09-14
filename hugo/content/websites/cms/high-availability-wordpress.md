@@ -187,8 +187,10 @@ For the following sections of this guide, replace "example.com" with your domain
         </VirtualHost>
         ~~~
 
-    {:.caution}
-    > The file name *must* end with `.conf` in Apache versions 2.4 and later, which Ubuntu 14.04 uses. The `.conf` extension is backwards-compatible with earlier versions.
+    {{< caution >}}
+The file name *must* end with `.conf` in Apache versions 2.4 and later, which Ubuntu 14.04 uses. The `.conf` extension is backwards-compatible with earlier versions.
+
+{{< /caution >}}
 
 6.  Enable the new website by entering the following command:
 

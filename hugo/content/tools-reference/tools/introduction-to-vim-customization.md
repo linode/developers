@@ -57,18 +57,20 @@ Prefixing the `sudo` command is necessary when editing files where read and/or w
 
 2.  Open the *vimrc* file for editing. The file may syntactically differ between Linux distributions, but the core settings remain the same. In the file below, the segment containing the bulk of the configuration options is shown. Uncomment the lines whose behavior you wish to enable. 
 
-{:.file}
+{{< file >}}
 /etc/vimrc
 : ~~~ vimrc
-  set showcmd› › " Show (partial) command in status line.
-  set showmatch› › " Show matching brackets.
-  set ignorecase›› " Do case insensitive matching
-  set smartcase› › " Do smart case matching
-  set incsearch› › " Incremental search
-  set autowrite› › " Automatically save before commands like :next and :make
-  set hidden›› " Hide buffers when they are abandoned
-  set mouse=a› › " Enable mouse usage (all modes)
-  ~~~
+set showcmd› › " Show (partial) command in status line.
+set showmatch› › " Show matching brackets.
+set ignorecase›› " Do case insensitive matching
+set smartcase› › " Do smart case matching
+set incsearch› › " Incremental search
+set autowrite› › " Automatically save before commands like :next and :make
+set hidden›› " Hide buffers when they are abandoned
+set mouse=a› › " Enable mouse usage (all modes)
+~~~
+
+{{< /file >}}
 
 ## Customize the Local *.vimrc* File
 
@@ -80,11 +82,13 @@ The configurations in this section will apply only to the active user account.
 
 From your active Vim session, create a *.vimrc* file in your home directory. The contents below consist of basic configuration settings most users would find helpful when utilizing Vim in any circumstance. You may pick and choose which settings you would like to add to your personal *.vimrc* file.
 
-{:.file}
+{{< file >}}
 ~/.vimrc
 : ~~~ vimrc
-  " Set compatibility to Vim only.
-  set nocompatible
+" Set compatibility to Vim only.
+set nocompatible
+
+{{< /file >}}
 
   " Helps force plug-ins to load correctly when it is turned back on below.
   filetype off
@@ -223,10 +227,12 @@ Any additional plug-ins to be installed need to be added between the "plug#begin
 
 {{< /note >}}
 
-    {:.file}
-    ~/.vimrc.plug
-    : ~~~ vimrc
-        call plug#begin('~/.vim/plugged')
+    {{< file >}}
+~/.vimrc.plug
+: ~~~ vimrc
+call plug#begin('~/.vim/plugged')
+
+{{< /file >}}
 
         "Fugitive Vim Github Wrapper
         Plug 'tpope/vim-fugitive'
@@ -234,10 +240,12 @@ Any additional plug-ins to be installed need to be added between the "plug#begin
         call plug#end()
       ~~~
 
-     {:.note}
-     > If after this step you receive an error similar to `E117 Unknown Function: plug#end` check the user permissions over `~/.vim/` you may need to `chmod -R 0755
-     
+     {{< note >}}
+If after this step you receive an error similar to `E117 Unknown Function: plug#end` check the user permissions over `~/.vim/` you may need to `chmod -R 0755
+
 4.  After saving and closing the *.vimrc.plug* file, exit and restart Vim. The final installation procedure is to issue the `PlugInstall` command in command mode. This will open the plug-in manager within Vim and proceed to install all plug-ins listed in the **vimrc.plug* file. Installed plug-ins will automatically load the next time Vim is started.
+
+{{< /note >}}
 
         :PlugInstall
 

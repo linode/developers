@@ -224,13 +224,15 @@ Follow these commands to install Longview on your Linode manually:
         Successfully installed DBI-1.630
         29 distributions installed
 
-    {:.note}
-    >
-    > If you don't have MySQL installed, you'll receive an error about dependencies for Longview-MySQL. You can safely ignore the error if MySQL isn't installed. Here's an example of the output:
-    >
-    > ==== Installing Longview-MySQL dependencies ==== ! Configure failed for DBD-mysql-4.025. See /root/.cpanm/work/1384896259.21932/build.log for details. ==== Translating Headers ==== /usr/include/syscall.h -\> /usr/include/syscall.ph
-    >
-    > ...
+    {{< note >}}
+
+If you don't have MySQL installed, you'll receive an error about dependencies for Longview-MySQL. You can safely ignore the error if MySQL isn't installed. Here's an example of the output:
+
+==== Installing Longview-MySQL dependencies ==== ! Configure failed for DBD-mysql-4.025. See /root/.cpanm/work/1384896259.21932/build.log for details. ==== Translating Headers ==== /usr/include/syscall.h -\> /usr/include/syscall.ph
+
+...
+
+{{< /note >}}
 
 Congratulations! The Longview client is now installed.
 

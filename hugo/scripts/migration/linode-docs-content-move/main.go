@@ -155,7 +155,7 @@ var (
 	dateRe     = regexp.MustCompile(`(published|modified): '?(.*)'?\s*\n`)
 	keywordsRe = regexp.MustCompile(`keywords: '(.*)'\s*\n?`)
 
-	calloutsRe = regexp.MustCompile(`(?s){: \.(\w*)}(.*?)\n\n`)
+	calloutsRe = regexp.MustCompile(`(?s){:\s?\.(\w*)}(.*?)\n\n`)
 
 	ndRe     = regexp.MustCompile(`(\d+)(th|nd|st|rd)`)
 	commaRe1 = regexp.MustCompile(`([0-9])\s([0-9])`)

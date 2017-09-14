@@ -338,9 +338,11 @@ From your web browser, go to your FreePBX web interface.
 3.  Select the **Upgrade All** link. Under the Connectivity section, select **Google Voice/Chan Motif**. If there are other modules on this list you want to install, select them now.
 4.  When finished, press the **Process** button, and then **Confirm**.
 
-    {:.note}
-    >
-    > If downloading modules fails, from the terminal run this command from the terminal: `su asterisk -c 'mkdir /var/www/html/admin/modules/_cache'`. This should resolve the issue.
+    {{< note >}}
+
+If downloading modules fails, from the terminal run this command from the terminal: `su asterisk -c 'mkdir /var/www/html/admin/modules/_cache'`. This should resolve the issue.
+
+{{< /note >}}
 
 5.  You will now see a red **Apply Config** button. Use it to enable the modules and updates you just downloaded.
 

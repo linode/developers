@@ -112,18 +112,20 @@ Follow these instructions:
         </VirtualHost>
         ~~~
 
-    {:.note}
-    >
-    > If you would like to enable Perl support, add the following lines to the `VirtualHost` entry, right above the closing `</VirtualHost>` tag:
-    >
-    > {: .file-excerpt }
+    {{< note >}}
+
+If you would like to enable Perl support, add the following lines to the `VirtualHost` entry, right above the closing `</VirtualHost>` tag:
+
+{: .file-excerpt }
 /etc/apache2/sites-available/example.net
-    > :   ~~~ apache
-    >     Options ExecCGI
-    >     AddHandler cgi-script .pl
-    >     ~~~
-    >
+:   ~~~ apache
+Options ExecCGI
+AddHandler cgi-script .pl
+~~~
+
 3.  Now you'll make the configuration file for the second domain. Create the file for **example.org**, called `/etc/apache2/sites-available/example.org`, with the following content. Be sure to replace **example.org** with your own domain name.
+
+{{< /note >}}
 
         nano /etc/apache2/sites-available/example.org
 
@@ -140,9 +142,11 @@ Follow these instructions:
         </VirtualHost>
         ~~~
 
-    {:.note}
-    >
-    > Some basic options are specified for both **example.net** and **example.org**, including the location for the website files: under `/srv/www/`. You can add (or remove) additional configuration options, such as the Perl support shown in Step 2, on a site-by-site basis.
+    {{< note >}}
+
+Some basic options are specified for both **example.net** and **example.org**, including the location for the website files: under `/srv/www/`. You can add (or remove) additional configuration options, such as the Perl support shown in Step 2, on a site-by-site basis.
+
+{{< /note >}}
 
 4.  Create the directories for **example.net's** website files and logs by executing the following commands:
 

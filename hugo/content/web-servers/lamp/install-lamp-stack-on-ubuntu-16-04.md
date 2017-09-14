@@ -233,9 +233,11 @@ The beginning of the `php.ini` file contains examples commented out with a semic
         sudo systemctl restart apache2
 
 
-	{:.note}
-	> 
+	{{< note >}}
+
 	>If you plan on using your LAMP stack to host a WordPress server, download these PHP modules: `apt install php-curl php-gd php-mbstring php-mcrypt php-xml php-xmlrpc`
+
+{{< /note >}}
 
 ### Optional: Test and Troubleshoot the LAMP Stack
 
