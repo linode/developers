@@ -3,7 +3,7 @@ author:
   name: Chris Walsh
   email: docs@linode.com
 description: 'Install SteamCMD, a command-line version of the Steam client, which works with games that use SteamPipe. Installing SteamCMD is a prerequisite before hosting a Steam title on your own game server.'
-keywords: 'steam,steamcmd,steam cmd,games,game server,steam server,steampipe'
+keywords: ["steam", "steamcmd", "steam cmd", "games", "game server", "steam server", "steampipe"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2016-03-29
 modified_by:

@@ -3,7 +3,7 @@ author:
   name: Chris Ciufo
   email: docs@linode.com
 description: 'mod_evasive'
-keywords: 'mod_evasive, modevasive, evasive, apache'
+keywords: ["mod_evasive", " modevasive", " evasive", " apache"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/mod-evasive/','websites/apache-tips-and-tricks/modevasive-on-apache/']
 modified: 2013-02-05

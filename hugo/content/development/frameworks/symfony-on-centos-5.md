@@ -3,7 +3,7 @@ author:
   name: Ozan Yerli
   email: oyerli@gmail.com
 description: 'Installing and configuring Symfony for developing PHP applications on your CentOS 5 Linode.'
-keywords: 'cakephp,cakephp debian,php framework,debian,develop php'
+keywords: ["cakephp", "cakephp debian", "php framework", "debian", "develop php"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/symfony/','websites/frameworks/symfony-on-centos-5/']
 modified: 2013-09-27

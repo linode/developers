@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Configuring the LAMP stack on Ubuntu Linux 9.04 (Jaunty).'
-keywords: 'ubuntu lamp server,ubuntu web server,ubuntu jaunty'
+keywords: ["ubuntu lamp server", "ubuntu web server", "ubuntu jaunty"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['lamp-guides/ubuntu-9-04-jaunty/','websites/lamp/lamp-server-on-ubuntu-9-04-jaunty/']
 modified: 2011-05-02

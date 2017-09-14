@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Getting started with MySQL for web and server applications on Ubuntu 10.10 Maverick'
-keywords: 'mysql ubuntu 10.10,mysql maverick,mysql ubuntu,mysql on linux,mysql Linode'
+keywords: ["mysql ubuntu 10.10", "mysql maverick", "mysql ubuntu", "mysql on linux", "mysql Linode"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/mysql/ubuntu-10-10-maverick/']
 modified: 2012-10-08

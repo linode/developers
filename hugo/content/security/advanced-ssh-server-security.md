@@ -3,7 +3,7 @@ author:
   name: Linode Community
   email: docs@linode.com
 description: 'Tips to improve the security of your SSH server'
-keywords: 'SSH,secure shell,Ubuntu,CentOS,security,2FA,server,Linux'
+keywords: ["SSH", "secure shell", "Ubuntu", "CentOS", "security", "2FA", "server", "Linux"]
 license: '[CC BY-ND 4.0](http://creativecommons.org/licenses/by-nd/4.0)'
 published: 2017-04-07
 modified: 2017-04-07

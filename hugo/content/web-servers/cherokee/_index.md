@@ -2,7 +2,7 @@
 author:
   name: Linode
   email: docs@linode.com
-keywords: 'cherokee web server,cherokee on linode,Linode web server'
+keywords: ["cherokee web server", "cherokee on linode", "Linode web server"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['websites/cherokee/']
 published: 2009-09-10

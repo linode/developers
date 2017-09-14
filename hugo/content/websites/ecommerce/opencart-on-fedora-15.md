@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Set up and manage an online storefront with OpenCart.'
-keywords: 'opencart,ecommerce,commerce,store,fedora'
+keywords: ["opencart", "ecommerce", "commerce", "store", "fedora"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/e-commerce/opencart/fedora-15/']
 modified: 2013-10-03

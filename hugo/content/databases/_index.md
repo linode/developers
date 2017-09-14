@@ -2,7 +2,7 @@
 author:
   name: Linode
   email: docs@linode.com
-keywords: 'SQL database,relational database,RDBMS,MySQL,Postgresql,nosql,mongodb,couchdb,'
+keywords: ["SQL database", "relational database", "RDBMS", "MySQL", "Postgresql", "nosql", "mongodb", "couchdb", ""]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 published: 2009-07-16
 title: Database Management Systems

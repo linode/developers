@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Getting started with MySQL for web and server applications on Ubuntu Jaunty.'
-keywords: 'MySQL on Linux,MySQL Ubuntu,MySQL Jaunty,MySQL Linode'
+keywords: ["MySQL on Linux", "MySQL Ubuntu", "MySQL Jaunty", "MySQL Linode"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/mysql/ubuntu-9-04-jaunty/']
 modified: 2012-10-08

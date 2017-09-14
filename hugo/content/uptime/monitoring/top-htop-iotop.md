@@ -3,7 +3,7 @@ author:
   name: Elle Krout
   email: ekrout@linode.com
 description: 'How to use top to monitor a server''s performance.'
-keywords: 'top,htop,iotop,monitoring,server monitoring'
+keywords: ["top", "htop", "iotop", "monitoring", "server monitoring"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2015-02-19
 modified_by:

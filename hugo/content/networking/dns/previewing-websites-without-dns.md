@@ -3,7 +3,7 @@ author:
   name: Alex Fornuto
   email: afornuto@linode.com
 description: 'A guide to testing a website for a domain before the DNS records are adjusted.'
-keywords: 'dns, website, preview'
+keywords: ["dns", " website", " preview"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['dns-guides/preview-websites/']
 modified: 2015-06-22

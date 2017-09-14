@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: Use wget to download files on the command line
-keywords: 'wget,command line,linux common commands'
+keywords: ["wget", "command line", "linux common commands"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['linux-tools/common-commands/wget/']
 modified: 2011-05-17

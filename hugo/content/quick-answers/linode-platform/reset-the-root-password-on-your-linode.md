@@ -3,7 +3,7 @@ author:
   name: Nick Brewer
   email: docs@linode.com
 description: 'Change the root user password for the Linux environment running on your Linode.'
-keywords: 'linux,linode manager,image'
+keywords: ["linux", "linode manager", "image"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2017-05-08
 modified_by:

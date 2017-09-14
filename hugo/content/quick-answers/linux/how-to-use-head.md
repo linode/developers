@@ -3,7 +3,7 @@ author:
   name: Phil Zona
   email: docs@linode.com
 description: 'View the beginning of a text file with the head command.'
-keywords: 'linux,how to,head,first lines,file'
+keywords: ["linux", "how to", "head", "first lines", "file"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['quick-answers/how-to-use-head/']
 modified: 2017-04-10

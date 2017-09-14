@@ -3,7 +3,7 @@ author:
   name: Linode Community
   email: docs@linode.com
 description: 'Install and Configure mod_fastcgi and PHP-FPM on Debian with Apache'
-keywords: 'apache,fastcgi,php-fpm,php,php pool'
+keywords: ["apache", "fastcgi", "php-fpm", "php", "php pool"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['websites/apache/php-fpm/debian-7/','web-servers/apache/php-fpm/apache-php-fpm-debian-ubuntu/','websites/apache/running-fastcgi-php-fpm-on-debian-7-with-apache/']
 contributor:

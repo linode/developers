@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Using the Movable Type dynamic content platform to publish a website.'
-keywords: 'Movable Type,MT HOWTO'
+keywords: ["Movable Type", "MT HOWTO"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/cms-guides/movable-type/']
 modified: 2013-10-02

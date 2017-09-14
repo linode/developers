@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Use the dig utility to perform DNS queries at the command line.'
-keywords: 'dig,dns,troubleshooting,domain names'
+keywords: ["dig", "dns", "troubleshooting", "domain names"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['linux-tools/common-commands/dig/']
 modified: 2011-05-17

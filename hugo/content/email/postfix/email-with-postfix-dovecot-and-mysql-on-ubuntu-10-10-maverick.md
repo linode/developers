@@ -4,7 +4,7 @@ author:
   name: Brett Kaplan
   email: docs@linode.com
 description: 'Setting up a mail server with Postfix, Dovecot and MySQL on Ubuntu 10.10 Maverick.'
-keywords: 'postfix ubuntu 10.10,dovecot ubuntu 10.10,ubuntu 10.10 mail server,dovecot,email,ubuntu,maverick'
+keywords: ["postfix ubuntu 10.10", "dovecot ubuntu 10.10", "ubuntu 10.10 mail server", "dovecot", "email", "ubuntu", "maverick"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/postfix/dovecot-mysql-ubuntu-10-10-maverick/']
 modified: 2012-10-08

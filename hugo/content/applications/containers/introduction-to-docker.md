@@ -6,7 +6,7 @@ contributor:
   name: Jack Wallen
   link: https://twitter.com/jlwallen
 description: 'An introduction to using Docker, containers, and dockerfiles on your Linode.'
-keywords: 'docker,container,dockerfile'
+keywords: ["docker", "container", "dockerfile"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2017-06-28
 modified_by:

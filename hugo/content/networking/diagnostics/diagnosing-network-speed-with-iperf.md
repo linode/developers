@@ -3,7 +3,7 @@ author:
   name: Dave R.
   email: docs@linode.com
 description: 'How to diagnose network speed issues using Iperf.'
-keywords: 'networking,diagnostic,speed,iperf'
+keywords: ["networking", "diagnostic", "speed", "iperf"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2017-02-28
 modified_by:

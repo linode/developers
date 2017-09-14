@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Installing and configuring the ISPConfig control panel to maintain your Linode.'
-keywords: 'ispconfig,control panel,cpanel,plesk,gui'
+keywords: ["ispconfig", "control panel", "cpanel", "plesk", "gui"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/control-panels/ispconfig/fedora-13/']
 modified: 2012-10-08

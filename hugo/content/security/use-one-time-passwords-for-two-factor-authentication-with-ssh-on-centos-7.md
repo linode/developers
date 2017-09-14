@@ -3,7 +3,7 @@ author:
   name: Phil Zona
   email: docs@linode.com
 description: 'Use OATH to enable two-factor authentication for SSH connections.'
-keywords: 'two factor authentication,ssh,TOTPs'
+keywords: ["two factor authentication", "ssh", "TOTPs"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2016-11-18
 modified_by:

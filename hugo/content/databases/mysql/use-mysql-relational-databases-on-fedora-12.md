@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Getting started with MySQL for web and server applications on Fedora 12.'
-keywords: 'mysql fedora 12,mysql linux,mysql fedora'
+keywords: ["mysql fedora 12", "mysql linux", "mysql fedora"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/mysql/fedora-12/']
 modified: 2012-10-08

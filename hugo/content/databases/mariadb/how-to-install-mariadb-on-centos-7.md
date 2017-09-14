@@ -3,7 +3,7 @@ author:
     name: Chris Walsh
     email: docs@linode.com
 description: 'Getting started with MariaDB on CentOS 7'
-keywords: 'MariaDB on Linux,CentOS,cloud,cloud hosting,Linux,MariaDB,database,MySQL,install MariaDB,secure MariaDB,mysqltuner'
+keywords: ["MariaDB on Linux", "CentOS", "cloud", "cloud hosting", "Linux", "MariaDB", "database", "MySQL", "install MariaDB", "secure MariaDB", "mysqltuner"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2015-08-21
 modified_by:

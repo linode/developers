@@ -3,7 +3,7 @@ author:
   name: Alex Fornuto
   email: docs@linode.com
 description: Best practices in preparation for a server reboot.
-keywords: 'uptime,reboot,downtime,fault tolerance'
+keywords: ["uptime", "reboot", "downtime", "fault tolerance"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2015-10-28
 modified_by:

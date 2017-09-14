@@ -3,7 +3,7 @@ author:
   name: Chris Ciufo
   email: docs@linode.com
 description: Installing DirectAdmin on Debian 6
-keywords: 'directadmin, install, control panels, debian'
+keywords: ["directadmin", " install", " control panels", " debian"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/control-panels/directadmin/installing-directadmin/']
 modified: 2013-10-03

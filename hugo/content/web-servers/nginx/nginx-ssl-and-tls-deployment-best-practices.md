@@ -3,7 +3,7 @@ author:
   name: Linode Community
   email: docs@linode.com
 description: 'This guide details best practices for deploying SSL and TLS in conjunction with nginx.'
-keywords: 'nginx,ssl,tls'
+keywords: ["nginx", "ssl", "tls"]
 license: '[CC BY-ND 4.0](http://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['websites/nginx/nginx-ssl-and-tls-deployment-best-practices/']
 published: 2016-08-18

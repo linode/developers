@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Use OpenVPN to securely connect separate networks on a Debian 6 (Squeeze) Linode.'
-keywords: 'openvpn debian 6,openvpn debian,debian vpn'
+keywords: ["openvpn debian 6", "openvpn debian", "debian vpn"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['networking/openvpn/debian-6-squeeze/']
 modified: 2013-08-22

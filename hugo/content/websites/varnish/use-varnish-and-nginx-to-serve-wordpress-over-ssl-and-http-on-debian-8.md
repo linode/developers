@@ -3,7 +3,7 @@ author:
   name: Linode Community
   email: docs@linode.com
 description: 'Learn to integrate Varnish with nginx to serve cached WordPress content for both SSL and plain HTTP websites.'
-keywords: 'Varnish,cache,Nginx,WordPress,SSL,PHP-FPM'
+keywords: ["Varnish", "cache", "Nginx", "WordPress", "SSL", "PHP-FPM"]
 license: '[CC BY-ND 4.0](http://creativecommons.org/licenses/by-nd/4.0/)'
 published: 2016-11-23
 modified: 2016-11-23

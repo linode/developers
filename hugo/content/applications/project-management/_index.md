@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Using open source systems and tools to manage a variety of projects.'
-keywords: 'open source project management,redmine'
+keywords: ["open source project management", "redmine"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/project-management/']
 published: 2009-11-20

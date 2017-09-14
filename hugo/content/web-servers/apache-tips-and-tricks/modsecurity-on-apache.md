@@ -3,7 +3,7 @@ author:
   name: Chris Ciufo
   email: docs@linode.com
 description: 'mod_security'
-keywords: 'apache, mod_security'
+keywords: ["apache", " mod_security"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/mod-security/','websites/apache-tips-and-tricks/modsecurity-on-apache/']
 modified: 2014-02-14

@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Getting started with MySQL for web and server applications on Ubuntu 9.10 (Karmic).'
-keywords: 'mysql on linux,mysql ubuntu,mysql karmic,mysql Linode'
+keywords: ["mysql on linux", "mysql ubuntu", "mysql karmic", "mysql Linode"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/mysql/ubuntu-9-10-karmic/']
 modified: 2012-10-08

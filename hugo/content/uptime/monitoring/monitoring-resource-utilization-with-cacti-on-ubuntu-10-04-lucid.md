@@ -4,7 +4,7 @@ author:
   name: Stan Schwertly
   email: docs@linode.com
 description: 'Cacti is a powerful server monitoring solution that uses SNMP to track resource usage on Ubuntu 10.04 (Lucid).'
-keywords: 'Cacti,Ubuntu,Ubuntu Lucid,Lucid,SNMP'
+keywords: ["Cacti", "Ubuntu", "Ubuntu Lucid", "Lucid", "SNMP"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['server-monitoring/cacti/ubuntu-10-04-lucid/']
 modified: 2013-10-01

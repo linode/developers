@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Create hard and symbolic links with ln on Linux Systems.'
-keywords: 'linux,common commands,unix,command line,file systems'
+keywords: ["linux", "common commands", "unix", "command line", "file systems"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['linux-tools/common-commands/ln/']
 modified: 2011-05-17

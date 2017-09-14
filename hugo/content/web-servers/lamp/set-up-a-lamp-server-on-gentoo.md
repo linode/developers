@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Creating a LAMP stack with Apache, MySQL, and PHP on a Gentoo Linux powered Linode.'
-keywords: 'LAMP,Gentoo Linux,Gentoo'
+keywords: ["LAMP", "Gentoo Linux", "Gentoo"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['lamp-guides/gentoo/','websites/lamp/set-up-a-lamp-server-on-gentoo/']
 modified: 2013-10-24

@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Use phpFox to create and maintain a social networking platform on Debian 5 (Lenny).'
-keywords: 'phpfox,social networking,community'
+keywords: ["phpfox", "social networking", "community"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/social-networking/phpfox/debian-5-lenny/']
 modified: 2013-10-04

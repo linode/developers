@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: Our guide to getting starting with version control
-keywords: 'version control,introduction to version control,git,introduction to git'
+keywords: ["version control", "introduction to version control", "git", "introduction to git"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['intro-version-control/','applications/development/introduction-to-version-control/']
 modified: 2013-09-18

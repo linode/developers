@@ -3,7 +3,7 @@ author:
   name: James Stewart
   email: jstewart@linode.com
 description: 'Configuring a highly available WordPress installation.'
-keywords: 'wordpress,mysql,replication,master-master,high availability'
+keywords: ["wordpress", "mysql", "replication", "master-master", "high availability"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2015-01-21
 modified_by:

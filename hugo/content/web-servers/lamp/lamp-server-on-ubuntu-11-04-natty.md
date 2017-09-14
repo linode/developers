@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Configuring a LAMP stack with Apache, MySQL, PHP and on Ubuntu Linux 11.04 (Natty).'
-keywords: 'ubuntu lamp server,ubuntu 11.04 lamp,natty lamp,ubuntu web server,ubuntu natty'
+keywords: ["ubuntu lamp server", "ubuntu 11.04 lamp", "natty lamp", "ubuntu web server", "ubuntu natty"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['lamp-guides/ubuntu-11-04-natty/','websites/lamp/lamp-server-on-ubuntu-11-04-natty/']
 modified: 2013-02-18

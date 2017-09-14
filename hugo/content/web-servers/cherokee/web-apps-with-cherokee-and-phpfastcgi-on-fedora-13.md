@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Using PHP-FastCGI for dynamic sites under Cherokee on Fedora 13'
-keywords: 'cherokee php-fastcgi,cherokee fastcgi,cherokee fedora 13,cherokee,fedora 13 web server'
+keywords: ["cherokee php-fastcgi", "cherokee fastcgi", "cherokee fedora 13", "cherokee", "fedora 13 web server"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/cherokee/php-fastcgi-fedora-13/','websites/cherokee/web-apps-with-cherokee-and-phpfastcgi-on-fedora-13/']
 modified: 2011-05-17

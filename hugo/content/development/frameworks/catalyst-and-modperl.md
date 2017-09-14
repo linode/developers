@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Building dynamic websites and applications with Catalyst.'
-keywords: 'Catalyst,dynamic content,web applications'
+keywords: ["Catalyst", "dynamic content", "web applications"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/catalyst/','websites/frameworks/catalyst-and-modperl/']
 modified: 2013-09-27

@@ -4,7 +4,7 @@ author:
   name: Brett Kaplan
   email: docs@linode.com
 description: 'Install and configure NSD to handle DNS queries.'
-keywords: 'NSD,DNS,resolving,Fedora 13,networking'
+keywords: ["NSD", "DNS", "resolving", "Fedora 13", "networking"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['dns-guides/nsd-authoritative-dns-fedora-13/']
 modified: 2011-05-17

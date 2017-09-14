@@ -3,7 +3,7 @@ author:
   name: Linode Community
   email: docs@linode.com
 description: 'Enhance your server''s security through the use of TCP wrappers'
-keywords: 'tcp wrappers,security,firewall,acl,access control'
+keywords: ["tcp wrappers", "security", "firewall", "acl", "access control"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 published: 2015-04-30
 modified: 2015-04-30

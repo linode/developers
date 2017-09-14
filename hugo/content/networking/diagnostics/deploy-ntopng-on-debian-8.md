@@ -3,7 +3,7 @@ author:
   name: Andrew Lescher
   email: docs@linode.com
 description: 'This Linode tutorial guides you through deploying ntopng, a powerful, lightweight network tool that monitors and analyzes web traffic and packet flows, on Debian 8.'
-keywords: 'ntopng,network monitor,debian 8,debian jessie'
+keywords: ["ntopng", "network monitor", "debian 8", "debian jessie"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 published: 2017-06-28
 modified: 2017-06-28

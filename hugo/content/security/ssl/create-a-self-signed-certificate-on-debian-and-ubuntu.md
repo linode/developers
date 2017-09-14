@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Create an SSL Certificate on a Linux Server Running Debian or Ubuntu'
-keywords: 'ssl certificate,ssl cert,self signed,debian,ubuntu'
+keywords: ["ssl certificate", "ssl cert", "self signed", "debian", "ubuntu"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['security/ssl-certificates/self-signed/']
 modified: 2016-08-16

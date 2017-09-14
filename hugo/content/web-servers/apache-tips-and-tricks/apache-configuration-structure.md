@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'An introduction to the structure of the Apache web server configuration for maintaining granular configuration.'
-keywords: 'apache,httpd,configuration'
+keywords: ["apache", "httpd", "configuration"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/configuration/configuration-structure/','websites/apache-tips-and-tricks/apache-configuration-structure/']
 modified: 2011-08-22

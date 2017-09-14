@@ -3,7 +3,7 @@ author:
   name: Elle Krout
   email: ekrout@linode.com
 description: 'Fail2ban monitors system logs for symptoms of an automated attack, bans the IP and alerts you of the attach through email. Use Fail2ban to thwart automated system attacks and further harden your server.'
-keywords: 'fail2ban,ip whitelisting,jail.local'
+keywords: ["fail2ban", "ip whitelisting", "jail.local"]
 alias: ['tools-reference/tools/using-fail2ban-to-block-network-probes/']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2017-08-23

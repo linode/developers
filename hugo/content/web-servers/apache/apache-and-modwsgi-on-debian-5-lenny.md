@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Deploy Python WSGI Applications with Apache and mod\_wsgi'
-keywords: 'python,apache,mod\_wsgi'
+keywords: ["python", "apache", "mod\\_wsgi"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/mod-wsgi/debian-5-lenny/','websites/apache/apache-and-modwsgi-on-debian-5-lenny/']
 modified: 2012-10-08

@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Getting started with ejabberd, an instant messaging server written in Erlang/OTP on Ubuntu 9.10 (Karmic).'
-keywords: 'ejabberd,ejabberd ubuntu karmic,ejabberd ubuntu 9.10,ejabberd on linux,real-time messaging,xmpp server,collaboration software,chat software,linux jabber server'
+keywords: ["ejabberd", "ejabberd ubuntu karmic", "ejabberd ubuntu 9.10", "ejabberd on linux", "real-time messaging", "xmpp server", "collaboration software", "chat software", "linux jabber server"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['communications/xmpp/ejabberd/ubuntu-9-10-karmic/']
 modified: 2012-10-31

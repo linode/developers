@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Install MongoDB for document-oriented data storage on CentOS 7.'
-keywords: 'nosql,database,mongodb,key store,ubuntu,mongodb tutorial'
+keywords: ["nosql", "database", "mongodb", "key store", "ubuntu", "mongodb tutorial"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2016-12-30
 modified_by:

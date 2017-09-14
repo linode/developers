@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: This tutorial will guide you through installing a Simple Machines Forum a flexible (SMF), a small to mid-sized discussion forum that's easy to customize.
-keywords: 'smf,forum software,web applications,PHP'
+keywords: ["smf", "forum software", "web applications", "PHP"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/bulletin-boards/smf/','websites/forums/discussion-forums-with-smf/']
 modified: 2015-02-11

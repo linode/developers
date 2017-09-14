@@ -2,7 +2,7 @@
 author:
   name: Linode
   email: docs@linode.com
-keywords: 'postgreql,postgresql on linux,postgresql database,rdbms,open source database'
+keywords: ["postgreql", "postgresql on linux", "postgresql database", "rdbms", "open source database"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 title: PostgreSQL
 ---

@@ -3,7 +3,7 @@ author:
     name: Karthik Shiraly
     email: docs@linode.com
 description: 'Deploy Storm cluster on Linode cloud for real-time analytics on streaming datasets.'
-keywords: 'storm,analytics,big data,zookeeper'
+keywords: ["storm", "analytics", "big data", "zookeeper"]
 license: '[CC BY-ND 4.0](http://creativecommons.org/licenses/by-nd/4.0/)'
 published: 2016-10-25
 modified: 2017-06-21

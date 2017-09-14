@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: Configure a MongoDB Replica Set
-keywords: 'mongodb,nosql,clusters,replica set'
+keywords: ["mongodb", "nosql", "clusters", "replica set"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2017-02-27
 modified_by:

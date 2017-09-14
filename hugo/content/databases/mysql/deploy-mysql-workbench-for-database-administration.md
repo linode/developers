@@ -3,7 +3,7 @@ author:
     name: Linode Community
     email: docs@linode.com
 description: 'MySQL Workbench is a graphical tool for working with MySQL databases in a client/server model. As you explore and manipulate your data using Workbench, you will discover many more features and shortcuts that can make managing your databases easier.'
-keywords: 'MySQL,MySQL Workbench,workbench,administer database'
+keywords: ["MySQL", "MySQL Workbench", "workbench", "administer database"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 published: 2015-12-04
 modified: 2017-08-01

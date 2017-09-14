@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'How to cluster Apache web servers and proxy requests for content to external servers on Ubuntu 9.10 (Karmic).'
-keywords: 'clusters,proxy,proxy pass,apache,httpd'
+keywords: ["clusters", "proxy", "proxy pass", "apache", "httpd"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/proxy-configuration/proxy-and-clustering-services-ubuntu-9-10-karmic/']
 modified: 2011-04-29

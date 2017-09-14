@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Installing and configuring the Django web application development framework for Apache on Ubuntu 10.04 Lucid.'
-keywords: 'django,python,apache,mod\_wsgi'
+keywords: ["django", "python", "apache", "mod\\_wsgi"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/django-apache-mod-wsgi/ubuntu-10-04-lucid/','apache/apache-and-modwsgi-on-ubuntu-10-04-lucid/']
 modified: 2011-08-22

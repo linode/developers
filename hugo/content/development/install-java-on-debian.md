@@ -3,7 +3,7 @@ author:
   name: Angel Guarisma
   email: aguarisma@linode.com
 description: This how-to tutorial will let you install Java on Debian 8
-keywords: 'install Java,Debian,OpenJDK,Java JDK'
+keywords: ["install Java", "Debian", "OpenJDK", "Java JDK"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['development/INSTALLING-JAVA-ON-DEBIAN/']
 modified: 2017-06-01

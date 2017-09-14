@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Use Munin on Ubuntu 12.04 to Keep Track of Vital System Statistics and Troubleshoot Performance Problems'
-keywords: 'munin,monitoring,ubuntu 12.04,munin node,munin master'
+keywords: ["munin", "monitoring", "ubuntu 12.04", "munin node", "munin master"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['server-monitoring/munin/ubuntu-12-04-precise-pangolin/','uptime/monitoring/monitoring-server-with-munin-on-ubuntu-12-04-precise-pangolin/']
 modified: 2012-10-09

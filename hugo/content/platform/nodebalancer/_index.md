@@ -2,7 +2,7 @@
 author:
   name: Linode
   email: docs@linode.com
-keywords: 'nodebalancer,load balancing,load,load balance'
+keywords: ["nodebalancer", "load balancing", "load", "load balance"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['nodebalancers/']
 published: 2012-07-17

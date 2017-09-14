@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Deploy CouchDB on Ubuntu 12.04 (Precise Pangolin).'
-keywords: 'couchdb,nosql,json,ubuntu,futon'
+keywords: ["couchdb", "nosql", "json", "ubuntu", "futon"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/couchdb/ubuntu-12-04-precise-pangolin/','databases/couchdb/use-couchdb-for-document-based-data-storage-on-ubuntu-12-04-precise-pangolin/']
 modified: 2012-10-09

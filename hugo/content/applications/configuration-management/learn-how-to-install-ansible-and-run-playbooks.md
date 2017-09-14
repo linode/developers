@@ -3,7 +3,7 @@ author:
     name: Linode Community
     email: docs@linode.com
 description: 'An introduction to configuration management with the Ansible IT automation platform including installation, configuration and playbook set up.'
-keywords: 'ansible,ansible configuration,ansible provisioning,ansible infrastructure,ansible automation,ansible configuration,ansible configuration change management,ansible server automation'
+keywords: ["ansible", "ansible configuration", "ansible provisioning", "ansible infrastructure", "ansible automation", "ansible configuration", "ansible configuration change management", "ansible server automation"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['applications/ansible/getting-started-with-ansible/','applications/configuration-management/getting-started-with-ansible/']
 published: 2015-09-08

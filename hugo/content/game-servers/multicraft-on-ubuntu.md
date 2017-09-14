@@ -3,7 +3,7 @@ author:
   name: Alex Fornuto
   email: afornuto@linode.com
 description: 'Installation of MultiCraft on a Linode running Debian or Ubuntu'
-keywords: 'minecraft,ubuntu,multicraft'
+keywords: ["minecraft", "ubuntu", "multicraft"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 external_resources:
  - '[Multicraft Documentation](http://www.multicraft.org/site/userguide?view=index)'
@@ -11,7 +11,6 @@ external_resources:
 modified: 2015-02-04
 modified_by:
   name: Alex Fornuto
-
 title: 'Installing Multicraft on Ubuntu'
 alias: ['applications/game-servers/multicraft-on-ubuntu/']
 ---

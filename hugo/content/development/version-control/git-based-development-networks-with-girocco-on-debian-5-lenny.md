@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Use the Girocco engine from repo.or.cz to provide easy access to Git repositories.'
-keywords: 'git,girocco,gitweb,project hosting,social coding'
+keywords: ["git", "girocco", "gitweb", "project hosting", "social coding"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['application-stacks/git-repository-hosting/','applications/development/git-based-development-networks-with-girocco-on-debian-5-lenny/']
 modified: 2013-09-24

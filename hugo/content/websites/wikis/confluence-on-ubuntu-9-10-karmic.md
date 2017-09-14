@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Use Confluence on Ubuntu 9.10 (Karmic) to power a full-featured wiki system.'
-keywords: 'confluence ubuntu 9.10,confluence,confluence wiki,confluence linux'
+keywords: ["confluence ubuntu 9.10", "confluence", "confluence wiki", "confluence linux"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/wikis/confluence/ubuntu-9-10-karmic/']
 modified: 2012-10-08

@@ -2,7 +2,7 @@
 author:
   name: Linode
   email: docs@linode.com
-keywords: 'LAMP,LAMP stack,LAMP server'
+keywords: ["LAMP", "LAMP stack", "LAMP server"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['lamp-guides/','websites/lamp/']
 published: 2009-07-16

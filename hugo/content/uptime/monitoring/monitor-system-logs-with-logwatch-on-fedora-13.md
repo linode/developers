@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Use logwatch to monitor system logs and generate reports.'
-keywords: 'logwatch,security,logging,audit'
+keywords: ["logwatch", "security", "logging", "audit"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['server-monitoring/logwatch/fedora-13/']
 modified: 2012-10-08

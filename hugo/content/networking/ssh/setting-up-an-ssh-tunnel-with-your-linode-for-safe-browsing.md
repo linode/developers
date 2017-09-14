@@ -3,7 +3,7 @@ author:
   name: Linode Community
   email: docs@linode.com
 description: 'Follow these instructions to launch a SOCKS server on your computer and browse the web securely using your Linode.'
-keywords: 'socks,proxy,socks proxy,tunnel,tunnelling'
+keywords: ["socks", "proxy", "socks proxy", "tunnel", "tunnelling"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['networking/socks-proxy/']
 contributor:

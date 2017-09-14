@@ -3,7 +3,7 @@ author:
   name: Si-Qi Liu
   email: liusq@tsinghua.edu.cn
 description: 'Installing the web framework Yesod with the server Nginx and MySQL on Debian 7'
-keywords: 'yesod, nginx, mysql, debian 7'
+keywords: ["yesod", " nginx", " mysql", " debian 7"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['websites/frameworks/yesod-nginx-mysql-on-debian-7-wheezy/']
 contributor:

@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Install and configure a structured wiki with TWiki.'
-keywords: 'wiki,twiki,structured wiki,enterprise wiki'
+keywords: ["wiki", "twiki", "structured wiki", "enterprise wiki"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/wikis/twiki/debian-6-squeeze/']
 modified: 2013-10-04

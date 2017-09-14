@@ -3,7 +3,7 @@ author:
   name: Jonathan Frederickson
   email: docs@linode.com
 description: Using the Ruby on Rails framework for Nginx web applications on Debian 7
-keywords: 'ruby on rails,ruby on nginx,rails apps'
+keywords: ["ruby on rails", "ruby on nginx", "rails apps"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/ruby-on-rails-nginx/debian-7-wheezy/','websites/ror/ruby-on-rails-with-nginx-on-debian-7-wheezy/']
 modified: 2014-12-09

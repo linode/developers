@@ -3,7 +3,7 @@ author:
   name: Chris Walsh
   email: docs@linode.com
 description: 'Getting started with MySQL on CentOS 7'
-keywords: 'MySQL on Linux,CentOS,cloud,cloud hosting,Linux,MySQL,database,MariaDB,install MySQL,secure MySQL,mysqltuner'
+keywords: ["MySQL on Linux", "CentOS", "cloud", "cloud hosting", "Linux", "MySQL", "database", "MariaDB", "install MySQL", "secure MySQL", "mysqltuner"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2017-09-05
 modified_by:

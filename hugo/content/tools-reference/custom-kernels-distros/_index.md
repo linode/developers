@@ -2,7 +2,7 @@
 author:
   name: Linode
   email: docs@linode.com
-keywords: 'linode instances,pv grub,linux kernel,linode platform,linux distributions'
+keywords: ["linode instances", "pv grub", "linux kernel", "linode platform", "linux distributions"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['custom-instances/']
 published: 2009-07-16

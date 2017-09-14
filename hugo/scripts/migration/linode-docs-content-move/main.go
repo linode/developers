@@ -152,8 +152,10 @@ type frontmatterAddon struct {
 }
 
 var (
-	dateRe   = regexp.MustCompile("(published|modified): '?(.*)'?")
-	ndRe     = regexp.MustCompile("(\\d+)(th|nd|st|rd)")
+	dateRe     = regexp.MustCompile(`(published|modified): '?(.*)'?\s*\n`)
+	keywordsRe = regexp.MustCompile(`keywords: '(.*)'\s*\n?`)
+
+	ndRe     = regexp.MustCompile(`(\d+)(th|nd|st|rd)`)
 	commaRe1 = regexp.MustCompile(`([0-9])\s([0-9])`)
 	commaRe2 = regexp.MustCompile(`([a-zA-Z])\s([a-zA-Z])`)
 
@@ -199,10 +201,28 @@ $2
 
 func fixContent(path, src string) (string, error) {
 
-	// TODO(bep) Add some sanity checks to make sure we are only matching in front matter
+	// Make keywords into proper arrays
+	s := keywordsRe.ReplaceAllStringFunc(src, func(s string) string {
+		m := keywordsRe.FindAllStringSubmatch(s, -1)
+		if len(m) > 0 {
+			kw := m[0][1]
+			kwStr := strings.Trim(kw, "'")
+			kwSplit := strings.Split(kwStr, ",")
+			r := fmt.Sprintf("keywords: %#v", kwSplit)
+			r = strings.Replace(r, "]string{", "", 1)
+			r = strings.Replace(r, "}", "]", 1)
+
+			return r + "\n"
+		}
+
+		return s + "\n"
+	})
+
 	// TODO(bep) check aliases
 	var err error
-	s := dateRe.ReplaceAllStringFunc(src, func(s string) string {
+
+	// Make modified and published front matter date into proper dates.
+	s = dateRe.ReplaceAllStringFunc(s, func(s string) string {
 		if err != nil {
 			return ""
 		}
@@ -219,7 +239,7 @@ func fixContent(path, src string) (string, error) {
 			return ""
 		}
 
-		return fmt.Sprintf("%s: %s", key, tt.Format("2006-01-02"))
+		return fmt.Sprintf("%s: %s\n", key, tt.Format("2006-01-02"))
 	})
 
 	if err != nil {

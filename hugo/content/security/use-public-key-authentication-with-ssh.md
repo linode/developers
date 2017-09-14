@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Access your Linode via SSH using Public Key Authentication.'
-keywords: 'ssh,pki,ssh keys,secure shell,vpn,tunneling'
+keywords: ["ssh", "pki", "ssh keys", "secure shell", "vpn", "tunneling"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['security/ssh-keys/']
 modified: 2017-03-23

@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Serve dynamic websites and applications with the lightweight nginx web server and PHP-FastCGI on Ubuntu 14.04 LTS'
-keywords: 'nginx,nginx ubuntu 14.04,nginx fastcgi,nginx php,php,fastcgi,ubuntu'
+keywords: ["nginx", "nginx ubuntu 14.04", "nginx fastcgi", "nginx php", "php", "fastcgi", "ubuntu"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/nginx/php-fastcgi/ubuntu-12-04-precise-pangolin/','websites/nginx/nginx-phpfastcgi-ubuntu-14-04/']
 modified: 2015-06-12

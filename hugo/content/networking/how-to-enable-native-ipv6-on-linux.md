@@ -3,7 +3,7 @@ author:
     name: Linode
     email: docs@linode.com
 description: 'This guide will show you how to configure a native IPv6 network on Ubuntu, Debian, CentOS, Fedora, Arch Linux and Gentoo.'
-keywords: 'ipv6, networking'
+keywords: ["ipv6", " networking"]
 alias: ['networking/native-ipv6-networking/']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2016-06-24

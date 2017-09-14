@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Install a LEMP stack to serve websites and applications on Ubuntu 12.04'
-keywords: 'nginx,lemp,php,linux,web applications'
+keywords: ["nginx", "lemp", "php", "linux", "web applications"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['lemp-guides/ubuntu-12-04-precise-pangolin/','websites/lemp/lemp-server-on-ubuntu-12-04-precise-pangolin/']
 modified: 2013-09-12

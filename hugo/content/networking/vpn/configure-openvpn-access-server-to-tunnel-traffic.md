@@ -3,7 +3,7 @@ author:
   name: Linode Community
   email: contribute@linode.com
 description: 'Easily tunnel web traffic through OpenVPN Access Server'
-keywords: 'openvpn,networking,vpn,tunnel'
+keywords: ["openvpn", "networking", "vpn", "tunnel"]
 license: '[CC BY-ND 4.0](http://creativecommons.org/licenses/by-nd/4.0/)'
 modified: 2016-11-03
 modified_by:

@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Use the Web.py Python framework to develop powerful and innovative web applications on Debian 6 (Squeeze).'
-keywords: 'web.py,web applications,python,web frameworks'
+keywords: ["web.py", "web applications", "python", "web frameworks"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/webpy/debian-6-squeeze/','websites/frameworks/webpy-on-debian-6-squeeze/']
 modified: 2013-09-27

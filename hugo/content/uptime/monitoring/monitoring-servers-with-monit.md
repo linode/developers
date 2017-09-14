@@ -3,7 +3,7 @@ author:
     name: Linode Community
     email: docs@linode.com
 description: 'Improve uptime with Monit Server Monitoring. Monit will watch you system around the clock, and respond to out-of-the-norm events by following your instructions.'
-keywords: 'installing Monit for server monitoring'
+keywords: ["installing Monit for server monitoring"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 published: 2015-10-15
 modified: 2015-10-15

@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Keep track of vital system statistics and troubleshoot performance problems with Munin on Ubuntu 9.10 (Karmic)'
-keywords: 'munin,monitoring'
+keywords: ["munin", "monitoring"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['server-monitoring/munin/ubuntu-9-10-karmic/']
 modified: 2011-05-17

@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Getting started with the open source edition of Zimbra groupware on your CentOS 5 Linode.'
-keywords: 'zimbra on centos,zimbra groupware,zimbra mail server,linux mail server'
+keywords: ["zimbra on centos", "zimbra groupware", "zimbra mail server", "linux mail server"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/zimbra/install-zimbra-centos-5/']
 modified: 2011-05-17

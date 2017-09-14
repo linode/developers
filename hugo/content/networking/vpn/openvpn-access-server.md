@@ -3,7 +3,7 @@ author:
     name: James Stewart
     email: jstewart@linode.com
 description: 'Configuring OpenVPN Access Server on your Linode.'
-keywords: 'openvpn,networking,vpn,debian,ubuntu,centos,fedora'
+keywords: ["openvpn", "networking", "vpn", "debian", "ubuntu", "centos", "fedora"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2015-04-30
 modified_by:

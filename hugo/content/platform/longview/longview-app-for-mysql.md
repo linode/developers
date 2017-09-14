@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: Longview App for MySQL
-keywords: 'Longview, MySQL, statistics'
+keywords: ["Longview", " MySQL", " statistics"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['longview/longview-for-mysql/']
 modified: 2013-11-06

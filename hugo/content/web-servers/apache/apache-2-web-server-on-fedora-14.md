@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Instructions for getting started with the Apache web server on Fedora 14.'
-keywords: 'apache fedora 14,fedora web server,linux web server'
+keywords: ["apache fedora 14", "fedora web server", "linux web server"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/installation/fedora-14/','websites/apache/apache-2-web-server-on-fedora-14/']
 modified: 2013-10-04

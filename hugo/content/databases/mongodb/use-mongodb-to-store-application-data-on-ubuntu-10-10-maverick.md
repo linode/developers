@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Install MongoDB for use in application development on Ubuntu 10.10 (Maverick)'
-keywords: 'nosql,database,mognodb,key store'
+keywords: ["nosql", "database", "mognodb", "key store"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/mongodb/ubuntu-10-10-maverick/']
 modified: 2012-10-03

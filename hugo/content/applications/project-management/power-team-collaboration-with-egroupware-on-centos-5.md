@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Build a groupware system with eGroupware.'
-keywords: 'groupware,email,collaboration,centos'
+keywords: ["groupware", "email", "collaboration", "centos"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/project-management/egroupware/centos-5/']
 modified: 2011-08-22

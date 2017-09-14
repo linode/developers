@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Manage your Linode with the Kloxo control panel on CentOS 5.'
-keywords: 'kloxo,control panel,cpanel,plesk'
+keywords: ["kloxo", "control panel", "cpanel", "plesk"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/control-panels/kloxo/installation/']
 modified: 2013-10-03

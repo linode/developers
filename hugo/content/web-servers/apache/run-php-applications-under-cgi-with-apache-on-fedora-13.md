@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: Methods for enabling dynamic content to run as individual users with PHP on Fedora 13
-keywords: 'php cgi,php apache,php scripts,dynamic apache,web applications'
+keywords: ["php cgi", "php apache", "php scripts", "dynamic apache", "web applications"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/php-cgi/fedora-13/','websites/apache/run-php-applications-under-cgi-with-apache-on-fedora-13/']
 modified: 2013-10-04

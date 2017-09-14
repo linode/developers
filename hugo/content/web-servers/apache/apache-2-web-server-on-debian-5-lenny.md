@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Instructions for getting started with the Apache web server on Debian 5 (Lenny).'
-keywords: 'apache debian 5,apache web server,apache debian lenny,web server,apache on debian,apache lenny'
+keywords: ["apache debian 5", "apache web server", "apache debian lenny", "web server", "apache on debian", "apache lenny"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/installation/debian-5-lenny/','websites/apache/apache-2-web-server-on-debian-5-lenny/']
 modified: 2012-10-08

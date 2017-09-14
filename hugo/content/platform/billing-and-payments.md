@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: Our guide to billing and payments.
-keywords: 'billing,payments'
+keywords: ["billing", "payments"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['billing-and-payments/']
 modified: 2017-03-15

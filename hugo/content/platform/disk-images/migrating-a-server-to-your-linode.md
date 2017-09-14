@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'How to copy an existing Linux server to your new Linode'
-keywords: 'migrate to linode,linode migration,migrate linux'
+keywords: ["migrate to linode", "linode migration", "migrate linux"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['migration/migrate-server-to-linode/','migrate-to-linode/disk-images/migrating-a-server-to-your-linode/']
 modified: 2017-04-03

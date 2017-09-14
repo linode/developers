@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'A quick reference cheat sheet on Docker commands for installation, containers, images and more.'
-keywords: 'docker,quick reference,cheat sheet,commands'
+keywords: ["docker", "quick reference", "cheat sheet", "commands"]
 alias: ['applications/containers/docker-quick-reference-cheat-sheet/']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2015-03-30

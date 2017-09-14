@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Migrate your website from a shared host to a Linode cloud server running a LAMP stack.'
-keywords: 'shared hosting,migrate,website migration'
+keywords: ["shared hosting", "migrate", "website migration"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['migrate-from-shared/','migrate-to-linode/migrate-from-shared-hosting/','migrate-to-linode/migrate-from-shared-hosting-to-linode/']
 modified: 2016-09-19

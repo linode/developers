@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Host websites and web applications with a LAMP server on Debian 6.0 (Squeeze).'
-keywords: 'debian 6 LAMP server,debian LAMP guide,LAMP howto'
+keywords: ["debian 6 LAMP server", "debian LAMP guide", "LAMP howto"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['lamp-guides/debian-6-squeeze/','websites/lamp/lamp-server-on-debian-6-squeeze/']
 modified: 2013-10-09

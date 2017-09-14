@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Using the Joomla! content management system to ease administration overhead for websites.'
-keywords: 'joomla,cms,content management systems'
+keywords: ["joomla", "cms", "content management systems"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/cms-guides/joomla/']
 modified: 2011-04-19

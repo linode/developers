@@ -4,7 +4,7 @@ author:
   name: Alex Fornuto
   email: afornuto@linode.com
 description: 'Getting started with MySQL for web and server applications on Fedora 20.'
-keywords: 'mysql fedora 20,mysql linux,mysql fedora'
+keywords: ["mysql fedora 20", "mysql linux", "mysql fedora"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/mysql/fedora-20/']
 modified: 2014-01-28

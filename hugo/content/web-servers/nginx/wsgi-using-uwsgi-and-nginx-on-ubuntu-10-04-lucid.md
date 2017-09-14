@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Use uWSGI to deploy Python application servers in conjunction with nginx.'
-keywords: 'uwsgi,wsgi,nginx,python'
+keywords: ["uwsgi", "wsgi", "nginx", "python"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/nginx/python-uwsgi/ubuntu-10-04-lucid/','websites/nginx/wsgi-using-uwsgi-and-nginx-on-ubuntu-10-04-lucid/']
 modified: 2013-10-07

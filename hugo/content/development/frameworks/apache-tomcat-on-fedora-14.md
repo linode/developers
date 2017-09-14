@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Instructions for installing and using the Apache Tomcat Java Servlet engine on Fedora 14.'
-keywords: 'apache tomcat fedora 14,java,java fedora 14,java servlets fedora 14,java fedora'
+keywords: ["apache tomcat fedora 14", "java", "java fedora 14", "java servlets fedora 14", "java fedora"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/apache-tomcat/fedora-14/','websites/frameworks/apache-tomcat-on-fedora-14/']
 modified: 2013-09-27

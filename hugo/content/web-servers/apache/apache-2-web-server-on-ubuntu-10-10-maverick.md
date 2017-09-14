@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Instructions for getting started with the Apache web server on Ubuntu 10.10 (Maverick)'
-keywords: 'apache,apache ubuntu 10.10,apache ubuntu maverick,web server,apache on ubuntu,apache maverick'
+keywords: ["apache", "apache ubuntu 10.10", "apache ubuntu maverick", "web server", "apache on ubuntu", "apache maverick"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/installation/ubuntu-10-10-maverick/','websites/apache/apache-2-web-server-on-ubuntu-10-10-maverick/']
 modified: 2012-10-08

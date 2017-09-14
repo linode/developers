@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Our guide to hosting a website on your Linode.'
-keywords: 'linode guide,hosting a website,website,linode quickstart guide'
+keywords: ["linode guide", "hosting a website", "website", "linode quickstart guide"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['hosting-website/']
 modified: 2017-01-18

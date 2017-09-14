@@ -3,7 +3,7 @@ author:
     name: Elle Krout
     email: ekrout@linode.com
 description: 'Use Vagrant to manage development environments and content on Linode.'
-keywords: 'linode,vagrant,content management,management,automation,development,ruby,vagrantfile,api,apache'
+keywords: ["linode", "vagrant", "content management", "management", "automation", "development", "ruby", "vagrantfile", "api", "apache"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: [ 'web-applications/cloud-storage/dropbox/debian-7.4' ]
 modified: 2015-06-25

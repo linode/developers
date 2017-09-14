@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Using the PostgreSQL relational database server with Ubuntu 12.04 LTS (Precise Pangolin).'
-keywords: 'postgresql,ubuntu 12.04,postgresql database,open source database,relational database'
+keywords: ["postgresql", "ubuntu 12.04", "postgresql database", "open source database", "relational database"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2012-10-08
 modified_by:

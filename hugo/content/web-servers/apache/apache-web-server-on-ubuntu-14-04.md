@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Install Apache on your Ubuntu 14.04 (Trusty Tahr) server, configure virtual hosting, and set up modules and scripting.'
-keywords: 'apache,ubuntu,ubuntu 14.04,trusty tahr,http,web server'
+keywords: ["apache", "ubuntu", "ubuntu 14.04", "trusty tahr", "http", "web server"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['websites/apache/apache-web-server-on-ubuntu-14-04/']
 modified: 2017-09-05

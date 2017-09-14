@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: Use the sort and uniq Linux utilities to manage and order
-keywords: 'linux,common commands,sort,uniq,shell,bash'
+keywords: ["linux", "common commands", "sort", "uniq", "shell", "bash"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['linux-tools/common-commands/sort-uniq/']
 modified: 2011-04-19

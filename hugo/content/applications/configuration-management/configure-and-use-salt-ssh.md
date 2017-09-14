@@ -3,7 +3,7 @@ author:
   name: Sergey Bulavintsev
   email: bulavintsev.sergey@gmail.com
 description: 'Learn how to configure and use Salt SSH in this simple tutorial'
-keywords: 'Saltstack, salt, salt-ssh'
+keywords: ["Saltstack", " salt", " salt-ssh"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 published: 2017-07-25
 modified: 2017-08-15

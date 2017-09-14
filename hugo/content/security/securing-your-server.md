@@ -3,7 +3,7 @@ author:
   name: Chris Walsh
   email: docs@linode.com
 description: 'This is a starting point of best practices for hardening a production server. Topics include user accounts, an iptables firewall, SSH and disabling unused network services.'
-keywords: 'security,secure,firewall,ssh,add user,quick start'
+keywords: ["security", "secure", "firewall", "ssh", "add user", "quick start"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['securing-your-server/','security/linux-security-basics/','security/basics']
 modified: 2017-07-12

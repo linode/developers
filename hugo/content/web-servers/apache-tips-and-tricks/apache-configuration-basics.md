@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: An advanced overview of configuration for the Apache web server including virtual hosts and configuration file management
-keywords: 'configuration,apache,web server,virtual hosting,http'
+keywords: ["configuration", "apache", "web server", "virtual hosting", "http"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/configuration/configuration-basics/','websites/apache-tips-and-tricks/apache-configuration-basics/']
 modified: 2011-08-22

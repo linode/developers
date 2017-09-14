@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Use unison to synchronize files between two machines.'
-keywords: 'backup,syncronize files,unison,debian,debian lenny'
+keywords: ["backup", "syncronize files", "unison", "debian", "debian lenny"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['linux-tools/unison/']
 modified: 2017-08-23

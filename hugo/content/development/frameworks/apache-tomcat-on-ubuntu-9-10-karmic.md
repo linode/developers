@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Instructions for installing the Apache Tomcat Java servlet engine on Ubuntu 9.10 (Karmic).'
-keywords: 'apache tomcat ubuntu 9.10,java,java ubuntu 9.10,java servlets ubuntu karmic,java ubuntu'
+keywords: ["apache tomcat ubuntu 9.10", "java", "java ubuntu 9.10", "java servlets ubuntu karmic", "java ubuntu"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/apache-tomcat/ubuntu-9-10-karmic/','websites/frameworks/apache-tomcat-on-ubuntu-9-10-karmic/']
 modified: 2011-04-29

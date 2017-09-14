@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Instructions for getting started with the Cherokee web server on Ubuntu 9.04 (Jaunty).'
-keywords: 'cherokee,web sever,cherokee on ubuntu,ubuntu jaunty'
+keywords: ["cherokee", "web sever", "cherokee on ubuntu", "ubuntu jaunty"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/cherokee/installing-cherokee-ubuntu-9-04-jaunty/','websites/cherokee/websites-with-the-cherokee-web-server-on-ubuntu-9-04-jaunty/']
 modified: 2011-04-29

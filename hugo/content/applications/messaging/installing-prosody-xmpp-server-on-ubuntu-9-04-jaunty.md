@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Installation and basic usage guide for Prosody, a lightweight XMPP server on Ubuntu 9.04 (Jaunty).'
-keywords: 'prosody,prosody ubuntu jaunty,prosody.im,xmpp,real time messaging,lua'
+keywords: ["prosody", "prosody ubuntu jaunty", "prosody.im", "xmpp", "real time messaging", "lua"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['communications/xmpp/prosody/ubuntu-9-04-jaunty/']
 modified: 2011-04-29

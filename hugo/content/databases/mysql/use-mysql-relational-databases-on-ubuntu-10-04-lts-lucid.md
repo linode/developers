@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Getting started with MySQL for web and server applications on Ubuntu 10.04 LTS (Lucid).'
-keywords: 'mysql ubuntu 10.04,mysql ubuntu,mysql on linux,mysql Linode'
+keywords: ["mysql ubuntu 10.04", "mysql ubuntu", "mysql on linux", "mysql Linode"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/mysql/ubuntu-10-04-lucid/']
 modified: 2013-09-24

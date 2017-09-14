@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'This guide shows how-to configure getmail to download email from remote servers.'
-keywords: 'email,getmail,mda'
+keywords: ["email", "getmail", "mda"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/getmail/']
 modified: 2017-08-22

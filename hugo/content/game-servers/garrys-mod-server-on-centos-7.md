@@ -3,7 +3,7 @@ author:
   name: Julian Meyer
   email: --
 description: 'A Garrys Mod Server for CentOS 7.'
-keywords: 'garry''s mod,centos,centos 7'
+keywords: ["garry''s mod", "centos", "centos 7"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/game-servers/minecraft-ubuntu12-04/','applications/game-servers/garrys-mod-server-on-centos-7/']
 published: 2015-01-21

@@ -3,7 +3,7 @@ author:
   name: Chris Walsh
   email: docs@linode.com
 description: 'Learn how to securely tunnel your traffic with OpenVPN and OpenSSL.'
-keywords: 'openvpn,vpn,vpn tunnel,openssl'
+keywords: ["openvpn", "vpn", "vpn tunnel", "openssl"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['networking/vpn/set-up-a-hardened-openvpn-server-on-debian-8/']
 modified: 2017-03-30

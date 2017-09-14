@@ -3,7 +3,7 @@ author:
   name: Linode Community
   email: docs@linode.com
 description: 'Install and configure the MariaDB database server on Debian 7.'
-keywords: 'mariadb, debian 7, reset, root, password, install, configure'
+keywords: ["mariadb", " debian 7", " reset", " root", " password", " install", " configure"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2014-06-12
 contributor:

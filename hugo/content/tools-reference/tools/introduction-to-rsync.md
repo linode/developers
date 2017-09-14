@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'This guide provides an introduction to rsync, the incremental file transfer utility.'
-keywords: 'rsync,unix,liunx,samba,utilities,backup'
+keywords: ["rsync", "unix", "liunx", "samba", "utilities", "backup"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['linux-tools/utilities/rsync/']
 modified: 2012-08-31

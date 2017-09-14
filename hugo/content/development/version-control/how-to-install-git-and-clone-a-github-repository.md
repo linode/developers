@@ -3,7 +3,7 @@ author:
   name: Joe D.
   email: docs@linode.com
 description: 'This tutorial is an introduction to developing with Git and GitHub with instructions on installing Git and creating your first GitHub test repository.'
-keywords: 'git,dvcs,vcs,scm,gitweb,github'
+keywords: ["git", "dvcs", "vcs", "scm", "gitweb", "github"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['applications/development/developing-git-github/','development/version-control/developing-git-github/']
 modified: 2015-02-06

@@ -3,7 +3,7 @@ author:
   name: Nick Brewer
   email: docs@linode.com
 description: Clone your Disks to another Linode.
-keywords: 'clone, cloning, linode manager'
+keywords: ["clone", " cloning", " linode manager"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['migrate-to-linode/disk-images/clone-your-linode/']
 modified: 2017-02-15

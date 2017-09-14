@@ -3,7 +3,7 @@ author:
   name: Joe D.
   email: docs@linode.com
 description: 'LAMP container with Docker on Linode'
-keywords: 'docker,lamp,LAMP,ubuntu,debian'
+keywords: ["docker", "lamp", "LAMP", "ubuntu", "debian"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['applications/containers/install-docker-and-lamp-stack/','applications/containers/linode-lamp-container-docker/']
 modified: 2015-02-23

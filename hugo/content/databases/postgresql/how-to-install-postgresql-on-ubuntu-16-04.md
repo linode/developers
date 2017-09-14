@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'A tutorial on installing and configuring the PostgreSQL relational database system on Ubuntu distributions.'
-keywords: 'postgresql,ubuntu 16.04,postgresql database,open source database,relational database'
+keywords: ["postgresql", "ubuntu 16.04", "postgresql database", "open source database", "relational database"]
 alias: ['databases/postgresql/use-postgresql-relational-databases-on-ubuntu-16-04/']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2016-05-20

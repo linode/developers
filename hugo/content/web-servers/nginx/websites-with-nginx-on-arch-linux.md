@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'A basic guide to installing nginx on Arch Linux.'
-keywords: 'nginx arch linux,nginx arch,nginx,http server,web server'
+keywords: ["nginx arch linux", "nginx arch", "nginx", "http server", "web server"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/nginx/installation/arch-linux/','websites/nginx/websites-with-nginx-on-arch-linux/']
 modified: 2014-03-27

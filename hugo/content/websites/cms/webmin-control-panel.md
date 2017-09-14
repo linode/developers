@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Installing and configuring the Webmin control panel to maintain your Linode.'
-keywords: 'webmin,webmin debian,webmin centos,webmin ubuntu,webmin fedora,linux control panel,debian,ubuntu,centos,fedora,control panel,admin panel'
+keywords: ["webmin", "webmin debian", "webmin centos", "webmin ubuntu", "webmin fedora", "linux control panel", "debian", "ubuntu", "centos", "fedora", "control panel", "admin panel"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/control-panels/webmin/installing-webmin/']
 modified: 2017-02-21

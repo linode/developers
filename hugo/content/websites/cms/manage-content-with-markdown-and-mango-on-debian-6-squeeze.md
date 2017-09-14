@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Mango publishes markdown documents from plain text files into a dynamic website.'
-keywords: 'markdown,content management systems,cms,plain text'
+keywords: ["markdown", "content management systems", "cms", "plain text"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/cms-guides/mango/debian-6-squeeze/']
 modified: 2013-10-02

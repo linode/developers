@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Methods for enabling dynamic content to run as individual users with PHP on CentOS 5.'
-keywords: 'php cgi,php apache,php scripts,dynamic apache,web applications'
+keywords: ["php cgi", "php apache", "php scripts", "dynamic apache", "web applications"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/php-cgi/centos-5/','websites/apache/run-php-applications-under-cgi-with-apache-on-centos-5/']
 modified: 2014-01-14

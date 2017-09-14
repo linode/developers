@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Installation, configuration and usage guides for the Ikiwiki wiki system.'
-keywords: 'twiki,wiki,perl,markdown'
+keywords: ["twiki", "wiki", "perl", "markdown"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/wikis/twiki/']
 modified: 2013-10-04

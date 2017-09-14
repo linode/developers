@@ -3,7 +3,7 @@ author:
   name: Linode Community
   email: docs@linode.com
 description: Use Varnish Cache to increase your site's speed and optimize server resources
-keywords: 'Varnish,Ubuntu,Debian,Cache,'
+keywords: ["Varnish", "Ubuntu", "Debian", "Cache", ""]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/varnish/']
 modified: 2017-02-24

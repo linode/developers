@@ -3,7 +3,7 @@ author:
     name: Linode Community
     email: contribute@linode.com
 description: 'Configure SPF and DKIM in Postfix on Debian 8.'
-keywords: 'email,postfix,spf,dkim,debian 8,opendkim,dns,dmarc'
+keywords: ["email", "postfix", "spf", "dkim", "debian 8", "opendkim", "dns", "dmarc"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2017-03-27
 modified_by:

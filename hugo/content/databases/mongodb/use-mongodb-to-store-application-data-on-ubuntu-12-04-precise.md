@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Install MongoDB for use in application development on Ubuntu 12.04 (Precise).'
-keywords: 'nosql,database,mongodb,key store'
+keywords: ["nosql", "database", "mongodb", "key store"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/mongodb/ubuntu-12-04-precise-pangolin/']
 modified: 2012-10-08

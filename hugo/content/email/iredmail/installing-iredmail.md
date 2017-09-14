@@ -3,7 +3,7 @@ author:
   name: Linode Community
   email: docs@linode.com
 description: 'Installing iRedMail on your Linode.'
-keywords: 'email,mail,iredmail'
+keywords: ["email", "mail", "iredmail"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['installing-iredmail/']
 contributor:

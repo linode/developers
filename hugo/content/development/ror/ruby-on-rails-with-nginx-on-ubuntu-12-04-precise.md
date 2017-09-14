@@ -4,7 +4,7 @@ author:
   name: Jonathan Frederickson
   email: docs@linode.com
 description: 'Using the Ruby on Rails framework for Nginx web applications on Ubuntu 12.04'
-keywords: 'ruby on rails,ruby on nginx,rails apps'
+keywords: ["ruby on rails", "ruby on nginx", "rails apps"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/ruby-on-rails-nginx/ubuntu-12-04-precise/','websites/ror/ruby-on-rails-with-nginx-on-ubuntu-12-04-precise/index.cfm/','websites/ror/ruby-on-rails-with-nginx-on-ubuntu-12-04-precise/']
 modified: 2014-02-11

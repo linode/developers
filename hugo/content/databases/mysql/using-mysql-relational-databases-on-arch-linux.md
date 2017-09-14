@@ -4,7 +4,7 @@ author:
   name: Alex Fornuto
   email: afornuto@linode.com
 description: 'Getting started with MySQL for web and server applications on Arch Linux.'
-keywords: 'mysql arch linux,mysql linux,arch linux'
+keywords: ["mysql arch linux", "mysql linux", "arch linux"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/mysql/arch-linux/']
 modified: 2014-01-23

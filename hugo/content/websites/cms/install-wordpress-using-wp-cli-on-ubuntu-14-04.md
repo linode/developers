@@ -3,7 +3,7 @@ author:
     name: Linode Community
     email: docs@linode.com
 description: 'Install WordPress Using WP-CLI on Ubuntu 14.04'
-keywords: 'install WP-CLI,ubuntu,wordpress,apache,bash completion,plugin,WP-CLI,themes'
+keywords: ["install WP-CLI", "ubuntu", "wordpress", "apache", "bash completion", "plugin", "WP-CLI", "themes"]
 alias: ['websites/cms/install-and-configure-wordpress-using-wp-cli']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 published: 2016-03-11

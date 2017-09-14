@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Serve dynamic websites and applications with the lightweight nginx web server and Perl-FastCGI on Fedora 12.'
-keywords: 'nginx,nginx fedora 12,nginx fastcgi,nginx perl'
+keywords: ["nginx", "nginx fedora 12", "nginx fastcgi", "nginx perl"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/nginx/perl-fastcgi/fedora-12/','websites/nginx/nginx-and-perlfastcgi-on-fedora-12/']
 modified: 2011-05-17

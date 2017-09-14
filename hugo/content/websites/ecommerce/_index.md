@@ -2,7 +2,7 @@
 author:
   name: Linode
   email: docs@linode.com
-keywords: 'e-commerce,online store,store,shopping cart,magento,oscommerce'
+keywords: ["e-commerce", "online store", "store", "shopping cart", "magento", "oscommerce"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/e-commerce/']
 published: 2010-03-01

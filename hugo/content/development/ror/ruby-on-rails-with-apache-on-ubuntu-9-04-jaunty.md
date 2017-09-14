@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Using the Apache web server with Ubuntu 9.04 to serve Ruby on Rails applications.'
-keywords: 'ruby on rails,rails on ubuntu,rails apps,rails and apache'
+keywords: ["ruby on rails", "rails on ubuntu", "rails apps", "rails and apache"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/ruby-on-rails-apache/ubuntu-9-04-jaunty/','websites/ror/ruby-on-rails-with-apache-on-ubuntu-9-04-jaunty/']
 modified: 2011-05-17

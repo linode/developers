@@ -3,7 +3,7 @@ author:
   name: Elle Krout
   email: ekrout@linode.com
 description: 'Use Logwatch to generate digests and analyze your server logs'
-keywords: 'logwatch,security,logging,audit,logs'
+keywords: ["logwatch", "security", "logging", "audit", "logs"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2015-08-12
 modified_by:

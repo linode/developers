@@ -4,7 +4,7 @@ author:
   email: docs@linode.com
 deprecated: yes
 description: 'Securely copying files to and from your Linode with Cyberduck, a free and open source file transfer client for Mac OS X systems.'
-keywords: 'cyberduck,ftp,mac os scp,sftp,mac os sftp program,mac os ftp'
+keywords: ["cyberduck", "ftp", "mac os scp", "sftp", "mac os sftp program", "mac os ftp"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['networking/file-transfer/transfer-files-cyberduck/']
 modified: 2011-08-22

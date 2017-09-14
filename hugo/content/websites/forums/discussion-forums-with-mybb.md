@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Configuring the MyBB system for hosting web-based discussion forums.'
-keywords: 'mybb,forum software,web applications,PHP'
+keywords: ["mybb", "forum software", "web applications", "PHP"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/bulletin-boards/mybb/']
 modified: 2013-10-01

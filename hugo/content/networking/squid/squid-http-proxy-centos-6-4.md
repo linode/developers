@@ -3,7 +3,7 @@ author:
   name: Alex Fornuto
   email: afornuto@linode.com
 description: 'Use Squid to create an HTTP proxy server on your Linode running Centos 6.4'
-keywords: 'squid,proxy,centos,6.4,http'
+keywords: ["squid", "proxy", "centos", "6.4", "http"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2014-03-03
 modified_by:

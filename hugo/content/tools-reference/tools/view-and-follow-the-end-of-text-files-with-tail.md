@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Use the Linux command tail to view and follow the end of text files.'
-keywords: 'tail,linux commands,linux,common commands,unix,cli'
+keywords: ["tail", "linux commands", "linux", "common commands", "unix", "cli"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['linux-tools/common-commands/tail/']
 modified: 2011-05-17

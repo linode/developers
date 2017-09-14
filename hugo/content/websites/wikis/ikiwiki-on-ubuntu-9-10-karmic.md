@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Using Ikiwiki on Ubuntu 9.10 (Karmic) to power a standard wiki implementation.'
-keywords: 'ikiwiki,ubuntu,wiki,perl,git,markdown,karmic'
+keywords: ["ikiwiki", "ubuntu", "wiki", "perl", "git", "markdown", "karmic"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/wikis/ikiwiki/ubuntu-9-10-karmic/']
 modified: 2011-04-29

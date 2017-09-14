@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Getting started with MySQL for web and server applications on CentOS 5.'
-keywords: 'MySQL on Linux,MySQL CentOS,MySQL Linode'
+keywords: ["MySQL on Linux", "MySQL CentOS", "MySQL Linode"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/mysql/centos-5/']
 modified: 2014-01-22

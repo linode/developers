@@ -3,7 +3,7 @@ author:
   name: Chris Ciufo
   email: docs@linode.com
 description: Creating Accounts on DirectAdmin
-keywords: 'directadmin, reseller, accounts'
+keywords: ["directadmin", " reseller", " accounts"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/control-panels/directadmin/directadmin-accounts/']
 modified: 2013-10-03

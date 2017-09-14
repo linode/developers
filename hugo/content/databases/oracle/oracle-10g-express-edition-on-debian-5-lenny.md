@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Install Oracle 10g to power server-side applications and web apps on Debian 5 (Lenny).'
-keywords: 'oracle debian lenny,oracle debian,oracle linux,sql database,relational database,rdbms,oracle 10g'
+keywords: ["oracle debian lenny", "oracle debian", "oracle linux", "sql database", "relational database", "rdbms", "oracle 10g"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/oracle/10g-debian-5-lenny/']
 modified: 2014-08-13

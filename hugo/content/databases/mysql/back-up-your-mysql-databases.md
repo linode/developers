@@ -3,7 +3,7 @@ author:
   name: Brett Kaplan
   email: docs@linode.com
 description: 'Instructions for backing up MySQL databases using various methods.'
-keywords: 'mysql,backup,mysqldump'
+keywords: ["mysql", "backup", "mysqldump"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/mysql/backup-options/']
 modified: 2013-09-11

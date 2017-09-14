@@ -4,7 +4,7 @@ author:
   name: Alex Fornuto
   email: afornuto@linode.com
 description: 'Deploy Separate Web Servers to Host Sites or Applications Using ProxyPass with Apache.'
-keywords: 'apache,proxypass,apache on ubuntu,multiple web servers,lighttpd'
+keywords: ["apache", "proxypass", "apache on ubuntu", "multiple web servers", "lighttpd"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/proxy-configuration/multiple-webservers-proxypass-ubuntu-12-04-precise/','websites/proxies/multiple-web-services-with-proxypass-on-ubuntu-12-04-precise-pangolin/']
 modified: 2012-11-07

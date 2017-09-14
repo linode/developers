@@ -3,7 +3,7 @@ author:
     name: Linode
     email: docs@linode.com
 description: 'Use phpMyAdmin to manage MySQL databases and users though a web interface.'
-keywords: 'mysql,phpmyadmin,sql,centos'
+keywords: ["mysql", "phpmyadmin", "sql", "centos"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/mysql/phpmyadmin-centos-6/']
 modified: 2017-08-01

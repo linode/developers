@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Our guide to deploying your first Linode.'
-keywords: 'linode guide,getting started,linode quickstart,quick start,boot,configuration profile,update,hostname,timezone,SSH'
+keywords: ["linode guide", "getting started", "linode quickstart", "quick start", "boot", "configuration profile", "update", "hostname", "timezone", "SSH"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2017-03-03
 modified_by:

@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Use the open-source pgAdmin program to securely manage remote PostgreSQL databases from a Windows workstation.'
-keywords: 'pgadmin,pgadmin windows,postgresql gui,postgresql windows,manage postgresql databases,ssh tunnel'
+keywords: ["pgadmin", "pgadmin windows", "postgresql gui", "postgresql windows", "manage postgresql databases", "ssh tunnel"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2016-05-12
 modified_by:

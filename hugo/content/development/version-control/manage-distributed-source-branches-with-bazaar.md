@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Using the Bazaar version management system.'
-keywords: 'bzr,bazaar,vcs,scm,dcvs'
+keywords: ["bzr", "bazaar", "vcs", "scm", "dcvs"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['linux-tools/version-control/bazaar/','applications/development/manage-distributed-source-branches-with-bazaar/']
 modified: 2011-05-23

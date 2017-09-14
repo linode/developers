@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Use Ikiwiki on Debian to power a standard wiki implementation.'
-keywords: 'ikiwiki debian lenny,ikiwiki debian 5,ikiwiki,wiki,perl,git,markdown,debian'
+keywords: ["ikiwiki debian lenny", "ikiwiki debian 5", "ikiwiki", "wiki", "perl", "git", "markdown", "debian"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/wikis/ikiwiki/debian-5-lenny/']
 modified: 2012-10-08

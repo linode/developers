@@ -3,7 +3,7 @@ author:
     name: Linode Community
     email: docs@linode.com
 description: 'Fine tune nginx for maximum performance'
-keywords: 'nginx,performance,tuning,optimize,web servers'
+keywords: ["nginx", "performance", "tuning", "optimize", "web servers"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['websites/nginx/configure-nginx-for-optimized-performance/']
 published: 2015-09-09

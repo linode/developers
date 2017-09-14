@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Use logwatch to monitor system logs and generate reports.'
-keywords: 'logwatch,security,logging,audit'
+keywords: ["logwatch", "security", "logging", "audit"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['server-monitoring/logwatch/debian-5-lenny/']
 modified: 2011-04-27

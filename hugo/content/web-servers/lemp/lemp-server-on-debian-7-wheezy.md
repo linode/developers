@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Install a LEMP stack to serve websites and applications on Debian 7'
-keywords: 'nginx,lemp,lepp,perl,python,php,linux,web applications'
+keywords: ["nginx", "lemp", "lepp", "perl", "python", "php", "linux", "web applications"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['lemp-guides/debian-7-wheezy/','websites/lemp/lemp-server-on-debian-7-wheezy/']
 modified: 2014-02-07

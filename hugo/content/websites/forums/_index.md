@@ -2,7 +2,7 @@
 author:
   name: Linode
   email: docs@linode.com
-keywords: 'bulletin board,boards,forums,phpbb,smf'
+keywords: ["bulletin board", "boards", "forums", "phpbb", "smf"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/bulletin-boards/']
 published: 2010-03-01

@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Keep track of vital system statistics and troubleshoot performance problems with Munin on Fedora 14.'
-keywords: 'munin,monitoring'
+keywords: ["munin", "monitoring"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['server-monitoring/munin/fedora-14/']
 modified: 2013-10-01

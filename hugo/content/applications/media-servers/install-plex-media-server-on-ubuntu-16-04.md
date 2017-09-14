@@ -3,7 +3,7 @@ author:
   name: Nick Brewer
   email: nbrewer@linode.com
 description: View and organize your media library with Plex on Ubuntu 16.04
-keywords: 'plex media server, install plex, plex ubuntu'
+keywords: ["plex media server", " install plex", " plex ubuntu"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2017-06-21
 modified_by:

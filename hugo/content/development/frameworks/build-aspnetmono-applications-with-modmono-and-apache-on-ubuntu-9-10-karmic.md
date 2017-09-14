@@ -4,7 +4,7 @@ author:
   name: Brett Kaplan
   email: docs@linode.com
 description: 'Use the Mono project''s Apache module to run ASP.NET applications.'
-keywords: 'apache,mono,.net,asp.net,mod\_mono'
+keywords: ["apache", "mono", ".net", "asp.net", "mod\\_mono"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/mod-mono/ubuntu-9-10-karmic/','websites/frameworks/build-aspnetmono-applications-with-modmono-and-apache-on-ubuntu-9-10-karmic/']
 modified: 2011-06-15

@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Serve SSL-enabled websites with the Apache 2 web server on Ubuntu 10.04 (Lucid).'
-keywords: 'apache ssl,ssl ubuntu,web sever,ubuntu,ubuntu lucid,ubuntu 10.04'
+keywords: ["apache ssl", "ssl ubuntu", "web sever", "ubuntu", "ubuntu lucid", "ubuntu 10.04"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/ssl-guides/ubuntu-10-04-lucid/']
 modified: 2013-10-04

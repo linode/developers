@@ -3,7 +3,7 @@ author:
   name: Elliot Blackburn
   email: elliot.blackburn@gmail.com
 description: 'Install and configure a Ghost blog on your Linode running Ubuntu 16.04.'
-keywords: 'Ghost,install Ghost,Ghost on Linode,how to configure Ghost'
+keywords: ["Ghost", "install Ghost", "Ghost on Linode", "how to configure Ghost"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2017-03-30
 modified_by:

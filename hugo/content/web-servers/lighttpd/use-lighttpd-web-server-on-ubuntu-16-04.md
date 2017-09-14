@@ -3,7 +3,7 @@ author:
   name: Dave Messina
   email: docs@linode.com
 description: 'Use lighttpd to Host Multiple Websites on Ubuntu 16.04 (Xenial Xerus)'
-keywords: 'lighttpd,web server,web hosting'
+keywords: ["lighttpd", "web server", "web hosting"]
 alias: ['websites/lighttpd/lighttpd-web-server-on-ubuntu-16-04/','websites/lighttpd/use-lighttpd-web-server-on-ubuntu-16-04/']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2016-05-19

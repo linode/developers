@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Troubleshooting tips, basic Linux commands, and software usage suggestions for beginner Linux system administrators.'
-keywords: 'linux tips,linux beginners,systems administration,admin,linux,mail,http,troubleshooting'
+keywords: ["linux tips", "linux beginners", "systems administration", "admin", "linux", "mail", "http", "troubleshooting"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['using-linux/administration-basics/']
 modified: 2016-10-05

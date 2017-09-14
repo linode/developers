@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'An introduction and getting started guide for CouchDB on Fedora 14 systems.'
-keywords: 'couchdb,nosql,json,centos'
+keywords: ["couchdb", "nosql", "json", "centos"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/couchdb/fedora-14/']
 modified: 2013-09-24

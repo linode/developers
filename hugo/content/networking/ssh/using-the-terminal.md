@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Accomplishing system administration tasks from a command prompt.'
-keywords: 'Linux terminal,terminal HOWTO,Linode terminal tutorial'
+keywords: ["Linux terminal", "terminal HOWTO", "Linode terminal tutorial"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['using-linux/using-the-terminal/']
 modified: 2017-02-15

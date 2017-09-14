@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Track development bugs and coordinate with team members using Mantis bug tracker on Fedora 14.'
-keywords: 'mantis,mantis fedora,mantis linux,bug tracker,development'
+keywords: ["mantis", "mantis fedora", "mantis linux", "bug tracker", "development"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/project-management/mantis/fedora-14/','applications/development/manage-development-with-the-mantis-bug-tracker-on-fedora-14/']
 modified: 2013-10-04

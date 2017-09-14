@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Deploy applications that depend on the high performance key-value store Redis.'
-keywords: 'redis debian 5,redis lenny,nosql,database,key-value store'
+keywords: ["redis debian 5", "redis lenny", "nosql", "database", "key-value store"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/redis/debian-5-lenny/']
 modified: 2012-10-08

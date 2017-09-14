@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'OSQA provides an advanced knowledge exchange system for vibrant communities.'
-keywords: 'knowledge exchange,question and answers,q&a,debian lenny'
+keywords: ["knowledge exchange", "question and answers", "q&a", "debian lenny"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/social-networking/osqa/']
 modified: 2013-10-04

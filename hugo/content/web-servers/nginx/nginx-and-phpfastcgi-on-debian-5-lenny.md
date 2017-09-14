@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Serve dynamic websites and applications with the lightweight nginx web server and PHP-FastCGI on Debian 5 (Lenny).'
-keywords: 'nginx,nginx debian,nginx fastcgi,nginx php'
+keywords: ["nginx", "nginx debian", "nginx fastcgi", "nginx php"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/nginx/php-fastcgi/debian-5-lenny/','websites/nginx/nginx-and-phpfastcgi-on-debian-5-lenny/']
 modified: 2012-10-08

@@ -4,7 +4,7 @@ author:
   name: Brett Kaplan
   email: docs@linode.com
 description: 'Install and configure NSD to handle DNS queries.'
-keywords: 'NSD,DNS,resolving,Ubuntu,networking'
+keywords: ["NSD", "DNS", "resolving", "Ubuntu", "networking"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['dns-guides/nsd-authoritative-dns-ubuntu-10-04-lucid/']
 modified: 2013-09-25

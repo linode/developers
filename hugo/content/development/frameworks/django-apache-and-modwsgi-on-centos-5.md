@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Installing and configuring the Django web application development framework for Apache on CentOS 5.'
-keywords: 'django,python,apache,mod\_wsgi'
+keywords: ["django", "python", "apache", "mod\\_wsgi"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/django-apache-mod-wsgi/centos-5/','websites/frameworks/django-apache-and-modwsgi-on-centos-5/']
 modified: 2011-08-22

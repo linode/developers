@@ -3,7 +3,7 @@ author:
   name: Chris Walsh
   email: docs@linode.com
 description: 'A common use case for a VPN tunnel is to access the internet from behind it to evade censorship or geolocation and protect your connection from untrusted internet service providers, WiFi hotspots, and sites and services you connect to.'
-keywords: 'openvpn,vpn,vpn tunnel,openssl'
+keywords: ["openvpn", "vpn", "vpn tunnel", "openssl"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2016-01-26
 modified_by:

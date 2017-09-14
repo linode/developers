@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Build a groupware system with eGroupware on Ubuntu 9.10 (Karmic).'
-keywords: 'groupware,email,collaboration,ubuntu,karmic'
+keywords: ["groupware", "email", "collaboration", "ubuntu", "karmic"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/project-management/egroupware/ubuntu-9-10-karmic/']
 modified: 2011-08-22

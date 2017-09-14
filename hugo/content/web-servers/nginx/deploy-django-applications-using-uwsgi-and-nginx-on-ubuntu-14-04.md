@@ -3,7 +3,7 @@ author:
   name: Linode Community
   email: docs@linode.com
 description: 'Deploy Django Applications Using uWSGI and Nginx on Ubuntu 14.04'
-keywords: 'django,uwsgi,nginx,python'
+keywords: ["django", "uwsgi", "nginx", "python"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2015-11-25
 modified_by:

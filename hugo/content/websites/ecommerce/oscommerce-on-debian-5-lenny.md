@@ -4,7 +4,7 @@ author:
   name: Stan Schwertly
   email: docs@linode.com
 description: 'How to set up an online store using the open source osCommerce system on Debian 5 (Lenny).'
-keywords: 'osCommerce,Debian,Store,Ecommerce'
+keywords: ["osCommerce", "Debian", "Store", "Ecommerce"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/e-commerce/oscommerce/debian-5-lenny/']
 modified: 2011-08-22

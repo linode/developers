@@ -3,7 +3,7 @@ author:
   name: Angel Guarisma
   email: aguarisma@linode.com
 description: This tutorial shows how to install Java on CentOS 7.
-keywords: 'CentOS,install Java,CENTOS,Java JRE,Java JDK'
+keywords: ["CentOS", "install Java", "CENTOS", "Java JRE", "Java JDK"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2017-06-01
 modified_by:

@@ -3,7 +3,7 @@ author:
   name: Linode Community
   email: docs@linode.com
 description: 'Receive daily emails with Postfix mail server stats from Pflogsumm.'
-keywords: 'pflogsumm, postfix, monitoring, mail server'
+keywords: ["pflogsumm", " postfix", " monitoring", " mail server"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/postfix/pflogsumm-centos-6/']
 contributor: 

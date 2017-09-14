@@ -3,7 +3,7 @@ author:
   name: Elle Krout
   email: ekrout@linode.com
 description: 'A look into Chef''s primary components, features, and configurations for the new Chef user'
-keywords: 'chef,automation,chefdk,chef server,chef development kit,cookbooks,beginners,server automation,configuration management'
+keywords: ["chef", "automation", "chefdk", "chef server", "chef development kit", "cookbooks", "beginners", "server automation", "configuration management"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['applications/chef/beginners-guide-chef/']
 modified: 2015-06-10

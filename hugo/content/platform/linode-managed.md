@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: How to configure service monitoring with Linode Managed.
-keywords: 'linode managed,service monitoring'
+keywords: ["linode managed", "service monitoring"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['linode-managed/']
 modified: 2014-05-10

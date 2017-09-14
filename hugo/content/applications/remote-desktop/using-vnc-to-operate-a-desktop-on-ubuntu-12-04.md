@@ -4,7 +4,7 @@ author:
   name: Alex Fornuto
   email: afornuto@linode.com
 description: How to install and connect to a desktop environment on your Linode
-keywords: 'vnc,remote desktop,ubuntu,12.04'
+keywords: ["vnc", "remote desktop", "ubuntu", "12.04"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['remote-desktops/vnc-desktop-ubuntu-12-04/']
 modified: 2014-08-21

@@ -3,7 +3,7 @@ author:
   name: Phil Zona
   email: docs@linode.com
 description: Install OpenVAS 8 to scan your system for vulnerabilities.
-keywords: 'openvas,ubuntu,install openvas'
+keywords: ["openvas", "ubuntu", "install openvas"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2016-12-19
 modified_by:

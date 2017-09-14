@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Configure the Postfix MTA as a basic email gateway.'
-keywords: 'email,postfix,mta,forwarding,'
+keywords: ["email", "postfix", "mta", "forwarding", ""]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/postfix/gateway-ubuntu-10-10-maverick/']
 modified: 2012-10-08

@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@Linode.com
 description: 'Use cPanel to manage services on your CentOS Linode.'
-keywords: 'cpanel,Linode control panel,install cpanel,cpanel centos'
+keywords: ["cpanel", "Linode control panel", "install cpanel", "cpanel centos"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/control-panels/cpanel/centos-6/','websites/cms/cpanel-on-centos-6-5/','websites/cms/cpanel-on-centos-5/','websites/cms/cpanel-on-centos/']
 modified: 2016-09-07

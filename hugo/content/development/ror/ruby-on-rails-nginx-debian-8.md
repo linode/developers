@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: Using the Ruby on Rails framework for Nginx web applications on Debian 8
-keywords: 'ruby on rails,ruby on nginx,rails apps,debian,debian 8, ruby, nginx'
+keywords: ["ruby on rails", "ruby on nginx", "rails apps", "debian", "debian 8", " ruby", " nginx"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['websites/ror/ruby-on-rails-nginx-debian-8/']
 modified: 2015-06-25

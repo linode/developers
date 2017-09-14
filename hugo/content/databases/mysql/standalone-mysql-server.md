@@ -4,7 +4,7 @@ author:
   name: Stan Schwertly
   email: docs@linode.com
 description: 'Deploying a standalone MySQL database server on a separate Linode for increased application performance.'
-keywords: 'mysql,standalone myql,separate mysql,wordpress'
+keywords: ["mysql", "standalone myql", "separate mysql", "wordpress"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2011-04-29
 modified_by:

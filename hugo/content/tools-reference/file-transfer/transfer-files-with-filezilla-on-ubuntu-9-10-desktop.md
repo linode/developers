@@ -4,7 +4,7 @@ author:
   email: docs@linode.com
 deprecated: yes
 description: 'Securely copying files to and from your Linode with Filezilla, a free and open source file transfer client for Linux desktop systems.'
-keywords: 'filezilla,ftp,linux scp,sftp,linux sftp program,linux ftp'
+keywords: ["filezilla", "ftp", "linux scp", "sftp", "linux sftp program", "linux ftp"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['networking/file-transfer/transfer-files-filezilla-ubuntu-9-10/']
 modified: 2011-08-22

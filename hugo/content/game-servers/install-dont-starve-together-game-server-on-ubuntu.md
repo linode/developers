@@ -3,7 +3,7 @@ author:
     name: Linode Community
     email: docs@linode.com
 description: 'Install and Configure a Don''t Starve Together Multi-player Game Server for Ubuntu 14.04'
-keywords: 'don''t starve,don''t starve together,game servers,games,ubuntu, ubuntu 14.04,steam cmd,steamcmd,token'
+keywords: ["don''t starve", "don''t starve together", "game servers", "games", "ubuntu", " ubuntu 14.04", "steam cmd", "steamcmd", "token"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 published: 2015-04-14
 modified: 2016-02-25

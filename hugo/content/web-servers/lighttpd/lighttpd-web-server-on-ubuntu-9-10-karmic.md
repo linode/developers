@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Using lighttpd to host multiple websites on Ubuntu 9.10 (Karmic).'
-keywords: 'lighttpd,web server,web hosting'
+keywords: ["lighttpd", "web server", "web hosting"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/lighttpd/ubuntu-9-10-karmic/','websites/lighttpd/lighttpd-web-server-on-ubuntu-9-10-karmic/']
 modified: 2013-10-07

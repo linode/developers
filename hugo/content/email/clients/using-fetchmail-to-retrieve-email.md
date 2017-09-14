@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Manage email retrieval via multiple protocols with Fetchmail.'
-keywords: 'mail,fetchmail,unix,esr,mda'
+keywords: ["mail", "fetchmail", "unix", "esr", "mda"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['email/fetchmail/']
 modified: 2013-09-11

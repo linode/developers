@@ -3,7 +3,7 @@ author:
   name: Nick Brewer
   email: docs@linode.com
 description: 'A basic ARK server installation guide for Ubuntu 16.04'
-keywords: 'ark survival evolved, ubuntu, server'
+keywords: ["ark survival evolved", " ubuntu", " server"]
 license: '[CC BY-ND 3.0](http://creativecommons.org/licenses/by-nd/3.0/us/)'
 external_resources:
  - '[PlayARK.com](http://www.playark.com/)'

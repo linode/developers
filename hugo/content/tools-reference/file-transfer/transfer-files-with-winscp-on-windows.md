@@ -4,7 +4,7 @@ author:
   email: docs@linode.com
 deprecated: yes
 description: 'Securely copying files to and from your Linode with WinSCP, a free and open source file transfer client for Microsoft Windows systems.'
-keywords: 'winscp,ftp,windows scp,sftp,windows sftp program'
+keywords: ["winscp", "ftp", "windows scp", "sftp", "windows sftp program"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['networking/file-transfer/transfer-files-winscp/']
 modified: 2011-08-22

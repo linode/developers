@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'How to use separate web servers to host sites or applications using ProxyPass with Apache.'
-keywords: 'apache,proxypass,apache on centos,multiple web servers'
+keywords: ["apache", "proxypass", "apache on centos", "multiple web servers"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/apache/proxy-configuration/multiple-webservers-proxypass-centos-5/']
 modified: 2011-07-22

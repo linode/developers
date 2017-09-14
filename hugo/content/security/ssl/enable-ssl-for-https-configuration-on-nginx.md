@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'This guide will teach you how to provide encrypted access to resources using TSL/SSL for HTTP connections on Nginx.'
-keywords: 'ssl,tls,nginx,https,secure http,encryption for HTTP,SSL certificates with Nginx,certificate signing request'
+keywords: ["ssl", "tls", "nginx", "https", "secure http", "encryption for HTTP", "SSL certificates with Nginx", "certificate signing request"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/nginx/configuration/ssl/','security/ssl/ssl-certificates-with-nginx/index.cfm/','websites/ssl/ssl-certificates-with-nginx.cfm/','security/ssl/ssl-certificates-with-nginx/','security/ssl/how-to-provide-encrypted-access-to-resources-using-ssl-certificates-on-nginx/index.cfm/','security/ssl/how-to-provide-encrypted-access-to-resources-using-ssl-certificated-on-nginx/','security/ssl/provide-encrypted-resource-access-using-ssl-certificates-on-nginx/']
 modified: 2014-06-10

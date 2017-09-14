@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'This tutorial will teach you how to install a LEMP stack to serve websites and applications on Debian 8.'
-keywords: 'nginx,lemp,lepp,perl,python,php,linux,web applications'
+keywords: ["nginx", "lemp", "lepp", "perl", "python", "php", "linux", "web applications"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['websites/lemp/lemp-server-on-debian-8/','web-servers/lemp/lemp-server-on-debian-8/']
 modified: 2017-08-21

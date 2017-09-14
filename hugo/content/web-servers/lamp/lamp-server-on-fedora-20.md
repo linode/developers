@@ -4,7 +4,7 @@ author:
   name: Alex Fornuto
   email: afornuto@linode.com
 description: 'Creating a LAMP stack with Apache, MySQL, PHP, and Python on Fedora 20'
-keywords: 'fedora,lamp,fedora 20 lamp,lamp server,linux lamp,fedora 20 apache'
+keywords: ["fedora", "lamp", "fedora 20 lamp", "lamp server", "linux lamp", "fedora 20 apache"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['lamp-guides/fedora-20/','websites/lamp/lamp-server-on-fedora-20/']
 modified: 2014-04-11

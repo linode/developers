@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: This tutorial explains how to use Linode's block storage service.
-keywords: 'block storage, volume, media, resize, storage, disk'
+keywords: ["block storage", " volume", " media", " resize", " storage", " disk"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2017-06-16
 modified_by:

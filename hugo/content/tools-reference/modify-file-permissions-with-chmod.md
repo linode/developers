@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Use the chmod command to modify file permissions on your Linode.'
-keywords: 'TAGS=chmod,commands,reference,file permissions'
+keywords: ["TAGS=chmod", "commands", "reference", "file permissions"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['linux-tools/common-commands/chmod/']
 modified: 2011-07-07

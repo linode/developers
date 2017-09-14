@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Get started with MySQL for web and server applications on Debian 6 (Squeeze).'
-keywords: 'mysql debian 6,mysql debian,mysql debian squeeze,mysql linux,mysql linux Linode'
+keywords: ["mysql debian 6", "mysql debian", "mysql debian squeeze", "mysql linux", "mysql linux Linode"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/mysql/debian-6-squeeze/']
 modified: 2014-01-14

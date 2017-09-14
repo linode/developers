@@ -4,7 +4,7 @@ author:
   name: Brett Kaplan
   email: docs@linode.com
 description: 'Get detailed website statistics such as visitor counts, pageviews, user agents percentages, and much more using the open source Webalizer package on Centos 5.'
-keywords: 'webalizer,statistics,analytics,stats,server monitoring,centos'
+keywords: ["webalizer", "statistics", "analytics", "stats", "server monitoring", "centos"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/analytics/webalizer/centos-5/']
 modified: 2011-12-02

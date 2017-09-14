@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Securely accessing remote filesystems with SSHFS on Linux.'
-keywords: 'sshfs,ssh filesystem,sshfs linux,sshfs macos'
+keywords: ["sshfs", "ssh filesystem", "sshfs linux", "sshfs macos"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['networking/ssh-filesystems/','networking/ssh/using-sshfs-on-linux-and-macos-x/']
 modified: 2017-05-23

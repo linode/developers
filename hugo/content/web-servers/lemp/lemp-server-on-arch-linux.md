@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Install a LEMP stack to serve websites and applications on Arch Linux'
-keywords: 'nginx,lemp,php,linux,web applications'
+keywords: ["nginx", "lemp", "php", "linux", "web applications"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['lemp-guides/arch-linux/','websites/lemp/lemp-server-on-arch-linux/']
 modified: 2012-06-21

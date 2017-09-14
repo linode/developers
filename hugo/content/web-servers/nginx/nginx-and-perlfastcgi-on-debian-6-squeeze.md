@@ -4,7 +4,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Serve dynamic websites and applications with the lightweight nginx web server and Perl-FastCGI on Debian 6 (Squeeze).'
-keywords: 'nginx perl debian 6,nginx perl fastcgi,nginx debian squeeze,fastscgi perl,nginx debian'
+keywords: ["nginx perl debian 6", "nginx perl fastcgi", "nginx debian squeeze", "fastscgi perl", "nginx debian"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-servers/nginx/perl-fastcgi/debian-6-squeeze/','websites/nginx/nginx-and-perlfastcgi-on-debian-6-squeeze/']
 modified: 2011-05-10

@@ -3,7 +3,7 @@ author:
     name: Linode
     email: docs@linode.com
 description: 'The Linode Guides & Tutorials GitHub guide.'
-keywords: 'GitHub guide, write for us, article submissions,linode guides and tutorials'
+keywords: ["GitHub guide", " write for us", " article submissions", "linode guides and tutorials"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2015-12-02
 modified_by:

@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Installing git on GNU/Linux, MacOSX, and Windows' 
-keywords: 'git,dvcs,vcs,scm,gitweb'
+keywords: ["git", "dvcs", "vcs", "scm", "gitweb"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['linux-tools/version-control/git/','applications/development/git-source-control-management/','development/version-control/git-source-control-management/']
 modified: 2017-07-03

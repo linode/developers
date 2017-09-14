@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Building dynamic websites and applications with open source frameworks.'
-keywords: 'web applications,web frameworks,Linode applications,tomcat,cakephp,catalyst,django,seaside'
+keywords: ["web applications", "web frameworks", "Linode applications", "tomcat", "cakephp", "catalyst", "django", "seaside"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['frameworks/']
 published: 2009-07-16

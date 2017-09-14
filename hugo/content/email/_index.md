@@ -2,7 +2,7 @@
 author:
   name: Linode
   email: docs@linode.com
-keywords: 'linux mail server,email server,Citadel,Postfix,Courier,SMTP server'
+keywords: ["linux mail server", "email server", "Citadel", "Postfix", "Courier", "SMTP server"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 title: Email Server Guides
 featured:

@@ -2,7 +2,7 @@
 author:
   name: Linode
   email: docs@linode.com
-keywords: 'MongoBD,Redis server,Redis tutorial,Redis guide,NoSQL'
+keywords: ["MongoBD", "Redis server", "Redis tutorial", "Redis guide", "NoSQL"]
 description: 'Learn how to use, install, configure and perform tasks on database management platform Redis in these tutorials.'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 title: Redis Tutorials, Installation Guides, Resources – Linode

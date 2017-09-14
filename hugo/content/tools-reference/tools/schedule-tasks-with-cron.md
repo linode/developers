@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Using cron to run programs at specified times on your Linux server.'
-keywords: 'cron,cron tutorial,crontab,cron linux,administration,linux,systems,automation'
+keywords: ["cron", "cron tutorial", "crontab", "cron linux", "administration", "linux", "systems", "automation"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['linux-tools/utilities/cron/']
 modified: 2011-05-17

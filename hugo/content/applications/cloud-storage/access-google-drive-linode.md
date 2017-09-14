@@ -3,7 +3,7 @@ author:
     name: Scott Sumner
     email: scottinthebooth@gmail.com
 description: 'Access Google Drive from your Linode with Ubuntu 14.04'
-keywords: 'google,drive,console,fuse,apt,ubuntu'
+keywords: ["google", "drive", "console", "fuse", "apt", "ubuntu"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 published: 2015-09-28
 modified: 2016-03-17

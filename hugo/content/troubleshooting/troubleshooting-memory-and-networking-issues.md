@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Help with common Linode memory use and networking issues.'
-keywords: 'Linode troubleshooting,Linode troubleshooting,Linux configuration'
+keywords: ["Linode troubleshooting", "Linode troubleshooting", "Linux configuration"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['troubleshooting/memory-networking/']
 modified: 2013-11-19

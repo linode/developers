@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: Backing Up Your Linode
-keywords: 'backup,backups,rsync,cron,getting started,tutorial'
+keywords: ["backup", "backups", "rsync", "cron", "getting started", "tutorial"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2013-04-04
 modified_by:

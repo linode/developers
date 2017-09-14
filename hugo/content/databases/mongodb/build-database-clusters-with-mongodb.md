@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Configure MongoDB for use in clustered environments.'
-keywords: 'mongodb,nosql,clusters,databases'
+keywords: ["mongodb", "nosql", "clusters", "databases"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['databases/mongodb/clusters/']
 modified: 2017-02-27

@@ -2,7 +2,7 @@
 author:
   name: Linode
   email: docs@linode.com
-keywords: 'MongoBD,MongoDB server,Linux MongoDB HOWTO,MongoDB guide,NoSQL'
+keywords: ["MongoBD", "MongoDB server", "Linux MongoDB HOWTO", "MongoDB guide", "NoSQL"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 title: MongoDB
 ---

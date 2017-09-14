@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Using the Apache web server with Debian 7 Wheezy to serve Ruby on Rails applications.'
-keywords: 'ruby on rails,rails on debian,rails apps,rails and apache'
+keywords: ["ruby on rails", "rails on debian", "rails apps", "rails and apache"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['websites/ror/ruby-on-rails-apache-debian-8/']
 modified: 2015-07-13

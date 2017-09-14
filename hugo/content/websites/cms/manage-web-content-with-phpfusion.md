@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'Learn to build and deploy websites using the PHP Fusion content management system.'
-keywords: 'cms,php fusion,content mangement system,lamp'
+keywords: ["cms", "php fusion", "content mangement system", "lamp"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['web-applications/cms-guides/php-fusion/']
 modified: 2013-10-02
