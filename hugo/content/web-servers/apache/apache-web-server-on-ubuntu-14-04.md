@@ -23,8 +23,9 @@ The *Apache HTTP Web Sever* (Apache) is an open source web application for deplo
 If instead you would like to install a full LAMP (Linux, Apache, MySQL and PHP) stack, please see the [LAMP on Ubuntu 14.04](/docs/websites/lamp/lamp-server-on-ubuntu-14-04) guide.
 
 {{< note >}}
->
->This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
 {{< /note >}}
 
 
@@ -68,13 +69,14 @@ Apache 2.4 offers various multi-processing modules (MPMs) to handle connections.
 
     {{< file >}}
 /etc/apache2/mods-available/mpm_prefork.conf
-    :   ~~~ conf
-        # prefork MPM
-        # StartServers: number of server processes to start
-        # MinSpareServers: minimum number of server processes which are kept spare
-        # MaxSpareServers: maximum number of server processes which are kept spare
-        # MaxRequestWorkers: maximum number of server processes allowed to start
-        # MaxConnectionsPerChild: maximum number of requests a server process serves
+:   ~~~ conf
+# prefork MPM
+# StartServers: number of server processes to start
+# MinSpareServers: minimum number of server processes which are kept spare
+# MaxSpareServers: maximum number of server processes which are kept spare
+# MaxRequestWorkers: maximum number of server processes allowed to start
+# MaxConnectionsPerChild: maximum number of requests a server process serves
+
 {{< /file >}}
 
         <IfModule mpm_prefork_module>
@@ -103,24 +105,25 @@ If you choose to keep the *event module* enabled, these settings are suggested f
 
     {{< file >}}
 /etc/apache2/mods-available/mpm_event.conf
-    :   ~~~ conf
-        # event MPM
-        # StartServers: initial number of server processes to start
-        # MinSpareThreads: minimum number of worker threads which are kept spare
-        # MaxSpareThreads: maximum number of worker threads which are kept spare
-        # ThreadsPerChild: constant number of worker threads in each server process
-        # MaxRequestWorkers: maximum number of worker threads
-        # MaxConnectionsPerChild: maximum number of requests a server process serves
-        <IfModule mpm_event_module>
-                StartServers             2
-                MinSpareThreads          25
-                MaxSpareThreads          75
-                ThreadLimit              64
-                ThreadsPerChild          25
-                MaxRequestWorkers        150
-                MaxConnectionsPerChild   3000
-        </IfModule>
-        ~~~
+:   ~~~ conf
+# event MPM
+# StartServers: initial number of server processes to start
+# MinSpareThreads: minimum number of worker threads which are kept spare
+# MaxSpareThreads: maximum number of worker threads which are kept spare
+# ThreadsPerChild: constant number of worker threads in each server process
+# MaxRequestWorkers: maximum number of worker threads
+# MaxConnectionsPerChild: maximum number of requests a server process serves
+<IfModule mpm_event_module>
+StartServers             2
+MinSpareThreads          25
+MaxSpareThreads          75
+ThreadLimit              64
+ThreadsPerChild          25
+MaxRequestWorkers        150
+MaxConnectionsPerChild   3000
+</IfModule>
+~~~
+
 {{< /file >}}
 
 2.  Restart Apache:

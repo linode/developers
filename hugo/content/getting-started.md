@@ -204,7 +204,8 @@ Installing software updates should be performed *regularly*. If you need help re
     emaint sync
 
 {{< note >}}
->emaint is a [plugin](https://gentoo.org/support/news-items/2015-02-04-portage-sync-changes.html) for emerge, so `emerge --sync` is no longer used and that command now just calls `emaint sync`. The sync command uses the `auto` option by default. See [here](https://wiki.gentoo.org/wiki/Project:Portage/Sync#Operation) for more info on what that means and when you may want to change it. For more information on how to use `emaint`, refer to its [man page](https://dev.gentoo.org/~zmedico/portage/doc/man/emaint.1.html).
+emaint is a [plugin](https://gentoo.org/support/news-items/2015-02-04-portage-sync-changes.html) for emerge, so `emerge --sync` is no longer used and that command now just calls `emaint sync`. The sync command uses the `auto` option by default. See [here](https://wiki.gentoo.org/wiki/Project:Portage/Sync#Operation) for more info on what that means and when you may want to change it. For more information on how to use `emaint`, refer to its [man page](https://dev.gentoo.org/~zmedico/portage/doc/man/emaint.1.html).
+
 {{< /note >}}
 
 After running a sync, it may end with a message that you should upgrade Portage using a *--oneshot* emerge comand. If so, run the Portage update. Then update the rest of the system:

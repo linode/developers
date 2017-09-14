@@ -24,8 +24,9 @@ Setting up a LAMP (Linux, Apache, MySql, PHP) stack will allow for the creation 
 ![LAMP Server on Ubuntu 12.04](/docs/assets/lamp_server_on_ubuntu_12_04.png "LAMP Server on Ubuntu 12.04")
 
 {{< note >}}
->
->This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
 {{< /note >}}
 
 ## Before You Begin
@@ -81,8 +82,9 @@ There are different ways to set up virtual hosts; however, the method below is r
         ~~~
 
     {{< note >}}
->
-    >The `ErrorLog` and `CustomLog` entries are suggested for more fine-grained logging, but are not required. If they are defined (as shown above), the `logs` directories must be created before you restart Apache.
+
+The `ErrorLog` and `CustomLog` entries are suggested for more fine-grained logging, but are not required. If they are defined (as shown above), the `logs` directories must be created before you restart Apache.
+
 {{< /note >}}
 
 2.  Create the directories referenced above:
@@ -95,10 +97,11 @@ There are different ways to set up virtual hosts; however, the method below is r
         sudo a2ensite example.com.conf
 
     {{< note >}}
->
-    >If you need to disable your website later, run:
-    >
-    >     sudo a2dissite example.com.conf
+
+If you need to disable your website later, run:
+
+sudo a2dissite example.com.conf
+
 {{< /note >}}
 
 4.  Reload Apache:
@@ -163,8 +166,9 @@ With Apache and MySQL installed you are now ready to install PHP.
         ~~~
 
     {{< note >}}
->
-    >Ensure the lines above are uncommented. Commented lines begin with a semicolon (**;**).
+
+Ensure the lines above are uncommented. Commented lines begin with a semicolon (**;**).
+
 {{< /note >}}
 
 3.  Create the log directory for PHP and give the Apache user ownership:

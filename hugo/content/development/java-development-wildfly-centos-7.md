@@ -55,8 +55,9 @@ After full installation of above stack it was consuming around 650 MB of RAM wit
 ### Oracle Java 8 SE installation
 
 {{< note >}}
->
-> Oracle is producing many updates for Java, so below steps ensures you are getting the latest updated Java version.
+
+Oracle is producing many updates for Java, so below steps ensures you are getting the latest updated Java version.
+
 {{< /note >}}
 
 1.  In any browser go to [Oracle Java SE download page](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
@@ -117,34 +118,36 @@ After full installation of above stack it was consuming around 650 MB of RAM wit
 
     {{< file >}}
 /etc/profile.d/java.sh
-    :   ~~~ shell
-        if ! echo ${PATH} | grep -q /opt/jdk1.8.0_45/bin ; then
-           export PATH=/opt/jdk1.8.0_45/bin:${PATH}
-        fi
-        if ! echo ${PATH} | grep -q /opt/jdk1.8.0_45/jre/bin ; then
-           export PATH=/opt/jdk1.8.0_45/jre/bin:${PATH}
-        fi
-        export JAVA_HOME=/opt/jdk1.8.0_45
-        export JRE_HOME=/opt/jdk1.8.0_45/jre
-        export CLASSPATH=.:/opt/jdk1.8.0_45/lib/tools.jar:/opt/jdk1.8.0_45/jre/lib/rt.jar
-        ~~~
+:   ~~~ shell
+if ! echo ${PATH} | grep -q /opt/jdk1.8.0_45/bin ; then
+export PATH=/opt/jdk1.8.0_45/bin:${PATH}
+fi
+if ! echo ${PATH} | grep -q /opt/jdk1.8.0_45/jre/bin ; then
+export PATH=/opt/jdk1.8.0_45/jre/bin:${PATH}
+fi
+export JAVA_HOME=/opt/jdk1.8.0_45
+export JRE_HOME=/opt/jdk1.8.0_45/jre
+export CLASSPATH=.:/opt/jdk1.8.0_45/lib/tools.jar:/opt/jdk1.8.0_45/jre/lib/rt.jar
+~~~
+
 {{< /file >}}
 
 12. For the C shell, create a new file called `/etc/profile.d/java.csh`, replacing `jdk1.8.0_51` with the appropriate version:
 
     {{< file >}}
 /etc/profile.d/java.csh
-    :   ~~~ shell
-        if ( "${path}" !~ */opt/jdk1.8.0_45/bin* ) then
-           set path = ( /opt/jdk1.8.0_45/bin $path )
-        endif
-        if ( "${path}" !~ */opt/jdk1.8.0_45/jre/bin* ) then
-           set path = ( /opt/jdk1.8.0_45/jre/bin $path )
-        endif
-        setenv JAVA_HOME /opt/jdk1.8.0_45
-        setenv JRE_HOME /opt/jdk1.8.0_45/jre
-        setenv CLASSPATH .:/opt/jdk1.8.0_45/lib/tools.jar:/opt/jdk1.8.0_45/jre/lib/rt.jar
-        ~~~
+:   ~~~ shell
+if ( "${path}" !~ */opt/jdk1.8.0_45/bin* ) then
+set path = ( /opt/jdk1.8.0_45/bin $path )
+endif
+if ( "${path}" !~ */opt/jdk1.8.0_45/jre/bin* ) then
+set path = ( /opt/jdk1.8.0_45/jre/bin $path )
+endif
+setenv JAVA_HOME /opt/jdk1.8.0_45
+setenv JRE_HOME /opt/jdk1.8.0_45/jre
+setenv CLASSPATH .:/opt/jdk1.8.0_45/lib/tools.jar:/opt/jdk1.8.0_45/jre/lib/rt.jar
+~~~
+
 {{< /file >}}
 
 13. Make sure of the owner and ACL for the profile files by executing the following:
@@ -180,17 +183,18 @@ After full installation of above stack it was consuming around 650 MB of RAM wit
 
     {{< file >}}
 /opt/wildfly-install.sh
-    :   ~~~ shell
-        #!/bin/bash
-        #Title : wildfly-install.sh
-        #Description : The script to install Wildfly 8.x
-        #Original script: http://sukharevd.net/wildfly-8-installation.html
-         
-        # This version is the only variable to change when running the script
-        WILDFLY_VERSION=8.2.0.Final
-        WILDFLY_FILENAME=wildfly-$WILDFLY_VERSION
-        WILDFLY_ARCHIVE_NAME=$WILDFLY_FILENAME.tar.gz
-        WILDFLY_DOWNLOAD_ADDRESS=http://download.jboss.org/wildfly/$WILDFLY_VERSION/$WILDFLY_ARCHIVE_NAME
+:   ~~~ shell
+#!/bin/bash
+#Title : wildfly-install.sh
+#Description : The script to install Wildfly 8.x
+#Original script: http://sukharevd.net/wildfly-8-installation.html
+
+# This version is the only variable to change when running the script
+WILDFLY_VERSION=8.2.0.Final
+WILDFLY_FILENAME=wildfly-$WILDFLY_VERSION
+WILDFLY_ARCHIVE_NAME=$WILDFLY_FILENAME.tar.gz
+WILDFLY_DOWNLOAD_ADDRESS=http://download.jboss.org/wildfly/$WILDFLY_VERSION/$WILDFLY_ARCHIVE_NAME
+
 {{< /file >}}
 
         # Specify the destination location
@@ -328,19 +332,20 @@ Please Follow these steps to install MySQL driver as "module" in WildFly
 
     {{< file >}}
 /opt/wildfly/modules/com/mysql/main/module.xml
-    :   ~~~ xml
-        <module xmlns="urn:jboss:module:1.3" name="com.mysql">
-           <resources>
-               <resource-root path="mysql-connector-java-5.1.34-bin.jar"/>
-           </resources>
-           <dependencies>
-               <module name="javax.api"/>
-               <module name="javax.transaction.api"/>
-           </dependencies>
-        </module>
-        ~~~
- 
+:   ~~~ xml
+<module xmlns="urn:jboss:module:1.3" name="com.mysql">
+<resources>
+<resource-root path="mysql-connector-java-5.1.34-bin.jar"/>
+</resources>
+<dependencies>
+<module name="javax.api"/>
+<module name="javax.transaction.api"/>
+</dependencies>
+</module>
+~~~
+
 4.  Change ownership for the user wildfly for the files by issuing the command:
+
 {{< /file >}}
 
         chown -R wildfly:wildfly /opt/wildfly/modules
@@ -438,44 +443,46 @@ There are multiple ways for setting Apache HTTP to direct calls to WildFly (mod_
 
     {{< file >}}
 /etc/httpd/conf.d/workers.properties
-    :   ~~~ conf 
-        worker.list=jboss1,jkstatus
-        worker.jkstatus.type=status
-        worker.jboss1.type=ajp13
-        worker.jboss1.port=8009
-        # The host should be using IP not server name as reported bug
-        # https://www.apachelounge.com/viewtopic.php?t=5883
-        worker.jboss1.host=127.0.0.1
-        ~~~
- 
+:   ~~~ conf 
+worker.list=jboss1,jkstatus
+worker.jkstatus.type=status
+worker.jboss1.type=ajp13
+worker.jboss1.port=8009
+# The host should be using IP not server name as reported bug
+# https://www.apachelounge.com/viewtopic.php?t=5883
+worker.jboss1.host=127.0.0.1
+~~~
+
 5.  Instead of modifying Apache configuration file; better create extra Apache HTTP configuration file that will work as Apache by default has in the file `/etc/httpd/conf/httpd.conf` the directive `IncludeOptional conf.d/*.conf`:
+
 {{< /file >}}
 
     {{< file >}}
 /etc/httpd/conf.d/modjk.conf
-    :   ~~~ conf
-        # To avoid error AH00558: httpd: Could not reliably
-        # determine the server's fully qualified domain name
-        # replace 1.2.3.4 with your server IP
-        ServerName    1.2.3.4
-         
-        # Load mod_jk
-        LoadModule    jk_module modules/mod_jk.so
-        JkWorkersFile /etc/httpd/conf.d/workers.properties
-        JkLogFile     /var/log/httpd/mod_jk_log
-         
-        # To be changed to warn in production, the mount point should match your application sample pathes
-        JkLogLevel    info
-        JKMount       /sample jboss1
-        JkMount       /sample/* jboss1
-        JKMount       /jkstatus jkstatus
-         
-        # To avoid write access error in mod_jk
-        # https://bugzilla.redhat.com/show_bug.cgi?id=912730
-        JKShmFile     /var/tmp/jk-runtime-status
-        ~~~
- 
+:   ~~~ conf
+# To avoid error AH00558: httpd: Could not reliably
+# determine the server's fully qualified domain name
+# replace 1.2.3.4 with your server IP
+ServerName    1.2.3.4
+
+# Load mod_jk
+LoadModule    jk_module modules/mod_jk.so
+JkWorkersFile /etc/httpd/conf.d/workers.properties
+JkLogFile     /var/log/httpd/mod_jk_log
+
+# To be changed to warn in production, the mount point should match your application sample pathes
+JkLogLevel    info
+JKMount       /sample jboss1
+JkMount       /sample/* jboss1
+JKMount       /jkstatus jkstatus
+
+# To avoid write access error in mod_jk
+# https://bugzilla.redhat.com/show_bug.cgi?id=912730
+JKShmFile     /var/tmp/jk-runtime-status
+~~~
+
 6.  Restart Apache:
+
 {{< /file >}}
 
         sudo systemctl restart httpd

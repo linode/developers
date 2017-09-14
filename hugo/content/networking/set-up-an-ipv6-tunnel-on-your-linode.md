@@ -30,7 +30,8 @@ You should have already signed up for an IPv6 tunnel through a tunnel broker. [W
 Once you have signed up for a tunnel, you will need to issue a few commands on your Linode. Arch and Gentoo Linux users may need to install the `iproute2` package before continuing.
 
 {{< note >}}
->Configuration of an IP tunnel using this method will not be persistent after reboot and will need to be reconfigured after restarting your Linode.
+Configuration of an IP tunnel using this method will not be persistent after reboot and will need to be reconfigured after restarting your Linode.
+
 {{< /note >}}
 
 1.  Because some of these steps will temporarily disable networking on the Linode, begin by logging in using either the [Lish](/docs/networking/using-the-linode-shell-lish) or [Glish](/docs/networking/use-the-graphic-shell-glish) interface.
@@ -45,9 +46,10 @@ Once you have signed up for a tunnel, you will need to issue a few commands on y
 3.  Assign IPv6 address and routing information to your new tunnel device. Replace `2001:db8:1234:5678::2/64` with the IPv6 address assigned to you. This information should be provided to you by your tunnel broker as your "Client IPv6 Address":
 
     {{< caution >}}
-> The `ifdown` command **will halt all network traffic to your Linode**. This step is included to avoid an error when adding the IPv6 route. It may not be required on all Linux distributions.
-    >
-    > On Arch Linux, replace the `ifdown` and `ifup` commands with `ip link set eth0 down` and `ip link set eth0 up`
+The `ifdown` command **will halt all network traffic to your Linode**. This step is included to avoid an error when adding the IPv6 route. It may not be required on all Linux distributions.
+
+On Arch Linux, replace the `ifdown` and `ifup` commands with `ip link set eth0 down` and `ip link set eth0 up`
+
 {{< /caution >}}
 
         ip addr add 2001:db8:1234:5678::2/64 dev he-ipv6
@@ -119,13 +121,14 @@ Debian and Ubuntu users (versions before Ubuntu 16.04 are not covered here) can 
 
     {{< file >}}
 /etc/sysconfig/network-scripts/ifcfg-he-ipv6
-    : ~~~
-      NAME="he-ipv6"
-      DEVICE=he-ipv6
-      ONBOOT=yes
-      USERCTL=yes
-      BOOTPROTO=none
-      PEERDNS=no
+: ~~~
+NAME="he-ipv6"
+DEVICE=he-ipv6
+ONBOOT=yes
+USERCTL=yes
+BOOTPROTO=none
+PEERDNS=no
+
 {{< /file >}}
 
       IPV6INIT=yes

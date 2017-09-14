@@ -351,7 +351,8 @@ Create the file ``/etc/nginx/sites-available/myblog``:
 {{< file >}}
 /etc/nginx/sites-available/myblog
 :   ~~~ nginx
-    server {
+server {
+
 {{< /file >}}
 
         listen 80;

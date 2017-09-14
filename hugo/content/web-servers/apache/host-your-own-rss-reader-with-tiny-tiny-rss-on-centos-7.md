@@ -62,10 +62,11 @@ This guide will walk through the steps necessary to install and configure Tiny T
 
     {{< file >}}
 /etc/httpd/conf.d/ttrss.conf
-    :   ~~~ conf
-        <Directory /var/www/html/cache>
-            Require all denied
-        </Directory>
+:   ~~~ conf
+<Directory /var/www/html/cache>
+Require all denied
+</Directory>
+
 {{< /file >}}
 
         <Directory /var/www/html>
@@ -92,10 +93,11 @@ The recommended installation method for Tiny Tiny RSS is to clone the repository
         sudo git clone https://tt-rss.org/git/tt-rss.git /var/www/html
 
     {{< note >}}
-> This command will clone tt-rss into the `/var/www/html` directory at the root, which means you will access the application at the root URL of your webserver (for example, at http://myserver).
-    > If you would prefer to use Tiny Tiny RSS under a separate URL (for example, at http://myserver/tt-rss), you can change the directory indicated in the `git clone` command to `/var/www/html/tt-rss`.
-    >
-    > If you decide to use a different location, note that you'll need to replace instances of `/var/www/html` in your Apache `ttrss.conf` file with the directory of your choosing.
+This command will clone tt-rss into the `/var/www/html` directory at the root, which means you will access the application at the root URL of your webserver (for example, at http://myserver).
+If you would prefer to use Tiny Tiny RSS under a separate URL (for example, at http://myserver/tt-rss), you can change the directory indicated in the `git clone` command to `/var/www/html/tt-rss`.
+
+If you decide to use a different location, note that you'll need to replace instances of `/var/www/html` in your Apache `ttrss.conf` file with the directory of your choosing.
+
 {{< /note >}}
 
 3.  Restart Apache to ensure that your changes have been applied:
@@ -120,8 +122,9 @@ At this point the application should be accessible under Apache. As an example, 
 2.  After filling in the fields, click **Test configuration** to perform a preliminary check of your setup. If everything is ready, click the **Initialize database** button.
 
     {{< note >}}
-> Initializing the database will wipe all data in the `ttrss` database.
-    > If you are installing over a previous installation, perform any backups as necessary.
+Initializing the database will wipe all data in the `ttrss` database.
+If you are installing over a previous installation, perform any backups as necessary.
+
 {{< /note >}}
 
 3.  After the application initializes the MariaDB database, a message should appear warning you that TinyRSS cannot update `config.php` because the parent directory is not writeable. This is a *good* thing because any potential vulnerabilities in the web application cannot write files to disk. In order to finish configuring the application, follow the instructions to copy the full contents of the text box beginning with `<?php`, and paste them into `/var/www/html/config.php`.
@@ -130,11 +133,12 @@ At this point the application should be accessible under Apache. As an example, 
 
       {{< file >}}
 /var/www/html/config.php
-      :   ~~~ php
-          <?php
-          // *******************************************
-          // *** Database configuration (important!) ***
-          // *******************************************
+:   ~~~ php
+<?php
+// *******************************************
+// *** Database configuration (important!) ***
+// *******************************************
+
 {{< /file >}}
 
           define('DB_TYPE', 'mysql');
@@ -160,9 +164,10 @@ Now that Tiny Tiny RSS is up and running, create a systemd unit to automate the 
 {{< file >}}
 /etc/systemd/system/ttrss-updater.service
 :   ~~~ ini
-    [Unit]
-    Description=ttrss_backend
-    After=network.target mysql.service
+[Unit]
+Description=ttrss_backend
+After=network.target mysql.service
+
 {{< /file >}}
 
     [Service]

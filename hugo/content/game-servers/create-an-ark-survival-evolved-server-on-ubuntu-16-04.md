@@ -21,7 +21,8 @@ This guide will show you how to set up a personal [ARK: Survival Evolved](http:/
 ![Create an ARK: Survival Evolved Server on Ubuntu 16.04](/docs/assets/ark-survival-evolved.png "Create an ARK: Survival Evolved Server on Ubuntu 16.04")
 
 {{< note >}}
-> The steps in this guide require root privileges unless otherwise noted. Be sure to run the steps below as `root` or with the `sudo` prefix. For more information on privileges, see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+The steps in this guide require root privileges unless otherwise noted. Be sure to run the steps below as `root` or with the `sudo` prefix. For more information on privileges, see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
 {{< /note >}}
 
 ##Before You Begin
@@ -131,7 +132,8 @@ Once you've started the server, you can add or remove settings by editing the `G
 `ServerPassword` determines the password that users will be required to enter when connecting to your server. You can omit this line to allow access without a password. `ServerAdminPassword` specifies the administrative password that will be used when issuing [game commands](http://ark.gamepedia.com/Console_Commands).
 
 {{< note >}}
-> If you choose to use the `ServerPassword` option, when connecting to the server you will need to click on **Show Password Protected**, or manually add the server to your favorites list. Both options are shown in the next section.
+If you choose to use the `ServerPassword` option, when connecting to the server you will need to click on **Show Password Protected**, or manually add the server to your favorites list. Both options are shown in the next section.
+
 {{< /note >}}
 
 A number of options can be configured within this file - for more information take a look at the [Server Configuration](http://ark.gamepedia.com/Server_Configuration#GameUserSettings.ini) section of the ARK wiki.

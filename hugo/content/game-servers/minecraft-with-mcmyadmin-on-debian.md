@@ -156,8 +156,9 @@ This section should be completed as your standard user, **not** as root. McMyAdm
 		Notice	: You must complete the first-start wizard via the web interface.
 
 	{{< note >}}
->
+
 	>To exit McMyAdmin and return to the command line, enter `/quit`.
+
 {{< /note >}}
 
 ##Managing your Minecraft Server

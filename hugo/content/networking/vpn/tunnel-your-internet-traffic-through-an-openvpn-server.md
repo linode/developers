@@ -87,8 +87,9 @@ Since now the server should forward traffic out to the internet from clients, ac
 
     {{< file >}}
 /etc/iptables/rules.v4
-    :   ~~~ conf
-        *filter
+:   ~~~ conf
+*filter
+
 {{< /file >}}
 
         # Allow all loopback (lo) traffic and reject traffic

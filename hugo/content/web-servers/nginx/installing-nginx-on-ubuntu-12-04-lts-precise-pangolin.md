@@ -22,8 +22,9 @@ external_links:
 Nginx is a lightweight, high performance web server designed to deliver large amounts of static content quickly and with efficient use of system resources. In contrast to the [Apache server](/docs/web-servers/apache/), Nginx uses an asynchronous event-driven model which provides more predictable performance under load.
 
 {{< note >}}
->
->This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
 {{< /note >}}
 
 ## Before You Begin
@@ -76,8 +77,9 @@ The binary packages from Nginx's repo will update you to new versions of the web
         ~~~
 
     {{< note >}}
->
-    >The `deb-src` line is only needed if you want repository access to Nginx's source code.
+
+The `deb-src` line is only needed if you want repository access to Nginx's source code.
+
 {{< /note >}}
 
 2.  Download and add Nginx's repository key to your GPG keyring:
@@ -176,8 +178,9 @@ Compiling from source gives you the most flexibility and choice for optimization
 
     {{< file >}}
 /etc/init.d/nginx
-    :   ~~~
-        #! /bin/sh
+:   ~~~
+#! /bin/sh
+
 {{< /file >}}
 
         ### BEGIN INIT INFO

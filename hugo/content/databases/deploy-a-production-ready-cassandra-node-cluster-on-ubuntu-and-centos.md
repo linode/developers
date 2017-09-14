@@ -78,17 +78,18 @@ The instructions here must be executed on each Cassandra node to be clustered. A
 {{< file >}}
 **/etc/cassandra/conf/cassandra.yaml**
 : ~~~ yaml		
-  cluster_name: '[Your Cluster Name]'
-  listen_address: [public_ip_address]
-  rpc_address: [public_ip_address]
-  num_tokens: 256
-  seed_provider:
+cluster_name: '[Your Cluster Name]'
+listen_address: [public_ip_address]
+rpc_address: [public_ip_address]
+num_tokens: 256
+seed_provider:
 	- class_name: org.apache.cassandra.locator.SimpleSeedProvider
 	  parameters:
 			- seeds: "[node1_ip_address],[node2_ip_address]"
-  endpoint_snitch: GossipingPropertyFileSnitch
-  auto_bootstrap: false
-  ~~~
+endpoint_snitch: GossipingPropertyFileSnitch
+auto_bootstrap: false
+~~~
+
 {{< /file >}}
 
 3. Edit the `cassandra-rackdc.properties` file. Assign each node the same datacenter and rack name.
@@ -98,11 +99,12 @@ The instructions here must be executed on each Cassandra node to be clustered. A
 {{< file >}}
 **/etc/cassandra/conf/cassandra-rackdc.properties**
 : ~~~ properties
-  # These properties are used with GossipingPropertyFileSnitch and will
-  # indicate the rack and dc for this node
-  dc=DC1
-  rack=RACK1
-  ~~~
+# These properties are used with GossipingPropertyFileSnitch and will
+# indicate the rack and dc for this node
+dc=DC1
+rack=RACK1
+~~~
+
 {{< /file >}}
 
 ## Edit Firewall Settings
@@ -160,6 +162,7 @@ Setting up encryption between nodes offers additional security and protects the 
 	prompt                 = no
 	output_password        = set_strong_password_here
 	default_bits           = 4096
+
 {{< /file >}}
 
 	[ req_distinguished_name ]
@@ -217,7 +220,7 @@ Setting up encryption between nodes offers additional security and protects the 
 1. Copy the truststore file and keystore files into Cassandra's `conf` directory for each node. Depending on your installation, the `conf` directory could be located at `/etc/cassandra/conf`, or `/etc/cassandra`.
 
 	{{< note >}}
->
+
 	> If you receive a "Permission denied" error upon executing the following command, your destination server user does not have permissions to access Cassandra's config directory. 
 	
 		scp ~/.keystore/cassandra-truststore.jks username@<dest_server_public_ip>:/cassandra/config/directory/cassandra-truststore.jks
@@ -229,6 +232,7 @@ Setting up encryption between nodes offers additional security and protects the 
 		scp -i /local_path/to/private_key_file ~/.keystore/cassandra-truststore.jks username@<dest_server_public_ip>:/cassandra/config/directory/cassandra-truststore.jks
 			
 ## Configure Encryption Settings
+
 {{< /note >}}
 
 1. Edit the `cassandra.yaml` file on each node to match the following. Replace text in [brackets] with the indicated information.
@@ -237,17 +241,18 @@ Setting up encryption between nodes offers additional security and protects the 
 **/etc/cassandra/conf/cassandra.yaml**
 : ~~~ yaml
 server_encryption_options:
-    internode_encryption: all
-    keystore: /etc/cassandra/conf/[keystore_file.jks]
-    keystore_password: cassandra
-    truststore: /etc/cassandra/conf/[truststore_file.jks]
-    truststore_password: cassandra
-    # More advanced defaults below:
-    protocol: TLS
-    algorithm: SunX509
-    store_type: JKS
-    cipher_suites: [TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA]
-    require_client_auth: true
+internode_encryption: all
+keystore: /etc/cassandra/conf/[keystore_file.jks]
+keystore_password: cassandra
+truststore: /etc/cassandra/conf/[truststore_file.jks]
+truststore_password: cassandra
+# More advanced defaults below:
+protocol: TLS
+algorithm: SunX509
+store_type: JKS
+cipher_suites: [TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA]
+require_client_auth: true
+
 {{< /file >}}
 
   ~~~

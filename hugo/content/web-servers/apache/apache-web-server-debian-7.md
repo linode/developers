@@ -22,8 +22,9 @@ The *Apache HTTP Web Sever* (Apache) is an open source web application for deplo
 Note that if you're looking to install a full LAMP (Linux, Apache, MySQL and PHP) stack, you may want to consider using our [LAMP guide for Debian 7](/docs/websites/lamp/lamp-server-on-debian-7-wheezy).
 
 {{< note >}}
->
->This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
 {{< /note >}}
 
 ## Before You Begin

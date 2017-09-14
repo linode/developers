@@ -24,8 +24,9 @@ SteamCMD is a command-line version of the Steam client which works with games th
 This guide is intended to get you quickly up and running with SteamCMD on your Linode. See Valve's [SteamCMD wiki page](https://developer.valvesoftware.com/wiki/SteamCMD) for more information and advanced setups.
 
 {{< note >}}
->
->This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
 {{< /note >}}
 
 ## Before You Install
@@ -91,8 +92,9 @@ Game servers and clients are an especially ripe target for attack. Use our [Secu
     ~~~
 
     {{< note >}}
->
-    >Some Steam games require a few additional rules which can be found in our [Steam game guides](/docs/applications/game-servers/). Steam can also use multiple port ranges for various purposes, but they should only be allowed if your game(s) make use of those services. See [this](https://support.steampowered.com/kb_article.php?ref=8571-GLVN-8711) Steam Support page for more information.
+
+Some Steam games require a few additional rules which can be found in our [Steam game guides](/docs/applications/game-servers/). Steam can also use multiple port ranges for various purposes, but they should only be allowed if your game(s) make use of those services. See [this](https://support.steampowered.com/kb_article.php?ref=8571-GLVN-8711) Steam Support page for more information.
+
 {{< /note >}}
 
     *IPv6*
@@ -158,10 +160,11 @@ Installing via the package manager allows you to more easily download updates an
         sudo apt-get install steamcmd
 
     {{< note >}}
->
-    >On Debian you need to add the `non-free` area of the repository to your sources, because the package is available only there.
-        
+
+On Debian you need to add the `non-free` area of the repository to your sources, because the package is available only there.
+
 2.  Create a symlink to the `steamcmd` executable in a convenient place, such as your home directory:
+
 {{< /note >}}
 
         cd ~
@@ -180,8 +183,9 @@ Installing via the package manager allows you to more easily download updates an
         sudo apt-get install lib32gcc1
 
     {{< note >}}
->
-    >Running `dpkg --add-architecture i386` is not necessary at this point. Our Steam game guides add [multiarch support](https://wiki.debian.org/Multiarch/HOWTO) only when a game requires it.
+
+Running `dpkg --add-architecture i386` is not necessary at this point. Our Steam game guides add [multiarch support](https://wiki.debian.org/Multiarch/HOWTO) only when a game requires it.
+
 {{< /note >}}
 
 2.  Create the directory for SteamCMD and change to it:
@@ -255,13 +259,15 @@ The game server will still operate despite this error, and it should be somethin
         login example_user
 
     {{< caution >}}
->
-    > Be aware that some versions of the Steam CLI do **not** obfuscate passwords. If you're signing in with your Steam account, be aware of your local screen's security.
+
+Be aware that some versions of the Steam CLI do **not** obfuscate passwords. If you're signing in with your Steam account, be aware of your local screen's security.
+
 {{< /caution >}}
 
     {{< note >}}
->
-    >You can exit the `Steam>` prompt at any time by typing `quit`.
+
+You can exit the `Steam>` prompt at any time by typing `quit`.
+
 {{< /note >}}
 
 3.  To exit the screen session without disrupting the Steam process, press **CTRL + A** and then **D**. To resume, use the `screen -r` command. For more information, check out our guide on [how to use screen sessions](/docs/networking/ssh/using-gnu-screen-to-manage-persistent-terminal-sessions).

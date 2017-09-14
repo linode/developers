@@ -24,8 +24,9 @@ Running MySQL at optimal settings for specific resources helps handle larger ser
 Database tuning is an expansive topic, and this guide covers only the basics of editing your MySQL configuration. Large MySQL databases can require a considerable amount of memory. For this reason, we recommend using a [high memory Linode](https://www.linode.com/pricing#high-memory) for such setups. 
 
 {{< note >}}
->
->The steps in this guide require root privileges. Be sure to run the steps below as **root** or with the `sudo` prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+The steps in this guide require root privileges. Be sure to run the steps below as **root** or with the `sudo` prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
 {{< /note >}}
 
 ##Tools That Can Help Optimize MySQL
@@ -94,22 +95,23 @@ When altering the MySQL configuration, be alert to the changes and how they affe
 The file you are changing is located at `/etc/mysql/my.cnf`.
 
 {{< note >}}
->
->Prior to updating the MySQL configuration, create a backup of the `my.cnf` file:
->
->	cp /etc/mysql/my.cnf ~/my.cnf.backup
->
->Best practice suggests that you make small changes, one at a time, and then monitor the server after each change. You should restart MySQL after each change:
->
->-	For systems without systemd:
->
->		systemctl restart mysqld
->
->-	For distributions which don't use systemd:
->
->		service mysql restart
->
->When changing values in the `my.cnf` file, be sure that the line you are changing hasn't been commented out with the pound (`#`) prefix.
+
+Prior to updating the MySQL configuration, create a backup of the `my.cnf` file:
+
+	cp /etc/mysql/my.cnf ~/my.cnf.backup
+
+Best practice suggests that you make small changes, one at a time, and then monitor the server after each change. You should restart MySQL after each change:
+
+-	For systems without systemd:
+
+		systemctl restart mysqld
+
+-	For distributions which don't use systemd:
+
+		service mysql restart
+
+When changing values in the `my.cnf` file, be sure that the line you are changing hasn't been commented out with the pound (`#`) prefix.
+
 {{< /note >}}
 
 ####key_buffer

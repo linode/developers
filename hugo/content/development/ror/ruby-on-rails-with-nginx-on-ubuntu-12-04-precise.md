@@ -23,8 +23,9 @@ external_resources:
 [Ruby on Rails](http://rubyonrails.org/) is a rapid development web framework that allows web designers and developers to implement dynamic fully featured web applications. This guide describes the required process for deploying Ruby on Rails with [Phusion Passenger](https://www.phusionpassenger.com/) and the [Nginx](https://www.nginx.com/) web server on Debian 8.
 
 {{< note >}}
->
->This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
 {{< /note >}}
 
 
@@ -64,9 +65,10 @@ external_resources:
 
     {{< file >}}
 /etc/apt/sources.list.d/passenger.list
-    :   ~~~ list
-        deb https://oss-binaries.phusionpassenger.com/apt/passenger precise main
-        ~~~
+:   ~~~ list
+deb https://oss-binaries.phusionpassenger.com/apt/passenger precise main
+~~~
+
 {{< /file >}}
 
 4.  Update your local package database and install Phusion Passenger:
@@ -89,10 +91,11 @@ external_resources:
 
     {{< file >}}
 /etc/nginx/nginx.conf
-    :   ~~~ conf
-        passenger_root /usr/lib/ruby/vendor_ruby/phusion_passenger/locations.ini;
-        passenger_ruby /usr/bin/ruby;
-        ~~~
+:   ~~~ conf
+passenger_root /usr/lib/ruby/vendor_ruby/phusion_passenger/locations.ini;
+passenger_ruby /usr/bin/ruby;
+~~~
+
 {{< /file >}}
 
 2.  Restart Nginx:

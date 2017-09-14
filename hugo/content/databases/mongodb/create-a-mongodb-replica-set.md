@@ -41,8 +41,9 @@ This guide has been tested with Ubuntu 16.04 and CentOS 7. Because most of the c
         sudo yum update
 
 {{< note >}}
->
-> This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
 {{< /note >}}
 
 ## Configure Networking
@@ -74,7 +75,8 @@ Each member of your replica set should have a hostname that identifies it as a m
 If you're using more than three Linodes, add all of your hosts at this stage. Replace the hostnames with your actual hostnames, and the IP addresses with the IP addresses of your Linodes.
 
 {{< note >}}
-> These hostnames are only given as examples, but we'll use these names throughout this guide to refer to members of the replica set. When you see one of these names in a command or configuration file, substitute your own hostname if applicable.
+These hostnames are only given as examples, but we'll use these names throughout this guide to refer to members of the replica set. When you see one of these names in a command or configuration file, substitute your own hostname if applicable.
+
 {{< /note >}}
 
 ## Set Up MongoDB Authentication
@@ -157,7 +159,8 @@ Once you've made these changes, restart the `mongod` service:
         mongo -u mongo-admin -p --authenticationDatabase admin
 
     {{< note >}}
-> If your connection is refused, be sure that the address for localhost (`127.0.0.1`) is included in your configuration's `bindIp` value.
+If your connection is refused, be sure that the address for localhost (`127.0.0.1`) is included in your configuration's `bindIp` value.
+
 {{< /note >}}
 
 2.  From the `mongo` shell, initiate the replica set:

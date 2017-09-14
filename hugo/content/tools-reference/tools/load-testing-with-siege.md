@@ -149,6 +149,7 @@ If you want Siege to hit a number of pages on your website at random, configure 
 		# You may also set and reference variables inside this file,
 		# for more information, man urls_txt
 		# -------------------------------------------------------
+
 {{< /file >}}
 
 		www.example.com

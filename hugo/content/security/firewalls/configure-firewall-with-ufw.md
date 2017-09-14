@@ -154,8 +154,9 @@ Similarly, to disable UFW's rules:
     sudo ufw disable
 
 {{< note >}}
->
->This still leaves the UFW service running and enabled on reboots.
+
+This still leaves the UFW service running and enabled on reboots.
+
 {{< /note >}}
 
 ## Logging

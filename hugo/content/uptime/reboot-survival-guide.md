@@ -168,7 +168,8 @@ Remember, if you use SSL certificates that require a passphrase, enter the passp
 The console does not display any characters (ex: **\***) as you enter your passphrase.
 
 {{< note >}}
->If you use full-disk encryption, enter your password in the LISH console after a reboot.
+If you use full-disk encryption, enter your password in the LISH console after a reboot.
+
 {{< /note >}}
 
 ## Firewall Rules
@@ -186,8 +187,9 @@ If you followed the [Creating a Firewall](/docs/security/securing-your-server#co
 If your system absolutely **cannot** afford any downtime, then scale the platform across multiple servers. Multi-server availability ensures that your service can remain live even if one of the servers goes down. The services and options for enabling highly available stacks are too numerous to detail here, but refer to these guides to get started with high availability:
 
 {{< note >}}
->
-> You can deploy your services to an additional Linode to enable high availability.  New Linodes will automatically be placed on known good hosts, and can ensure that vital services remain online throughout the reboot process.
+
+You can deploy your services to an additional Linode to enable high availability.  New Linodes will automatically be placed on known good hosts, and can ensure that vital services remain online throughout the reboot process.
+
 {{< /note >}}
 
  - [Linode NodeBalancers](/docs/platform/nodebalancer/)

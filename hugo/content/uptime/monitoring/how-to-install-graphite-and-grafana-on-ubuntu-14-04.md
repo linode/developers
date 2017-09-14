@@ -162,7 +162,8 @@ external_resources:
 /etc/apache2/sites-available/apache2-graphite.conf
 	:   ~~~ conf
 		<VirtualHost *:8080>		
-    	~~~
+	~~~
+
 {{< /file >}}
 
 3.  Make sure Apache is listening on port 8080. Add `Listen 8080` after `Listen 80` in `ports.conf`:
@@ -263,6 +264,7 @@ external_resources:
 	 	ServerName example.com
 		</VirtualHost>
 		~~~
+
 {{< /file >}}
 
 7.  Enable Grafana's site configuration with:

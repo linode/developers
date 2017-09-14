@@ -204,6 +204,7 @@ The workstation is used to add and edit cookbooks and other configuration files.
 		syntax_check_cache_path  '~/chef-repo/.chef/syntax_check_cache'
 		cookbook_path [ '~/chef-repo/cookbooks' ]
 		~~~
+
 {{< /file >}}
 
 	Change the following:

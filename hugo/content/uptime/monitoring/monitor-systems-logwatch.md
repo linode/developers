@@ -17,8 +17,9 @@ title: Monitor System Logs with Logwatch
 By default, Logwatch uses Sendmail to send digests.
 
 {{< note >}}
->
->The steps required in this guide require root privileges. Be sure to run the steps below as **root**. If logged in as a superuser, it is recommended that you `su` into root. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+The steps required in this guide require root privileges. Be sure to run the steps below as **root**. If logged in as a superuser, it is recommended that you `su` into root. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
 {{< /note >}}
 
 ## Install Logwatch and Sendmail
@@ -36,8 +37,9 @@ By default, Logwatch uses Sendmail to send digests.
 	Logwatch will prompt you to select which cron provider to use. Select the default, *cronie*.
 
 	{{< note >}}
->
+
 	>Other SMTP clients can also be used for delivering Logwatch messages.
+
 {{< /note >}}
 
 3.	Edit the `/etc/postfix/main.cf` file to add your domain information, and allow for send-only mail, replacing `hostname.example.com` with your own hostname and domain:
@@ -50,8 +52,9 @@ By default, Logwatch uses Sendmail to send digests.
 		~~~
 
 	{{< note >}}
->
+
 	>Both A/AAAA, and MX records will need to be set for your domain.
+
 {{< /note >}}
 
 4.	Edit `/etc/postfix/aliases` to uncomment `root` and alias it to `root@hostname.example.com`, replacing `hostname.example.com` with your own hostname and domain:
@@ -125,8 +128,9 @@ The default configuration file for Logwatch is located at `/usr/share/logwatch/d
 The following settings are the most comment configuration changes that will need to be made. Others can be found in the `logwatch.conf` file, explained in the comments.
 
 {{< note >}}
->
->If Logwatch initially does not appear to run, within the `logwatch.conf` file, change the `Details` setting to `Med`.
+
+If Logwatch initially does not appear to run, within the `logwatch.conf` file, change the `Details` setting to `Med`.
+
 {{< /note >}}
 
 ### Log Directories
@@ -150,10 +154,11 @@ The default Logwatch configuration will output the digest to your Linode's conso
 The Logwatch digest can be sent to local users or external email addresses, in plain text or HTML formats.
 
 {{< note >}}
->
->Prior to sending mail externally or locally ensure you have Sendmail installed on the Linode. If you choose to use a different MTA client, change the `mailer` line in the Logwatch configuration file to contain the directory of your choosen MTA, or alias `/usr/sbin/sendmail` to your MTA.
->
->If using Arch, and you followed the above install instructions, Sendmail is already aliased to msmtp.
+
+Prior to sending mail externally or locally ensure you have Sendmail installed on the Linode. If you choose to use a different MTA client, change the `mailer` line in the Logwatch configuration file to contain the directory of your choosen MTA, or alias `/usr/sbin/sendmail` to your MTA.
+
+If using Arch, and you followed the above install instructions, Sendmail is already aliased to msmtp.
+
 {{< /note >}}
 
 1.	Change the `Output` value to `mail`. If you wish to recieve the messages in HTML format change the `Format` value to `html`.

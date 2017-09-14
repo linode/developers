@@ -31,8 +31,9 @@ Consider the monotony of administering a server fleet; keeping them all updated,
 This guide will introduce you to the basics of Ansible. By the end of this guide, you'll have the tools needed to turn a brand new Linode into a simple web server (Apache, MySQL, PHP), easily replicable and adjustable.
 
 {{< note >}}
->
->This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide. Some systems may require you to run Ansible commands as root. If so, prefix the `ansible` commands in this guide with `sudo`.
+
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide. Some systems may require you to run Ansible commands as root. If so, prefix the `ansible` commands in this guide with `sudo`.
+
 {{< /note >}}
 
 
@@ -52,8 +53,9 @@ Make sure that you have Python 2.x available on the control machine. Ansible is 
       sudo yum install ansible
     
   {{< note >}}
->
-  >The EPEL-Release repository may need to be added on certain versions of CentOS, RHEL, and Scientific Linux.
+
+The EPEL-Release repository may need to be added on certain versions of CentOS, RHEL, and Scientific Linux.
+
 {{< /note >}}
 
 - Ubuntu:
@@ -75,7 +77,8 @@ We'll get to groups in just a moment, but for now, let's try to make a simple co
 By default Ansible will use the same username as your current machine's username. If this will not match up, pass the proper username in using the `-u username` argument.
 
 {{< note >}}
-> If you don't want to use SSH keys, you can add the `--ask-pass` switch.
+If you don't want to use SSH keys, you can add the `--ask-pass` switch.
+
 {{< /note >}}
 
 To try an Ansible command without any additional setup, we'll add a few extra arguments for now. Format a test command like the following:
@@ -83,7 +86,8 @@ To try an Ansible command without any additional setup, we'll add a few extra ar
     ansible all -i myserver.com, -m ping
 
 {{< note >}}
-> The extra directives are the `all -i` and the comma after your server name. This is temporary, and is only there to tell Ansible to try connecting directly to the server without an inventory file, which we'll learn about later.
+The extra directives are the `all -i` and the comma after your server name. This is temporary, and is only there to tell Ansible to try connecting directly to the server without an inventory file, which we'll learn about later.
+
 {{< /note >}}
 
 If you are successful you should see output similar to the following:
@@ -227,7 +231,8 @@ A few common core modules you might be interested in learning first include:
 As an example, we'll use Ansible to turn a freshly created Linode server into a web server, configured with Apache, MySQL, and PHP, ready to serve up dynamic sites and configured with the proper users and permissions. For brevity we won't handle all of the features and configuration that might normally be involved, but will cover enough to get you started.
 
   {{< caution >}}
-> The following playbooks are for learning purposes only, and will NOT result in a hardened or secure server. Use them to learn from, but do not use them for production instances!
+The following playbooks are for learning purposes only, and will NOT result in a hardened or secure server. Use them to learn from, but do not use them for production instances!
+
 {{< /caution >}}
 
 ### Prerequisites
@@ -250,10 +255,11 @@ As an example, we'll use Ansible to turn a freshly created Linode server into a 
 
     {{< file >}}
 /etc/ansible/hosts
-    :   ~~~ ini
-        [linode]
-        123.123.123.123 
-        ~~~
+:   ~~~ ini
+[linode]
+123.123.123.123 
+~~~
+
 {{< /file >}}
 
 3.  Write a playbook that creates a new normal user, adds in our public key, and adds the new user to the `sudoers` file.
@@ -262,25 +268,26 @@ As an example, we'll use Ansible to turn a freshly created Linode server into a 
 
     {{< file >}}
 initialize_basic_user.yml
-    :   ~~~ yaml
-        ---
-        - hosts: linode
-          remote_user: root
-          vars:
-            NORMAL_USER_NAME: 'yourusername'
-          tasks:
-            - name: "Create a secondary, non-root user"
-              user: name={{ NORMAL_USER_NAME }} 
-                    password='$6$rounds=656000$W.dSlhtSxE2HdSc1$4WbCFM6zQV1hTQYTCqmcddnKrSXIZ9LfWRAjJBervBFG.rH953lTa7rMeZNrN65zPzEONntMtYt9Bw74PvAei0' 
-                    shell=/bin/bash
-            - name: Add remote authorized key to allow future passwordless logins
-              authorized_key: user={{ NORMAL_USER_NAME }} key="{{ lookup('file', '/Users/localusername/.ssh/id_rsa.pub') }}"
-            - name: Add normal user to sudoers
-              lineinfile: dest=/etc/sudoers
-                          regexp="{{ NORMAL_USER_NAME }} ALL"
-                          line="{{ NORMAL_USER_NAME }} ALL=(ALL) ALL"
-                          state=present 
-        ~~~
+:   ~~~ yaml
+---
+- hosts: linode
+remote_user: root
+vars:
+NORMAL_USER_NAME: 'yourusername'
+tasks:
+- name: "Create a secondary, non-root user"
+user: name={{ NORMAL_USER_NAME }} 
+password='$6$rounds=656000$W.dSlhtSxE2HdSc1$4WbCFM6zQV1hTQYTCqmcddnKrSXIZ9LfWRAjJBervBFG.rH953lTa7rMeZNrN65zPzEONntMtYt9Bw74PvAei0' 
+shell=/bin/bash
+- name: Add remote authorized key to allow future passwordless logins
+authorized_key: user={{ NORMAL_USER_NAME }} key="{{ lookup('file', '/Users/localusername/.ssh/id_rsa.pub') }}"
+- name: Add normal user to sudoers
+lineinfile: dest=/etc/sudoers
+regexp="{{ NORMAL_USER_NAME }} ALL"
+line="{{ NORMAL_USER_NAME }} ALL=(ALL) ALL"
+state=present 
+~~~
+
 {{< /file >}}
 
 4.  Save the playbook file as `initialize_basic_user.yml` and run the playbook with the following command. Note how we specify the use of a particular user (`-u root`) and force Ansible to prompt us for the password (`-ask-pass`) since we don't have key authentication set up yet:
@@ -296,29 +303,30 @@ Let's take care of some common server setup tasks, such as setting the timezone,
 {{< file >}}
 common_server_setup.yml
 :   ~~~ yaml
-    ---
-    - hosts: linode
-      remote_user: yourusername
-      become: yes
-      become_method: sudo
-      vars: 
-        LOCAL_HOSTNAME: 'web01'
-        LOCAL_FQDN_NAME: 'www.example.com'
-      tasks:
-        - name: Set the timezone for the server to be UTC
-          command: ln -sf /usr/share/zoneinfo/UTC /etc/localtime
-        - name: Set up a unique hostname
-          hostname: name={{ LOCAL_HOSTNAME }}
-        - name: Add the server's domain to the hosts file
-          lineinfile: dest=/etc/hosts 
-                      regexp='.*{{ item }}$' 
-                      line="{{ hostvars[item].ansible_default_ipv4.address }} {{ LOCAL_FQDN_NAME }} {{ LOCAL_HOSTNAME }}" 
-                      state=present
-          when: hostvars[item].ansible_default_ipv4.address is defined
-          with_items: "{{ groups['linode'] }}"
-        - name: Update packages
-          apt: update_cache=yes upgrade=dist 
-    ~~~
+---
+- hosts: linode
+remote_user: yourusername
+become: yes
+become_method: sudo
+vars: 
+LOCAL_HOSTNAME: 'web01'
+LOCAL_FQDN_NAME: 'www.example.com'
+tasks:
+- name: Set the timezone for the server to be UTC
+command: ln -sf /usr/share/zoneinfo/UTC /etc/localtime
+- name: Set up a unique hostname
+hostname: name={{ LOCAL_HOSTNAME }}
+- name: Add the server's domain to the hosts file
+lineinfile: dest=/etc/hosts 
+regexp='.*{{ item }}$' 
+line="{{ hostvars[item].ansible_default_ipv4.address }} {{ LOCAL_FQDN_NAME }} {{ LOCAL_HOSTNAME }}" 
+state=present
+when: hostvars[item].ansible_default_ipv4.address is defined
+with_items: "{{ groups['linode'] }}"
+- name: Update packages
+apt: update_cache=yes upgrade=dist 
+~~~
+
 {{< /file >}}
 
 Run this playbook:
@@ -335,22 +343,23 @@ Finally, let's get a very basic server set up with Apache and PHP, and a test My
 
     {{< file >}}
 setup_webserver.yml
-    :   ~~~ yaml
-        ---
-        - hosts: linode
-          remote_user: yourusername
-          become: yes
-          become_method: sudo
-          tasks:
-            - name: "Install Apache, MySQL, and PHP5"
-              apt: name={{ item }} state=present
-              with_items:
-                - apache2
-                - mysql-server
-                - python-mysqldb
-                - php5
-                - php-pear
-                - php5-mysql
+:   ~~~ yaml
+---
+- hosts: linode
+remote_user: yourusername
+become: yes
+become_method: sudo
+tasks:
+- name: "Install Apache, MySQL, and PHP5"
+apt: name={{ item }} state=present
+with_items:
+- apache2
+- mysql-server
+- python-mysqldb
+- php5
+- php-pear
+- php5-mysql
+
 {{< /file >}}
 
             - name: "Turn on Apache and MySQL and set them to run on boot"

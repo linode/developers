@@ -34,8 +34,9 @@ Depending on your version of Linux, it may be possible to install Redis through 
         sudo apt install make gcc libc6-dev tcl
 
     {{< note >}}
->
-    >Alternatively, you could use `build-essential` to load the dependencies for Redis.
+
+Alternatively, you could use `build-essential` to load the dependencies for Redis.
+
 {{< /note >}}
 
 2.  From the documentation, download the current stable branch, then extract:
@@ -84,8 +85,9 @@ This setup uses three Linodes running two instances of Redis server per Linode. 
      ~~~
 
    {{< caution >}}
->A node in the Redis cluster requires a defined port and a port higher than 10000. In this instance, TCP ports 6379 and 16379 are both required to be open. Ensure iptables or ufw is configured properly.
-   >
+A node in the Redis cluster requires a defined port and a port higher than 10000. In this instance, TCP ports 6379 and 16379 are both required to be open. Ensure iptables or ufw is configured properly.
+
+
 {{< /caution >}}
 
 3. In `c_slave.conf`, the configuration will be similar except for an update of the port number. `redis-trib.rb` will be used later to configure this into a slave for the appropriate master, rather than the `slaveof` directive.
@@ -123,25 +125,26 @@ Master/slave replication can be achieved across three nodes by running two insta
 
    {{< file >}}
 Server 1
-   :  ~~~
-                     _._
-                _.-``__ ''-._
-           _.-``    `.  `_.  ''-._           Redis 4.0.1 (00000000/0) 64 bit
-       .-`` .-```.  ```\/    _.,_ ''-._
-      (    '      ,       .-`  | `,    )     Running in cluster mode
-      |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
-      |    `-._   `._    /     _.-'    |     PID: 10352
-      `-._    `-._  `-./  _.-'    _.-'
-      |`-._`-._    `-.__.-'    _.-'_.-'|
-      |    `-._`-._        _.-'_.-'    |           http://redis.io
-       `-._    `-._`-.__.-'_.-'    _.-'
-      |`-._`-._    `-.__.-'    _.-'_.-'|
-      |    `-._`-._        _.-'_.-'    |
-      `-._    `-._`-.__.-'_.-'    _.-'
-          `-._    `-.__.-'    _.-'
-              `-._        _.-'
-                  `-.__.-'
-      ~~~
+:  ~~~
+_._
+_.-``__ ''-._
+_.-``    `.  `_.  ''-._           Redis 4.0.1 (00000000/0) 64 bit
+.-`` .-```.  ```\/    _.,_ ''-._
+(    '      ,       .-`  | `,    )     Running in cluster mode
+|`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
+|    `-._   `._    /     _.-'    |     PID: 10352
+`-._    `-._  `-./  _.-'    _.-'
+|`-._`-._    `-.__.-'    _.-'_.-'|
+|    `-._`-._        _.-'_.-'    |           http://redis.io
+`-._    `-._`-.__.-'_.-'    _.-'
+|`-._`-._    `-.__.-'    _.-'_.-'|
+|    `-._`-._        _.-'_.-'    |
+`-._    `-._`-.__.-'_.-'    _.-'
+`-._    `-.__.-'    _.-'
+`-._        _.-'
+`-.__.-'
+~~~
+
 {{< /file >}}
 
 ## Create Cluster Using Built-In Ruby Script
@@ -183,8 +186,9 @@ At this point, each Linode hosts two independent master nodes. The Redis install
         ip.of.server1>exit
 
     {{< note >}}
->
-    >Redis keywords are not case sensitive. However, they are written as all capitals in this guide for clarity.
+
+Redis keywords are not case sensitive. However, they are written as all capitals in this guide for clarity.
+
 {{< /note >}}
 
 ## Add Slaves

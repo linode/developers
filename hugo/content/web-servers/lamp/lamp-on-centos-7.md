@@ -21,8 +21,9 @@ external_resources:
 A LAMP (Linux, Apache, MySQL, PHP) stack is a common web stack used for hosting web content. This guide shows you how to install a LAMP stack on a CentOS 7 server.
 
 {{< note >}}
->
->This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
 {{< /note >}}
 
 ## Before You Begin
@@ -51,10 +52,11 @@ A LAMP (Linux, Apache, MySQL, PHP) stack is a common web stack used for hosting 
 2.  Edit `httpd.conf` and add the code below to turn off KeepAlive and adjust the resource use settings. The settings shown below are a good starting point for a **Linode 2GB**:
 
     {{< note >}}
->
-    >Before changing any configuration files, it is advised that you make a backup of the file. To make a backup:
-    >
-    >     cp /etc/httpd/conf/httpd.conf ~/httpd.conf.backup
+
+Before changing any configuration files, it is advised that you make a backup of the file. To make a backup:
+
+cp /etc/httpd/conf/httpd.conf ~/httpd.conf.backup
+
 {{< /note >}}
 
     {: .file-excerpt }
@@ -98,8 +100,9 @@ There are different ways to set up virtual hosts; however, the method below is r
     Additional domains can be added to the `vhost.conf` file as needed.
 
     {{< note >}}
->
-    >`ErrorLog` and `CustomLog` entries are suggested for more fine-grained logging, but are not required. If they are defined (as shown above), the `logs` directories must be created before you restart Apache.
+
+`ErrorLog` and `CustomLog` entries are suggested for more fine-grained logging, but are not required. If they are defined (as shown above), the `logs` directories must be created before you restart Apache.
+
 {{< /note >}}
 
 2.  Create the directories referenced above:
@@ -184,8 +187,9 @@ With Apache and MariaDB installed, you are now ready to move on to installing PH
         ~~~
 
     {{< note >}}
->
-    >Ensure that all lines noted above are uncommented. A commented line begins with a semicolon (**;**).
+
+Ensure that all lines noted above are uncommented. A commented line begins with a semicolon (**;**).
+
 {{< /note >}}
 
 3.  Create the log directory for PHP and give the Apache user ownership:

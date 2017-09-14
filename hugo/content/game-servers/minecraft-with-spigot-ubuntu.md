@@ -84,9 +84,10 @@ We'll compile the [Spigot](https://spigotmc.com) Minecraft server (1.8.3 at the 
 
     {{< file >}}
 /home/minecraft/server/wrapper.sh
-    :   ~~~ sh
-        #!/bin/bash
-        cd /home/minecraft/server;
+:   ~~~ sh
+#!/bin/bash
+cd /home/minecraft/server;
+
 {{< /file >}}
 
         java -XX:MaxPermSize=1024M -Xms512M -Xmx1536M -jar spigot.jar
@@ -110,11 +111,12 @@ We'll compile the [Spigot](https://spigotmc.com) Minecraft server (1.8.3 at the 
 
     {{< file >}}
 /home/minecraft/server/eula.txt
-    :   ~~~
-        By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).
-        #Fri Apr 17 17:02:15 UTC 2015
-        eula=true
-        ~~~
+:   ~~~
+By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).
+#Fri Apr 17 17:02:15 UTC 2015
+eula=true
+~~~
+
 {{< /file >}}
 
 ## Configure SpigotMC to start on boot

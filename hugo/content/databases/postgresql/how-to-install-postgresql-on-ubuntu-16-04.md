@@ -31,8 +31,9 @@ The [PostgreSQL](http://www.postgresql.org/) relational database system is a pow
         sudo apt-get update && sudo apt-get upgrade
 
 {{< note >}}
->
->This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, visit the [Users and Groups guide](/docs/tools-reference/linux-users-and-groups) for more information.
+
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, visit the [Users and Groups guide](/docs/tools-reference/linux-users-and-groups) for more information.
+
 {{< /note >}}
 
 ## Install PostgreSQL
@@ -48,8 +49,9 @@ Install PostgreSQL from the Ubuntu package repository:
 By default, PostgreSQL will create a Linux user named `postgres` to access the database software. 
 
 {{< caution >}}
->
->The `postgres` user should not be used for for other purposes (e.g. connecting to other networks). Doing so presents a serious risk to the security of your databases.
+
+The `postgres` user should not be used for for other purposes (e.g. connecting to other networks). Doing so presents a serious risk to the security of your databases.
+
 {{< /caution >}}
 
 1.  Change the `postgres` user's Linux password:

@@ -48,8 +48,9 @@ This tutorial will cover the following:
         sudo apt-get update && sudo apt-get upgrade
 
 {{< note >}}
->
->This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
 {{< /note >}}
 
 ## Download and Install Let's Encrypt
@@ -81,8 +82,9 @@ Let's Encrypt automatically performs Domain Validation (DV) using a series of *c
         sudo -H ./letsencrypt-auto certonly --standalone -d example.com -d www.example.com
 
     {{< note >}}
->
-    > Let's Encrypt **does not** deploy wildcard certificates. Each subdomain requires its own certificate.
+
+Let's Encrypt **does not** deploy wildcard certificates. Each subdomain requires its own certificate.
+
 {{< /note >}}
 
 2.  Specify an administrative email address. This will allow you to regain control of a lost certificate and receive urgent security notices if necessary. Press **TAB** followed by **ENTER** or **RETURN** to save.
@@ -181,8 +183,9 @@ Let's Encrypt automatically performs Domain Validation (DV) using a series of *c
     Let's Encrypt has refreshed the lifespan of your certificates; in this example, March 31st, 2016 is the new expiration date.
 
 {{< note >}}
->
-> Let's Encrypt certificates have a 90-day lifespan before they expire. [According to Let's Encrypt](https://letsencrypt.org/2015/11/09/why-90-days.html), this encourages automation and minimizes damage from key compromises. You can renew your certificates anytime during their lifespan.
+
+Let's Encrypt certificates have a 90-day lifespan before they expire. [According to Let's Encrypt](https://letsencrypt.org/2015/11/09/why-90-days.html), this encourages automation and minimizes damage from key compromises. You can renew your certificates anytime during their lifespan.
+
 {{< /note >}}
 
 ### Automatically Renew SSL Certificates (Optional)
@@ -207,8 +210,9 @@ We also recommend automating your certificate renewal since it can be easy to lo
 2.  Execute your modified command to add the cron job to your Linode.
 
 {{< caution >}}
->
-> Once Let's Encrypt supports auto-renewal natively, open the `/etc/crontab` file and manually remove this entry to avoid future renewal conflicts.
+
+Once Let's Encrypt supports auto-renewal natively, open the `/etc/crontab` file and manually remove this entry to avoid future renewal conflicts.
+
 {{< /caution >}}
 
 ### Update Let's Encrypt

@@ -20,13 +20,15 @@ Fail2ban is a log-parsing application that monitors system logs for symptoms of 
 Fail2ban is primarily focused on SSH attacks, although it can be further configured to work for any service that uses log files and can be subject to a compromise.
 
 {{< note >}}
->
->The steps required in this guide require root privileges. Be sure to run the steps below as **root** or with the `sudo` prefix. For more information on privileges, see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+The steps required in this guide require root privileges. Be sure to run the steps below as **root** or with the `sudo` prefix. For more information on privileges, see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
 {{< /note >}}
 
 {{< caution >}}
->
->Fail2ban is intended to be used in conjunction with an already-hardened server and should not be used as a replacement for secure firewall rules.
+
+Fail2ban is intended to be used in conjunction with an already-hardened server and should not be used as a replacement for secure firewall rules.
+
 {{< /caution >}}
 
 ## 1) Install Fail2ban
@@ -76,10 +78,11 @@ Follow the [Getting Started](/docs/getting-started) guide to configure your basi
         apt-get install sendmail-bin sendmail
 
     {{< note >}}
-> The current version of Sendmail in Debian Jessie has an [upstream bug](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=293017) which causes the following errors when installing `sendmail-bin`. The installation will hang for a minute, but then complete.
-    > Creating /etc/mail/sendmail.cf...
-    > ERROR: FEATURE() should be before MAILER() MAILER(`local') must appear after FEATURE(`always_add_domain')
-    > ERROR: FEATURE() should be before MAILER() MAILER(`local') must appear after FEATURE(`allmasquerade')
+The current version of Sendmail in Debian Jessie has an [upstream bug](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=293017) which causes the following errors when installing `sendmail-bin`. The installation will hang for a minute, but then complete.
+Creating /etc/mail/sendmail.cf...
+ERROR: FEATURE() should be before MAILER() MAILER(`local') must appear after FEATURE(`always_add_domain')
+ERROR: FEATURE() should be before MAILER() MAILER(`local') must appear after FEATURE(`allmasquerade')
+
 {{< /note >}}
 
 ### Fedora
@@ -226,8 +229,9 @@ To receive email when fail2ban is triggered, adjust the email settings:
 -   `sender`: The email address from which Fail2ban will send emails.
 
 {{< note >}}
->
->If unsure of what to put under `sender`, run the command `sendmail -t user@email.com`, replacing `user@email.com` with your email address. Check your email (including spam folders, if needed) and review the sender email. This address can be used for the above configuration.
+
+If unsure of what to put under `sender`, run the command `sendmail -t user@email.com`, replacing `user@email.com` with your email address. Check your email (including spam folders, if needed) and review the sender email. This address can be used for the above configuration.
+
 {{< /note >}}
 
 You will also need to adjust the `action` setting, which defines what actions occur when the threshold for ban is met. The default, `%(action_)s`, only bans the user. `%(action_mw)s` will ban and send an email with a WhoIs report; while `%(action_mwl)s` will ban and send an email with the WhoIs report and all relevant lines in the log file. This can also be changed on a jail-specific basis.
@@ -258,8 +262,9 @@ An average jail configuration will resemble the following:
 -   `action`: This can be added as an additional setting, if the default action is not suitable for the jail. Additional actions can be found in the `action.d` folder.
 
 {{< note >}}
->
->Jails can also be configured as individual `.conf` files placed in the `jail.d` directory. The format will remain the same.
+
+Jails can also be configured as individual `.conf` files placed in the `jail.d` directory. The format will remain the same.
+
 {{< /note >}}
 
 ## Failregexs
@@ -334,18 +339,19 @@ With the failregex created, it then needs to be added to a filter.
 
     {{< file >}}
 /etc/fail2ban/filter.d/wordpress.conf
-    :   ~~~ conf
-        # Fail2Ban filter for WordPress
-        #
-        #
-        
-        [Definition]
-        
-        failregex = <HOST> - - \[(\d{2})/\w{3}/\d{4}:\1:\1:\1 -\d{4}\] "POST /wp-login.php HTTP/1.1" 200
-        ignoreregex =
-        ~~~
-        
-    Save and quit.
+:   ~~~ conf
+# Fail2Ban filter for WordPress
+#
+#
+
+[Definition]
+
+failregex = <HOST> - - \[(\d{2})/\w{3}/\d{4}:\1:\1:\1 -\d{4}\] "POST /wp-login.php HTTP/1.1" 200
+ignoreregex =
+~~~
+
+Save and quit.
+
 {{< /file >}}
 
 3.  Add a WordPress section to `jail.local`:

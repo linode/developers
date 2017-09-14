@@ -54,8 +54,9 @@ The following instructions will download the latest stable release, which is 2.0
         cd forums/
 
     {{< note >}}
->
-    >If you would like to install SMF to your website's homepage, install it in the document root. If you would like the URL to be something other than `/forums` amend the above instructions as necessary.
+
+If you would like to install SMF to your website's homepage, install it in the document root. If you would like the URL to be something other than `/forums` amend the above instructions as necessary.
+
 {{< /note >}}
 
 2.  Download and extract the package:

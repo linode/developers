@@ -240,9 +240,10 @@ To fix this, follow these steps:
 
     {{< file >}}
 /etc/linode/longview.d/Apache.conf
-    :   ~~~
-        location http://localhost/whm-server-status?auto
-        ~~~
+:   ~~~
+location http://localhost/whm-server-status?auto
+~~~
+
 {{< /file >}}
 
 4.  Longview is designed to check the default location automatically. If you use the default location shown above, you should be done. Refresh the Longview Apache tab in the Linode Manager to verify that it's working now.

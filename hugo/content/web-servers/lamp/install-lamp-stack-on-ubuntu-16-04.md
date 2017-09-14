@@ -25,10 +25,11 @@ This guide shows how to install and test a LAMP stack on Ubuntu 16.04 (LTS).
 ![Install LAMP on Ubuntu 16.04](/docs/assets/install-lamp-on-ubuntu-1604.png "Install LAMP on Ubuntu 16.04")
 
 {{< note >}}
->
->This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, see the [Linux Users and Groups guide](/docs/tools-reference/linux-users-and-groups).
->
->Replace each instance of `example.com` in this guide with your site's domain name.
+
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, see the [Linux Users and Groups guide](/docs/tools-reference/linux-users-and-groups).
+
+Replace each instance of `example.com` in this guide with your site's domain name.
+
 {{< /note >}}
 
 ## Before You Begin
@@ -66,16 +67,18 @@ Instead of installing Apache, MySQL, and PHP separately, tasksel offers a conven
 
     {{< file >}}
 /etc/apache2/apache2.conf
-    : ~~~ conf
-        KeepAlive On
-        MaxKeepAliveRequests 50
-        KeepAliveTimeout 5
-      ~~~
+: ~~~ conf
+KeepAlive On
+MaxKeepAliveRequests 50
+KeepAliveTimeout 5
+~~~
+
 {{< /file >}}
 
     {{< note >}}
->
-    > The `MaxKeepAliveRequests` setting controls the maximum number of requests during a persistent connection. 50 is a conservative amount; you may need to set this number higher depending on your use-case. The `KeepAliveTimeout` controls how long the server waits for new requests from already connected clients, setting this option to 5 will avoid wasting RAM.
+
+The `MaxKeepAliveRequests` setting controls the maximum number of requests during a persistent connection. 50 is a conservative amount; you may need to set this number higher depending on your use-case. The `KeepAliveTimeout` controls how long the server waits for new requests from already connected clients, setting this option to 5 will avoid wasting RAM.
+
 {{< /note >}}
 
 
@@ -83,15 +86,16 @@ Instead of installing Apache, MySQL, and PHP separately, tasksel offers a conven
 
     {{< file >}}
 /etc/apache2/mods-available/mpm_prefork.conf
-    :   ~~~ conf
-        <IfModule mpm_prefork_module>
-                StartServers            4
-                MinSpareServers         3
-                MaxSpareServers         40
-                MaxRequestWorkers       200
-                MaxConnectionsPerChild  10000
-        </IfModule>
-        ~~~
+:   ~~~ conf
+<IfModule mpm_prefork_module>
+StartServers            4
+MinSpareServers         3
+MaxSpareServers         40
+MaxRequestWorkers       200
+MaxConnectionsPerChild  10000
+</IfModule>
+~~~
+
 {{< /file >}}
 
 4.  Disable the event module and enable prefork:
@@ -145,10 +149,11 @@ You can set up virtual hosts several ways; however, below is the recommended met
         sudo a2ensite example.com.conf
 
     {{< note >}}
->
-    >If you need to disable your website, run:
-    >
-    >     a2dissite example.com.conf
+
+If you need to disable your website, run:
+
+a2dissite example.com.conf
+
 {{< /note >}}
 
 5.  Disable the default virtual host to minimize security risks:
@@ -213,8 +218,9 @@ Install the `mysql-server` package and choose a secure password when prompted:
         ~~~
 
     {{< note >}}
->
-    >The beginning of the `php.ini` file contains examples commented out with a semicolon (**;**), which disables these directives. Ensure that the lines you modify in this step follow the examples section and are uncommented.
+
+The beginning of the `php.ini` file contains examples commented out with a semicolon (**;**), which disables these directives. Ensure that the lines you modify in this step follow the examples section and are uncommented.
+
 {{< /note >}}
 
 3.  Create the log directory for PHP and give ownership to the Apache system user:

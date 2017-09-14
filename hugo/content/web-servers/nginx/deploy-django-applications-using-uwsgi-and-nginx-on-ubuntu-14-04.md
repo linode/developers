@@ -37,8 +37,9 @@ external_resources:
         sudo apt-get update && sudo apt-get upgrade
 
 {{< note >}}
->
->This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
 {{< /note >}}
 
 
@@ -49,8 +50,9 @@ external_resources:
         sudo apt-get install build-essential nginx python-dev python-pip python-sqlite sqlite
 
     {{< note >}}
->
-    >If your application uses another database, skip installing `python-sqlite` and `sqlite`.
+
+If your application uses another database, skip installing `python-sqlite` and `sqlite`.
+
 {{< /note >}}
 
 4.  Install [virtualenv](https://virtualenv.pypa.io/en/latest/) and [virtualenvwrapper](http://virtualenvwrapper.readthedocs.org/en/latest/):
@@ -118,10 +120,11 @@ external_resources:
 
     {{< file >}}
 /etc/uwsgi/sites/sample.ini
-    :   ~~~ ini
-        [uwsgi]
-        project = sample
-        base = /home/django
+:   ~~~ ini
+[uwsgi]
+project = sample
+base = /home/django
+
 {{< /file >}}
 
         chdir = %(base)/%(project)
@@ -140,11 +143,12 @@ external_resources:
 
     {{< file >}}
 /etc/init/uwsgi.conf
-    :   ~~~ conf
-        description "uWSGI"
-        start on runlevel [2345]
-        stop on runlevel [06]
-        respawn
+:   ~~~ conf
+description "uWSGI"
+start on runlevel [2345]
+stop on runlevel [06]
+respawn
+
 {{< /file >}}
 
         env UWSGI=/usr/local/bin/uwsgi
@@ -169,10 +173,11 @@ external_resources:
 
     {{< file >}}
 /etc/nginx/sites-available/sample
-    :   ~~~ conf
-        server {
-            listen 80;
-            server_name example.com;
+:   ~~~ conf
+server {
+listen 80;
+server_name example.com;
+
 {{< /file >}}
 
             location = /favicon.ico { access_log off; log_not_found off; }

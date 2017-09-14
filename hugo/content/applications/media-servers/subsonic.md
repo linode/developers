@@ -49,24 +49,25 @@ This guide explains how to set up [Subsonic](http://subsonic.org) on a Linode ru
 
     {{< file >}}
 /etc/default/subsonic
-    :   ~~~
-        # 
-        # This is the configuration file for the Subsonic service
-        # (/etc/init.d/subsonic)
-        #
-        # To change the startup parameters of Subsonic, modify
-        # the SUBSONIC_ARGS variable below.
-        #
-        # Type "subsonic --help" on the command line to read an
-        # explanation of the  different options.
-        #
-        # For example, to specify that Subsonic should use port 80 (for http)
-        # and 443 (for https), and use a Java memory heap size of 200 MB, use
-        # the following:
-        #
-        # SUBSONIC_ARGS="--port=80 --https-port=443 --max-memory=200"
-        
-        SUBSONIC_ARGS="--max-memory=150"
+:   ~~~
+# 
+# This is the configuration file for the Subsonic service
+# (/etc/init.d/subsonic)
+#
+# To change the startup parameters of Subsonic, modify
+# the SUBSONIC_ARGS variable below.
+#
+# Type "subsonic --help" on the command line to read an
+# explanation of the  different options.
+#
+# For example, to specify that Subsonic should use port 80 (for http)
+# and 443 (for https), and use a Java memory heap size of 200 MB, use
+# the following:
+#
+# SUBSONIC_ARGS="--port=80 --https-port=443 --max-memory=200"
+
+SUBSONIC_ARGS="--max-memory=150"
+
 {{< /file >}}
 
         # The user which should run the Subsonic process. Default "root".
@@ -97,8 +98,9 @@ This guide explains how to set up [Subsonic](http://subsonic.org) on a Linode ru
         ~~~
 
     {{< note >}}
->
-    >If you have a firewall set up on your Linode, be sure to edit the permissions to allow connections from the port Subsonic is listening on.
+
+If you have a firewall set up on your Linode, be sure to edit the permissions to allow connections from the port Subsonic is listening on.
+
 {{< /note >}}
 
 3. Start Subsonic:
@@ -129,8 +131,9 @@ This guide explains how to set up [Subsonic](http://subsonic.org) on a Linode ru
 5. Create a password for your admin account. You can also set up any other accounts at this time. 
 
     {{< note >}}
->
+
 	>Passwords in the Subsonic database are stored in hex format, but not encrypted.
+
 {{< /note >}}
 
 6.  Click on the **Media folders** link. Here you will need to point Subsonic to where you wish to store your music. If you decide to store your music files in `/var/music`, Subsonic's default directory, you can skip this step. Once you've pointed Subsonic to the correct directory and uploaded your music, you can press **Scan media folders now**. Subsonic will then create a database of music files.

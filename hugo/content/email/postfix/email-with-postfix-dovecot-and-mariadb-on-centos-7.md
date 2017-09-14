@@ -25,8 +25,9 @@ The Postfix Mail Transfer Agent (**MTA**) is a high performance open source e-ma
 Prior to using this guide, be sure you have followed the [getting started guide](/docs/getting-started/) and set your hostname. Also ensure that the iptables [firewall](/docs/securing-your-server#creating-a-firewall) is not blocking any of the standard mail ports (25, 465, 587, 110, 995, 143, and 993). If using a different form of firewall, confirm that it is not blocking any of the needed ports either.
 
 {{< note >}}
->
->The steps in this guide require root privileges. Be sure to run the steps below as **root** or with the `sudo` prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+The steps in this guide require root privileges. Be sure to run the steps below as **root** or with the `sudo` prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
 {{< /note >}}
 
 ##Install Required Packages
@@ -124,8 +125,9 @@ Next, perform additional Postfix configuration to set up communication with the 
 ##Configure Postfix to work with MariaDB
 
 {{< note >}}
->
->For the next four steps, replace `mail_admin_password` with the `mail_admin` password input earlier.
+
+For the next four steps, replace `mail_admin_password` with the `mail_admin` password input earlier.
+
 {{< /note >}}
 
 1.  Create a virtual domain configuration file for Postfix called `/etc/postfix/mysql-virtual_domains.cf`:
@@ -424,8 +426,9 @@ Next, populate the MariaDB database with domains and email users.
 ##Set Up and Test Domains and Users
 
 {{< note >}}
->
->Before continuing, modify the DNS records for any domains that you wish to handle email by adding an MX record that points to your mail server's fully qualified domain name. If MX records already exist for a domain you would like to handle the email for, either delete them or set them to a higher priority number than your mail server. Smaller priority numbers indicate higher priority for mail delivery, with "0" being the highest priority.
+
+Before continuing, modify the DNS records for any domains that you wish to handle email by adding an MX record that points to your mail server's fully qualified domain name. If MX records already exist for a domain you would like to handle the email for, either delete them or set them to a higher priority number than your mail server. Smaller priority numbers indicate higher priority for mail delivery, with "0" being the highest priority.
+
 {{< /note >}}
 
 In the following example, the MariaDB shell is used to add support for the domain "example.com", which will have an email account called "sales".
@@ -449,8 +452,9 @@ In the following example, the MariaDB shell is used to add support for the domai
     Press `Ctrl+D` to complete the message. This completes the configuration for a new domain and email user.
 
 {{< note >}}
->
->Given the possibility of hosting a large number of virtual domains on a single mail system, the username portion of an email address (i.e. before the `@` sign) is not sufficient to authenticate to the mail server. When email users authenticate to the server, they must supply their email clients with the *entire* email address created above as their username.
+
+Given the possibility of hosting a large number of virtual domains on a single mail system, the username portion of an email address (i.e. before the `@` sign) is not sufficient to authenticate to the mail server. When email users authenticate to the server, they must supply their email clients with the *entire* email address created above as their username.
+
 {{< /note >}}
 
 ###Check Your Logs

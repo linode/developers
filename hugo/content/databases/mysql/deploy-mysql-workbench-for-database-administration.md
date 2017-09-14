@@ -43,8 +43,9 @@ Download and install MySQL workbench from the [downloads page](https://www.mysql
 There are `.deb` and `.rpm` packages available on the Workbench [download page](https://www.mysql.com/products/workbench/). Alternatively, some distributions have MySQL Workbench in their repositories.
 
 {{< note >}}
->
->The screenshots in this guide were taken in Ubuntu but once Workbench is installed on your system, the subsequent steps should be similar for other plaforms.
+
+The screenshots in this guide were taken in Ubuntu but once Workbench is installed on your system, the subsequent steps should be similar for other plaforms.
+
 {{< /note >}}
 
 When you start MySQL Workbench, you'll land at the home screen. Once you configure your database servers, as we'll do next, then they'll have shortcuts on the home screen.
@@ -84,8 +85,9 @@ The first step after running MySQL Workbench is to add your Linode as a database
 2.  Once you've configured everything, click **Test Connection**.  If you didn't save your passwords then Workbench will prompt for them.
 
     {{< note >}}
->
-    >Pay attention to the **Service** area of each dialog.  Use the appropriate password (SSH or MySQL) or the connection will fail.
+
+Pay attention to the **Service** area of each dialog.  Use the appropriate password (SSH or MySQL) or the connection will fail.
+
 {{< /note >}}
 
     ![The **SSH** password dialog](/docs/assets/workbenchPassword.png)
@@ -145,8 +147,9 @@ MySQL Workbench is deployed in safe mode by default. This will not allow certain
 3. Uncheck the line beginning with **"Safe Updates".**
 
     {{< note >}}
->
-    >In some instances, this may instead be found under **SQL Editor**.
+
+In some instances, this may instead be found under **SQL Editor**.
+
 {{< /note >}}
 
 4. Click **OK**.

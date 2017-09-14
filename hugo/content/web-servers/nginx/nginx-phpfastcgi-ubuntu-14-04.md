@@ -58,11 +58,12 @@ Next, you'll need to define the site's virtual host file. This example uses a UN
 {{< file >}}
 /etc/nginx/sites-available/example.com
 :   ~~~ nginx
-    server {
-        server_name www.example.com example.com;
-        access_log /var/www/example.com/logs/access.log;
-        error_log /var/www/example.com/logs/error.log;
-        root /var/www/example.com/public_html;
+server {
+server_name www.example.com example.com;
+access_log /var/www/example.com/logs/access.log;
+error_log /var/www/example.com/logs/error.log;
+root /var/www/example.com/public_html;
+
 {{< /file >}}
 
         location / {
@@ -156,14 +157,15 @@ To mitigate this issue, you may wish to modify your configuration to include a `
 {{< file >}}
 /etc/nginx/sites-available/example.com
 :   ~~~ nginx
-    location ~ \.php$ {
-        try_files $uri =404;
-        include /etc/nginx/fastcgi_params;
-        fastcgi_pass unix:/var/run/php-fastcgi/php-fastcgi.socket;
-        fastcgi_index index.php;
-        fastcgi_param SCRIPT_FILENAME /var/www/example.com/public_html/$fastcgi_script_name;
-    }
-    ~~~
+location ~ \.php$ {
+try_files $uri =404;
+include /etc/nginx/fastcgi_params;
+fastcgi_pass unix:/var/run/php-fastcgi/php-fastcgi.socket;
+fastcgi_index index.php;
+fastcgi_param SCRIPT_FILENAME /var/www/example.com/public_html/$fastcgi_script_name;
+}
+~~~
+
 {{< /file >}}
 
 Additionally, it's a good idea to secure any upload directories your applications may use. The following configuration excerpt demonstrates securing an "/images" directory.
@@ -171,15 +173,16 @@ Additionally, it's a good idea to secure any upload directories your application
 {{< file >}}
 /etc/nginx/sites-available/example.com
 :   ~~~ nginx
-    location ~ \.php$ {
-        include /etc/nginx/fastcgi_params;
-        if ($uri !~ "^/images/") {
-            fastcgi_pass unix:/var/run/php-fastcgi/php-fastcgi.socket;
-        }
-        fastcgi_index index.php;
-        fastcgi_param SCRIPT_FILENAME /var/www/example.com/public_html/$fastcgi_script_name;
-    }
-    ~~~
+location ~ \.php$ {
+include /etc/nginx/fastcgi_params;
+if ($uri !~ "^/images/") {
+fastcgi_pass unix:/var/run/php-fastcgi/php-fastcgi.socket;
+}
+fastcgi_index index.php;
+fastcgi_param SCRIPT_FILENAME /var/www/example.com/public_html/$fastcgi_script_name;
+}
+~~~
+
 {{< /file >}}
 
 ### Enable and Start Services

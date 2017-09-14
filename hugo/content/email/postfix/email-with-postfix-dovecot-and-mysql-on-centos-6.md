@@ -24,8 +24,9 @@ The Postfix Mail Transfer Agent (**MTA**) is a high performance open source e-ma
 Prior to using this guide, be sure you have followed the [getting started guide](/docs/getting-started/) and set your hostname.
 
 {{< note >}}
->
->The steps in this guide require root privileges. Be sure to run the steps below as `root`, or use `su - root` to log in as root. Certain commands below cannot be run as `sudo` and must be run as root.
+
+The steps in this guide require root privileges. Be sure to run the steps below as `root`, or use `su - root` to log in as root. Certain commands below cannot be run as `sudo` and must be run as root.
+
 {{< /note >}}
 
 ##Install Required Packages
@@ -123,8 +124,9 @@ Next, perform additional Postfix configuration to set up communication with the 
 ##Configure Postfix to work with MySQL
 
 {{< note >}}
->
->For the next four steps, replace `mail_admin_password` with the `mail_admin` password input earlier.
+
+For the next four steps, replace `mail_admin_password` with the `mail_admin` password input earlier.
+
 {{< /note >}}
 
 1.  Create a virtual domain configuration file for Postfix called `/etc/postfix/mysql-virtual_domains.cf`:
@@ -389,8 +391,9 @@ Next, populate the MySQL database with domains and email users.
 ##Set Up and Test Domains and Users
 
 {{< note >}}
->
->Before continuing, modify the DNS records for any domains that you wish to handle email by adding an MX record that points to your mail server's fully qualified domain name. If MX records already exist for a domain you would like to handle the email for, either delete them or set them to a higher priority number than your mail server. Smaller priority numbers indicate higher priority for mail delivery, with "0" being the highest priority.
+
+Before continuing, modify the DNS records for any domains that you wish to handle email by adding an MX record that points to your mail server's fully qualified domain name. If MX records already exist for a domain you would like to handle the email for, either delete them or set them to a higher priority number than your mail server. Smaller priority numbers indicate higher priority for mail delivery, with "0" being the highest priority.
+
 {{< /note >}}
 
 In the following example, the MySQL shell is used to add support for the domain "example.com", which will have an email account called "sales".
@@ -414,8 +417,9 @@ In the following example, the MySQL shell is used to add support for the domain 
     Press `Ctrl+D` to complete the message. You can safely leave the field for `Cc:` blank. This completes the configuration for a new domain and email user.
 
 {{< note >}}
->
->Given the possibility for virtual hosting a large number of domains on a single mail system, the username portion of an email address (i.e. before the `@` sign) is not sufficient for authentication. When email users authenticate to the server, they must supply the *entire* email address created above as their username.
+
+Given the possibility for virtual hosting a large number of domains on a single mail system, the username portion of an email address (i.e. before the `@` sign) is not sufficient for authentication. When email users authenticate to the server, they must supply the *entire* email address created above as their username.
+
 {{< /note >}}
 
 ###Check Your Logs

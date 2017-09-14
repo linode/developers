@@ -203,6 +203,8 @@ $2
 
 func fixContent(path, s string) (string, error) {
 
+	// TODO(bep) fix markdown titles: ##Configure Apache
+
 	// Replace callouts with shortcodes
 	s = calloutsRe.ReplaceAllStringFunc(s, func(s string) string {
 		m := calloutsRe.FindAllStringSubmatch(s, -1)
@@ -212,11 +214,18 @@ func fixContent(path, s string) (string, error) {
 			content = strings.TrimSpace(content)
 			name = strings.TrimSpace(name)
 
+			// Block level markdown is superflous.
+			lines := strings.Split(content, "\n")
+			newContent := ""
+			for _, line := range lines {
+				newContent += strings.TrimLeft(line, "> ") + "\n"
+			}
+
 			return fmt.Sprintf(`{{< %s >}}
 %s
 {{< /%s >}}
 
-`, name, content, name)
+`, name, newContent, name)
 
 		}
 

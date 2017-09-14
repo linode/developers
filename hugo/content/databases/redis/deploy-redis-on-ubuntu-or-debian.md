@@ -42,10 +42,11 @@ Since Redis serves all data from memory, we recommend using a [high memory Linod
         sudo apt-get install software-properties-common
 
 {{< note >}}
->
->This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
->
-> To utilize the replication steps in the second half of this guide, you will need at least two Linodes.
+
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+To utilize the replication steps in the second half of this guide, you will need at least two Linodes.
+
 {{< /note >}}
 
 ## Install Redis
@@ -69,10 +70,11 @@ Add the Redis PPA repository to install the latest version:
 
     {{< file >}}
 /etc/apt/sources.list.d/dotdeb.list
-    :   ~~~
-        deb http://ftp.utexas.edu/dotdeb/ stable all
-        deb-src http://ftp.utexas.edu/dotdeb/ stable all
-        ~~~
+:   ~~~
+deb http://ftp.utexas.edu/dotdeb/ stable all
+deb-src http://ftp.utexas.edu/dotdeb/ stable all
+~~~
+
 {{< /file >}}
 
 3.  Download and install the GPG key, as documented in the [Dotdeb instructions](https://www.dotdeb.org/instructions/):

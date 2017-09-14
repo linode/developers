@@ -38,8 +38,9 @@ With Monit you get:
 * Availability from main package repositories.
 
 {{< note >}}
->
->The steps required in this guide require root privileges. Be sure to run the steps below as **root** or with the `sudo` prefix. For more information on privileges, see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+The steps required in this guide require root privileges. Be sure to run the steps below as **root** or with the `sudo` prefix. For more information on privileges, see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
 {{< /note >}}
 
 ##Installing Monit
@@ -149,8 +150,9 @@ You can optionally restrict web interface access to just your IP address.
         allow 10.0.0.1 (your ip address)
 
 {{< note >}}
->
->If you choose to implement the web interface, be sure the port Monit uses (default 2812) is exposed to the devices on which you'll be viewing it. You may need to configure your firewall package or iptables if you have a default deny policy. See [Securing Your Server - Configuring a Firewall](/docs/security/securing-your-server#configuring-a-firewall).
+
+If you choose to implement the web interface, be sure the port Monit uses (default 2812) is exposed to the devices on which you'll be viewing it. You may need to configure your firewall package or iptables if you have a default deny policy. See [Securing Your Server - Configuring a Firewall](/docs/security/securing-your-server#configuring-a-firewall).
+
 {{< /note >}}
 
 ##Configure Monit's Checking Actions

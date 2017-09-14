@@ -145,11 +145,12 @@ Multicraft for Linux depends on several software packages in order to run.
 
     {{< file >}}
 /home/minecraft/multicraft/servers/server1/eula.txt
-    :   ~~~ conf
-        #By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).
-        #Wed Feb 04 22:24:38 UTC 2015
-        eula=true
-        ~~~
+:   ~~~ conf
+#By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).
+#Wed Feb 04 22:24:38 UTC 2015
+eula=true
+~~~
+
 {{< /file >}}
 
     You can now successfully start and manage your Minecraft server through Multicraft! For instructions on connecting to your Minecraft server, click [here](/docs/applications/game-servers/minecraft-on-debian-and-ubuntu#connecting-to-your-minecraft-server). 

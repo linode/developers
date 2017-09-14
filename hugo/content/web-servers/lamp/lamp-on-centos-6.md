@@ -22,8 +22,9 @@ external_resources:
 A LAMP (Linux, Apache, MySQL, PHP) stack is a common web stack used to prepare servers for hosting web content. This guide shows you how to install a LAMP stack on a CentOS 6 system.
 
 {{< note >}}
->
->This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
 {{< /note >}}
 
 ## Before You Begin
@@ -53,10 +54,11 @@ A LAMP (Linux, Apache, MySQL, PHP) stack is a common web stack used to prepare s
 2.  Edit the `httpd.conf` under `/etc/httpd/conf/` to adjust the resource use settings. The settings shown below are a good starting point for a **Linode 2GB**:
 
     {{< note >}}
->
-    >Before changing any configuration files, it is advised that you make a backup of the file. To make a backup:
-    >
-    >     cp /etc/httpd/conf/httpd.conf ~/httpd.conf.backup
+
+Before changing any configuration files, it is advised that you make a backup of the file. To make a backup:
+
+cp /etc/httpd/conf/httpd.conf ~/httpd.conf.backup
+
 {{< /note >}}
 
     {: .file-excerpt }
@@ -99,8 +101,9 @@ There are different ways to set up virtual hosts; however, the method below is r
     Additional code blocks can be added to the file for any other domains you with to host on the Linode.
 
     {{< note >}}
->
-    >`ErrorLog` and `CustomLog` entries are suggested for more fine-grained logging, but are not required. If they are defined (as shown above), the `logs` directories must be created before you restart Apache.
+
+`ErrorLog` and `CustomLog` entries are suggested for more fine-grained logging, but are not required. If they are defined (as shown above), the `logs` directories must be created before you restart Apache.
+
 {{< /note >}}
 
 2.  Create the directories referenced above:
@@ -116,10 +119,11 @@ There are different ways to set up virtual hosts; however, the method below is r
     You should new be able to view a default Apache page on your website.
 
     {{< note >}}
->
-    >Anytime you change an option in your `vhost.conf` file, or any other Apache configuration file, remember to reload the configuration with the following command:
-    >
-    >     sudo service httpd reload
+
+Anytime you change an option in your `vhost.conf` file, or any other Apache configuration file, remember to reload the configuration with the following command:
+
+sudo service httpd reload
+
 {{< /note >}}
 
 
@@ -185,8 +189,9 @@ With Apache and MySQL installed you are ready to move on to installing PHP.
         ~~~
 
     {{< note >}}
->
-    >Ensure that all the lines noted above are uncommented. A commented line begins with a semicolon (**;**).
+
+Ensure that all the lines noted above are uncommented. A commented line begins with a semicolon (**;**).
+
 {{< /note >}}
 
 3.  Create the log directory for PHP and give the Apache user ownership:

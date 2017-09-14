@@ -63,8 +63,9 @@ For these reasons, this series assumes your VPN will operate over IPv4 only. If 
 
     {{< file >}}
 /tmp/v4
-    :   ~~~ conf
-        *filter
+:   ~~~ conf
+*filter
+
 {{< /file >}}
 
         # Allow all loopback (lo) traffic and reject anything
@@ -146,8 +147,9 @@ If you are exclusively using IPv4 on your VPN, IPv6 should be disabled unless yo
 
     {{< file >}}
 /etc/iptables/rules.v6
-    :   ~~~ conf
-        *filter
+:   ~~~ conf
+*filter
+
 {{< /file >}}
 
         -A INPUT -j REJECT
@@ -342,8 +344,9 @@ Each client device connecting to the VPN should have its own unique key. Further
     cd /etc/openvpn/easy-rsa && source ./vars && ./build-key client1
 
 {{< note >}}
->
->Anyone with access to `client1.key` will be able to access your VPN. To better protect against this scenario, you can issue `./build-key-pass client1` instead to build a client key which is encrypted with a passphrase.
+
+Anyone with access to `client1.key` will be able to access your VPN. To better protect against this scenario, you can issue `./build-key-pass client1` instead to build a client key which is encrypted with a passphrase.
+
 {{< /note >}}
 
 ## Client Configuration File
@@ -428,8 +431,9 @@ Each client needs a configuration file defining the OpenVPN server's settings fo
     ~~~
 
     {{< note >}}
->
-    >Windows will need [7zip](http://www.7-zip.org/) to extract `.tar` files, or you can use the package [zip](http://linux.die.net/man/1/zip) to create a `.zip` archive.
+
+Windows will need [7zip](http://www.7-zip.org/) to extract `.tar` files, or you can use the package [zip](http://linux.die.net/man/1/zip) to create a `.zip` archive.
+
 {{< /note >}}
 
 8.  You no longer need to be `root`, so exit back to your standard user:

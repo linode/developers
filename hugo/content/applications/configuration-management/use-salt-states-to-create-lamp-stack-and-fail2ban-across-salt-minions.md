@@ -30,10 +30,11 @@ Before configuration, install a Salt Master and Salt Minions with the Linode [In
         ~~~
 
         {{< note >}}
->
-    > Copy the above text exactly to ensure the proper two-space nesting of YAML formatting. Also notice the other possible Minion States listed under the example base file root. 
-    
+
+Copy the above text exactly to ensure the proper two-space nesting of YAML formatting. Also notice the other possible Minion States listed under the example base file root. 
+
 2.  Create the newly listed file root directory:
+
 {{< /note >}}
 
         mkdir /etc/salt/base

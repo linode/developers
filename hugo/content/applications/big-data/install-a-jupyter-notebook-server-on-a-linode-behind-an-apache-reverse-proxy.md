@@ -148,7 +148,8 @@ The official documentation recommends generating a self-signed SSL certificate t
         ~~~
 
     {{< note >}}
-> The `/jupyter` url path can have any name as long as it matches the base url path defined in the Jupyter notebook configuration file.
+The `/jupyter` url path can have any name as long as it matches the base url path defined in the Jupyter notebook configuration file.
+
 {{< /note >}}
 
 6.  Enable the newly created configuration:

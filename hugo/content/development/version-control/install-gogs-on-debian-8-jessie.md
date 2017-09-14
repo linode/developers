@@ -31,8 +31,9 @@ external_resources:
 This tutorial shows you how to install and configure Gogs, using PostgreSQL for the database server and Nginx for the reverse proxy server. We will use `example.com` as the domain name for the site. Hosting your own software projects could benefit from large amounts of disk space, so consider using our [Block Storage](/docs/platform/how-to-use-block-storage-with-your-linode) service with this setup.
 
 {{< note >}}
->
->This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
 {{< /note >}}
 
 ## Before Installing Gogs
@@ -73,8 +74,9 @@ In this section we will download the latest version of Go (version 1.7 at the ti
         source $HOME/.bashrc
 
     {{< note >}}
->
-    > We need to specify the `GOROOT` environment variable since we are installing Go to a custom location.
+
+We need to specify the `GOROOT` environment variable since we are installing Go to a custom location.
+
 {{< /note >}}
 
 4.  Check that Go is properly installed:
@@ -211,13 +213,14 @@ In this section we will setup Gogs to run automatically on boot by creating a sy
 
     {{< file >}}
 /etc/systemd/system/gogs.service
-    :   ~~~ ini
-        [Unit]
-        Description=Gogs (Go Git Service)
-        After=syslog.target
-        After=network.target
-        After=postgresql.service
-        After=nginx.service
+:   ~~~ ini
+[Unit]
+Description=Gogs (Go Git Service)
+After=syslog.target
+After=network.target
+After=postgresql.service
+After=nginx.service
+
 {{< /file >}}
 
         [Service]

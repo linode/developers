@@ -37,15 +37,17 @@ external_resources:
 The DNS instructions for setting up SPF, DKIM and DMARC are generic. The instructions for configuring the SPF policy agent and OpenDKIM into Postfix should work on any distribution after making respective code adjustments for the package tool, and identifying the exact path to the Unix socket file.
 
 {{< note >}}
->
->The steps required in this guide require root privileges. Be sure to run the steps below as **root** or with the `sudo` prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+The steps required in this guide require root privileges. Be sure to run the steps below as **root** or with the `sudo` prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
 {{< /note >}}
 
 {{< caution >}}
->
->You must already have Postfix installed, configured and working. Refer to the [Linode Postfix Guides](https://www.linode.com/docs/email/postfix/) for assistance.
->
->Publishing an SPF DNS record without having the SPF policy agent configured within Postfix is safe; however, publishing DKIM DNS records without having OpenDKIM working correctly within Postfix can result in your email being discarded by the recipient's email server.
+
+You must already have Postfix installed, configured and working. Refer to the [Linode Postfix Guides](https://www.linode.com/docs/email/postfix/) for assistance.
+
+Publishing an SPF DNS record without having the SPF policy agent configured within Postfix is safe; however, publishing DKIM DNS records without having OpenDKIM working correctly within Postfix can result in your email being discarded by the recipient's email server.
+
 {{< /caution >}}
 
 ## Install DKIM, SPF and Postfix
@@ -93,8 +95,9 @@ If you're using Linode's DNS Manager, go to the domain zone page for the selecte
 If your DNS provider allows it (DNS Manager doesn't), you should also add a record of type SPF, filling it in the same way as you did the TXT record.
 
 {{< note >}}
->
->The values for the DNS records above - and for the rest of this guide - are done in the style that Linode's DNS Manager needs them to be in. If you're using another provider, that respective system may require the values in a different style. For example freedns.afraid.org requires the values to be written in the style found in BIND zonefiles. Thus, the above SPF record's value would need to be wrapped in double-quotes like this: `"v=spf1 mx -all"`. You'll need to consult your DNS provider's documentation for the exact style required.
+
+The values for the DNS records above - and for the rest of this guide - are done in the style that Linode's DNS Manager needs them to be in. If you're using another provider, that respective system may require the values in a different style. For example freedns.afraid.org requires the values to be written in the style found in BIND zonefiles. Thus, the above SPF record's value would need to be wrapped in double-quotes like this: `"v=spf1 mx -all"`. You'll need to consult your DNS provider's documentation for the exact style required.
+
 {{< /note >}}
 
 ### Add the SPF policy agent to Postfix
@@ -161,10 +164,11 @@ DKIM involves setting up the OpenDKIM package, hooking it into Postfix, and addi
 
     {{< file >}}
 /etc/opendkim.conf
-    :   ~~~ conf
-        # This is a basic configuration that can easily be adapted to suit a standard
-        # installation. For more advanced options, see opendkim.conf(5) and/or
-        # /usr/share/doc/opendkim/examples/opendkim.conf.sample.
+:   ~~~ conf
+# This is a basic configuration that can easily be adapted to suit a standard
+# installation. For more advanced options, see opendkim.conf(5) and/or
+# /usr/share/doc/opendkim/examples/opendkim.conf.sample.
+
 {{< /file >}}
 
         # Log to syslog
@@ -243,22 +247,24 @@ DKIM involves setting up the OpenDKIM package, hooking it into Postfix, and addi
     - The third section names the file containing the signing key for the domain.
 
     {{< note >}}
->
-    > The flow for DKIM lookup starts with the sender's address. The signing table is scanned until an entry whose pattern (first item) matches the address is found. Then, the second item's value is used to locate the entry in the key table whose key information will be used. For incoming mail the domain and selector are then used to find the public key TXT record in DNS and that public key is used to validate the signature. For outgoing mail the private key is read from the named file and used to generate the signature on the message.
+
+The flow for DKIM lookup starts with the sender's address. The signing table is scanned until an entry whose pattern (first item) matches the address is found. Then, the second item's value is used to locate the entry in the key table whose key information will be used. For incoming mail the domain and selector are then used to find the public key TXT record in DNS and that public key is used to validate the signature. For outgoing mail the private key is read from the named file and used to generate the signature on the message.
+
 {{< /note >}}
 
 6.  Create the trusted hosts file `/etc/opendkim/trusted.hosts`. Its contents need to be:
 
     {{< file >}}
 /etc/opendkim/trusted.hosts
-    :   ~~~ text
-        127.0.0.1
-        ::1
-        localhost
-        myhostname
-        myhostname.example.com
-        example.com
-        ~~~
+:   ~~~ text
+127.0.0.1
+::1
+localhost
+myhostname
+myhostname.example.com
+example.com
+~~~
+
 {{< /file >}}
 
     When creating the file, change `myhostname` to the name of your server and replace `example.com` with your own domain name. We're identifying the hosts that users will be submitting mail through and should have outgoing mail signed, which for basic configurations will be your own mail server.
@@ -302,9 +308,10 @@ As with SPF, DKIM uses TXT records to hold information about the signing key for
 {{< file >}}
 example.txt
 :   ~~~ text
-    201510._domainkey  IN  TXT ( "**v=DKIM1; h=rsa-sha256; k=rsa; s=email; "
-        "p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAu5oIUrFDWZK7F4thFxpZa2or6jBEX3cSL6b2TJdPkO5iNn9vHNXhNX31nOefN8FksX94YbLJ8NHcFPbaZTW8R2HthYxRaCyqodxlLHibg8aHdfa+bxKeiI/xABRuAM0WG0JEDSyakMFqIO40ghj/h7DUc/4OXNdeQhrKDTlgf2bd+FjpJ3bNAFcMYa3Oeju33b2Tp+PdtqIwXR"
-        "ZksfuXh7m30kuyavp3Uaso145DRBaJZA55lNxmHWMgMjO+YjNeuR6j4oQqyGwzPaVcSdOG8Js2mXt+J3Hr+nNmJGxZUUW4Uw5ws08wT9opRgSpn+ThX2d1AgQePpGrWOamC3PdcwIDAQAB**" )  ; ----- DKIM key 201510 for example.com
+201510._domainkey  IN  TXT ( "**v=DKIM1; h=rsa-sha256; k=rsa; s=email; "
+"p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAu5oIUrFDWZK7F4thFxpZa2or6jBEX3cSL6b2TJdPkO5iNn9vHNXhNX31nOefN8FksX94YbLJ8NHcFPbaZTW8R2HthYxRaCyqodxlLHibg8aHdfa+bxKeiI/xABRuAM0WG0JEDSyakMFqIO40ghj/h7DUc/4OXNdeQhrKDTlgf2bd+FjpJ3bNAFcMYa3Oeju33b2Tp+PdtqIwXR"
+"ZksfuXh7m30kuyavp3Uaso145DRBaJZA55lNxmHWMgMjO+YjNeuR6j4oQqyGwzPaVcSdOG8Js2mXt+J3Hr+nNmJGxZUUW4Uw5ws08wT9opRgSpn+ThX2d1AgQePpGrWOamC3PdcwIDAQAB**" )  ; ----- DKIM key 201510 for example.com
+
 {{< /file >}}
 
     ~~~
@@ -344,18 +351,19 @@ If everything is OK you shouldn't get any output. If you want to see more inform
 
     {{< file >}}
 /etc/default/opendkim
-    :   ~~~ conf
-        # Command-line options specified here will override the contents of
-        # /etc/opendkim.conf. See opendkim(8) for a complete list of options.
-        #DAEMON_OPTS=""
-        #
-        # Uncomment to specify an alternate socket
-        # Note that setting this will override any Socket value in opendkim.conf
-        SOCKET="local:/var/spool/postfix/opendkim/opendkim.sock"
-        #SOCKET="inet:54321" # listen on all interfaces on port 54321
-        #SOCKET="inet:12345@localhost" # listen on loopback on port 12345
-        #SOCKET="inet:12345@192.0.2.1" # listen on 192.0.2.1 on port 12345
-        ~~~
+:   ~~~ conf
+# Command-line options specified here will override the contents of
+# /etc/opendkim.conf. See opendkim(8) for a complete list of options.
+#DAEMON_OPTS=""
+#
+# Uncomment to specify an alternate socket
+# Note that setting this will override any Socket value in opendkim.conf
+SOCKET="local:/var/spool/postfix/opendkim/opendkim.sock"
+#SOCKET="inet:54321" # listen on all interfaces on port 54321
+#SOCKET="inet:12345@localhost" # listen on loopback on port 12345
+#SOCKET="inet:12345@192.0.2.1" # listen on 192.0.2.1 on port 12345
+~~~
+
 {{< /file >}}
 
 

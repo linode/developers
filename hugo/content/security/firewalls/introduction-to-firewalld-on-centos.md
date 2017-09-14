@@ -30,8 +30,9 @@ external_resources:
 2.  It manages rulesets dynamically, allowing updates without breaking existing sessions and connections.
 
 {{< note >}}
->
->FirewallD is a wrapper for iptables to allow easier management of iptables rules--it is **not** an iptables replacement. While iptables commands are still available to FirewallD, it's recommended to use only FirewallD commands with FirewallD.
+
+FirewallD is a wrapper for iptables to allow easier management of iptables rules--it is **not** an iptables replacement. While iptables commands are still available to FirewallD, it's recommended to use only FirewallD commands with FirewallD.
+
 {{< /note >}}
 
  This guide will introduce you to FirewallD, its notions of zones and services, and show you some basic configuration steps.
@@ -99,8 +100,9 @@ By default, `firewall-cmd` commands apply to runtime configuration but using the
         sudo firewall-cmd --reload
 
       {{< note >}}
->
-      >The reload command drops all runtime configurations and applies a permanent configuration. Because firewalld manages the ruleset dynamically, it won’t break an existing connection and session.
+
+The reload command drops all runtime configurations and applies a permanent configuration. Because firewalld manages the ruleset dynamically, it won’t break an existing connection and session.
+
 {{< /note >}}
 
 ### Firewall Zones

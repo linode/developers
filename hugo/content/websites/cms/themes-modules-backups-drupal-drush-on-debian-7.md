@@ -47,7 +47,8 @@ Downloading, enabling, and setting the theme is extremely easy with Drupal Drush
     [![Corporate Clean Drupal Theme Notes.](/docs/assets/corporate-clean-drupal-theme-name.png)](/docs/assets/corporate-clean-drupal-theme-name.png)
 
    {{< note >}}
-> At the time of this guide's publication, this theme is not yet available for Drupal 8 beta. If you're using this version of Drupal, select another theme to replace Corporate Clean for this example.
+At the time of this guide's publication, this theme is not yet available for Drupal 8 beta. If you're using this version of Drupal, select another theme to replace Corporate Clean for this example.
+
 {{< /note >}}
 
 2. While logged in as the website owner, download and enable the theme:

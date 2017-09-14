@@ -48,7 +48,8 @@ There's a good chance you've been using SSH (Secure Shell) to access your Linode
         sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.BACKUP
 
 {{< note >}}
-> This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
 {{< /note >}}
 
 ## Use a Stronger Diffie-Hellman Algorithm
@@ -68,7 +69,8 @@ The `/etc/ssh/moduli` file ships with OpenSSH, so assuming two servers have the 
     rm "${HOME}/moduli"
 
 {{< caution >}}
-> Before running these commands on a production server, be aware that depending on the size of the keys you're generating, this will use significant CPU power and may take anywhere from a minute to several hours.
+Before running these commands on a production server, be aware that depending on the size of the keys you're generating, this will use significant CPU power and may take anywhere from a minute to several hours.
+
 {{< /caution >}}
 
 This sequence of commands generates a new file containing thousands of candidate primes for the Diffie-Hellman algorithm. Next, it tests the candidates and adds suitable primes to your `moduli` file. Note that these keys append to your existing ones; they do not overwrite the file, so it is still possible that your SSH connection will use a precomputed prime in its key exchange. As stated above, however, this is not a vulnerability.
@@ -191,10 +193,11 @@ However, this strategy involves a time-consuming process to configure the jailed
 
     {{< file >}}
 /etc/ssh/sshd_config
-    :   ~~~ conf
-        Match User restricted-user
-        ChrootDirectory /home/chroot/restricted-user
-        ~~~
+:   ~~~ conf
+Match User restricted-user
+ChrootDirectory /home/chroot/restricted-user
+~~~
+
 {{< /file >}}
 
 11.  Restart your SSH service to apply these changes.
@@ -210,8 +213,9 @@ There are cases where you want to revoke specific public keys to prevent attempt
 {{< file >}}
 /etc/ssh/sshd_config
 :   ~~~ conf
-    RevokedKeys /etc/ssh/revoked_keys
-    ~~~
+RevokedKeys /etc/ssh/revoked_keys
+~~~
+
 {{< /file >}}
 
 The list should contain one key per line in plain text format. Remember to restart your SSH service each time you add a new key to the file.
@@ -244,8 +248,9 @@ This step will not harden your server security, but your legal-conscientious-par
 {{< file >}}
 /etc/ssh/sshd_config
 :   ~~~ conf
-    Banner /location/of/WarningMessage
-    ~~~
+Banner /location/of/WarningMessage
+~~~
+
 {{< /file >}}
 
 The value `/location/of/WarningMessage` is the path to your banner text file. The following banner example was taken from [Ubuntu's Community Help page](https://help.ubuntu.com/community/SSH/OpenSSH/Configuring) for OpenSSH:

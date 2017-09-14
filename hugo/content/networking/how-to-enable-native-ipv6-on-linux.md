@@ -70,7 +70,8 @@ You can request additional IPv6 addresses at any time by opening a [support tick
 Each /56 or /64 IPv6 address pool is routed to a specific Linode. If you want to use that same address pool across multiple Linodes, you can by using neighbor discovery. In order to take advantage of neighbor discovery you must configure your Linode to act as a router by changing the value of `net.ipv6.conf.default.forwarding`. Check your distribution's documentation for information on where to find this setting, as the location varies between different systems.
 
 {{< caution >}}
->This creates a single point of failure for your infrastructure. If a Linode set up in this way were to crash, lose networking, or encounter any another disruption in service, your entire IPv6 network will also be interrupted.
+This creates a single point of failure for your infrastructure. If a Linode set up in this way were to crash, lose networking, or encounter any another disruption in service, your entire IPv6 network will also be interrupted.
+
 {{< /caution >}}
 
 Unlike the other pools available, /116 IPv6 address pools route to all of the Linodes on your account within the same data center as the Linode to which the pool is assigned. This means there is no single point of failure.
@@ -80,17 +81,19 @@ Unlike the other pools available, /116 IPv6 address pools route to all of the Li
 While default IPv6 addresses are configured automatically, you will need to statically configure each IPv6 address in the pool you request. 
 
 {{< note >}}
->If SLAAC is not obtaining your IPv6 address, even after verifying that privacy extensions are disabled and your Linode is accepting router advertisements, you may need to statically configure your default IPv6 address as well.
->
-> Be sure that [Network Helper](/docs/platform/network-helper) is disabled when adding addresses from a pool, otherwise your configuration files may be overwritten upon rebooting your Linode, causing disruption to your IPv6 networking.
+If SLAAC is not obtaining your IPv6 address, even after verifying that privacy extensions are disabled and your Linode is accepting router advertisements, you may need to statically configure your default IPv6 address as well.
+
+Be sure that [Network Helper](/docs/platform/network-helper) is disabled when adding addresses from a pool, otherwise your configuration files may be overwritten upon rebooting your Linode, causing disruption to your IPv6 networking.
+
 {{< /note >}}
 
 
 ### Debian / Ubuntu
 
 {{< note >}}
-> Be sure that [Network Helper](/docs/platform/network-helper) is disabled when adding addresses from a pool, otherwise your configuration files may be overwritten upon rebooting your Linode, causing disruption to your IPv6 networking.
->
+Be sure that [Network Helper](/docs/platform/network-helper) is disabled when adding addresses from a pool, otherwise your configuration files may be overwritten upon rebooting your Linode, causing disruption to your IPv6 networking.
+
+
 {{< /note >}}
 
 1.  On Debian and Ubuntu, edit `/etc/network/interfaces` to set up statically configured IPv6:
@@ -126,19 +129,21 @@ While default IPv6 addresses are configured automatically, you will need to stat
       ~~~
 
         {{< note >}}
->On Debian Jessie, your default IPv6 address provided by SLAAC will no longer be automatically assigned after you request a /64 pool. You will need to manually add it as a static address or IPv6 routing will not work.
+On Debian Jessie, your default IPv6 address provided by SLAAC will no longer be automatically assigned after you request a /64 pool. You will need to manually add it as a static address or IPv6 routing will not work.
+
 {{< /note >}}
 
 2.  For /56 and /64 pools, addresses within your pool will be routed to your Linode's default IP address, or another Linode on your account in the same datacenter. You will see where the pool is routed under "Public IP Pools" within the Linode Manager's Remote Access tab. You must enable packet forwarding on that Linode to allow it to act as a router and enable external traffic from addresses within your IPv6 pool:
 
     {{< file >}}
 /etc/sysctl.conf
-    : ~~~ conf
-      # Uncomment the next line to enable packet forwarding for IPv6
-      #  Enabling this option disables Stateless Address Autoconfiguration
-      #  based on Router Advertisements for this host
-      net.ipv6.conf.all.forwarding=1
-      ~~~
+: ~~~ conf
+# Uncomment the next line to enable packet forwarding for IPv6
+#  Enabling this option disables Stateless Address Autoconfiguration
+#  based on Router Advertisements for this host
+net.ipv6.conf.all.forwarding=1
+~~~
+
 {{< /file >}}
 
     For addresses within a /116 pool, the above change is not necessary as routing will be automatically configured. Addresses in a /116 pool are routed to other Linodes on your account within the same datacenter.

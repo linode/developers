@@ -42,8 +42,9 @@ Due to Terraria's system requirements, a Linode with at least two CPU cores and 
 ## Configure a Firewall for Terraria
 
 {{< note >}}
->
->Terraria only uses IPv4 and does not use IPv6.
+
+Terraria only uses IPv4 and does not use IPv6.
+
 {{< /note >}}
 
 ### Firewalld
@@ -62,14 +63,15 @@ Firewalld is the default iptables controller in CentOS 7+ and Fedora. See our [g
 
     {{< file >}}
 /etc/firewalld/services/terraria.xml
-    :   ~~~ config
-        <?xml version="1.0" encoding="utf-8"?>
-        <service>
-          <short>Terraria</short>
-          <description>Open TCP port 7777 for incoming Terraria client connections.</description>
-          <port protocol="tcp" port="7777"/>
-        </service>
-        ~~~
+:   ~~~ config
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+<short>Terraria</short>
+<description>Open TCP port 7777 for incoming Terraria client connections.</description>
+<port protocol="tcp" port="7777"/>
+</service>
+~~~
+
 {{< /file >}}
 
 3.  Enable the firewalld service, reload firewalld and verify that the Terraria service is being used:
@@ -101,8 +103,9 @@ Firewalld is the default iptables controller in CentOS 7+ and Fedora. See our [g
         sudo ufw delete 4
 
     {{< note >}}
->
-    > The second command in this step, `sudo ufw delete 4` references the fourth rule in your UFW ruleset. If you need to configure additional rules for different services, adjust this as necessary. You can see your UFW ruleset with `sudo ufw status` to make sure you're removing the correct rule.
+
+The second command in this step, `sudo ufw delete 4` references the fourth rule in your UFW ruleset. If you need to configure additional rules for different services, adjust this as necessary. You can see your UFW ruleset with `sudo ufw status` to make sure you're removing the correct rule.
+
 {{< /note >}}
 
 ### iptables
@@ -125,8 +128,9 @@ To manually configure iptables without using a controller, see our [iptables gui
         cd /opt && sudo curl -O http://terraria.org/server/terraria-server-1344.zip
 
     {{< note >}}
->
-    > Before you install Terraria, be sure the version you download is the same as the clients that will be connecting to it.
+
+Before you install Terraria, be sure the version you download is the same as the clients that will be connecting to it.
+
 {{< /note >}}
 
 2. You will need the `unzip` utility to decompress the .zip file. Install it using your distribution's package manager:
@@ -159,12 +163,13 @@ To manually configure iptables without using a controller, see our [iptables gui
 
     {{< file >}}
 /opt/terraria/serverconfig.txt
-    :   ~~~ ini
-        world=/srv/terraria/Worlds/MyWorld.wld
-        autocreate=1
-        worldname=MyWorld
-        worldpath=/srv/terraria/Worlds
-        ~~~
+:   ~~~ ini
+world=/srv/terraria/Worlds/MyWorld.wld
+autocreate=1
+worldname=MyWorld
+worldpath=/srv/terraria/Worlds
+~~~
+
 {{< /file >}}
 
 ## Managing the Terraria Service
@@ -192,8 +197,9 @@ Create the following file to define the `terraria` systemd service:
 {{< file >}}
 /etc/systemd/system/terraria.service
 :   ~~~ ini
-    [Unit]
-    Description=server daemon for terraria
+[Unit]
+Description=server daemon for terraria
+
 {{< /file >}}
 
     [Service]
@@ -212,8 +218,9 @@ Create the following file to define the `terraria` systemd service:
 *   **ExecStop** calls a script to send the `exit` command to Terraria, which tell the server to ensure that the world is saved before shutting down. In the next section, we'll create a script which will send the necessary commands to the running Terraria server.
 
 {{< caution >}}
->
->This script is intended to save your world in the event that you reboot the operating system within the Linode. It is **not** intended to save your progress if you reboot your Linode from the Linode Manager. If you must reboot your Linode, first stop the Terraria service using `sudo systemctl stop terraria`. This will save your world, and then you can reboot from the Linode Manager.
+
+This script is intended to save your world in the event that you reboot the operating system within the Linode. It is **not** intended to save your progress if you reboot your Linode from the Linode Manager. If you must reboot your Linode, first stop the Terraria service using `sudo systemctl stop terraria`. This will save your world, and then you can reboot from the Linode Manager.
+
 {{< /caution >}}
 
 ### Create a Script for Basic Terraria Administration
@@ -227,8 +234,9 @@ The Terraria administration script needs two primary functions:
 
     {{< file >}}
 /usr/local/bin/terrariad
-    :   ~~~
-        #!/usr/bin/env bash
+:   ~~~
+#!/usr/bin/env bash
+
 {{< /file >}}
 
         send="`printf \"$*\r\"`"

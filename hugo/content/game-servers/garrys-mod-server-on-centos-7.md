@@ -35,8 +35,9 @@ This guide shows how to create, maintain, and secure a Garry's Mod server.
 2.  Complete our guide: [Install SteamCMD for a Steam Game Server](/docs/applications/game-servers/install-steamcmd-for-a-steam-game-server). This will get SteamCMD installed and running on your Linode and this guide will pick up where the SteamCMD page leaves off.
 
 {{< note >}}
->
->This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
 {{< /note >}}
 
 ## Prerequisites for Garry's Mod
@@ -81,8 +82,9 @@ From the SteamCMD guide, two additional steps are needed specifically for Gmod.
         quit
 
     {{< note >}}
->
-    >To update Gmod, run the above 4 commands again.
+
+To update Gmod, run the above 4 commands again.
+
 {{< /note >}}
 
 ## Configure Garry's Mod
@@ -168,7 +170,8 @@ The default `server.cfg` file is blank, and any configuration options you want t
         cd ~/ && ./startgmod.sh
 
     {{< caution >}}
->From this point, do not press the **Control+C** keys while in the console unless you want to stop Gmod.
+From this point, do not press the **Control+C** keys while in the console unless you want to stop Gmod.
+
 {{< /caution >}}
 
 2.  To detach from the screen session running the server console, press these two key combinations in succession:

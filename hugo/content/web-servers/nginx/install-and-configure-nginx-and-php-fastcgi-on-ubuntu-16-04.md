@@ -23,7 +23,8 @@ The nginx web server is a fast, lightweight server designed to efficiently handl
 ![Install and configure nginx and PHP-FastCGI on Ubuntu 16.04](/docs/assets/nginx-php-fcgi-tg.png "Install and configure nginx and PHP-FastCGI on Ubuntu 16.04")
 
 {{< note >}}
->The steps in this guide require root privileges. Be sure to run the steps below as `root` or with the **sudo** prefix. For more information on privileges, see our [Linux Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+The steps in this guide require root privileges. Be sure to run the steps below as `root` or with the **sudo** prefix. For more information on privileges, see our [Linux Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
 {{< /note >}}
 
 ## Before You Begin
@@ -44,8 +45,9 @@ The nginx web server is a fast, lightweight server designed to efficiently handl
       sudo apt-get update && sudo apt-get upgrade
 
 {{< note >}}
->
->This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
 {{< /note >}}
 
 ## Install nginx, PHP for Processing, and Required Packages
@@ -128,14 +130,15 @@ To mitigate this issue, you may wish to modify your configuration to include a `
 {{< file >}}
 /etc/nginx/sites-available/example.com
 :   ~~~ nginx
-    location ~ \.php$ {
-        try_files $uri =404;
-        include /etc/nginx/fastcgi_params;
-        fastcgi_pass unix:/run/php/php7.0-fpm.sock;
-        fastcgi_index index.php;
-        fastcgi_param SCRIPT_FILENAME /var/www/html/example.com/public_html/$fastcgi_script_name;
-    }
-    ~~~
+location ~ \.php$ {
+try_files $uri =404;
+include /etc/nginx/fastcgi_params;
+fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+fastcgi_index index.php;
+fastcgi_param SCRIPT_FILENAME /var/www/html/example.com/public_html/$fastcgi_script_name;
+}
+~~~
+
 {{< /file >}}
 
 Additionally, it's a good idea to secure any upload directories your applications may use. The following configuration excerpt demonstrates securing an `/images` directory:
@@ -143,15 +146,16 @@ Additionally, it's a good idea to secure any upload directories your application
 {{< file >}}
 /etc/nginx/sites-available/example.com
 :   ~~~ nginx
-    location ~ \.php$ {
-        include /etc/nginx/fastcgi_params;
-        if ($uri !~ "^/images/") {
-            fastcgi_pass unix:/run/php/php7.0-fpm.sock;
-        }
-        fastcgi_index index.php;
-        fastcgi_param SCRIPT_FILENAME /var/www/html/example.com/public_html/$fastcgi_script_name;
-    }
-    ~~~
+location ~ \.php$ {
+include /etc/nginx/fastcgi_params;
+if ($uri !~ "^/images/") {
+fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+}
+fastcgi_index index.php;
+fastcgi_param SCRIPT_FILENAME /var/www/html/example.com/public_html/$fastcgi_script_name;
+}
+~~~
+
 {{< /file >}}
 
 ## Test PHP with FastCGI

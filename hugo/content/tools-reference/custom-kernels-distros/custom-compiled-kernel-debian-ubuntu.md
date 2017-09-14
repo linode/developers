@@ -28,7 +28,8 @@ Prior to these instructions, follow the steps outlined in our [Getting Started g
         apt-get install -y build-essential libncurses5-dev gcc libssl-dev grub2 bc
 
         {{< note >}}
-> When installing `GRUB`, you'll be asked which disk images you'd like GRUB to configure. Unless you're planning on using the **Direct Disk** option in the Linode Configuration Manager, this is not required.
+When installing `GRUB`, you'll be asked which disk images you'd like GRUB to configure. Unless you're planning on using the **Direct Disk** option in the Linode Configuration Manager, this is not required.
+
 {{< /note >}}
 
 2.  Since some distributions install a pre-compiled kernel package into the `/boot/` directory along with their development package, avoid confusion later by removing any existing files there. **Warning**, this will delete everything within the `/boot/` directory _without_ asking for confirmation:
@@ -113,7 +114,8 @@ Once your configuration options are set, exit the configuration interface and an
 3.  Click **Save Changes**. You can now reboot the Linode. We suggest opening a [LISH](/docs/networking/using-the-linode-shell-lish) or [GLISH](/docs/networking/using-the-graphic-shell-glish) session first, so you can monitor the boot process and troubleshoot if necessary.
 
     {{< note >}}
-> You may need to run `cp /boot/grub/unicode.pf2 /boot/grub/fonts/` for the boot menu to properly display in GLISH. Your Linode will still boot, assuming there are no configuration issues, without this command.
+You may need to run `cp /boot/grub/unicode.pf2 /boot/grub/fonts/` for the boot menu to properly display in GLISH. Your Linode will still boot, assuming there are no configuration issues, without this command.
+
 {{< /note >}}
 
 Congratulations, you've booted your Linode using a custom-compiled kernel!

@@ -39,8 +39,9 @@ Keep this information handy because you'll need it as you configure your Linode'
 [![Linode Manager / Remote Access](/docs/assets/1711-remote_access_ips_small.png)](/docs/assets/1710-remote_access_ips.png)
 
 {{< note >}}
->
->Each Linode has only one virtual ethernet interface, *eth0*. Most outbound connections will still originate from the IP assigned to *eth0*, but if you need server daemons to bind to a particular IP address, you'll need to specify the correct IP in their configuration files.
+
+Each Linode has only one virtual ethernet interface, *eth0*. Most outbound connections will still originate from the IP assigned to *eth0*, but if you need server daemons to bind to a particular IP address, you'll need to specify the correct IP in their configuration files.
+
 {{< /note >}}
 
 ## Static Network Configuration
@@ -54,8 +55,9 @@ The different IP blocks available to your Linode are:
 *   IPv6 - /64
 
 {{< note >}}
->
->Some Linux distributions determine their [netmask](https://en.wikipedia.org/wiki/Subnetwork) based on the assigned IP address block.
+
+Some Linux distributions determine their [netmask](https://en.wikipedia.org/wiki/Subnetwork) based on the assigned IP address block.
+
 {{< /note >}}
 
 **Gateway**
@@ -71,8 +73,9 @@ Your DNS nameservers are listed under the **Remote Access** tab of the Linode Ma
 For more info on `resolv.conf`, see [its manual page](http://linux.die.net/man/5/resolv.conf).
 
 {{< caution >}}
->
->Using the examples below, be sure the IP addresses you enter reflect those shown under the **Remote Access** tab of the Linode Manager.
+
+Using the examples below, be sure the IP addresses you enter reflect those shown under the **Remote Access** tab of the Linode Manager.
+
 {{< /caution >}}
 
 ### Arch / CoreOS Container Linux
@@ -104,8 +107,9 @@ Add the following addressing to the interface's configuration:
     ~~~
 
 {{< note >}}
->
->Static IP addresses can be configured in several ways in Arch. Linode's Arch deployments use [*systemd-networkd* and *systemd-resolved*](https://wiki.archlinux.org/index.php/Systemd-networkd#Required_services_and_setup) for both DHCP and static addressing, including with Network Helper.
+
+Static IP addresses can be configured in several ways in Arch. Linode's Arch deployments use [*systemd-networkd* and *systemd-resolved*](https://wiki.archlinux.org/index.php/Systemd-networkd#Required_services_and_setup) for both DHCP and static addressing, including with Network Helper.
+
 {{< /note >}}
 
 ### CentOS 7 / Fedora
@@ -155,7 +159,8 @@ To load your changes, restart the network service:
     sudo systemctl restart network
 
 {{< note >}}
-> CentOS 7 and recent versions of Fedora include NetworkManager, which uses tools such as `nmtui` and `nmcli` to modify and create network configuration files. These are additional options to set static addressing if you would prefer to not manually edit the network interface's configuration file.
+CentOS 7 and recent versions of Fedora include NetworkManager, which uses tools such as `nmtui` and `nmcli` to modify and create network configuration files. These are additional options to set static addressing if you would prefer to not manually edit the network interface's configuration file.
+
 {{< /note >}}
 
 ### CentOS 6

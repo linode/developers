@@ -70,7 +70,8 @@ Because a current Linode runs on a 64-bit operating system, you need to download
 ## Install SteamCMD and Left 4 Dead 2
 
 {{< note >}}
->This guide requires additional libraries which are not included in our standard [SteamCMD Guide](/docs/applications/game-servers/install-steamcmd-for-a-steam-game-server).  This guide includes standalone configuration instructions for SteamCMD.  If you have already followed our SteamCMD installation guide, you can skip to step 4.
+This guide requires additional libraries which are not included in our standard [SteamCMD Guide](/docs/applications/game-servers/install-steamcmd-for-a-steam-game-server).  This guide includes standalone configuration instructions for SteamCMD.  If you have already followed our SteamCMD installation guide, you can skip to step 4.
+
 {{< /note >}}
 
 1.  From your user's home folder, download SteamCMD into its own directory:
@@ -158,9 +159,10 @@ Because a current Linode runs on a 64-bit operating system, you need to download
 
     {{< file >}}
 ~/Steam/L4D2-server/start_L4D2.sh
-    :   ~~~
-        screen ./srcds_run -console -game left4dead2 +port 27020 +maxplayers 8 +exec server.cfg +map c2m1_highway
-        ~~~
+:   ~~~
+screen ./srcds_run -console -game left4dead2 +port 27020 +maxplayers 8 +exec server.cfg +map c2m1_highway
+~~~
+
 {{< /file >}}
 
     {: .note }

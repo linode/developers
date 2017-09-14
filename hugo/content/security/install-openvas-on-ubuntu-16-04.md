@@ -26,7 +26,8 @@ OpenVAS consists of:
 For more information about the architecture of the software, refer to the [OpenVAS website](http://www.openvas.org/software.html).
 
 {{< caution >}}
-> OpenVAS is a powerful security tool that is capable of scanning remote hosts as well as your local machine. This guide is intended to allow you to monitor vulnerabilities on machines that you control or have permission to scan. If you use OpenVAS to scan remote servers owned by others, be sure that you have a full understanding of the responsibilities involved and the potential consequences.
+OpenVAS is a powerful security tool that is capable of scanning remote hosts as well as your local machine. This guide is intended to allow you to monitor vulnerabilities on machines that you control or have permission to scan. If you use OpenVAS to scan remote servers owned by others, be sure that you have a full understanding of the responsibilities involved and the potential consequences.
+
 {{< /caution >}}
 
 ## Before You Begin
@@ -40,7 +41,8 @@ For more information about the architecture of the software, refer to the [OpenV
         sudo apt update && sudo apt upgrade
 
 {{< note >}}
-> This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
 {{< /note >}}
 
 ## Install OpenVAS
@@ -74,7 +76,8 @@ The `openvas` repository and its packages are not officially supported by Ubuntu
         sudo openvas-nvt-sync
 
     {{< note >}}
-> This feed is maintained by OpenVAS and is updated about once per week. To keep your NVT feed current, we recommend running this command regularly, or setting up a [cron job](https://www.linode.com/docs/tools-reference/tools/schedule-tasks-with-cron) to automate the process.
+This feed is maintained by OpenVAS and is updated about once per week. To keep your NVT feed current, we recommend running this command regularly, or setting up a [cron job](https://www.linode.com/docs/tools-reference/tools/schedule-tasks-with-cron) to automate the process.
+
 {{< /note >}}
 
 5.  Sync Security Content Automation Protocol (SCAP) and Computer Emergency Readiness Team (CERT) vulnerability data to a local database. The synchronization will take several minutes, and you can monitor its progress in the output:
@@ -159,7 +162,8 @@ Congratulations! OpenVAS is now ready to use. In this section, we'll provide a b
     [![Greenbone Security Assistant Task Wizard.](/docs/assets/openvas-gsa-task-wizard.png)](/docs/assets/openvas-gsa-task-wizard.png)
 
     {{< note >}}
->The Quick Start screen will not appear on login after you've scheduled 3 or more tasks. To access this screen at any time, click the "Scan Management" tab at the top of the screen, select "Tasks," and hover over the purple magic wand icon in the top bar. From there, you can select "Task Wizard" or "Advanced Task Wizard" to create a new task quickly and easily.
+The Quick Start screen will not appear on login after you've scheduled 3 or more tasks. To access this screen at any time, click the "Scan Management" tab at the top of the screen, select "Tasks," and hover over the purple magic wand icon in the top bar. From there, you can select "Task Wizard" or "Advanced Task Wizard" to create a new task quickly and easily.
+
 {{< /note >}}
 
 4.  The reports showing results of your tasks can be accessed at any time while the scan is in progress. The time a scan takes to complete will depend on the services running on a host, and may vary significantly. To view the results of a scan, select "Scan Management" in the top navigation bar, and click "Reports."

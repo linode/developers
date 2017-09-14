@@ -18,9 +18,10 @@ Now that you've installed Linux and secured your Linode, it's time to start *doi
 **Debian 8** and **Ubuntu 14.04 LTS** are the [Linux distributions](/docs/getting-started#deploying-an-image) used in this guide. If you'd like to use **Ubuntu 16.04 LTS**, refer to the distribution-specific guide on configuring a [LAMP Stack](/docs/websites/lamp/install-lamp-on-ubuntu-16-04), and then continue to the [upload files](#upload-files) section.
 
 {{< note >}}
-> This guide is designed for small and medium-size websites running on WordPress, Drupal, or another PHP content management system. If your website doesn't belong in that category, you'll need to assess your requirements and install custom packages tailored for your particular requirements.
->
->This guide is written for a non-root user. Commands that require elevated privileges are prefixed with ``sudo``. If you're not familiar with the ``sudo`` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+This guide is designed for small and medium-size websites running on WordPress, Drupal, or another PHP content management system. If your website doesn't belong in that category, you'll need to assess your requirements and install custom packages tailored for your particular requirements.
+
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with ``sudo``. If you're not familiar with the ``sudo`` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
 {{< /note >}}
 
 <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="//fast.wistia.net/embed/iframe/f067hwymxy?videoFoam=true" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="100%" height="100%"></iframe></div></div>
@@ -354,7 +355,8 @@ It's a good idea to test your website(s) before you add the DNS records. This is
 3.  Test the name-based virtual hosts by entering the domain names in the address bar of the web browser on your desktop computer. Your websites should load in the web browser.
 
     {{< caution >}}
->Remember to remove the entries for the name-based virtual hosts from your `hosts` file when you're ready to test the DNS records.
+Remember to remove the entries for the name-based virtual hosts from your `hosts` file when you're ready to test the DNS records.
+
 {{< /caution >}}
 
 ## Add DNS Records

@@ -35,10 +35,11 @@ Drupal 8 is the latest version of the popular [Drupal](https://www.drupal.org/) 
         sudo apt-get update && sudo apt-get upgrade
 
 {{< note >}}
->
-> - This guide will use `sudo` wherever possible.
-> - You may need additional firewall rules for your specific application.
-> - Replace each instance of `example.com` and `user` with the names appropriate to your site, and `203.0.113.52` with your Linode's IP address or domain name.
+
+- This guide will use `sudo` wherever possible.
+- You may need additional firewall rules for your specific application.
+- Replace each instance of `example.com` and `user` with the names appropriate to your site, and `203.0.113.52` with your Linode's IP address or domain name.
+
 {{< /note >}}
 
 ## Create Backups
@@ -54,7 +55,8 @@ Back up existing files and move the archive into the backups directory. This pro
 1.  Log in to your Drupal site and navigate to the Admin Toolbar. Click **Reports**, then **Available updates**.
 
     {{< note >}}
-> If **Available updates** is not listed, enable the Update Manager plugin under **Extend**.
+If **Available updates** is not listed, enable the Update Manager plugin under **Extend**.
+
 {{< /note >}}
 
 2.  Right click "Download" to the right of the desired version and copy the link address:
@@ -96,13 +98,14 @@ Back up existing files and move the archive into the backups directory. This pro
 3.  From a browser on your local machine, navigate to `example.com/update.php`:
 
     {{< note >}}
->If `update.php` does not load or returns a 403 Forbidden error, you can try to change the ownership and permissions of the newly expanded files:
-    >
-    >~~~
-    >chgrp www-data /var/www/html/example.com/public_html/sites/default/files
-    >chmod 775 /var/www/html/example.com/public_html/sites/default/files
-    >chmod 757 /var/www/html/example.com/public_html/sites/default/settings.php
-    >~~~
+If `update.php` does not load or returns a 403 Forbidden error, you can try to change the ownership and permissions of the newly expanded files:
+
+~~~
+chgrp www-data /var/www/html/example.com/public_html/sites/default/files
+chmod 775 /var/www/html/example.com/public_html/sites/default/files
+chmod 757 /var/www/html/example.com/public_html/sites/default/settings.php
+~~~
+
 {{< /note >}}
 
 4.  Follow the prompts to continue the update.
@@ -132,9 +135,10 @@ Back up existing files and move the archive into the backups directory. This pro
       ~~~
 
       {{< note >}}
-> You may need to add write permission to this file before you can edit it:
-      >
-      >     chmod u+w /var/www/html/example.com/public_html/sites/default/services.yml
+You may need to add write permission to this file before you can edit it:
+
+chmod u+w /var/www/html/example.com/public_html/sites/default/services.yml
+
 {{< /note >}}
 
 2. Consider installing additional security modules from the [Drupal Project Module](https://www.drupal.org/project/project_module):

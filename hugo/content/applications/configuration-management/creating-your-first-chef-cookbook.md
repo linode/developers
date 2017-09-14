@@ -22,8 +22,9 @@ Cookbooks are one of the key components in Chef. They describe the *desired stat
 Prior to using this guide, be sure to set up Chef with the [Setting Up a Chef Server, Workstation, and Node](/docs/applications/chef/setting-up-chef-ubuntu-14-04) guide, and, if needed, review the [Beginner's Guide to Chef](/docs/applications/chef/beginners-guide-chef).
 
 {{< note >}}
->
->This guide assumes all nodes are using Ubuntu 14.04. Recipes can be adapted for use on multiple systems, but that is outside the scope of this guide.
+
+This guide assumes all nodes are using Ubuntu 14.04. Recipes can be adapted for use on multiple systems, but that is outside the scope of this guide.
+
 {{< /note >}}
 
 ## Create the Cookbook
@@ -62,12 +63,13 @@ Because each section of the LAMP stack (Apache, MySQL, and PHP) will have its ow
 
     {{< file >}}
 ~/chef-repo/cookbooks/lamp-stack/recipe/default.rb
-    :   ~~~ ruby
-        #
-        # Cookbook Name:: lamp-stack
-        # Recipe:: default
-        #
-        #
+:   ~~~ ruby
+#
+# Cookbook Name:: lamp-stack
+# Recipe:: default
+#
+#
+
 {{< /file >}}
 
         execute "update-upgrade" do
@@ -107,11 +109,12 @@ Because each section of the LAMP stack (Apache, MySQL, and PHP) will have its ow
 
     {{< file >}}
 ~/chef-repo/cookbooks/lamp-stack/apache.rb
-    :   ~~~ ruby
-        package "apache2" do
-          action :install
-        end
-        ~~~
+:   ~~~ ruby
+package "apache2" do
+action :install
+end
+~~~
+
 {{< /file >}}
 
     Again, this is a very basic recipe. The *package* resource calls to a package (apache2). This value must be a legitimate package name. The action is *install* because Apache is being installed in this step. There is no need for additional values to run the install.
@@ -153,8 +156,9 @@ Because each section of the LAMP stack (Apache, MySQL, and PHP) will have its ow
     It should say that apache2 is running.
 
     {{< note >}}
->
-    >Repeat steps 5-7 to upload the cookbook and run chef-client as needed through the rest of this guide to ensure your recipes are working properly and contain no errors. Remember to replace the recipe name in the run list code when adding a new recipe.
+
+Repeat steps 5-7 to upload the cookbook and run chef-client as needed through the rest of this guide to ensure your recipes are working properly and contain no errors. Remember to replace the recipe name in the run list code when adding a new recipe.
+
 {{< /note >}}
 
 
@@ -168,9 +172,10 @@ After the initial installation Apache needs to be configured, starting with its 
 
     {{< file >}}
 ~/chef-repo/cookbooks/lamp-stack/attributes/default.rb
-    :   ~~~ ruby
-        default["lamp-stack"]["sites"]["example.com"] = { "port" => 80, "servername" => "example.com", "serveradmin" => "webmaster@example.com" }
-        ~~~
+:   ~~~ ruby
+default["lamp-stack"]["sites"]["example.com"] = { "port" => 80, "servername" => "example.com", "serveradmin" => "webmaster@example.com" }
+~~~
+
 {{< /file >}}
 
     The prefix *default* defines that these are the normal values to be used in the *lamp-stack* where the *site* *example.com* will be called upon. This can be seen as a hierarchy: Under the cookbook itself are the site(s), which are then defined by their URL.
@@ -181,10 +186,11 @@ After the initial installation Apache needs to be configured, starting with its 
 
     {{< file >}}
 ~/chef-repo/cookbooks/lamp-stack/attributes/default.rb
-    :   ~~~ ruby
-        default["lamp-stack"]["sites"]["example.com"] = { "port" => 80, "servername" => "example.com", "serveradmin" => "webmaster@example.com" }
-        default["lamp-stack"]["sites"]["example.org"] = { "port" => 80, "servername" => "example.org", "serveradmin" => "webmaster@example.org" }
-        ~~~
+:   ~~~ ruby
+default["lamp-stack"]["sites"]["example.com"] = { "port" => 80, "servername" => "example.com", "serveradmin" => "webmaster@example.com" }
+default["lamp-stack"]["sites"]["example.org"] = { "port" => 80, "servername" => "example.org", "serveradmin" => "webmaster@example.org" }
+~~~
+
 {{< /file >}}
 
 3.  Return to your `apache.rb` file under `recipes` to call the attributes that were just defined. Do this with the *node* resource:
@@ -246,23 +252,25 @@ After the initial installation Apache needs to be configured, starting with its 
 
     {{< file >}}
 ~/chef-repo/cookbooks/lamp-stack/templates/default/virtualhosts.erb
-    :   ~~~ erb
-        <VirtualHost *:<%= @port %>>
-                ServerAdmin <%= @serveradmin %>
-                ServerName <%= @servername %>
-                ServerAlias www.<%= @servername %>
-                DocumentRoot <%= @document_root %>/public_html
-                ErrorLog <%= @document_root %>/logs/error.log
-                <Directory <%= @document_root %>/public_html>
-                        Require all granted
-                </Directory>
-        </VirtualHost>
-        ~~~
+:   ~~~ erb
+<VirtualHost *:<%= @port %>>
+ServerAdmin <%= @serveradmin %>
+ServerName <%= @servername %>
+ServerAlias www.<%= @servername %>
+DocumentRoot <%= @document_root %>/public_html
+ErrorLog <%= @document_root %>/logs/error.log
+<Directory <%= @document_root %>/public_html>
+Require all granted
+</Directory>
+</VirtualHost>
+~~~
+
 {{< /file >}}
 
     {{< note >}}
->
-    >Some variables should look familiar. They were created in step 2, when naming default attributes.
+
+Some variables should look familiar. They were created in step 2, when naming default attributes.
+
 {{< /note >}}
 
 8.  Return to the `apache.rb` recipe. In the space after the *directory* resource, use the *template* resource to call upon the template file just created:
@@ -373,17 +381,18 @@ Cookbook files are static documents that are run against the document in the sam
 
     {{< file >}}
 ~/chef-repo/cookbooks/lamp-stack/files/default/mpm_event.conf
-    :   ~~~ conf
-        <IfModule mpm_event_module>
-                StartServers        2
-                MinSpareThreads     6
-                MaxSpareThreads     12
-                ThreadLimit         64
-                ThreadsPerChild     25
-                MaxRequestWorkers   25
-                MaxConnectionsPerChild  3000
-        </IfModule>
-        ~~~
+:   ~~~ conf
+<IfModule mpm_event_module>
+StartServers        2
+MinSpareThreads     6
+MaxSpareThreads     12
+ThreadLimit         64
+ThreadsPerChild     25
+MaxRequestWorkers   25
+MaxConnectionsPerChild  3000
+</IfModule>
+~~~
+
 {{< /file >}}
 
 3.  Return to `apache.rb`, and use the *cookbook_file* resource to call the file we just created. Because the MPM will need to be enabled, we'll use the `notifies` command again, this time to execute `a2enmod mpm_event`. Add this to the *end* of the `apache.rb` file:
@@ -440,8 +449,9 @@ Cookbook files are static documents that are run against the document in the sam
         ~~~
 
     {{< note >}}
->
-    >Check the MySQL Cookbook's [Supermarket page](https://supermarket.chef.io/cookbooks/mysql) to ensure this is the latest version.
+
+Check the MySQL Cookbook's [Supermarket page](https://supermarket.chef.io/cookbooks/mysql) to ensure this is the latest version.
+
 {{< /note >}}
 
 
@@ -463,12 +473,13 @@ Chef contains a feature knows as *data bags*. Data bags store information, and c
 
     {{< file >}}
 ~/chef-repo/data_bags/mysql/rtpass.json
-    :   ~~~ json
-        {
-          "id": "rtpass2.json",
-          "password": "password123"
-        }
-        ~~~
+:   ~~~ json
+{
+"id": "rtpass2.json",
+"password": "password123"
+}
+~~~
+
 {{< /file >}}
 
     Replace `password123` with a secure password.
@@ -509,17 +520,19 @@ With the MySQL library downloaded and an encrypted root password prepared, you c
 
     {{< file >}}
 ~/chef-repo/cookbooks/lamp-stack/recipes/mysql.rb
-    :   ~~~ ruby
-        mysqlpass = data_bag_item("mysql", "rtpass.json")
-        ~~~
+:   ~~~ ruby
+mysqlpass = data_bag_item("mysql", "rtpass.json")
+~~~
+
 {{< /file >}}
 
 2.  Thanks to the LWRPs provided through the MySQL cookbook, the initial installation and database creation for MySQL can be done in one resource:
 
     {{< file >}}
 ~/chef-repo/cookbooks/lamp-stack/recipes/mysql.rb
-    :   ~~~ ruby
-        mysqlpass = data_bag_item("mysql", "rtpass.json")
+:   ~~~ ruby
+mysqlpass = data_bag_item("mysql", "rtpass.json")
+
 {{< /file >}}
 
         mysql_service "mysqldefault" do
@@ -531,10 +544,11 @@ With the MySQL library downloaded and an encrypted root password prepared, you c
     `mysqldefault` is the name of the MySQL service for this container. The `inital_root_password` calls to the value defined in the text above, while the action creates the database and starts the MySQL service.
 
     {{< note >}}
->
-    >When running MySQL from your nodes you will need to define the socket:
-    >
-    >   mysql -S /var/run/mysqldefault/mysqld.sock -p
+
+When running MySQL from your nodes you will need to define the socket:
+
+mysql -S /var/run/mysqldefault/mysqld.sock -p
+
 {{< /note >}}
 
 ## PHP
@@ -543,10 +557,11 @@ With the MySQL library downloaded and an encrypted root password prepared, you c
 
     {{< file >}}
 ~/chef-repo/cookbooks/lamp-stack/recipes/php.rb
-    :   ~~~ ruby
-        package "php5" do
-          action :install
-        end
+:   ~~~ ruby
+package "php5" do
+action :install
+end
+
 {{< /file >}}
 
         package "php-pear" do

@@ -38,9 +38,10 @@ The process for generating SSH keys and connecting to a remote server from a Lin
 The process for creating keys with a recent version of the OpenSSH package is the same across many different Unix-like operating systems. This includes all Linux distributions provided by Linode, workstations running Linux, and Apple's OS X.
 
 {{< caution >}}
-> Be careful when running `ssh-keygen` if you've already created and saved keys to the default path, `/home/user/.ssh/id_rsa`. If you run the command again and do not specify a different path, you may overwrite the private key on your local system. If you overwrite the local private key after using the matching public key to secure your server, you may lose your ability to access your server via SSH.
->
-> If you accidentally lock yourself out of your Linode this way, you can use [Lish](/docs/networking/using-the-linode-shell-lish) to update your `authorized_keys` file and regain SSH access.
+Be careful when running `ssh-keygen` if you've already created and saved keys to the default path, `/home/user/.ssh/id_rsa`. If you run the command again and do not specify a different path, you may overwrite the private key on your local system. If you overwrite the local private key after using the matching public key to secure your server, you may lose your ability to access your server via SSH.
+
+If you accidentally lock yourself out of your Linode this way, you can use [Lish](/docs/networking/using-the-linode-shell-lish) to update your `authorized_keys` file and regain SSH access.
+
 {{< /caution >}}
 
 1.  To generate SSH keys for your host, issue the following command on your *local system*:
@@ -138,7 +139,8 @@ When PuTTYgen has finished downloading, it can be run immediately, without insta
     ![Copy the public key to a text file.](/docs/assets/1476-key-txt-file.png)
 
     {{< caution >}}
->When saving the public key, make sure you save it in a plaintext format such as .txt. Other file formats such as .rtf and .doc may add extra characters to the key through encoding, which may prevent your keypair from matching. The public key should be a single line, with no breaks.
+When saving the public key, make sure you save it in a plaintext format such as .txt. Other file formats such as .rtf and .doc may add extra characters to the key through encoding, which may prevent your keypair from matching. The public key should be a single line, with no breaks.
+
 {{< /caution >}}
 
 7.  Enter a passphrase in the **Key passphrase** text field, and enter it again to confirm. The passphrase can be any string of letters and numbers. The passphrase should be something unique and not easily recognized. **Important:** make a note of your passphrase, as you will need it later.
@@ -194,9 +196,10 @@ Once WinSCP has connected, you'll see two main sections. The section on the left
 You'll be prompted to enter a path where you'd like to place the file on your Linode. Upload the file to `/home/user/.ssh/authorized_keys`, replacing `user` with your username.
 
 {{< caution >}}
-> When uploading a public key with WinSCP, make sure you are using a txt formatted file. If your public key is saved in a different format, such as .rtf or .doc, extra formatting characters will be added and your private key will not work properly.
->
->When you create the text file, make sure the public key is a single line of text, exactly as it appears in the PuTTY key generator.
+When uploading a public key with WinSCP, make sure you are using a txt formatted file. If your public key is saved in a different format, such as .rtf or .doc, extra formatting characters will be added and your private key will not work properly.
+
+When you create the text file, make sure the public key is a single line of text, exactly as it appears in the PuTTY key generator.
+
 {{< /caution >}}
 
 You should now be connected to your Linode using the SSH key.

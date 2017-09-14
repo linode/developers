@@ -37,7 +37,8 @@ This guide will help you install an SSL certificate on your NodeBalancer. It inc
     - [NodeBalancer Reference Guide](/docs/platform/nodebalancer/nodebalancer-reference-guide)
 
 {{< note >}}
-> This guide has been written with the assumption that you are logged in as the root user. If you are using a limited user account, you will need to prefix some commands with `sudo`.
+This guide has been written with the assumption that you are logged in as the root user. If you are using a limited user account, you will need to prefix some commands with `sudo`.
+
 {{< /note >}}
 
 ## Install the SSL Certificate and Private Key on your NodeBalancer
@@ -124,7 +125,8 @@ This guide will help you install an SSL certificate on your NodeBalancer. It inc
         ~~~
 
     {{< caution >}}
-> On Red Hat-based distributions, change the `Rewritelog` path to `/var/log/httpd/rewrite.log`
+On Red Hat-based distributions, change the `Rewritelog` path to `/var/log/httpd/rewrite.log`
+
 {{< /caution >}}
 
 3.  Create the `RewriteLog` as referenced from above:

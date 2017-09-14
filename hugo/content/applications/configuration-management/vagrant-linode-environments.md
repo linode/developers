@@ -51,8 +51,9 @@ Vagrant can be paired with Linode through the use of the *vagrant-linode* plugin
         vagrant plugin install vagrant-linode
 
     {{< note >}}
->
-    >If using a Mac, it may request to install development tools. Select yes, then re-run the command.
+
+If using a Mac, it may request to install development tools. Select yes, then re-run the command.
+
 {{< /note >}}
 
 3.  From the `vagrant-linode` directory, create the Vagrantfile:
@@ -67,8 +68,9 @@ Vagrant can be paired with Linode through the use of the *vagrant-linode* plugin
 
     {{< file >}}
 ~/vagrant-linode/Vagrantfile
-    :   ~~~ ruby
-        Vagrant.configure('2') do |config|
+:   ~~~ ruby
+Vagrant.configure('2') do |config|
+
 {{< /file >}}
 
         end
@@ -80,8 +82,9 @@ Vagrant can be paired with Linode through the use of the *vagrant-linode* plugin
 
     {{< file >}}
 ~/vagrant-linode/Vagrantfile
-    :   ~~~ ruby
-        Vagrant.configure('2') do |config|
+:   ~~~ ruby
+Vagrant.configure('2') do |config|
+
 {{< /file >}}
 
           ## SSH Configuration
@@ -154,15 +157,16 @@ Although the server can now be created successfully, many aspects of it still ne
 
     {{< file >}}
 ~/vagrant-linode/setup.sh
-    :   ~~~ shell
-        #!/bin/bash
-        echo "vagranttest" > /etc/hostname
-        hostname -F /etc/hostname
-        ip=$(ip addr show eth0 | grep -Po 'inet \K[\d.]+')
-        echo "$ip   $ip hostname" >> /etc/hosts
-        ln -sf /usr/share/zoneinfo/EST /etc/localtime
-        apt-get update && apt-get upgrade -y
-        ~~~
+:   ~~~ shell
+#!/bin/bash
+echo "vagranttest" > /etc/hostname
+hostname -F /etc/hostname
+ip=$(ip addr show eth0 | grep -Po 'inet \K[\d.]+')
+echo "$ip   $ip hostname" >> /etc/hosts
+ln -sf /usr/share/zoneinfo/EST /etc/localtime
+apt-get update && apt-get upgrade -y
+~~~
+
 {{< /file >}}
 
     * Lines 2 and 3 define the hostname.
@@ -194,15 +198,16 @@ Although the server can now be created successfully, many aspects of it still ne
 
     {{< file >}}
 ~/vagrant-linode/apache.sh
-    :   ~~~ shell
-        #!/bin/bash
-        apt-get install apache2 -y
-        mv /etc/apache2/ports.conf /etc/apache2/ports.conf.backup
-        mv /etc/apache2/ports1.conf /etc/apache2/ports.conf
-        a2dissite 000-default.conf
-        a2ensite vhost.conf
-        service apache2 reload
-        ~~~
+:   ~~~ shell
+#!/bin/bash
+apt-get install apache2 -y
+mv /etc/apache2/ports.conf /etc/apache2/ports.conf.backup
+mv /etc/apache2/ports1.conf /etc/apache2/ports.conf
+a2dissite 000-default.conf
+a2ensite vhost.conf
+service apache2 reload
+~~~
+
 {{< /file >}}
 
     * Line 2 installs Apache.
@@ -235,8 +240,9 @@ Although the server can now be created successfully, many aspects of it still ne
 
     {{< file >}}
 ~/vagrant-linode/apache2/ports1.conf
-    :   ~~~ conf
-        Listen 6789
+:   ~~~ conf
+Listen 6789
+
 {{< /file >}}
 
         <IfModule ssl_module>
@@ -254,14 +260,15 @@ Although the server can now be created successfully, many aspects of it still ne
 
     {{< file >}}
 ~/vagrant-linode/apache2/sites-available/vhost.conf
-    :   ~~~ conf
-        <VirtualHost *:6789>
-                ServerAdmin webmaster@localhost
-                DocumentRoot /var/www/html
-                ErrorLog ${APACHE_LOG_DIR}/error.log
-                CustomLog ${APACHE_LOG_DIR}/access.log combined
-        </VirtualHost>
-        ~~~
+:   ~~~ conf
+<VirtualHost *:6789>
+ServerAdmin webmaster@localhost
+DocumentRoot /var/www/html
+ErrorLog ${APACHE_LOG_DIR}/error.log
+CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+~~~
+
 {{< /file >}}
 
 6.  Return to the Vagrantfile, and use the `config.vm.synced_folder` method to sync the local directories with directories on the server:
@@ -322,10 +329,11 @@ With the Vagrantfile configured, and scripts and files created, it's now time to
     Then go to your chosen web browser and navigate to your ip address with `:6789` appended to the end. You should see Apache2 Ubuntu Default Page.
 
     {{< note >}}
->
-    >If you wish to shut down or remove the Linode from your workspace you can do so through one of the following commands:
-    >
-    >-  `vagrant halt` will power down the Linode through the shutdown mechanism. You can then run `vagrant up` again to power on the Linode.
-    >-  `vagrant destroy` will remove the Linode entirely from your account, removing anything that was created during the Vagrant up process or added later to the server.
+
+If you wish to shut down or remove the Linode from your workspace you can do so through one of the following commands:
+
+-  `vagrant halt` will power down the Linode through the shutdown mechanism. You can then run `vagrant up` again to power on the Linode.
+-  `vagrant destroy` will remove the Linode entirely from your account, removing anything that was created during the Vagrant up process or added later to the server.
+
 {{< /note >}}
 

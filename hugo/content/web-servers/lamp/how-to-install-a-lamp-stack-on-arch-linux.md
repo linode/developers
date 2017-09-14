@@ -48,10 +48,11 @@ Since Arch does not come in specific versions, this guide is up-to-date as of th
 2.  Edit the `httpd-mpm.conf` Apache configuration file in `/etc/httpd/conf/extra/` to adjust the resource use settings. The settings shown below are a good starting point for a **Linode 2GB**:
 
     {{< note >}}
->
-    >Before changing any configuration files, it is advised that you make a backup of the file. To make a backup:
-    >
-    >     cp /etc/httpd/conf/extra/httpd-mpm.conf ~/httpd-mpm.conf.backup
+
+Before changing any configuration files, it is advised that you make a backup of the file. To make a backup:
+
+cp /etc/httpd/conf/extra/httpd-mpm.conf ~/httpd-mpm.conf.backup
+
 {{< /note >}}
 
     {: .file-excerpt }
@@ -120,8 +121,9 @@ Virtual hosting can be configured so that multiple domains (or subdomains) can b
     Remove the second example in the file, or use it configure a second website.
 
     {{< note >}}
->
-    >`ErrorLog` and `CustomLog` entries are suggested for more fine-grained logging, but are not required. If they are defined (as shown above), the `logs` directories must be created before you restart Apache.
+
+`ErrorLog` and `CustomLog` entries are suggested for more fine-grained logging, but are not required. If they are defined (as shown above), the `logs` directories must be created before you restart Apache.
+
 {{< /note >}}
 
 4.  Create the directories referenced in the configuration above:
@@ -137,10 +139,11 @@ Virtual hosting can be configured so that multiple domains (or subdomains) can b
     You should now be able to access your website. If no files are uploaded you will see an *Index of /* page.
 
     {{< note >}}
->
-    >Should any additional changes be made to a configuration file restart Apache:
-    >
-    >     sudo systemctl restart httpd.service
+
+Should any additional changes be made to a configuration file restart Apache:
+
+sudo systemctl restart httpd.service
+
 {{< /note >}}
 
 
@@ -209,8 +212,9 @@ PHP makes it possible to produce dynamic and interactive pages using your own sc
         ~~~
 
     {{< note >}}
->
-    >Ensure that all lines noted above are uncommented. A commented line begins with a semicolon (**;**).
+
+Ensure that all lines noted above are uncommented. A commented line begins with a semicolon (**;**).
+
 {{< /note >}}
 
 3.  Create the log directory for PHP and give the Apache user ownership:

@@ -39,15 +39,16 @@ Use the Docker-maintained install script for Debian or Ubuntu. For other operati
         curl -sSL https://get.docker.com/ | sh
 
     {{< note >}}
->
-    >The current version of the docker script checks for AUFS support and displays the warning below if support is not found:
-    >
-    >     Warning: current kernel is not supported by the linux-image-extra-virtual
-          package.  We have no AUFS support.  Consider installing the packages
-          linux-image-virtual kernel and linux-image-extra-virtual for AUFS support.
-          + sleep 10
-    >
-    >This message can be safely ignored, as the script will continue the installation using DeviceMapper or OverlayFS.  If you require AUFS support, you will need to configure a [distribution supplied](https://www.linode.com/docs/tools-reference/custom-kernels-distros/run-a-distributionsupplied-kernel-with-pvgrub) or [custom compiled](/docs/tools-reference/custom-kernels-distros/custom-compiled-kernel-with-pvgrub-debian-ubuntu) kernel.
+
+The current version of the docker script checks for AUFS support and displays the warning below if support is not found:
+
+Warning: current kernel is not supported by the linux-image-extra-virtual
+package.  We have no AUFS support.  Consider installing the packages
+linux-image-virtual kernel and linux-image-extra-virtual for AUFS support.
++ sleep 10
+
+This message can be safely ignored, as the script will continue the installation using DeviceMapper or OverlayFS.  If you require AUFS support, you will need to configure a [distribution supplied](https://www.linode.com/docs/tools-reference/custom-kernels-distros/run-a-distributionsupplied-kernel-with-pvgrub) or [custom compiled](/docs/tools-reference/custom-kernels-distros/custom-compiled-kernel-with-pvgrub-debian-ubuntu) kernel.
+
 {{< /note >}}
 
 2.  If necessary, add the non-root user to the "docker" group:
@@ -89,8 +90,9 @@ When an image downloads, there are no image containers running.
 5. Enter the IP address in a web browser to test the site.
 
     {{< note >}}
->
-    >The website's root directory is `/var/www/example.com/public_html/`.
+
+The website's root directory is `/var/www/example.com/public_html/`.
+
 {{< /note >}}
 
 Congratulations, you have installed a configured LAMP stack using Docker!

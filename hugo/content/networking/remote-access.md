@@ -105,8 +105,9 @@ If you want to allow one Linode to use another Linode's IP address, such as for 
 If you have two Linodes in the same data center, you can use the *IP swap* feature to switch their IP addresses. This could be useful in several situations. For example, if you've built a new server to replace an old one, you could swap IP addresses instead of updating the DNS records.
 
 {{< note >}}
->
->This process will only swap **IPv4** addresses, not IPv6.
+
+This process will only swap **IPv4** addresses, not IPv6.
+
 {{< /note >}}
 
 Here's how to swap IP addresses:

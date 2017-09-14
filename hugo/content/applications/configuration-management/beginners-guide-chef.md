@@ -70,6 +70,7 @@ The `knife` command communicates between the `chef-repo` located on a workstatio
 	syntax_check_cache_path  '~/chef-repo/.chef/syntax_check_cache'
 	cookbook_path [ '~/chef-repo/cookbooks' ]
 	~~~
+
 {{< /file >}}
 
 The default `knife.rb` file is defined with the following properties:
@@ -129,6 +130,7 @@ chef-repo/environments/environame.rb
 	~~~
 	
 As a JSON:
+
 {{< /file >}}
 
 {{< file >}}
@@ -138,6 +140,7 @@ chef-repo/environments/environame.json
 	  "name": "environmentname",
 	  "description": "a description of the environment",
 	  "cookbook_versions": {
+
 {{< /file >}}
 
 	  },
