@@ -94,7 +94,7 @@ These are only a few basic configuration options that are set by default.
 
 We **strongly** recommend uncommenting the `security` section and adding the following:
 
-{{< file-excerpt "/etc/mongod.conf" conf >}}
+{{< file-excerpt "/etc/mongod.conf" aconf >}}
 security:
       authorization: enabled
 {{< /file-excerpt >}}

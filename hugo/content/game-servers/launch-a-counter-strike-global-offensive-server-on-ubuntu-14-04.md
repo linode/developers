@@ -88,7 +88,7 @@ CS:GO requires a server token unless you want to limit players to only clients c
 
 1.  Create a file called `server.cfg` using your prefered text editor. Choose a hostname and a unique RCON password that you don't use elsewhere.
 
-    {{< file "~/Steam/csgo-ds/csgo/cfg/server.cfg" config >}}
+    {{< file "~/Steam/csgo-ds/csgo/cfg/server.cfg" aconf >}}
 hostname "server_hostname"
         sv_password "server_password"
         sv_timeout 60

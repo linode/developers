@@ -57,7 +57,7 @@ cp /etc/httpd/conf/extra/httpd-mpm.conf ~/httpd-mpm.conf.backup
 
 {{< /note >}}
 
-    {{< file-excerpt "/etc/httpd/conf/extra/httpd-mpm.conf" conf >}}
+    {{< file-excerpt "/etc/httpd/conf/extra/httpd-mpm.conf" aconf >}}
 <IfModule mpm_prefork_module>
                 StartServers            4
                 MinSpareServers         20
@@ -70,7 +70,7 @@ cp /etc/httpd/conf/extra/httpd-mpm.conf ~/httpd-mpm.conf.backup
 
 3. Edit the `httpd-default.conf` file to turn KeepAlive off.
 
-    {{< file-excerpt "/etc/httpd/conf/extra/httpd-default.conf" conf >}}
+    {{< file-excerpt "/etc/httpd/conf/extra/httpd-default.conf" aconf >}}
 KeepAlive Off
 {{< /file-excerpt >}}
 
@@ -99,7 +99,7 @@ Include conf/extra/httpd-vhosts.conf
 
 2. Open `httpd-vhosts.conf`, under the `extra` folder. Edit the example virtual hosts block to resemble the ones below, replacing `example.com` with your domain.
 
-    {{< file-excerpt "/etc/httpd/conf/extra/httpd-vhosts.conf" conf >}}
+    {{< file-excerpt "/etc/httpd/conf/extra/httpd-vhosts.conf" aconf >}}
 <VirtualHost *:80>
              ServerAdmin webmaster@example.com
              ServerName example.com
@@ -220,7 +220,7 @@ Ensure that all lines noted above are uncommented. A commented line begins with 
 
 4.  Enable the PHP module in the `/etc/httpd/conf/httpd.conf` file by adding the following lines in the appropriate sections:
 
-    {{< file-excerpt "/etc/httpd/conf/httpd.conf" conf >}}
+    {{< file-excerpt "/etc/httpd/conf/httpd.conf" aconf >}}
 # Dynamic Shared Object (DSO) Support
         LoadModule php7_module modules/libphp7.so
         AddHandler php7-script php

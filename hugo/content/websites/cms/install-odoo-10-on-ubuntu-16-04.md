@@ -168,7 +168,7 @@ While wkhtmltopdf version 0.12.2.4 is available in the official Ubuntu 16.04 rep
 
 2.  Next, modify the configuration file. The complete file should look similar to this, depending on your deployment needs:
 
-      {{< file "/etc/odoo-server.conf" conf >}}
+      {{< file "/etc/odoo-server.conf" aconf >}}
 [options]
           admin_passwd = admin
           db_host = False 
@@ -349,7 +349,7 @@ The advantage of using the same server is that all dependencies are already meet
 
 2.  Modify the configuration file, paying attention to changes from previous installation especially the inclusion of `logfile` and the communication port:
 
-    {{< file "/etc/odoo-server.conf" conf >}}
+    {{< file "/etc/odoo-server.conf" aconf >}}
 [options]
         admin_passwd = admin
         db_host = False 

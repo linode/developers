@@ -66,7 +66,7 @@ Apache 2.4 offers various multi-processing modules (MPMs) to handle connections.
 
 1.  Open `/etc/apache2/mods-available/mpm_prefork.conf` in your text editor and edit the values as needed. The following is optimized for a 2GB Linode:
 
-    {{< file "/etc/apache2/mods-available/mpm_prefork.conf" conf >}}
+    {{< file "/etc/apache2/mods-available/mpm_prefork.conf" aconf >}}
 # prefork MPM
         # StartServers: number of server processes to start
         # MinSpareServers: minimum number of server processes which are kept spare
@@ -99,7 +99,7 @@ If you choose to keep the *event module* enabled, these settings are suggested f
 
 1.  Open `/etc/apache2/mods-available/mpm_event.conf` in your text editor and edit the values as needed:
 
-    {{< file "/etc/apache2/mods-available/mpm_event.conf" conf >}}
+    {{< file "/etc/apache2/mods-available/mpm_event.conf" aconf >}}
 # event MPM
         # StartServers: initial number of server processes to start
         # MinSpareThreads: minimum number of worker threads which are kept spare
@@ -134,7 +134,7 @@ Apache supports *name-based virtual hosting*, which allows you to host multiple 
 
 2.  Create an `example.com.conf` file in `/etc/apache2/sites-available` with your text editor, replacing instances of `example.com` with your own domain URL in both the configuration file and in the file name:
 
-    {{< file "/etc/apache2/sites-available/example.com.conf" conf >}}
+    {{< file "/etc/apache2/sites-available/example.com.conf" aconf >}}
 <VirtualHost *:80>
              ServerAdmin webmaster@example.com
              ServerName example.com
@@ -152,7 +152,7 @@ Apache supports *name-based virtual hosting*, which allows you to host multiple 
 
 If you would like to enable Perl support, add the following lines above the closing `</VirtualHost>` tag:
 
-{{< file-excerpt "/etc/apache2/sites-available/example.com.conf" conf >}}
+{{< file-excerpt "/etc/apache2/sites-available/example.com.conf" aconf >}}
 Options ExecCGI
 AddHandler cgi-script .pl
 

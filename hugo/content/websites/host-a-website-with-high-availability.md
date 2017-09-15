@@ -215,7 +215,7 @@ We will configure the cluster to use XtraBackup for *state snapshot transfer* (S
 
 1.  Make the following changes to `/etc/my.cnf` on each of your database nodes:
 
-    {{< file-excerpt "/etc/my.cnf" conf >}}
+    {{< file-excerpt "/etc/my.cnf" aconf >}}
 [mysqld]
         bind_address                   = 0.0.0.0
 
@@ -379,7 +379,7 @@ With file system and database clusters set up, you'll now need web servers to de
 
 Before you start, edit the `/etc/hosts` file on each application node to include the private IP address and hostname for each application node and for the file system nodes we set up previously:
 
-{{< file-excerpt "/etc/hosts" conf >}}
+{{< file-excerpt "/etc/hosts" aconf >}}
 192.168.0.1    app1.yourdomain.com        app1
   192.168.2.3    app2.yourdomain.com        app2
   192.168.4.5    app3.yourdomain.com        app3
@@ -429,7 +429,7 @@ Next, we'll mount the Gluster volume on our application servers. The steps in th
 
 2.  Add the following line to `/etc/fstab`, substituting your own GlusterFS hostnames for `gluster1`, `gluster2` and `gluster3`, and your volume name for `example-volume` if appropriate:
 
-    {{< file-excerpt "/etc/fstab" conf >}}
+    {{< file-excerpt "/etc/fstab" aconf >}}
 gluster1:/example-volume  /srv/www  glusterfs defaults,_netdev,backup-volfile-servers=gluster2:gluster3 0 0
 {{< /file-excerpt >}}
 
@@ -441,7 +441,7 @@ gluster1:/example-volume  /srv/www  glusterfs defaults,_netdev,backup-volfile-se
 
 4.  Set the document root to `/srv/www` so that Apache serves content from the Gluster volume. Edit your `welcome.conf` file to match the following:
 
-    {{< file "/etc/httpd/conf.d/welcome.conf" conf >}}
+    {{< file "/etc/httpd/conf.d/welcome.conf" aconf >}}
 <VirtualHost *:80>
             DocumentRoot "/srv/www"
             <Directory /srv/www>
@@ -513,7 +513,7 @@ First, we'll configure IP failover on `galera2` and `galera3` to take on the flo
 
 1.  Edit the following line in your `/etc/sysconfig/keepalived` file on all database nodes, adding `-P` to enable virtual router redundancy protocol:
 
-    {{< file-excerpt "/etc/sysconfig/keepalived" conf >}}
+    {{< file-excerpt "/etc/sysconfig/keepalived" aconf >}}
 KEEPALIVED_OPTIONS="-D -P"
 {{< /file-excerpt >}}
 
@@ -524,7 +524,7 @@ KEEPALIVED_OPTIONS="-D -P"
 
 3.  On all database nodes, replace the original file with the following:
 
-    {{< file "/etc/keepalived/keepalived.conf" conf >}}
+    {{< file "/etc/keepalived/keepalived.conf" aconf >}}
 ! Configuration File for keepalived
         global_defs {
             notification_email {

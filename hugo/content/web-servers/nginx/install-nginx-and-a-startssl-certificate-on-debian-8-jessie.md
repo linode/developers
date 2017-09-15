@@ -249,7 +249,7 @@ The text of the `.crt` file will appear to have two certificates in it. It is im
 
 1.  By default, nginx is configured to only serve HTTP requests on TCP port 80. To make use of SSL, you will need to configure nginx to serve HTTPS requests on TCP port 443. Open the sample nginx SSL server block configuration file and adjust your configuration so that it matches the example below.
 
-    {{< file "/etc/nginx/conf.d/example_ssl.conf" conf >}}
+    {{< file "/etc/nginx/conf.d/example_ssl.conf" aconf >}}
 # HTTPS server
         #
         server {
@@ -279,7 +279,7 @@ The text of the `.crt` file will appear to have two certificates in it. It is im
 
     Depending on how you installed nginx, this file may not have been created by default. For example, if you compiled nginx from source, you will need to create the `example_ssl.conf` file and copy this configuration into it. If that is the case, you will also need to add the following line to the `http` block in your main nginx configuration file:
 
-    {{< file-excerpt "/etc/nginx/nginx.conf" conf >}}
+    {{< file-excerpt "/etc/nginx/nginx.conf" aconf >}}
 include     /etc/nginx/conf.d/*.conf;
 {{< /file-excerpt >}}
 

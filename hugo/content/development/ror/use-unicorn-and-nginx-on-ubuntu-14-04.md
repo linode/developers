@@ -96,7 +96,7 @@ This guide is written for a non-root user. Commands that require elevated privil
 
 2.  Create the file `config/unicorn.rb` which contains the unicorn configuration and paste the following configuration in the file.
 
-    {{< file "/home/username/example/config/unicorn.rb" config >}}
+    {{< file "/home/username/example/config/unicorn.rb" aconf >}}
 # set path to the application
         app_dir git File.expand_path("../..", __FILE__)
         shared_dir = "#{app_dir}/shared"

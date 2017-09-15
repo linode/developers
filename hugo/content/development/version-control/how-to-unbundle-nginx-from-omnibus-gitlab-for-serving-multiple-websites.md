@@ -119,7 +119,7 @@ If you're using Ubuntu 16.04, replace `trusty` with `xenial` in the above comman
 
 6.  Enable the new Passenger module by uncommenting the `include /etc/nginx/passenger.conf;` line from the `/etc/nginx/nginx.conf` file:
 
-    {{< file-excerpt "/etc/nginx/nginx.conf" conf >}}
+    {{< file-excerpt "/etc/nginx/nginx.conf" aconf >}}
 include /etc/nginx/passenger.conf;
 {{< /file-excerpt >}}
 

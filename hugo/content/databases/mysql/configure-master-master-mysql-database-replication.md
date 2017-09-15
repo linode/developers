@@ -38,7 +38,7 @@ Use the following commands to install MySQL on each of the Linodes:
 
     **Server 1:**
 
-    {{< file-excerpt "/etc/mysql/my.cnf" conf >}}
+    {{< file-excerpt "/etc/mysql/my.cnf" aconf >}}
 server_id           = 1
     log_bin             = /var/log/mysql/mysql-bin.log
     log_bin_index       = /var/log/mysql/mysql-bin.log.index
@@ -54,7 +54,7 @@ server_id           = 1
 
     **Server 2:**
 
-    {{< file-excerpt "/etc/mysql/my.cnf" conf >}}
+    {{< file-excerpt "/etc/mysql/my.cnf" aconf >}}
 server_id           = 2
     log_bin             = /var/log/mysql/mysql-bin.log
     log_bin_index       = /var/log/mysql/mysql-bin.log.index

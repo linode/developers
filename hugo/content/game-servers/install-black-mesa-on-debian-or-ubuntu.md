@@ -108,7 +108,7 @@ At the time of writing this guide, Black Mesa has yet to share with customers an
 ###Server.cfg
 The **server.cfg** file contains the settings of your server. It is not needed because you can start the server every time by specifying desidered values using parameters.
 
-{{< file-excerpt "/home/steam/Steam/steamapps/common/Black Mesa Dedicated Server/bms/cfg/server.cfg" config >}}
+{{< file-excerpt "/home/steam/Steam/steamapps/common/Black Mesa Dedicated Server/bms/cfg/server.cfg" aconf >}}
 // Black Mesa server.cfg file
 hostname "Black Mesa: Deathmatch" --> Your server's name.
 mp_timelimit 900                  --> Round time limit.
@@ -165,7 +165,7 @@ Mesa Dedicated Server/bms/maps/`.
 The add-ons to be loaded need to be specified in the **addonlist.txt** file.
 In the following example, maps that were downloaded from workshop to the list are added to **dm_boom** and **dm_shipping**:
 
-{{< file "/home/steam/Steam/steamapps/common/Black Mesa Dedicated Server/bms/addonlist.txt" txt >}}
+{{< file "/home/steam/Steam/steamapps/common/Black Mesa Dedicated Server/bms/addonlist.txt" resource >}}
 "AddonList"
   {
    "workshop\432070352.vpk"		"1"
@@ -185,7 +185,7 @@ You can find more maps in the [Steam Workshop](http://steamcommunity.com/worksho
 When a match ends, the server starts a new one with the next map in the rotation list.
 The map rotation list is in **mapcycle.txt**:
 
-{{< file-excerpt "/home/steam/Steam/steamapps/common/Black Mesa Dedicated Server/bms/cfg/mapcycle.txt" txt >}}
+{{< file-excerpt "/home/steam/Steam/steamapps/common/Black Mesa Dedicated Server/bms/cfg/mapcycle.txt" resource >}}
 dm_bounce
 dm_gasworks
 dm_lambdabunker

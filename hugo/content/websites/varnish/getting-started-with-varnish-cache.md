@@ -128,14 +128,14 @@ To allow Varnish to communicate with your web server, you'll need to modify a fe
 
     **Apache**:
 
-    {{< file-excerpt "/etc/apache2/sites-available/example.com.conf" conf >}}
+    {{< file-excerpt "/etc/apache2/sites-available/example.com.conf" aconf >}}
 <VirtualHost *:8080>
 {{< /file-excerpt >}}
 
 
     **nginx**:
     
-    {{< file-excerpt "/etc/nginx/sites-available/example.com" conf >}}
+    {{< file-excerpt "/etc/nginx/sites-available/example.com" aconf >}}
 listen 8080;
         listen [::]:8080;
 {{< /file-excerpt >}}

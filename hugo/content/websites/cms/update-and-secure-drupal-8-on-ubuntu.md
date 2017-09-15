@@ -124,7 +124,7 @@ chmod 757 /var/www/html/example.com/public_html/sites/default/settings.php
 
 1.  Increase password security by adding the following to `services.yml`:
 
-    {{< file-excerpt "/var/www/html/example.com/public_html/sites/default/services.yml" yml >}}
+    {{< file-excerpt "/var/www/html/example.com/public_html/sites/default/services.yml" yaml >}}
 # Increase the number of password hash iterations. Minimum = 7; Maximum = 30; Default = 16
         services:
         password:

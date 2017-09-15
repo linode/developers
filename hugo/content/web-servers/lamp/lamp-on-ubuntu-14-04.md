@@ -44,14 +44,14 @@ This guide is written for a non-root user. Commands that require elevated privil
 
 2.  Edit the main Apache configuration file, `apache2.conf`, to adjust the KeepAlive setting:
 
-    {{< file "/etc/apache2/apache2.conf" conf >}}
+    {{< file "/etc/apache2/apache2.conf" aconf >}}
 KeepAlive Off
 {{< /file >}}
 
 
 3.  The default *multi-processing module* (MPM) for Apache is the *event* module, but by default PHP uses the *prefork* module. Open the `mpm_prefork.conf` file located in `/etc/apache2/mods-available` and edit the configuration. Below is the suggested values for a **2GB Linode**:
 
-    {{< file "/etc/apache2/mods-available/mpm_prefork.conf" conf >}}
+    {{< file "/etc/apache2/mods-available/mpm_prefork.conf" aconf >}}
 <IfModule mpm_prefork_module>
                 StartServers            4
                 MinSpareServers         20

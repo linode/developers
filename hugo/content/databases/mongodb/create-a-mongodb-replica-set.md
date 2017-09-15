@@ -64,7 +64,7 @@ Whether you're using public or private IP addresses to send data, you'll need to
 
 Each member of your replica set should have a hostname that identifies it as a member of the set. This way, you'll be able to keep your infrastructure organized at scale (for example, if you add more replica sets). In order to simplify the configuration of your replica set, add the following lines to the `/etc/hosts` file on each member of the replica set:
 
-{{< file-excerpt "/etc/hosts" conf >}}
+{{< file-excerpt "/etc/hosts" aconf >}}
 192.0.2.1    mongo-repl-1
     192.0.2.2    mongo-repl-2
     192.0.2.3    mongo-repl-3
@@ -127,7 +127,7 @@ In this section you'll create a key file that will be used to secure authenticat
 
 On each of your Linodes, make the following changes to your `/etc/mongod.conf` file:
 
-{{< file-excerpt "/etc/mongod.conf" conf >}}
+{{< file-excerpt "/etc/mongod.conf" aconf >}}
 net:
       port: 27017
       bindIp: 127.0.0.1,192.0.2.1

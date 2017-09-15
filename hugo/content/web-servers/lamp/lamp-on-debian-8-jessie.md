@@ -54,14 +54,14 @@ Prior to installing your LAMP stack ensure that:
 
 2.  Edit the main Apache configuration file and turn off the `KeepAlive` setting:
 
-    {{< file "/etc/apache2/apache2.conf" conf >}}
+    {{< file "/etc/apache2/apache2.conf" aconf >}}
 KeepAlive Off
 {{< /file >}}
 
 
 3.  Open `/etc/apache2/mods-available/mpm_prefork.conf` in your text editor and edit the values as needed. The following is optimized for a 2GB Linode:
 
-    {{< file "/etc/apache2/mods-available/mpm_prefork.conf" conf >}}
+    {{< file "/etc/apache2/mods-available/mpm_prefork.conf" aconf >}}
 # prefork MPM
         # StartServers: number of server processes to start
         # MinSpareServers: minimum number of server processes which are kept spare
@@ -109,7 +109,7 @@ There can be as many virtual hosts files as needed to support the amount of doma
 
 2.  Create an `example.com.conf` file in `/etc/apache2/sites-available` with your text editor, replacing instances of `example.com` with your own domain URL in both the configuration file and in the file name:
 
-    {{< file "/etc/apache2/sites-available/example.com.conf" conf >}}
+    {{< file "/etc/apache2/sites-available/example.com.conf" aconf >}}
 <VirtualHost *:80>
              ServerAdmin webmaster@example.com
              ServerName example.com
@@ -123,7 +123,7 @@ There can be as many virtual hosts files as needed to support the amount of doma
 
     Repeat this process for any other domains you host:
 
-    {{< file "/etc/apache2/sites-available/example.org.conf" conf >}}
+    {{< file "/etc/apache2/sites-available/example.org.conf" aconf >}}
 <VirtualHost *:80>
              ServerAdmin webmaster@example.org     
              ServerName example.org

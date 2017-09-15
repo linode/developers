@@ -119,7 +119,7 @@ Depending on your distribution, this file's location may vary. For example, it c
 
     If you are using Apache 2.2, then you will need to replace the `LogLevel alert rewrite:trace` directive with the following:
 
-    {{< file-excerpt "/etc/apache2/sites-available/example.com.conf" apache2 >}}
+    {{< file-excerpt "/etc/apache2/sites-available/example.com.conf" aconf >}}
 RewriteLog       /var/log/apache2/rewrite.log
           RewriteLogLevel  5  # Adjust log verbosity as required. ex. 1-9
 {{< /file-excerpt >}}

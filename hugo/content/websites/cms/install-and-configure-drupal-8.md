@@ -64,7 +64,7 @@ Ensure that the version number matches the Drupal 8 version you wish to download
 
 5.  Enforce [trusted hostnames](https://www.drupal.org/node/2410395) with those that users will access your site by.
 
-    {{< file-excerpt "/var/www/html/example.com/public_html/sites/default/settings.php" conf >}}
+    {{< file-excerpt "/var/www/html/example.com/public_html/sites/default/settings.php" aconf >}}
 $settings['trusted_host_patterns'] = array(
           '^www\.example\.com$',
           '^example\.com$',
@@ -86,7 +86,7 @@ $settings['trusted_host_patterns'] = array(
 
 2.  Then specify the rewrite conditions for DocumentRoot in Apache's configuration file.
 
-    {{< file-excerpt "/etc/apache2/apache2.conf" conf >}}
+    {{< file-excerpt "/etc/apache2/apache2.conf" aconf >}}
 <Directory /var/www/>
         Options Indexes FollowSymLinks
         AllowOverride All

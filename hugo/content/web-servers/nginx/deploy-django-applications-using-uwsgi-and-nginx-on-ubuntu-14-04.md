@@ -138,7 +138,7 @@ If your application uses another database, skip installing `python-sqlite` and `
 
 3.  Create an Upstart job for uWSGI:
 
-    {{< file "/etc/init/uwsgi.conf" conf >}}
+    {{< file "/etc/init/uwsgi.conf" aconf >}}
 description "uWSGI"
         start on runlevel [2345]
         stop on runlevel [06]
@@ -165,7 +165,7 @@ description "uWSGI"
 
 2.  Create an nginx site configuration file for your Django application:
 
-    {{< file "/etc/nginx/sites-available/sample" conf >}}
+    {{< file "/etc/nginx/sites-available/sample" aconf >}}
 server {
             listen 80;
             server_name example.com;

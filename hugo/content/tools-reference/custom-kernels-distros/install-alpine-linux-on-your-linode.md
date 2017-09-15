@@ -124,7 +124,7 @@ In this section, we will modify critical system files. It is recommended that yo
 
 1.  Configure your file systems table (*fstab*), entering a single hard tab between each column. This file specifies how each disk drive is initialized or mounted into the overall filesystem:
 
-    {{< file "/alpine/etc/fstab" conf >}}
+    {{< file "/alpine/etc/fstab" aconf >}}
 /dev/sdb    /       ext4    defaults,noatime    0   0
         /dev/sda    /boot   ext4    defaults,noatime    0   1
         /dev/sdc    swap    swap    defaults    0   0
@@ -133,7 +133,7 @@ In this section, we will modify critical system files. It is recommended that yo
 
 2.  Modify the *inittab*. This file contains options to be read when the system boots or changes run states:
 
-    {{< file "/alpine/etc/inittab" conf >}}
+    {{< file "/alpine/etc/inittab" aconf >}}
 # /etc/inittab
 
         ::sysinit:/sbin/rc sysinit
@@ -157,7 +157,7 @@ In this section, we will modify critical system files. It is recommended that yo
 
     Create a new file, `grub.cfg` within this directory, and add the following contents. This file specifies configuration options for GRUB 2 to use during the boot process:
 
-    {{< file "/alpine/boot/grub/grub.cfg" conf >}}
+    {{< file "/alpine/boot/grub/grub.cfg" aconf >}}
 set root=(hd0)
         set default="Alpine Linux"
         set timeout=0
@@ -175,7 +175,7 @@ set root=(hd0)
 
     Create a new file, `mkinitfs.conf`, within this directory and add the following contents. This file specifies options for building the initial RAM file system (*initramfs*):
 
-    {{< file "/alpine/etc/mkinitfs/mkinitfs.conf" conf >}}
+    {{< file "/alpine/etc/mkinitfs/mkinitfs.conf" aconf >}}
 features="ata ide scsi virtio base ext4"
 {{< /file >}}
 

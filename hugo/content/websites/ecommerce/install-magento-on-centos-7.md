@@ -60,7 +60,7 @@ Since Magento will be served by Apache, some additional configuration is needed 
 
 2.  Modify the virtual host file for your Magento site to resemble the example below. If you have not previously created a virtual host file, do so now and refer to our [Apache on CentOS 7](/docs/websites/apache/install-and-configure-apache-on-centos-7) guide for additional guidance.
 
-    {{< file "/etc/httpd/conf.d/vhost.conf" conf >}}
+    {{< file "/etc/httpd/conf.d/vhost.conf" aconf >}}
 <Directory /var/www/html/example.com/public_html>
             Require all granted
         </Directory>

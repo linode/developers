@@ -161,7 +161,7 @@ Install Python libraries using the following commands:
 
 2.  Next we need to modify the configuration file. The finished file should look similar to this depending on your deploying needs:
 
-    {{< file "/etc/odoo-server.conf" conf >}}
+    {{< file "/etc/odoo-server.conf" aconf >}}
 [options]
         admin_passwd = admin
         db_host = False 

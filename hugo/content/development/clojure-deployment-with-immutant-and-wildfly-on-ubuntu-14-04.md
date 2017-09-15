@@ -169,7 +169,7 @@ Make sure port 3000 is open in firewall for this to work.
 
 2.  Create file `/etc/nginx/sites-available/wildfly` with the following content:
 
-    {{< file "/etc/nginx/sites-available/wildfly" conf >}}
+    {{< file "/etc/nginx/sites-available/wildfly" aconf >}}
 upstream http_backend {
             server 127.0.0.1:8080;
         }

@@ -65,7 +65,7 @@ Instead of installing Apache, MySQL, and PHP separately, tasksel offers a conven
 
     The state of `KeepAlive` depends on the type of site you plan to run. Please read more about your specific use-case [here](https://httpd.apache.org/docs/2.4/mod/core.html#keepalive) open the Apache config file, `apache2.conf`, and adjust the `KeepAlive` setting:
 
-    {{< file "/etc/apache2/apache2.conf" conf >}}
+    {{< file "/etc/apache2/apache2.conf" aconf >}}
 KeepAlive On
         MaxKeepAliveRequests 50
         KeepAliveTimeout 5
@@ -81,7 +81,7 @@ The `MaxKeepAliveRequests` setting controls the maximum number of requests durin
 
 3.  The default *multi-processing module* (MPM) is the **prefork** module. `Mpm_prefork` is the module that is compatible with most systems. Since the LAMP stack requires PHP, it may be best to stick with the default. Open the `mpm_prefork.conf` file located in `/etc/apache2/mods-available` and edit the configuration. Below are the suggested values for a **2GB Linode**:
 
-    {{< file "/etc/apache2/mods-available/mpm_prefork.conf" conf >}}
+    {{< file "/etc/apache2/mods-available/mpm_prefork.conf" aconf >}}
 <IfModule mpm_prefork_module>
                 StartServers            4
                 MinSpareServers         3

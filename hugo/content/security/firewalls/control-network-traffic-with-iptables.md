@@ -304,7 +304,7 @@ Appropriate firewall rules depend on the services being run. Below are iptables 
 
 **IPv4**
 
-{{< file "/tmp/v4" conf >}}
+{{< file "/tmp/v4" aconf >}}
 *filter
 
     # Allow all loopback (lo0) traffic and reject traffic
@@ -360,7 +360,7 @@ Appropriate firewall rules depend on the services being run. Below are iptables 
 
 If you would like to supplement your web server's IPv4 rules with IPv6 as well, this ruleset will allow HTTP/S access and all ICMP functions.
 
-{{< file "/tmp/v6" conf >}}
+{{< file "/tmp/v6" aconf >}}
 *filter
 
     # Allow all loopback (lo0) traffic and reject traffic

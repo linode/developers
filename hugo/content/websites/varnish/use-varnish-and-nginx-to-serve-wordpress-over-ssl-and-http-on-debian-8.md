@@ -69,14 +69,14 @@ For all steps in this section, replace `203.0.113.100` with your Linodes public 
 
 2.  Open `/etc/default/varnish` with sudo rights. To make sure Varnish starts at boot, under `Should we start varnishd at boot?` set the `START` to `yes`:
 
-    {{< file-excerpt "/etc/default/varnish" conf >}}
+    {{< file-excerpt "/etc/default/varnish" aconf >}}
 START=yes
 {{< /file-excerpt >}}
 
 
 3. In the `Alternative 2` section, make the following changes to `DAEMON_OPTS`:
 
-    {{< file-excerpt "/etc/default/varnish" conf >}}
+    {{< file-excerpt "/etc/default/varnish" aconf >}}
 DAEMON_OPTS="-a :80 \
                     -T localhost:6082 \
                     -f /etc/varnish/custom.vcl \
@@ -99,14 +99,14 @@ DAEMON_OPTS="-a :80 \
 
 2.  Varnish configuration uses a domain-specific language called Varnish Configuration Language (VCL). First, specify the VCL version used:
 
-    {{< file-excerpt "/etc/varnish/custom.vcl" conf >}}
+    {{< file-excerpt "/etc/varnish/custom.vcl" aconf >}}
 vcl 4.0;
 {{< /file-excerpt >}}
 
 
 3.  Specify that the backend (nginx) is listening on port `8080`, by adding the `backend default` directive:
 
-    {{< file-excerpt "/etc/varnish/custom.vcl" conf >}}
+    {{< file-excerpt "/etc/varnish/custom.vcl" aconf >}}
 backend default {
         .host = "localhost";
         .port = "8080";
@@ -116,7 +116,7 @@ backend default {
 
 4.  Allow cache-purging requests only from localhost using the `acl` directive:
 
-    {{< file-excerpt "/etc/varnish/custom.vcl" conf >}}
+    {{< file-excerpt "/etc/varnish/custom.vcl" aconf >}}
 acl purger {
         "localhost";
         "203.0.113.100";
@@ -129,7 +129,7 @@ acl purger {
 
 5.  Create the `sub vcl_recv` routine, which is used when a request is sent by a HTTP client.
 
-    {{< file-excerpt "/etc/varnish/custom.vcl" conf >}}
+    {{< file-excerpt "/etc/varnish/custom.vcl" aconf >}}
 sub vcl_recv {
 
 
@@ -141,7 +141,7 @@ sub vcl_recv {
 
     -  Redirect HTTP requests to HTTPS for our SSL website:
 
-        {{< file-excerpt "/etc/varnish/custom.vcl" conf >}}
+        {{< file-excerpt "/etc/varnish/custom.vcl" aconf >}}
 if (client.ip != "127.0.0.1" && req.http.host ~ "example-over-https.com") {
              set req.http.x-redir = "https://www.example-over-https.com" + req.url;
              return(synth(850, ""));
@@ -153,7 +153,7 @@ if (client.ip != "127.0.0.1" && req.http.host ~ "example-over-https.com") {
 
     -   Allow cache-purging requests only from the IP addresses in the above `acl purger` section (Step 4). If a purge request comes from a different IP address, an error message will be produced:
     
-        {{< file-excerpt "/etc/varnish/custom.vcl" conf >}}
+        {{< file-excerpt "/etc/varnish/custom.vcl" aconf >}}
 if (req.method == "PURGE") {
              if (!client.ip ~ purger) {
              return(synth(405, "This IP is not allowed to send PURGE requests."));
@@ -165,7 +165,7 @@ if (req.method == "PURGE") {
 
     -   Change the `X-Forwarded-For` header:
     
-        {{< file-excerpt "/etc/varnish/custom.vcl" conf >}}
+        {{< file-excerpt "/etc/varnish/custom.vcl" aconf >}}
 if (req.restarts == 0) {
              if (req.http.X-Forwarded-For) {
              set req.http.X-Forwarded-For = client.ip;
@@ -176,7 +176,7 @@ if (req.restarts == 0) {
 
     -   Exclude POST requests or those with basic authentication from caching:
     
-        {{< file-excerpt "/etc/varnish/custom.vcl" conf >}}
+        {{< file-excerpt "/etc/varnish/custom.vcl" aconf >}}
 if (req.http.Authorization || req.method == "POST") {
              return (pass);
              }
@@ -185,7 +185,7 @@ if (req.http.Authorization || req.method == "POST") {
 
     -   Exclude RSS feeds from caching:
     
-        {{< file-excerpt "/etc/varnish/custom.vcl" conf >}}
+        {{< file-excerpt "/etc/varnish/custom.vcl" aconf >}}
 if (req.url ~ "/feed") {
              return (pass);
              }
@@ -194,7 +194,7 @@ if (req.url ~ "/feed") {
 
     -   Tell Varnish not to cache the WordPress admin and login pages:
     
-        {{< file-excerpt "/etc/varnish/custom.vcl" conf >}}
+        {{< file-excerpt "/etc/varnish/custom.vcl" aconf >}}
 if (req.url ~ "wp-admin|wp-login") {
              return (pass);
              }
@@ -203,7 +203,7 @@ if (req.url ~ "wp-admin|wp-login") {
 
     -   WordPress sets many cookies that are safe to ignore. To remove them, add the following lines:
 
-        {{< file-excerpt "/etc/varnish/custom.vcl" conf >}}
+        {{< file-excerpt "/etc/varnish/custom.vcl" aconf >}}
 set req.http.cookie = regsuball(req.http.cookie, "wp-settings-\d+=[^;]+(; )?", "");
              set req.http.cookie = regsuball(req.http.cookie, "wp-settings-time-\d+=[^;]+(; )?", "");
              if (req.http.cookie == "") {
@@ -219,7 +219,7 @@ This is the final setting to be placed inside the `sub vcl_recv` routine. All di
 
 6.  Redirect HTTP to HTTPS using the `sub vcl_synth` directive with the following settings:
 
-    {{< file-excerpt "/etc/varnish/custom.vcl" conf >}}
+    {{< file-excerpt "/etc/varnish/custom.vcl" aconf >}}
 sub vcl_synth {
          if (resp.status == 850) {  
              set resp.http.Location = req.http.x-redir; 
@@ -232,7 +232,7 @@ sub vcl_synth {
 
 7.  Cache-purging for a particular page must occur each time we make edits to that page. To implement this, we use the `sub vcl_purge` directive:
 
-    {{< file-excerpt "/etc/varnish/custom.vcl" conf >}}
+    {{< file-excerpt "/etc/varnish/custom.vcl" aconf >}}
 sub vcl_purge {
          set req.method = "GET";
          set req.http.X-Purger = "Purged";
@@ -243,7 +243,7 @@ sub vcl_purge {
 
 8.  The `sub vcl_backend_response` directive is used to handle communication with the backend server, nginx. We use it to set the amount of time the content remains in the cache. We can also set a *grace period*, which determines how Varnish will serve content from the cache even if the backend server is down. Time can be set in seconds (s), minutes (m), hours (h) or days (d). Here, we've set the caching time to 24 hours, and the grace period to 1 hour, but you can adjust these settings based on your needs:
 
-    {{< file-excerpt "/etc/varnish/custom.vcl" conf >}}
+    {{< file-excerpt "/etc/varnish/custom.vcl" aconf >}}
 sub vcl_backend_response {
          set beresp.ttl = 24h;
          set beresp.grace = 1h;
@@ -252,7 +252,7 @@ sub vcl_backend_response {
 
 9.  Before closing the `vcl_backend_response` block with a bracket, allow cookies to be set only if you are on admin pages or WooCommerce-specific pages:
 
-    {{< file-excerpt "/etc/varnish/custom.vcl" conf >}}
+    {{< file-excerpt "/etc/varnish/custom.vcl" aconf >}}
 if (bereq.url !~ "wp-admin|wp-login|product|cart|checkout|my-account|/?remove_item=") {
          unset beresp.http.set-cookie;
          }
@@ -271,7 +271,7 @@ Special attention is required when enabling widgets that use cookies to store re
 
 10. Change the headers for purge requests by adding the `sub vcl_deliver` directive:
 
-    {{< file-excerpt "/etc/varnish/custom.vcl" conf >}}
+    {{< file-excerpt "/etc/varnish/custom.vcl" aconf >}}
 sub vcl_deliver {
         if (req.http.X-Purger) {
         set resp.http.X-Purger = req.http.X-Purger;
@@ -294,7 +294,7 @@ You can download the complete sample configuration file using the link above and
 
     Open `/lib/systemd/system/varnish.service` and find the two lines beginning with `ExecStart`. Modify them to look like this:
 
-    {{< file-excerpt "/lib/systemd/system/varnish.service" conf >}}
+    {{< file-excerpt "/lib/systemd/system/varnish.service" aconf >}}
 ExecStartPre=/usr/sbin/varnishd -C -f /etc/varnish/custom.vcl
         ExecStart=/usr/sbin/varnishd -a :80 -T localhost:6082 -f /etc/varnish/custom.vcl -S /etc/varnish/secret -s malloc,1G
 {{< /file-excerpt >}}
@@ -323,7 +323,7 @@ cgi.fix_pathinfo=0
 
 3.  Open `/etc/php5/fpm/pool.d/www.conf` and confirm that the `listen =` directive, which specifies the socket used by nginx to pass requests to PHP-FPM, matches the following:
 
-    {{< file-excerpt "/etc/php5/fpm/pool.d/www.conf" conf >}}
+    {{< file-excerpt "/etc/php5/fpm/pool.d/www.conf" aconf >}}
 listen = /var/run/php5-fpm.sock
 {{< /file-excerpt >}}
 

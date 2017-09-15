@@ -200,7 +200,7 @@ Creating a Simple ASP.NET Application
 
 Now that you have created a sample database, you can test your installation with the following test page. This will not only test your Mono installation but it will also will test your MySQL connector configuration. First create a file called `testdb.aspx` in your `DocumentRoot` and paste the text below into it. Be sure to change the `User ID` and `Password` to match what you specified above.
 
-{{< file-excerpt "/srv/www/example.org/public\\_html/testdb.aspx" aspx >}}
+{{< file-excerpt "/srv/www/example.org/public\\_html/testdb.aspx" aspx-cs >}}
 <%@ Page Language="C#" %>
     <%@ Import Namespace="System.Data" %>
     <%@ Import Namespace="MySql.Data.MySqlClient" %>

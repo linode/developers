@@ -354,7 +354,7 @@ Cookbook files are static documents that are run against the document in the sam
 
 2.  Create a file called `mpm_event.conf` and copy the MPM event configuration into it, changing any needed values:
 
-    {{< file "~/chef-repo/cookbooks/lamp-stack/files/default/mpm_event.conf" conf >}}
+    {{< file "~/chef-repo/cookbooks/lamp-stack/files/default/mpm_event.conf" aconf >}}
 <IfModule mpm_event_module>
                 StartServers        2
                 MinSpareThreads     6

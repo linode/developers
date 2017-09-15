@@ -60,7 +60,7 @@ This guide will walk through the steps necessary to install and configure Tiny T
 
 2.  Add a configuration file under `/etc/httpd/conf.d/ttrss.conf` to secure the directories that Tiny Tiny RSS will use:
 
-    {{< file "/etc/httpd/conf.d/ttrss.conf" conf >}}
+    {{< file "/etc/httpd/conf.d/ttrss.conf" aconf >}}
 <Directory /var/www/html/cache>
             Require all denied
         </Directory>

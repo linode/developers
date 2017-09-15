@@ -205,7 +205,7 @@ These guidelines are designed to optimize MySQL 5.5 and up for a **Linode 2GB**,
 
 3.  Edit following values:
 
-    {{< file-excerpt "/etc/mysql/my.cnf" conf >}}
+    {{< file-excerpt "/etc/mysql/my.cnf" aconf >}}
 max_allowed_packet = 1M
         thread_stack = 128K
 
@@ -223,7 +223,7 @@ In MySQL 5.6 and above, you may need to add these lines as one block with `[mysq
 
 4.  Add the following lines to the end of `my.cnf`:
 
-    {{< file-excerpt "/etc/mysql/my.cnf" conf >}}
+    {{< file-excerpt "/etc/mysql/my.cnf" aconf >}}
 table_open_cache = 32M
         key_buffer_size = 32M
 {{< /file-excerpt >}}

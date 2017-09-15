@@ -144,7 +144,7 @@ Multicraft for Linux depends on several software packages in order to run.
 
 5.  After reading the End User License Agreement, open the file `eula.txt` in your terminal and change the value of `eula` to `true`:
 
-    {{< file "/home/minecraft/multicraft/servers/server1/eula.txt" conf >}}
+    {{< file "/home/minecraft/multicraft/servers/server1/eula.txt" aconf >}}
 #By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).
         #Wed Feb 04 22:24:38 UTC 2015
         eula=true

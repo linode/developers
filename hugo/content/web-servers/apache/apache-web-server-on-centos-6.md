@@ -50,7 +50,7 @@ This guide is written for a non-root user. Commands that require elevated privil
 
 2.  Edit the main Apache configuration file to adjust the resource use settings. The settings shown below are a good starting point for a **Linode 2GB**:
 
-    {{< file "/etc/httpd/conf/httpd.conf" conf >}}
+    {{< file "/etc/httpd/conf/httpd.conf" aconf >}}
 KeepAlive Off
 
 
@@ -68,7 +68,7 @@ KeepAlive Off
 
 1.  Create a file under `/etc/httpd/conf.d` named `vhost.conf`. Replace instances of `example.com` with your own domain information:
 
-    {{< file-excerpt "/etc/httpd/conf.d/vhost.conf" conf >}}
+    {{< file-excerpt "/etc/httpd/conf.d/vhost.conf" aconf >}}
 <VirtualHost *:80> 
              ServerAdmin admin@example.org
              ServerName example.org

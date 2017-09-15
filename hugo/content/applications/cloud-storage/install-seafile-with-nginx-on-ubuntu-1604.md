@@ -82,7 +82,7 @@ If you don't want UFW allowing SSH on port 22 for both IPv4 and IPv6, you can de
 		
 7. Add the new hostname to `/etc/hosts`. The second line in the file should look like this:
 
-    {{< file-excerpt "/etc/hosts" conf >}}
+    {{< file-excerpt "/etc/hosts" aconf >}}
 127.0.1.1    members.linode.com     seafile
 {{< /file-excerpt >}}
 
@@ -123,7 +123,7 @@ If you don't already have an SSL/TLS certificate, you can create one. This certi
 
 2.  Create the site configuration file. The only line you need to change below is `server_name`. For more HTTPS configuration options, see our guide on [TLS Best Practices with nginx](/docs/web-servers/nginx/nginx-ssl-and-tls-deployment-best-practices).     
     
-    {{< file "/etc/nginx/sites-available/seafile.conf" conf >}}
+    {{< file "/etc/nginx/sites-available/seafile.conf" aconf >}}
 server{
 			listen 80;
 			server_name example.com;
@@ -242,7 +242,7 @@ The `seafile.sh` and `seahub.sh` scripts don't automatically run if your Linode 
 
 1.  Create the systemd unit files:
 
-    {{< file "/etc/systemd/system/seafile.service" config >}}
+    {{< file "/etc/systemd/system/seafile.service" aconf >}}
 [Unit]
         Description=Seafile Server
         After=network.target mysql.service
@@ -261,7 +261,7 @@ The `seafile.sh` and `seahub.sh` scripts don't automatically run if your Linode 
 
 
 
-    {{< file "/etc/systemd/system/seahub.service" config >}}
+    {{< file "/etc/systemd/system/seahub.service" aconf >}}
 [Unit]
         Description=Seafile Hub
         After=network.target seafile.service

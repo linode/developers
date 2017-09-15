@@ -232,6 +232,20 @@ func fixContent(path, s string) (string, error) {
 				shortcode = "file-excerpt"
 			}
 
+			// TODO(bep)  fix code fenced styles
+
+			// Correct to supported Pygments lexers
+			// See http://pygments.org/docs/lexers/
+			if style == "conf" || style == "config" || style == "apache2" || style == "cnf" || style == "httpd" {
+				style = "aconf" // Apache conf
+			} else if style == "aspx" {
+				style = "aspx-cs"
+			} else if style == "yml" {
+				style = "yaml"
+			} else if style == "text" || style == "txt" || style == "pp" || style == "log" {
+				style = "resource"
+			}
+
 			if style != "" {
 				style += " "
 			}

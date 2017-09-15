@@ -61,7 +61,7 @@ Firewalld is the default iptables controller in CentOS 7+ and Fedora. See our [g
 
 2.  Create a firewalld service file for Terraria:
 
-    {{< file "/etc/firewalld/services/terraria.xml" config >}}
+    {{< file "/etc/firewalld/services/terraria.xml" aconf >}}
 <?xml version="1.0" encoding="utf-8"?>
         <service>
           <short>Terraria</short>

@@ -140,7 +140,7 @@ Setting up encryption between nodes offers additional security and protects the 
 2. Create a configuration file for openssl to help automate the certificate creation process. Copy the contents below into a new file and title it *rootCAcert.conf*. The contents in **bold** should be updated with your specific information.
 	
 
-{{< file "**~/.keystore/rootCAcert.conf**" conf >}}
+{{< file "**~/.keystore/rootCAcert.conf**" aconf >}}
 [ req ]
 	distinguished_name     = req_distinguished_name
 	prompt                 = no

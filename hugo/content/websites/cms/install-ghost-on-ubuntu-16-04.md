@@ -72,7 +72,7 @@ Next you'll configure nginx to receive requests and pass them along to Ghost.
 
 4. Paste the following configuration code into the file. Change `example.com` to your blog's domain.
 
-    {{< file "/etc/nginx/sites-available/ghost" conf >}}
+    {{< file "/etc/nginx/sites-available/ghost" aconf >}}
 server {
           listen 80;
 

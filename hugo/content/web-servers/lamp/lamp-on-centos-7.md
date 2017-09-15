@@ -59,7 +59,7 @@ cp /etc/httpd/conf/httpd.conf ~/httpd.conf.backup
 
 {{< /note >}}
 
-    {{< file-excerpt "/etc/httpd/conf/httpd.conf" conf >}}
+    {{< file-excerpt "/etc/httpd/conf/httpd.conf" aconf >}}
 KeepAlive Off
 
 
@@ -81,7 +81,7 @@ There are different ways to set up virtual hosts; however, the method below is r
 
 1.  Within the `conf.d` directory create `vhost.conf` to store your virtual host configurations. The example below is a template for website `example.com`; change the necessary values for your domain:
 
-    {{< file-excerpt "/etc/httpd/conf.d/vhost.conf" conf >}}
+    {{< file-excerpt "/etc/httpd/conf.d/vhost.conf" aconf >}}
 NameVirtualHost *:80
 
         <VirtualHost *:80>

@@ -222,7 +222,7 @@ Vagrant.configure('2') do |config|
 
 4.  Because Vagrant is often used for development environments, we want to host Apache on a port other than 80. Create `ports1.conf`, as referenced in the shell script above. The port will be set to **6789**:
 
-    {{< file "~/vagrant-linode/apache2/ports1.conf" conf >}}
+    {{< file "~/vagrant-linode/apache2/ports1.conf" aconf >}}
 Listen 6789
 
         <IfModule ssl_module>
@@ -239,7 +239,7 @@ Listen 6789
 
         mkdir sites-available
 
-    {{< file "~/vagrant-linode/apache2/sites-available/vhost.conf" conf >}}
+    {{< file "~/vagrant-linode/apache2/sites-available/vhost.conf" aconf >}}
 <VirtualHost *:6789>
                 ServerAdmin webmaster@localhost
                 DocumentRoot /var/www/html

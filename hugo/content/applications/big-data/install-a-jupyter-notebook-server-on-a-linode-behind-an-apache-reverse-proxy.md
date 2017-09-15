@@ -72,7 +72,7 @@ The official documentation recommends generating a self-signed SSL certificate t
 
 4.  Uncomment the following lines in the configuration file:
 
-    {{< file-excerpt "/.jupyter/jupyter-notebook-config.py" conf >}}
+    {{< file-excerpt "/.jupyter/jupyter-notebook-config.py" aconf >}}
 c.NotebookApp.allow_origin = '*'
         c.NotebookApp.base_url = '/jupyter'
         c.NotebookApp.certfile = '/absolute/path/to/mycert.pem'
@@ -110,7 +110,7 @@ c.NotebookApp.allow_origin = '*'
 
 5.  Comment out `DocumentRoot` to allow `https://your-domain-name/` to redirect as `https://your-domain-name/jupyter`. The `<Location>` directive connects the websocket in order to allow the default kernel to run:
 
-    {{< file-excerpt "/etc/apache2/sites-available/jupyter.conf" conf >}}
+    {{< file-excerpt "/etc/apache2/sites-available/jupyter.conf" aconf >}}
 <VirtualHost *:443>
             ServerAdmin webmaster@localhost
         #   DocumentRoot /var/www/html

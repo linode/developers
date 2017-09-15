@@ -86,7 +86,7 @@ deb https://oss-binaries.phusionpassenger.com/apt/passenger precise main
 
 1.  Nginx is now installed on your system, but you need to enable support for Phusion Passenger. Edit the file `/etc/nginx/nginx.conf` and uncomment these lines:
 
-    {{< file "/etc/nginx/nginx.conf" conf >}}
+    {{< file "/etc/nginx/nginx.conf" aconf >}}
 passenger_root /usr/lib/ruby/vendor_ruby/phusion_passenger/locations.ini;
         passenger_ruby /usr/bin/ruby;
 {{< /file >}}

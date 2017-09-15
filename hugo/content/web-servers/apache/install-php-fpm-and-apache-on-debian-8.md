@@ -82,7 +82,7 @@ deb http://mirrors.linode.com/debian/ jessie main contrib non-free
 
 3.  Replace the contents of `fastcgi.conf` with the following:
 
-    {{< file "/etc/apache2/mods-enabled/fastcgi.conf" conf >}}
+    {{< file "/etc/apache2/mods-enabled/fastcgi.conf" aconf >}}
 <IfModule mod_fastcgi.c>
             AddType application/x-httpd-fastphp5 .php
             Action application/x-httpd-fastphp5 /php5-fcgi
@@ -129,7 +129,7 @@ This is particularly useful when running multiple client sites because you can g
 
 2.  For each pool, adjust the pool name, user and group, and socket name:
 
-    {{< file-excerpt "/etc/php5/fpm/pool.d/site1.conf" conf >}}
+    {{< file-excerpt "/etc/php5/fpm/pool.d/site1.conf" aconf >}}
 ; Start a new pool named 'www'.
         ; the variable $pool can we used in any directive and will be replaced by the
         ; pool name ('www' here)
@@ -189,7 +189,7 @@ In the file excerpt above, three sequential dots - `...`  - denote that there is
 
 4.  Add the `<IfModule mod_fastcgi.c>` block to each virtual host block:
 
-    {{< file-excerpt "/etc/apache2/sites-available/site1.com.conf" conf >}}
+    {{< file-excerpt "/etc/apache2/sites-available/site1.com.conf" aconf >}}
 <VirtualHost *:80>
 
         ...

@@ -61,7 +61,7 @@ cp /etc/httpd/conf/httpd.conf ~/httpd.conf.backup
 
 {{< /note >}}
 
-    {{< file-excerpt "/etc/httpd/conf/httpd.conf" conf >}}
+    {{< file-excerpt "/etc/httpd/conf/httpd.conf" aconf >}}
 KeepAlive Off
 
         ...

@@ -131,7 +131,7 @@ This downloads the latest version of BungeeCord. You can find older versions for
 
 3.  Edit the following block of the configuration, in order to add our existing Spigot servers:
 
-	{{< file-excerpt "config.yml" yml >}}
+	{{< file-excerpt "config.yml" yaml >}}
 servers:
           lobby:
             address: localhost:25565
@@ -142,7 +142,7 @@ servers:
 
     For the servers that are specified as examples in the introduction, it would look like:
     
-    {{< file-excerpt "config.yml" yml >}}
+    {{< file-excerpt "config.yml" yaml >}}
 servers:
           lobby:
             address: 203.0.113.112:25565

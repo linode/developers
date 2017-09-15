@@ -136,7 +136,7 @@ On Debian Jessie, your default IPv6 address provided by SLAAC will no longer be 
 
 2.  For /56 and /64 pools, addresses within your pool will be routed to your Linode's default IP address, or another Linode on your account in the same datacenter. You will see where the pool is routed under "Public IP Pools" within the Linode Manager's Remote Access tab. You must enable packet forwarding on that Linode to allow it to act as a router and enable external traffic from addresses within your IPv6 pool:
 
-    {{< file "/etc/sysctl.conf" conf >}}
+    {{< file "/etc/sysctl.conf" aconf >}}
 # Uncomment the next line to enable packet forwarding for IPv6
       #  Enabling this option disables Stateless Address Autoconfiguration
       #  based on Router Advertisements for this host

@@ -47,7 +47,7 @@ This guide is written for a non-root user. Commands that require elevated privil
 
 2.  Edit the main Apache configuration file to adjust the resource use settings. The settings shown below are a good starting point for a **Linode 2GB**:
 
-    {{< file-excerpt "/etc/apache2/apache2.conf" conf >}}
+    {{< file-excerpt "/etc/apache2/apache2.conf" aconf >}}
 KeepAlive Off
 
         <IfModule mpm_prefork_module>
@@ -67,7 +67,7 @@ There are different ways to set up virtual hosts; however, the method below is r
 
 1.  Within the `/etc/apache2/sites-available/` directory, create a configuration file for your website, `example.com.conf`, replacing `example.com` with your own domain information:
 
-    {{< file "/etc/apache2/sites-available/example.com.conf" conf >}}
+    {{< file "/etc/apache2/sites-available/example.com.conf" aconf >}}
 <VirtualHost *:80>
              ServerAdmin webmaster@example.com
              ServerName example.com

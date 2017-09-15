@@ -66,7 +66,7 @@ Since Magento will be served by Apache, some additional configuration is needed 
 
 3.  Modify the virtual host file for your Magento site to resemble the example below. If you have not previously created a virtual host file, do so now and refer to the [Configure Virtual Hosts](/docs/websites/lamp/install-lamp-on-ubuntu-16-04#configure-virtual-hosts) section of the LAMP on Ubuntu 16.04 guide for additional guidance.
 
-    {{< file "/etc/apache2/sites-available/example.com.conf" conf >}}
+    {{< file "/etc/apache2/sites-available/example.com.conf" aconf >}}
 <Directory /var/www/html/example.com/public_html>
             Require all granted
         </Directory>

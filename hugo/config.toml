@@ -2,6 +2,15 @@ baseURL = "https://linode.com/docs/"
 languageCode = "en-us"
 title = "Linode Guides & Tutorials"
 
+enableEmoji = true
+
+# Highlighting config (Pygments)
+# TODO(bep)
+pygmentsCodeFences = false
+
+# See https://help.farbox.com/pygments.html
+pygmentsStyle = "perldoc"
+
 disableKinds = ["taxonomy", "taxonomyTerm"]
 
 [taxonomies]

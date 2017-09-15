@@ -44,7 +44,7 @@ The steps required in this guide require root privileges. Be sure to run the ste
 
 3.	Edit the `/etc/postfix/main.cf` file to add your domain information, and allow for send-only mail, replacing `hostname.example.com` with your own hostname and domain:
 
-	{{< file-excerpt "/etc/postfix/main.cf" conf >}}
+	{{< file-excerpt "/etc/postfix/main.cf" aconf >}}
 myhostname = hostname.example.com
 		inet_interfaces = loopback-only
 {{< /file-excerpt >}}
@@ -58,7 +58,7 @@ myhostname = hostname.example.com
 
 4.	Edit `/etc/postfix/aliases` to uncomment `root` and alias it to `root@hostname.example.com`, replacing `hostname.example.com` with your own hostname and domain:
 
-	{{< file-excerpt "/etc/postfix/aliases" conf >}}
+	{{< file-excerpt "/etc/postfix/aliases" aconf >}}
 root:           root@hostname.example.com
 {{< /file-excerpt >}}
 

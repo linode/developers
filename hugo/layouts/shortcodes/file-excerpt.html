@@ -1,3 +1,13 @@
 <div class="file">
-{{ .Inner | markdownify }}
+<h3>This is a File</h3>
+{{ if .Params }}
+{{ if gt (len .Params ) 1 }}
+{{ $style := (.Get 1) }}
+{{- highlight .Inner  $style "" | -}}
+{{ else }}
+{{- highlight .Inner  "" "" | -}}
+{{ end }}
+{{ else }}
+{{- highlight .Inner  "" "" | -}}
+{{ end }}
 </div>

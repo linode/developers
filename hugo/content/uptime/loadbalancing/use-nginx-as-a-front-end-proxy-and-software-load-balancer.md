@@ -56,7 +56,7 @@ This guide assumes you are using Apache 2.4. Some path names will be slightly di
 
         sudo nano /etc/apache2/ports.conf
 
-    {{< file-excerpt "/etc/apache2/ports.conf" httpd >}}
+    {{< file-excerpt "/etc/apache2/ports.conf" aconf >}}
 NameVirtualHost *:8000
         Listen 8000
          
@@ -79,7 +79,7 @@ NameVirtualHost *:8000
 
         sudo nano /etc/apache2/sites-available/example.com.conf
 
-      {{< file-excerpt "/etc/apache2/sites-available/example.com.conf" httpd >}}
+      {{< file-excerpt "/etc/apache2/sites-available/example.com.conf" aconf >}}
 <VirtualHost *:8000>
           ServerAdmin webmaster@example.com
           ServerName  www.example.com
@@ -104,7 +104,7 @@ NameVirtualHost *:8000
 
         sudo nano /etc/apache2/apache2.conf
 
-    {{< file-excerpt "/etc/apache2/apache2.conf" httpd >}}
+    {{< file-excerpt "/etc/apache2/apache2.conf" aconf >}}
 #LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
         LogFormat "%{X-Forwarded-For}i %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
 {{< /file-excerpt >}}

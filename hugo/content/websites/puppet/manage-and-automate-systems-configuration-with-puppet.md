@@ -64,7 +64,7 @@ All Puppet files are stored in the `/etc/puppet/manifests/` directory, and Puppe
 
 Consider the following class, which is an elaboration on the canonical example Puppet `sudo` class:
 
-{{< file "/etc/puppet/manifests/classes/sudo.pp" pp >}}
+{{< file "/etc/puppet/manifests/classes/sudo.pp" resource >}}
 # /etc/puppet/manifests/classes/sudo.pp
 
     class sudo {
@@ -80,7 +80,7 @@ Consider the following class, which is an elaboration on the canonical example P
 
 In this example, configuration for the `/etc/sudoers` file is described, owned by the `root` user and group, with permissions of 440 that only allow read access for the owner and the members of the owner group. When applied, this manifest will ensure that the system in question has the above configuration applied to the `/etc/sudoers` file. The `source` specification allows puppet to copy a specific file from the Puppetmaster server. Distributing files with puppet will be covered [later](#serving_files).
 
-{{< file "/etc/puppet/manifests/site.pp" pp >}}
+{{< file "/etc/puppet/manifests/site.pp" resource >}}
 # /etc/puppet/manifests/site.pp
 
     import "classes/*"
@@ -99,7 +99,7 @@ By default, `puppetd` runs as a client on the machine that `puppetmasterd` is in
 
 As above, the `default` node provides a space to specify the configuration for all Puppet nodes. Of course, it is also possible to configure node descriptions in more specific terms. Consider the following setup:
 
-{{< file-excerpt "/etc/puppet/manifests/site.pp" pp >}}
+{{< file-excerpt "/etc/puppet/manifests/site.pp" resource >}}
 # /etc/puppet/manifests/site.pp
 
     import "classes/*"
@@ -179,7 +179,7 @@ In the Puppet fileserver configuration, the order of `allow` and `deny` statemen
 
 You may specify a `source` for a file object in Puppet manifests. Consider the following example:
 
-{{< file-excerpt "Puppet Configuration Manifest" pp >}}
+{{< file-excerpt "Puppet Configuration Manifest" resource >}}
 file { "/etc/httpd/conf.d":
         source => "puppet://example.com/files/web-server/httpd/conf.d",
         recurse => "true"
@@ -192,7 +192,7 @@ Nodes that implemented the above configuration will recursively copy files from 
 
 Puppet makes it possible to require that nodes have configuration and services that extend beyond ensuring that files are present on a system, and can ensure that certain services are running. Consider the following example:
 
-{{< file-excerpt "Puppet Configuration Manifest" pp >}}
+{{< file-excerpt "Puppet Configuration Manifest" resource >}}
 package { "openssh-server":
             ensure => latest
         }
@@ -206,7 +206,7 @@ package { "openssh-server":
 
 By defining the `sshd` service within a class with these parameters, puppet will ensure that the SSH daemon is running. Furthermore, if the `sshdconfig` file (which is defined elsewhere) changes, Puppet will restart the daemon. In the following example we define an `apache2` service for Debian and Ubuntu systems:
 
-{{< file-excerpt "Puppet Configuration Manifest" pp >}}
+{{< file-excerpt "Puppet Configuration Manifest" resource >}}
 package { "apache2":
             ensure => latest
         }
