@@ -48,14 +48,16 @@ This section covers the easiest way to use Squid as an HTTP proxy, using only th
 
 1.  Edit the Squid configuration file and add the following lines:
 
-	{: .file-excerpt }
-	/etc/squid3/squid.conf
+	{{< file-excerpt >}}
+/etc/squid3/squid.conf
 	: ~~~
 		acl client src 12.34.56.78 # Home IP 
 		http_access allow client
 	~~~
 	
 	Be sure to replace **client** with a name identifying the connecting computer and **12.34.56.78** with your local IP address. The comment `# Home IP` isn't required, but comments can be used to help identify clients.
+
+{{< /file-excerpt >}}
 
 2.  Once you've saved and exited the file, restart Squid:
 
@@ -91,13 +93,15 @@ The following configuration allows for authenticated access to the Squid proxy s
 
 4.  Edit the Squid configuration file and add the following lines:
 
-	{: .file-excerpt }
-	/etc/squid3/squid.conf
+	{{< file-excerpt >}}
+/etc/squid3/squid.conf
 	: ~~~
 		auth_param basic program /usr/lib/squid3/basic_ncsa_auth /etc/squid3/squid_passwd
 		acl ncsa_users proxy_auth REQUIRED
 		http_access allow ncsa_users
 	~~~
+
+{{< /file-excerpt >}}
 
 5.  Once you've saved and exited the file, restart Squid:
 
@@ -122,7 +126,7 @@ The following configuration allows for authenticated access to the Squid proxy s
 
 In order to mask your IP address from servers you connect to, you will need to add the following lines to the Squid configuration file.
 
-{: .file-exerpt }
+{{< file-exerpt >}}
 /etc/squid3/squid.conf
 : ~~~
 	forwarded_for off
@@ -156,6 +160,8 @@ In order to mask your IP address from servers you connect to, you will need to a
 	request_header_access Cookie allow all
 	request_header_access All deny all
 ~~~
+
+{{< /file-exerpt >}}
 
 Once you've saved and exited the file, restart Squid:
 

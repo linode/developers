@@ -68,10 +68,12 @@ In Ubuntu 14.04, you will need to append the module section noted below to the e
 
 {{< /note >}}
 
-    {: .file-excerpt}
-    /etc/apache2/apache2.conf
-    :   ~~~ apache
+    {{< file-excerpt >}}
+/etc/apache2/apache2.conf
+:   ~~~ apache
 	    KeepAlive Off
+
+{{< /file-excerpt >}}
 
         ...
 
@@ -131,11 +133,13 @@ The file name *must* end with `.conf` in Apache versions 2.4 and later, which is
 
 6.  Now it's time to create a configuration for your virtual host. We've created some basic settings to get your started. Copy and paste the settings shown below in to the virtual host file you just created. Replace all instances of `example.com` with your domain name.
 
-    {: .file-excerpt}
-    /etc/apache2/sites-available/example.com.conf
-    :   ~~~ apache
-        # domain: example.com
-        # public: /var/www/html/example.com/public_html/
+    {{< file-excerpt >}}
+/etc/apache2/sites-available/example.com.conf
+:   ~~~ apache
+# domain: example.com
+# public: /var/www/html/example.com/public_html/
+
+{{< /file-excerpt >}}
 
         <VirtualHost *:80>
           # Admin email, Server Name (domain name), and any aliases
@@ -207,11 +211,13 @@ These guidelines are designed to optimize MySQL 5.5 and up for a **Linode 2GB**,
 
 3.  Edit following values:
 
-    {: .file-excerpt}
-    /etc/mysql/my.cnf
-    :   ~~~ conf
-        max_allowed_packet = 1M
-        thread_stack = 128K
+    {{< file-excerpt >}}
+/etc/mysql/my.cnf
+:   ~~~ conf
+max_allowed_packet = 1M
+thread_stack = 128K
+
+{{< /file-excerpt >}}
 
         ...
 
@@ -226,12 +232,14 @@ In MySQL 5.6 and above, you may need to add these lines as one block with `[mysq
 
 4.  Add the following lines to the end of `my.cnf`:
 
-    {: .file-excerpt}
-    /etc/mysql/my.cnf
-    :   ~~~ conf
-        table_open_cache = 32M
-        key_buffer_size = 32M
-        ~~~
+    {{< file-excerpt >}}
+/etc/mysql/my.cnf
+:   ~~~ conf
+table_open_cache = 32M
+key_buffer_size = 32M
+~~~
+
+{{< /file-excerpt >}}
 
 5.  Save the changes to MySQL's configuration file by pressing **CTRL+X** and then pressing **Y** and hitting **ENTER** to save.
 
@@ -313,17 +321,19 @@ These guidelines are designed to optimize PHP for a Linode 2GB, but you can use 
 
 2.  Verify that the following values are set. All of the lines listed below should be uncommented. Be sure to remove any semicolons (`;`) at the beginning of the lines.
 
-    {: .file-excerpt}
-    /etc/php5/apache2/php.ini
-    :	~~~ ini
-        max_execution_time = 30
-        memory_limit = 128M
-        error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
-        display_errors = Off
-        log_errors = On
-        error_log = /var/log/php/error.log
-        register_globals = Off
-        ~~~
+    {{< file-excerpt >}}
+/etc/php5/apache2/php.ini
+:	~~~ ini
+max_execution_time = 30
+memory_limit = 128M
+error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
+display_errors = Off
+log_errors = On
+error_log = /var/log/php/error.log
+register_globals = Off
+~~~
+
+{{< /file-excerpt >}}
 
     {{< note >}}
 The 128M setting for `memory_limit` is a general guideline. While this value should be sufficient for most websites, larger websites and some web applications may require 256 megabytes or more.

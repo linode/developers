@@ -52,11 +52,13 @@ This guide is written for a non-root user. Commands that require elevated privil
 
 2.  Edit the main Apache configuration file and turn off the `KeepAlive` setting:
 
-    {: .file-excerpt }
-    /etc/apache2/apache2.conf
-    :   ~~~ conf
-        KeepAlive Off
-        ~~~
+    {{< file-excerpt >}}
+/etc/apache2/apache2.conf
+:   ~~~ conf
+KeepAlive Off
+~~~
+
+{{< /file-excerpt >}}
 
 ### Configure the Multi-Processing Module
 

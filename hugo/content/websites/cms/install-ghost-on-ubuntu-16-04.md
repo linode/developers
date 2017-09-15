@@ -133,11 +133,13 @@ Now you're ready to install Ghost. You can find the most recent version of Ghost
 
 3. Edit the `url` section, replacing `example.com` with the URL or IP address of your blog:
 
-    {: .file-excerpt}
-    ~/ghost/config.js
-    :   ~~~ javascript
-        var path = require('path'),
-        config;
+    {{< file-excerpt >}}
+~/ghost/config.js
+:   ~~~ javascript
+var path = require('path'),
+config;
+
+{{< /file-excerpt >}}
 
         config = {
         // ### Production

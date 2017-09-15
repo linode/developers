@@ -62,8 +62,10 @@ Configuring the NSD Daemon
 
 You will need to create the `nsd.conf` file to properly configure the NSD service as well as the DNS zones. There is an example configuration file located in `/etc/nsd3/nsd.conf` that you can uncomment directives in. You may also create your own from scratch.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/nsd3/nsd.conf
+
+{{< /file-excerpt >}}
 
 > server:
 > :   logfile: "/var/log/nsd.log" username: nsd
@@ -72,8 +74,10 @@ You will need to create the `nsd.conf` file to properly configure the NSD servic
 
 You must specify at least one zone in the `/etc/nsd3/nsd.conf` file before NSD will begin serving DNS records. Refer to the following example configuration for proper syntax.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/nsd3/nsd.conf
+
+{{< /file-excerpt >}}
 
 > zone:
 > :   name: example.com zonefile: /etc/nsd3/example.com.zone
@@ -88,8 +92,10 @@ Creating Zone Files
 
 Each domain has zone file specified in the `nsd.conf` file. The syntax of an NSD zone file is similar BIND zone files. Refer to the example zone files that follow for syntax, and modify domain names and IP addresses to reflect the needs of your deployment.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/nsd3/example.com.zone
+
+{{< /file-excerpt >}}
 
 > \$ORIGIN example.com. \$TTL 86400
 >
@@ -103,8 +109,10 @@ Each domain has zone file specified in the `nsd.conf` file. The syntax of an NSD
 >
 > ns1 IN A 11.22.33.44 ns2 IN A 22.33.44.55 www IN A 77.66.55.44 tomato IN A 77.66.55.44 mail IN A 88.77.66.55 \* IN A 77.66.55.44
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/nsd3/example.org.zone
+
+{{< /file-excerpt >}}
 
 > \$ORIGIN example.org. \$TTL 86400
 >
@@ -168,8 +176,10 @@ Adjusting NSD for Low-Memory Situations
 
 If you are running NSD in a low-memory environment, amending the values of the following directives in your `/etc/nsd3/nsd.conf` file will lower your memory and system resource usage.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/nsd3/nsd.conf
+
+{{< /file-excerpt >}}
 
 > ip4-only: yes tcp-count: 10 server-count: 1
 

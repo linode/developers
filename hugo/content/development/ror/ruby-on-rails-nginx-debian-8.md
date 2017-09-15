@@ -93,12 +93,14 @@ deb https://oss-binaries.phusionpassenger.com/apt/passenger jessie main
 
 1.  Nginx is now installed on the system, but support for Phusion Passenger is not enabled. As root, or with the `sudo ` command, edit the file `/etc/nginx/nginx.conf` and uncomment these lines:
 
-    {: .file-excerpt}
-    /etc/nginx/nginx.conf
-    :   ~~~ conf
-        passenger_root /usr/lib/ruby/vendor_ruby/phusion_passenger/locations.ini;
-        passenger_ruby /usr/bin/passenger_free_ruby;
-        ~~~
+    {{< file-excerpt >}}
+/etc/nginx/nginx.conf
+:   ~~~ conf
+passenger_root /usr/lib/ruby/vendor_ruby/phusion_passenger/locations.ini;
+passenger_ruby /usr/bin/passenger_free_ruby;
+~~~
+
+{{< /file-excerpt >}}
 
 2.  Restart Nginx:
 

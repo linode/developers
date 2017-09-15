@@ -68,42 +68,48 @@ Each virtual host needs its own file in the `/etc/apache2/sites-available/` dire
 
 Create the virtual hosting file for example.com, located at `/etc/apache2/sites-available/example.com`, to resemble the following:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/apache2/sites-available/example.com
 :   ~~~ apache
-    <VirtualHost 12.34.56.78:80>
-         ServerAdmin username@example.com     
-         ServerName example.com
-         ServerAlias www.example.com
-         DocumentRoot /srv/www/example.com/public_html/
-         ErrorLog /srv/www/example.com/logs/error.log
-         CustomLog /srv/www/example.com/logs/access.log combined
-    </VirtualHost>
-    ~~~
+<VirtualHost 12.34.56.78:80>
+ServerAdmin username@example.com     
+ServerName example.com
+ServerAlias www.example.com
+DocumentRoot /srv/www/example.com/public_html/
+ErrorLog /srv/www/example.com/logs/error.log
+CustomLog /srv/www/example.com/logs/access.log combined
+</VirtualHost>
+~~~
+
+{{< /file-excerpt >}}
 
 If you would like to enable Perl support, then add the following lines to the `VirtualHost` entry above.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 Apache Virtual Hosting File
 :   ~~~ apache
-    Options ExecCGI
-    AddHandler cgi-script .pl
-    ~~~
+Options ExecCGI
+AddHandler cgi-script .pl
+~~~
+
+{{< /file-excerpt >}}
 
 Next, create the virtual hosting file for example.com, located in `/etc/apache2/sites-available/example.com`, to resemble the following:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/apache2/sites-available/example.com
 :   ~~~ apache
-    <VirtualHost 12.34.56.78:80>
-         ServerAdmin username@example.com
-         ServerName example.com
-         ServerAlias www.example.com
-         DocumentRoot /srv/www/example.com/public_html/
-         ErrorLog /srv/www/example.com/logs/error.log
-         CustomLog /srv/www/example.com/logs/access.log combined
-    </VirtualHost>
-    ~~~
+<VirtualHost 12.34.56.78:80>
+ServerAdmin username@example.com
+ServerName example.com
+ServerAlias www.example.com
+DocumentRoot /srv/www/example.com/public_html/
+ErrorLog /srv/www/example.com/logs/error.log
+CustomLog /srv/www/example.com/logs/access.log combined
+</VirtualHost>
+~~~
+
+{{< /file-excerpt >}}
 
 You'll note that some basic options are specified for both sites, including where the files for the site will reside (under `/srv/www/`). You can add (or remove) additional configuration options, such as the Perl support, on a site-by-site basis to these files as your needs dictate.
 
@@ -189,13 +195,15 @@ Begin by installing the mpm-itk module:
 
 Now, in the `<VirtualHost >` entries for your sites (the site-specific files in `/etc/apache2/sites-available/`) add the following sub-block:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 Apache Virtual Hosting Configuration
 :   ~~~ apache
-    <IfModule mpm_itk_module>
-       AssignUserId webeditor webgroup
-    </IfModule>
-    ~~~
+<IfModule mpm_itk_module>
+AssignUserId webeditor webgroup
+</IfModule>
+~~~
+
+{{< /file-excerpt >}}
 
 In this example, `webeditor` is the name of the user of the specific site in question, and `webgroup` is the name of the particular group that "owns" the web server related files and processes. Remember that you must create the user accounts and groups using the `useradd` command.
 
@@ -225,8 +233,10 @@ These usernames and passwords need not (and should not) correspond to system use
 
 In the .htaccess file for the directory that you want to protect, add the following lines:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 .htaccess
+
+{{< /file-excerpt >}}
 
 > AuthUserFile /srv/www/bleddington.com/.htpasswd AuthType Basic AuthName "Advanced Choreographic Information" Require valid-user
 
@@ -239,19 +249,23 @@ The mod\_rewrite engine is very powerful, and is available for your use by defau
 
 In a `<Directory >` block or `.htaccess` file, enable mod\_rewrite with the following line:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 Apache Virtual Configuration or .htaccess file
 :   ~~~ apache
-    RewriteEngine on
-    ~~~
+RewriteEngine on
+~~~
+
+{{< /file-excerpt >}}
 
 Now, you may create any number of separate rewrite rules. These rules provide a pattern that the server compares incoming requests against, and if a request matches a rewrite pattern, the server provides an alternate page. Here is an example rewrite rule:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 Apache Virtual Configuration or .htaccess file
 :   ~~~ apache
-    RewriteRule ^post-id/([0-9]+)$ /posts/$1.html
-    ~~~
+RewriteRule ^post-id/([0-9]+)$ /posts/$1.html
+~~~
+
+{{< /file-excerpt >}}
 
 Let's parse this rule. First, note that the first string is the pattern for matching against incoming requests. The second string specifies the actual files to be served. Mod\_rewrite patterns use regular expression syntax: the `^` matches to the beginning of the string, and the `$` matches to the end of the string, meaning that the rewrite engine won't rewrite strings that partially match the pattern.
 

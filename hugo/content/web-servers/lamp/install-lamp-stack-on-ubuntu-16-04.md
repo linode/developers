@@ -213,13 +213,15 @@ Install the `mysql-server` package and choose a secure password when prompted:
 
 2.  Once PHP7.0 is installed, edit the configuration file located in `/etc/php/7.0/apache2/php.ini` to enable more descriptive errors, logging, and better performance. The following modifications provide a good starting point:
 
-    {: .file-excerpt}
-    /etc/php/7.0/apache2/php.ini
-    :   ~~~ ini
-        max_input_time = 30
-        error_reporting = E_COMPILE_ERROR | E_RECOVERABLE_ERROR | E_ERROR | E_CORE_ERROR
-        error_log = /var/log/php/error.log
-        ~~~
+    {{< file-excerpt >}}
+/etc/php/7.0/apache2/php.ini
+:   ~~~ ini
+max_input_time = 30
+error_reporting = E_COMPILE_ERROR | E_RECOVERABLE_ERROR | E_ERROR | E_CORE_ERROR
+error_log = /var/log/php/error.log
+~~~
+
+{{< /file-excerpt >}}
 
     {{< note >}}
 
@@ -249,15 +251,17 @@ In this section, you'll create a test page that shows whether Apache can render 
 
 1.  Paste the following code into a new file, `phptest.php`, in the `public_html` directory. Modify `webuser` and `password` to match the information entered in the **Create a MySQL Database** section above:
 
-    {: .file-excerpt}
-    /var/www/html/example.com/public_html/phptest.php
-    :   ~~~ php
-        <html>
-        <head>
-            <title>PHP Test</title>
-        </head>
-            <body>
-            <?php echo '<p>Hello World</p>';
+    {{< file-excerpt >}}
+/var/www/html/example.com/public_html/phptest.php
+:   ~~~ php
+<html>
+<head>
+<title>PHP Test</title>
+</head>
+<body>
+<?php echo '<p>Hello World</p>';
+
+{{< /file-excerpt >}}
 
             // In the variables section below, replace user and password with your own MySQL credentials as created on your server
             $servername = "localhost";

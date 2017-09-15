@@ -86,12 +86,14 @@ Any Ubuntu-specific commands will then have to be amended for the proper distrib
 
 1.  Update `/etc/puppet/puppet.conf` and add the `dns_alt_names` line to the section `[main]`, replacing `puppet.example.com` with your own FQDN:
 
-    {: .file-excerpt}
-    /etc/puppet/puppet.conf
-    :   ~~~ conf
-        [main]
-        dns_alt_names=puppet,puppet.example.com
-        ~~~
+    {{< file-excerpt >}}
+/etc/puppet/puppet.conf
+:   ~~~ conf
+[main]
+dns_alt_names=puppet,puppet.example.com
+~~~
+
+{{< /file-excerpt >}}
 
 2.  Start the Puppet master:
 
@@ -129,20 +131,24 @@ If you're on a Red Hat system other than CentOS 7, skip this step.
 
 1.  Modify your Puppet Agent's host file to resolve the Puppet master IP as `puppet`:
 
-    {: .file-excerpt}
-    /etc/hosts
-    :   ~~~ conf
-        198.51.100.0    puppet
-        ~~~
+    {{< file-excerpt >}}
+/etc/hosts
+:   ~~~ conf
+198.51.100.0    puppet
+~~~
+
+{{< /file-excerpt >}}
 
 2.  Add the `server` value to the `[main]` section of the node's `puppet.conf` file, replacing `puppet.example.com` with the FQDN of your Puppet master:
 
-    {: .file-excerpt}
-    /etc/puppet/puppet.conf
-    :   ~~~ conf
-        [main]
-        server=puppet.example.com
-        ~~~
+    {{< file-excerpt >}}
+/etc/puppet/puppet.conf
+:   ~~~ conf
+[main]
+server=puppet.example.com
+~~~
+
+{{< /file-excerpt >}}
 
 3.  Restart the Puppet service:
 
@@ -249,24 +255,26 @@ include groups
 
 {{< /file >}}
 
-    {: .file-excerpt}
-    /etc/puppet/modules/accounts/manifests/init.pp
-    :   ~~~ pp
-        class accounts {
-        
-          $rootgroup = $osfamily ? {
-            'Debian'  => 'sudo',
-            'RedHat'  => 'wheel',
-            default   => warning('This distribution is not supported by the Accounts module'),
-          }
-          
-          user { 'username':
-          ...
-          
-        }        
-        ~~~
-        
-    This command sequence tells Puppet that within the *accounts* module the variable `$rootgroup` should evaluate, using facter, the operating system family (`$osfamily`), and if the value returned is `Debian`, to set the `$rootgroup` value to `sudo`. If the value returned is `RedHat`, this same value should be set to `wheel`; otherwise, the `default` value will output a warning that the distribution selected is not supported by this module.
+    {{< file-excerpt >}}
+/etc/puppet/modules/accounts/manifests/init.pp
+:   ~~~ pp
+class accounts {
+
+$rootgroup = $osfamily ? {
+'Debian'  => 'sudo',
+'RedHat'  => 'wheel',
+default   => warning('This distribution is not supported by the Accounts module'),
+}
+
+user { 'username':
+...
+
+}        
+~~~
+
+This command sequence tells Puppet that within the *accounts* module the variable `$rootgroup` should evaluate, using facter, the operating system family (`$osfamily`), and if the value returned is `Debian`, to set the `$rootgroup` value to `sudo`. If the value returned is `RedHat`, this same value should be set to `wheel`; otherwise, the `default` value will output a warning that the distribution selected is not supported by this module.
+
+{{< /file-excerpt >}}
 
     {{< note >}}
 The `user` definition will include the `$rootgroup`, and the Puppet Configuration Language executes code from top to bottom. You must define the `$rootgroup` *before* the `user` so that it can be accessed.
@@ -275,18 +283,20 @@ The `user` definition will include the `$rootgroup`, and the Puppet Configuratio
 
 {{< /note >}}
 
-    {: .file-excerpt}
-    /etc/puppet/modules/accounts/manifests/init.pp
-    :   ~~~ pp
-          user { 'username':
-            ensure      => present,
-            home        => '/home/username',
-            shell       => '/bin/bash',
-            managehome  => true,
-            gid         => 'username',
-            groups      => "$rootgroup",
-          }
-        ~~~
+    {{< file-excerpt >}}
+/etc/puppet/modules/accounts/manifests/init.pp
+:   ~~~ pp
+user { 'username':
+ensure      => present,
+home        => '/home/username',
+shell       => '/bin/bash',
+managehome  => true,
+gid         => 'username',
+groups      => "$rootgroup",
+}
+~~~
+
+{{< /file-excerpt >}}
 
     The value `"$rootgroup"` is enclosed in double quotes (") instead of single quotes (') because it is a variable. Any value enclosed within single quotes will be added as typed in your module; anything enclosed in double quotes can accept variables.  
 
@@ -382,13 +392,15 @@ Although a new user has successfully been added to the Puppet master, the accoun
 
 3.  Open the file with `sudo`, and set the `PermitRootLogin` value to `no`:
 
-    {: .file-excerpt}
-    /etc/puppet/modules/accounts/files/sshd_config
-    :   ~~~ config
-        PermitRootLogin no
-        ~~~
-        
+    {{< file-excerpt >}}
+/etc/puppet/modules/accounts/files/sshd_config
+:   ~~~ config
+PermitRootLogin no
+~~~
+
 4.  Navigate back to the `manifests` directory and, using `sudo`, create a file called `ssh.pp`. Use the `file` resource to replace the default configuration file with the one managed by Puppet:
+
+{{< /file-excerpt >}}
 
         cd ../manifests
 
@@ -443,26 +455,26 @@ The `file` directory is omitted from the `source` line because the `files` folde
 
 6.  Include the `ssh` class within `init.pp`:
 
-    {: .file-excerpt}
-    /etc/puppet/modules/accounts/manifests/init.pp
-    :   ~~~ pp
-        class accounts {
-          include groups
-          include ssh
-        
-        ...
-        ~~~
-    
-    Your complete `init.pp` will look similar to this:
-    
-    {{< file >}}
+    {{< file-excerpt >}}
 /etc/puppet/modules/accounts/manifests/init.pp
 :   ~~~ pp
 class accounts {
 include groups
 include ssh
 
-{{< /file >}}
+...
+~~~
+
+Your complete `init.pp` will look similar to this:
+
+{: .file}
+/etc/puppet/modules/accounts/manifests/init.pp
+:   ~~~ pp
+class accounts {
+include groups
+include ssh
+
+{{< /file-excerpt >}}
 
             $rootgroup = $osfamily ? {
                 'Debian' => 'sudo',

@@ -28,14 +28,16 @@ This guide provides an overview of both credential-based and rule-based access c
 
 To enable passwords for a directory, insert the following lines into the appropriate `<Directory>` section of an Apache configuration file. You may also insert authentication information in an `.htaccess` file or in a virtual host configuration section. The required directives are:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 Apache Configuration File
 :   ~~~ apache
-    AuthType Basic
-    AuthUserFile /srv/auth/.htpasswd
-    AuthName "Sign In Here To Gain Access To the Site"
-    Require valid-user
-    ~~~
+AuthType Basic
+AuthUserFile /srv/auth/.htpasswd
+AuthName "Sign In Here To Gain Access To the Site"
+Require valid-user
+~~~
+
+{{< /file-excerpt >}}
 
 The `AuthType` directive specifies which authentication method Apache should use when connecting with clients. `Basic` requires that passwords be sent as **clear text** over the network. As a result we don't recommend using this to protect sensitive resources.
 
@@ -63,8 +65,10 @@ If you have an existing file, omit the `-c` option. The `-b` option allows you t
 
 The `AuthUserFile` will, when populated look something like this:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /srv/auth/.htpasswd
+
+{{< /file-excerpt >}}
 
 > hobby:isiA3Q4djD/.Q fore:{SHA}x9VvwHI6dmgk9VTE0A8o6hbCw2s= username:\$apr1\$vVzQJxvX\$6EyHww61nnZr6IdQv0pVx/
 
@@ -85,29 +89,35 @@ In the `Require` directive above we specified the `valid-user`. This told Apache
 
 To address this need, Apache allows you to use a single `UserAuthFile`, containing all users that will need to authenticate to the server. To limit the set of valid credentials to a specific subset of the users listed in the `.htpasswd` file, we must specify users in the `Require` directive. Only users specified after the `Require user` directive will be permitted to access the specified resource. For example:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 Apache configuration option
+
+{{< /file-excerpt >}}
 
 > Require user username fore
 
 Given this directive, the users `username` and `fore` will be able to log into the resource. Any subset of users can be specified on the `Require` line. Apache also provides the ability to organize users into groups, and then permit access to resources based on group membership. The configuration directives for this setup would look like this:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 Apache configuration file
 :   ~~~ apache
-    AuthType Basic
-    AuthUserFile /srv/auth/.htpasswd
-    AuthGroupFile /srv/auth/.htpgroup
-    Require group Authorized
-    ~~~
+AuthType Basic
+AuthUserFile /srv/auth/.htpasswd
+AuthGroupFile /srv/auth/.htpgroup
+Require group Authorized
+~~~
+
+{{< /file-excerpt >}}
 
 In this example, we cite the same `AuthUserFile`, but we add an `AuthGroupFile` that specifies user groups. The group file contains a list of user groups and the usernames associated with each group. The `htgroup` file, like the `htpasswd` file, can be located anywhere on the file system. For clarity's sake, we recommend that `htgroup` be in the same directory as the `htpasswd` file. Here is an example of an `htgroup` file:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /srv/auth/.htgroup
 :   ~~~
-    Authorized: username betty Team: fore hobby
-    ~~~
+Authorized: username betty Team: fore hobby
+~~~
+
+{{< /file-excerpt >}}
 
 Given this `htgroup` file, only the users `username` and `betty` will have access to the above listed resource. The syntax of the group file follows a simple `[groupname]: [username 1] [username 2] [...]`. You can put as many usernames from your `AuthUserFile` into a group entry as you need for the particular resource.
 

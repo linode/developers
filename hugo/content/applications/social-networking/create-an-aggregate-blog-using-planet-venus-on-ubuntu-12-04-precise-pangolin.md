@@ -46,10 +46,12 @@ Copy the default configuration file to the `/var/www/example.com` directory:
 
 Now edit the file, making sure to modify the following values to conform to the needs of your deployment. Consider the following example:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 planet.conf
 :   ~~~
-    # Example Planet Venus configuration file
+# Example Planet Venus configuration file
+
+{{< /file-excerpt >}}
 
     # Documentation: <file:///usr/share/doc/planet-venus>
     # Examples: <file:///usr/share/planet-venus/example>
@@ -83,12 +85,14 @@ You can modify any of the files or copy different theme files from the `/usr/sha
 
 At the end of your `planet.conf` file, add entries that resemble the following for each feed that you would like to collect in the Planet you're building
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 planet.conf
 :   ~~~
-    [<https://www.linode.com/docs/rss>]
-    name = Linode
-    ~~~
+[<https://www.linode.com/docs/rss>]
+name = Linode
+~~~
+
+{{< /file-excerpt >}}
 
 Once you have completed all modifications to `planet.conf`, run Planet for the first time by issuing the following command:
 
@@ -104,11 +108,13 @@ While you can run Planet without incident using the above method, we recommend r
 
 Insert the following job into the crontab:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 fcrontab
 :   ~~~
-    */10* * * * planet /var/www/example.com/planet.conf
-    ~~~
+*/10* * * * planet /var/www/example.com/planet.conf
+~~~
+
+{{< /file-excerpt >}}
 
 Save the crontab, and issue the following command to start `fcron` for the first time:
 

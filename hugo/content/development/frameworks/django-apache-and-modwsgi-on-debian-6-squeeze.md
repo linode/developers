@@ -93,13 +93,15 @@ Configure Apache
 
 Consider the following example virtual host configuration:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 Apache Virtual Host Configuration
 :   ~~~ apache
-    <VirtualHost *:80>
-       ServerName example.com
-       ServerAlias www.example.com
-       ServerAdmin username@example.com
+<VirtualHost *:80>
+ServerName example.com
+ServerAlias www.example.com
+ServerAdmin username@example.com
+
+{{< /file-excerpt >}}
 
        DocumentRoot /srv/www/example.com/public_html
 

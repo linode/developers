@@ -176,32 +176,38 @@ For if your certificate issuer uses `.pem` files instead of `.crt`, be sure to r
 
 2. To replace the certificates used by Apache2, substitute the following paths in `default-ssl.conf` with the location of your certificate and key:
 
-    {: .file-excerpt}
-    /etc/apache2/sites-available/default-ssl.conf
-    :   ~~~ conf
-        SSLCertificateFile /etc/ssl/certs/mail.yourdomain.com.crt
-        SSLCertificateKeyFile /etc/ssl/private/mail.yourdomain.com.key
-        ~~~
+    {{< file-excerpt >}}
+/etc/apache2/sites-available/default-ssl.conf
+:   ~~~ conf
+SSLCertificateFile /etc/ssl/certs/mail.yourdomain.com.crt
+SSLCertificateKeyFile /etc/ssl/private/mail.yourdomain.com.key
+~~~
+
+{{< /file-excerpt >}}
 
 
 3. To replace the certificates used by Postfix, substitute the following paths in `main.cf` with the location of your certificate and key:
 
-    {: .file-excerpt}
-    /etc/postfix/main.cf
-    :   ~~~ conf
+    {{< file-excerpt >}}
+/etc/postfix/main.cf
+:   ~~~ conf
 	    smtpd_tls_cert_file = /etc/ssl/certs/mail.yourdomain.com.crt
-        smtpd_tls_key_file = /etc/ssl/private/mail.yourdomain.com.key
-        ~~~
+smtpd_tls_key_file = /etc/ssl/private/mail.yourdomain.com.key
+~~~
+
+{{< /file-excerpt >}}
 
 4. To replace the certs used by Postfix, substitute the following paths in `dovecot.conf` with the location of your certificate and key:
 
-    {: .file-excerpt}
-    /etc/dovecot/dovecot.conf
-    :   ~~~ conf
+    {{< file-excerpt >}}
+/etc/dovecot/dovecot.conf
+:   ~~~ conf
 	    ssl_cert = </etc/ssl/certs/mail.yourdomain.com.crt
-        ssl_key = </etc/ssl/private/mail.yourdomain.com.key
-        ~~~
+ssl_key = </etc/ssl/private/mail.yourdomain.com.key
+~~~
 <!-- syntax highlighting fix-->
+
+{{< /file-excerpt >}}
 
 5. To apply the certificate changes to both your web and mail server, run the following commands:
 
@@ -271,19 +277,21 @@ AWStats quickly analyzes and displays log files/server activity via a few web-ba
 
 3.  Edit `apache2.conf` by adding the text block below to the end of the file. Make sure to comment out the existing Auth_MySQL lines at the end of the file.
 
-    {: .file-excerpt}
-    /etc/apache2/conf/apache2.conf
-    :   ~~~ conf
-        #MySQL auth (mod_dbd, libaprutil1-dbd-mysql)
-        <IfModule mod_dbd.c>
+    {{< file-excerpt >}}
+/etc/apache2/conf/apache2.conf
+:   ~~~ conf
+#MySQL auth (mod_dbd, libaprutil1-dbd-mysql)
+<IfModule mod_dbd.c>
 	    DBDriver mysql
-        DBDParams "host=127.0.0.1 dbname=vmail user=vmail pass=(SUBSTITUTE WITH YOUR PASSWORD: see in your iRedMail.tips file)"
+DBDParams "host=127.0.0.1 dbname=vmail user=vmail pass=(SUBSTITUTE WITH YOUR PASSWORD: see in your iRedMail.tips file)"
 	        DBDMin 1
 	        DBDKeep 8
 	        DBDMax 20
 	        DBDExptime 300
-        </IfModule>
-        ~~~
+</IfModule>
+~~~
+
+{{< /file-excerpt >}}
 
 4.  Edit `awstats.conf` to mirror the example text below, by adding the `mod_authn_dbd` section and commenting out the `Auth_MySQL` section.
 

@@ -68,20 +68,24 @@ Visit the [Confluence download page](http://www.atlassian.com/software/confluenc
 
 Edit the `confluence-init.properties` file, adding the following line to it. Adjust the full path to the file as necessary to reflect the current version number.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /usr/local/confluence/confluence-3.3.1-std/confluence/WEB-INF/classes/confluence-init.properties
 :   ~~~
-    confluence.home=/var/lib/confluence
-    ~~~
-    
+confluence.home=/var/lib/confluence
+~~~
+
 Edit the `setenv.sh` file, adding the following lines. Adjust the full path to the file and the "JAVA\_HOME" line as necessary to reflect current version numbers.
 
-{: .file-excerpt }
+{{< /file-excerpt >}}
+
+{{< file-excerpt >}}
 /usr/local/confluence/confluence-3.3.1-std/bin/setenv.sh
 :   ~~~
-    JAVA_HOME="/usr/lib/java/jdk1.6.0_21"
-    export JAVA_HOME
-    ~~~
+JAVA_HOME="/usr/lib/java/jdk1.6.0_21"
+export JAVA_HOME
+~~~
+
+{{< /file-excerpt >}}
 
 Issue the following command to return to a root shell.
 
@@ -118,20 +122,24 @@ Issue the following commands to set a password for the `postgres` administrative
 
 Edit the file `/var/lib/pgsql/data/pg_hba.conf`. Locate the following line.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /var/lib/pgsql/data/pg\_hba.conf
 :   ~~~
-    host all all 127.0.0.1/32 ident
-    ~~~
+host all all 127.0.0.1/32 ident
+~~~
+
+{{< /file-excerpt >}}
 
 Change it the match the following excerpt and save the file.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /var/lib/pgsql/data/pg\_hba.conf
 :   ~~~
-    host all all 127.0.0.1/32 md5
-    ~~~
+host all all 127.0.0.1/32 md5
+~~~
 Issue the following command to create a `confluence` PostgreSQL role, making sure to assign a strong password.
+
+{{< /file-excerpt >}}
 
     createuser confluence --pwprompt
 
@@ -163,12 +171,14 @@ By default, the web interface for Confluence runs on port 8080. If you're comfor
 
 Edit the `/etc/httpd/conf/httpd.conf` file, adding the following excerpt at the end.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/httpd/conf/httpd.conf
 :   ~~~ apache
-    <IfModule mod_proxy.c>
-            #turning ProxyRequests on and allowing proxying from all may allow
-            #spammers to use your proxy to send email.
+<IfModule mod_proxy.c>
+#turning ProxyRequests on and allowing proxying from all may allow
+#spammers to use your proxy to send email.
+
+{{< /file-excerpt >}}
 
             ProxyRequests Off
 

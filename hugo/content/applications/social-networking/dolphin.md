@@ -51,20 +51,22 @@ You'll also need to make some modifications to your `php.ini` file. Here's how:
 
 2.  If necessary, change the settings in that file, as shown below:
 
-    {: .file-excerpt }
-    /etc/php5/apache2/php.ini
-    :   ~~~ ini
-        memory_limit = 128M
-        post_max_size = 32M
-        upload_max_filesize = 16M
-        register_globals = Off
-        allow_url_fopen = On
-        allow_url_include = Off
-        magic_quotes_gpc = Off
-        ~~~
-    
+    {{< file-excerpt >}}
+/etc/php5/apache2/php.ini
+:   ~~~ ini
+memory_limit = 128M
+post_max_size = 32M
+upload_max_filesize = 16M
+register_globals = Off
+allow_url_fopen = On
+allow_url_include = Off
+magic_quotes_gpc = Off
+~~~
+
 3.  Save the changes to the file by pressing Control-X, pressing Y, and then pressing Enter.
 4.  Save your changes by restarting the Apache web server:
+
+{{< /file-excerpt >}}
 
         sudo /etc/init.d/apache2 restart
 

@@ -66,19 +66,23 @@ Visit the download page for [Zimbra Open Source Edition](http://www.zimbra.com/d
 
 Edit the file `util/utilfunc.sh`. Search for the first instance of the following line:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 util/utilfunc.sh
 :   ~~~
-    PREREQ_PACKAGES="sudo libidn11 libgmp3 libstdc++6"
-    ~~~
+PREREQ_PACKAGES="sudo libidn11 libgmp3 libstdc++6"
+~~~
+
+{{< /file-excerpt >}}
 
 Change it to match the following excerpt:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 util/utilfunc.sh
 :   ~~~
-    PREREQ_PACKAGES="sudo libidn11 libgmp3c2 libstdc++6"
-    ~~~
+PREREQ_PACKAGES="sudo libidn11 libgmp3c2 libstdc++6"
+~~~
+
+{{< /file-excerpt >}}
 
 Due to stricter behavior in the version supplied in Debian 6, you'll need to temporarily downgrade your `dpkg` binary before proceeding. Issue one of the following commands, depending on whether your running 32-bit or 64-bit Debian:
 

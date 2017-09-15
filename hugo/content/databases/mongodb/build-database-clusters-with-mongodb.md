@@ -62,16 +62,18 @@ If your Linodes are all located in the same datacenter, we recommend [adding a p
 
 On each Linode in your cluster, add the following to the `/etc/hosts` file:
 
-{: .file-excerpt}
+{{< file-excerpt >}}
 /etc/hosts
 :   ~~~
-    192.0.2.1    mongo-config-1
-    192.0.2.2    mongo-config-2
-    192.0.2.3    mongo-config-3
-    192.0.2.4    mongo-query-router
-    192.0.2.5    mongo-shard-1
-    192.0.2.6    mongo-shard-2
-    ~~~
+192.0.2.1    mongo-config-1
+192.0.2.2    mongo-config-2
+192.0.2.3    mongo-config-3
+192.0.2.4    mongo-query-router
+192.0.2.5    mongo-shard-1
+192.0.2.6    mongo-shard-2
+~~~
+
+{{< /file-excerpt >}}
 
 Replace the IP addresses above with the IP addresses for each Linode. Also substitute the hostnames of the Linodes in your cluster for the hostnames above.
 
@@ -146,34 +148,40 @@ The steps below should be performed on each config server individually, unless o
 
 1.  On each config server, modify the following values in `/etc/mongod.conf`:
 
-    {: .file-excerpt}
-    /etc/mongod.conf
-    :   ~~~
-        port: 27019
-        bindIp: 192.0.2.1
-        ~~~
+    {{< file-excerpt >}}
+/etc/mongod.conf
+:   ~~~
+port: 27019
+bindIp: 192.0.2.1
+~~~
+
+{{< /file-excerpt >}}
 
     The `bindIp` address should match the IP address you configured for each config server in your hosts file in the previous section. This should be a private IP address unless you've configured SSL/TLS encryption.
 
 2.  Uncomment the `replication` section and add the `replSetName` directive below it to create a replica set for your config servers:
 
-    {: .file-excerpt}
-    /etc/mongod.conf
-    :   ~~~
-        replication:
-          replSetName: configReplSet
-        ~~~
+    {{< file-excerpt >}}
+/etc/mongod.conf
+:   ~~~
+replication:
+replSetName: configReplSet
+~~~
+
+{{< /file-excerpt >}}
 
     `configReplSet` is the name of the replica set to be configured. This value can be modified, but we recommend using a descriptive name to help you keep track of your replica sets.
 
 3.  Uncomment the `sharding` section and configure the host's role in the cluster as a config server:
 
-    {: .file-excerpt}
-    /etc/mongod.conf
-    :   ~~~
-        sharding:
-          clusterRole: "configsvr"
-        ~~~
+    {{< file-excerpt >}}
+/etc/mongod.conf
+:   ~~~
+sharding:
+clusterRole: "configsvr"
+~~~
+
+{{< /file-excerpt >}}
 
 4.  Restart the `mongod` service once these changes have been made:
 
@@ -274,14 +282,16 @@ All steps here should be performed from your query router Linode (this will be t
 
 1.  Create a new configuration file called `/etc/mongos.conf`, and supply the following values:
 
-    {: .file-excerpt}
-    /etc/mongos.conf
-    :   ~~~
-        # where to write logging data.
-        systemLog:
-        destination: file
-        logAppend: true
-        path: /var/log/mongodb/mongos.log
+    {{< file-excerpt >}}
+/etc/mongos.conf
+:   ~~~
+# where to write logging data.
+systemLog:
+destination: file
+logAppend: true
+path: /var/log/mongodb/mongos.log
+
+{{< /file-excerpt >}}
 
         # network interfaces
         net:
@@ -299,12 +309,14 @@ All steps here should be performed from your query router Linode (this will be t
 
 2.  Create a new systemd unit file for `mongos` called `/lib/systemd/system/mongos.service`, with the following information:
 
-    {: .file-excerpt}
-    /lib/systemd/system/mongos.service
-    :   ~~~
-        [Unit]
-        Description=Mongo Cluster Router
-        After=network.target
+    {{< file-excerpt >}}
+/lib/systemd/system/mongos.service
+:   ~~~
+[Unit]
+Description=Mongo Cluster Router
+After=network.target
+
+{{< /file-excerpt >}}
 
         [Service]
         User=mongodb
@@ -361,11 +373,13 @@ Now that the query router is able to communicate with the config servers, we mus
 
 1.  Log into *each* of your shard servers and change the following line in the MongoDB configuration file:
 
-    {: .file-excerpt}
-    /etc/mongod.conf
-    :   ~~~
-        bindIp: 192.0.2.5
-        ~~~
+    {{< file-excerpt >}}
+/etc/mongod.conf
+:   ~~~
+bindIp: 192.0.2.5
+~~~
+
+{{< /file-excerpt >}}
 
     The IP address in this line should be changed to the address corresponding with the one in your hosts file (since that's where address resolution will take place in our setup). For example, if you're using private IP addresses to connect your shards to the query router, use your private IP address. If you've configured SSL/TLS encryption and plan to use public IP addresses, use those.
 

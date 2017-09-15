@@ -108,9 +108,11 @@ Block storage is currently only available to Linodes in our Newark datacenter. C
 
 ## How to Delete a Block Storage Volume
 
-{: .alert-danger }
->
-> The removal process is irreversible, and the data will be permanently deleted.
+{{< alert-danger >}}
+
+The removal process is irreversible, and the data will be permanently deleted.
+
+{{< /alert-danger >}}
 
 1.  Shut down the Linode.
 

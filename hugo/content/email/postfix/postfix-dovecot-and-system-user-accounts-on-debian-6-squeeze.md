@@ -51,11 +51,13 @@ SASL Authentication
 
 Edit the `/etc/default/saslauthd` file to allow the SASL authentication daemon to start. Uncommon or add the following line:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/default/saslauthd
 :   ~~~ ini
-    START=yes
-    ~~~
+START=yes
+~~~
+
+{{< /file-excerpt >}}
 
 Create the `/etc/postfix/sasl/smtpd.conf` file, and insert the following line:
 
@@ -92,11 +94,13 @@ Postfix
 
 Edit the `/etc/postfix/main.cf` file to edit or add the following lines:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/postfix/main.cf
 :   ~~~ ini
-    smtpd_tls_cert_file=/etc/ssl/certs/postfix.pem
-    smtpd_tls_key_file=/etc/ssl/private/postfix.key
+smtpd_tls_cert_file=/etc/ssl/certs/postfix.pem
+smtpd_tls_key_file=/etc/ssl/private/postfix.key
+
+{{< /file-excerpt >}}
 
     smtp_use_tls = yes                                                                                               
     smtpd_use_tls = yes                                                                                              
@@ -130,13 +134,15 @@ Consider the [basic email gateway guide](/docs/email/postfix/gateway-debian-6-sq
 
 The above Postfix configuration makes it possible to *send* mail using postfix. If your server receives email, Postfix requires additional configuration to deliver mail locally. Edit the `main.cf` file to insert or modify the following configuration directives:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/postfix/main.cf
 :   ~~~ ini
-    myhostname = lollipop.example.com
-    virtual_alias_maps = hash:/etc/postfix/virtual
-    home_mailbox = mail/
-    ~~~
+myhostname = lollipop.example.com
+virtual_alias_maps = hash:/etc/postfix/virtual
+home_mailbox = mail/
+~~~
+
+{{< /file-excerpt >}}
 
 Issue the following command to ensure that new user accounts have a `~/mail` directory:
 
@@ -165,8 +171,10 @@ You can add additional lines in the same format as the above to control how all 
 
 Edit the `/etc/alias` file to add the following line. This will to reroute all local mail delivered to the root user to another user account. In the following example, all mail delivered to `root` will be delivered to the `username` user's mail box.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/aliases
+
+{{< /file-excerpt >}}
 
 > root: username
 

@@ -80,14 +80,16 @@ For the purposes of this document we will assume that you have configured virtua
 
 Within your Apache virtual host configuration, set the following directives.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 Apache Virtual Host Configuration
 :   ~~~ apache
-    PerlSwitches -I/srv/www/example.com/application/lib/
-    <Perl>
-       use lib qw( /srv/www/example.com/application/lib/ );
-    </Perl>
-    PerlModule application
+PerlSwitches -I/srv/www/example.com/application/lib/
+<Perl>
+use lib qw( /srv/www/example.com/application/lib/ );
+</Perl>
+PerlModule application
+
+{{< /file-excerpt >}}
 
     <Location />
         SetHandler          modperl
@@ -101,14 +103,16 @@ Alter this example to include the path to your Catalyst application's `lib/` dir
 
 It may be more effective to serve some resources directly from Apache without using the `modperl` handler. Include the following or equivalent lines in your virtual hosting configuration:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 Apache Virtual Host Configuration
 :   ~~~ apache
-    DocumentRoot /srv/www/example.com/public_html
-    <Location /static>
-        SetHandler default-handler
-    </Location>
-    ~~~
+DocumentRoot /srv/www/example.com/public_html
+<Location /static>
+SetHandler default-handler
+</Location>
+~~~
+
+{{< /file-excerpt >}}
 
 With these lines, requests for the resources `http://example.com/static/style.css` and `http://example.com/static/bkgrnd.jpg` will be served from the resources `/srv/www/example.com/public_html/static/style.css` and `/srv/www/example.com/public_html/static/bkgrnd.jpg` respectively. You can add exemptions for multiple locations within your virtual host by using the `SetHandler` directive within location specific configuration sections. Ensure that the `<Location>` directive is inserted after the `mod_perl` configuration.
 
@@ -116,13 +120,15 @@ With these lines, requests for the resources `http://example.com/static/style.cs
 
 The following example represents a complete and fully functional virtual hosting configuration that combines elements from the previous three examples:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 Apache Virtual Host Configuration
 :   ~~~ apache
-    <VirtualHost *:80> 
-         ServerAdmin admin@example.com
-         ServerName example.com
-         ServerAlias www.example.com
+<VirtualHost *:80> 
+ServerAdmin admin@example.com
+ServerName example.com
+ServerAlias www.example.com
+
+{{< /file-excerpt >}}
 
          ErrorLog /srv/www/example.com/logs/error.log 
          CustomLog /srv/www/example.com/logs/access.log combined

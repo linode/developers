@@ -82,19 +82,23 @@ listen [::]:80;
 
     Replace `example.com` with your domain name. If your index page uses PHP, add `index.php` to the `index` line:
 
-    {: .file-excerpt}
-    /etc/nginx/sites-available/example.com
-    :   ~~~ nginx
-            index index.html index.php;
-        ~~~
+    {{< file-excerpt >}}
+/etc/nginx/sites-available/example.com
+:   ~~~ nginx
+index index.html index.php;
+~~~
+
+{{< /file-excerpt >}}
 
 3.  The nginx example configuration uses `/var/www/` as a document root, but Ubuntu uses `/var/www/html` as a standard. Additionally, Linode guides encourage the standard practice of using a subdirectory called `public_html` to exclude web files that shouldn't be publicly accesible. Update the `root` directive to match these conventions:
 
-    {: .file-excerpt}
-    /etc/nginx/sites-available/example.com
-    :   ~~~ nginx
-            root   /var/www/html/example.com/public_html;
-        ~~~
+    {{< file-excerpt >}}
+/etc/nginx/sites-available/example.com
+:   ~~~ nginx
+root   /var/www/html/example.com/public_html;
+~~~
+
+{{< /file-excerpt >}}
 
 4.  Create the root directory referenced in this configuration, replacing `example.com` with your domain name:
 

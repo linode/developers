@@ -48,8 +48,10 @@ The master configuration file for Munin is `/etc/munin/munin.conf`. This file is
 
 The first section of the file contains the paths to the directories used by Munin. When configuring your web server with Munin, make sure to point the root folder to the path of `htmldir`.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/munin/munin.conf
+
+{{< /file-excerpt >}}
 
 > \# Configfile for Munin master dbdir /var/lib/munin htmldir /var/www/html/munin logdir /var/log/munin rundir /var/run/munin
 
@@ -115,23 +117,25 @@ You can use Munin with the web server of your choice, simply point your web serv
 
 If you are using the [Apache HTTP Server](/docs/web-servers/apache/) you can create a Virtual Host configuration to serve the reports from Munin. In this scenario, we've created a subdomain in the DNS Manager and are now creating the virtual host:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/httpd/conf.d/vhost.conf
 :   ~~~ apache
-    <VirtualHost 123.45.67.89:80>
-       ServerAdmin webmaster@stats.example.com
-       ServerName stats.example.com
-       DocumentRoot /var/www/html/munin
-       <Directory />
-           Options FollowSymLinks
-           AllowOverride None
-       </Directory>
-       LogLevel notice
-       CustomLog /var/log/httpd/access_log combined
-       ErrorLog /var/log/httpd/error_log
-       ServerSignature On
-    </VirtualHost>
-    ~~~
+<VirtualHost 123.45.67.89:80>
+ServerAdmin webmaster@stats.example.com
+ServerName stats.example.com
+DocumentRoot /var/www/html/munin
+<Directory />
+Options FollowSymLinks
+AllowOverride None
+</Directory>
+LogLevel notice
+CustomLog /var/log/httpd/access_log combined
+ErrorLog /var/log/httpd/error_log
+ServerSignature On
+</VirtualHost>
+~~~
+
+{{< /file-excerpt >}}
 
 Now restart the server so that the changes to your configuration file can take effect. Issue the following command:
 

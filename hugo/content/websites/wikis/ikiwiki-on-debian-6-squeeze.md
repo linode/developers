@@ -303,17 +303,19 @@ Issue the following commands to create a `~/wiki/` directory as a git repository
 
 Add the following excerpt to `~/wiki/.git/config`:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 ~/wiki/.git/config
 :   ~~~
-    [remote "origin"]
-        fetch = +refs/heads/*:refs/remotes/origin/*
-        url = /srv/git/wiki.git
-    
-    [branch "master"]
-        remote = origin
-        merge = refs/heads/master
-    ~~~
+[remote "origin"]
+fetch = +refs/heads/*:refs/remotes/origin/*
+url = /srv/git/wiki.git
+
+[branch "master"]
+remote = origin
+merge = refs/heads/master
+~~~
+
+{{< /file-excerpt >}}
 
 Issue the following commands to copy the default `basewiki` and `templates` to the `~/wiki` directory, download a [sample ikiwiki configuration file](ikiwiki.yaml), and create an initial commit in the `~/wiki` repository:
 

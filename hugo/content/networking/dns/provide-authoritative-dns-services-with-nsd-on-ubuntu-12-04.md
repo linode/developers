@@ -49,7 +49,7 @@ You will now need to configure the daemon.
 
 Edit the `nsd.conf` file to configure the behavior of the NSD service and the hosted DNS zones. The NSD package provides an example configuration file located at `/etc/nsd3/nsd.conf.sample` that you may reference. Your file should resemble the following:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/nsd3/nsd.conf
 : ~~~
 	server:
@@ -57,16 +57,20 @@ Edit the `nsd.conf` file to configure the behavior of the NSD service and the ho
 	    username: nsd
 ~~~
 
+{{< /file-excerpt >}}
+
 ### Host Zones with NSD
 
 You must specify at least one zone in the `/etc/nsd3/nsd.conf` file before NSD will begin serving DNS records. Refer to the following example configuration for proper syntax.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/nsd3/nsd.conf
 : ~~~
 	zone:
 	    name: example.com
 	    zonefile: /etc/nsd3/example.com.zone
+
+{{< /file-excerpt >}}
 
 	zone:
 	    name: example.org
@@ -79,11 +83,13 @@ Once zones are added to the `nsd.conf` file, proceed to create a zone file for e
 
 Each domain has a zone file specified in the `nsd.conf` file. The syntax of an NSD zone file is similar BIND zone files. Refer to the example zone files that follow for syntax, and modify domain names and IP addresses to reflect the needs of your deployment.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/nsd3/example.com.zone
 : ~~~
 	$ORIGIN example.com.
 	$TTL 86400
+
+{{< /file-excerpt >}}
 
 	@       IN      SOA     ns1.example.com.      admin.example.com. (
 	                                2010011801      ; serial number
@@ -107,11 +113,13 @@ Each domain has a zone file specified in the `nsd.conf` file. The syntax of an N
 	*               IN      A       77.66.55.44
 ~~~
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/nsd3/example.org.zone
 : ~~~
 	$ORIGIN example.org.
 	$TTL 86400
+
+{{< /file-excerpt >}}
 
 	@       IN      SOA     ns1.example.org.      web-admin.example.org. (
 	                                    2009011803      ; serial number

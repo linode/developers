@@ -275,16 +275,18 @@ The UDF tags are explained in the table below:
 
 Below is an example implementation of the UDF variables:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 StackScript
 :   ~~~ bash
-    # [...]
-    <UDF name="var1" Label="A question" default="" example="Enter something here." />
-    <UDF name="var2" Label="Pick one of" oneOf="foo,bar" example="Enter something here." />
-    <UDF name="var3" Label="A question" oneOf="foo,bar" default="foo" />
-    <UDF name="var4" Label="Pick several from" manyOf="foo,bar" default="foo,bar" />
-    # [...]
-    ~~~
+# [...]
+<UDF name="var1" Label="A question" default="" example="Enter something here." />
+<UDF name="var2" Label="Pick one of" oneOf="foo,bar" example="Enter something here." />
+<UDF name="var3" Label="A question" oneOf="foo,bar" default="foo" />
+<UDF name="var4" Label="Pick several from" manyOf="foo,bar" default="foo,bar" />
+# [...]
+~~~
+
+{{< /file-excerpt >}}
 
 {{< note >}}
 If you would like to create a masked password input field, use the word 'password' anywhere in the UDF name.
@@ -306,11 +308,13 @@ There are also a set of Linode created environmental variables that can be used 
 
 If you do not want to use the StackScript system to set your environment variables, you might consider hosting files with settings on a different system. This is accomplished with the following fragment:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 StackScript
 :   ~~~ bash
-    # [...]
-    IPADDR=$(/sbin/ifconfig eth0 | awk '/inet / { print $2 }' | sed 's/addr://')
+# [...]
+IPADDR=$(/sbin/ifconfig eth0 | awk '/inet / { print $2 }' | sed 's/addr://')
+
+{{< /file-excerpt >}}
 
     wget http://example.com/base.env --output-document=/tmp/base.env
     wget http://example.com/$IPADDR.env --output-document=/tmp/system.env

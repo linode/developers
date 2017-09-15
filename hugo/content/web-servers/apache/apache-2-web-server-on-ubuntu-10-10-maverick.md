@@ -102,12 +102,14 @@ CustomLog /srv/www/example.net/logs/access.log combined
 
 If you would like to enable Perl support, then add the following lines to the `VirtualHost` entry above.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/apache2/sites-available/example.net
 :   ~~~ apache
-    Options ExecCGI
-    AddHandler cgi-script .pl
-    ~~~
+Options ExecCGI
+AddHandler cgi-script .pl
+~~~
+
+{{< /file-excerpt >}}
 
 Next, create example.org (`/etc/apache2/sites-available/example.org`) so that it resembles this:
 
@@ -210,13 +212,15 @@ Begin by installing the mpm-itk module:
 
 Now, in the `<VirtualHost >` entries for your sites (the site-specific files in `/etc/apache2/sites-available/`) add the following sub-block:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 Apache Virtual Host Configuration
 :   ~~~ apache
-    <IfModule mpm_itk_module>
-       AssignUserId webeditor webgroup
-    </IfModule>
-    ~~~
+<IfModule mpm_itk_module>
+AssignUserId webeditor webgroup
+</IfModule>
+~~~
+
+{{< /file-excerpt >}}
 
 In this example, `webeditor` is the name of the user of the specific site in question, and `webgroup` is the name of the particular group that "owns" the web server related files and processes. Remember that you must create the user accounts and groups using the `useradd` command.
 

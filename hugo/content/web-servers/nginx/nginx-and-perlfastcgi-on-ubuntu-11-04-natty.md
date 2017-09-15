@@ -117,28 +117,32 @@ root   /srv/www/www.example.com/public_html;
 
 If you elected to use TCP sockets instead of UNIX sockets, you'll also need to modify the fcgiwrap init script. Look for the following section in the `/etc/init.d/fcgiwrap` file:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/init.d/fcgiwrap
 :   ~~~
-    # FCGI_APP Variables
-    FCGI_CHILDREN="1"
-    FCGI_SOCKET="/var/run/$NAME.socket"
-    FCGI_USER="www-data"
-    FCGI_GROUP="www-data"
-    ~~~
+# FCGI_APP Variables
+FCGI_CHILDREN="1"
+FCGI_SOCKET="/var/run/$NAME.socket"
+FCGI_USER="www-data"
+FCGI_GROUP="www-data"
+~~~
 Change it to match the following excerpt:
 
-{: .file-excerpt }
+{{< /file-excerpt >}}
+
+{{< file-excerpt >}}
 /etc/init.d/fcgiwrap
 :   ~~~
-    # FCGI_APP Variables
-    FCGI_CHILDREN="1"
-    FCGI_PORT="8999"
-    FCGI_ADDR="127.0.0.1"
-    FCGI_USER="www-data"
-    FCGI_GROUP="www-data"
-    ~~~
+# FCGI_APP Variables
+FCGI_CHILDREN="1"
+FCGI_PORT="8999"
+FCGI_ADDR="127.0.0.1"
+FCGI_USER="www-data"
+FCGI_GROUP="www-data"
+~~~
 ### Enable the Site
+
+{{< /file-excerpt >}}
 
 Issue the following commands to enable the site:
 

@@ -148,19 +148,21 @@ In this section you will install GitLab and make some configuration changes.
    
    You need to change the value of host to the fully-qualified domain of your server. Also set the email_from and support_email to the email addresses intended for GitLab.
 
-   {: .file-excerpt }
-   /home/git/gitlab/config/gitlab.yml
-   :    ~~~
-        production: &base
-          gitlab:
-            host: git.example.com 
-            port: 80
-            https: false
-            ...
-            email_from: gitlab@example.com
-            ...
-            support_email: support@example.com
-        ~~~
+   {{< file-excerpt >}}
+/home/git/gitlab/config/gitlab.yml
+:    ~~~
+production: &base
+gitlab:
+host: git.example.com 
+port: 80
+https: false
+...
+email_from: gitlab@example.com
+...
+support_email: support@example.com
+~~~
+
+{{< /file-excerpt >}}
 
      {{< note >}}
 If you specified a database name other than `gitlabhq_production` when creating the PostgreSQL database in the previous section, edit the `config/database.yml` file to match with your database name.
@@ -205,23 +207,25 @@ If you specified a database name other than `gitlabhq_production` when creating 
 
 12. Check if the value of `gitlab_url` matches with the URL of your server.
 
-    {: .file-excerpt}
-    /home/git/gitlab-shell/config.yml
-    :   ~~~
-        user: git
-        gitlab_url: http://git.example.com/
-        http_settings:
-          self_signed_cert: false
-        repos_path: "/home/git/repositories/"
-        auth_file: "/home/git/.ssh/authorized_keys"
-        redis:
-          bin: "/usr/bin/redis-cli"
-          host: localhost
-          port: 6379
-          namespace: resque:gitlab
-        log_level: INFO
-        audit_usernames: false
-        ~~~
+    {{< file-excerpt >}}
+/home/git/gitlab-shell/config.yml
+:   ~~~
+user: git
+gitlab_url: http://git.example.com/
+http_settings:
+self_signed_cert: false
+repos_path: "/home/git/repositories/"
+auth_file: "/home/git/.ssh/authorized_keys"
+redis:
+bin: "/usr/bin/redis-cli"
+host: localhost
+port: 6379
+namespace: resque:gitlab
+log_level: INFO
+audit_usernames: false
+~~~
+
+{{< /file-excerpt >}}
 
     When you are satisfied with the configuration, save and exit the file.
 
@@ -318,14 +322,16 @@ Nginx is the only supported web server for GitLab. In this section, you will cre
 
 4. Modify the value for `server_name` to the fully-qualified domain name of your server:
 
-   {: .file-excerpt}
-   /etc/nginx/sites-available/gitlab
-    :   ~~~
-        listen 80;
-        server_name git.example.com;
-        server_tokens off; 
-        root /home/git/gitlab/public;
-        ~~~
+   {{< file-excerpt >}}
+/etc/nginx/sites-available/gitlab
+:   ~~~
+listen 80;
+server_name git.example.com;
+server_tokens off; 
+root /home/git/gitlab/public;
+~~~
+
+{{< /file-excerpt >}}
 
    Save and exit the file.
 

@@ -129,8 +129,10 @@ Exit the MySQL shell by issuing the following command:
 
 Check that MySQL is set up to bind to localhost (127.0.0.1) by looking at the file `/etc/mysql/my.cnf`. You should have the following line in the configuration file:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/mysql/my.cnf
+
+{{< /file-excerpt >}}
 
 > bind-address = 127.0.0.1
 
@@ -313,8 +315,10 @@ Configure Courier to use MySQL
 
 Edit the file `/etc/courier/authdaemonrc`, changing the "authmodulelist" line to read as follows.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/courier/authdaemonrc
+
+{{< /file-excerpt >}}
 
 > authmodulelist="authmysql"
 

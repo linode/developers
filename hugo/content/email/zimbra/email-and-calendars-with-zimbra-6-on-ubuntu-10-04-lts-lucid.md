@@ -73,25 +73,29 @@ Visit the download page for [Zimbra Open Source Edition](http://www.zimbra.com/c
 
 You'll need to edit the file `util/utilfunc.sh` to work around a package requirement. Look for the block containing the following lines:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 util/utilfunc.sh
 :   ~~~
-    checkUbuntuRelease
-    PACKAGEINST='dpkg -i'
-    PACKAGERM='dpkg --purge'
-    PACKAGEQUERY='dpkg -s'
-    PACKAGEEXT='deb'
-    PACKAGEVERSION="dpkg-query -W -f \${Version}"
-    PREREQ_PACKAGES="sudo libidn11 libgmp3 libstdc++6"
-    ~~~
+checkUbuntuRelease
+PACKAGEINST='dpkg -i'
+PACKAGERM='dpkg --purge'
+PACKAGEQUERY='dpkg -s'
+PACKAGEEXT='deb'
+PACKAGEVERSION="dpkg-query -W -f \${Version}"
+PREREQ_PACKAGES="sudo libidn11 libgmp3 libstdc++6"
+~~~
+
+{{< /file-excerpt >}}
 
 Change the last line to read as follows:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 util/utilfunc.sh
 :   ~~~
-    PREREQ_PACKAGES="sudo libidn11 libgmp3c2 libstdc++6"
-    ~~~
+PREREQ_PACKAGES="sudo libidn11 libgmp3c2 libstdc++6"
+~~~
+
+{{< /file-excerpt >}}
 
 Launch the installer with the following commands.
 

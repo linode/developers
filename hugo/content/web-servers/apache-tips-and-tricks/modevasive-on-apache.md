@@ -66,19 +66,21 @@ LoadModule evasive20_module /usr/lib/httpd/modules/mod_evasive20.so
 
 Below those sections, add the mod_evasive configuration:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 mod_evasive configuration
 :   ~~~
-    <IfModule mod_evasive20.c>
-        DOSHashTableSize 3097
-        DOSPageCount 2
-        DOSSiteCount 50
-        DOSPageInterval 1
-        DOSSiteInterval 1
-        DOSBlockingPeriod 60
-        DOSEmailNotify <someone@somewhere.com>
-    </IfModule>
-    ~~~
+<IfModule mod_evasive20.c>
+DOSHashTableSize 3097
+DOSPageCount 2
+DOSSiteCount 50
+DOSPageInterval 1
+DOSSiteInterval 1
+DOSBlockingPeriod 60
+DOSEmailNotify <someone@somewhere.com>
+</IfModule>
+~~~
+
+{{< /file-excerpt >}}
 
 You'll then need to restart Apache for your changes to take effect:
 

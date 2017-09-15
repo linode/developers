@@ -46,10 +46,12 @@ Copy the default configuration file to the `/srv/www/example.com` directory:
 
 Now edit the file, making sure to modify the following values to conform to the needs of your deployment. Consider the following example:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 planet.conf
 :   ~~~
-    name=example link=http://example.com
+name=example link=http://example.com
+
+{{< /file-excerpt >}}
 
     owner_name=username <owner_email=username@example.com>
 
@@ -80,19 +82,23 @@ If you want to override any of the default values like the encoding or the value
 
 At the end of your `planet.conf` file, add entries that resemble the following for each feed that you would like to collect in the Planet you're building
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 planet.conf
 :   ~~~
-    [<https://www.linode.com/docs/rss>]
-    name = Linode
-    ~~~
+[<https://www.linode.com/docs/rss>]
+name = Linode
+~~~
+
+{{< /file-excerpt >}}
 
 If you want to take advantage of Planet's support for per-feed "faces" or avatars to identify each feed with a distinct logo or image, consider the following examples:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 planet.conf
 :   ~~~
-    [DEFAULT] facewidth = 64 faceheight = 64
+[DEFAULT] facewidth = 64 faceheight = 64
+
+{{< /file-excerpt >}}
 
     [<https://www.linode.com/docs/rss>] name = Linode face = lin-lib-avatar.png
     ~~~
@@ -113,10 +119,12 @@ While you can run Planet without incident using the above method, we recommend r
 
 Insert the following job into the crontab:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 crontab
 :   ~~~
-    */10* * * * planetplanet /srv/www/example.com/planet.conf
-    ~~~
+*/10* * * * planetplanet /srv/www/example.com/planet.conf
+~~~
+
+{{< /file-excerpt >}}
 
 Save the crontab. Your Planet generated site will refresh every 10 minutes. Congratulations!

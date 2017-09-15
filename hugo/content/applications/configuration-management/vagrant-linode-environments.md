@@ -98,10 +98,12 @@ Vagrant.configure('2') do |config|
 
 3.  Define the Linode provider:
 
-    {: .file-excerpt}
-    ~/vagrant-linode/Vagrantfile
-    :   ~~~ ruby
-        Vagrant.configure('2') do |config|
+    {{< file-excerpt >}}
+~/vagrant-linode/Vagrantfile
+:   ~~~ ruby
+Vagrant.configure('2') do |config|
+
+{{< /file-excerpt >}}
 
           ...
 
@@ -119,10 +121,12 @@ Vagrant.configure('2') do |config|
 
 4.  Choose your Linode's settings:
 
-    {: .file-excerpt}
-    ~/vagrant-linode/Vagrantfile
-    :   ~~~ ruby
-        Vagrant.configure('2') do |config|
+    {{< file-excerpt >}}
+~/vagrant-linode/Vagrantfile
+:   ~~~ ruby
+Vagrant.configure('2') do |config|
+
+{{< /file-excerpt >}}
 
           ...
 
@@ -179,10 +183,12 @@ apt-get update && apt-get upgrade -y
 
 2.  Within the Vagrantfile, call to the shell script you just created by adding the `config.vm.provision` method:
 
-    {: .file-excerpt}
-    ~/vagrant-linode/Vagrantfile
-    :   ~~~ ruby
-        Vagrant.configure('2') do |config|
+    {{< file-excerpt >}}
+~/vagrant-linode/Vagrantfile
+:   ~~~ ruby
+Vagrant.configure('2') do |config|
+
+{{< /file-excerpt >}}
 
         ...
 
@@ -218,10 +224,12 @@ service apache2 reload
 
 2.  Add the shell script provisioner method to your Vagrantfile, under the line that references `setup.sh`:
 
-    {: .file-excerpt}
-    ~/vagrant-linode/Vagrantfile
-    :   ~~~ ruby
-        Vagrant.configure('2') do |config|
+    {{< file-excerpt >}}
+~/vagrant-linode/Vagrantfile
+:   ~~~ ruby
+Vagrant.configure('2') do |config|
+
+{{< /file-excerpt >}}
 
         ...
 
@@ -273,12 +281,14 @@ CustomLog ${APACHE_LOG_DIR}/access.log combined
 
 6.  Return to the Vagrantfile, and use the `config.vm.synced_folder` method to sync the local directories with directories on the server:
 
-    {: .file-excerpt}
-    ~/vagrant-linode/Vagrantfile
-    :   ~~~ ruby
-        Vagrant.configure('2') do |config|
-        
-          ...
+    {{< file-excerpt >}}
+~/vagrant-linode/Vagrantfile
+:   ~~~ ruby
+Vagrant.configure('2') do |config|
+
+...
+
+{{< /file-excerpt >}}
 
           # Synced Folders
           config.vm.synced_folder '.', '/vagrant', disabled: true

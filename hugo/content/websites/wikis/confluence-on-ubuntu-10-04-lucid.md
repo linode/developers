@@ -68,22 +68,26 @@ Visit the [Confluence download page](http://www.atlassian.com/software/confluenc
 
 Edit the `confluence-init.properties` file, adding the following line to it. Adjust the full path to the file as necessary to reflect the current version number.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /usr/local/confluence/confluence-3.3.1-std/confluence/WEB-INF/classes/confluence-init.properties
 : ~~~
-  confluence.home=/var/lib/confluence
-  ~~~
+confluence.home=/var/lib/confluence
+~~~
+
+{{< /file-excerpt >}}
 
 Edit the `setenv.sh` file, adding the following lines. Adjust the full path to the file as necessary to reflect the current version number.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /usr/local/confluence/confluence-3.3.1-std/bin/setenv.sh
 :  ~~~
-   JAVA_HOME="/usr/lib/jvm/java-6-sun"
-   export JAVA_HOME
-   ~~~
-   
+JAVA_HOME="/usr/lib/jvm/java-6-sun"
+export JAVA_HOME
+~~~
+
 Issue the following command to return to a root shell.
+
+{{< /file-excerpt >}}
 
     exit
 

@@ -59,15 +59,19 @@ This will install version 0.6.33 of the nginx server.
 
 Apart from the difference in the following procedure, installing from stable and backported packages are identical. Edit the `/etc/apt/sources.list` file to add the following line:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/apt/sources.list
+
+{{< /file-excerpt >}}
 
 > deb <http://backports.debian.org/debian-backports> lenny-backports main
 
 Pin the `nginx` package to the `lenny-backports` repository by inserting the following lines in the `/etc/apt/preferences` file (note: you will need to create this file if it doesn't already exist.)
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/apt/preferences
+
+{{< /file-excerpt >}}
 
 > Package: nginx Pin: release a=lenny-backports Pin-Priority: 999
 
@@ -135,14 +139,16 @@ Configure nginx Virtual Hosting
 
 Regardless of the method you use to install nginx, you will need to configure `server` declarations to specify name-based virtual hosts. There are a number of approaches to organizing configuration files with nginx. Regardless of the organizational strategy, all virtual host configurations are contained within `server` configuration blocks that are in turn contained within the `http` block in the `nginx.conf` file. Consider the following nginx virtual host configuration:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 nginx server configuration
 :   ~~~ nginx
-    server {
-        listen   80;
-        server_name www.example.com example.com;
-        access_log /srv/www/example.com/logs/access.log;
-        error_log /srv/www/example.com/logs/error.log;
+server {
+listen   80;
+server_name www.example.com example.com;
+access_log /srv/www/example.com/logs/access.log;
+error_log /srv/www/example.com/logs/error.log;
+
+{{< /file-excerpt >}}
 
         location / {
             root   /srv/www/example.com/public_html;
@@ -170,11 +176,13 @@ The source file is saved, and the site can be re-enabled at any time.
 
 If you installed the web server after compiling it from source you have a number of options. You may insert the server directives directly into the `http` section of the `/opt/nginx/conf/nginx.conf` or `/etc/nginx/nginx.conf` file, although this may be difficult to manage. You may also replicate the management system created for the Debian project by creating `sites-available/` and `sites-enabled/` directories and inserting the following line into your `nginx.conf` file:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/nginx/nginx.conf
 :   ~~~ nginx
-    http {
-    # [...]
+http {
+# [...]
+
+{{< /file-excerpt >}}
 
     include /opt/etc/nginx/sites-enabled/*;
 
@@ -184,11 +192,13 @@ If you installed the web server after compiling it from source you have a number
 
 Modify the include statement to point to the path of your `sites-enabled` directory. In some circumstances, it may make more sense to create and include a file named `/opt/nginx-sites.conf` that is included in the `nginx.conf` file as follows:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /opt/nginx/conf/nginx.conf
 :   ~~~ nginx
-    http {
-    # [...]
+http {
+# [...]
+
+{{< /file-excerpt >}}
 
     include /opt/nginx-sites.conf;
 

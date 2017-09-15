@@ -54,11 +54,13 @@ sudo systemctl restart apache2
 
 `Redirect` settings can be located in your main Apache configuration file, but we recommend you keep them in your virtual host files or directory blocks. You can also use `Redirect` statements in `.httaccess` files. Here's an example of how to use `Redirect`:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 Apache configuration option
 :   ~~~ apache
-    Redirect /username http://team.example.com/~username/
-    ~~~
+Redirect /username http://team.example.com/~username/
+~~~
+
+{{< /file-excerpt >}}
 
 If no argument is given, `Redirect` sends a temporary (302) status code, and the client is informed that the resource available at `/username` has temporarily moved to `http://team.example.com/~username/`.
 
@@ -66,14 +68,16 @@ No matter where they are located, `Redirect` statements must specify the full fi
 
 You can also provide an argument to return a specific HTTP status:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 Apache configuration option
 :   ~~~ apache
-    Redirect permanent /username http://team.example.com/~username/
-    Redirect temp /username http://team.example.com/~username/
-    Redirect seeother /username http://team.example.com/~username/
-    Redirect gone /username
-    ~~~
+Redirect permanent /username http://team.example.com/~username/
+Redirect temp /username http://team.example.com/~username/
+Redirect seeother /username http://team.example.com/~username/
+Redirect gone /username
+~~~
+
+{{< /file-excerpt >}}
 
 -   `permanent` tells the client the resource has moved permanently. This returns a 301 HTTP status code.
 -   `temp` is the default behavior, and tells the client the resource has moved temporarily. This returns a 302 HTTP status code.
@@ -82,31 +86,37 @@ Apache configuration option
 
 You can also use the HTTP status codes as arguments. Here's an example using the status code options:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 Apache configuration option
 :   ~~~ apache
-    Redirect 301 /username http://team.example.com/~username/
-    Redirect 302 /username http://team.example.com/~username/
-    Redirect 303 /username http://team.example.com/~username/
-    Redirect 410 /username
-    ~~~
+Redirect 301 /username http://team.example.com/~username/
+Redirect 302 /username http://team.example.com/~username/
+Redirect 303 /username http://team.example.com/~username/
+Redirect 410 /username
+~~~
+
+{{< /file-excerpt >}}
 
 Permanent and temporary redirects can also be done with `RedirectPermanent` and `RedirectTemp`, respectively:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 Apache configuration option
 :   ~~~ apache
-    RedirectPermanent /username/bio.html http://team.example.com/~username/bio/
-    RedirectTemp /username/bio.html http://team.example.com/~username/bio/
-    ~~~
+RedirectPermanent /username/bio.html http://team.example.com/~username/bio/
+RedirectTemp /username/bio.html http://team.example.com/~username/bio/
+~~~
+
+{{< /file-excerpt >}}
 
 Redirects can be made with [regex patterns](https://en.wikipedia.org/wiki/Regular_expression) as well, using `RedirectMatch`:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 Apache configuration option
 :   ~~~ apache
-    RedirectMatch (.*)\.jpg$ http://static.example.com$1.jpg
-    ~~~
+RedirectMatch (.*)\.jpg$ http://static.example.com$1.jpg
+~~~
+
+{{< /file-excerpt >}}
 
 This matches any request for a file with a `.jpg` extension and replaces it with a location on a given domain. The parentheses allow you to get a specific part of the request, and insert it into the new location's URL as a variable (specified by `$1`, `$2`, etc.). For example:
 

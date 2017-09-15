@@ -97,15 +97,17 @@ make -j2 bzImage
 
 4.  Edit `/etc/default/grub` and add or change the following variables to match. There will be other variables in this file, but we are only concerned with those listed below:
 
-    {: .file-excerpt}
-    /etc/default/grub
-    :   ~~~ conf
-        GRUB_TIMEOUT=10
-        GRUB_DISABLE_LINUX_UUID=true
-        GRUB_CMDLINE_LINUX="console=tty1 console=ttyS0,19200n8"
-        GRUB_SERIAL_COMMAND="serial --speed=19200 --unit=0 --word=8 --parity=no --stop=1"
-        GRUB_TERMINAL="serial console"
-        ~~~
+    {{< file-excerpt >}}
+/etc/default/grub
+:   ~~~ conf
+GRUB_TIMEOUT=10
+GRUB_DISABLE_LINUX_UUID=true
+GRUB_CMDLINE_LINUX="console=tty1 console=ttyS0,19200n8"
+GRUB_SERIAL_COMMAND="serial --speed=19200 --unit=0 --word=8 --parity=no --stop=1"
+GRUB_TERMINAL="serial console"
+~~~
+
+{{< /file-excerpt >}}
 
     Comment or remove any lines starting with `GRUB_HIDDEN`.
 

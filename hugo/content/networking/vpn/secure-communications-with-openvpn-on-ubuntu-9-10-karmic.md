@@ -204,19 +204,23 @@ Once configured, the OpenVPN server allows you to encrypt traffic between your l
 
 By deploying the following configuration, you will be able to forward *all* traffic from client machines through your Linode, and encrypt it with transport layer security (TLS/SSL) between the client machine and the Linode. Begin by adding the following parameter to the `/etc/openvpn/server.conf` file to enable "full tunneling":
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/openvpn/server.conf
 :   ~~~
-    push "redirect-gateway def1"
-    ~~~
+push "redirect-gateway def1"
+~~~
+
+{{< /file-excerpt >}}
 
 Now edit the `/etc/sysctl.conf` file to uncomment or add the following line to ensure that your system is able to forward IPv4 traffic:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/sysctl.conf
 :   ~~~
-    net.ipv4.ip_forward=1
-    ~~~
+net.ipv4.ip_forward=1
+~~~
+
+{{< /file-excerpt >}}
 
 Issue the following command to set this variable for the current session:
 
@@ -231,35 +235,39 @@ Issue the following commands to configure `iptables` to properly forward traffic
 
 Before continuing, insert these `iptables` rules into your system's `/etc/rc.local` file to ensure that theses `iptables` rules will be recreated following your next reboot cycle:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/rc.local
 :   ~~~
-    #!/bin/sh -e
-    #
-    # [...]
-    #
-    iptables -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
-    iptables -A FORWARD -s 10.8.0.0/24 -j ACCEPT
-    iptables -A FORWARD -j REJECT
-    iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o eth0 -j MASQUERADE
-    
-    exit 0
-    ~~~
+#!/bin/sh -e
+#
+# [...]
+#
+iptables -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -A FORWARD -s 10.8.0.0/24 -j ACCEPT
+iptables -A FORWARD -j REJECT
+iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o eth0 -j MASQUERADE
+
+exit 0
+~~~
+
+{{< /file-excerpt >}}
 
 This will enable all client traffic *except* DNS queries to be forwarded through the VPN. To forward DNS traffic through the VPN you will need to install the `dnsmasq` package and modify the `/etc/opnevpn/server.conf` package. Before we can install `dnsmasq` we must enable the "universe" repositories. Edit the `/etc/apt/sources.list` to uncomment or add the following lines:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/apt/sources.list
 :   ~~~
-    #
-    # universe repositories
-    deb http://us.archive.ubuntu.com/ubuntu/ karmic universe 
-    deb-src http://us.archive.ubuntu.com/ubuntu/ karmic universe
-    deb http://us.archive.ubuntu.com/ubuntu/ karmic-updates universe
-    deb-src http://us.archive.ubuntu.com/ubuntu/ karmic-updates universe
-    deb http://security.ubuntu.com/ubuntu karmic-security universe
-    deb-src http://security.ubuntu.com/ubuntu karmic-security universe
-    ~~~
+#
+# universe repositories
+deb http://us.archive.ubuntu.com/ubuntu/ karmic universe 
+deb-src http://us.archive.ubuntu.com/ubuntu/ karmic universe
+deb http://us.archive.ubuntu.com/ubuntu/ karmic-updates universe
+deb-src http://us.archive.ubuntu.com/ubuntu/ karmic-updates universe
+deb http://security.ubuntu.com/ubuntu karmic-security universe
+deb-src http://security.ubuntu.com/ubuntu karmic-security universe
+~~~
+
+{{< /file-excerpt >}}
 
 Now reload the package database by issuing the following command:
 
@@ -271,11 +279,13 @@ Finally install the `dnsmasq` package with the following command:
 
 Add the following directive to the `/etc/openvpn/server.conf` file:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/openvpn/server.conf
 :   ~~~
-    push "dhcp-option DNS 10.8.0.1"
-    ~~~
+push "dhcp-option DNS 10.8.0.1"
+~~~
+
+{{< /file-excerpt >}}
 
 Finally, before attempting to connect to the VPN in any configuration, restart the OpenVPN server by issuing the following command:
 

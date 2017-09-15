@@ -23,12 +23,14 @@ Install Required Packages
 
 First, make sure you have the `universe` repository enabled in your `/etc/apt/sources.list` file. Your file should resemble the following:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/apt/sources.list
 :   ~~~
-    ## main & restricted repositories
-    deb http://us.archive.ubuntu.com/ubuntu/ jaunty main restricted universe
-    deb-src http://us.archive.ubuntu.com/ubuntu/ jaunty main restricted universe
+## main & restricted repositories
+deb http://us.archive.ubuntu.com/ubuntu/ jaunty main restricted universe
+deb-src http://us.archive.ubuntu.com/ubuntu/ jaunty main restricted universe
+
+{{< /file-excerpt >}}
 
     deb http://security.ubuntu.com/ubuntu jaunty-security main restricted universe
     deb-src http://security.ubuntu.com/ubuntu jaunty-security main restricted universe

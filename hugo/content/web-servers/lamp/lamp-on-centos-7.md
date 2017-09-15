@@ -59,10 +59,12 @@ cp /etc/httpd/conf/httpd.conf ~/httpd.conf.backup
 
 {{< /note >}}
 
-    {: .file-excerpt }
-    /etc/httpd/conf/httpd.conf
-    :   ~~~ conf
-        KeepAlive Off
+    {{< file-excerpt >}}
+/etc/httpd/conf/httpd.conf
+:   ~~~ conf
+KeepAlive Off
+
+{{< /file-excerpt >}}
 
 
         <IfModule prefork.c>
@@ -82,10 +84,12 @@ There are different ways to set up virtual hosts; however, the method below is r
 
 1.  Within the `conf.d` directory create `vhost.conf` to store your virtual host configurations. The example below is a template for website `example.com`; change the necessary values for your domain:
 
-    {: .file-excerpt }
-    /etc/httpd/conf.d/vhost.conf
-    :   ~~~ conf
-        NameVirtualHost *:80
+    {{< file-excerpt >}}
+/etc/httpd/conf.d/vhost.conf
+:   ~~~ conf
+NameVirtualHost *:80
+
+{{< /file-excerpt >}}
 
         <VirtualHost *:80>
             ServerAdmin webmaster@example.com
@@ -180,13 +184,15 @@ With Apache and MariaDB installed, you are now ready to move on to installing PH
 
 2.  Edit `/etc/php.ini` for better error messages and logs, and upgraded performance. These modifications provide a good starting point for a **Linode 2GB**:
 
-    {: .file-excerpt }
-    /etc/php.ini
-    :   ~~~ ini
-        error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
-        error_log = /var/log/php/error.log
-        max_input_time = 30
-        ~~~
+    {{< file-excerpt >}}
+/etc/php.ini
+:   ~~~ ini
+error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
+error_log = /var/log/php/error.log
+max_input_time = 30
+~~~
+
+{{< /file-excerpt >}}
 
     {{< note >}}
 

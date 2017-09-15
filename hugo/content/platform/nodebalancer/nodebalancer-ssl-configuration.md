@@ -102,10 +102,12 @@ Depending on your distribution, this file's location may vary. For example, it c
 
 2.  Edit the Apache virtual host configuration file to establish the rewrite rules necessary to redirect all incoming traffic from port 80/HTTP back to the NodeBalancer on port 443/HTTPS:
 
-    {: .file-excerpt }
-    /etc/apache2/sites-available/example.com.conf
-    :   ~~~ apache
-        <VirtualHost *:80>
+    {{< file-excerpt >}}
+/etc/apache2/sites-available/example.com.conf
+:   ~~~ apache
+<VirtualHost *:80>
+
+{{< /file-excerpt >}}
 
              RewriteEngine    On
              RewriteCond      %{HTTP:X-Forwarded-Proto} !https
@@ -120,9 +122,11 @@ Depending on your distribution, this file's location may vary. For example, it c
 
     If you are using Apache 2.2, then you will need to replace the `LogLevel alert rewrite:trace` directive with the following:
 
-    {: .file-excerpt }
-    /etc/apache2/sites-available/example.com.conf
-    :   ~~~ apache2
+    {{< file-excerpt >}}
+/etc/apache2/sites-available/example.com.conf
+:   ~~~ apache2
+
+{{< /file-excerpt >}}
 
           RewriteLog       /var/log/apache2/rewrite.log
           RewriteLogLevel  5  # Adjust log verbosity as required. ex. 1-9
@@ -147,24 +151,26 @@ On Red Hat-based distributions, change the `Rewritelog` path to `/var/log/httpd/
 
 1.  Edit the Nginx server block configuration file to establish the rewrite rules to redirect all incoming traffic from port 80/HTTP back to the NodeBalancer on port 443/HTTPS:
 
-    {: .file-excerpt }
-    /etc/nginx/sites-available/example.com.conf
-    :   ~~~ nginx
-        server {
-            listen   80;
-            server_name example.com;
-            access_log /var/log/nginx/access.log;
-            error_log /var/log/nginx/error.log;
-            proxy_set_header X-Forwarded-Proto $scheme;
-            location / {
-                root   /srv/www/example.com/public_html;
-                index  index.html index.htm;
-                if ($http_x_forwarded_proto = "http") {
-                    rewrite  ^/(.*)$  https://example.com/$1 permanent;
-                    }           
-                }
-            }
-        ~~~
+    {{< file-excerpt >}}
+/etc/nginx/sites-available/example.com.conf
+:   ~~~ nginx
+server {
+listen   80;
+server_name example.com;
+access_log /var/log/nginx/access.log;
+error_log /var/log/nginx/error.log;
+proxy_set_header X-Forwarded-Proto $scheme;
+location / {
+root   /srv/www/example.com/public_html;
+index  index.html index.htm;
+if ($http_x_forwarded_proto = "http") {
+rewrite  ^/(.*)$  https://example.com/$1 permanent;
+}           
+}
+}
+~~~
+
+{{< /file-excerpt >}}
 
     In the above configuration, be sure to replace the values of `server_name` and `root` with your actual domain and document root, respectively.
 

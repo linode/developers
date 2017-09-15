@@ -48,11 +48,13 @@ Install Ikiwiki
 
 To install the current version of Ikiwiki on Debian 5 (Lenny), you must install several packages from the [Backports project](http://backports.debian.org). Insert the following line in your `/etc/apt/sources.list` file:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/apt/sources.list
 :   ~~~
-    deb http://backports.debian.org/debian-backports lenny-backports main
-    ~~~
+deb http://backports.debian.org/debian-backports lenny-backports main
+~~~
+
+{{< /file-excerpt >}}
 
 Issue the following commands to update your system's package database and all installed packages, and install the backports repository key:
 
@@ -62,12 +64,14 @@ Issue the following commands to update your system's package database and all in
 
 Add the following snippet to the `/etc/apt/preferences` file:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/apt/preferences
 :   ~~~
-    Package: ikiwiki
-    Pin: release a=lenny-backports
-    Pin-Priority: 999
+Package: ikiwiki
+Pin: release a=lenny-backports
+Pin-Priority: 999
+
+{{< /file-excerpt >}}
 
     Package: libnet-openid-consumer-perl
     Pin: release a=lenny-backports
@@ -332,15 +336,17 @@ Issue the following commands to create a `~/wiki/` directory as a git repository
 
 Add the following excerpt to `~/wiki/.git/config`:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 ~/wiki/.git/config
 :   ~~~
-    [remote "origin"]
-        fetch = +refs/heads/*:refs/remotes/origin/* url = /srv/git/wiki.git
-    
-    [branch "master"]
-        remote = origin merge = refs/heads/master
-    ~~~
+[remote "origin"]
+fetch = +refs/heads/*:refs/remotes/origin/* url = /srv/git/wiki.git
+
+[branch "master"]
+remote = origin merge = refs/heads/master
+~~~
+
+{{< /file-excerpt >}}
 
 Issue the following commands to copy the default `basewiki` and `templates` to the `~/wiki` directory, download a [sample ikiwiki configuration file](/docs/assets/691-ikiwiki.yaml), and create an initial commit in the `~/wiki` repository:
 

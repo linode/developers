@@ -61,13 +61,15 @@ Proxying a Domain to Lighttpd
 
 We already have a site called "www.firstsite.org" running under Apache as a normal virtual host. We'll use Apache to send requests for the site "www.secondsite.org" to a lighttpd instance, which we've configured to run on port 8080 on localhost. You can proxy to any local and non-local HTTP servers as required by your deployment. Here are the configuration directives for "www.secondsite.org":
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/httpd/conf.d/vhost.conf
 :   ~~~ apache
-    <VirtualHost *:80>
-         ServerAdmin support@secondsite.org
-         ServerName secondsite.org
-         ServerAlias www.secondsite.org
+<VirtualHost *:80>
+ServerAdmin support@secondsite.org
+ServerName secondsite.org
+ServerAlias www.secondsite.org
+
+{{< /file-excerpt >}}
 
          ProxyPass / http://localhost:8080/
 
@@ -93,16 +95,18 @@ Proxying a Specific URL to Lighttpd
 
 If we wanted to have `http://www.firstsite.org/myapp/` served by a web application running under lighttpd, we'd simply modify its configuration file to look like this:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/httpd/conf.d/vhost.conf
 :   ~~~ apache
-    <VirtualHost *:80>
-         ServerAdmin support@firstsite.org
-         ServerName firstsite.org
-         ServerAlias www.firstsite.org
-         DocumentRoot /srv/www/firstsite.org/public_html/
-         ErrorLog /srv/www/firstsite.org/logs/error.log
-         CustomLog /srv/www/firstsite.org/logs/access.log combined
+<VirtualHost *:80>
+ServerAdmin support@firstsite.org
+ServerName firstsite.org
+ServerAlias www.firstsite.org
+DocumentRoot /srv/www/firstsite.org/public_html/
+ErrorLog /srv/www/firstsite.org/logs/error.log
+CustomLog /srv/www/firstsite.org/logs/access.log combined
+
+{{< /file-excerpt >}}
 
          ProxyPass /myapp http://localhost:8080/
     </VirtualHost>

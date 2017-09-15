@@ -82,22 +82,24 @@ SUBSONIC_ARGS="--max-memory=150"
 
     Here you can change the user, the port Subsonic listens on, increase the amount of memory it can use, and encrypt your streaming traffic with SSL. To use your own SSL certificate, look [here](http://www.subsonic.org/pages/getting-started.jsp#4). The following is an example of the server set up to use https on port 8080 with the default SSL certificate:
 
-    {: .file-excerpt}
-    /etc/default/subsonic
-    :   ~~~
-        # Type "subsonic --help" on the command line to read an
-        # explanation of the different options.
-        #
-        # For example, to specify that Subsonic should use port 80 (for http)
-        # and 443 (for https), and use a Java memory heap size of 200 MB, use
-        # the following:
-        #
-        # SUBSONIC_ARGS="--port=80 --https-port=443 --max-memory=200"
-        
-        SUBSONIC_ARGS="--https-port=8443 --max-memory=150"
-        
-        SUBSONIC_USER=subsonic
-        ~~~
+    {{< file-excerpt >}}
+/etc/default/subsonic
+:   ~~~
+# Type "subsonic --help" on the command line to read an
+# explanation of the different options.
+#
+# For example, to specify that Subsonic should use port 80 (for http)
+# and 443 (for https), and use a Java memory heap size of 200 MB, use
+# the following:
+#
+# SUBSONIC_ARGS="--port=80 --https-port=443 --max-memory=200"
+
+SUBSONIC_ARGS="--https-port=8443 --max-memory=150"
+
+SUBSONIC_USER=subsonic
+~~~
+
+{{< /file-excerpt >}}
 
     {{< note >}}
 

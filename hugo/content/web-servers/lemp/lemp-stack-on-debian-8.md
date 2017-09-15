@@ -55,14 +55,16 @@ Install Nginx:
 
 1.  In Nginx `server blocks` are the equivalent of Apache's virtual hosts. Create the server block file `/etc/nginx/sites-available/example.com`. In this and all following steps, replace `example.com` with your domain:
 
-    {: .file-excerpt }
+    {{< file-excerpt >}}
 /etc/nginx/sites-available/example.com
 :   ~~~ nginx
-    server {
-        listen   80;
-        server_name www.example.com example.com;
-        access_log /var/www/html/example.com/logs/access.log;
-        error_log /var/www/html/example.com/logs/error.log;
+server {
+listen   80;
+server_name www.example.com example.com;
+access_log /var/www/html/example.com/logs/access.log;
+error_log /var/www/html/example.com/logs/error.log;
+
+{{< /file-excerpt >}}
 
         location / {
             root   /var/www/html/example.com/public_html;

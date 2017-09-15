@@ -52,21 +52,25 @@ By default, Apache listens on all IP addresses available to it. We must configur
 
 Begin by adding a `NameVirtualHost` entry to `/etc/apache2/ports.conf` as follows:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/apache2/ports.conf
 :   ~~~ apache
-    NameVirtualHost 12.34.56.78:80
-    ~~~
+NameVirtualHost 12.34.56.78:80
+~~~
+
+{{< /file-excerpt >}}
 
 Be sure to replace "12.34.56.78" with your Linode's public IP address.
 
 Now, modify the default site's virtual hosting in the same file so that the `<VirtualHost >` entry reads:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/apache2/sites-available/default
 :   ~~~ apache
-    <VirtualHost 12.34.56.78:80>
-    ~~~
+<VirtualHost 12.34.56.78:80>
+~~~
+
+{{< /file-excerpt >}}
 
 If there is a `<NameVirtualHost>` entry in the default site's configuration file, remove it.
 
@@ -185,17 +189,19 @@ Once PHP5 is installed we'll need to tune the configuration file located in `/et
 
 Make sure that the following values are set, and relevant lines are uncommented (comments are lines beginning with a semi-colon (`;`)):
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/php5/apache2/php.ini
 :   ~~~ ini
-    max_execution_time = 30
-    memory_limit = 64M
-    error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
-    display_errors = Off
-    log_errors = On
-    error_log = /var/log/php.log
-    register_globals = Off
-    ~~~
+max_execution_time = 30
+memory_limit = 64M
+error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
+display_errors = Off
+log_errors = On
+error_log = /var/log/php.log
+register_globals = Off
+~~~
+
+{{< /file-excerpt >}}
 
 If you need support for MySQL in PHP, then you must install the php5-mysql package with the following command:
 

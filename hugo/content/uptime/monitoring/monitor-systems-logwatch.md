@@ -44,12 +44,14 @@ The steps required in this guide require root privileges. Be sure to run the ste
 
 3.	Edit the `/etc/postfix/main.cf` file to add your domain information, and allow for send-only mail, replacing `hostname.example.com` with your own hostname and domain:
 
-	{: .file-excerpt}
-	/etc/postfix/main.cf
+	{{< file-excerpt >}}
+/etc/postfix/main.cf
 	:	~~~ conf
 		myhostname = hostname.example.com
 		inet_interfaces = loopback-only
 		~~~
+
+{{< /file-excerpt >}}
 
 	{{< note >}}
 
@@ -59,11 +61,13 @@ The steps required in this guide require root privileges. Be sure to run the ste
 
 4.	Edit `/etc/postfix/aliases` to uncomment `root` and alias it to `root@hostname.example.com`, replacing `hostname.example.com` with your own hostname and domain:
 
-	{: .file-excerpt}
-	/etc/postfix/aliases
+	{{< file-excerpt >}}
+/etc/postfix/aliases
 	:	~~~ conf
 		root:           root@hostname.example.com
 		~~~
+
+{{< /file-excerpt >}}
 
 5.  Run `newaliases` after editing the aliases list.
 
@@ -137,12 +141,14 @@ If Logwatch initially does not appear to run, within the `logwatch.conf` file, c
 
 By default, Logwatch digests will include all logs contained within `/var/log`. If any other directories contain logs, such as website directories, they can be added by including additional `LogDir` lines. For example:
 
-{: .file-excerpt}
+{{< file-excerpt >}}
 /usr/share/logwatch/default.conf/logwatch.conf
 :	~~~
 	LogDir = /var/log
 	LogDir = /var/www/example.com/logs
 	~~~
+
+{{< /file-excerpt >}}
 
 ### Print Logwatch Digest to Console
 
@@ -165,11 +171,13 @@ If using Arch, and you followed the above install instructions, Sendmail is alre
 
 2.	Change the `MailTo` address to a valid email address, or local account user. For example, to send mail to the `root` user change the line to read:
 
-	{: .file-excerpt}
-	/usr/share/logwatch/default.conf/logwatch.conf
+	{{< file-excerpt >}}
+/usr/share/logwatch/default.conf/logwatch.conf
 	:	~~~
 		MailTo = root
 		~~~
+
+{{< /file-excerpt >}}
 
 3.	Change the `MailFrom` value to a valid email address, or to a local user. This can also be left as `Logwatch`.
 

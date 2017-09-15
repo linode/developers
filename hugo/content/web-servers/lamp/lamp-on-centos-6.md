@@ -61,10 +61,12 @@ cp /etc/httpd/conf/httpd.conf ~/httpd.conf.backup
 
 {{< /note >}}
 
-    {: .file-excerpt }
-    /etc/httpd/conf/httpd.conf
-    :   ~~~ conf
-        KeepAlive Off
+    {{< file-excerpt >}}
+/etc/httpd/conf/httpd.conf
+:   ~~~ conf
+KeepAlive Off
+
+{{< /file-excerpt >}}
 
         ...
 
@@ -83,10 +85,12 @@ There are different ways to set up virtual hosts; however, the method below is r
 
 1.  Create a file under `/etc/httpd/conf.d` called `vhost.conf`. Replace instances of `example.com` with your own domain information:
 
-    {: .file-excerpt }
-    /etc/httpd/conf.d/vhost.conf
-    :   ~~~ apache
-        NameVirtualHost *:80
+    {{< file-excerpt >}}
+/etc/httpd/conf.d/vhost.conf
+:   ~~~ apache
+NameVirtualHost *:80
+
+{{< /file-excerpt >}}
 
         <VirtualHost *:80>
              ServerAdmin webmaster@example.com
@@ -180,13 +184,15 @@ With Apache and MySQL installed you are ready to move on to installing PHP.
 
 2.  Edit `/etc/php.ini` for better error messages and logs, and upgraded performance. These modifications provide a good starting point for a **Linode 2GB**:
 
-    {: .file-excerpt }
-    /etc/php.ini
-    :   ~~~ ini
-        error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
-        error_log = /var/log/php/error.log
-        max_input_time = 30
-        ~~~
+    {{< file-excerpt >}}
+/etc/php.ini
+:   ~~~ ini
+error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
+error_log = /var/log/php/error.log
+max_input_time = 30
+~~~
+
+{{< /file-excerpt >}}
 
     {{< note >}}
 

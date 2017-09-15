@@ -38,45 +38,51 @@ Use the following commands to install MySQL on each of the Linodes:
 
     **Server 1:**
 
-    {: .file-excerpt }
-    /etc/mysql/my.cnf
-    : ~~~ conf
-    server_id           = 1
-    log_bin             = /var/log/mysql/mysql-bin.log
-    log_bin_index       = /var/log/mysql/mysql-bin.log.index
-    relay_log           = /var/log/mysql/mysql-relay-bin
-    relay_log_index     = /var/log/mysql/mysql-relay-bin.index
-    expire_logs_days    = 10
-    max_binlog_size     = 100M
-    log_slave_updates   = 1
-    auto-increment-increment = 2
-    auto-increment-offset = 1
-    ~~~
+    {{< file-excerpt >}}
+/etc/mysql/my.cnf
+: ~~~ conf
+server_id           = 1
+log_bin             = /var/log/mysql/mysql-bin.log
+log_bin_index       = /var/log/mysql/mysql-bin.log.index
+relay_log           = /var/log/mysql/mysql-relay-bin
+relay_log_index     = /var/log/mysql/mysql-relay-bin.index
+expire_logs_days    = 10
+max_binlog_size     = 100M
+log_slave_updates   = 1
+auto-increment-increment = 2
+auto-increment-offset = 1
+~~~
+
+{{< /file-excerpt >}}
 
     **Server 2:**
 
-    {: .file-excerpt }
-    /etc/mysql/my.cnf
-    : ~~~ conf
-    server_id           = 2
-    log_bin             = /var/log/mysql/mysql-bin.log
-    log_bin_index       = /var/log/mysql/mysql-bin.log.index
-    relay_log           = /var/log/mysql/mysql-relay-bin
-    relay_log_index     = /var/log/mysql/mysql-relay-bin.index
-    expire_logs_days    = 10
-    max_binlog_size     = 100M
-    log_slave_updates   = 1
-    auto-increment-increment = 2
-    auto-increment-offset = 2
-    ~~~
+    {{< file-excerpt >}}
+/etc/mysql/my.cnf
+: ~~~ conf
+server_id           = 2
+log_bin             = /var/log/mysql/mysql-bin.log
+log_bin_index       = /var/log/mysql/mysql-bin.log.index
+relay_log           = /var/log/mysql/mysql-relay-bin
+relay_log_index     = /var/log/mysql/mysql-relay-bin.index
+expire_logs_days    = 10
+max_binlog_size     = 100M
+log_slave_updates   = 1
+auto-increment-increment = 2
+auto-increment-offset = 2
+~~~
+
+{{< /file-excerpt >}}
 
 2.  For each of the Linodes, edit the `bind-address` configuration in order to use the private IP addresses:
 
-    {: .file-excerpt }
-    /etc/mysql/my.cnf
-    : ~~~
-    bind-address    = x.x.x.x
-    ~~~
+    {{< file-excerpt >}}
+/etc/mysql/my.cnf
+: ~~~
+bind-address    = x.x.x.x
+~~~
+
+{{< /file-excerpt >}}
 
 3.  Once completed, restart the MySQL application:
 

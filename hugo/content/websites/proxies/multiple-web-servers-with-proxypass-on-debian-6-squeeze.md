@@ -23,11 +23,13 @@ Enabling the Proxy Module
 
 We'll edit the file `/etc/apache2/mods-available/proxy.conf` as follows:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/apache2/mods-available/proxy.conf
 :   ~~~ apache
-    <IfModule mod_proxy.c>
-            # [...]
+<IfModule mod_proxy.c>
+# [...]
+
+{{< /file-excerpt >}}
 
             ProxyRequests Off
             <Proxy *>

@@ -38,45 +38,51 @@ Use the following commands to install Apache, PHP, and MySQL on each of the Lino
 
     **Server 1:**
 
-    {: .file-excerpt }
-    /etc/mysql/my.cnf
-    : ~~~ conf
-    server_id           = 1
-    log_bin             = /var/log/mysql/mysql-bin.log
-    log_bin_index       = /var/log/mysql/mysql-bin.log.index
-    relay_log           = /var/log/mysql/mysql-relay-bin
-    relay_log_index     = /var/log/mysql/mysql-relay-bin.index
-    expire_logs_days    = 10
-    max_binlog_size     = 100M
-    log_slave_updates   = 1
-    auto-increment-increment = 2
-    auto-increment-offset = 1
-    ~~~
+    {{< file-excerpt >}}
+/etc/mysql/my.cnf
+: ~~~ conf
+server_id           = 1
+log_bin             = /var/log/mysql/mysql-bin.log
+log_bin_index       = /var/log/mysql/mysql-bin.log.index
+relay_log           = /var/log/mysql/mysql-relay-bin
+relay_log_index     = /var/log/mysql/mysql-relay-bin.index
+expire_logs_days    = 10
+max_binlog_size     = 100M
+log_slave_updates   = 1
+auto-increment-increment = 2
+auto-increment-offset = 1
+~~~
+
+{{< /file-excerpt >}}
 
     **Server 2:**
 
-    {: .file-excerpt }
-    /etc/mysql/my.cnf
-    : ~~~ conf
-    server_id           = 2
-    log_bin             = /var/log/mysql/mysql-bin.log
-    log_bin_index       = /var/log/mysql/mysql-bin.log.index
-    relay_log           = /var/log/mysql/mysql-relay-bin
-    relay_log_index     = /var/log/mysql/mysql-relay-bin.index
-    expire_logs_days    = 10
-    max_binlog_size     = 100M
-    log_slave_updates   = 1
-    auto-increment-increment = 2
-    auto-increment-offset = 2
-    ~~~
+    {{< file-excerpt >}}
+/etc/mysql/my.cnf
+: ~~~ conf
+server_id           = 2
+log_bin             = /var/log/mysql/mysql-bin.log
+log_bin_index       = /var/log/mysql/mysql-bin.log.index
+relay_log           = /var/log/mysql/mysql-relay-bin
+relay_log_index     = /var/log/mysql/mysql-relay-bin.index
+expire_logs_days    = 10
+max_binlog_size     = 100M
+log_slave_updates   = 1
+auto-increment-increment = 2
+auto-increment-offset = 2
+~~~
+
+{{< /file-excerpt >}}
 
 2.  For each of the Linodes, edit the `bind-address` configuration in order to use the private IP addresses:
 
-    {: .file-excerpt }
-    /etc/mysql/my.cnf
-    : ~~~
-    bind-address    = x.x.x.x
-    ~~~
+    {{< file-excerpt >}}
+/etc/mysql/my.cnf
+: ~~~
+bind-address    = x.x.x.x
+~~~
+
+{{< /file-excerpt >}}
 
 3.  Once completed, restart the MySQL application:
 
@@ -165,11 +171,13 @@ For the following sections of this guide, replace "example.com" with your domain
 
 
 
-    {: .file-excerpt}
-    /etc/apache2/sites-available/example.com.conf
-    :   ~~~ apache
-        # domain: example.com
-        # public: /var/www/example.com/public_html/
+    {{< file-excerpt >}}
+/etc/apache2/sites-available/example.com.conf
+:   ~~~ apache
+# domain: example.com
+# public: /var/www/example.com/public_html/
+
+{{< /file-excerpt >}}
 
         <VirtualHost *:80>
           # Admin email, Server Name (domain name), and any aliases
@@ -259,33 +267,35 @@ chmod 755 /var/www/example.com/public_html/
 
 2.  Create a configuration file in order to perform sync actions.  Replace `x.x.x.x` with the Private IP address of the second Linode in your cluster.
  
-    {: .file-excerpt}
-    /etc/lsyncd/lsyncd.conf.lua
-    :   ~~~ lua
-        settings = {
-        logfile = "/var/log/lsyncd.log",
-        statusFile = "/var/log/lsyncd-status.log"
-        }
-        sync{
-        default.rsyncssh,
-        delete = false,
-        insist
-        source="/var/www",
-        host="x.x.x.x",
-        targetdir="/var/www",
-        rsync = {
-        archive = true,
-        perms = true,
-        owner = true,
-        _extra = {"-a"},
-        },
-        delay = 5,
-        maxProcesses = 4,
-        ssh = {
-        port = 22
-        }
-        }
-        ~~~
+    {{< file-excerpt >}}
+/etc/lsyncd/lsyncd.conf.lua
+:   ~~~ lua
+settings = {
+logfile = "/var/log/lsyncd.log",
+statusFile = "/var/log/lsyncd-status.log"
+}
+sync{
+default.rsyncssh,
+delete = false,
+insist
+source="/var/www",
+host="x.x.x.x",
+targetdir="/var/www",
+rsync = {
+archive = true,
+perms = true,
+owner = true,
+_extra = {"-a"},
+},
+delay = 5,
+maxProcesses = 4,
+ssh = {
+port = 22
+}
+}
+~~~
+
+{{< /file-excerpt >}}
 
 3.  Start the Lsyncd daemon:
 

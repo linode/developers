@@ -158,12 +158,14 @@ Fail2ban reads `.conf` configuration files first, then `.local` files override a
 
 2.  **If using CentOS or Fedora** you will need to change the `backend` option in `jail.local` from *auto* to *systemd*. This is not necessary on Debian 8 or Ubuntu 16.04, even though both use systemd as well.
 
-    {: .file-excerpt}
-    /etc/fail2ban/jail.local
-    :   ~~~ conf
-        # "backend" specifies the backend used to get files modification.
-        # Available options are "pyinotify", "gamin", "polling", "systemd" and "auto".
-        # This option can be overridden in each jail as well.
+    {{< file-excerpt >}}
+/etc/fail2ban/jail.local
+:   ~~~ conf
+# "backend" specifies the backend used to get files modification.
+# Available options are "pyinotify", "gamin", "polling", "systemd" and "auto".
+# This option can be overridden in each jail as well.
+
+{{< /file-excerpt >}}
 
         . . .
         
@@ -172,21 +174,25 @@ Fail2ban reads `.conf` configuration files first, then `.local` files override a
 
     No jails are enabled by default in CentOS 7. For example, to enable the SSH daemon jail, uncomment the following lines in `jail.local`:
 
-    {: .file-excerpt}
-    /etc/fail2ban/jail.local
-    :   ~~~ conf
-        [sshd]
-        enabled = true
-        ~~~
+    {{< file-excerpt >}}
+/etc/fail2ban/jail.local
+:   ~~~ conf
+[sshd]
+enabled = true
+~~~
+
+{{< /file-excerpt >}}
 
 ### Whitelist IP
 
 To ignore specific IPs, add them to the `ignoreip` line. By default, this command will not ban the localhost. If you work from a single IP address often, it may be beneficial to add it to the ignore list:
 
-{: .file-excerpt}
+{{< file-excerpt >}}
 /etc/fail2ban/jail.local
 :   ~~~ conf
-    [DEFAULT]
+[DEFAULT]
+
+{{< /file-excerpt >}}
 
     # "ignoreip" can be an IP address, a CIDR mask or a DNS host. Fail2ban will not
     # ban a host which matches an address in this list. Several addresses can be
@@ -202,17 +208,19 @@ If you wish to whitelist IPs only for certain jails, this can be done with the `
 
 Set `bantime`, `findtime`, and `maxretry` to define the circumstances and the length of time of a ban:
 
-{: .file-excerpt}
+{{< file-excerpt >}}
 /etc/fail2ban/jail.local
 :   ~~~ conf
-    # "bantime" is the number of seconds that a host is banned.
-    bantime  = 600
-    
-    # A host is banned if it has generated "maxretry" during the last "findtime"
-    # seconds.
-    findtime = 600
-    maxretry = 3
-    ~~~
+# "bantime" is the number of seconds that a host is banned.
+bantime  = 600
+
+# A host is banned if it has generated "maxretry" during the last "findtime"
+# seconds.
+findtime = 600
+maxretry = 3
+~~~
+
+{{< /file-excerpt >}}
 
 -   `bantime`: The length of time in seconds for which an IP is banned. If set to a negative number, the ban will be permanent. The default value of `600` is set to ban an IP for a 10-minute duration.
 
@@ -244,17 +252,19 @@ Beyond the basic settings address above, `jail.local` also contains various jail
 
 An average jail configuration will resemble the following:
 
-{: .file-excerpt}
+{{< file-excerpt >}}
 /etc/fail2ban/jail.local
 :   ~~~
-    [ssh]
-    
-    enabled  = true
-    port     = ssh
-    filter   = sshd
-    logpath  = /var/log/auth.log
-    maxretry = 6
-    ~~~
+[ssh]
+
+enabled  = true
+port     = ssh
+filter   = sshd
+logpath  = /var/log/auth.log
+maxretry = 6
+~~~
+
+{{< /file-excerpt >}}
 
 -   `enabled`: Determines whether or not the filter is turned on.
 -   `port`: The port Fail2ban should be referencing in regards to the service. If using the default port, then the service name can be placed here. If using a non-traditional port, this should be the port number. For example, if you moved your SSH port to 3456, you would replace `ssh` with `3456`.
@@ -279,19 +289,23 @@ The best way to understand how failregex works is to write one. Although we do n
 
 1.  Navigate to your website's `access.log` (generally located at `/var/www/example.com/logs/access.log`) and find a failed login attempt. It will resemble:
 
-    {: .file-excerpt}
-    /var/www/example.com/logs/access.log
-    :   ~~~ log
-        123.45.67.89 - - [01/Oct/2015:12:46:34 -0400] "POST /wp-login.php HTTP/1.1" 200 1906 "http://example.com/wp-login.php" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:40.0) Gecko/20100101 Firefox/40.0"
-        ~~~
-        
-    Note that you will only need to track up to the `200`:
+    {{< file-excerpt >}}
+/var/www/example.com/logs/access.log
+:   ~~~ log
+123.45.67.89 - - [01/Oct/2015:12:46:34 -0400] "POST /wp-login.php HTTP/1.1" 200 1906 "http://example.com/wp-login.php" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:40.0) Gecko/20100101 Firefox/40.0"
+~~~
 
-    {: .file-excerpt}
-    /var/www/example.com/logs/access.log
-    :   ~~~ log
-        123.45.67.89 - - [01/Oct/2015:12:46:34 -0400] "POST /wp-login.php HTTP/1.1" 200
-        ~~~
+Note that you will only need to track up to the `200`:
+
+{{< /file-excerpt >}}
+
+    {{< file-excerpt >}}
+/var/www/example.com/logs/access.log
+:   ~~~ log
+123.45.67.89 - - [01/Oct/2015:12:46:34 -0400] "POST /wp-login.php HTTP/1.1" 200
+~~~
+
+{{< /file-excerpt >}}
 
 2.  The IP address from where the failed attempt originated will always be defined as `<HOST>`. The subsequent few characters are unchanging and can be input as literals:
 
@@ -358,19 +372,21 @@ Save and quit.
 
 3.  Add a WordPress section to `jail.local`:
 
-    {: .file-excerpt}
-    /etc/fail2ban/jail.local
-    :   ~~~ conf
-        [wordpress]
-        enabled  = true
-        filter   = wordpress
-        logpath  = /var/www/html/andromeda/logs/access.log
-        port     = 80,443
-        ~~~
-        
-    This will use the default ban and email action. Other actions can be defined by adding an `action =` line.
-    
-    Save and exit, then restart Fail2ban.
+    {{< file-excerpt >}}
+/etc/fail2ban/jail.local
+:   ~~~ conf
+[wordpress]
+enabled  = true
+filter   = wordpress
+logpath  = /var/www/html/andromeda/logs/access.log
+port     = 80,443
+~~~
+
+This will use the default ban and email action. Other actions can be defined by adding an `action =` line.
+
+Save and exit, then restart Fail2ban.
+
+{{< /file-excerpt >}}
 
 ## Using the Fail2ban Client
 

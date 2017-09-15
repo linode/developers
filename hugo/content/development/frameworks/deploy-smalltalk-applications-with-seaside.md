@@ -122,17 +122,19 @@ In this first approach, we'll set up a separate sub-domain and virtual host for 
 
 With Apache installed, create the following Virtual Host file. Typically these are located in the `/etc/apache2/sites-available/` directory, and named by convention with the name of the virtual host (e.g. `static.example.com`). Be sure to change the `VirtualHost` IP to the IP of your Linode.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 Apache Virtual Host Configuration
 :   ~~~ apache
-    <VirtualHost *:80> 
-         ServerAdmin admin@example.com
-         ServerName static.example.com
-         DocumentRoot /srv/www/static.example.com/public_html/
-         ErrorLog /srv/www/static.example.com/logs/error.log 
-         CustomLog /srv/www/static.example.com/logs/access.log combined
-    </VirtualHost>
-    ~~~
+<VirtualHost *:80> 
+ServerAdmin admin@example.com
+ServerName static.example.com
+DocumentRoot /srv/www/static.example.com/public_html/
+ErrorLog /srv/www/static.example.com/logs/error.log 
+CustomLog /srv/www/static.example.com/logs/access.log combined
+</VirtualHost>
+~~~
+
+{{< /file-excerpt >}}
 
 Create the necessary directories by issuing the following commands:
 
@@ -153,13 +155,15 @@ When building your application point, ensure all static content is served from U
 
 Seaside applications are all provided by a server running inside the Smalltalk instance. The Apache web server functions as a front end and proxies requests for dynamic content to the Seaside instance. When you've confirmed that the Smalltalk server is responding on `localhost` port `8080`, create the following `VirtualHost`. Remember to change the IP to the IP of your Linode.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 Apache Virtual Host Configuration
 :   ~~~ apache
-    <VirtualHost *:80>
-        ProxyPreserveHost On
-        ServerName example.com
-        ServerAlias www.example.com
+<VirtualHost *:80>
+ProxyPreserveHost On
+ServerName example.com
+ServerAlias www.example.com
+
+{{< /file-excerpt >}}
 
         ErrorLog /srv/www/example.com/logs/error.log 
         CustomLog /srv/www/example.com/logs/access.log combined
@@ -174,15 +178,17 @@ Alter the path in the `RewriteRule` to match the location and port of your appli
 
 Your application may require additional rewrite rules and configuration. If you're running Pier, for example, you will want to use the following set of `Rewrite` specifications:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 Apache Rewrite Rules
 :   ~~~ apache
-    RewriteEngine On
-    RewriteRule ^/seaside/pier(.*)$ http://example.net$1 [redirect,last]
-    RewriteRule ^/seaside/files/(.*)$ http://localhost:8080/seaside/files/$1 [proxy,last]
-    RewriteCond /srv/www/example.net/public_html/%{REQUEST_seaFILENAME} !-f
-    RewriteRule ^/(.*)$ http://localhost:8080/seaside/pier/$1 [proxy,last]
-    ~~~
+RewriteEngine On
+RewriteRule ^/seaside/pier(.*)$ http://example.net$1 [redirect,last]
+RewriteRule ^/seaside/files/(.*)$ http://localhost:8080/seaside/files/$1 [proxy,last]
+RewriteCond /srv/www/example.net/public_html/%{REQUEST_seaFILENAME} !-f
+RewriteRule ^/(.*)$ http://localhost:8080/seaside/pier/$1 [proxy,last]
+~~~
+
+{{< /file-excerpt >}}
 
 In addition, your application may require some extra configuration. Pier requires the hostname to be defined in its control panel as well as in the Seaside control panel. If you're using software written by a third-party, it's best that you follow their specific instructions.
 
@@ -191,14 +197,16 @@ Case Two: Serve Static and Dynamic Content with One Virtual Host
 
 In this example, all content is provided by the same virtual host. The web server looks for static content in the `DocumentRoot`, and if it finds nothing there it hands the request to the Smalltalk server to provide the dynamic content. Modify your virtual host configuration file to resemble the following. Change the `VirtualHost` IP to the IP of your Linode.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 Apache Virtual Host Configuration
 :   ~~~ apache
-    <VirtualHost *:80>
-        ProxyPreserveHost On
-        ServerName example.com
-        ServerAlias www.example.com
-        DocumentRoot /srv/www/example.com/public_html/
+<VirtualHost *:80>
+ProxyPreserveHost On
+ServerName example.com
+ServerAlias www.example.com
+DocumentRoot /srv/www/example.com/public_html/
+
+{{< /file-excerpt >}}
 
         ErrorLog /srv/www/example.com/logs/error.log 
         CustomLog /srv/www/example.com/logs/access.log combined
@@ -214,15 +222,17 @@ The `!-f` option at the end of the `RewriteCond` rule tells Apache to only apply
 
 Your application may require additional rewrite rules and configuration. If you're running Pier, for example, you will want to use the following set of `Rewrite` specifications:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 Apache Rewrite Rules
 :   ~~~ apache
-    RewriteEngine On
-    RewriteRule ^/seaside/pier(.*)$ http://example.net$1 [redirect,last]
-    RewriteRule ^/seaside/files/(.*)$ http://localhost:8080/seaside/files/$1 [proxy,last]
-    RewriteCond /srv/www/example.net/public_html/%{REQUEST_seaFILENAME} !-f
-    RewriteRule ^/(.*)$ http://localhost:8080/seaside/pier/$1 [proxy,last]
-    ~~~
+RewriteEngine On
+RewriteRule ^/seaside/pier(.*)$ http://example.net$1 [redirect,last]
+RewriteRule ^/seaside/files/(.*)$ http://localhost:8080/seaside/files/$1 [proxy,last]
+RewriteCond /srv/www/example.net/public_html/%{REQUEST_seaFILENAME} !-f
+RewriteRule ^/(.*)$ http://localhost:8080/seaside/pier/$1 [proxy,last]
+~~~
+
+{{< /file-excerpt >}}
 
 In addition, your application may require some extra configuration. Pier requires the hostname to be defined in its control panel, as well as in the Seaside control panel. If you're using software written by a third-party, it's best that you follow their specific instructions.
 
@@ -233,15 +243,17 @@ In this example, we scale our Seaside deployment by providing Apache with multip
 
 This example expounds on the previous approach, where static content was served directly from Apache and dynamic content is passed to Seaside. Consider the following configuration example:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 Apache Virtual Host Configuration
 :   ~~~ apache
-    <VirtualHost *:80>
-        ProxyPreserveHost On
-        ServerName example.com
-        ServerAlias www.example.com
-        ErrorLog /srv/www/example.com/logs/error.log 
-        CustomLog /srv/www/example.com/logs/access.log combined
+<VirtualHost *:80>
+ProxyPreserveHost On
+ServerName example.com
+ServerAlias www.example.com
+ErrorLog /srv/www/example.com/logs/error.log 
+CustomLog /srv/www/example.com/logs/access.log combined
+
+{{< /file-excerpt >}}
 
         DocumentRoot /srv/www/example.com/public_html/
         <Directory /srv/www/example.com/public_html> 

@@ -272,11 +272,13 @@ Check if the file `/etc/default/dhcpcd` exists, and it's contents.
 
 If the returned value is `SET_HOSTNAME='yes'`, edit `/etc/default/dhcpcd` and comment out the `SET_HOSTNAME` directive:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/default/dhcpcd
 : ~~~
-  #SET_HOSTNAME='yes'
-  ~~~
+#SET_HOSTNAME='yes'
+~~~
+
+{{< /file-excerpt >}}
 
 ### CentOS 6 / Fedora version 17 and below
 

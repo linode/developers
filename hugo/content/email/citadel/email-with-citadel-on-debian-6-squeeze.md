@@ -55,12 +55,14 @@ If you need to reconfigure any of these options later, you can use the following
 
 Check the file `/etc/default/webcit` to make sure the installer correctly set your desired HTTP and HTTPS ports. You may need to update the following lines:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/default/webcit
 :   ~~~
-    export WEBCIT_HTTPS_PORT='443'
-    export WEBCIT_HTTP_PORT='80'
-    ~~~
+export WEBCIT_HTTPS_PORT='443'
+export WEBCIT_HTTP_PORT='80'
+~~~
+
+{{< /file-excerpt >}}
 
 Finally, edit the `/etc/mailname` file to reflect your system's fully qualified domain name:
 
@@ -77,12 +79,14 @@ Enable Spamassassin Filtering
 
 You'll need to edit the SpamAssassin configuration file to enable spamd:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/default/spamassassin
 :   ~~~
-    # Change to one to enable spamd
-    ENABLED=1
-    ~~~
+# Change to one to enable spamd
+ENABLED=1
+~~~
+
+{{< /file-excerpt >}}
 
 Start the spamassassin service as follows:
 

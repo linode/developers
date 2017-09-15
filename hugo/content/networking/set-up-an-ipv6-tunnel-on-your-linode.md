@@ -99,18 +99,20 @@ Debian and Ubuntu users (versions before Ubuntu 16.04 are not covered here) can 
     
     Insert the following into your `/etc/network/interfaces` file:
     
-    {: .file-excerpt}
-    /etc/network/interfaces
-    : ~~~
-      auto he-ipv6
-      iface he-ipv6 inet6 v4tunnel
-          address 2001:db8:1234:5678::2
-          netmask 64
-          endpoint 203.0.113.10
-          local 198.51.100.5
-          ttl 255
-          gateway 2001:db8:1234:5678::1
-      ~~~
+    {{< file-excerpt >}}
+/etc/network/interfaces
+: ~~~
+auto he-ipv6
+iface he-ipv6 inet6 v4tunnel
+address 2001:db8:1234:5678::2
+netmask 64
+endpoint 203.0.113.10
+local 198.51.100.5
+ttl 255
+gateway 2001:db8:1234:5678::1
+~~~
+
+{{< /file-excerpt >}}
 
 2.  Restart networking services and test the tunnel. Replace `he-ipv6` with the name of your tunnel:
 
@@ -175,25 +177,29 @@ PEERDNS=no
 
 1.  Add the following lines to your `/etc/sysconfig/network` file:
 
-    {: .file-excerpt}
-    /etc/sysconfig/network
-    : ~~~
-      NETWORKING_IPV6=yes
-      IPV6_DEFAULTDEV=he-ipv6
-      ~~~
+    {{< file-excerpt >}}
+/etc/sysconfig/network
+: ~~~
+NETWORKING_IPV6=yes
+IPV6_DEFAULTDEV=he-ipv6
+~~~
+
+{{< /file-excerpt >}}
 
 2.  Create a file at `/etc/sysconfig/network-scripts/ifcfg-he-ipv6` that contains the following:
 
-    {: .file-excerpt}
-    /etc/sysconfig/network-scripts/ifcfg-he-ipv6
-    : ~~~
-      DEVICE=he-ipv6
-      BOOTPROTO=none
-      ONBOOT=yes
-      IPV6INIT=yes
-      IPV6TUNNELIPV4=203.0.113.10
-      IPV6ADDR=2001:db8:1234:5678::2/64
-      ~~~
+    {{< file-excerpt >}}
+/etc/sysconfig/network-scripts/ifcfg-he-ipv6
+: ~~~
+DEVICE=he-ipv6
+BOOTPROTO=none
+ONBOOT=yes
+IPV6INIT=yes
+IPV6TUNNELIPV4=203.0.113.10
+IPV6ADDR=2001:db8:1234:5678::2/64
+~~~
+
+{{< /file-excerpt >}}
 
     Replace the `IPV6TUNNELIPV4` value with your remote tunnel endpoint and the `IPV6ADDR` value with the "Client IPv6" address provided to you by your tunnel broker.
 

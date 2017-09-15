@@ -38,12 +38,14 @@ If you chose to run OpenJDK, then you can skip the remainder of this section. If
 
 Add the following two lines to your `sources.list` list:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/apt/sources.list
 :   ~~~
-    deb http://us.archive.ubuntu.com/ubuntu/ hardy multiverse
-    deb-src http://us.archive.ubuntu.com/ubuntu/ hardy multiverse
-    ~~~
+deb http://us.archive.ubuntu.com/ubuntu/ hardy multiverse
+deb-src http://us.archive.ubuntu.com/ubuntu/ hardy multiverse
+~~~
+
+{{< /file-excerpt >}}
 
 Update apt to get the necessary package lists:
 
@@ -115,11 +117,13 @@ Create a `tomcat` "init" file with the following content:
 
 Remember, if you installed open-jdk the `export JAVA_HOME` line should read:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/init.d/tomcat
 :   ~~~ bash
-    export JAVA_HOME=/usr/lib/jvm/java-6-openjdk
-    ~~~
+export JAVA_HOME=/usr/lib/jvm/java-6-openjdk
+~~~
+
+{{< /file-excerpt >}}
 
 Make the script executable by issuing this command:
 

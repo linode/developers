@@ -114,16 +114,18 @@ Before we can begin to configure Cacti in the conventional manner, we must set u
 
 Enter the password created above (e.g. `c@t1u53r`) and press return. Now edit the `/etc/cacti/db.php` file to include the relevant settings as in the below example:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/cacti/db.php
 :   ~~~ php
-    $database_type = "mysql";
-    $database_default = "cactidb";
-    $database_hostname = "localhost";
-    $database_username = "cactiuser";
-    $database_password = "c@t1u53r";
-    $database_port = "3306";
-    ~~~
+$database_type = "mysql";
+$database_default = "cactidb";
+$database_hostname = "localhost";
+$database_username = "cactiuser";
+$database_password = "c@t1u53r";
+$database_port = "3306";
+~~~
+
+{{< /file-excerpt >}}
 
 Issue the following command to start Apache if you have not already:
 
@@ -131,8 +133,10 @@ Issue the following command to start Apache if you have not already:
 
 From this point we'll continue the configuration of Cacti through the browser. By default, the Cacti interface only accepts traffic from the local interface. Modify `/etc/httpd/conf.d/cacti.conf` to allow traffic to your local machine's IP address, as in the following example:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/httpd/conf.d/cacti.conf
+
+{{< /file-excerpt >}}
 
 > \<Directory /usr/share/cacti/\>
 > :   Order Deny,Allow Deny from all Allow from 193.194.195.196
@@ -160,8 +164,10 @@ Returning to the command line, issue the following command to create a new cron,
 
 Now insert the following line:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 crontab
+
+{{< /file-excerpt >}}
 
 > */5* \* \* \* /usr/bin/php /usr/share/cacti/poller.php \> /dev/null 2\>&1
 

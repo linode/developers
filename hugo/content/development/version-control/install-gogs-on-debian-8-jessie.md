@@ -304,18 +304,20 @@ If you notice, the Gogs site is still accessible using the plain HTTP via `http:
 
 2.  Open the generated configuration file `custom/conf/app.ini`. Add a new configuration value `HTTP_ADDR` under the `[server]` section. The section should look like this:
 
-    {: .file-excerpt}
-    /home/git/go/src/github.com/gogits/gogs/custom/conf/app.ini
-    :   ~~~ ini
-        [server]
-        DOMAIN = example.com
-        HTTP_ADDR = 127.0.0.1
-        HTTP_PORT = 3000
-        ROOT_URL = https://example.com/
-        DISABLE_SSH = false
-        SSH_PORT = 22
-        OFFLINE_MODE = false
-        ~~~
+    {{< file-excerpt >}}
+/home/git/go/src/github.com/gogits/gogs/custom/conf/app.ini
+:   ~~~ ini
+[server]
+DOMAIN = example.com
+HTTP_ADDR = 127.0.0.1
+HTTP_PORT = 3000
+ROOT_URL = https://example.com/
+DISABLE_SSH = false
+SSH_PORT = 22
+OFFLINE_MODE = false
+~~~
+
+{{< /file-excerpt >}}
 
 4.  Logout from user `git`:
 

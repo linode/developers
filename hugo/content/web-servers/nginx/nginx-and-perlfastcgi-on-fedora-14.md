@@ -55,12 +55,14 @@ Issue the following commands to create virtual hosting directories:
 
 Add the following lines to your `/etc/nginx/nginx.conf` file, immediately after the line for `include /etc/nginx/conf.d/*.conf`:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/nginx/nginx.conf
 :   ~~~
-    # Load virtual host configuration files.
-    include /etc/nginx/sites-enabled/*;
-    ~~~
+# Load virtual host configuration files.
+include /etc/nginx/sites-enabled/*;
+~~~
+
+{{< /file-excerpt >}}
 
 Next, define your site's virtual host file:
 
@@ -103,10 +105,12 @@ Configure FastCGI Wrapper
 
 First create the FastCGI wrapper script (credit: [Denis S. Filimonov](http://www.ruby-forum.com/topic/145858)) at `/usr/bin/fastcgi-wrapper.pl` with the following contents:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /usr/bin/fastcgi-wrapper.pl
 :   ~~~ perl
-    #!/usr/bin/perl
+#!/usr/bin/perl
+
+{{< /file-excerpt >}}
 
     use FCGI;
     use Socket;
@@ -209,19 +213,21 @@ First create the FastCGI wrapper script (credit: [Denis S. Filimonov](http://www
 
 Then create an init script to control the FastCGI process that matches the one shown below:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/rc.d/init.d/perl-fastcgi
 :   ~~~ bash
-    #!/bin/sh
-    #
-    # nginx – this script starts and stops the nginx daemon
-    #
-    # chkconfig: - 85 15
-    # description: Nginx is an HTTP(S) server, HTTP(S) reverse \
-    # proxy and IMAP/POP3 proxy server
-    # processname: nginx
-    # config: /opt/nginx/conf/nginx.conf
-    # pidfile: /opt/nginx/logs/nginx.pid
+#!/bin/sh
+#
+# nginx – this script starts and stops the nginx daemon
+#
+# chkconfig: - 85 15
+# description: Nginx is an HTTP(S) server, HTTP(S) reverse \
+# proxy and IMAP/POP3 proxy server
+# processname: nginx
+# config: /opt/nginx/conf/nginx.conf
+# pidfile: /opt/nginx/logs/nginx.pid
+
+{{< /file-excerpt >}}
 
     # Source function library.
     . /etc/rc.d/init.d/functions

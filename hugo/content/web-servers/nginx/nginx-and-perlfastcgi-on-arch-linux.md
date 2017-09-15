@@ -39,11 +39,13 @@ Issue the following command to install the required packages from the Arch Linux
 
 Edit the `/etc/rc.conf` file, adding "nginx" and "fcgiwrap" to the "DEAMONS=" line as shown in the following excerpt:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/rc.conf
 :   ~~~
-    DAEMONS=(syslog-ng network netfs crond sshd ntpd nginx fcgiwrap)
-    ~~~
+DAEMONS=(syslog-ng network netfs crond sshd ntpd nginx fcgiwrap)
+~~~
+
+{{< /file-excerpt >}}
 
 Configure the FastCGI Wrapper
 -----------------------------
@@ -118,10 +120,12 @@ Issue the following commands to enable your new virtual host:
 
 Edit the file `/etc/nginx/conf/nginx.conf`, inserting the line `include /etc/nginx/conf/sites-enabled/*;` at the start of the `http {` block, as shown in the following file excerpt:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/nginx/conf/nginx.conf
 :   ~~~ nginx
-    http {
+http {
+
+{{< /file-excerpt >}}
 
         include /etc/nginx/conf/sites-enabled/*;
     ~~~

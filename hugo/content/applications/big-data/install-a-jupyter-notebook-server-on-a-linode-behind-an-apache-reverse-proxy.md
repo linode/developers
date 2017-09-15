@@ -72,18 +72,20 @@ The official documentation recommends generating a self-signed SSL certificate t
 
 4.  Uncomment the following lines in the configuration file:
 
-    {: .file-excerpt}
-    /.jupyter/jupyter-notebook-config.py
-    :   ~~~ conf
-        c.NotebookApp.allow_origin = '*'
-        c.NotebookApp.base_url = '/jupyter'
-        c.NotebookApp.certfile = '/absolute/path/to/mycert.pem'
-        c.NotebookApp.ip = 'localhost'
-        c.NotebookApp.keyfile = '/absolute/path/to/mykey.key'
-        c.NotebookApp.open_browser = False
-        c.NotebookApp.password = 'paste_hashed_password_here'
-        c.NotebookApp.trust_xheaders = True
-        ~~~
+    {{< file-excerpt >}}
+/.jupyter/jupyter-notebook-config.py
+:   ~~~ conf
+c.NotebookApp.allow_origin = '*'
+c.NotebookApp.base_url = '/jupyter'
+c.NotebookApp.certfile = '/absolute/path/to/mycert.pem'
+c.NotebookApp.ip = 'localhost'
+c.NotebookApp.keyfile = '/absolute/path/to/mykey.key'
+c.NotebookApp.open_browser = False
+c.NotebookApp.password = 'paste_hashed_password_here'
+c.NotebookApp.trust_xheaders = True
+~~~
+
+{{< /file-excerpt >}}
 
 ## Configure Apache Reverse Proxy
 
@@ -111,12 +113,14 @@ The official documentation recommends generating a self-signed SSL certificate t
 
 5.  Comment out `DocumentRoot` to allow `https://your-domain-name/` to redirect as `https://your-domain-name/jupyter`. The `<Location>` directive connects the websocket in order to allow the default kernel to run:
 
-    {: .file-excerpt}
-    /etc/apache2/sites-available/jupyter.conf
-    :   ~~~conf
-        <VirtualHost *:443>
-            ServerAdmin webmaster@localhost
-        #   DocumentRoot /var/www/html
+    {{< file-excerpt >}}
+/etc/apache2/sites-available/jupyter.conf
+:   ~~~conf
+<VirtualHost *:443>
+ServerAdmin webmaster@localhost
+#   DocumentRoot /var/www/html
+
+{{< /file-excerpt >}}
 
             ErrorLog ${APACHE_LOG_DIR}.error.log
             CustomLog ${APACHE_LOG_DIR}/access.log combined

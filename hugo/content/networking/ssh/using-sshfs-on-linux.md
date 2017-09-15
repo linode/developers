@@ -117,11 +117,13 @@ Issue these commands on the client system to copy your public SSH key to the rem
 At this point, you should be able to log into the remote server as "user" without entering a password. 
 You can force the mounted filesystem to remain persistent between reboots. This is done by including a mount directive for the remote user directory in `/etc/fstab`.  
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/fstab
 : ~~~
-    <sshfs#user@usersLinode.example.com>:/home/users /root/sshfsExample fuse defaults 0 0
+<sshfs#user@usersLinode.example.com>:/home/users /root/sshfsExample fuse defaults 0 0
 ~~~
+
+{{< /file-excerpt >}}
 
 This entry would mount the home directory for "user" on the server "usersLinode.example.com" locally at `/root/sshfsExample` each time the system is booted. You may treat this entry like any other in `/etc/fstab`.
 

@@ -64,16 +64,18 @@ Configure MySQL
 
 By default, MySQL makes some assumptions about your server environment with respect to memory. To configure MySQL more conservatively, you'll need to edit some settings in its configuration file. Your file should resemble the following:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/mysql/my.cnf
 :   ~~~ ini
-    key_buffer = 16M
-    max_allowed_packet = 1M
-    thread_stack = 64K
-    table_cache = 4
-    sort_buffer = 64K
-    net_buffer_length = 2K
-    ~~~
+key_buffer = 16M
+max_allowed_packet = 1M
+thread_stack = 64K
+table_cache = 4
+sort_buffer = 64K
+net_buffer_length = 2K
+~~~
+
+{{< /file-excerpt >}}
 
 These settings are only suggested values for a low memory environment; please feel free to tune them to appropriate values for your server. Consult the "More Information" section at the end of this tutorial for additional resources on this topic.
 

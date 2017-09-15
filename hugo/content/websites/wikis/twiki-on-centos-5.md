@@ -47,12 +47,14 @@ Configure Software
 
 Create a virtual host specification that resembles the following. Modify the references to `example.com` and `/srv/www/example.com/` to reflect the domain name and file paths for you deployment.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/httpd/conf.d/twiki.conf
 :   ~~~ apache
-    <VirtualHost *:80>
-           ServerName example.com
-           ServerAlias www.example.com
+<VirtualHost *:80>
+ServerName example.com
+ServerAlias www.example.com
+
+{{< /file-excerpt >}}
 
            DocumentRoot /srv/www/example.com/public_html 
 
@@ -96,14 +98,16 @@ Create a virtual host specification that resembles the following. Modify the ref
 
 In this configuration your wiki will be located at the root level of the `example.com` domain. Modify the following lines if you wish to deploy TWiki at a different location on your domain.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/httpd/conf.d/twiki.conf
 :   ~~~ apache
-    ScriptAlias /wiki/bin "/srv/www/example.com/twiki/bin"
-    Alias /wiki/pub "/srv/www/example.com/twiki/pub"
-    Alias /wiki/ "/srv/www/example.com/twiki/bin/view/"
-    </VirtualHost> 
-    ~~~
+ScriptAlias /wiki/bin "/srv/www/example.com/twiki/bin"
+Alias /wiki/pub "/srv/www/example.com/twiki/pub"
+Alias /wiki/ "/srv/www/example.com/twiki/bin/view/"
+</VirtualHost> 
+~~~
+
+{{< /file-excerpt >}}
 
 In this example, TWiki will be accessible by at the `http://example.com/wiki` location. The path you configure for TWiki need not correlate to the actual location of the files on the file system. Issue the following commands to create the required directories:
 
@@ -114,24 +118,28 @@ In this example, TWiki will be accessible by at the `http://example.com/wiki` lo
 
 Edit the `$twikiLibPath` value in the `/srv/www/example.com/twiki/bin/LocalLib.cfg` file to reflect the location of the `lib` files in the TWiki directory on your system, as in the following example:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /srv/www/example.com/twiki/bin/LocalLib.cfg
 :   ~~~ perl
-    $twikiLibPath = "/srv/www/example.com/twiki/lib";
-    ~~~
+$twikiLibPath = "/srv/www/example.com/twiki/lib";
+~~~
+
+{{< /file-excerpt >}}
 
 Before you can proceed with the installation process, you will need to configure the access control settings in the Apache Configuration (as above) so that you will be able to access your TWiki instance. Consider the following configuration directives:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/httpd/conf.d/twiki.conf
 :   ~~~ apache
-    <FilesMatch "^configure.*">
-           SetHandler cgi-script
-           Order Deny,Allow
-           Deny from all
-           Allow from 127.0.0.1
-    </FilesMatch>
-    ~~~
+<FilesMatch "^configure.*">
+SetHandler cgi-script
+Order Deny,Allow
+Deny from all
+Allow from 127.0.0.1
+</FilesMatch>
+~~~
+
+{{< /file-excerpt >}}
 
 Add your local IP address to the `Allow from` directive in the `FilesMatch` block to allow access to the configuration scripts. For more information about access control with Apache, consider the [Rule Based Access Control](/docs/web-servers/apache/configuration/rule-based-access-control) document.
 
@@ -147,11 +155,13 @@ If your wiki is accessible at `http://example.com`, visit `http://example.com/bi
 
 Add the following line to the `/srv/www/example.com/twiki/lib/LocalSite.cfg`" file. Make sure that you do not append this line to the very end of the file.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /srv/www/example.com/twiki/lib/LocalSite.cfg
 :   ~~~ perl
-    $TWiki::cfg{ScriptUrlPaths}{view} = '';
-    ~~~
+$TWiki::cfg{ScriptUrlPaths}{view} = '';
+~~~
+
+{{< /file-excerpt >}}
 
 Log into the configuration section at `http://example.com/bin/configure`, using the password configured above. In the "Store Settings" change the value of the `{StoreImpl}` value to `RcsLite`. Click "Next" and "Save" to store these values. Visit `http://example.com/TWiki/TWikiRegistration`" to register new users to be able to edit the wiki. Although mail configuration is beyond the scope of this document, you will need to install a mail server and configure TWiki in the "Mail and Proxies" section of the configuration interface before TWiki will be able to successfully send email notifications and messages.
 

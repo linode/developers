@@ -86,10 +86,12 @@ You must append the path of your application to the system path as above. The de
 
 In this example the Web.py *application* is embedded in a `application.wsgi` file. The [Web.py Framework](/docs/websites/frameworks/webpy-on-ubuntu-12-04-precise-pangolin/) must be installed in order for the following application to run successfully.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /var/www/example.com/application/application.wsgi
 :   ~~~ python
-    import web
+import web
+
+{{< /file-excerpt >}}
 
     urls = (
         '/(.*)', 'hello'
@@ -112,11 +114,13 @@ In this example the Web.py *application* is embedded in a `application.wsgi` fil
 
 The following example `application.wsgi` file is configured for Django applications:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /var/www/example.com/application/application.wsgi
 :   ~~~ python
-    import os
-    import sys
+import os
+import sys
+
+{{< /file-excerpt >}}
 
     sys.path.append('/var/www/example.com/application')
 
@@ -134,13 +138,15 @@ The following example `application.wsgi` file is configured for Django applicati
 
 Deploy the following `VirtualHost` configuration and modify the paths and domains to reflect the requirements of your application:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 Apache `VirtualHost` Configuration
 :   ~~~ apache
-    <VirtualHost *:80>
-       ServerName example.com
-       ServerAlias www.example.com
-       ServerAdmin username@example.com
+<VirtualHost *:80>
+ServerName example.com
+ServerAlias www.example.com
+ServerAdmin username@example.com
+
+{{< /file-excerpt >}}
 
        DocumentRoot /var/www/example.com/public_html
 

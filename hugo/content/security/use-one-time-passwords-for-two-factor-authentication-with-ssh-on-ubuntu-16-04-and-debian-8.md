@@ -125,22 +125,26 @@ It is strongly recommended that you have another terminal session open while con
 
 1.  Open `/etc/pam.d/sshd` with sudo privileges, and add the following lines to the end of the file:
 
-    {: .file-excerpt}
-    /etc/pam.d/sshd
-    :   ~~~
-        auth    required      pam_unix.so     no_warn try_first_pass
-        auth    required      pam_google_authenticator.so
-        ~~~
+    {{< file-excerpt >}}
+/etc/pam.d/sshd
+:   ~~~
+auth    required      pam_unix.so     no_warn try_first_pass
+auth    required      pam_google_authenticator.so
+~~~
+
+{{< /file-excerpt >}}
 
     The first line tells PAM to authenticate with a normal Unix user password before other methods. The second line specifies an additional method of authentication, which in this case, is the TOTP software we installed earlier.
 
 2.  Edit `/etc/ssh/sshd_config` to include the following lines, replacing `example-user` with any system user for which you'd like to enable two-factor authentication. Comments (preceded by #) are included here, but should not be added to your actual configuration file:
 
-    {: .file-excerpt}
-    /etc/ssh/sshd_config
-    :   ~~~
-        # This line already exists in the file, and should be changed from 'no' to 'yes'
-        ChallengeResponseAuthentication yes
+    {{< file-excerpt >}}
+/etc/ssh/sshd_config
+:   ~~~
+# This line already exists in the file, and should be changed from 'no' to 'yes'
+ChallengeResponseAuthentication yes
+
+{{< /file-excerpt >}}
 
         ...
 
@@ -180,26 +184,30 @@ Confirm that your public key has been copied to your Linode before completing th
 
 1.  Set `PasswordAuthentication` to `no` and modify the `AuthenticationMethods` line in `/etc/ssh/sshd_config`:
 
-    {: .file-excerpt}
-    /etc/ssh/sshd_config
-    :   ~~~
-        PasswordAuthentication no
-        ...
-        Match User example-user
-            AuthenticationMethods publickey,keyboard-interactive
-        ~~~
+    {{< file-excerpt >}}
+/etc/ssh/sshd_config
+:   ~~~
+PasswordAuthentication no
+...
+Match User example-user
+AuthenticationMethods publickey,keyboard-interactive
+~~~
+
+{{< /file-excerpt >}}
 
     Configure this setting in the `AuthenticationMethods` directive for each user as appropriate. When any of these users log in, they will need to provide their SSH key and they will be authenticated via TOTP, as well. Be sure to restart your SSH daemon to apply these changes.
 
 2.  Next, you'll need to make changes to your PAM configuration. Comment out or omit the following lines in your `/etc/pam.d/sshd` file:
 
-    {: .file-excerpt}
-    /etc/pam.d/sshd
-    :   ~~~
-        # @include common-auth
-        ...
-        # auth    required      pam_unix.so     no_warn try_first_pass
-        ~~~
+    {{< file-excerpt >}}
+/etc/pam.d/sshd
+:   ~~~
+# @include common-auth
+...
+# auth    required      pam_unix.so     no_warn try_first_pass
+~~~
+
+{{< /file-excerpt >}}
 
 That's it! You should now be able to log in using your SSH key as the first method of authentication and your verification code as the second. To test your configuration, log out and try to log in again via SSH. You should be asked for your 6-digit verification code only, since the key authentication will not produce a prompt.
 

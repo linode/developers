@@ -304,8 +304,10 @@ Issue the following commands to create a `~/wiki/` directory as a git repository
 
 Add the following excerpt to `~/wiki/.git/config`:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 ~/wiki/.git/config
+
+{{< /file-excerpt >}}
 
     [remote "origin"]
        fetch = +refs/heads/*:refs/remotes/origin/*

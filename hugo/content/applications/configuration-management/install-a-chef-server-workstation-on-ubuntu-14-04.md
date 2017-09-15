@@ -263,14 +263,16 @@ This section is optional, but provides instructions on downloading a cookbook to
 
 2.	Open the `default.rb` file to examine the default cookbook recipe:
 
-	{: .file-excerpt}
-	~/chef-repo/cookbooks/cron-delvalidate/recipies/default.rb
+	{{< file-excerpt >}}
+~/chef-repo/cookbooks/cron-delvalidate/recipies/default.rb
 	:	~~~
 		#
 		# Cookbook Name:: cron-delvalidate
 		# Recipe:: Chef-Client Cron & Delete Validation.pem
 		#
 		#
+
+{{< /file-excerpt >}}
 
 		cron "clientrun" do
 		  minute '0'

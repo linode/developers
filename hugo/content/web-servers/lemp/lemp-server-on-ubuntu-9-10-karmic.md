@@ -25,11 +25,13 @@ Prepare System For Deployment
 
 Before beginning with the installation of this web application stack, you will need to enable the `universe` repository. Open `/etc/apt/sources.list` with your favorite text editor and make sure that the following lines are present:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/apt/sources.list
 :   ~~~
-    deb http://us.archive.ubuntu.com/ubuntu/ karmic universe
-    deb-src http://us.archive.ubuntu.com/ubuntu/ karmic universe
+deb http://us.archive.ubuntu.com/ubuntu/ karmic universe
+deb-src http://us.archive.ubuntu.com/ubuntu/ karmic universe
+
+{{< /file-excerpt >}}
 
     deb http://us.archive.ubuntu.com/ubuntu/ karmic-updates universe
     deb-src http://us.archive.ubuntu.com/ubuntu/ karmic-updates universe
@@ -115,14 +117,16 @@ Configure nginx Virtual Hosting
 
 Regardless of the method you use to install nginx, you will need to configure `server` declarations to specify name-based virtual hosts. There are a number of approaches to organizing configuration files with nginx. Regardless of the organizational strategy, all virtual host configurations are contained within `server` configuration blocks that are in turn contained within the `http` block in the `nginx.conf` file. Consider the following nginx virtual host configuration:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 nginx server configuration
 :   ~~~ nginx
-    server {
-        listen   80;
-        server_name www.example.com example.com;
-        access_log /srv/www/example.com/logs/access.log;
-        error_log /srv/www/example.com/logs/error.log;
+server {
+listen   80;
+server_name www.example.com example.com;
+access_log /srv/www/example.com/logs/access.log;
+error_log /srv/www/example.com/logs/error.log;
+
+{{< /file-excerpt >}}
 
         location / {
             root   /srv/www/example.com/public_html;
@@ -150,11 +154,13 @@ The source file is saved, and the site can be re-enabled at any time.
 
 If you installed the web server after compiling it from source you have a number of options. You may insert the server directives directly into the `http` section of the `/opt/nginx/conf/nginx.conf` or `/etc/nginx/nginx.conf` file, although this may be difficult to manage. You may also replicate the management system created by the Ubuntu packages by creating `sites-available/` and `sites-enabled/` directories and inserting the following line into your `nginx.conf` file:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 nginx.conf
 :   ~~~ nginx
-    http {
-    # [...]
+http {
+# [...]
+
+{{< /file-excerpt >}}
 
     include /opt/etc/nginx/sites-enabled/*;
 
@@ -164,11 +170,13 @@ nginx.conf
 
 Modify the include statement to point to the path of your `sites-enabled` directory. In some circumstances, it may make more sense to create and include a file named `/opt/nginx-sites.conf` that is included in the `nginx.conf` file as follows:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 nginx.conf
 :   ~~~ nginx
-    http {
-    # [...]
+http {
+# [...]
+
+{{< /file-excerpt >}}
 
     include /opt/nginx-sites.conf;
 

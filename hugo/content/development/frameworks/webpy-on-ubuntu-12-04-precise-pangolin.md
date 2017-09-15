@@ -119,25 +119,29 @@ Issue the following command to ensure that the required modules are enabled with
 
 WSGI requires a slight modification to your web.py application. Add the following lines to the end of the `code.py` file:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 code.py
 :   ~~~ python
-    app = web.application(urls, globals(), autoreload=False)
-    application = app.wsgifunc()
-    ~~~
+app = web.application(urls, globals(), autoreload=False)
+application = app.wsgifunc()
+~~~
+
+{{< /file-excerpt >}}
 
 Consider the following Apache VirtualHost configuration for a `mod_wsgi` powered Web.py application:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 Apache VirtualHost Configuration
 :   ~~~ apache
-    <VirtualHost example.com:80> 
-        ServerAdmin username@example.com    
-        ServerName example.com
-           ServerAlias www.example.com
-           DocumentRoot /var/www/example.com/public_html/
-           ErrorLog /var/www/example.com/logs/error.log 
-           CustomLog /var/www/example.com/logs/access.log combined
+<VirtualHost example.com:80> 
+ServerAdmin username@example.com    
+ServerName example.com
+ServerAlias www.example.com
+DocumentRoot /var/www/example.com/public_html/
+ErrorLog /var/www/example.com/logs/error.log 
+CustomLog /var/www/example.com/logs/access.log combined
+
+{{< /file-excerpt >}}
 
         WSGIScriptAlias / /var/www/example.com/application
         Alias /static /var/www/example.com/public_html

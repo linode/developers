@@ -53,13 +53,15 @@ Choose one Linode to be your NFS server. Follow the instructions below to config
 
 4.  Use your favorite editor to add the following line to the `/etc/exports` file:
 
-    {: .file-excerpt}
-	/etc/exports
+    {{< file-excerpt >}}
+/etc/exports
 	: ~~~
 		/var/nfsroot	 <client linode private ip>/32(rw,root_squash,subtree_check)
 	~~~
 	
-    Replace **\<client linode private ip\>** with the current private IP address of your second Linode.
+Replace **\<client linode private ip\>** with the current private IP address of your second Linode.
+
+{{< /file-excerpt >}}
 
 5.  Update the table of exported file systems with the following command:
 
@@ -89,11 +91,13 @@ The other Linode will be your NFS client. Follow the instructions below to confi
 
 4.  Use your favorite editor to add the following line to the `/etc/fstab` file:
 
-    {: .file-excerpt }
-	/etc/fstab
+    {{< file-excerpt >}}
+/etc/fstab
 	: ~~~
 		<server linode private ip>:/var/nfsroot /mnt/remotenfs nfs rw,async,hard,intr 0 0
 	~~~
+
+{{< /file-excerpt >}}
 
     Replace **\<server linode private ip\>** with the current private IP address of your server Linode.
 

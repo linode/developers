@@ -47,11 +47,13 @@ Issue the following commands to update your system and install the nginx web ser
 
 Edit the `/etc/rc.conf` file, adding "nginx" and "spawn-fcgi-php" to the "DEAMONS=" line as shown in the following excerpt:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/rc.conf
 :   ~~~
-    DAEMONS=(syslog-ng network netfs crond sshd ntpd nginx spawn-fcgi-php)
-    ~~~
+DAEMONS=(syslog-ng network netfs crond sshd ntpd nginx spawn-fcgi-php)
+~~~
+
+{{< /file-excerpt >}}
 
 Since you have built spawn-fcgi-php from source, you will want to monitor its page in the Arch User Repository (AUR) so that you'll be able to recompile compile the [spawn-fcgi-php](http://aur.archlinux.org/packages.php?ID=37439) package when updates are available.
 
@@ -134,10 +136,12 @@ After reviewing your configuration for potential security issues, issue the foll
 
 Edit the file `/etc/nginx/conf/nginx.conf`, inserting the line `include /etc/nginx/conf/sites-enabled/*;` at the start of the `http {` block, as shown in the following file excerpt:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/nginx/conf/nginx.conf
 :   ~~~ nginx
-    http {
+http {
+
+{{< /file-excerpt >}}
 
         include /etc/nginx/conf/sites-enabled/*;
     ~~~

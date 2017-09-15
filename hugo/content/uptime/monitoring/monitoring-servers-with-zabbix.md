@@ -134,16 +134,18 @@ Now you'll want to make some adjustments to your `php.ini` file for Zabbix. Here
 
 2.  Verify that the following settings are set in the `php.ini` file.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/php5/apache2/php.ini
 :   ~~~ ini
-    memory_limit = 128M
-    post_max_size = 32M
-    upload_max_filesize = 16M
-    max_execution_time = 600
-    max_input_time = 600
-    date.timezone = America/New_York
-    ~~~
+memory_limit = 128M
+post_max_size = 32M
+upload_max_filesize = 16M
+max_execution_time = 600
+max_input_time = 600
+date.timezone = America/New_York
+~~~
+
+{{< /file-excerpt >}}
 
  {{< note >}}
 

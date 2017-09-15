@@ -66,14 +66,16 @@ You can then check the status to make sure it is running at any time:
 
 Once Nginx is installed, you need to configure your 'server' directives to specify your server blocks.  Each server block needs to have a server and location directive.  You can do this multiple ways, either through different server block files or all in the `/etc/nginx/nginx.conf` file.  In this example, we will use the multiple file approach.  By default, Nginx uses the `/etc/nginx/conf.d directory`, and will include any files ending in `.conf`:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/nginx/conf.d/example.com.conf
 :   ~~~ nginx
-    server {
-    listen  80;
-    server_name www.example.com example.com;
-    access_log /var/www/example.com/logs/access.log;
-    error_log /var/www/example.com/logs/error.log;
+server {
+listen  80;
+server_name www.example.com example.com;
+access_log /var/www/example.com/logs/access.log;
+error_log /var/www/example.com/logs/error.log;
+
+{{< /file-excerpt >}}
 
     location / {
         root  /var/www/example.com/public_html;
@@ -99,19 +101,21 @@ If you are using PHP code with your application, you will need to implement "PHP
 
 Once PHP-FastCGI is installed, you will need to create a script to start and control the php-cgi process.  Create the `/usr/bin/php-fastcgi` file in your favorite editor and place the following lines into the file:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /usr/bin/php-fastcgi
 :   ~~~ bash
-    #!/bin/sh
-    if [ `grep -c "nginx" /etc/passwd` = "1" ]; then
-        FASTCGI_USER=nginx
-    elif [ `grep -c "www-data" /etc/passwd` = "1" ]; then
-        FASTCGI_USER=www-data
-    elif [ `grep -c "http" /etc/passwd` = "1" ]; then
-        FASTCGI_USER=http
-    else
-    # Set the FASTCGI_USER variable below to the user that
-    # you want to run the php-fastcgi processes as
+#!/bin/sh
+if [ `grep -c "nginx" /etc/passwd` = "1" ]; then
+FASTCGI_USER=nginx
+elif [ `grep -c "www-data" /etc/passwd` = "1" ]; then
+FASTCGI_USER=www-data
+elif [ `grep -c "http" /etc/passwd` = "1" ]; then
+FASTCGI_USER=http
+else
+# Set the FASTCGI_USER variable below to the user that
+# you want to run the php-fastcgi processes as
+
+{{< /file-excerpt >}}
 
     FASTCGI_USER=
     fi

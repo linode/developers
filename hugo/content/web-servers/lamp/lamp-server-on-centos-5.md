@@ -59,17 +59,19 @@ There are different ways to set up Virtual Hosts, however we recommend the metho
 
 Now we will create virtual host entries for each site that we need to host with this server. Here are two examples for sites at "example.com" and "example.org".
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/httpd/conf.d/vhost.conf
 :   ~~~ apache
-    <VirtualHost *:80>
-         ServerAdmin webmaster@example.com
-         ServerName example.com
-         ServerAlias www.example.com
-         DocumentRoot /srv/www/example.com/public_html/
-         ErrorLog /srv/www/example.com/logs/error.log
-         CustomLog /srv/www/example.com/logs/access.log combined
-    </VirtualHost>
+<VirtualHost *:80>
+ServerAdmin webmaster@example.com
+ServerName example.com
+ServerAlias www.example.com
+DocumentRoot /srv/www/example.com/public_html/
+ErrorLog /srv/www/example.com/logs/error.log
+CustomLog /srv/www/example.com/logs/access.log combined
+</VirtualHost>
+
+{{< /file-excerpt >}}
 
     <VirtualHost *:80>
          ServerAdmin webmaster@example.org     
@@ -169,17 +171,19 @@ Once PHP5 is installed we'll need to tune the configuration file located in `/et
 
 Make sure that the following values are set, and relevant lines are uncommented (comments are lines beginning with a semi-colon (`;`)):
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/php.ini
 :   ~~~ ini
-    error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
-    display_errors = Off
-    log_errors = On
-    error_log = /var/log/php.log
-    max_execution_time = 300
-    memory_limit = 64M
-    register_globals = Off
-    ~~~
+error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
+display_errors = Off
+log_errors = On
+error_log = /var/log/php.log
+max_execution_time = 300
+memory_limit = 64M
+register_globals = Off
+~~~
+
+{{< /file-excerpt >}}
 
 If you need support for MySQL in PHP, then you must install the php5-mysql package with the following command:
 

@@ -37,13 +37,15 @@ This guide is written for a non-root user. Commands that require elevated privil
 
 3.  Edit `/etc/selinux/config` to ensure SELinux is disabled:
 
-    {: .file-excerpt}
-    /etc/selinux/config
-    :   ~~~ config
-        SELINUX=disabled
-        ~~~
-        
+    {{< file-excerpt >}}
+/etc/selinux/config
+:   ~~~ config
+SELINUX=disabled
+~~~
+
 4.  Update your packages:
+
+{{< /file-excerpt >}}
 
         sudo yum update
         

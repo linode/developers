@@ -32,21 +32,23 @@ Be sure to replace "titan" with the name that you wish to give to your server.
 
 Edit your `/etc/apt/sources.list` file and change instances of `maverick` to `natty`. Once you have finished this, your `/etc/apt/sources.list` should resemble the following:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/apt/sources.list
 :   ~~~
-    deb http://us.archive.ubuntu.com/ubuntu/ natty main restricted
-    deb-src http://us.archive.ubuntu.com/ubuntu/ natty main restricted
-    deb http://us.archive.ubuntu.com/ubuntu/ natty-updates main restricted
-    deb-src http://us.archive.ubuntu.com/ubuntu/ natty-updates main restricted
-    deb http://us.archive.ubuntu.com/ubuntu/ natty universe
-    deb-src http://us.archive.ubuntu.com/ubuntu/ natty universe
-    deb http://us.archive.ubuntu.com/ubuntu/ natty-updates universe
-    deb-src http://us.archive.ubuntu.com/ubuntu/ natty-updates universe
-    deb http://us.archive.ubuntu.com/ubuntu/ natty multiverse
-    deb-src http://us.archive.ubuntu.com/ubuntu/ natty multiverse
-    deb http://us.archive.ubuntu.com/ubuntu/ natty-updates multiverse
-    deb-src http://us.archive.ubuntu.com/ubuntu/ natty-updates multiverse
+deb http://us.archive.ubuntu.com/ubuntu/ natty main restricted
+deb-src http://us.archive.ubuntu.com/ubuntu/ natty main restricted
+deb http://us.archive.ubuntu.com/ubuntu/ natty-updates main restricted
+deb-src http://us.archive.ubuntu.com/ubuntu/ natty-updates main restricted
+deb http://us.archive.ubuntu.com/ubuntu/ natty universe
+deb-src http://us.archive.ubuntu.com/ubuntu/ natty universe
+deb http://us.archive.ubuntu.com/ubuntu/ natty-updates universe
+deb-src http://us.archive.ubuntu.com/ubuntu/ natty-updates universe
+deb http://us.archive.ubuntu.com/ubuntu/ natty multiverse
+deb-src http://us.archive.ubuntu.com/ubuntu/ natty multiverse
+deb http://us.archive.ubuntu.com/ubuntu/ natty-updates multiverse
+deb-src http://us.archive.ubuntu.com/ubuntu/ natty-updates multiverse
+
+{{< /file-excerpt >}}
 
     # deb http://us.archive.ubuntu.com/ubuntu/ natty-backports main restricted universe multiverse
     # deb-src http://us.archive.ubuntu.com/ubuntu/ natty-backports main restricted universe multiverse

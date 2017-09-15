@@ -139,11 +139,13 @@ If you are exclusively using IPv4 on your VPN, IPv6 should be disabled unless yo
 
 3.  Go into `/etc/hosts` and comment out the line for IPv6 resolution over localhost.
 
-    {: .file-excerpt}
-    /etc/hosts
-    :   ~~~ conf
-        #::1     localhost ip6-localhost ip6-loopback
-        ~~~
+    {{< file-excerpt >}}
+/etc/hosts
+:   ~~~ conf
+#::1     localhost ip6-localhost ip6-loopback
+~~~
+
+{{< /file-excerpt >}}
 
 4.  Add an ip6tables ruleset to reject all v6 traffic. Your `rules.v6` file should look like this:
 
@@ -189,15 +191,17 @@ For these next sections, you need a root shell.
 
 5.  The permissions of `/etc/openvpn/easy-rsa/keys` are `0700`, which do not allow for group or world access to the key and certificate files. For this reason, keep `keys` as the storage location for server credentials by specifying the absolute paths in OpenVPN's `server.conf`.
 
-    {: .file-excerpt}
-    /etc/openvpn/server.conf
-    :   ~~~ conf
-        # Any X509 key management system can be used.
-        # OpenVPN can also use a PKCS #12 formatted key file
-        # (see "pkcs12" directive in man page).
-        ca /etc/openvpn/easy-rsa/keys/ca.crt
-        cert /etc/openvpn/easy-rsa/keys/server.crt
-        key /etc/openvpn/easy-rsa/keys/server.key  # This file should be kept secret
+    {{< file-excerpt >}}
+/etc/openvpn/server.conf
+:   ~~~ conf
+# Any X509 key management system can be used.
+# OpenVPN can also use a PKCS #12 formatted key file
+# (see "pkcs12" directive in man page).
+ca /etc/openvpn/easy-rsa/keys/ca.crt
+cert /etc/openvpn/easy-rsa/keys/server.crt
+key /etc/openvpn/easy-rsa/keys/server.key  # This file should be kept secret
+
+{{< /file-excerpt >}}
 
         # Diffie hellman parameters.
         # Generate your own with:
@@ -209,19 +213,21 @@ For these next sections, you need a root shell.
 
 6.  The `vars` file in `/etc/openvpn/easy-rsa` contains presets used by the [easy-rsa scripts](https://github.com/OpenVPN/easy-rsa). Here you can specify identification information for your OpenVPN server's certificate authority, which then will be passed to client certificates. Changing these fields is optional and you can always input them manually during certificate creation, but setting them here creates less work during client cert creation.
 
-    {: .file-excerpt}
-    /etc/openvpn/easy-rsa/vars
-    :   ~~~ conf
-        # These are the default values for fields
-        # which will be placed in the certificate.
-        # Don't leave any of these fields blank.
-        export KEY_COUNTRY="US"
-        export KEY_PROVINCE="CA"
-        export KEY_CITY="SanFrancisco"
-        export KEY_ORG="Fort-Funston"
-        export KEY_EMAIL="me@myhost.mydomain"
-        export KEY_OU="MyOrganizationalUnit"
-        ~~~
+    {{< file-excerpt >}}
+/etc/openvpn/easy-rsa/vars
+:   ~~~ conf
+# These are the default values for fields
+# which will be placed in the certificate.
+# Don't leave any of these fields blank.
+export KEY_COUNTRY="US"
+export KEY_PROVINCE="CA"
+export KEY_CITY="SanFrancisco"
+export KEY_ORG="Fort-Funston"
+export KEY_EMAIL="me@myhost.mydomain"
+export KEY_OU="MyOrganizationalUnit"
+~~~
+
+{{< /file-excerpt >}}
 
 7.  From the `easy-rsa`directory, [source](http://stackoverflow.com/a/9326746) the `vars` script:
 
@@ -265,22 +271,24 @@ Further changes to `server.conf` are made to strengthen the cryptography used in
 
 1.  Require a matching HMAC signature for all packets involved in the TLS handshake between the server and connecting clients. Packets without this signature are dropped. Uncomment (by removing the `;`) and edit the line: `tls-auth ta.key 0 # This file is secret`.
 
-    {: .file-excerpt}
-    /etc/openvpn/server.conf
-    :   ~~~ conf
-    # For extra security beyond that provided
-    # by SSL/TLS, create an "HMAC firewall"
-    # to help block DoS attacks and UDP port flooding.
-    #
-    # Generate with:
-    #   openvpn --genkey --secret ta.key
-    #
-    # The server and each client must have
-    # a copy of this key.
-    # The second parameter should be '0'
-    # on the server and '1' on the clients.
-    tls-auth /etc/openvpn/easy-rsa/keys/ta.key 0 # This file is secret
-    ~~~
+    {{< file-excerpt >}}
+/etc/openvpn/server.conf
+:   ~~~ conf
+# For extra security beyond that provided
+# by SSL/TLS, create an "HMAC firewall"
+# to help block DoS attacks and UDP port flooding.
+#
+# Generate with:
+#   openvpn --genkey --secret ta.key
+#
+# The server and each client must have
+# a copy of this key.
+# The second parameter should be '0'
+# on the server and '1' on the clients.
+tls-auth /etc/openvpn/easy-rsa/keys/ta.key 0 # This file is secret
+~~~
+
+{{< /file-excerpt >}}
 
     Generate the HMAC key file. Later we'll transfer it to each client device:
 
@@ -293,17 +301,19 @@ Further changes to `server.conf` are made to strengthen the cryptography used in
 
     Uncomment the `user` and `group` lines, and edit `user` with the username above.  This tells the daemon to drop root privileges and switch to the `openvpn_server` user after startup.
 
-    {: .file-excerpt}
-    /etc/openvpn/server.conf
-    :   ~~~ conf
-    # It's a good idea to reduce the OpenVPN
-    # daemon's privileges after initialization.
-    #
-    # You can uncomment this out on
-    # non-Windows systems.
-    user openvpn_server
-    group nogroup
-    ~~~
+    {{< file-excerpt >}}
+/etc/openvpn/server.conf
+:   ~~~ conf
+# It's a good idea to reduce the OpenVPN
+# daemon's privileges after initialization.
+#
+# You can uncomment this out on
+# non-Windows systems.
+user openvpn_server
+group nogroup
+~~~
+
+{{< /file-excerpt >}}
 
     By default, OpenVPN runs as root. While the user *nobody* has much fewer priviledges than root, if nobody gets compromized, an intruder will have full access to anything else that user has access to. This includes other processes which run as nobody such as Apache, various NFS mounts and some cron jobs.
 
@@ -395,29 +405,33 @@ group nogroup
 
 4.  Further down in the file, edit the `crt` and `key` lines to reflect the names and locations **on the client device**. Specify the path to the files if they, and `client.ovpn`, will not be stored in the same folder.
 
-    {: .file-excerpt}
-    /etc/openvpn/easy-rsa/keys/client.ovpn
-    :   ~~~ conf
-        # SSL/TLS parms.
-        # See the server config file for more
-        # description.  It's best to use
-        # a separate .crt/.key file pair
-        # for each client.  A single ca
-        # file can be used for all clients.
-        ca /path/to/ca.crt
-        cert /path/to/client1.crt
-        key /path/to/client1.key
-        ~~~
+    {{< file-excerpt >}}
+/etc/openvpn/easy-rsa/keys/client.ovpn
+:   ~~~ conf
+# SSL/TLS parms.
+# See the server config file for more
+# description.  It's best to use
+# a separate .crt/.key file pair
+# for each client.  A single ca
+# file can be used for all clients.
+ca /path/to/ca.crt
+cert /path/to/client1.crt
+key /path/to/client1.key
+~~~
+
+{{< /file-excerpt >}}
 
 5.  Tell the client to use the HMAC key generated earlier. Again specify the path if necessary.
 
-    {: .file-excerpt}
-    /etc/openvpn/easy-rsa/keys/client.ovpn
-    :   ~~~ conf
-        # If a tls-auth key is used on the server
-        # then every client must also have the key.
-        tls-auth /path/to/ta.key 1
-        ~~~
+    {{< file-excerpt >}}
+/etc/openvpn/easy-rsa/keys/client.ovpn
+:   ~~~ conf
+# If a tls-auth key is used on the server
+# then every client must also have the key.
+tls-auth /path/to/ta.key 1
+~~~
+
+{{< /file-excerpt >}}
 
 6.  Since the VPN server was told to force certain cryptographic settings in its config file, the clients must have the same settings. Add these lines to the end of `client.ovpn`:
 

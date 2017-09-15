@@ -279,21 +279,25 @@ By deploying the following configuration, you will be able to forward *all* traf
 
         nano /etc/openvpn/server.conf
 
-    {: .file-excerpt }
-	/etc/openvpn/server.conf
-    : ~~~
-      push "redirect-gateway def1 bypass-dhcp"
-      ~~~
+    {{< file-excerpt >}}
+/etc/openvpn/server.conf
+: ~~~
+push "redirect-gateway def1 bypass-dhcp"
+~~~
 	
 2.  Edit the `/etc/sysctl.conf` file to uncomment or add the following line to ensure that your system can forward IPv4 traffic:
 
+{{< /file-excerpt >}}
+
         nano /etc/sysctl.conf
 
-    {: .file-excerpt }
-    /etc/sysctl.conf
-    : ~~~
-      net.ipv4.ip_forward=1
-      ~~~
+    {{< file-excerpt >}}
+/etc/sysctl.conf
+: ~~~
+net.ipv4.ip_forward=1
+~~~
+
+{{< /file-excerpt >}}
 
 3.  Issue the following command to set this variable for the current session:
 
@@ -314,13 +318,15 @@ By deploying the following configuration, you will be able to forward *all* traf
 
         nano /etc/rc.local
 
-    {: .file-excerpt }
-    /etc/rc.local
-    :   ~~~
-        #!/bin/sh -e
-        #
-        # [...]
-        #
+    {{< file-excerpt >}}
+/etc/rc.local
+:   ~~~
+#!/bin/sh -e
+#
+# [...]
+#
+
+{{< /file-excerpt >}}
 
         iptables -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
         iptables -A FORWARD -s 10.8.0.0/24 -j ACCEPT
@@ -362,10 +368,12 @@ By deploying the following configuration, you will be able to forward *all* traf
 
         nano /etc/dnsmasq.conf
 
-    {: .file-excerpt }
-    /etc/dnsmasq.conf
-    :   ~~~
-        listen-address=10.8.0.1
+    {{< file-excerpt >}}
+/etc/dnsmasq.conf
+:   ~~~
+listen-address=10.8.0.1
+
+{{< /file-excerpt >}}
 
         bind-interfaces
         ~~~
@@ -378,12 +386,14 @@ By deploying the following configuration, you will be able to forward *all* traf
 
         nano /etc/network/interfaces
 
-	{: .file-excerpt }
-	/etc/network/interfaces
-    :   ~~~
-        # The primary network interface
-        auto eth0
-        iface eth0 inet dhcp
+	{{< file-excerpt >}}
+/etc/network/interfaces
+:   ~~~
+# The primary network interface
+auto eth0
+iface eth0 inet dhcp
+
+{{< /file-excerpt >}}
 
         dns-search members.linode.com
         dns-nameservers 97.107.133.4 207.192.69.4 207.192.69.5
@@ -399,10 +409,12 @@ By deploying the following configuration, you will be able to forward *all* traf
 
         nano /etc/rc.local
 
-    {: .file-excerpt }
-    /etc/rc.local
+    {{< file-excerpt >}}
+/etc/rc.local
 	:   ~~~
-        /etc/init.d/dnsmasq restart
+/etc/init.d/dnsmasq restart
+
+{{< /file-excerpt >}}
 
         exit 0
         ~~~
@@ -411,11 +423,13 @@ By deploying the following configuration, you will be able to forward *all* traf
 
         nano /etc/openvpn/server.conf
 
-    {: .file-excerpt }
-    /etc/openvpn/server.conf
-    :   ~~~
-        push "dhcp-option DNS 10.8.0.1"
-        ~~~
+    {{< file-excerpt >}}
+/etc/openvpn/server.conf
+:   ~~~
+push "dhcp-option DNS 10.8.0.1"
+~~~
+
+{{< /file-excerpt >}}
 
 15. Restart the Linode:
 

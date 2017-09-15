@@ -58,20 +58,22 @@ To enable the Apache Longview app manually, follow these steps on your Linode vi
 
 2.  Your `httpd.conf` file (or the file where you enabled mod\_status; `status.conf` is another common location) should look like the following:
 
-    {: .file-excerpt }
-    httpd.conf
-    :   ~~~
-        <IfModule mod_status.c>
-            ExtendedStatus On
-            <Location /server-status>
-                SetHandler server-status
-                Order deny,allow
-                Deny from all
-                Allow from 127.0.0.1
-            </Location>
-        </IfModule>
-        ~~~
+    {{< file-excerpt >}}
+httpd.conf
+:   ~~~
+<IfModule mod_status.c>
+ExtendedStatus On
+<Location /server-status>
+SetHandler server-status
+Order deny,allow
+Deny from all
+Allow from 127.0.0.1
+</Location>
+</IfModule>
+~~~
 3.  Edit `/etc/linode/longview.d/Apache.conf` to look like the following:
+
+{{< /file-excerpt >}}
 
     {{< file >}}
 /etc/linode/longview.d/Apache.conf
@@ -230,13 +232,15 @@ To fix this, follow these steps:
 
 3.  Check the location for `mod_status`. The default location on Debian and Ubuntu systems is `http://127.0.0.1/server-status?auto` on localhost. In the Apache configuration file (typically `httpd.conf` or `status.conf`), this is designated with the lines:
 
-    {: .file-excerpt }
-    httpd.conf
-    :   ~~~
-        <Location /server-status>
-            SetHandler server-status
-        ~~~
-    The `SetHandler server-status` line indicates that this is the location block for mod\_status. The location line itself sets the location.
+    {{< file-excerpt >}}
+httpd.conf
+:   ~~~
+<Location /server-status>
+SetHandler server-status
+~~~
+The `SetHandler server-status` line indicates that this is the location block for mod\_status. The location line itself sets the location.
+
+{{< /file-excerpt >}}
 
     #####On cPanel/WHM
 
@@ -306,13 +310,15 @@ If some of your Apache graphs are missing, you may see the error `Enable Extende
 
 This indicates that you need to add the following line to your Apache configuration file (typically `httpd.conf` or `status.conf`) in the `<IfModule mod_status.c>` section:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 httpd.conf
 :   ~~~
-    ExtendedStatus On
-    ~~~
-    
+ExtendedStatus On
+~~~
+
 When you've finished modifying the configuration file, restart Apache:
+
+{{< /file-excerpt >}}
 
 Debian and Ubuntu:
 

@@ -47,8 +47,10 @@ The master configuration file for Munin is `/etc/munin/munin.conf`. This file is
 
 The first section of the file contains the paths to the directories used by Munin. When configuring your web server with Munin, make sure to point the root folder to the path of `htmldir`.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/munin/munin.conf
+
+{{< /file-excerpt >}}
 
 > \# Configfile for Munin master dbdir /var/lib/munin/ htmldir /var/cache/munin/www/ logdir /var/log/munin/ rundir /var/run/munin/
 

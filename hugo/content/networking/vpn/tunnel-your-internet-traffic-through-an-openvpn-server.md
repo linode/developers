@@ -32,19 +32,21 @@ OpenVPN's server-side configuration file is `/etc/openvpn/server.conf`, and it r
 
 1.  Set OpenVPN to push a gateway configuration so all clients send internet traffic through it.
 
-    {: .file-excerpt}
-    /etc/openvpn/server.conf
-    :   ~~~ conf
-        # If enabled, this directive will configure
-        # all clients to redirect their default
-        # network gateway through the VPN, causing
-        # all IP traffic such as web browsing and
-        # and DNS lookups to go through the VPN
-        # (The OpenVPN server machine may need to NAT
-        # or bridge the TUN/TAP interface to the internet
-        # in order for this to work properly).
-        push "redirect-gateway def1 bypass-dhcp"
-        ~~~
+    {{< file-excerpt >}}
+/etc/openvpn/server.conf
+:   ~~~ conf
+# If enabled, this directive will configure
+# all clients to redirect their default
+# network gateway through the VPN, causing
+# all IP traffic such as web browsing and
+# and DNS lookups to go through the VPN
+# (The OpenVPN server machine may need to NAT
+# or bridge the TUN/TAP interface to the internet
+# in order for this to work properly).
+push "redirect-gateway def1 bypass-dhcp"
+~~~
+
+{{< /file-excerpt >}}
 
 2.  Push DNS resolvers to client devices.
 
@@ -52,18 +54,20 @@ OpenVPN's server-side configuration file is `/etc/openvpn/server.conf`, and it r
 
     If using the options below to push DNS resolvers to VPN clients, you can disable the Google DNS fallback on your clients (or leave it enabled as the fallback it was intended to be). [OpenDNS](https://www.opendns.com/) is provided by default but you can change this to your preference.
 
-    {: .file-excerpt}
-    /etc/openvpn/server.conf
-    :   ~~~ conf
-        # Certain Windows-specific network settings
-        # can be pushed to clients, such as DNS
-        # or WINS server addresses.  CAVEAT:
-        # http://openvpn.net/faq.html#dhcpcaveats
-        # The addresses below refer to the public
-        # DNS servers provided by opendns.com.
-        push "dhcp-option DNS 208.67.222.222"
-        push "dhcp-option DNS 208.67.220.220"
-        ~~~
+    {{< file-excerpt >}}
+/etc/openvpn/server.conf
+:   ~~~ conf
+# Certain Windows-specific network settings
+# can be pushed to clients, such as DNS
+# or WINS server addresses.  CAVEAT:
+# http://openvpn.net/faq.html#dhcpcaveats
+# The addresses below refer to the public
+# DNS servers provided by opendns.com.
+push "dhcp-option DNS 208.67.222.222"
+push "dhcp-option DNS 208.67.220.220"
+~~~
+
+{{< /file-excerpt >}}
 
 3.  Restart OpenVPN
 

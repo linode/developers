@@ -69,14 +69,16 @@ Note that nginx cannot be disabled in older versions of GitLab Community Edition
 
 1.  To unbundle nginx from GitLab, we'll need to disable the version included in the Omnibus package. Add the following lines to `/etc/gitlab/gitlab.rb`:
 
-    {: .file-excerpt}
-    /etc/gitlab/gitlab.rb
-    :   ~~~
-        # Unbundle nginx from Omnibus GitLab
-        nginx['enable'] = false
-        # Set your Nginx's username
-        web_server['external_users'] = ['www-data']
-        ~~~
+    {{< file-excerpt >}}
+/etc/gitlab/gitlab.rb
+:   ~~~
+# Unbundle nginx from Omnibus GitLab
+nginx['enable'] = false
+# Set your Nginx's username
+web_server['external_users'] = ['www-data']
+~~~
+
+{{< /file-excerpt >}}
 
 2.  Reconfigure GitLab to apply the changes:
 
@@ -123,11 +125,13 @@ If you're using Ubuntu 16.04, replace `trusty` with `xenial` in the above comman
 
 6.  Enable the new Passenger module by uncommenting the `include /etc/nginx/passenger.conf;` line from the `/etc/nginx/nginx.conf` file:
 
-    {: .file-excerpt}
-    /etc/nginx/nginx.conf
-    :   ~~~ conf
-        include /etc/nginx/passenger.conf;
-        ~~~
+    {{< file-excerpt >}}
+/etc/nginx/nginx.conf
+:   ~~~ conf
+include /etc/nginx/passenger.conf;
+~~~
+
+{{< /file-excerpt >}}
 
 4.  Finally, restart nginx. On Ubuntu 14.04:
 

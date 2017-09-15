@@ -47,8 +47,10 @@ Configure Unbound
 
 In the default configuration, Unbound will only listen for requests on the local interface. If you want Unbound to attach to additional interfaces, these interfaces must be configured manually. Possible interfaces include the public interface or the private networking interface. Specify those IP addresses after the `server:` directive in the following format:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/unbound/unbound.conf
+
+{{< /file-excerpt >}}
 
 > server:
 > :   interface: 19.28.37.56 interface: 192.168.3.105
@@ -59,8 +61,10 @@ Modify these `interface:` directives to conform with the actual addresses assign
 
 By default, Unbound will only listen for and respond to requests for DNS queries on the localhost interface (i.e. from 127.0.0.1). Unbound must be configured to listen for requests on a given interface, as above, **and** be configured to allow requests from a given IP address before it can successfully provide DNS services. Insert lines modeled on the following example into the `unbound.conf` file, following the `server:` directive.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/unbound/unbound.conf
+
+{{< /file-excerpt >}}
 
 > server:
 > :   access-control: 192.168.0.0/16 allow access-control: 11.22.33.44/32 allow

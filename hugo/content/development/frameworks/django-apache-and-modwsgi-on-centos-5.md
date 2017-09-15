@@ -107,13 +107,15 @@ You must append the path of your application to the system path as above. Additi
 
 Consider the following example virtual host configuration:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 Apache Virtual Host Configuration
 :   ~~~ apache
-    <VirtualHost example.com:80>
-       ServerName example.com
-       ServerAlias www.example.com
-       ServerAdmin username@example.com
+<VirtualHost example.com:80>
+ServerName example.com
+ServerAlias www.example.com
+ServerAdmin username@example.com
+
+{{< /file-excerpt >}}
 
        DocumentRoot /srv/www/example.com/public_html
 
@@ -139,11 +141,13 @@ In this example, the `WSGIScriptAlias` directive tells Apache that for this virt
 
 Edit the `/etc/httpd/conf.d/wsgi.conf` file to enable the `mod_wsgi` by uncommenting or adding the following line:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/httpd/conf.d/wsgi.conf
 :   ~~~
-    LoadModule wsgi_module modules/mod_wsgi.so
-    ~~~
+LoadModule wsgi_module modules/mod_wsgi.so
+~~~
+
+{{< /file-excerpt >}}
 
 When you have successfully configured your Apache virtual host, and enabled the required module, issue the following command to restart the web server:
 

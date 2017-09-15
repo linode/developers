@@ -57,12 +57,14 @@ Begin by installing the Apache web server. You can read more about this process 
 
 Edit the `/etc/apache2/mods-available/proxy.conf` file to properly configure the [ProxyPass](/docs/web-servers/apache/proxy-configuration/multiple-webservers-proxypass-debian-5-lenny) as follows:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/apache2/mods-available/proxy.conf
 :   ~~~ apache
-    <IfModule mod_proxy.c>
-            #turning ProxyRequests on and allowing proxying from all may allow
-            #spammers to use your proxy to send email.
+<IfModule mod_proxy.c>
+#turning ProxyRequests on and allowing proxying from all may allow
+#spammers to use your proxy to send email.
+
+{{< /file-excerpt >}}
 
             ProxyRequests Off
 
@@ -88,13 +90,15 @@ This enables proxy support in the module's configuration. **Please note** the wa
 
 Apache should restart cleanly. If you encounter any issues, you may wish to inspect the logs available under `/var/log/apache2/` for more information. Now, consider the following virtual hosting configuration directives:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 Apache Virtual Hosting Configuration
 :   ~~~ apache
-    <VirtualHost *:80>
-         ServerAdmin admin@example.com
-         ServerName example.com
-         ServerAlias www.example.com
+<VirtualHost *:80>
+ServerAdmin admin@example.com
+ServerName example.com
+ServerAlias www.example.com
+
+{{< /file-excerpt >}}
 
         ProxyPreserveHost On
          ProxyPass / http://localhost:8081/
@@ -110,13 +114,15 @@ In this configuration all requests for the `VirtualHost` named `example.com` are
 
 Now modify the configuration of your virtual host as follows:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 Apache Virtual Host Configuration
 :   ~~~ apache
-    <VirtualHost *:80>
-        ServerName example.com
-        ServerAlias www.example.com
-        DocumentRoot /srv/www/example.com/public_html/
+<VirtualHost *:80>
+ServerName example.com
+ServerAlias www.example.com
+DocumentRoot /srv/www/example.com/public_html/
+
+{{< /file-excerpt >}}
 
         ErrorLog /srv/www/example.com/logs/error.log 
         CustomLog /srv/www/example.com/logs/access.log combined
@@ -138,12 +144,14 @@ In this example, requests for content will **only** be proxied to Plone **if** r
 
 Somewhere in your nginx configuration file, include configuration options which resemble the following:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 Nginx Configuration Directives
 :   ~~~ nginx
-    server {
-            listen       21.43.65.91:80;
-            server_name  example.com www.example.com;
+server {
+listen       21.43.65.91:80;
+server_name  example.com www.example.com;
+
+{{< /file-excerpt >}}
 
             access_log  logs/example.access.log combined;
 

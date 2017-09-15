@@ -42,11 +42,13 @@ If you chose to run OpenJDK, then you can skip the remainder of this section. If
 
 Add the following line to your `sources.list` file:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/apt/sources.list
 :   ~~~
-    deb http://ftp.debian.org/debian/ squeeze non-free 
-    ~~~
+deb http://ftp.debian.org/debian/ squeeze non-free 
+~~~
+
+{{< /file-excerpt >}}
 
 Update apt to get the necessary package lists:
 
@@ -80,12 +82,14 @@ Test and Use Tomcat
 
 You can test your Tomcat installation by pointing your browser at `http://[yourdomain-or-ip-address]:8080/`. By default, files are located in the `/usr/share/tomcat6` directory. To configure the admin area, you'll need to add the following lines to the end of your `tomcat-users.xml` file, substituting your own username and password. Make sure you keep the "manager" role.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/tomcat6/tomcat-users.xml
 :   ~~~ xml
-    <role rolename="manager"/>
-    <user username="username" password="examplemorris" roles="manager"/>
-    ~~~
+<role rolename="manager"/>
+<user username="username" password="examplemorris" roles="manager"/>
+~~~
+
+{{< /file-excerpt >}}
 
 Issue the following command to restart the Tomcat server, which will allow this change to take effect:
 

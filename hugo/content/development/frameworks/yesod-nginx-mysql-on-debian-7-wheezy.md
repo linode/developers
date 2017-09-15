@@ -147,16 +147,18 @@ If you want to construct another site, just go back to ``$HOME`` folder, and iss
 
 Before testing the scaffold of your site, you need to create a user and several databases in MySQL. The "yesod" command has generated a configuration file for MySQL, which is located at ``$HOME/myblog/config/mysql.yml``. Take a look. 
 
-{: .file-excerpt}
+{{< file-excerpt >}}
 $HOME/myblog/config/mysql.yml
 :   ~~~
-     Default: &defaults
-       user: myblog
-       password: myblog
-       host: localhost
-       port: 3306
-       database: myblog
-       poolsize: 10
+Default: &defaults
+user: myblog
+password: myblog
+host: localhost
+port: 3306
+database: myblog
+poolsize: 10
+
+{{< /file-excerpt >}}
 
      ...
 
@@ -242,13 +244,15 @@ Warp is a fast http server, but it lacks some advanced features like virtual hos
 
 3.  Before starting your site, you need to modify the file ``/var/myblog/config/settings.yml``. This file has the same structure as ``mysql.yml``. There is a ``Default`` section and four other sections for various environments. We will only run ``/var/myblog`` in the ``Production`` environment, so we only need to modify the last three lines of this settings file:
 
-    {: .file-excerpt}
-    /var/myblog/config/settings.yml
-    :   ~~~
-        Production:
-          approot: "http://www.yoursite.com"
-          <<: *defaults
-        ~~~
+    {{< file-excerpt >}}
+/var/myblog/config/settings.yml
+:   ~~~
+Production:
+approot: "http://www.yoursite.com"
+<<: *defaults
+~~~
+
+{{< /file-excerpt >}}
 
     Here *www.yoursite.com* should be replaced by your FQDN. You can also use other virtual host names here, like *myblog.yoursite.com*. **Just make sure that it is the same as the one that you will pass to Nginx below during Step 5.**
 
@@ -261,19 +265,21 @@ Warp is a fast http server, but it lacks some advanced features like virtual hos
 
 5.  If you want your site running as a daemon, which means in a constant state of running, you can create an init.d script. We have created a simple one, here, for your reference:
 
-    {: .file-excerpt}
-    /etc/init.d/myblog
-    :   ~~~ bash
-        #! /bin/sh
-        ### BEGIN INIT INFO
-        # Provides:          myblog
-        # Required-Start:    $network $syslog mysql nginx
-        # Required-Stop:     $network $syslog mysql nginx
-        # Default-Start:     2 3 4 5
-        # Default-Stop:      0 1 6
-        # Short-Description: MyBlog
-        # Description:       MyBlog: My First Yesod Application
-        ### END INIT INFO
+    {{< file-excerpt >}}
+/etc/init.d/myblog
+:   ~~~ bash
+#! /bin/sh
+### BEGIN INIT INFO
+# Provides:          myblog
+# Required-Start:    $network $syslog mysql nginx
+# Required-Stop:     $network $syslog mysql nginx
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: MyBlog
+# Description:       MyBlog: My First Yesod Application
+### END INIT INFO
+
+{{< /file-excerpt >}}
 
         PATH=/sbin:/bin:/usr/sbin:/usr/bin
         DESC="MyBlog"

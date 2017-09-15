@@ -82,11 +82,13 @@ Using the examples below, be sure the IP addresses you enter reflect those shown
 
 Add the following addressing to the interface's configuration:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/systemd/network/05-eth0.network
 :   ~~~ conf
-    [Match]
-    Name=eth0
+[Match]
+Name=eth0
+
+{{< /file-excerpt >}}
 
     [Network]
     DHCP=no
@@ -116,9 +118,11 @@ Static IP addresses can be configured in several ways in Arch. Linode's Arch dep
 
 The default ethernet interface file is located at `/etc/sysconfig/network-scripts/ifcfg-eth0`. You can configure a static IP address by editing the following lines, substituting your own Linode's IP addresses, gateways, and DNS resolvers:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/sysconfig/network-scripts/ifcfg-eth0
 :   ~~~ conf
+
+{{< /file-excerpt >}}
 
     # Edit this line from "dhcp" to "none":
     BOOTPROTO=none
@@ -167,11 +171,13 @@ CentOS 7 and recent versions of Fedora include NetworkManager, which uses tools 
 
 Like in CentOS 7, you can simply edit the ethernet interface file to configure a static IP address:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/sysconfig/network-scripts/ifcfg-eth0
 :   ~~~ conf
-    BOOTPROTO=none
-    PEERDNS=no
+BOOTPROTO=none
+PEERDNS=no
+
+{{< /file-excerpt >}}
 
     # Your primary static public IP address.
     IPADDR0=198.51.100.5
@@ -221,10 +227,12 @@ For more information on the options available to interface files, see `man ifcfg
 
 Add the following to the interface configuration file:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/network/interfaces
 :   ~~~ conf
-    . . .
+. . .
+
+{{< /file-excerpt >}}
 
     # Your primary public IP address.
     auto eth0
@@ -263,22 +271,26 @@ By default, Debian doesn't include Network Manager or resolvconf to manage `/etc
 
 Networking in Gentoo uses the `netifrc` utility. Addresses are specified in the `config_eth0` line and separated by spaces. The gateway is defined in the `routes_eth0` line.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/conf.d/net
 :   ~~~ conf
-    config_eth0="198.51.100.5/24 198.51.100.10/24 192.0.2.6/17"
-    routes_eth0="default via 198.51.100.1"
-    . . .
-    ~~~
+config_eth0="198.51.100.5/24 198.51.100.10/24 192.0.2.6/17"
+routes_eth0="default via 198.51.100.1"
+. . .
+~~~
+
+{{< /file-excerpt >}}
 
 ### OpenSUSE
 
 1.  Modify the interface's config file:
 
-    {: .file-excerpt }
-    /etc/sysconfig/network/ifcfg-eth0
-    : ~~~ conf
-      BOOTPROTO=static
+    {{< file-excerpt >}}
+/etc/sysconfig/network/ifcfg-eth0
+: ~~~ conf
+BOOTPROTO=static
+
+{{< /file-excerpt >}}
 
       . . .
 
@@ -308,25 +320,29 @@ default         198.51.100.1            -                       eth0
 
 3.  Edit each line to add DNS and domain information for netconfig. Netconfig uses this info to modify `resolv.conf`:
 
-    {: .file-excerpt }
-    /etc/sysconfig/network/config
-    : ~~~
-    . . .
-    NETCONFIG_DNS_STATIC_SERVERS="203.0.113.1 203.0.113.2 203.0.113.3"
-    . . .
-    NETCONFIG_DNS_STATIC_SEARCHLIST="members.linode.com"
-    . . .
-    NETCONFIG_DNS_RESOLVER_OPTIONS="rotate"
-      ~~~
+    {{< file-excerpt >}}
+/etc/sysconfig/network/config
+: ~~~
+. . .
+NETCONFIG_DNS_STATIC_SERVERS="203.0.113.1 203.0.113.2 203.0.113.3"
+. . .
+NETCONFIG_DNS_STATIC_SEARCHLIST="members.linode.com"
+. . .
+NETCONFIG_DNS_RESOLVER_OPTIONS="rotate"
+~~~
+
+{{< /file-excerpt >}}
 
 ### Ubuntu
 
 Add the following to the interface's configuration file:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/network/interfaces
 :   ~~~ conf
-    . . .
+. . .
+
+{{< /file-excerpt >}}
 
     # Your primary public IP address.
     auto eth0

@@ -109,12 +109,14 @@ Configure Apache for Named-Based Virtual Hosting
 
 Apache supports both IP-based and name-based virtual hosting, allowing you to host multiple domains on a single server. To begin configuration, edit Apache's `ports.conf` file so the `NameVirtualHost` section resembles the following. Please be sure to replace "12.34.56.78" with your Linode's IP address.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/apache2/ports.conf
 :   ~~~ apache
-    NameVirtualHost 12.34.56.78:80
-    Listen 80
-    ~~~
+NameVirtualHost 12.34.56.78:80
+Listen 80
+~~~
+
+{{< /file-excerpt >}}
 
 Next, issue the following command to disable the default Apache virtual host.
 
@@ -141,12 +143,14 @@ CustomLog /srv/www/example.com/logs/access.log combined
 
 If you would like to enable Perl support, add the following lines to the `VirtualHost` entry above.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/apache2/sites-available/example.com
 :   ~~~ apache
-    Options ExecCGI
-    AddHandler cgi-script .pl
-    ~~~
+Options ExecCGI
+AddHandler cgi-script .pl
+~~~
+
+{{< /file-excerpt >}}
 
 Next, create example.org (`/etc/apache2/sites-available/example.org`) so that it resembles this:
 
@@ -249,13 +253,15 @@ Begin by installing the mpm-itk module:
 
 Now, in the `<VirtualHost >` entries for your sites (the site-specific files in `/etc/apache2/sites-available/`) add the following sub-block:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 Apache Virtual Host Configuration
 :   ~~~ apache
-    <IfModule mpm_itk_module>
-       AssignUserId webeditor webgroup
-    </IfModule>
-    ~~~
+<IfModule mpm_itk_module>
+AssignUserId webeditor webgroup
+</IfModule>
+~~~
+
+{{< /file-excerpt >}}
 
 In this example, `webeditor` is the name of the user of the specific site in question, and `webgroup` is the name of the particular group that "owns" the web server related files and processes. Remember that you must create the user accounts and groups using the `useradd` command.
 

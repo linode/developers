@@ -57,20 +57,24 @@ Fundamental Postfix Configuration
 
 Begin by editing the `/etc/postfix/main.cf` file. Most of the default values should be correct. Modify the `myhostname` value to correspond to the fully qualified domain name (FQDN) for your server, in this case `lollipop.example.com`:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/postfix/main.cf
 :   ~~~
-    myhostname = lollipop.example.com
-    ~~~
+myhostname = lollipop.example.com
+~~~
+
+{{< /file-excerpt >}}
 
 Add the following lines to your configuration file. This configures postfix for virtual hosting:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/postfix/main.cf
 :   ~~~
-    virtual_alias_maps = hash:/etc/postfix/virtual
-    home_mailbox = mail/
-    ~~~
+virtual_alias_maps = hash:/etc/postfix/virtual
+home_mailbox = mail/
+~~~
+
+{{< /file-excerpt >}}
 
 Furthermore, this ensures that the domains listed in `mydestination` do not conflict with the address that you will receive or forward email with. The `home_mailbox` value determines the name of the folder where email messages are delivered when local delivery is configured. For the user `username` with a home directory of `/home/username/`, new mail would be delivered in a `Maildir` directory located at `/home/username/mail/`. When you've completed this configuration, issue the following command to reload the mail server:
 
@@ -89,11 +93,13 @@ Email Virtual Hosting
 
 Once Postfix is properly configured, edit the `/etc/postfix/virtual` file to configure virtual hosting for your mail gateway. This provides instructions for the mail agent with regards to processing email that it receives. Prior to beginning, ensure that you have properly configured DNS to direct email to your mail gateway. Create an "A Record" for the machine specific domain name that corresponds to your `myhostname` FQDN (e.g. `lollipop.example.com`). Then, ensure that there are MX records for *all* domains that you want to process with this mail gateway pointed to that FQDN. Consider the following example `/etc/postfix/virtual` file:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/postfix/virtual
 :   ~~~
-    admin@example.com example
-    foreman@example.com example
+admin@example.com example
+foreman@example.com example
+
+{{< /file-excerpt >}}
 
     username@example.com username
     username@example.net username
@@ -222,13 +228,15 @@ You may want to consider issuing the command to start the tunnel (`/opt/smtp-tun
 
 When the tunnel is active, you will be able to configure your local mail sending agent to send using the SMTP server "localhost" and port 25, or the alternate `$local_port` you configured. To configure the `msmtp` mail sending agent on an Mac OS X or Linux-based system consider the following configuration file:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 ~/.msmtprc
 :   ~~~
-    account default
-    host localhost
-    from username@example.com
-    port 25
+account default
+host localhost
+from username@example.com
+port 25
+
+{{< /file-excerpt >}}
 
     account alternate
     host localhost

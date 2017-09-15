@@ -61,31 +61,37 @@ Issue the following commands to install Django, create a Django project in the `
 
 Edit the `INSTALLED_APPS` list at the end of the `/srv/www/example.com/application/settings.py` file to resemble the following:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /srv/www/example.com/application/settings.py
 :   ~~~ python
-    INSTALLED_APPS = (
-        'mango',
-    )
-    ~~~
+INSTALLED_APPS = (
+'mango',
+)
+~~~
+
+{{< /file-excerpt >}}
 
 Edit the `ROOT_URLCONF` variable in the `/srv/www/example.com/application/settings.py` file to resemble the following:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /srv/www/example.com/application/settings.py
 :   ~~~ python
-    ROOT_URLCONF = 'mango.urls'
-    ~~~
+ROOT_URLCONF = 'mango.urls'
+~~~
+
+{{< /file-excerpt >}}
 
 Edit the `urlpatterns` array in the `/srv/www/example.com/application/urls.py` file to resemble the following:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /srv/www/example.com/application/urls.py
 :   ~~~ python
-    urlpatterns = patterns('',
-        (r'', include('mango.urls')),
-    )
-    ~~~
+urlpatterns = patterns('',
+(r'', include('mango.urls')),
+)
+~~~
+
+{{< /file-excerpt >}}
 
 Create an `application.wsgi` file, using the following as a model:
 
@@ -118,13 +124,15 @@ Configure Apache
 
 Create a `VirtualHost` specification based on the following example:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/httpd/conf.d/example.conf
 :   ~~~ apache
-    <VirtualHost *:80>
-       ServerName example.com
-       ServerAlias www.example.com
-       ServerAdmin username@example.com
+<VirtualHost *:80>
+ServerName example.com
+ServerAlias www.example.com
+ServerAdmin username@example.com
+
+{{< /file-excerpt >}}
 
        DocumentRoot /srv/www/example.com/public_html
 
@@ -149,10 +157,12 @@ Configure the Mango Site
 
 The behavior of the Mango application is controlled the settings in the `/srv/www/example.com/application/mango/settings/default.py` file which you can override in a `/srv/www/example.com/application/mango/settings/custom.py` file. Add configuration values to `custom.py` as needed to produce your site. The most relevant settings are below:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /srv/www/example.com/application/mango/settings/custom.py
 :   ~~~ python
-    DOCUMENTS_PATH = 'content'
+DOCUMENTS_PATH = 'content'
+
+{{< /file-excerpt >}}
 
     SITE_TITLE = 'example Blog'
     ~~~
@@ -164,8 +174,10 @@ Write Content with Mango
 
 All content with Mango exists in source as Markdown, a lightweight markup language that mirrors formatting conventions for plain text emails. Markdown is designed to be easy to read and write, and can be translated efficiently into high quality HTML. Consider the following example entry:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /srv/www/example.com/application/content/first-post.text
+
+{{< /file-excerpt >}}
 
 > date: 02 February 2011 time: 08:06am zone: US/Eastern tags: blog, meta, example
 >

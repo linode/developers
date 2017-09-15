@@ -127,11 +127,13 @@ inventory = ~/Path/To/ansible/hosts
 
 2.  Add an entry to your hosts file, pointing to a server that you connected to in the previous section.  You can include multiple servers in this file, using either domains or IP addresses, and can even group them:
 
-    {: .file-excerpt}
-    ~/Path/To/ansible/hosts
-    :   ~~~ ini
-        mainserver.com
-        myserver.net:2222
+    {{< file-excerpt >}}
+~/Path/To/ansible/hosts
+:   ~~~ ini
+mainserver.com
+myserver.net:2222
+
+{{< /file-excerpt >}}
 
         [mailservers]
         mail1.mainserver.com
@@ -155,43 +157,49 @@ You can write playbooks to perform initial server configurations, add users and 
 
 A playbook is a YAML file, and typically follows this structure:
 
-{: .file-excerpt}
+{{< file-excerpt >}}
 Sample Playbook YAML file
 :   ~~~ yaml
-    ---
-    - hosts: [target hosts]
-      remote_user: [yourname]
-      tasks:
-        - [task 1]
-        - [task 2] 
-    ~~~
+---
+- hosts: [target hosts]
+remote_user: [yourname]
+tasks:
+- [task 1]
+- [task 2] 
+~~~
+
+{{< /file-excerpt >}}
 
 For example, the following playbook would log in to all servers in the `marketingservers` group and ensure Apache was started.
 
-{: .file-excerpt}
+{{< file-excerpt >}}
 Sample service check playbook
 :   ~~~ yaml
-    ---
-    - hosts: [marketingservers]
-      remote_user: webadmin
-      tasks:
-        - name: Ensure the Apache daemon has started
-          service: name=httpd state=started
-          become: yes
-          become_method: sudo 
-    ~~~      
+---
+- hosts: [marketingservers]
+remote_user: webadmin
+tasks:
+- name: Ensure the Apache daemon has started
+service: name=httpd state=started
+become: yes
+become_method: sudo 
+~~~
+
+{{< /file-excerpt >}}
 
 In the playbook above is an example of a task:
 
-{: .file-excerpt}
+{{< file-excerpt >}}
 Playbook task
 :   ~~~ yaml      
-      tasks:
-        - name: Ensure the Apache daemon has started
-          service: name=httpd state=started
-          become: yes
-          become_method: sudo
-    ~~~
+tasks:
+- name: Ensure the Apache daemon has started
+service: name=httpd state=started
+become: yes
+become_method: sudo
+~~~
+
+{{< /file-excerpt >}}
 
 Every task should have a name, which is logged and can help you track progress. Following the name line is the module that will be run (in this case, the [service module](http://docs.ansible.com/ansible/service_module.html)), and the other attributes provide more options, in this case instructing Ansible to use `sudo` privileges (which we will configure later).
 

@@ -66,16 +66,18 @@ Issue the following commands to extract, compile, and install the Nagios Core:
 
 Begin by editing the `/usr/local/nagios/etc/objects/contacts.cfg` file's email field according to the example below:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /usr/local/nagios/etc/objects/contacts.cfg
 :   ~~~
-    define contact{
-        contact_name nagiosadmin ; Short name of user use generic-contact
-        ; Inherit default values from generic-contact template (defined above)
-        alias John Doe ; Full name of user
-        email <someadmin@example.com> ; <<***** CHANGE THIS TO YOUR EMAIL ADDRESS ****** 
-    }
-    ~~~
+define contact{
+contact_name nagiosadmin ; Short name of user use generic-contact
+; Inherit default values from generic-contact template (defined above)
+alias John Doe ; Full name of user
+email <someadmin@example.com> ; <<***** CHANGE THIS TO YOUR EMAIL ADDRESS ****** 
+}
+~~~
+
+{{< /file-excerpt >}}
 
 Issue the following commands to configure the web interface for Nagios:
 

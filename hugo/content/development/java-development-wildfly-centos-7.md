@@ -352,18 +352,20 @@ Please Follow these steps to install MySQL driver as "module" in WildFly
 
 5.  We need to define MySQL driver in `/opt/wildfly/standalone/configuration/standalone.xml` by adding the following driver definition within the drivers tag, by default you will find only definition for h2:
 
-    {: .file-excerpt}
-    /opt/wildfly/standalone/configuration/standalone.xml
-    :   ~~~ xml
-        <drivers>
-            <driver name="h2" module="com.h2database.h2">
-                <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
-            </driver>
-            <driver name="mysqlDriver" module="com.mysql">
-                <xa-datasource-class>com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</xa-datasource-class>
-            </driver>
-        </drivers>
-        ~~~
+    {{< file-excerpt >}}
+/opt/wildfly/standalone/configuration/standalone.xml
+:   ~~~ xml
+<drivers>
+<driver name="h2" module="com.h2database.h2">
+<xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
+</driver>
+<driver name="mysqlDriver" module="com.mysql">
+<xa-datasource-class>com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</xa-datasource-class>
+</driver>
+</drivers>
+~~~
+
+{{< /file-excerpt >}}
 
 6.  Restart WildFly so changes take effect:
 

@@ -51,11 +51,13 @@ SASL Authentication
 
 Edit the `/etc/default/saslauthd` file to allow the SASL authentication daemon to start. Uncomment or add the following line:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/default/saslauthd
 :   ~~~ ini
-    START=yes
-    ~~~
+START=yes
+~~~
+
+{{< /file-excerpt >}}
 
 Create the `/etc/postfix/sasl/smtpd.conf` file, and insert the following line:
 
@@ -93,11 +95,13 @@ Postfix
 
 Edit the `/etc/postfix/main.cf` file to edit or add the following lines:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/postfix/main.cf
 :   ~~~ ini
-    smtpd_tls_cert_file=/etc/ssl/postfix.pem
-    smtpd_tls_key_file=/etc/ssl/postfix.key
+smtpd_tls_cert_file=/etc/ssl/postfix.pem
+smtpd_tls_key_file=/etc/ssl/postfix.key
+
+{{< /file-excerpt >}}
 
     smtpd_sasl_application_name = smtpd
     ~~~
@@ -116,13 +120,15 @@ Consider the [basic email gateway guide](/docs/email/postfix/gateway-ubuntu-10.1
 
 The above Postfix configuration makes it possible to *send* mail using Postfix. If your server receives email, Postfix requires additional configuration to deliver mail locally. Edit the `main.cf` file to insert or modify the following configuration directives:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/postfix/main.cf
 :   ~~~ ini
-    myhostname = lollipop.example.com
-    virtual_alias_maps = hash:/etc/postfix/virtual
-    home_mailbox = mail/
-    ~~~
+myhostname = lollipop.example.com
+virtual_alias_maps = hash:/etc/postfix/virtual
+home_mailbox = mail/
+~~~
+
+{{< /file-excerpt >}}
 
 Issue the following command to ensure that new user accounts have a `~/mail` directory:
 
@@ -151,8 +157,10 @@ You can add additional lines in the same format as the above to control how all 
 
 Edit the `/etc/alias` file to add the following line. This will to reroute all local mail delivered to the root user to another user account. In the following example, all mail delivered to `root` will be delivered to the `username` user's mail box.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/aliases
+
+{{< /file-excerpt >}}
 
 > root: username
 
@@ -171,30 +179,36 @@ Dovecot is a contemporary POP3/IMAP server that makes it possible to access and 
 
 Edit the following configuration directive in the `/etc/dovecot/dovecot.conf` file to select the services that Dovecot will provide.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/dovecot/conf.d/01-mail-stack-delivery.conf
 :   ~~~ ini
-    protocols = imap imaps pop3 pop3s mangesieve
-    ~~~
+protocols = imap imaps pop3 pop3s mangesieve
+~~~
+
+{{< /file-excerpt >}}
 
 The `protocols` directive enables `imap` and `pop3` services within Dovecot along with their SSL-encrypted alternatives. You may remove any of these services if you do not want Dovecot to provide `imap`, `pop3`, or SSL services.
 
 Edit and modify the following lines in the `/etc/dovecot/conf.d/01-dovecot-postfix.conf` file to configure Dovecot to use the SSL certificates you generated earlier:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/dovecot/conf.d/01-dovecot-postfix.conf
 :   ~~~ ini
-    ssl_cert_file = /etc/ssl/postfix.pem
-    ssl_key_file = /etc/ssl/postfix.key
-    ~~~
+ssl_cert_file = /etc/ssl/postfix.pem
+ssl_key_file = /etc/ssl/postfix.key
+~~~
+
+{{< /file-excerpt >}}
 
 You may replace the files specified with another `.pem` and `.key` file generated for another service, if needed. Modify the `mail_location` directive as follows so that Dovecot can interact properly with your Maildirs:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 dovecot.conf
 :   ~~~ ini
-    mail_location = maildir:~/mail:LAYOUT=fs
-    ~~~
+mail_location = maildir:~/mail:LAYOUT=fs
+~~~
+
+{{< /file-excerpt >}}
 
 Once configured, issue the following command to restart the Dovecot instance:
 

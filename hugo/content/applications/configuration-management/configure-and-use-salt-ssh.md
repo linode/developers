@@ -98,24 +98,28 @@ Using SSH keys is the safest way to access your minions because passwords are no
 
     **a.** Disable the TTY check by commenting a line in the sudoers file on your minion:
 
-    {: .file-excerpt}
-    /etc/sudoers
-    :  ~~~ config
-    # Defaults requiretty
-       ~~~
+    {{< file-excerpt >}}
+/etc/sudoers
+:  ~~~ config
+# Defaults requiretty
+~~~
+
+{{< /file-excerpt >}}
 
     **b.** Force TTY allocation by setting the `tty: True` option in your Roster file:
 
-    {: .file-excerpt}
-    /etc/salt/roster
-    :  ~~~ config
-    linode1:
-        host: <IPADDRESS OR HOSTNAME>
-        user: <username>
-        passwd: <password>
-        sudo: True
-        tty: True
-       ~~~
+    {{< file-excerpt >}}
+/etc/salt/roster
+:  ~~~ config
+linode1:
+host: <IPADDRESS OR HOSTNAME>
+user: <username>
+passwd: <password>
+sudo: True
+tty: True
+~~~
+
+{{< /file-excerpt >}}
 
     {{< note >}}
 
@@ -196,37 +200,39 @@ An interesting use case for Salt SSH is automating the installation of `salt-min
 
 2.  Open the `/srv/salt/install_salt_minion/init.sls` file and declare your state:
 
-    {: .file-excerpt}
-    /srv/salt/install_salt_minion/init.sls
-    :   ~~~ config
-        # This is a state which will install salt-minion on your hosts using Salt SSH
-        # It will install the SaltStack repo, install salt-minion from that repo, enable and start the salt-minion service and
-        # declare master in /etc/salt/minion file
-        salt-minion:
-            # Install SaltStack repo for RHEL/Centos systems
-            pkgrepo.managed:
-                - name: salt-latest
-                - humanname: SaltStack Latest Release Channel for RHEL/Centos $releasever
-                - baseurl: https://repo.saltstack.com/yum/redhat/$releasever/$basearch/latest
-                - gpgkey: https://repo.saltstack.com/yum/redhat/$releasever/$basearch/latest/SALTSTACK-GPG-KEY.pub
-                - gpgcheck: 1
-                - enabled: 1
-            # Install the salt-minion package and all its dependencies.
-            pkg:
-                - installed
-                # Require that SaltStack repo is set up before installing salt-minion.
-                - require:
-                    - pkgrepo: salt-latest
-            # Start and enable the salt-minion daemon.
-            service:
-                - running
-                - enable: True
-                # Require that the salt-minion package is installed before starting daemon
-                - require:
-                    - pkg: salt-minion
-                # Restart salt-minion daemon if /etc/salt/minion file is changed
-                - watch:
-                    - file: /etc/salt/minion
+    {{< file-excerpt >}}
+/srv/salt/install_salt_minion/init.sls
+:   ~~~ config
+# This is a state which will install salt-minion on your hosts using Salt SSH
+# It will install the SaltStack repo, install salt-minion from that repo, enable and start the salt-minion service and
+# declare master in /etc/salt/minion file
+salt-minion:
+# Install SaltStack repo for RHEL/Centos systems
+pkgrepo.managed:
+- name: salt-latest
+- humanname: SaltStack Latest Release Channel for RHEL/Centos $releasever
+- baseurl: https://repo.saltstack.com/yum/redhat/$releasever/$basearch/latest
+- gpgkey: https://repo.saltstack.com/yum/redhat/$releasever/$basearch/latest/SALTSTACK-GPG-KEY.pub
+- gpgcheck: 1
+- enabled: 1
+# Install the salt-minion package and all its dependencies.
+pkg:
+- installed
+# Require that SaltStack repo is set up before installing salt-minion.
+- require:
+- pkgrepo: salt-latest
+# Start and enable the salt-minion daemon.
+service:
+- running
+- enable: True
+# Require that the salt-minion package is installed before starting daemon
+- require:
+- pkg: salt-minion
+# Restart salt-minion daemon if /etc/salt/minion file is changed
+- watch:
+- file: /etc/salt/minion
+
+{{< /file-excerpt >}}
 
         # Configure Salt master in conf file
         /etc/salt/minion:

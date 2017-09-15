@@ -173,16 +173,18 @@ Additional Application Servers
 
 If the Python application you've deployed requires more application resources than a single Linode instance can provide, all of the methods for deploying a uWSGI application server are easily scaled to rely on multiple uSWGI instances. These instances run on additional Linodes with the request load balanced using nginx's `upstream` capability. See our documentation of [proxy and software load balancing with nginx](/docs/uptime/loadbalancing/how-to-use-nginx-as-a-front-end-proxy-server-and-software-load-balancer) for more information. For a basic example configuration, see the following example:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 nginx configuration
 :   ~~~ nginx
-    upstream uwsgicluster {
-         server 127.0.0.1:9001;
-         server 192.168.100.101:9001;
-         server 192.168.100.102:9001;
-         server 192.168.100.103:9001;
-         server 192.168.100.104:9001;
-    }
+upstream uwsgicluster {
+server 127.0.0.1:9001;
+server 192.168.100.101:9001;
+server 192.168.100.102:9001;
+server 192.168.100.103:9001;
+server 192.168.100.104:9001;
+}
+
+{{< /file-excerpt >}}
 
     server {
         listen   80;

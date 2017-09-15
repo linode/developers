@@ -42,13 +42,15 @@ Although PostgreSQL uses port 5432 for TCP connections, we're using the local po
 
 2.  If you're having problems connectiong you may need to check PostgreSQL's configuration to ensure it accepts connections. Modify the following lines in `/etc/postgresql/9.5/main/postgresql.conf` if necessary:
 
-    {: .file-excerpt}
-    /etc/postgresql/9.5/main/postgresql.conf
-    :   ~~~conf
-        listen_addresses = 'localhost'
-        
-        port = 5432
-        ~~~
+    {{< file-excerpt >}}
+/etc/postgresql/9.5/main/postgresql.conf
+:   ~~~conf
+listen_addresses = 'localhost'
+
+port = 5432
+~~~
+
+{{< /file-excerpt >}}
 
     Restart PostgreSQL to activate these changes. This command may vary among different distributions:
 

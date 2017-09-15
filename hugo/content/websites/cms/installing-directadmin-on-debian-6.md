@@ -126,29 +126,37 @@ Configuring DirectAdmin
 
 You may want to configure the DirectAdmin manager login to use SSL, either on the main port or a separate port. To configure the main port (2222) to use SSL, you'll need to edit your `/usr/local/directadmin/conf/directadmin.conf` file. You'll want to find this line:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /usr/local/directadmin/conf/directadmin.conf
+
+{{< /file-excerpt >}}
 
 > SSL=0
 
 And change it to:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /usr/local/directadmin/conf/directadmin.conf
+
+{{< /file-excerpt >}}
 
 > SSL=1
 
 If you would prefer to leave 2222 open as a non-SSL port and run a copy of DirectAdmin on a separate port for SSL, you'll need to find this line:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /usr/local/directadmin/conf/directadmin.conf
+
+{{< /file-excerpt >}}
 
 > port=2222
 
 And add this line below it:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /usr/local/directadmin/conf/directadmin.conf
+
+{{< /file-excerpt >}}
 
 > ssl\_port=2223
 
@@ -166,15 +174,19 @@ If you are using a commercial SSL for your DirectAdmin manager, you can paste th
 
 If your issuer does have a CA Root Cert, you'll also need to modify your directadmin.conf file to make use of that certificate: Find this section:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /usr/local/directadmin/conf/directadmin.conf
+
+{{< /file-excerpt >}}
 
 > SSL=0 cacert=/usr/local/directadmin/conf/cacert.pem cakey=/usr/local/directadmin/conf/cakey.pem ssl\_cipher=SSLv3
 
 And update it to:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /usr/local/directadmin/conf/directadmin.conf
+
+{{< /file-excerpt >}}
 
 > SSL=0 cacert=/usr/local/directadmin/conf/cacert.pem cakey=/usr/local/directadmin/conf/cakey.pem carootcert=/usr/local/directadmin/conf/carootcert.pem ssl\_cipher=SSLv3
 
@@ -183,8 +195,10 @@ IPv6 with DirectAdmin
 
 DirectAdmin also has basic support for IPv6. To activate this support, you'll need to edit your directadmin.conf file again. You'll need to add this line anywhere in your directadmin.conf file:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /usr/local/directadmin/conf/directadmin.conf
+
+{{< /file-excerpt >}}
 
 > ipv6=1
 

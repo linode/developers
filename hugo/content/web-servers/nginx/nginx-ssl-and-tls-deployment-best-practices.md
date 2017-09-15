@@ -48,11 +48,13 @@ By default, nginx will share its version number with anyone who connects to your
 
 1.  To disable `server_tokens`, open your `/etc/nginx/nginx.conf` file. Inside of the `http` block, append or uncomment the following line:
 
-    {: .file-excerpt}
-    /etc/nginx/nginx.conf
-    :   ~~~
-        server_tokens       off;
-        ~~~
+    {{< file-excerpt >}}
+/etc/nginx/nginx.conf
+:   ~~~
+server_tokens       off;
+~~~
+
+{{< /file-excerpt >}}
 
 2.  Save your changes and restart nginx.
 
@@ -84,11 +86,13 @@ Chrome has deprecated Next Protocol Negotiation (NPN) and now requires Applicati
 
 1.  To enable HTTP/2, open your nginx SSL virtual host configuration file. Depending on how you installed nginx, this could be located at `/etc/nginx/sites-enabled/default` or at `/etc/nginx/conf.d/example_ssl.conf`. Look for the `listen` line within the "SSL Configuration" section. Uncomment the following line if necessary and add `http2` to the end before the semicolon.
 
-    {: .file-excerpt}
-    /etc/nginx/conf.d/example_ssl.conf
-    :   ~~~ conf
-        listen       443 ssl http2;
-        ~~~
+    {{< file-excerpt >}}
+/etc/nginx/conf.d/example_ssl.conf
+:   ~~~ conf
+listen       443 ssl http2;
+~~~
+
+{{< /file-excerpt >}}
 
 2.  Save your changes and restart nginx.
 
@@ -106,31 +110,37 @@ Google is now ranking websites that accept encrypted HTTPS connections higher in
 
 1.  Open your HTTP nginx virtual host configuration file, which can be located at `/etc/nginx/conf.d/default.conf`, `/etc/nginx/nginx.conf` or `/etc/nginx/sites-enabled/default` depending on how you installed nginx. Change `example.com` to match your Linode's domain name or hostname:
 
-    {: .file-excerpt}
-    /etc/nginx/conf.d/default.conf
-    :   ~~~ conf
-        server_name example.com
-        ~~~
+    {{< file-excerpt >}}
+/etc/nginx/conf.d/default.conf
+:   ~~~ conf
+server_name example.com
+~~~
+
+{{< /file-excerpt >}}
 
 2.  Append the following line below the `server_name` line.
 
-    {: .file-excerpt}
-    /etc/nginx/conf.d/default.conf
-    :   ~~~ conf   
-        rewrite        ^ https://$server_name$request_uri? permanent;
-        ~~~
+    {{< file-excerpt >}}
+/etc/nginx/conf.d/default.conf
+:   ~~~ conf   
+rewrite        ^ https://$server_name$request_uri? permanent;
+~~~
+
+{{< /file-excerpt >}}
 
 3.  Comment out (place `#` in front of) all other lines so your configuration looks like this:
 
-    {: .file-excerpt}
-    /etc/nginx/conf.d/default.conf
-    :   ~~~ conf
-        server {
-            listen       80;
-            server_name  example.com;
-            rewrite      ^ https://$server_name$request_uri? permanent;
-        }
-        ~~~
+    {{< file-excerpt >}}
+/etc/nginx/conf.d/default.conf
+:   ~~~ conf
+server {
+listen       80;
+server_name  example.com;
+rewrite      ^ https://$server_name$request_uri? permanent;
+}
+~~~
+
+{{< /file-excerpt >}}
 
 4. Save your changes and restart nginx.
 
@@ -150,13 +160,15 @@ Before enabling OCSP stapling you will need to have a file on your system that s
 
 1.  Open your HTTPS nginx virtual host configuration file, which can be located at `/etc/nginx/conf.d/example_ssl.conf` or `/etc/nginx/sites-enabled/default` depending on how you installed and configured nginx. Add the following lines inside the `server` block:
 
-    {: .file-excerpt}
-    /etc/nginx/conf.d/example_ssl.conf
-    :   ~~~ conf
-        ssl_stapling on;
-        ssl_stapling_verify on;
-        ssl_trusted_certificate /etc/ssl/nginx/ca.pem;
-        ~~~
+    {{< file-excerpt >}}
+/etc/nginx/conf.d/example_ssl.conf
+:   ~~~ conf
+ssl_stapling on;
+ssl_stapling_verify on;
+ssl_trusted_certificate /etc/ssl/nginx/ca.pem;
+~~~
+
+{{< /file-excerpt >}}
 
 2.  Save your changes and restart nginx.
 
@@ -178,11 +190,13 @@ With all traffic being redirected from HTTP to HTTPS, you may want to allow user
 
 1.  Open up your nginx HTTPS virtual host configuration file. This may be located at `/etc/nginx/sites-enabled/default` or at `/etc/nginx/conf.d/example_ssl.conf`. Append the following line inside your `server` block:
 
-    {: .file-excerpt}
-    /etc/nginx/conf.d/example_ssl.conf
-    :   ~~~ conf    
-        add_header Strict-Transport-Security "max-age=31536000; includeSubdomains";
-        ~~~
+    {{< file-excerpt >}}
+/etc/nginx/conf.d/example_ssl.conf
+:   ~~~ conf    
+add_header Strict-Transport-Security "max-age=31536000; includeSubdomains";
+~~~
+
+{{< /file-excerpt >}}
 
     The `max-age` attribute sets the expiration date for this header in seconds; in the above configuration, the header will expire after 1 year. You can configure this to be longer or shorter if you choose, but a period of less than 180 days is considered too short for the Qualys test. The `includeSubdomains` argument enforces HSTS on all subdomains.
 

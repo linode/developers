@@ -57,14 +57,16 @@ This will install version 1.2.1-22 of the Nginx server.
 
 You will need to configure `server` declarations to specify name-based virtual hosts. Since you are using the packages from the Debian project, create the virtual hosting configuration in the as `/etc/nginx/sites-available/example.com`. Consider the following Nginx virtual host configuration:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/nginx/sites-available/example.com
 :   ~~~ nginx
-    server {
-        listen   80;
-        server_name www.example.com example.com;
-        access_log /srv/www/example.com/logs/access.log;
-        error_log /srv/www/example.com/logs/error.log;
+server {
+listen   80;
+server_name www.example.com example.com;
+access_log /srv/www/example.com/logs/access.log;
+error_log /srv/www/example.com/logs/error.log;
+
+{{< /file-excerpt >}}
 
         location / {
             root   /srv/www/example.com/public_html;

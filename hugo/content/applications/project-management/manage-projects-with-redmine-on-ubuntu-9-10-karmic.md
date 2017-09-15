@@ -35,12 +35,14 @@ Enable Package Repositories
 
 Edit the file /etc/apt/sources.list and uncomment the `universe` repositories if they're not already enabled. Your repository list should resemble this:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/apt/sources.list
 :   ~~~
-    ## main & restricted repositories
-    deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
-    deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
+## main & restricted repositories
+deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
+deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
+
+{{< /file-excerpt >}}
 
     deb http://security.ubuntu.com/ubuntu karmic-security main restricted
     deb-src http://security.ubuntu.com/ubuntu karmic-security main restricted
@@ -157,11 +159,13 @@ Issue the following commands to enable the site and reload Apache:
 
 Next, you'll need to tell nginx to run on a different port. Edit your nginx configuration file, setting the following value:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /opt/nginx/conf/nginx.conf
 :   ~~~ nginx
-    listen 8080;
-    ~~~
+listen 8080;
+~~~
+
+{{< /file-excerpt >}}
 
 Installing and Configuring Redmine
 ----------------------------------
@@ -291,30 +295,34 @@ We'll create a "redmine" user to manage the installation. Issue the following co
 
 Edit the file `/opt/nginx/conf/nginx.conf`, setting the "user" parameter to "redmine":
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /opt/nginx/conf/nginx.conf
 :   ~~~ nginx
-    user  redmine;
-    ~~~
+user  redmine;
+~~~
+
+{{< /file-excerpt >}}
 
 Add a server section after the first example server as follows. If you're proxying to nginx from another web server, be sure to change the `listen` directive to `listen 8080;` instead of the default.
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /opt/nginx/conf/nginx.conf
 :   ~~~ nginx
-    server {
-         listen 80;
-         server_name  redmine.example.com;
-         root /srv/www/redmine.example.com/redmine/public/;
-         access_log /srv/www/redmine.example.com/redmine/log/access.log;
-         error_log /srv/www/redmine.example.com/redmine/log/error.log;
-         index index.html;
-         location / {
-            passenger_enabled on;
-            allow all;
-         }
-    }
-    ~~~
+server {
+listen 80;
+server_name  redmine.example.com;
+root /srv/www/redmine.example.com/redmine/public/;
+access_log /srv/www/redmine.example.com/redmine/log/access.log;
+error_log /srv/www/redmine.example.com/redmine/log/error.log;
+index index.html;
+location / {
+passenger_enabled on;
+allow all;
+}
+}
+~~~
+
+{{< /file-excerpt >}}
 
 Start nginx:
 

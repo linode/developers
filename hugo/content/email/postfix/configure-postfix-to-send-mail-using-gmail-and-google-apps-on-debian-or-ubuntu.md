@@ -53,11 +53,13 @@ In this section, you will install Postfix as well as *libsasl2*, a package which
 
 4.  Once the installation is complete, confirm that the `myhostname` parameter is configured with your server's FQDN:
 
-    {: .file-excerpt }
-    /etc/postfix/main.cf
-    :   ~~~
-        myhostname = fqdn.example.com
-        ~~~
+    {{< file-excerpt >}}
+/etc/postfix/main.cf
+:   ~~~
+myhostname = fqdn.example.com
+~~~
+
+{{< /file-excerpt >}}
 
 ## Generate an App Password for Postfix
 
@@ -110,28 +112,32 @@ In this section, you will configure the `/etc/postfix/main.cf` file to use Gmail
 
 1.  Find and modify `relayhost` in `/etc/postfix/main.cf` to match the following example:
 
-    {: .file-excerpt }
-    /etc/postfix/main.cf
-    :   ~~~
-        relayhost = [smtp.gmail.com]:587
-        ~~~
+    {{< file-excerpt >}}
+/etc/postfix/main.cf
+:   ~~~
+relayhost = [smtp.gmail.com]:587
+~~~
+
+{{< /file-excerpt >}}
 
 2.  At the end of the file, add the following parameters to enable authentication:
 
-    {: .file-excerpt }
-    /etc/postfix/main.cf
-    :   ~~~
-        # Enable SASL authentication
-        smtp_sasl_auth_enable = yes
-        # Disallow methods that allow anonymous authentication
-        smtp_sasl_security_options = noanonymous
-        # Location of sasl_passwd
-        smtp_sasl_password_maps = hash:/etc/postfix/sasl/sasl_passwd
-        # Enable STARTTLS encryption
-        smtp_tls_security_level = encrypt
-        # Location of CA certificates
-        smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
-        ~~~
+    {{< file-excerpt >}}
+/etc/postfix/main.cf
+:   ~~~
+# Enable SASL authentication
+smtp_sasl_auth_enable = yes
+# Disallow methods that allow anonymous authentication
+smtp_sasl_security_options = noanonymous
+# Location of sasl_passwd
+smtp_sasl_password_maps = hash:/etc/postfix/sasl/sasl_passwd
+# Enable STARTTLS encryption
+smtp_tls_security_level = encrypt
+# Location of CA certificates
+smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
+~~~
+
+{{< /file-excerpt >}}
 
 3.  Save your changes and close the file.
 

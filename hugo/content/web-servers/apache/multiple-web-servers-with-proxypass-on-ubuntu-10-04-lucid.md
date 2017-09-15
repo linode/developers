@@ -25,12 +25,14 @@ Enabling the Proxy Module
 
 We'll edit the file `/etc/apache2/mods-available/proxy.conf` as follows:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/apache2/mods-available/proxy.conf
 :   ~~~ apache
-    <IfModule mod_proxy.c>
-            #turning ProxyRequests on and allowing proxying from all may allow
-            #spammers to use your proxy to send email.
+<IfModule mod_proxy.c>
+#turning ProxyRequests on and allowing proxying from all may allow
+#spammers to use your proxy to send email.
+
+{{< /file-excerpt >}}
 
             ProxyRequests Off
 

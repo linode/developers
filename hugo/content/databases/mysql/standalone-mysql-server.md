@@ -48,11 +48,13 @@ Configuring the MySQL Server
 
 The next step is to modify the `/etc/mysql/my.cnf` file on your MySQL server to listen on your private IP address. Using your favorite editor, open the `/etc/mysql/my.cnf` file and insert the hostname of the MySQL database. For this example, the MySQL database hostname is `mysql`. Locate the `bind-address` line:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/mysql/my.cnf
 :   ~~~ ini
-    bind-address = mysql
-    ~~~
+bind-address = mysql
+~~~
+
+{{< /file-excerpt >}}
 
 You can alternatively use the private IP address. Save the file, and run the following command to restart the MySQL daemon:
 
@@ -82,12 +84,14 @@ Using MySQL on a separate database server is very similar to running a local dat
 
 For example, in [WordPress](/docs/web-applications/cms-guides/wordpress/) database settings are contained in the `wp-config.php` file, and the hostname is specified in the following format:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 wp-config.php
 :   ~~~ php
-    /** MySQL hostname */ 
-    define('DB_HOST', 'mysql');
-    ~~~
+/** MySQL hostname */ 
+define('DB_HOST', 'mysql');
+~~~
+
+{{< /file-excerpt >}}
 
 Note that the method for setting the hostname varies from application to application. Furthermore, you can substitute the specific IP address of the database server, rather than using the hostname as configured in `/etc/hosts` above.
 

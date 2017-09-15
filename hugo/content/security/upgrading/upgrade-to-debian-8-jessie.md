@@ -68,11 +68,13 @@ You are now ready to install Debian 8 on your Linode.
 
 1.  Edit your `/etc/apt/sources.list` file and change all instances of `wheezy` to `jessie`. Once you have finished, your `/etc/apt/sources.list` should resemble the following:
 
-    {: .file-excerpt }
-    /etc/apt/sources.list
-    :   ~~~
-        deb http://ftp.us.debian.org/debian/ jessie main
-        deb-src http://ftp.us.debian.org/debian/ jessie main
+    {{< file-excerpt >}}
+/etc/apt/sources.list
+:   ~~~
+deb http://ftp.us.debian.org/debian/ jessie main
+deb-src http://ftp.us.debian.org/debian/ jessie main
+
+{{< /file-excerpt >}}
 
         deb http://security.debian.org/ jessie/updates main
         deb-src http://security.debian.org/ jessie/updates main

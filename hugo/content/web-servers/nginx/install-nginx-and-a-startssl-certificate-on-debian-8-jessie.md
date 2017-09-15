@@ -285,11 +285,13 @@ server_name  example.com;
 
     Depending on how you installed nginx, this file may not have been created by default. For example, if you compiled nginx from source, you will need to create the `example_ssl.conf` file and copy this configuration into it. If that is the case, you will also need to add the following line to the `http` block in your main nginx configuration file:
 
-    {: .file-excerpt}
-    /etc/nginx/nginx.conf
-    :   ~~~ conf
-            include     /etc/nginx/conf.d/*.conf;
-        ~~~
+    {{< file-excerpt >}}
+/etc/nginx/nginx.conf
+:   ~~~ conf
+include     /etc/nginx/conf.d/*.conf;
+~~~
+
+{{< /file-excerpt >}}
 
 3.  Restart nginx to apply your changes.
 

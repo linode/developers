@@ -69,12 +69,14 @@ The binary packages from Nginx's repo will update you to new versions of the web
 
 1.  Add the Nginx repository to Ubuntu's `sources.list` file:
 
-    {: .file-excerpt}
-    /etc/apt/sources.list
-    :   ~~~
-        deb http://nginx.org/packages/ubuntu/ trusty nginx
-        deb-src http://nginx.org/packages/ubuntu/ trusty nginx
-        ~~~
+    {{< file-excerpt >}}
+/etc/apt/sources.list
+:   ~~~
+deb http://nginx.org/packages/ubuntu/ trusty nginx
+deb-src http://nginx.org/packages/ubuntu/ trusty nginx
+~~~
+
+{{< /file-excerpt >}}
 
     {{< note >}}
 

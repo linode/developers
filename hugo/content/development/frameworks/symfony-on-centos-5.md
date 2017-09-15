@@ -35,8 +35,10 @@ Since CentOS does not include the latest version of PHP 5.2 (which is required f
 
 Edit the file `/etc/yum.repos.d/webtatic.repo`. Under `[webtatic]` add the following line:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/yum.repos.d/webtatic.repo
+
+{{< /file-excerpt >}}
 
 > exclude=php\*5.3\*
 
@@ -80,19 +82,23 @@ Set the root password for the MySQL server and apply the security necessities:
 
 Edit /etc/php.ini and find the following line:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/php.ini
 :   ~~~ ini
-    short_open_tag = On
-    ~~~
+short_open_tag = On
+~~~
+
+{{< /file-excerpt >}}
 
 Replace it with this line:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/php.ini
 :   ~~~ ini
-    short_open_tag = Off
-    ~~~
+short_open_tag = Off
+~~~
+
+{{< /file-excerpt >}}
 
 Set the web server to start on boot and start it:
 
@@ -150,17 +156,19 @@ Now, we need to configure the web server to serve our new project.
 
 Edit `/etc/httpd/conf/httpd.conf` and add at the end:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/httpd/conf/httpd.conf
 :   ~~~ apache
-    NameVirtualHost *:80
-    <VirtualHost *:80>
-      DocumentRoot "/home/sfproject/web"
-      DirectoryIndex index.php
-      <Directory "/home/sfproject/web">
-        AllowOverride All
-        Allow from All
-      </Directory>
+NameVirtualHost *:80
+<VirtualHost *:80>
+DocumentRoot "/home/sfproject/web"
+DirectoryIndex index.php
+<Directory "/home/sfproject/web">
+AllowOverride All
+Allow from All
+</Directory>
+
+{{< /file-excerpt >}}
 
       Alias /sf /home/sfproject/lib/vendor/symfony/data/web/sf
       <Directory "/home/sfproject/lib/vendor/symfony/data/web/sf">

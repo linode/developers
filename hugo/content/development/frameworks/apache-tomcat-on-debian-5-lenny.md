@@ -48,11 +48,13 @@ If you chose to run OpenJDK, then you can skip the remainder of this section. If
 
 Add the following line to your `sources.list` file:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/apt/sources.list
 :   ~~~
-    deb http://mirror.cc.columbia.edu/pub/linux/debian/debian/  lenny non-free 
-    ~~~
+deb http://mirror.cc.columbia.edu/pub/linux/debian/debian/  lenny non-free 
+~~~
+
+{{< /file-excerpt >}}
 
 Update apt to get the necessary package lists:
 
@@ -124,11 +126,13 @@ Create a `tomcat` "init" file with the following content:
 
 Remember, if you installed open-jdk the `export JAVA_HOME` line should read:
 
-{: .file-excerpt }
+{{< file-excerpt >}}
 /etc/init.d/tomcat
 :   ~~~ bash
-    export JAVA_HOME=/usr/lib/jvm/java-6-openjdk
-    ~~~
+export JAVA_HOME=/usr/lib/jvm/java-6-openjdk
+~~~
+
+{{< /file-excerpt >}}
 
 Make the script executable by issuing this command:
 

@@ -121,13 +121,15 @@ end
 
 3.  Apache will also need to be set to turn on at reboot, and start. In the same file, add the additional lines of code:
 
-    {: .file-excerpt}
-    ~/chef-repo/cookbooks/lamp-stack/apache.rb
-    :   ~~~ ruby
-        service "apache2" do
-          action [:enable, :start]
-        end
-        ~~~
+    {{< file-excerpt >}}
+~/chef-repo/cookbooks/lamp-stack/apache.rb
+:   ~~~ ruby
+service "apache2" do
+action [:enable, :start]
+end
+~~~
+
+{{< /file-excerpt >}}
 
     This uses the *service* resource, which calls on the Apache service; the *enable* action enables it upon startup, whereas *start* will start Apache.
 
@@ -195,9 +197,11 @@ default["lamp-stack"]["sites"]["example.org"] = { "port" => 80, "servername" => 
 
 3.  Return to your `apache.rb` file under `recipes` to call the attributes that were just defined. Do this with the *node* resource:
 
-    {: .file-excerpt}
-    ~/chef-repo/cookbooks/lamp-stack/recipes/apache.rb
-    :   ~~~ ruby
+    {{< file-excerpt >}}
+~/chef-repo/cookbooks/lamp-stack/recipes/apache.rb
+:   ~~~ ruby
+
+{{< /file-excerpt >}}
 
         #Install & enable Apache
 
@@ -220,21 +224,25 @@ default["lamp-stack"]["sites"]["example.org"] = { "port" => 80, "servername" => 
 
 4.  Within the node resource, define a document root. This root will be used to define the public HTML files, and any log files that will be generated:
 
-    {: .file-excerpt}
-    ~/chef-repo/cookbooks/lamp-stack/apache.rb
-    :   ~~~ ruby
-        node["lamp-stack"]["sites"].each do |sitename, data|
-          document_root = "/var/www/html/#{sitename}"
-        end
-        ~~~
+    {{< file-excerpt >}}
+~/chef-repo/cookbooks/lamp-stack/apache.rb
+:   ~~~ ruby
+node["lamp-stack"]["sites"].each do |sitename, data|
+document_root = "/var/www/html/#{sitename}"
+end
+~~~
+
+{{< /file-excerpt >}}
 
 5.  However, this does not create the directory itself. To do so, the *directory* resource should be used, with a *true* recursive value so all directories leading up to the `sitename` will be created. A permissions value of `0755` will allow for the file owner to have full access to the directory, while group and regular users will have read and execute privileges:
 
-    {: .file-excerpt}
-    ~/chef-repo/cookbooks/lamp-stack/apache.rb
-    :   ~~~ ruby
-        node["lamp-stack"]["sites"].each do |sitename, data|
-          document_root = "/var/www/html/#{sitename}"
+    {{< file-excerpt >}}
+~/chef-repo/cookbooks/lamp-stack/apache.rb
+:   ~~~ ruby
+node["lamp-stack"]["sites"].each do |sitename, data|
+document_root = "/var/www/html/#{sitename}"
+
+{{< /file-excerpt >}}
 
           directory document_root do
             mode "0755"
@@ -275,10 +283,12 @@ Some variables should look familiar. They were created in step 2, when naming de
 
 8.  Return to the `apache.rb` recipe. In the space after the *directory* resource, use the *template* resource to call upon the template file just created:
 
-    {: .file-excerpt}
-    ~/chef-repo/cookbooks/lamp-stack/recipes/apache.rb
-    :   ~~~ ruby
-        #Virtual Hosts Files
+    {{< file-excerpt >}}
+~/chef-repo/cookbooks/lamp-stack/recipes/apache.rb
+:   ~~~ ruby
+#Virtual Hosts Files
+
+{{< /file-excerpt >}}
 
         node["lamp-stack"]["sites"].each do |sitename, data|
           document_root = "/var/www/html/#{sitename}"
@@ -306,33 +316,37 @@ Some variables should look familiar. They were created in step 2, when naming de
 
 9.  The sites now need to be enabled in Apache, and the server restarted. This *only* should occur if there are changes to the virtual hosts, so the `notifies` value should be added to the *template* resource. What `notifies` does is notify Chef when things have changed, and **only then** runs the commands:
 
-    {: .file-excerpt}
-    ~/chef-repo/cookbooks/lamp-stack/recipes/apache.rb
-    :   ~~~ ruby
-          template "/etc/apache2/sites-available/#{sitename}.conf" do
-            source "virtualhosts.erb"
-            mode "0644"
-            variables(
-              :document_root => document_root,
-              :port => data["port"],
-              :serveradmin => data["serveradmin"],
-              :servername => data["servername"]
-            )
-            notifies :restart, "service[apache2]"
-          end
-        ~~~  
+    {{< file-excerpt >}}
+~/chef-repo/cookbooks/lamp-stack/recipes/apache.rb
+:   ~~~ ruby
+template "/etc/apache2/sites-available/#{sitename}.conf" do
+source "virtualhosts.erb"
+mode "0644"
+variables(
+:document_root => document_root,
+:port => data["port"],
+:serveradmin => data["serveradmin"],
+:servername => data["servername"]
+)
+notifies :restart, "service[apache2]"
+end
+~~~
+
+{{< /file-excerpt >}}
 
     The `notifies` command names the `:action` to be committed, then the resource, and resource name in square brackets.
 
 10. `notifies` can also call on `execute` commands, which will run `a2ensite`and enable the sites we've made virtual hosts files for. Add the following `execute` command **above** the *template* resource code to create the `a2ensite` script:
 
-    {: .file-excerpt}
-    ~/chef-repo/cookbooks/lamp-stack/recipes/apache.rb
-    :   ~~~ ruby
-          directory document_root do
-            mode "0755"
-            recursive true
-          end
+    {{< file-excerpt >}}
+~/chef-repo/cookbooks/lamp-stack/recipes/apache.rb
+:   ~~~ ruby
+directory document_root do
+mode "0755"
+recursive true
+end
+
+{{< /file-excerpt >}}
 
           execute "enable-sites" do
             command "a2ensite #{sitename}"
@@ -344,20 +358,24 @@ Some variables should look familiar. They were created in step 2, when naming de
 
     The `action :nothing` directive means the resource will wait to be called on. Add it to the *template* resource code to use it, **above** the previous `notifies` line:
 
-    {: .file-excerpt}
-    ~/chef-repo/cookbooks/lamp-stack/recipes/apache.rb
-    :   ~~~ ruby
-            notifies :run, "execute[enable-sites]"
-        ~~~
+    {{< file-excerpt >}}
+~/chef-repo/cookbooks/lamp-stack/recipes/apache.rb
+:   ~~~ ruby
+notifies :run, "execute[enable-sites]"
+~~~
+
+{{< /file-excerpt >}}
 
 11. The paths referenced in the virtual hosts files need to be created. Once more, this is done with the *directory* resource, and should be added before the final `end` tag:
 
-    {: .file-excerpt}
-    ~/chef-repo/cookbooks/lamp-stack/recipes/apache.rb
-    :   ~~~ ruby
-          directory "/var/www/html/#{sitename}/public_html" do
-            action :create
-          end
+    {{< file-excerpt >}}
+~/chef-repo/cookbooks/lamp-stack/recipes/apache.rb
+:   ~~~ ruby
+directory "/var/www/html/#{sitename}/public_html" do
+action :create
+end
+
+{{< /file-excerpt >}}
 
           directory "/var/www/html/#{sitename}/logs" do
             action :create
@@ -397,13 +415,15 @@ MaxConnectionsPerChild  3000
 
 3.  Return to `apache.rb`, and use the *cookbook_file* resource to call the file we just created. Because the MPM will need to be enabled, we'll use the `notifies` command again, this time to execute `a2enmod mpm_event`. Add this to the *end* of the `apache.rb` file:
 
-    {: .file-excerpt}
-    ~/chef-repo/cookbooks/lamp-stack/recipes/apache.rb
-    :   ~~~ ruby
-        execute "enable-event" do
-          command "a2enmod mpm_event"
-          action :nothing
-        end
+    {{< file-excerpt >}}
+~/chef-repo/cookbooks/lamp-stack/recipes/apache.rb
+:   ~~~ ruby
+execute "enable-event" do
+command "a2enmod mpm_event"
+action :nothing
+end
+
+{{< /file-excerpt >}}
 
         cookbook_file "/etc/apache2/mods-available/mpm_event.conf" do
           source "mpm_event.conf"
@@ -414,14 +434,16 @@ MaxConnectionsPerChild  3000
 
 4.  Within the `apache2.conf` the `KeepAlive` value should be set to `off`, which is the only change made within the file. This can be altered through templates or cookbook files, although in this instance a simple `sed` command will be used, paired with the *execute* resource:
 
-    {: .file-excerpt}
-    ~/chef-repo/cookbooks/lamp-stack/recipes/apache.rb
-    :   ~~~ ruby
-        execute "keepalive" do
-          command "sed -i 's/KeepAlive On/KeepAlive Off/g' /etc/apache2/apache2.conf"
-          action :run
-        end
-        ~~~
+    {{< file-excerpt >}}
+~/chef-repo/cookbooks/lamp-stack/recipes/apache.rb
+:   ~~~ ruby
+execute "keepalive" do
+command "sed -i 's/KeepAlive On/KeepAlive Off/g' /etc/apache2/apache2.conf"
+action :run
+end
+~~~
+
+{{< /file-excerpt >}}
 
     Your `apache.rb` is now finished! An example of the final file is located [here](/docs/assets/apache.rb).
 
@@ -442,11 +464,13 @@ MaxConnectionsPerChild  3000
 
 3.  From the main directory of your LAMP stack cookbook, open the `metadata.rb` file and add a dependency to the MySQL cookbook:
 
-    {: .file-excerpt}
-    ~/chef-repo/cookbooks/lamp-stack/metadata.rb
-    :   ~~~
-        depends          'mysql', '~> 6.0'
-        ~~~
+    {{< file-excerpt >}}
+~/chef-repo/cookbooks/lamp-stack/metadata.rb
+:   ~~~
+depends          'mysql', '~> 6.0'
+~~~
+
+{{< /file-excerpt >}}
 
     {{< note >}}
 
@@ -580,40 +604,46 @@ end
 
 3.  `php.ini` is a large file. Search and edit the following values to best suit your Linodes. The values suggested below are for 2GB Linodes:
 
-    {: .file-excerpt}
-    ~/chef-repo/cookbooks/lamp-stack/files/default/php.ini
-    :   ~~~ php
-        max_execution_time = 30
-        memory_limit = 128M
-        error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
-        display_errors = Off
-        log_errors = On
-        error_log = /var/log/php/error.log
-        register_globals = Off
-        max_input_time = 30
-        ~~~
+    {{< file-excerpt >}}
+~/chef-repo/cookbooks/lamp-stack/files/default/php.ini
+:   ~~~ php
+max_execution_time = 30
+memory_limit = 128M
+error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
+display_errors = Off
+log_errors = On
+error_log = /var/log/php/error.log
+register_globals = Off
+max_input_time = 30
+~~~
+
+{{< /file-excerpt >}}
 
 4.  Return to `php.rb` and add the cookbook file to the recipe:
 
-    {: .file-excerpt}
-    ~/chef-repo/cookbooks/lamp-stack/recipes/php.rb
-    :   ~~~ ruby
-        cookbook_file "/etc/php5/apache2/php.ini" do
-          source "php.ini"
-          mode "0644"
-          notifies :restart, "service[apache2]"
-        end
-        ~~~
+    {{< file-excerpt >}}
+~/chef-repo/cookbooks/lamp-stack/recipes/php.rb
+:   ~~~ ruby
+cookbook_file "/etc/php5/apache2/php.ini" do
+source "php.ini"
+mode "0644"
+notifies :restart, "service[apache2]"
+end
+~~~
+
+{{< /file-excerpt >}}
 
 5.  Because of the changes made to `php.ini`, a `/var/log/php` directory needs to be made and its ownership set to the Apache user. This is done through a `notifies` command and *execute* resource, as done previously:
 
-    {: .file-excerpt}
-    ~/chef-repo/cookbooks/lamp-stack/recipes/php.rb
-    :   ~~~ ruby
-        execute "chownlog" do
-          command "chown www-data /var/log/php"
-          action :nothing
-        end
+    {{< file-excerpt >}}
+~/chef-repo/cookbooks/lamp-stack/recipes/php.rb
+:   ~~~ ruby
+execute "chownlog" do
+command "chown www-data /var/log/php"
+action :nothing
+end
+
+{{< /file-excerpt >}}
 
         directory "/var/log/php" do
           action :create
