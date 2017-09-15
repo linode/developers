@@ -233,11 +233,14 @@ func fixContent(path, s string) (string, error) {
 			}
 
 			// TODO(bep)  fix code fenced styles
+			// TODO(bep) fix indentation
 
 			// Correct to supported Pygments lexers
 			// See http://pygments.org/docs/lexers/
-			if style == "conf" || style == "config" || style == "apache2" || style == "cnf" || style == "httpd" || style == "pp" {
+			if style == "conf" || style == "config" || style == "apache2" || style == "cnf" || style == "httpd" {
 				style = "aconf" // Apache conf
+			} else if style == "pp" {
+				style = "puppet"
 			} else if style == "aspx" {
 				style = "aspx-cs"
 			} else if style == "yml" {

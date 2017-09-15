@@ -2,12 +2,11 @@ baseURL = "https://linode.com/docs/"
 languageCode = "en-us"
 title = "Linode Guides & Tutorials"
 
-enableEmoji = true
 
 # Highlighting config (Pygments)
 
-pygmentsUseClasses =  false
 # TODO(bep)
+pygmentsUseClasses =  false
 pygmentsCodeFences = false
 
 # See https://help.farbox.com/pygments.html
