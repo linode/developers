@@ -104,7 +104,7 @@ The following configuration allows for authenticated access to the Squid proxy s
 6.  At this point, you can configure your local browser or operating system's network settings to use your Linode as an HTTP proxy. You will need to specify that the server requires authentication, and provide the username and password. How to do this will depend on your choice of OS and browser. Once you've made the settings change, test the connection by pointing your browser at a website that tells you your IP address, such as [ifconfig](http://ifconfig.me), [What is my IP](http://www.whatismyip.com/), or by Googling [What is my ip](https://www.google.com/search?q=what+is+my+ip).
 7.  To remove a user's access to the proxy, you must delete their entry in the `squid_passwd` file. Each user is represented in the file on a single line in the format of `user:passwordhash` :
 
-	{{< file-exceprt >}}
+	{{< file-excerpt >}}
 /etc/squid/squid\_passwd
 	:	~~~
 		user1:gh48gfno user2:9b83v5hd
@@ -112,7 +112,7 @@ The following configuration allows for authenticated access to the Squid proxy s
 	
 	If you are using Nano, the command `Control+k` will remove the entire line where the cursor rests. Once you've saved and exited the file, restart Squid:
 
-{{< /file-exceprt >}}
+{{< /file-excerpt >}}
 
 		sudo service squid restart
 

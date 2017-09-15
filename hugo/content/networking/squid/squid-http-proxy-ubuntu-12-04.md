@@ -126,7 +126,7 @@ The following configuration allows for authenticated access to the Squid proxy s
 
 In order to mask your IP address from servers you connect to, you will need to add the following lines to the Squid configuration file.
 
-{{< file-exerpt >}}
+{{< file-excerpt >}}
 /etc/squid3/squid.conf
 : ~~~
 	forwarded_for off
@@ -161,7 +161,7 @@ In order to mask your IP address from servers you connect to, you will need to a
 	request_header_access All deny all
 ~~~
 
-{{< /file-exerpt >}}
+{{< /file-excerpt >}}
 
 Once you've saved and exited the file, restart Squid:
 

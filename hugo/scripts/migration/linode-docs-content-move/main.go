@@ -214,6 +214,11 @@ func fixContent(path, s string) (string, error) {
 			content = strings.TrimSpace(content)
 			name = strings.TrimSpace(name)
 
+			// Misspelled
+			if name == "file-exceprt" || name == "file-exerpt" {
+				name = "file-excerpt"
+			}
+
 			// Block level markdown is superflous.
 			lines := strings.Split(content, "\n")
 			newContent := ""
