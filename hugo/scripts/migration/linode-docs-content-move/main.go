@@ -155,7 +155,8 @@ var (
 	dateRe     = regexp.MustCompile(`(published|modified): '?(.*)'?\s*\n`)
 	keywordsRe = regexp.MustCompile(`keywords: '(.*)'\s*\n?`)
 
-	calloutsRe = regexp.MustCompile(`(?s){:\s?\.([\w|-]*)\s?}(.*?)\n\n`)
+	calloutsRe  = regexp.MustCompile(`(?s){:\s?\.([\w|-]*)\s?}(.*?)\n\n`)
+	fileExcerpt = regexp.MustCompile(`(?s){{< (file(-excerpt))? >}}(.*):\s*~~~.*\n(.*)\n~~~.*{{< /(file(-excerpt)?) >}}`)
 
 	ndRe     = regexp.MustCompile(`(\d+)(th|nd|st|rd)`)
 	commaRe1 = regexp.MustCompile(`([0-9])\s([0-9])`)
@@ -201,6 +202,8 @@ $2
 	return replaced
 }
 
+var tmpCount = 0
+
 func fixContent(path, s string) (string, error) {
 
 	// TODO(bep) fix markdown titles: ##Configure Apache
@@ -237,6 +240,24 @@ func fixContent(path, s string) (string, error) {
 		return s
 	})
 
+	// Handle file and file-excerpt shortcodes
+	// Replace callouts with shortcodes
+	s = fileExcerpt.ReplaceAllStringFunc(s, func(s string) string {
+		m := fileExcerpt.FindAllStringSubmatch(s, -1)
+		if len(m) > 0 {
+			tmpCount++
+
+			if tmpCount > 5 {
+				return s
+			}
+			first := m[0]
+
+			fmt.Printf(">>>%d: %#v\n", len(first), first[1])
+		}
+
+		return s
+	})
+
 	// Make keywords into proper arrays
 	s = keywordsRe.ReplaceAllStringFunc(s, func(s string) string {
 		m := keywordsRe.FindAllStringSubmatch(s, -1)
@@ -257,6 +278,7 @@ func fixContent(path, s string) (string, error) {
 	// TODO(bep) check aliases
 	// TODO(bep) {: .table .table-striped .table-bordered}
 	// TODO(bep) {: .file-excerpt}  {:.file }
+	// TODO(bep) the rest {: -- maybe just create a "manual issue"
 	/*
 
 		file-excerpt: code highlitht, linenum, lead title: "File:"
