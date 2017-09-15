@@ -59,8 +59,10 @@ This guide is written for a non-root user. Commands that require elevated privil
         make
         sudo checkinstall --fstrans=0 make install
 
-    {: .note }
-    > The program `checkinstall` creates a `.deb` package which you can use to reinstall this version of ZNC in the future. It has its own set of options to review. If you prefer, you can instead run `sudo make install` to install ZNC as is.
+    {{< note >}}
+The program `checkinstall` creates a `.deb` package which you can use to reinstall this version of ZNC in the future. It has its own set of options to review. If you prefer, you can instead run `sudo make install` to install ZNC as is.
+
+{{< /note >}}
 
 
 ## Configure ZNC

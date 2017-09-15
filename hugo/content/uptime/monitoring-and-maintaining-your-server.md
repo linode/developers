@@ -89,9 +89,11 @@ Here's how to turn on and customize the alerts:
 
 You have successfully configured email alerts in the Linode Manager.
 
- {: .note }
->
-> If you receive an email threshold alert from the Linode Manager, don't panic. There's not necessarily anything wrong with your Linode. For example, your server may be operating above the threshold if you're compiling software or if a major website just linked to your blog.
+ {{< note >}}
+
+If you receive an email threshold alert from the Linode Manager, don't panic. There's not necessarily anything wrong with your Linode. For example, your server may be operating above the threshold if you're compiling software or if a major website just linked to your blog.
+
+{{< /note >}}
 
 ### Using Linode Longview
 
@@ -138,9 +140,11 @@ To check for software updates and install them in Ubuntu or Debian, enter the fo
     apt-get update
     apt-get upgrade --show-upgraded
 
- {: .note }
->
-> If you're using a distribution other than Ubuntu or Debian, you can learn more about package management by reading our [Linux Package Management guide](/docs/using-linux/package-management).
+ {{< note >}}
+
+If you're using a distribution other than Ubuntu or Debian, you can learn more about package management by reading our [Linux Package Management guide](/docs/using-linux/package-management).
+
+{{< /note >}}
 
 There are ways to automate the installation of software updates, but this is not recommended. You should always manually review the lists of available patches before installing updates.
 
@@ -167,9 +171,11 @@ Here's how to check for a new kernel and start using it on your Linode:
 
 7.  From the **Kernel** menu, verify that **Latest 64 bit** is selected, as shown below.
 
- {: .note }
->
-> Be sure to select the correct kernel (32- or 64-bit) for your distribution. The 64-bit kernels are available by selecting **Latest 64 bit**.
+ {{< note >}}
+
+Be sure to select the correct kernel (32- or 64-bit) for your distribution. The 64-bit kernels are available by selecting **Latest 64 bit**.
+
+{{< /note >}}
 
 [![Selecting the latest kernel](/docs/assets/1194-monitor7.png)](/docs/assets/1194-monitor7.png)
 

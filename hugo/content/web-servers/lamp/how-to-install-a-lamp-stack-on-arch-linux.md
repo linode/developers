@@ -25,9 +25,11 @@ A LAMP (Linux, Apache, MySQL, PHP) stack is a common web stack used to prepare s
 
 Since Arch does not come in specific versions, this guide is up-to-date as of the December 2015 Arch update.
 
-{: .note }
->
->This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< note >}}
+
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+{{< /note >}}
 
 ## Before You Begin
 

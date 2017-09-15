@@ -29,9 +29,11 @@ In this guide, you will learn how to install and configure a Postfix server on D
 
 3.  Use your web browser to confirm your email login credentials by logging in to [Gmail](https://gmail.com).
 
-{: .note }
->
-> This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< note >}}
+
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+{{< /note >}}
 
 ## Install Postfix
 
@@ -79,11 +81,13 @@ Usernames and passwords are stored in `sasl_passwd` in the `/etc/postfix/sasl/` 
 
 1.  Open or create the `/etc/postfix/sasl/sasl_passwd` file and add the SMTP Host, username, and password information:
 
-    {: .file }
-    /etc/postfix/sasl/sasl\_passwd
-    :   ~~~
-        [smtp.gmail.com]:587 username@gmail.com:password
-        ~~~
+    {{< file >}}
+/etc/postfix/sasl/sasl\_passwd
+:   ~~~
+[smtp.gmail.com]:587 username@gmail.com:password
+~~~
+
+{{< /file >}}
 
 2.  Create the hash db file for Postfix by running the `postmap` command:
 

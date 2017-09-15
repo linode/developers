@@ -153,8 +153,10 @@ You only need to run `source` on this file once in a single terminal session, un
 
         The default value of `124` selects Ubuntu 14.04 LTS 64-bit. If you'd like to use Debian 8 instead, change this value to `140`.
 
-        {: .note }
-        > The values represented in this guide are current as of publication, but are subject to change in the future. You can run `~/storm-linode/linode_api.py distributions` to see a list of all available distributions and their values in the API.
+        {{< note >}}
+The values represented in this guide are current as of publication, but are subject to change in the future. You can run `~/storm-linode/linode_api.py distributions` to see a list of all available distributions and their values in the API.
+
+{{< /note >}}
 
     -  `KERNEL`:
         This is the ID of the Linux kernel to install on the Cluster Manager Linode. The default value of `138` selects the latest 64-bit Linux kernel available from Linode. It is recommended not to change this setting.   
@@ -299,8 +301,10 @@ When creating an image, you should have `clustermgr` authorization to the Cluste
 
         All nodes of all clusters created from this image will have this distribution. The default value is `124` corresponding to Ubuntu 14.04 LTS 64-bit. For Debian 8 64-bit, change this value to `140`.
 
-        {: .note }
-        > The values represented in this guide are current as of publication, but are subject to change in the future. You can run `~/storm-linode/linode_api.py distributions` to see a list of all available distributions and their values in the API.
+        {{< note >}}
+The values represented in this guide are current as of publication, but are subject to change in the future. You can run `~/storm-linode/linode_api.py distributions` to see a list of all available distributions and their values in the API.
+
+{{< /note >}}
 
         <br>
 
@@ -631,8 +635,10 @@ When creating an image, you should have `clustermgr` authorization to the Cluste
 
         All nodes of all clusters created from this image will have this distribution. The default value is `124` corresponding to Ubuntu 14.04 LTS 64-bit. For Debian 8 64-bit, change this value to `140`.
 
-        {: .note }
-        > The values represented in this guide are current as of publication, but are subject to change in the future. You can run `~/storm-linode/linode_api.py distributions` to see a list of all available distributions and their values in the API.
+        {{< note >}}
+The values represented in this guide are current as of publication, but are subject to change in the future. You can run `~/storm-linode/linode_api.py distributions` to see a list of all available distributions and their values in the API.
+
+{{< /note >}}
 
 
         <br>

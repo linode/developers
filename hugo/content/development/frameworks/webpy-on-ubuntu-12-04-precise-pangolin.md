@@ -80,10 +80,12 @@ Create a Basic Application with Web.py
 
 There are a number of examples of basic applications developed using the web.py framework. The "main" application file is typically called "code.py". Consider the following, "Hello World" application:
 
-{: .file }
+{{< file >}}
 code.py
 :   ~~~ python
-    import web
+import web
+
+{{< /file >}}
 
     urls = (
         '(.*)', 'hello'
@@ -168,14 +170,16 @@ Build a Database Driven Application with Web.py
 
 The "Hello World" application above is functional, but isn't able to store or access persistent data in a database system. The following example is simple but inserts and retrieves data from a database system. Consider the following code:
 
-{: .file }
+{{< file >}}
 code.py
 :   ~~~ python
-    import web
-    urls = (
-        '/(.*)', 'hello'
-    )
-    app = web.application(urls, globals())
+import web
+urls = (
+'/(.*)', 'hello'
+)
+app = web.application(urls, globals())
+
+{{< /file >}}
 
     db = web.database(dbn='postgres', db='webpy', user='webpy', pw='webweb')
 
@@ -199,9 +203,11 @@ code.py
 
 This program connects to the PostgreSQL database "webpy" and looks in the table "notes" for a note that matches the text "a note." If the note is found, the program returns the text "a note is found"; otherwise, the page will return "no notes are found." Make sure there is a role or user in your PostgreSQL database called "webpy" with the credentials specified on the `db` line of this example.
 
- {: .note }
->
-> For more information about PostgreSQL, see our [PostgreSQL guides](/docs/databases/postgresql).
+ {{< note >}}
+
+For more information about PostgreSQL, see our [PostgreSQL guides](/docs/databases/postgresql).
+
+{{< /note >}}
 
 At the PosgreSQL prompt, issue the following commands to the PostgreSQL shell statement to create the required database and tables. The "webpy" user for PostgreSQL must already exist:
 

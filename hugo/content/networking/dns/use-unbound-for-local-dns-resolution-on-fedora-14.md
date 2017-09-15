@@ -103,8 +103,10 @@ If you're accessing your Unbound instance over the local interface, make sure yo
 
 **Important:** By default, Linodes use DHCP to assign networking settings, including the public IP address and DNS resolvers. For any systems that you intend to use a custom resolver with, you must follow our instructions for [static networking](/docs/networking/configuring-static-ip-interfaces/#centos__amp__fedora). This will prevent your `/etc/resolv.conf` file getting overwritten with the default resolvers after a system reboot.
 
-{: .file }
+{{< file >}}
 /etc/resolve.conf
+
+{{< /file >}}
 
 > nameserver 127.0.0.1
 

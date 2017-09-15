@@ -114,9 +114,11 @@ For these reasons, this series assumes your VPN will operate over IPv4 only. If 
         COMMIT
         ~~~
 
-    {: .note }
-    >
-    >The `TUN` virtual interface is how the OpenVPN daemon communicates with your Linode's `eth0` hardware interface.
+    {{< note >}}
+
+The `TUN` virtual interface is how the OpenVPN daemon communicates with your Linode's `eth0` hardware interface.
+
+{{< /note >}}
 
     You can see your loaded rule list with `sudo iptables -S`. For more specialized firewall rules, see: `/usr/share/doc/openvpn/examples/sample-config-files/firewall.sh`.
 
@@ -248,9 +250,11 @@ This should produce the following output:
 
 Depending on the size of your Linode, this will take about 5 minutes to complete. When finished, it will return you to the command prompt.
 
-{: .note }
->
->To permanently change the default DH PEM size, edit the bit lengths in `vars` and `server.conf`. Then, recreate the file. The DH PEM file can be arbitrarily deleted and regenerated without needing to change server or client settings.
+{{< note >}}
+
+To permanently change the default DH PEM size, edit the bit lengths in `vars` and `server.conf`. Then, recreate the file. The DH PEM file can be arbitrarily deleted and regenerated without needing to change server or client settings.
+
+{{< /note >}}
 
 
 ### Harden OpenVPN
@@ -359,29 +363,35 @@ Each client needs a configuration file defining the OpenVPN server's settings fo
 
 2.  Update the `remote` line with the OpenVPN server's IP address:
 
-    {: .file }
-    /etc/openvpn/easy-rsa/keys/client.ovpn
-    :   ~~~ conf
-        # The hostname/IP and port of the server.
-        # You can have multiple remote entries
-        # to load balance between the servers.
+    {{< file >}}
+/etc/openvpn/easy-rsa/keys/client.ovpn
+:   ~~~ conf
+# The hostname/IP and port of the server.
+# You can have multiple remote entries
+# to load balance between the servers.
+
+{{< /file >}}
 
         remote 192.0.2.0 1194
         ~~~
 
-    {: .note }
-    >
-    >A hostname would work too, but since all Linodes have static public IP addresses, it's preferable for security reasons to connect by IP and bypass the DNS lookup.
+    {{< note >}}
+
+A hostname would work too, but since all Linodes have static public IP addresses, it's preferable for security reasons to connect by IP and bypass the DNS lookup.
+
+{{< /note >}}
 
 3.  Tell the client-side OpenVPN service to drop root priviledges. For non-Windows machines only.
 
-    {: .file }
-    /etc/openvpn/easy-rsa/keys/client.ovpn
-    :   ~~~ conf
-        # Downgrade privileges after initialization (non-Windows only)
-        user nobody
-        group nogroup
-        ~~~
+    {{< file >}}
+/etc/openvpn/easy-rsa/keys/client.ovpn
+:   ~~~ conf
+# Downgrade privileges after initialization (non-Windows only)
+user nobody
+group nogroup
+~~~
+
+{{< /file >}}
 
 4.  Further down in the file, edit the `crt` and `key` lines to reflect the names and locations **on the client device**. Specify the path to the files if they, and `client.ovpn`, will not be stored in the same folder.
 
@@ -446,9 +456,11 @@ Start the OpenVPN daemon and enable it on reboot:
 
     sudo systemctl enable openvpn.service && sudo systemctl start openvpn.service
 
-{: .note }
->
->This will scan the `/etc/openvpn` directory on the server for files with a `.conf` extension. For every file that it finds, it will spawn a VPN daemon (server instance) so make sure you don't have a `client.conf` or `client.ovpn` file in there.
+{{< note >}}
+
+This will scan the `/etc/openvpn` directory on the server for files with a `.conf` extension. For every file that it finds, it will spawn a VPN daemon (server instance) so make sure you don't have a `client.conf` or `client.ovpn` file in there.
+
+{{< /note >}}
 
 ### Monitoring OpenVPN for Issues
 

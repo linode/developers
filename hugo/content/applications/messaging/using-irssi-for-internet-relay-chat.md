@@ -91,9 +91,11 @@ To disconnect from a channel, run:
 
     /disconnect irc.oftc.net
 
- {: .note }
->
-> You can join additional networks by replacing **irc.oftc.net** with a different network.
+ {{< note >}}
+
+You can join additional networks by replacing **irc.oftc.net** with a different network.
+
+{{< /note >}}
 
 ### Joining Channels
 
@@ -149,9 +151,11 @@ To send a private message to just one person on your network, use the `/msg` com
 
     /msg friendnick Hello there!
 
- {: .note }
->
-> Please note that if you are in a channel, you can use tab to autocomplete nicks within that channel.
+ {{< note >}}
+
+Please note that if you are in a channel, you can use tab to autocomplete nicks within that channel.
+
+{{< /note >}}
 
 Messages are **not** encrypted and should not be considered secure communications. Also, there is no spellcheck feature in Irssi.
 

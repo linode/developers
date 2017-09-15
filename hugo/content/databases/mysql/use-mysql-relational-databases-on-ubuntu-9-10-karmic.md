@@ -36,12 +36,14 @@ You will be prompted to set a password for the MySQL root user. Choose a strong 
 
 The MySQL server package will be installed on your server, along with dependencies and client libraries. Next, make sure your `/etc/hosts` file has proper entries, similar to the ones shown below:
 
-{: .file }
+{{< file >}}
 /etc/hosts
 :   ~~~
-    127.0.0.1 localhost.localdomain localhost
-    12.34.56.78 servername.mydomain.com servername
-    ~~~
+127.0.0.1 localhost.localdomain localhost
+12.34.56.78 servername.mydomain.com servername
+~~~
+
+{{< /file >}}
 
 Be sure to substitute your Linode's public IP address for "12.34.56.78" in the example above.
 

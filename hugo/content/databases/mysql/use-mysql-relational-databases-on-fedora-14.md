@@ -23,12 +23,14 @@ System Configuration
 
 Make sure your `/etc/hosts` file has proper entries, similar to the ones shown below. Replace "12.34.56.78" with your Linode's public address, "servername" with your short hostname, and "mydomain.com" with your system's domain name.
 
-{: .file }
+{{< file >}}
 /etc/hosts
 :   ~~~
-    127.0.0.1 localhost.localdomain localhost
-    12.34.56.78 servername.mydomain.com servername
-    ~~~
+127.0.0.1 localhost.localdomain localhost
+12.34.56.78 servername.mydomain.com servername
+~~~
+
+{{< /file >}}
 
 Set your system's hostname by issuing the following commands. Replace "servername" with your system's short hostname.
 
@@ -57,22 +59,24 @@ After installing MySQL, it's recommended that you run `mysql_secure_installation
 
 By default, MySQL makes some assumptions about your server environment with respect to memory. To configure MySQL more conservatively, you'll need to edit some settings in its configuration file. Your file should resemble the following:
 
-{: .file }
+{{< file >}}
 /etc/my.cnf
 :   ~~~ ini
-    [mysqld]
-    datadir=/var/lib/mysql
-    socket=/var/lib/mysql/mysql.sock
-    user=mysql
-    # Disabling symbolic-links is recommended to prevent assorted security risks
-    symbolic-links=0
-    key_buffer = 16M
-    max_allowed_packet = 1M
-    thread_stack = 64K
-    table_cache = 4
-    sort_buffer = 64K
-    net_buffer_length = 2K
-    bind-address = 127.0.0.1
+[mysqld]
+datadir=/var/lib/mysql
+socket=/var/lib/mysql/mysql.sock
+user=mysql
+# Disabling symbolic-links is recommended to prevent assorted security risks
+symbolic-links=0
+key_buffer = 16M
+max_allowed_packet = 1M
+thread_stack = 64K
+table_cache = 4
+sort_buffer = 64K
+net_buffer_length = 2K
+bind-address = 127.0.0.1
+
+{{< /file >}}
 
     [mysqld_safe]
     log-error=/var/log/mysqld.log

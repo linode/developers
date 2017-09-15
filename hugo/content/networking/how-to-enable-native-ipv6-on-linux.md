@@ -23,9 +23,11 @@ It is important to note that Linode does not offer private IPv6 address allocati
 ## What is IPv6?
 Internet Protocoal version 6 carries data packets from source to destination over disparate networks. Evolved from IPv4, IPv6 developed in hexadecimal format and contains 8 octets, accommodating up to 2128 possible node, or address, combinations, which facilitate expansive scalability. 
 
-{: .note }
->
-> The steps provided in this guide require root privileges. It is assumed that you will run these commands as the root superuser. If you are not logged in as `root` you will need to prefix most commands with `sudo`. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups/) guide.
+{{< note >}}
+
+The steps provided in this guide require root privileges. It is assumed that you will run these commands as the root superuser. If you are not logged in as `root` you will need to prefix most commands with `sudo`. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups/) guide.
+
+{{< /note >}}
 
 ## Set up IPv6
 
@@ -98,11 +100,13 @@ Be sure that [Network Helper](/docs/platform/network-helper) is disabled when ad
 
 1.  On Debian and Ubuntu, edit `/etc/network/interfaces` to set up statically configured IPv6:
 
-    {: .file }
-    /etc/network/interfaces
-    : ~~~
-      # This file describes the network interfaces available on your system
-      # and how to activate them. For more information, see interfaces(5).
+    {{< file >}}
+/etc/network/interfaces
+: ~~~
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+{{< /file >}}
 
       # The loopback network interface
       auto lo
@@ -156,13 +160,15 @@ net.ipv6.conf.all.forwarding=1
 
 On CentOS or Fedora, edit `/etc/sysconfig/network-scripts/ifcfg-eth0` to set up statically configured IPv6 addresses. You should configure [Static IP Networking](/docs/networking/linux-static-ip-configuration) for IPv4 as well.
 
-{: .file }
+{{< file >}}
 /etc/sysconfig/network-scripts/ifcfg-eth0
 : ~~~
-  # Configuration for eth0
-  DEVICE=eth0
-  BOOTPROTO=none
-  ONBOOT=yes
+# Configuration for eth0
+DEVICE=eth0
+BOOTPROTO=none
+ONBOOT=yes
+
+{{< /file >}}
 
   # Adding a public IP address.
   # The netmask is taken from the PREFIX (where 24 is Public IP, 17 is Private IP)
@@ -201,11 +207,13 @@ If you are using `systemd-networkd` on Arch Linux, you can statically configure 
 
 2.  Edit your current static IP networking configuration to allow for your IPv6 addresses. You will need to include your default IPv6 address as well.
 
-    {: .file }
-    /etc/systemd/network/05-eth0.network
-    :   ~~~
-        [Match]
-        Name=eth0
+    {{< file >}}
+/etc/systemd/network/05-eth0.network
+:   ~~~
+[Match]
+Name=eth0
+
+{{< /file >}}
 
         [Network]
         Address=198.51.100.2/24
@@ -230,12 +238,14 @@ If you are still using `netctl` in Arch Linux, you can statically configure your
 
 2.  Edit your newly copied file, entering your IPv6 networking information (e.g. IP address, gateway, etc.).
 
-    {: .file }
-    /etc/netctl/ethernet-static
-    :   ~~~
-        Description='A basic static ethernet connection'
-            Interface=eth0
-            Connection=ethernet
+    {{< file >}}
+/etc/netctl/ethernet-static
+:   ~~~
+Description='A basic static ethernet connection'
+Interface=eth0
+Connection=ethernet
+
+{{< /file >}}
 
             ## IPv4 Static Configuration
             IP=static
@@ -262,15 +272,17 @@ If you are still using `netctl` in Arch Linux, you can statically configure your
 
 The configuration of additional IPv6 addresses in Gentoo is simple. Append the IPv6 addresses and netmask you want to the `config_eth0` line in `/etc/conf.d/net`. The list itself is a space separated list.
 
-{: .file }
+{{< file >}}
 /etc/conf.d/net
 :   ~~~
-    # This blank configuration will automatically use DHCP for any net.*
-    # scripts in /etc/init.d.  To create a more complete configuration,
-    # please review /usr/share/doc/openrc*/net.example* and save your configuration
-    # in /etc/conf.d/net (this file :]!).
-    config_eth0="dhcp 2001:db8:2000:aff0::1/32 2001:db8:2000:aff0::2/32 2001:db8:2000:aff0::3/32"
-    ~~~   
+# This blank configuration will automatically use DHCP for any net.*
+# scripts in /etc/init.d.  To create a more complete configuration,
+# please review /usr/share/doc/openrc*/net.example* and save your configuration
+# in /etc/conf.d/net (this file :]!).
+config_eth0="dhcp 2001:db8:2000:aff0::1/32 2001:db8:2000:aff0::2/32 2001:db8:2000:aff0::3/32"
+~~~
+
+{{< /file >}}
 
 ## Maintain Static IP Configurations
 

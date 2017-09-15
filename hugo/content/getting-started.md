@@ -79,9 +79,11 @@ After creating a new Linode, select it to open the Linode Manager Dashboard.
 
     [![Configuration Profile](/docs/assets/linode-manager-configuration-profile_small.png)](/docs/assets/linode-manager-configuration-profile.png)
 
-    {: .note }
-    >
-    > Use a [StackScript](http://www.linode.com/stackscripts) to quickly deploy a customized Linux distribution. Some of the most popular StackScripts do things like install the Apache web server, configure a firewall, and set up the WordPress content management system. They're easy to use. Just find a StackScript, complete the form, and deploy.
+    {{< note >}}
+
+Use a [StackScript](http://www.linode.com/stackscripts) to quickly deploy a customized Linux distribution. Some of the most popular StackScripts do things like install the Apache web server, configure a firewall, and set up the WordPress content management system. They're easy to use. Just find a StackScript, complete the form, and deploy.
+
+{{< /note >}}
 
 ## Booting Your Linode
 
@@ -110,9 +112,11 @@ Communicating with your Linode is usually done using the secure shell (SSH) prot
 
     <iframe width="560" height="315" src="https://www.youtube.com/embed/eEsCD7n17mk" frameborder="0" allowfullscreen></iframe>
 
-    {: .note }
-    >
-    > These videos were created by [Treehouse](http://www.teamtreehouse.com), which is offering Linode customers a free one month trial. [Click here](http://teamtreehouse.com/join/free-month?utm_source=linode&utm_medium=partnership&utm_campaign=linode-2013&cid=1124) to start your free trial and start learning web design, web development, and more.
+    {{< note >}}
+
+These videos were created by [Treehouse](http://www.teamtreehouse.com), which is offering Linode customers a free one month trial. [Click here](http://teamtreehouse.com/join/free-month?utm_source=linode&utm_medium=partnership&utm_campaign=linode-2013&cid=1124) to start your free trial and start learning web design, web development, and more.
+
+{{< /note >}}
 
 ### Find the IP Address of Your Linode
 
@@ -155,22 +159,24 @@ Once you have the IP address and an SSH client, you can log in via SSH. The foll
 
         root@li123-456:~#
 
- {: .note }
->
-> If you recently rebuilt an existing Linode, you might receive an error message when you try to
-> reconnect via SSH. SSH clients try to match the remote host with the known keys on your desktop computer, so when you rebuild your Linode, the remote host key changes.
->
->To reconnect via SSH, revoke the key for that IP address.
->
->For Linux and Mac OS X:
->
-> ~~~
-> ssh-keygen -R 123.456.789
-> ~~~
->
-> For Windows, PuTTY users must remove the old host IP addresses manually. PuTTY's known hosts are in the registry entry:
->
->     HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\SshHostKeys
+ {{< note >}}
+
+If you recently rebuilt an existing Linode, you might receive an error message when you try to
+reconnect via SSH. SSH clients try to match the remote host with the known keys on your desktop computer, so when you rebuild your Linode, the remote host key changes.
+
+To reconnect via SSH, revoke the key for that IP address.
+
+For Linux and Mac OS X:
+
+~~~
+ssh-keygen -R 123.456.789
+~~~
+
+For Windows, PuTTY users must remove the old host IP addresses manually. PuTTY's known hosts are in the registry entry:
+
+HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\SshHostKeys
+
+{{< /note >}}
 
 ## Installing Software Updates
 
@@ -182,10 +188,12 @@ Installing software updates should be performed *regularly*. If you need help re
 
     apt-get update && apt-get upgrade
 
-{: .note }
->
->Ubuntu may prompt you when the Grub package is updated.
->If prompted, select `keep the local version currently installed`.
+{{< note >}}
+
+Ubuntu may prompt you when the Grub package is updated.
+If prompted, select `keep the local version currently installed`.
+
+{{< /note >}}
 
 ### CentOS
 
@@ -225,21 +233,25 @@ You'll need to set your system's hostname and fully qualified domain name (FQDN)
 
 Once you're done, you can verify by running the command `hostname`.
 
-{: .note }
->
-> If you're unfamiliar with Linux, one of the first things you'll need to learn is how to use [nano](/docs/linux-tools/text-editors/nano), a text editor included with most distributions. To open a file for editing, type `nano file.txt` where "file.txt" is the name of the file you want to create or edit. If the file is not in your current working directory, specify the entire file path. For example, open the `hosts` file with:
->
->     nano /etc/hosts
->
->When you're finished editing, press `Control-X`, then `Y` to save the changes and `Enter` to confirm.
+{{< note >}}
+
+If you're unfamiliar with Linux, one of the first things you'll need to learn is how to use [nano](/docs/linux-tools/text-editors/nano), a text editor included with most distributions. To open a file for editing, type `nano file.txt` where "file.txt" is the name of the file you want to create or edit. If the file is not in your current working directory, specify the entire file path. For example, open the `hosts` file with:
+
+nano /etc/hosts
+
+When you're finished editing, press `Control-X`, then `Y` to save the changes and `Enter` to confirm.
+
+{{< /note >}}
 
 For a walkthrough of setting system's hostname and timezone, see the following video:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/KFd66g4k4i8" frameborder="0" allowfullscreen></iframe>
 
-{: .note }
->
-> This video was created by [Treehouse](http://www.teamtreehouse.com), which is offering Linode customers a free one month trial. [Click here](http://teamtreehouse.com/join/free-month?utm_source=linode&utm_medium=partnership&utm_campaign=linode-2013&cid=1124) to start your free trial and start learning web design, web development, and more.
+{{< note >}}
+
+This video was created by [Treehouse](http://www.teamtreehouse.com), which is offering Linode customers a free one month trial. [Click here](http://teamtreehouse.com/join/free-month?utm_source=linode&utm_medium=partnership&utm_campaign=linode-2013&cid=1124) to start your free trial and start learning web design, web development, and more.
+
+{{< /note >}}
 
 ### Arch / CentOS 7 / Debian 8 / Fedora version 18 and above / Ubuntu 15.04 and above
 
@@ -292,22 +304,26 @@ Update the `/etc/hosts` file. This file creates static associations between IP a
 
 As with the hostname, the domain name part of your FQDN does not necessarily need to have any relationship to websites or other services hosted on the server (although it may if you wish). As an example, you might host "www.something.com" on your server, but the system's FQDN might be "mars.somethingelse.com."
 
-{:.file }
+{{< file >}}
 /etc/hosts
 : ~~~
-  127.0.0.1 localhost.localdomain localhost
-  203.0.113.10 hostname.example.com hostname
-  ~~~
+127.0.0.1 localhost.localdomain localhost
+203.0.113.10 hostname.example.com hostname
+~~~
+
+{{< /file >}}
 
 If you have IPv6 enabled on your Linode, you may also want to add an entry for your IPv6 address, as shown in this example:
 
-{:.file }
+{{< file >}}
 /etc/hosts
 : ~~~
-  127.0.0.1 localhost.localdomain localhost
-  203.0.113.10 hostname.example.com hostname
-  2600:3c01::a123:b456:c789:d012 hostname.example.com hostname
-  ~~~
+127.0.0.1 localhost.localdomain localhost
+203.0.113.10 hostname.example.com hostname
+2600:3c01::a123:b456:c789:d012 hostname.example.com hostname
+~~~
+
+{{< /file >}}
 
 The value you assign as your system's FQDN should have an "A" record in DNS pointing to your Linode's IPv4 address. For Linodes with IPv6 enabled, you should also set up a "AAAA" record in DNS pointing to your Linode's IPv6 address. For more information on configuring DNS, see [Adding DNS Records](/docs/hosting-website#sph_adding-dns-records).
 

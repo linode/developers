@@ -17,8 +17,10 @@ alias: ['applications/game-servers/multicraft-on-ubuntu/']
 
 [Multicraft](http://www.multicraft.org/) is a control panel for single or multiple Minecraft servers, with free and paid versions available. This guide will help you install Multicraft on a Linode running Ubuntu 14.04.
 
-{: .note }
->The steps required in this guide require root privileges. Be sure to run the steps below as `root` or with the **sudo** prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< note >}}
+The steps required in this guide require root privileges. Be sure to run the steps below as `root` or with the **sudo** prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+{{< /note >}}
 
 ##Prerequisites
 

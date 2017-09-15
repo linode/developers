@@ -23,12 +23,14 @@ Basic System Configuration
 
 Modify your `/etc/hosts` file to resemble the following example. Replace "example.com" with your own domain name, and select a unique name to replace "systemname" with. This will be your system's FQDN (fully qualified domain name). Replace "12.34.56.78" with your Linode's IP address.
 
-{: .file }
+{{< file >}}
 /etc/hosts
 :   ~~~
-    127.0.0.1 localhost.localdomain localhost
-    12.34.56.78 systemname.example.com systemname
-    ~~~
+127.0.0.1 localhost.localdomain localhost
+12.34.56.78 systemname.example.com systemname
+~~~
+
+{{< /file >}}
 
 Issue the following commands to set your system's hostname, replacing "systemname" with the short hostname you picked above.
 

@@ -75,9 +75,11 @@ In [Part One](/docs/networking/vpn/set-up-a-hardened-openvpn-server) of this ser
 
 Since now the server should forward traffic out to the internet from clients, accept the responses and route them back to client machines, the firewall rules must be adjusted.
 
-{: .caution }
->
->The steps below will overwrite any custom IPv4 firewall rules you may have.
+{{< caution >}}
+
+The steps below will overwrite any custom IPv4 firewall rules you may have.
+
+{{< /caution >}}
 
 1.  Remove the v4 ruleset that you created in Part One of this series.
 

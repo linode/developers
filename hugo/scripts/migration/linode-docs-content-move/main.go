@@ -155,7 +155,7 @@ var (
 	dateRe     = regexp.MustCompile(`(published|modified): '?(.*)'?\s*\n`)
 	keywordsRe = regexp.MustCompile(`keywords: '(.*)'\s*\n?`)
 
-	calloutsRe = regexp.MustCompile(`(?s){:\s?\.(\w*)}(.*?)\n\n`)
+	calloutsRe = regexp.MustCompile(`(?s){:\s?\.(\w*)\s?}(.*?)\n\n`)
 
 	ndRe     = regexp.MustCompile(`(\d+)(th|nd|st|rd)`)
 	commaRe1 = regexp.MustCompile(`([0-9])\s([0-9])`)
@@ -250,6 +250,22 @@ func fixContent(path, s string) (string, error) {
 	})
 
 	// TODO(bep) check aliases
+	// TODO(bep) {: .table .table-striped .table-bordered}
+	// TODO(bep) {: .file-excerpt}  {:.file }
+	/*
+
+		file-excerpt: code highlitht, linenum, lead title: "File:"
+
+			 {: .file-excerpt} {:.file } (is same?)
+		    /etc/puppet/modules/apache/manifests/init.pp
+		    :   ~~~ pp
+		          file { 'configuration-file':
+		            path    => $conffile,
+		            ensure  => file,
+		            source  => $confsource,
+		          }
+		        ~~~
+	*/
 	var err error
 
 	// Make modified and published front matter date into proper dates.

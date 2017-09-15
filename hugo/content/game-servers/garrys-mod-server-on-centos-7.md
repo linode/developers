@@ -95,10 +95,12 @@ This section configures different aspects of the server, including gamemode and 
 
 1.  Create a startup script for Gmod with the following contents:
 
-    {: .file }
-    ~/startgmod.sh
-    :   ~~~
-        #!/bin/sh
+    {{< file >}}
+~/startgmod.sh
+:   ~~~
+#!/bin/sh
+
+{{< /file >}}
 
         cd ./Steam/gmod
         screen -S "Garry's Mod Server" ./srcds_run -game garrysmod +maxplayers 20 +map gm_flatgrass
@@ -132,18 +134,20 @@ This will automatically restart Garry's Mod when your server reboots.
 
 The default `server.cfg` file is blank, and any configuration options you want to specify for the server must be added. This are optional, but below is a sane starting point.
 
-{: .file }
+{{< file >}}
 ~/Steam/gmod/garrysmod/cfg/server.cfg
 :   ~~~
-    hostname "server_hostname"
-    sv_password "server_password"
-    sv_timeout 60
-    rcon_password "rcon_password"
-    mp_autoteambalance 1
-    mp_limitteams 1
-    writeid
-    writeip
-    ~~~
+hostname "server_hostname"
+sv_password "server_password"
+sv_timeout 60
+rcon_password "rcon_password"
+mp_autoteambalance 1
+mp_limitteams 1
+writeid
+writeip
+~~~
+
+{{< /file >}}
 
 ### Workshop Addons
 

@@ -35,8 +35,10 @@ Apache Tomcat is an open-source software implementation of the Java Servlet and 
 
         apt-get update && apt-get upgrade
 
-{: .note }
->The steps in this guide require root privileges. Be sure to run the steps below as `root` or with the **sudo** prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< note >}}
+The steps in this guide require root privileges. Be sure to run the steps below as `root` or with the **sudo** prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+{{< /note >}}
 
 ## Install Apache Tomcat
 
@@ -44,9 +46,11 @@ Install Tomcat from the Ubuntu repository:
 
     apt-get install tomcat8
 
-{: .note }
->
-> OpenJDK will be installed as a dependency when you install the `tomcat8` package. The package `openjdk-8-jre-headless` is included with the `default-jre-headless` metapackage in Ubuntu.
+{{< note >}}
+
+OpenJDK will be installed as a dependency when you install the `tomcat8` package. The package `openjdk-8-jre-headless` is included with the `default-jre-headless` metapackage in Ubuntu.
+
+{{< /note >}}
 
 You may also want to install the `tomcat8-docs`, `tomcat8-examples`, and `tomcat8-admin` tools which provide web-based applications that document, test, and allow you to administer Tomcat. You can install all three with the following command:
 

@@ -20,8 +20,10 @@ System Configuration
 
 Make sure your `/etc/hosts` file has proper entries, similar to the ones shown below. Replace "12.34.56.78" with your Linode's public address, "servername" with your short hostname, and "mydomain.com" with your system's domain name.
 
-{: .file }
+{{< file >}}
 /etc/hosts
+
+{{< /file >}}
 
 > 127.0.0.1 localhost.localdomain localhost 12.34.56.78 servername.mydomain.com servername
 

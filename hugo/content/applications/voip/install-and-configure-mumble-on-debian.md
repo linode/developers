@@ -32,9 +32,11 @@ external_resources:
 
         sudo apt-get update && sudo apt-get upgrade
 
- {: .note }
->
-> This guide is written for non-root users. Commands that require elevated privileges are prefixed with sudo. If you are not familiar with the sudo command, you can check out our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+ {{< note >}}
+
+This guide is written for non-root users. Commands that require elevated privileges are prefixed with sudo. If you are not familiar with the sudo command, you can check out our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+{{< /note >}}
 
 ## Mumble Server
 

@@ -70,8 +70,10 @@ On Arch Linux, replace the `ifdown` and `ifup` commands with `ip link set eth0 d
 
         ping6 -I he-ipv6 irc6.oftc.net
 
-    {: .note }
-    > On Arch Linux and other distributions without `ping6`, use `ping -6` instead.
+    {{< note >}}
+On Arch Linux and other distributions without `ping6`, use `ping -6` instead.
+
+{{< /note >}}
 
 If everything is working, you should see ping replies. If not, go back and make sure that you haven't made any errors.
 
@@ -79,8 +81,10 @@ If everything is working, you should see ping replies. If not, go back and make 
 
 The instructions in this section will allow you to manually configure your IPv6 tunnel. This can permanently affect your connectivity across reboots. Read the IPv6 documentation for your distribution before proceeding.
 
-{: .caution }
-> When manually modifying your network configuration, always disable [Network Helper](/docs/platform/network-helper#turn-network-helper-on-for-individual-configuration-profiles) first to avoid having your changes overwritten on reboot.
+{{< caution >}}
+When manually modifying your network configuration, always disable [Network Helper](/docs/platform/network-helper#turn-network-helper-on-for-individual-configuration-profiles) first to avoid having your changes overwritten on reboot.
+
+{{< /caution >}}
 
 ### Debian and Ubuntu
 

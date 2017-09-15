@@ -15,9 +15,11 @@ title: Install a Mosh Server as SSH Alternative on Linux
 
 [Mosh](http://mosh.mit.edu/) is a free replacement for SSH that allows roaming and supports intermittent connectivity. Unlike regular SSH connections, Mosh continuously syncs your local and remote sessions to ensure that your client automatically reconnects to the server when you switch between wireless networks or wake your computer from sleep. This guide explains how to install Mosh on your Linode and your personal computer.
 
- {: .note }
->
-> Mosh does not support port forwarding or proxying, and you cannot use mosh to copy files or mount remote directories. You'll still need to use SSH for these tasks.
+ {{< note >}}
+
+Mosh does not support port forwarding or proxying, and you cannot use mosh to copy files or mount remote directories. You'll still need to use SSH for these tasks.
+
+{{< /note >}}
 
 ## Mosh SSH Benefits
 

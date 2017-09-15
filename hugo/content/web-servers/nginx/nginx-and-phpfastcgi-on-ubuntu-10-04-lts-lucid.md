@@ -52,14 +52,16 @@ In this guide, the domain "example.com" is used as an example site. You should s
 
 Next, you'll need to define the site's virtual host file. This example uses a UNIX socket to connect to fcgiwrap. Be sure to change all instances of "example.com" to your domain name.
 
-{: .file }
+{{< file >}}
 /etc/nginx/sites-available/www.example.com
 :   ~~~ nginx
-    server {
-        server_name www.example.com example.com;
-        access_log /srv/www/www.example.com/logs/access.log;
-        error_log /srv/www/www.example.com/logs/error.log;
-        root /srv/www/www.example.com/public_html;
+server {
+server_name www.example.com example.com;
+access_log /srv/www/www.example.com/logs/access.log;
+error_log /srv/www/www.example.com/logs/error.log;
+root /srv/www/www.example.com/public_html;
+
+{{< /file >}}
 
         location / {
             index  index.html index.htm;
@@ -76,10 +78,12 @@ Next, you'll need to define the site's virtual host file. This example uses a UN
 
 Create a file named `/usr/bin/php-fastcgi` with the following contents:
 
-{: .file }
+{{< file >}}
 /usr/bin/php-fastcgi
 :   ~~~ bash
-    #!/bin/bash
+#!/bin/bash
+
+{{< /file >}}
 
     FASTCGI_USER=www-data
     FASTCGI_GROUP=www-data
@@ -99,14 +103,16 @@ Make it executable by issuing the following command:
 
 Alternately, you may wish to use TCP sockets instead. If so, modify your nginx virtual host configuration file to resemble the following example. Again, make sure to replace all instances of "example.com" with your domain name.
 
-{: .file }
+{{< file >}}
 /etc/nginx/sites-available/www.example.com
 :   ~~~ nginx
-    server {
-        server_name www.example.com example.com;
-        access_log /srv/www/www.example.com/logs/access.log;
-        error_log /srv/www/www.example.com/logs/error.log;
-        root /srv/www/www.example.com/public_html;
+server {
+server_name www.example.com example.com;
+access_log /srv/www/www.example.com/logs/access.log;
+error_log /srv/www/www.example.com/logs/error.log;
+root /srv/www/www.example.com/public_html;
+
+{{< /file >}}
 
         location / {
             index  index.html index.htm;
@@ -123,10 +129,12 @@ Alternately, you may wish to use TCP sockets instead. If so, modify your nginx v
 
 Create a file named `/usr/bin/php-fastcgi` with the following contents:
 
-{: .file }
+{{< file >}}
 /usr/bin/php-fastcgi
 :   ~~~ bash
-    #!/bin/bash
+#!/bin/bash
+
+{{< /file >}}
 
     FASTCGI_USER=www-data
     FASTCGI_GROUP=www-data
@@ -181,10 +189,12 @@ Issue the following commands to enable the site:
 
 Create a file named `/etc/init.d/php-fastcgi` with the following contents:
 
-{: .file }
+{{< file >}}
 /etc/init.d/php-fastcgi
 :   ~~~ bash
-    #!/bin/bash
+#!/bin/bash
+
+{{< /file >}}
 
     PHP_SCRIPT=/usr/bin/php-fastcgi
     FASTCGI_USER=www-data
@@ -262,11 +272,13 @@ Test PHP with FastCGI
 
 Create a file called "test.php" in your site's "public\_html" directory with the following contents:
 
-{: .file }
+{{< file >}}
 /srv/www/example.com/www/public\_html/test.php
 :   ~~~ php
-    <?php phpinfo(); ?>
-    ~~~
+<?php phpinfo(); ?>
+~~~
+
+{{< /file >}}
 
 When you visit `http://www.example.com/test.php` in your browser, the standard "PHP info" output is shown. Congratulations, you've configured the nginx web server to use PHP-FastCGI for dynamic content!
 

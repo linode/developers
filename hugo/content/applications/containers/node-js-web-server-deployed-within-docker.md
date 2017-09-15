@@ -64,9 +64,11 @@ Note that when an image downloads, no image containers run.
 
         sudo docker run -p 80:3000 -t -i linode/server-node-js /bin/bash 
 
-     {: .caution }
-    >
-    > This command also changes the terminal prompt to the root user within the new container.
+     {{< caution >}}
+
+This command also changes the terminal prompt to the root user within the new container.
+
+{{< /caution >}}
 
 2.  From the container's command prompt, change to the home directory, list the present files, and look at the server configuration:
 

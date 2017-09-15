@@ -309,9 +309,11 @@ Your final crontab entry in Step 9 should look like this:
 
     0      3       *       *       *       rsync -ahvz --delete --link-dest=~/backups/public_orig user@production_server:~/public ~/backups/public_$(date +\%Y-\%m-\%d)
 
- {: .note }
->
-> If you run into a permissions error with cron but not when you run the command manually, you might have a password on your SSH key which doesn't normally pop up because you have it stored in the Mac OS X keychain. You might want to set up a new OS X user with a passwordless key for the purpose of this cron job.
+ {{< note >}}
+
+If you run into a permissions error with cron but not when you run the command manually, you might have a password on your SSH key which doesn't normally pop up because you have it stored in the Mac OS X keychain. You might want to set up a new OS X user with a passwordless key for the purpose of this cron job.
+
+{{< /note >}}
 
 ### Windows
 

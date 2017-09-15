@@ -75,8 +75,10 @@ A DNS MX record tells the internet where to send email directed at you domain. B
 
     The remainder of the installation refers to on-screen confirmation of default options and selections. With the exception of the backend and hostname selections, most users will simply confirm the default options and continue the installation.
 
-    {: .note }
-    >The next few steps were taken directly from the iRedMail [Ubuntu installation steps][u].
+    {{< note >}}
+The next few steps were taken directly from the iRedMail [Ubuntu installation steps][u].
+
+{{< /note >}}
 
 5. Press "enter" to say "yes" to installing iRedMail. NOTE: Ctrl-C will exit the installation process when pressed at any time prior to step #12.
 
@@ -393,8 +395,10 @@ For this reason, the author recommends turning this module off. Note, since bein
 
 As a final test, you can utilize a service such as [Mail Tester][m] to ensure that your records have been configured correctly. If you have followed this guide precisely, you should receive a score of 10/10 on Mail Tester's site. If not, Mail Tester will provide you with a report indicating what portion of your configuration needs improvement.
 
- {: .note }
->While some DNS records update almost instantaneously, updates can take up to 24 hours to propagate. You may receive a lower score on these tests if your records have not yet updated.
+ {{< note >}}
+While some DNS records update almost instantaneously, updates can take up to 24 hours to propagate. You may receive a lower score on these tests if your records have not yet updated.
+
+{{< /note >}}
 
 ### Conclusion
 Familiarize yourself with the various files, configs, and settings listed in the iRedMail emails and website and start adding users to your mail server. Happy Mailing!

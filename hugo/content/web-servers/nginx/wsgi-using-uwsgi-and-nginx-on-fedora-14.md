@@ -77,11 +77,13 @@ Create an `/etc/default/uwsgi` file to specify specific settings for your Python
 
 If you want to deploy a "Hello World" application, insert the following code into the `/srv/www/example.com/application/wsgi_configuration_module.py` file:
 
-{: .file }
+{{< file >}}
 /srv/www/example.com/application/wsgi\_configuration\_module.py
 :   ~~~ python
-    import os
-    import sys
+import os
+import sys
+
+{{< /file >}}
 
     sys.path.append('/srv/www/example.com/application')
 

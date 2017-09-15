@@ -73,12 +73,14 @@ To enable the Apache Longview app manually, follow these steps on your Linode vi
         ~~~
 3.  Edit `/etc/linode/longview.d/Apache.conf` to look like the following:
 
-    {: .file }
-    /etc/linode/longview.d/Apache.conf
-    :   ~~~
-        location http://127.0.0.1/server-status?auto
-        ~~~
+    {{< file >}}
+/etc/linode/longview.d/Apache.conf
+:   ~~~
+location http://127.0.0.1/server-status?auto
+~~~
 4.  Restart Apache:
+
+{{< /file >}}
 
     Debian and Ubuntu:
 
@@ -204,9 +206,11 @@ More specifically, the error will state `Unable to access local server status fo
 
 2.  An Apache virtual host configuration is interfering with web requests to the `mod_status` location.
 
- {: .note }
->
-> This error occurs when Longview attempts to check the status page `location` listed in `/etc/linode/longview.d/Apache.conf`, or the default page at `127.0.0.1/server-status?auto`, but receives a non-200 HTTP response code. Basically, it means that the status page Longview is expecting is not being returned by the server.
+ {{< note >}}
+
+This error occurs when Longview attempts to check the status page `location` listed in `/etc/linode/longview.d/Apache.conf`, or the default page at `127.0.0.1/server-status?auto`, but receives a non-200 HTTP response code. Basically, it means that the status page Longview is expecting is not being returned by the server.
+
+{{< /note >}}
 
 To fix this, follow these steps:
 
@@ -249,12 +253,14 @@ location http://localhost/whm-server-status?auto
 4.  Longview is designed to check the default location automatically. If you use the default location shown above, you should be done. Refresh the Longview Apache tab in the Linode Manager to verify that it's working now.
 5.  If you're not using the default location, you need to create a new file, `/etc/linode/longview.d/Apache.conf`, and set the `location` variable to match what you set in the Apache configuration file:
 
-    {: .file }
-    /etc/linode/longview.d/Apache.conf
-    :   ~~~
-        location http://127.0.0.1/custom/location/path
-        ~~~
+    {{< file >}}
+/etc/linode/longview.d/Apache.conf
+:   ~~~
+location http://127.0.0.1/custom/location/path
+~~~
 6.  Determine if an Apache virtual host configuration is interfering with requests to the mod_status location. Use a tool like `curl` or `wget` to request the server status location:
+
+{{< /file >}}
 
         curl http://127.0.0.1/server-status?auto
 
@@ -271,9 +277,11 @@ location http://localhost/whm-server-status?auto
 
 More specifically, the error will state `The Apache status page doesn't look right. Check <http://example.com/example?auto> and investigate any redirects for misconfiguration.` This error occurs when Longview is able to reach the `mod_status` page, but doesn't receive the expected content.
 
- {: .note }
->
-> This error occurs when Longview attempts to check the status page, and receives a 200 HTTP response code, but can't scrape the expected status content from the page. That is, the page exists on your Linode, but it doesn't have the right content. If, for example, Longview was to check your website's home page, you would get this error.
+ {{< note >}}
+
+This error occurs when Longview attempts to check the status page, and receives a 200 HTTP response code, but can't scrape the expected status content from the page. That is, the page exists on your Linode, but it doesn't have the right content. If, for example, Longview was to check your website's home page, you would get this error.
+
+{{< /note >}}
 
 To resolve this issue, follow these steps:
 

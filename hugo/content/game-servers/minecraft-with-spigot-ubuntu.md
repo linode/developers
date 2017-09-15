@@ -36,8 +36,10 @@ We'll compile the [Spigot](https://spigotmc.com) Minecraft server (1.8.3 at the 
 
         sudo apt-get install git openjdk-7-jre-headless
 
-    {: .note }
-    > If your Linode is running Ubuntu 14.10 or higher, you can choose to install `openjdk-8-jre-headless` instead.
+    {{< note >}}
+If your Linode is running Ubuntu 14.10 or higher, you can choose to install `openjdk-8-jre-headless` instead.
+
+{{< /note >}}
 
 3.  Run `java -version` to confirm. You should see something like this:
 
@@ -70,8 +72,10 @@ We'll compile the [Spigot](https://spigotmc.com) Minecraft server (1.8.3 at the 
         wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
         java -jar BuildTools.jar
 
-    {: .note }
-    >This may take approximately 10 minutes, depending in the size of the Linode you are building on.
+    {{< note >}}
+This may take approximately 10 minutes, depending in the size of the Linode you are building on.
+
+{{< /note >}}
 
 
 2.	When the build has finished, move the resulting `.jar` file to a server folder:
@@ -182,8 +186,10 @@ Plugins can be found from the [Spigot Resources](http://www.spigotmc.org/resourc
 
         wget -P /home/minecraft/server/plugins/ --content-disposition <plugin url>
 
-    {: .note }
-    > When downloading plugins from Spigot, the `wget` flag `--content-disposition` will help ensure the plugin is downloaded with the correct filename.
+    {{< note >}}
+When downloading plugins from Spigot, the `wget` flag `--content-disposition` will help ensure the plugin is downloaded with the correct filename.
+
+{{< /note >}}
 
 2.  From within your screen session, enter `stop` to stop the server and exit the screen session. Your plugin will be loaded when you next start the SpigotMC server:
 

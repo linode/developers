@@ -61,11 +61,13 @@ Edit the `/etc/default/saslauthd` file to allow the SASL authentication daemon t
 
 Create the `/etc/postfix/sasl/smtpd.conf` file, and insert the following line:
 
-{: .file }
+{{< file >}}
 /etc/postfix/sasl/smtpd.conf
 :   ~~~ ini
-    pwcheck_method: saslauthd
-    ~~~
+pwcheck_method: saslauthd
+~~~
+
+{{< /file >}}
 
 Issue the following command to start the SASL daemon for the first time:
 
@@ -150,8 +152,10 @@ Every existing user that receives email will also need to make their own `Maildi
 
 Create a `/etc/postfix/virtual` file to map incoming email addresses to their destinations. Consider the following example:
 
-{: .file }
+{{< file >}}
 /etc/postfix/virtual
+
+{{< /file >}}
 
 > <username@example.com> username <username@example.net> username <username@example.com> username
 >
@@ -188,8 +192,10 @@ Issue the following command to create a back up of the default `/etc/dovecot/dov
     cp /etc/dovecot/dovecot.conf /etc/dovecot/dovecot.conf-backup
     rm /etc/dovecot/dovecot.conf
 
-{: .file }
+{{< file >}}
 /etc/dovecot/dovecot.conf
+
+{{< /file >}}
 
 > protocols = imap imaps pop3 pop3s log\_timestamp = "%Y-%m-%d %H:%M:%S " mail\_privileged\_group = mail ssl\_cert\_file = /etc/ssl/postfix.pem ssl\_key\_file = /etc/ssl/postfix.key mail\_location = maildir:\~/mail:LAYOUT=fs
 >

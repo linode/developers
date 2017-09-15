@@ -150,13 +150,15 @@ Before Nagios can send alerts by email, basic mail services need to be installed
 
 When the installation process prompts you to define the type of mail setup you're running, select "Internet Site". You will also want to specify the machine specific hostname for this server during the installation process. Next, you'll need to update the path to the mail binary in the Nagios command file. Change both references from `/bin/mail` to `/usr/bin/mail`. The relevant section of this file should look like this:
 
-{: .file }
+{{< file >}}
 /usr/local/nagios/etc/objects/commands.cfg
 :   ~~~
-    define command{
-        command_name    notify-host-by-email
-        command_line    /usr/bin/printf "%b" "***** Nagios *****\n\nNotification Type: $NOTIFICATIONTYPE$\nHost: $HOSTNAME$\nState: $HOSTSTATE$\nAddress: $HOSTADDRESS$\nInfo: $HOSTOUTPUT$\n\nDate/Time: $LONGDATETIME$\n" | /usr/bin/mail -s "** $NOTIFICATIONTYPE$ Host Alert: $HOSTNAME$ is $HOSTSTATE$ **" $CONTACTEMAIL$
-    }
+define command{
+command_name    notify-host-by-email
+command_line    /usr/bin/printf "%b" "***** Nagios *****\n\nNotification Type: $NOTIFICATIONTYPE$\nHost: $HOSTNAME$\nState: $HOSTSTATE$\nAddress: $HOSTADDRESS$\nInfo: $HOSTOUTPUT$\n\nDate/Time: $LONGDATETIME$\n" | /usr/bin/mail -s "** $NOTIFICATIONTYPE$ Host Alert: $HOSTNAME$ is $HOSTSTATE$ **" $CONTACTEMAIL$
+}
+
+{{< /file >}}
 
     # 'notify-service-by-email' command definition
     define command{

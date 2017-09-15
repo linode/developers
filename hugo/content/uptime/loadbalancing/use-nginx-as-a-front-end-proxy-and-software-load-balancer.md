@@ -125,12 +125,14 @@ This guide assumes you are using Apache 2.4. Some path names will be slightly di
 
         sudo nano /etc/nginx/proxy_params
 
-    {: .file }
-    /etc/nginx/sites-available/example.com
-    :   ~~~ nginx
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    {{< file >}}
+/etc/nginx/sites-available/example.com
+:   ~~~ nginx
+proxy_set_header Host $host;
+proxy_set_header X-Real-IP $remote_addr;
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+{{< /file >}}
 
         client_max_body_size 100M;
         client_body_buffer_size 1m;
@@ -282,9 +284,11 @@ nginx also allows you to control the behavior of the `upstream` resource cluster
 
 Here, the `ip_hash` directive causes nginx to attempt to match requests originating from a single IP address with the same back-end component. If a component server is unreachable, nginx will route those connections to an alternate component.
 
- {: .note }
->
-> If a server needs to be taken offline for an extended period of time, append the `down` argument, as shown in the entry for `galloway.example.com:8801`. This will prevent missed connections from attempting to hit a component of the server which is down.
+ {{< note >}}
+
+If a server needs to be taken offline for an extended period of time, append the `down` argument, as shown in the entry for `galloway.example.com:8801`. This will prevent missed connections from attempting to hit a component of the server which is down.
+
+{{< /note >}}
 
 Here is a more advanced configuration, where seven server components running on unique ports on the server `linode.example.com` comprise the `appcluster` upstream:
 

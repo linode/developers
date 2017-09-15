@@ -107,21 +107,23 @@ You executed an Ansible command against one client, but it would be cumbersome t
 1.  By default, the inventory file is expected to be `/etc/ansible/hosts`. Create that path and file if it does not already exist. 
 
 
-    {: .note }
-    > If you are running OS X, you may want to create your own Ansible directory elsewhere and then set the path in an Ansible configuration file:
-    >
-    >     mkdir ~/Path/To/ansible
-    >     touch ~/Path/To/ansible/hosts
-    >     touch ~/.ansible.cfg
-    >
-    >Open `~/.ansible.cfg` file and add the following lines:
-    >
-    > {: .file-excerpt}
-    > ~/.ansible.cfg
-    > :   ~~~ ini
-    >     [defaults] 
-    >     inventory = ~/Path/To/ansible/hosts 
-    >     ~~~
+    {{< note >}}
+If you are running OS X, you may want to create your own Ansible directory elsewhere and then set the path in an Ansible configuration file:
+
+mkdir ~/Path/To/ansible
+touch ~/Path/To/ansible/hosts
+touch ~/.ansible.cfg
+
+Open `~/.ansible.cfg` file and add the following lines:
+
+{: .file-excerpt}
+~/.ansible.cfg
+:   ~~~ ini
+[defaults] 
+inventory = ~/Path/To/ansible/hosts 
+~~~
+
+{{< /note >}}
 
 2.  Add an entry to your hosts file, pointing to a server that you connected to in the previous section.  You can include multiple servers in this file, using either domains or IP addresses, and can even group them:
 

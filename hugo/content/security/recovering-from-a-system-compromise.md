@@ -74,9 +74,11 @@ The next task is to copy your data to the new Linode, and make sure you've purge
 1.  Create a temporary directory on the new Linode.
 2.  Copy any needed user and configuration data from the compromised Linode using [rsync](/docs/linux-tools/utilities/rsync) or `scp`. If you are not familiar with these programs, you can find more information by entering the `man rsync` or `man scp` commands.
 
-    {: .caution }
-    >
-    > Do not log in to the new Linode from the compromised Linode. Files should be pulled from the compromised server to your new setup instead.
+    {{< caution >}}
+
+Do not log in to the new Linode from the compromised Linode. Files should be pulled from the compromised server to your new setup instead.
+
+{{< /caution >}}
 
 3.  Audit your data using tools such as `rkhunter` and `clamav`. You may wish to use additional malware scanners as well to be certain you aren't retaining tainted files. Examine all system scripts manually for contaminated code, and replace all suspicious executable files with known good copies.
 
@@ -86,9 +88,11 @@ Alternately, if you're not comfortable copying anything from the compromised sys
 
 Next, you'll want to swap IP addresses so the new Linode uses the IP address assigned to the old Linode. Please note that if you configured any network services to use the new Linode's IP address, you will most likely want to modify their configurations now to use the old Linode's IP instead. For instructions, see [Swapping IP Addresses](/docs/remote-access#sph_swapping-ip-addresses).
 
- {: .note }
->
-> To swap IP addresses, both Linodes must be located in the same data center.
+ {{< note >}}
+
+To swap IP addresses, both Linodes must be located in the same data center.
+
+{{< /note >}}
 
 Alternately, you may wish to [update your DNS entries](/docs/hosting-website#sph_adding-dns-records) to point to the new Linode's IP address instead. Please be aware that DNS propagation across the Internet may take some time. Boot the new Linode to resume normal operations.
 

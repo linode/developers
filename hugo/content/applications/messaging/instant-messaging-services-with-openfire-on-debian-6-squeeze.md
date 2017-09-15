@@ -35,11 +35,13 @@ Openfire requires a Java runtime engine (JRE). This tutorial uses the version pr
 
 Examine your `/etc/apt/sources.list` file to make sure you have the `non-free` repository enabled. You can use an editor like `nano` to edit configuration files through the shell; you would issue the command `nano /etc/apt/sources.list` to edit this one. Please consult the [nano manual page](http://www.nano-editor.org/dist/v1.2/nano.1.html) for information on using the editor. Your file should look similar to the following.
 
-{: .file }
+{{< file >}}
 /etc/apt/sources.list
 :   ~~~
-    deb http://mirrors.kernel.org/debian/ squeeze main contrib non-free
-    deb-src http://mirrors.kernel.org/debian/ squeeze main contrib non-free
+deb http://mirrors.kernel.org/debian/ squeeze main contrib non-free
+deb-src http://mirrors.kernel.org/debian/ squeeze main contrib non-free
+
+{{< /file >}}
 
     deb http://security.debian.org/ squeeze/updates main contrib non-free
     deb-src http://security.debian.org/ squeeze/updates main contrib non-free

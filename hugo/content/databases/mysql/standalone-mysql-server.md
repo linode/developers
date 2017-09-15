@@ -32,8 +32,10 @@ Edit /etc/hosts
 
 You will want to create hostnames for each machine so you can keep track of them later. This also saves work, should you find yourself in a situation where you need to change the IP address of the server. Edit the `/etc/hosts` file to include the **private** IP addresses of each Linode. Use the following excerpt from an example `/etc/hosts` file as an example:
 
-{: .file }
+{{< file >}}
 /etc/hosts
+
+{{< /file >}}
 
 > 127.0.0.1 localhost 192.168.192.168 mysql.example.com mysql 192.168.192.169 app.example.com app
 

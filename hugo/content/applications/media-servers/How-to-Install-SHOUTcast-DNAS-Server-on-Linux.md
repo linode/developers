@@ -20,9 +20,11 @@ external_resources:
 
 SHOUTcast is software designed for streaming media over the internet. The SHOUTcast system uses a classic client-server configuration. You can install SHOUTcast on your server and use it to broadcast a stream of music to clients connected to the server. A Shoutcast media server could benefit from large amounts of disk space, so consider using our [Block Storage](/docs/platform/how-to-use-block-storage-with-your-linode) service with this setup.
 
- {: .note }
->
-> Be sure to [check the broadcast tools download page](http://www.shoutcast.com/broadcast-tools) for the newest version of SHOUTcast.
+ {{< note >}}
+
+Be sure to [check the broadcast tools download page](http://www.shoutcast.com/broadcast-tools) for the newest version of SHOUTcast.
+
+{{< /note >}}
 
 ## SHOUTcast DNAS Software
 
@@ -68,11 +70,13 @@ Now, you'll want to modify the configuration. This is necessary to specify passw
 
 2.  This will bring up the configuration file for editing, as shown below.
 
-    {: .file }
-    /home/shoutcast/sc/sc_serv_basic.conf
-    : ~~~
-      ; NOTE: for any relative paths specified are relative to
-      ; sc_serv and not to where the conf file is being stored
+    {{< file >}}
+/home/shoutcast/sc/sc_serv_basic.conf
+: ~~~
+; NOTE: for any relative paths specified are relative to
+; sc_serv and not to where the conf file is being stored
+
+{{< /file >}}
 
       ; here we will setup where the log and other related files
       ; will be stored. make sure that these folders exist else
@@ -126,9 +130,11 @@ Now, you'll want to modify the configuration. This is necessary to specify passw
 3.  Set the `password` and `adminpassword` variables to whatever you want them to be.
 4.  The `portbase` variable should be set to use a port you are not using for anything else. The default port for SHOUTcast is 8000.
 
-    {: .note }
-    >
-    > If you set the `portbase` variable to anything besides 8000, be sure to uncomment it by deleting the semicolon in front of the variable.
+    {{< note >}}
+
+If you set the `portbase` variable to anything besides 8000, be sure to uncomment it by deleting the semicolon in front of the variable.
+
+{{< /note >}}
 
 5.  Save the changes to the SHOUTcast configuration file by pressing Control-X, and then Y.
 
@@ -162,9 +168,11 @@ Your SHOUTcast server is now running! You can now connect to it and begin your b
 
 The SHOUTcast Transcoder allows you to schedule DJ play times, broadcast an automatic playlist in a specific time slot, schedule time slots for relayed broadcasts, etc.
 
- {: .note }
->
-> To encode your streams in MP3 format, you *must* [purchase a license key from WinAmp, which costs \$5 USD](http://wiki.winamp.com/wiki/SHOUTcast_DNAS_Transcoder_2#Registering_for_MP3_Stream_Encoding).
+ {{< note >}}
+
+To encode your streams in MP3 format, you *must* [purchase a license key from WinAmp, which costs \$5 USD](http://wiki.winamp.com/wiki/SHOUTcast_DNAS_Transcoder_2#Registering_for_MP3_Stream_Encoding).
+
+{{< /note >}}
 
 ### Download and Install SHOUTcast Transcoder
 
@@ -291,25 +299,27 @@ This example will walk you through a basic configuration.
 8.  If you are using an automated playlist, upload your music files to the `/home/shoutcast/sct/music` directory.
 9.  If you are using an automated playlist, you'll also need to create a playlist file. Here is an example:
 
-    {: .file }
-    /home/shoutcast/sct/playlists/playlist.lst
-    : ~~~
-      # This example playlist is used as the main playlist sc_trans will use to pick
-      # out the files it will use to create its output for the source we generate.
-      #
-      # Also remember to use the correct path format for the OS you are using and to
-      # ensure that the files you want to play are present in the location you choose
-      # e.g.
-      ../music/shoutcast.mp3
-      #
-      # In this example we will just assume that all of the files associated to the
-      # playlist are in one folder and all have an mp3 extension though there is no
-      # reason why you cannot explicitly specify files to use or to reference a tool.
-      # See sc_trans.txt - section 7.1 for more information on how playlists work.
- 
-      # Remember to change this to reference the files you want to use when trying
-      # the sc_trans_playlist.conf example which is best tried with full length files
-    ~~~
+    {{< file >}}
+/home/shoutcast/sct/playlists/playlist.lst
+: ~~~
+# This example playlist is used as the main playlist sc_trans will use to pick
+# out the files it will use to create its output for the source we generate.
+#
+# Also remember to use the correct path format for the OS you are using and to
+# ensure that the files you want to play are present in the location you choose
+# e.g.
+../music/shoutcast.mp3
+#
+# In this example we will just assume that all of the files associated to the
+# playlist are in one folder and all have an mp3 extension though there is no
+# reason why you cannot explicitly specify files to use or to reference a tool.
+# See sc_trans.txt - section 7.1 for more information on how playlists work.
+
+# Remember to change this to reference the files you want to use when trying
+# the sc_trans_playlist.conf example which is best tried with full length files
+~~~
+
+{{< /file >}}
 
 ### Start SHOUTcast Transcoder
 

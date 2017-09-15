@@ -59,15 +59,17 @@ In this guide, the domain "example.com" is used as an example site. You should s
 
 Next, you'll need to define the site's virtual host file. This example uses a UNIX socket to connect to fcgiwrap. Be sure to change all instances of "example.com" to your domain name.
 
-{: .file }
+{{< file >}}
 /etc/nginx/sites-available/www.example.com
 :   ~~~ nginx
-    server {
-        listen   80;
-        server_name www.example.com example.com;
-        access_log /srv/www/www.example.com/logs/access.log;
-        error_log /srv/www/www.example.com/logs/error.log;
-        root   /srv/www/www.example.com/public_html;
+server {
+listen   80;
+server_name www.example.com example.com;
+access_log /srv/www/www.example.com/logs/access.log;
+error_log /srv/www/www.example.com/logs/error.log;
+root   /srv/www/www.example.com/public_html;
+
+{{< /file >}}
 
         location / {
             index  index.html index.htm;
@@ -87,15 +89,17 @@ Next, you'll need to define the site's virtual host file. This example uses a UN
 
 Alternately, you may wish to use TCP sockets instead. If so, modify your nginx virtual host configuration file to resemble the following example. Again, make sure to replace all instances of "example.com" with your domain name.
 
-{: .file }
+{{< file >}}
 /etc/nginx/sites-available/www.example.com
 :   ~~~ nginx
-    server {
-        listen   80;
-        server_name www.example.com example.com;
-        access_log /srv/www/www.example.com/logs/access.log;
-        error_log /srv/www/www.example.com/logs/error.log;
-        root   /srv/www/www.example.com/public_html;
+server {
+listen   80;
+server_name www.example.com example.com;
+access_log /srv/www/www.example.com/logs/access.log;
+error_log /srv/www/www.example.com/logs/error.log;
+root   /srv/www/www.example.com/public_html;
+
+{{< /file >}}
 
         location / {
             index  index.html index.htm;
@@ -151,10 +155,12 @@ Test Perl with FastCGI
 
 Create a file called "test.pl" in your site's "public\_html" directory with the following contents:
 
-{: .file }
+{{< file >}}
 /srv/www/www.example.com/public\_html/test.pl
 :   ~~~ perl
-    #!/usr/bin/perl
+#!/usr/bin/perl
+
+{{< /file >}}
 
     print "Content-type:text/html\n\n";
     print <<EndOfHTML;

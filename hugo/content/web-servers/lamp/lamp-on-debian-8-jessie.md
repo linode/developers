@@ -22,9 +22,11 @@ Setting up a LAMP (Linux, Apache, MySql, PHP) stack on your server will allow fo
 
 ![LAMP on Debian 8 (Jessie)](/docs/assets/lamp-on-debian-8.png "LAMP on Debian 8 (Jessie)")
 
-{: .note }
->
->This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< note >}}
+
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+{{< /note >}}
 
 ## Before You Begin
 
@@ -52,11 +54,13 @@ Prior to installing your LAMP stack ensure that:
 
 2.  Edit the main Apache configuration file and turn off the `KeepAlive` setting:
 
-    {: .file }
-    /etc/apache2/apache2.conf
-    :   ~~~ conf
-        KeepAlive Off
-        ~~~
+    {{< file >}}
+/etc/apache2/apache2.conf
+:   ~~~ conf
+KeepAlive Off
+~~~
+
+{{< /file >}}
 
 3.  Open `/etc/apache2/mods-available/mpm_prefork.conf` in your text editor and edit the values as needed. The following is optimized for a 2GB Linode:
 
@@ -83,8 +87,10 @@ Prior to installing your LAMP stack ensure that:
         # vim: syntax=apache ts=4 sw=4 sts=4 sr noet
         ~~~
 
-    {: .note }
-    >These settings are good starting points, but should be adjusted to best suite your specific stack's needs.
+    {{< note >}}
+These settings are good starting points, but should be adjusted to best suite your specific stack's needs.
+
+{{< /note >}}
 
 4.  On Debian 8, the *event module* is enabled by default. This should be disabled, and the *prefork module* enabled:
 
@@ -109,33 +115,37 @@ There can be as many virtual hosts files as needed to support the amount of doma
 
 2.  Create an `example.com.conf` file in `/etc/apache2/sites-available` with your text editor, replacing instances of `example.com` with your own domain URL in both the configuration file and in the file name:
 
-    {: .file }
-    /etc/apache2/sites-available/example.com.conf
-    :   ~~~ conf
-        <VirtualHost *:80>
-             ServerAdmin webmaster@example.com
-             ServerName example.com
-             ServerAlias www.example.com
-             DocumentRoot /var/www/html/example.com/public_html/
-             ErrorLog /var/www/html/example.com/logs/error.log
-             CustomLog /var/www/html/example.com/logs/access.log combined
-        </VirtualHost>
-        ~~~
+    {{< file >}}
+/etc/apache2/sites-available/example.com.conf
+:   ~~~ conf
+<VirtualHost *:80>
+ServerAdmin webmaster@example.com
+ServerName example.com
+ServerAlias www.example.com
+DocumentRoot /var/www/html/example.com/public_html/
+ErrorLog /var/www/html/example.com/logs/error.log
+CustomLog /var/www/html/example.com/logs/access.log combined
+</VirtualHost>
+~~~
+
+{{< /file >}}
 
     Repeat this process for any other domains you host:
 
-    {: .file }
-    /etc/apache2/sites-available/example.org.conf
-    :   ~~~ conf
-        <VirtualHost *:80>
-             ServerAdmin webmaster@example.org     
-             ServerName example.org
-             ServerAlias www.example.org
-             DocumentRoot /var/www/html/example.org/public_html/
-             ErrorLog /var/www/html/example.org/logs/error.log
-             CustomLog /var/www/html/example.org/logs/access.log combined
-        </VirtualHost>
-        ~~~
+    {{< file >}}
+/etc/apache2/sites-available/example.org.conf
+:   ~~~ conf
+<VirtualHost *:80>
+ServerAdmin webmaster@example.org     
+ServerName example.org
+ServerAlias www.example.org
+DocumentRoot /var/www/html/example.org/public_html/
+ErrorLog /var/www/html/example.org/logs/error.log
+CustomLog /var/www/html/example.org/logs/access.log combined
+</VirtualHost>
+~~~
+
+{{< /file >}}
 
 3.  Symbolically link your virtual hosts files from the `sites-available` directory to the `sites-enabled` directory. Replace the filename with your own:
 

@@ -34,17 +34,21 @@ The Apache virtual host configuration files are found in different places, depen
 
 Remember to reload Apache configuration after making changes:
 
-{: .shell }
+{{< shell >}}
 CentOS 7
 :  ~~~ shell
-   sudo systemctl restart httpd
-   ~~~
+sudo systemctl restart httpd
+~~~
 
-{: .shell }
+{{< /shell >}}
+
+{{< shell >}}
 Ubuntu 16.04
 :  ~~~ shell
-   sudo systemctl restart apache2
-   ~~~
+sudo systemctl restart apache2
+~~~
+
+{{< /shell >}}
 
 ## The Redirect Directive
 

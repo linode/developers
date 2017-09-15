@@ -50,9 +50,11 @@ You must first edit the file `/etc/apache2/mods-available/proxy.conf` as follows
 
 This turns on proxy support in the module configuration.
 
- {: .note }
->
-> The warning regarding the `ProxyRequests` directive. It should be "off" in your configuration.
+ {{< note >}}
+
+The warning regarding the `ProxyRequests` directive. It should be "off" in your configuration.
+
+{{< /note >}}
 
 Next, we'll issue the following commands:
 
@@ -66,13 +68,15 @@ Apache should restart cleanly. If you encounter any issues, you may wish to insp
 
 We already have a site called "www.firstsite.org" running under Apache as a normal virtual host. We'll use Apache to send requests for the site "www.secondsite.org" to lighttpd, which we've configured to run on port 8080 on localhost. Here's the configuration file for "www.secondsite.org":
 
-{: .file }
+{{< file >}}
 /etc/apache2/sites-available/www.secondsite.org
 :   ~~~ apache
-    <VirtualHost *:80>
-         ServerAdmin support@secondsite.org
-         ServerName secondsite.org
-         ServerAlias www.secondsite.org
+<VirtualHost *:80>
+ServerAdmin support@secondsite.org
+ServerName secondsite.org
+ServerAlias www.secondsite.org
+
+{{< /file >}}
 
          ProxyPass / http://localhost:8080/
 
@@ -98,16 +102,18 @@ Here's the site "www.secondsite.org" being served by lighttpd via ProxyPass:
 
 If we wanted to have `http://www.firstsite.org/myapp/` served by a web application running under lighttpd, we'd simply modify its configuration file to look like this:
 
-{: .file }
+{{< file >}}
 /apache2/sites-available/www.firstsite.org
 :   ~~~ apache
-    <VirtualHost *:80>
-         ServerAdmin support@firstsite.org
-         ServerName firstsite.org
-         ServerAlias www.firstsite.org
-         DocumentRoot /srv/www/firstsite.org/public_html/
-         ErrorLog /srv/www/firstsite.org/logs/error.log
-         CustomLog /srv/www/firstsite.org/logs/access.log combined
+<VirtualHost *:80>
+ServerAdmin support@firstsite.org
+ServerName firstsite.org
+ServerAlias www.firstsite.org
+DocumentRoot /srv/www/firstsite.org/public_html/
+ErrorLog /srv/www/firstsite.org/logs/error.log
+CustomLog /srv/www/firstsite.org/logs/access.log combined
+
+{{< /file >}}
 
          ProxyPass /myapp http://localhost:8080/
     </VirtualHost>

@@ -75,14 +75,16 @@ Review the contents of the `mongodb-start` and `mongodb-stop` and modify these f
 
 Create the `/opt/config/mongodb` and use the following example as a template:
 
-{: .file }
+{{< file >}}
 /opt/config/mongodb
 :   ~~~ ini
-    # Configuration Options for MongoDB
-    # 
-    # For More Information, Consider:
-    # - Configuration Parameters: http://www.mongodb.org/display/DOCS/Command+Line+Parameters
-    # - File Based Configuration: http://www.mongodb.org/display/DOCS/File+Based+Configuration
+# Configuration Options for MongoDB
+# 
+# For More Information, Consider:
+# - Configuration Parameters: http://www.mongodb.org/display/DOCS/Command+Line+Parameters
+# - File Based Configuration: http://www.mongodb.org/display/DOCS/File+Based+Configuration
+
+{{< /file >}}
 
     dbpath = /srv/db/mongodb
     logpath = /srv/db/mongodb.log

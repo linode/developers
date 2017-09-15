@@ -45,9 +45,11 @@ Before starting this tutorial, you should have:
 
         sudo apt-get install libsasl2-modules
 
- {: .note }
->
-> This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+ {{< note >}}
+
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+{{< /note >}}
 
 ## Installing Postfix
 
@@ -91,11 +93,13 @@ If you want to use [Mandrill](#settings-for-mandrill), or [SendGrid](#settings-f
 
 2.  Add your destination (SMTP Host), username, and password in the following format:
 
-    {: .file }
-    /etc/postfix/sasl\_passwd
-    :   ~~~
-        [mail.isp.example] username:password
-        ~~~
+    {{< file >}}
+/etc/postfix/sasl\_passwd
+:   ~~~
+[mail.isp.example] username:password
+~~~
+
+{{< /file >}}
 
     {{< note >}}
 
@@ -192,19 +196,23 @@ Use these settings for Mandrill.
 
 1.  For `/etc/postfix/sasl_passwd`, use the following configuration with your own credentials:
 
-    {: .file }
-    /etc/postfix/sasl\_passwd
-    :   ~~~
-        [smtp.mandrillapp.com]:587 USERNAME:API_KEY
-        ~~~
+    {{< file >}}
+/etc/postfix/sasl\_passwd
+:   ~~~
+[smtp.mandrillapp.com]:587 USERNAME:API_KEY
+~~~
+
+{{< /file >}}
 
 2.  For `/etc/postfix/main.cf`, use the following **relayhost**:
 
-    {: .file }
-    /etc/postfix/main.cf
-    :   ~~~
-        relayhost = [smtp.mandrillapp.com]:587
-        ~~~
+    {{< file >}}
+/etc/postfix/main.cf
+:   ~~~
+relayhost = [smtp.mandrillapp.com]:587
+~~~
+
+{{< /file >}}
 
 3.  Create the hash db file for Postfix by running the `postmap` command:
 
@@ -220,19 +228,23 @@ Use these settings for SendGrid.
 
 1.  For `/etc/postfix/sasl_passwd`, use the following configuration with your own credentials:
 
-    {: .file }
-    /etc/postfix/sasl\_passwd
-    :   ~~~
-        [smtp.sendgrid.net]:587 USERNAME:PASSWORD
-        ~~~
+    {{< file >}}
+/etc/postfix/sasl\_passwd
+:   ~~~
+[smtp.sendgrid.net]:587 USERNAME:PASSWORD
+~~~
+
+{{< /file >}}
 
 2.  For `/etc/postfix/main.cf`, use the following **relayhost**:
 
-    {: .file }
-    /etc/postfix/main.cf
-    :   ~~~
-        relayhost = [smtp.sendgrid.net]:587
-        ~~~
+    {{< file >}}
+/etc/postfix/main.cf
+:   ~~~
+relayhost = [smtp.sendgrid.net]:587
+~~~
+
+{{< /file >}}
 
 3.  Create the hash db file for Postfix by running the `postmap` command:
 

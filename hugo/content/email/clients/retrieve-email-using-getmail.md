@@ -97,15 +97,17 @@ All getmail configuration occurs in the `.getmail/` folder in the user's home di
 
 The following file provides a basic template for a getmail configuration file:
 
-{: .file }
+{{< file >}}
 ~/.getmail/getmailrc
 :   ~~~
-    [retriever]
-    type = SimplePOP3SSLRetriever
-    server = pop.example.com
-    port = 995
-    username = foreman
-    password = s1d30fd4nc3r6
+[retriever]
+type = SimplePOP3SSLRetriever
+server = pop.example.com
+port = 995
+username = foreman
+password = s1d30fd4nc3r6
+
+{{< /file >}}
 
     [destination]
     type = Maildir

@@ -449,17 +449,19 @@ Next, we'll mount the Gluster volume on our application servers. The steps in th
 
 4.  Set the document root to `/srv/www` so that Apache serves content from the Gluster volume. Edit your `welcome.conf` file to match the following:
 
-    {: .file }
-    /etc/httpd/conf.d/welcome.conf
-    :   ~~~ conf
-        <VirtualHost *:80>
-            DocumentRoot "/srv/www"
-            <Directory /srv/www>
-                Require all granted
-                Options Indexes FollowSymLinks Multiviews 
-            </Directory>
-        </VirtualHost>
-        ~~~
+    {{< file >}}
+/etc/httpd/conf.d/welcome.conf
+:   ~~~ conf
+<VirtualHost *:80>
+DocumentRoot "/srv/www"
+<Directory /srv/www>
+Require all granted
+Options Indexes FollowSymLinks Multiviews 
+</Directory>
+</VirtualHost>
+~~~
+
+{{< /file >}}
 
 5.  Start the Apache server:
 

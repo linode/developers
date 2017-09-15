@@ -185,12 +185,14 @@ Like in CentOS 7, you can simply edit the ethernet interface file to configure a
 
 To add the option to rotate DNS providers, create a `dhclient` script:
 
-{: .file }
+{{< file >}}
 /etc/dhcp/dhclient.d/rotate.sh
 :   ~~~ conf
-    rotate_config() {
-        echo "options rotate" >> /etc/resolv.conf
-    }
+rotate_config() {
+echo "options rotate" >> /etc/resolv.conf
+}
+
+{{< /file >}}
 
     rotate_restore() {
         :
@@ -199,13 +201,15 @@ To add the option to rotate DNS providers, create a `dhclient` script:
 
 For multiple static IP addresses, additional IPs are assigned to an alias you create for *eth0*. To use this alias, an additional file must be created. For example, an `eth0:1` file must be created for the *eth0:1* interface alias, `eth0:2` for *eth0:2*, etc.
 
-{: .file }
+{{< file >}}
 /etc/sysconfig/network-scripts/ifcfg-eth0:1
 :   ~~~ conf
-    # Add a second static public IP address.
-    DEVICE=eth0:1
-    IPADDR=198.51.100.10
-    ~~~
+# Add a second static public IP address.
+DEVICE=eth0:1
+IPADDR=198.51.100.10
+~~~
+
+{{< /file >}}
 
 To put these changes into effect, restart your networking service:
 
@@ -239,9 +243,11 @@ Add the following to the interface configuration file:
 
 To enable name resolution, populate `resolv.conf` with your DNS IP addresses and resolv.conf options ([see man 5 resolv.conf](https://linux.die.net/man/5/resolv.conf)). The `domain`, `search` and `options` lines aren't necessary, but useful to have.
 
-{: .file }
+{{< file >}}
 /etc/resolv.conf
 :   ~~~ conf
+
+{{< /file >}}
 
     nameserver 203.0.113.1
     nameserver 203.0.113.2
@@ -291,12 +297,14 @@ Networking in Gentoo uses the `netifrc` utility. Addresses are specified in the 
 
 2.  You will also need to add your gateway to the network routes file:
 
-    {: .file }
-    /etc/sysconfig/network/routes
-    : ~~~
-      # Destination   Gateway                 Netmask                 Device
-      default         198.51.100.1            -                       eth0
-      ~~~
+    {{< file >}}
+/etc/sysconfig/network/routes
+: ~~~
+# Destination   Gateway                 Netmask                 Device
+default         198.51.100.1            -                       eth0
+~~~
+
+{{< /file >}}
 
 3.  Edit each line to add DNS and domain information for netconfig. Netconfig uses this info to modify `resolv.conf`:
 

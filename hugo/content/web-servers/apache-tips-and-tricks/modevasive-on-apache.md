@@ -45,20 +45,24 @@ You'll first want to get the mod_evasive package, uncompress it, and install it 
 
 You'll then need to add the mod_evasive configuration to your Apache configuration file. First, find this section:
 
-{: .file }
+{{< file >}}
 /etc/apache2/apache2.conf (Debian / Ubuntu)
 :   ~~~
-    # Include module configuration:
-    Include mods-enabled/*.load
-    Include mods-enabled/*.conf
-    ~~~
+# Include module configuration:
+Include mods-enabled/*.load
+Include mods-enabled/*.conf
+~~~
 
-{: .file }
+{{< /file >}}
+
+{{< file >}}
 /etc/httpd/conf/httpd.conf (CentOS / Fedora)
 :   ~~~
-    LoadModule evasive20_module /usr/lib/httpd/modules/mod_evasive20.so
-    #
-    ~~~
+LoadModule evasive20_module /usr/lib/httpd/modules/mod_evasive20.so
+#
+~~~
+
+{{< /file >}}
 
 Below those sections, add the mod_evasive configuration:
 
@@ -118,9 +122,11 @@ The blocking period is the amount of time (in seconds) that a client will be blo
 
 If this value is set, an email will be sent to the address specified whenever an IP address becomes blacklisted. A locking mechanism using /tmp prevents continuous emails from being sent.
 
- {: .note }
->
-> Be sure MAILER is set correctly in mod_evasive.c (or mod_evasive20.c). The default is "/bin/mail -t %s" where %s is used to denote the destination email address set in the configuration. If you are running on linux or some other operating system with a different type of mailer, you'll need to change this.
+ {{< note >}}
+
+Be sure MAILER is set correctly in mod_evasive.c (or mod_evasive20.c). The default is "/bin/mail -t %s" where %s is used to denote the destination email address set in the configuration. If you are running on linux or some other operating system with a different type of mailer, you'll need to change this.
+
+{{< /note >}}
 
 ### DOSSystemCommand
 

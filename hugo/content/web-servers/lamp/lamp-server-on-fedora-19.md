@@ -23,9 +23,11 @@ external_resources:
 
 This guide provides step-by-step instructions for installing a full-featured LAMP stack on a Fedora 19 system. In this guide, you will be instructed on setting up Apache, MySQL, and PHP. If you don't feel that you will need MySQL or PHP, please don't feel obligated to install them.
 
-{: .note }
->
-> Throughout this guide we will offer several suggested values for specific configuration settings. Some of these values will be set by default. These settings are shown in the guide as a reference, in the event that you change these settings to suit your needs and then need to change them back.
+{{< note >}}
+
+Throughout this guide we will offer several suggested values for specific configuration settings. Some of these values will be set by default. These settings are shown in the guide as a reference, in the event that you change these settings to suit your needs and then need to change them back.
+
+{{< /note >}}
 
 ## Set the Hostname
 
@@ -58,10 +60,12 @@ By default, all files ending in the `.conf` extension in `/etc/httpd/conf.d/` ar
 
 Edit the main Apache configuration file to add these resource use settings, or create a new .conf file in `/etc/httpd/conf.d/`. The settings shown below are a good starting point for a **Linode 2GB**.
 
-{: .file }
+{{< file >}}
 /etc/httpd/conf/httpd.conf
 :   ~~~ apache
-    KeepAlive Off
+KeepAlive Off
+
+{{< /file >}}
 
     <IfModule prefork.c>
             StartServers        4
@@ -214,11 +218,13 @@ If you need support for MySQL in PHP, then you must install the php5-mysql packa
 
 You can test PHP by creating a file with the following contents under your "public\_html" directory:
 
-{: .file }
+{{< file >}}
 /var/www/example.com/public\_html/test.php
 :   ~~~ php
-    <?php phpinfo(); ?>
-    ~~~
+<?php phpinfo(); ?>
+~~~
+
+{{< /file >}}
 
 You will need to restart Apache before php scripts will work:
 

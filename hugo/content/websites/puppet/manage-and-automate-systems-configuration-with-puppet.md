@@ -64,10 +64,12 @@ All Puppet files are stored in the `/etc/puppet/manifests/` directory, and Puppe
 
 Consider the following class, which is an elaboration on the canonical example Puppet `sudo` class:
 
-{: .file }
+{{< file >}}
 /etc/puppet/manifests/classes/sudo.pp
 :   ~~~ pp
-    # /etc/puppet/manifests/classes/sudo.pp
+# /etc/puppet/manifests/classes/sudo.pp
+
+{{< /file >}}
 
     class sudo {
         file { "/etc/sudoers":
@@ -81,10 +83,12 @@ Consider the following class, which is an elaboration on the canonical example P
 
 In this example, configuration for the `/etc/sudoers` file is described, owned by the `root` user and group, with permissions of 440 that only allow read access for the owner and the members of the owner group. When applied, this manifest will ensure that the system in question has the above configuration applied to the `/etc/sudoers` file. The `source` specification allows puppet to copy a specific file from the Puppetmaster server. Distributing files with puppet will be covered [later](#serving_files).
 
-{: .file }
+{{< file >}}
 /etc/puppet/manifests/site.pp
 :   ~~~ pp
-    # /etc/puppet/manifests/site.pp
+# /etc/puppet/manifests/site.pp
+
+{{< /file >}}
 
     import "classes/*"
 

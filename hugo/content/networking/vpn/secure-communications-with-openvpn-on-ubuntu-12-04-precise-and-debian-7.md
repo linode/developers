@@ -23,9 +23,11 @@ OpenVPN, or Open Virtual Private Network, is a tool for creating networking tunn
 
 Before installing OpenVPN, we assume that you have followed our [Getting Started Guide](/docs/getting-started/). If you're new to Linux server administration you may be interested in our [Introduction to Linux Concepts Guide](/docs/tools-reference/introduction-to-linux-concepts), [Beginner's Guide](/docs/beginners-guide/) and [Administration Basics Guide](/docs/using-linux/administration-basics). If you're concerned about securing on your Linode, you might be interested in our [Security Basics](/docs/security/basics) article as well.
 
- {: .note }
->
-> For many private networking tasks, we suggest that you consider the functions of the OpenSSH package which can provide easier VPN and VPN-like services. OpenSSH is also installed and configured by default on all Linodes. For example, see [Using SSHFS on Linux and MacOS X](/docs/networking/ssh-filesystems) or our guide on [Setting up an SSH Tunnel](/docs/networking/ssh/setting-up-an-ssh-tunnel-with-your-linode-for-safe-browsing) for more information. Nevertheless, if your deployment requires a more traditional VPN solution like OpenVPN, this document covers the installation and configuration of the OpenVPN software.
+ {{< note >}}
+
+For many private networking tasks, we suggest that you consider the functions of the OpenSSH package which can provide easier VPN and VPN-like services. OpenSSH is also installed and configured by default on all Linodes. For example, see [Using SSHFS on Linux and MacOS X](/docs/networking/ssh-filesystems) or our guide on [Setting up an SSH Tunnel](/docs/networking/ssh/setting-up-an-ssh-tunnel-with-your-linode-for-safe-browsing) for more information. Nevertheless, if your deployment requires a more traditional VPN solution like OpenVPN, this document covers the installation and configuration of the OpenVPN software.
+
+{{< /note >}}
 
 ## How OpenVPN Works
 
@@ -37,9 +39,11 @@ With the additional configuration we will set up at the end of this guide, all t
 
 [![Splash screen for TunnelBlick.](/docs/assets/1360-FullTunneling.jpg)](/docs/assets/1360-FullTunneling.jpg)
 
- {: .note }
->
-> Please note that only one public IP address is required to use OpenVPN
+ {{< note >}}
+
+Please note that only one public IP address is required to use OpenVPN
+
+{{< /note >}}
 
 ## Installing OpenVPN
 
@@ -190,31 +194,35 @@ In this section, you'll create two important configuration files. One is for the
 
         nano ~/client.conf
 
-    {: .file }
-	~/client.conf
-    :   ~~~
-        # The hostname/IP and port of the server.
-        # You can have multiple remote entries
-        # to load balance between the servers.
+    {{< file >}}
+~/client.conf
+:   ~~~
+# The hostname/IP and port of the server.
+# You can have multiple remote entries
+# to load balance between the servers.
+
+{{< /file >}}
 
         remote example.com 1194
         ~~~
 
 5.  In the same file, `client.conf`, edit the `cert` and `key` lines to reflect the name of your key. In this example we use `client1` for the file name.
 
-    {: .file }
-    ~/client.conf
-    :   ~~~
-        # SSL/TLS parms.
-        # See the server config file for more
-        # description.  It's best to use
-        # a separate .crt/.key file pair
-        # for each client.  A single ca
-        # file can be used for all clients.
-        ca ca.crt
-        cert client1.crt
-        key client1.key
-        ~~~
+    {{< file >}}
+~/client.conf
+:   ~~~
+# SSL/TLS parms.
+# See the server config file for more
+# description.  It's best to use
+# a separate .crt/.key file pair
+# for each client.  A single ca
+# file can be used for all clients.
+ca ca.crt
+cert client1.crt
+key client1.key
+~~~
+
+{{< /file >}}
 
 6.  Copy the `~/client.conf` file to your client system.
 7.  Repeat the entire key generation and distribution process for every user and every key that will connect to your network.
@@ -332,9 +340,11 @@ By deploying the following configuration, you will be able to forward *all* traf
 
         apt-get install dnsmasq && dpkg-reconfigure resolvconf
 
-	{: .note }
-	>
+	{{< note >}}
+
 	> If you are using Debian 7, replace this command with `apt-get install dnsmasq resolvconf` and skip steps 7 through 9
+
+{{< /note >}}
 
 7.  You will be presented with a series of options in an ncurses menu. First, choose **yes** to prepare `/etc/resolv.conf` for dynamic updates.
 
@@ -379,9 +389,11 @@ By deploying the following configuration, you will be able to forward *all* traf
         dns-nameservers 97.107.133.4 207.192.69.4 207.192.69.5
         ~~~~
 
-	{: .note }
-	>
+	{{< note >}}
+
 	> If you're not utilizing IPv6, you can omit the addresses starting with 2600:
+
+{{< /note >}}
 
 13. When your system boots, dnsmasq will try to start before the OpenVPN tun device has been enabled. This will cause dnsmasq to fail at boot. To rectify this, modify your `/etc/rc.local` file to add a line that will restart dnsmasq after all the init scripts have finished. You should place the restart command after your iptables rules:
 

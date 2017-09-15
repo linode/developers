@@ -107,10 +107,12 @@ writeip
 
 2.  Create a startup script for CS:GO with the contents given below. **Be sure to replace `YOUR_GSLT` in the script's command with your game server login token**.
 
-    {: .file }
-    ~/startcsgo.sh
-    :   ~~~
-        #!/bin/sh
+    {{< file >}}
+~/startcsgo.sh
+:   ~~~
+#!/bin/sh
+
+{{< /file >}}
 
         cd ./Steam/csgo-ds
         screen -S "Counter-Strike: Global Offensive Server" ./srcds_run -game csgo -usercon +game_type 0 +game_mode 1 +mapgroup mg_bomb +map de_dust2 +sv_setsteamaccount YOUR_GSLT -net_port_try 1

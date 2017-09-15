@@ -23,8 +23,10 @@ Basic System Configuration
 
 Make sure your `/etc/hosts` file contains sensible values. In the example file below, you would replace "12.34.56.78" with your Linode's IP address, and "servername.example.com" with your Linode's fully qualified domain name (FQDN). It is advisable to use something unique and memorable for "servername" in this file.
 
-{: .file }
+{{< file >}}
 /etc/hosts
+
+{{< /file >}}
 
 > 127.0.0.1 localhost.localdomain localhost 12.34.56.78 servername.example.com servername
 
@@ -35,12 +37,14 @@ Next, make sure your Linode's hostname is set to the short value you specified i
 
 Various packages discussed in this guide require the `universe` repositories to be enabled. To enable `universe`, first modify your `/etc/apt/sources.list` file to mirror the example file below. You'll need to uncomment the universe lines:
 
-{: .file }
+{{< file >}}
 /etc/apt/sources.list
 :   ~~~
-    ## main & restricted repositories
-    deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted         
-    deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
+## main & restricted repositories
+deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted         
+deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
+
+{{< /file >}}
 
     deb http://security.ubuntu.com/ubuntu karmic-security main restricted
     deb-src http://security.ubuntu.com/ubuntu karmic-security main restricted
@@ -120,18 +124,20 @@ Each additional virtual host needs its own file in the `/etc/apache2/sites-avail
 
 First create example.com (`/etc/apache2/sites-available/example.com`) so that it resembles the following. Make sure to replace "12.34.56.78" with your Linode's IP address.
 
-{: .file }
+{{< file >}}
 /etc/apache2/sites-available/example.com
 :   ~~~ apache
-    <VirtualHost 12.34.56.78:80>
-             ServerAdmin username@example.com     
-         ServerName example.com
-         ServerAlias www.example.com
-         DocumentRoot /srv/www/example.com/public_html/
-         ErrorLog /srv/www/example.com/logs/error.log
-         CustomLog /srv/www/example.com/logs/access.log combined
-    </VirtualHost>
-    ~~~
+<VirtualHost 12.34.56.78:80>
+ServerAdmin username@example.com     
+ServerName example.com
+ServerAlias www.example.com
+DocumentRoot /srv/www/example.com/public_html/
+ErrorLog /srv/www/example.com/logs/error.log
+CustomLog /srv/www/example.com/logs/access.log combined
+</VirtualHost>
+~~~
+
+{{< /file >}}
 
 If you would like to enable Perl support, add the following lines to the `VirtualHost` entry above.
 
@@ -144,18 +150,20 @@ If you would like to enable Perl support, add the following lines to the `Virtua
 
 Next, create example.com (`/etc/apache2/sites-available/example.com`) so that it resembles this:
 
-{: .file }
+{{< file >}}
 /etc/apache2/sites-available/example.com
 :   ~~~ apache
-    <VirtualHost 12.34.56.78:80>
-         ServerAdmin username@example.com
-         ServerName example.com
-         ServerAlias www.example.com
-         DocumentRoot /srv/www/example.com/public_html/
-         ErrorLog /srv/www/example.com/logs/error.log
-         CustomLog /srv/www/example.com/logs/access.log combined
-    </VirtualHost>
-    ~~~
+<VirtualHost 12.34.56.78:80>
+ServerAdmin username@example.com
+ServerName example.com
+ServerAlias www.example.com
+DocumentRoot /srv/www/example.com/public_html/
+ErrorLog /srv/www/example.com/logs/error.log
+CustomLog /srv/www/example.com/logs/access.log combined
+</VirtualHost>
+~~~
+
+{{< /file >}}
 
 You'll note that some basic options are specified for both sites, including where the files for the site will reside (under `/srv/www/`). You can add (or remove) additional configuration options, such as the Perl support, on a site-by-site basis to these files as your needs dictate.
 

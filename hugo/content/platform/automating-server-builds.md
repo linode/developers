@@ -26,8 +26,10 @@ It is recommended that you take steps to automate the server-provisioning proces
 
 The idea behind a golden disk is simple: Create the perfect image and then save it for cloning to other servers. To get started, set up a new Linode, install the desired packages, configure the settings, and then test the configuration. Once satisfied with the server configuration, shut down the Linode, duplicate the disk, and then clone it to all of your other Linodes, either manually or though [the Linode API](http://www.linode.com/api/linode/linode.clone).
 
-{: .note }
-> Be aware that certain files like `/etc/hosts`, `/etc/hostname`, and static networking configurations may need to be modified for individual Linodes.
+{{< note >}}
+Be aware that certain files like `/etc/hosts`, `/etc/hostname`, and static networking configurations may need to be modified for individual Linodes.
+
+{{< /note >}}
 
 [![Cloning your Linode disk.](/docs/assets/1303-image_cloning_2.jpg)](/docs/assets/1303-image_cloning_2.jpg)
 

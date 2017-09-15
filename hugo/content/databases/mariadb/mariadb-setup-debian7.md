@@ -26,9 +26,11 @@ external_resources:
 
 MariaDB is a drop-in replacement for MySQL and it strives to be the logical choice for database professionals looking for a robust, scalable, and reliable SQL Server. This guide will help beginners get started with MariaDB on a Debian 7 (Wheezy) Linode.
 
- {: .note }
->
-> The steps required in this guide require root privileges. Be sure to run the steps below as `root` or with the **sudo** prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+ {{< note >}}
+
+The steps required in this guide require root privileges. Be sure to run the steps below as `root` or with the **sudo** prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+{{< /note >}}
 
 ## Prerequisites
 
@@ -273,21 +275,25 @@ You will be asked to change the root password, remove anonymous users, disable r
 
     Thanks for using MariaDB!
 
- {: .note }
->
-> Do not be concerned about the `find_mysql_client: not found` message. This is a known bug as described in this [MariaDB mailing list](https://lists.launchpad.net/maria-developers/msg05358.html). Also, unlike MySQL, MariaDB does not install a test database by default, so you can ignore this error message:
->
->     ERROR 1008 (HY000) at line 1: Can't drop database 'test'; database doesn't exist
->
-> In short, neither warning is a problem.
+ {{< note >}}
+
+Do not be concerned about the `find_mysql_client: not found` message. This is a known bug as described in this [MariaDB mailing list](https://lists.launchpad.net/maria-developers/msg05358.html). Also, unlike MySQL, MariaDB does not install a test database by default, so you can ignore this error message:
+
+ERROR 1008 (HY000) at line 1: Can't drop database 'test'; database doesn't exist
+
+In short, neither warning is a problem.
+
+{{< /note >}}
 
 ## Remote User Connections
 
 Let's take a look at how to allow the previously created user, **testuser**, to connect to MariaDB remotely (by default, MariaDB will allow connections from only localhost).
 
- {: .caution }
->
-> Opening a MariaDB server up to the internet makes it less secure. If you need to connect from somewhere other than localhost, make sure you implement [firewall](/docs/security/firewalls/iptables) rules that allow connections only from specific IP addresses.
+ {{< caution >}}
+
+Opening a MariaDB server up to the internet makes it less secure. If you need to connect from somewhere other than localhost, make sure you implement [firewall](/docs/security/firewalls/iptables) rules that allow connections only from specific IP addresses.
+
+{{< /caution >}}
 
 1.  First, we need to grant user connections from remote hosts for the **testuser** user. Log in to MariaDB as root:
 
@@ -383,7 +389,10 @@ Below is some sample output:
       *** MySQL's maximum memory usage is dangerously high ***
       *** Add RAM before increasing MySQL buffer variables ***
         query_cache_limit (> 128K, or use smaller result sets)    
-{: .output }
+{{< output >}}
+
+
+{{< /output >}}
 
 Pay attention to the output, especially the recommendations at the end. It will point you towards which variables you should adjust in the `[mysqld]` section of your `/etc/mysql/my.cnf` file.
 

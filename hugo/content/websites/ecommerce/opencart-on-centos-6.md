@@ -20,8 +20,10 @@ PHP Settings
 
 In order to use OpenCart, you will need to ensure that PHP is configured properly. Make sure the settings below match the values in your `/etc/php.ini` file:
 
-{: .file }
+{{< file >}}
 /etc/php.ini
+
+{{< /file >}}
 
 > register\_globals = Off magic\_quotes\_gpc = Off file\_uploads = 1 session\_auto\_start = 0
 

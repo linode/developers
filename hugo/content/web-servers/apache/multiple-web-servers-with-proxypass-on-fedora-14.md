@@ -25,12 +25,14 @@ Enabling the Proxy Module
 
 The Fedora package of the Apache HTTP server includes the proxy module. To enable this module, create the `/etc/httpd/conf.d/proxy.conf` file with the following content:
 
-{: .file }
+{{< file >}}
 /etc/httpd/conf.d/proxy.conf
 :   ~~~ apache
-    <IfModule mod_proxy.c>
-            #turning ProxyRequests on and allowing proxying from all may allow
-            #spammers to use your proxy to send email.
+<IfModule mod_proxy.c>
+#turning ProxyRequests on and allowing proxying from all may allow
+#spammers to use your proxy to send email.
+
+{{< /file >}}
 
             ProxyRequests Off
 

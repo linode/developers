@@ -50,10 +50,12 @@ This guide is written for a non-root user. Commands that require elevated privil
 
 2.  Edit the main Apache configuration file to adjust the resource use settings. The settings shown below are a good starting point for a **Linode 2GB**:
 
-    {: .file }
-    /etc/httpd/conf/httpd.conf
-    :   ~~~ conf
-        KeepAlive Off
+    {{< file >}}
+/etc/httpd/conf/httpd.conf
+:   ~~~ conf
+KeepAlive Off
+
+{{< /file >}}
 
 
         <IfModule prefork.c>

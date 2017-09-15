@@ -132,51 +132,59 @@ For the next four steps, replace `mail_admin_password` with the `mail_admin` pas
 
 1.  Create a virtual domain configuration file for Postfix called `/etc/postfix/mysql-virtual_domains.cf`:
 
-    {: .file }
-    /etc/postfix/mysql-virtual_domains.cf
-    :   ~~~
-        user = mail_admin
-        password = mail_admin_password
-        dbname = mail
-        query = SELECT domain AS virtual FROM domains WHERE domain='%s'
-        hosts = 127.0.0.1
-        ~~~
+    {{< file >}}
+/etc/postfix/mysql-virtual_domains.cf
+:   ~~~
+user = mail_admin
+password = mail_admin_password
+dbname = mail
+query = SELECT domain AS virtual FROM domains WHERE domain='%s'
+hosts = 127.0.0.1
+~~~
+
+{{< /file >}}
 
 2.  Create a virtual forwarding file for Postfix called `/etc/postfix/mysql-virtual_forwardings.cf`:
 
-    {: .file }
-    /etc/postfix/mysql-virtual_forwardings.cf
-    :   ~~~
-        user = mail_admin
-        password = mail_admin_password
-        dbname = mail
-        query = SELECT destination FROM forwardings WHERE source='%s'
-        hosts = 127.0.0.1
-        ~~~
+    {{< file >}}
+/etc/postfix/mysql-virtual_forwardings.cf
+:   ~~~
+user = mail_admin
+password = mail_admin_password
+dbname = mail
+query = SELECT destination FROM forwardings WHERE source='%s'
+hosts = 127.0.0.1
+~~~
+
+{{< /file >}}
 
 3.  Create a virtual mailbox configuration file for Postfix called `/etc/postfix/mysql-virtual_mailboxes.cf`:
 
-    {: .file }
-    /etc/postfix/mysql-virtual_mailboxes.cf
-    :   ~~~
-        user = mail_admin
-        password = mail_admin_password
-        dbname = mail
-        query = SELECT CONCAT(SUBSTRING_INDEX(email,'@',-1),'/',SUBSTRING_INDEX(email,'@',1),'/') FROM users WHERE email='%s'
-        hosts = 127.0.0.1
-        ~~~
+    {{< file >}}
+/etc/postfix/mysql-virtual_mailboxes.cf
+:   ~~~
+user = mail_admin
+password = mail_admin_password
+dbname = mail
+query = SELECT CONCAT(SUBSTRING_INDEX(email,'@',-1),'/',SUBSTRING_INDEX(email,'@',1),'/') FROM users WHERE email='%s'
+hosts = 127.0.0.1
+~~~
+
+{{< /file >}}
 
 4.  Create a virtual email mapping file for Postfix called `/etc/postfix/mysql-virtual_email2email.cf`:
 
-    {: .file }
-    /etc/postfix/mysql-virtual_email2email.cf
-    :   ~~~
-        user = mail_admin
-        password = mail_admin_password
-        dbname = mail
-        query = SELECT email FROM users WHERE email='%s'
-        hosts = 127.0.0.1
-        ~~~
+    {{< file >}}
+/etc/postfix/mysql-virtual_email2email.cf
+:   ~~~
+user = mail_admin
+password = mail_admin_password
+dbname = mail
+query = SELECT email FROM users WHERE email='%s'
+hosts = 127.0.0.1
+~~~
+
+{{< /file >}}
 
 5.  Set proper permissions and ownership for these configuration files:
 
@@ -275,12 +283,14 @@ This completes the configuration for Postfix.
 
 2.  Copy the following into the now-empty `dovecot.conf` file. Substitute your system's domain name for `example.com` in line 37, and your ssl key and certificate, if any, on lines 5 and 6:
 
-    {: .file }
-    /etc/dovecot/dovecot.conf
-    :   ~~~
-        protocols = imap pop3
-        log_timestamp = "%Y-%m-%d %H:%M:%S "
-        mail_location = maildir:/home/vmail/%d/%n/Maildir
+    {{< file >}}
+/etc/dovecot/dovecot.conf
+:   ~~~
+protocols = imap pop3
+log_timestamp = "%Y-%m-%d %H:%M:%S "
+mail_location = maildir:/home/vmail/%d/%n/Maildir
+
+{{< /file >}}
 
         ssl_cert = </etc/pki/dovecot/certs/dovecot.pem
         ssl_key = </etc/pki/dovecot/private/dovecot.pem
@@ -334,14 +344,16 @@ This completes the configuration for Postfix.
 
 3.  MariaDB will be used to store password information, so `/etc/dovecot/dovecot-sql.conf.ext` must be created. Insert the following contents into the file, making sure to replace `mail_admin_password` with your mail password:
 
-    {: .file }
-    /etc/dovecot/dovecot-sql.conf.ext
-    :   ~~~
-        driver = mysql
-        connect = host=127.0.0.1 dbname=mail user=mail_admin password=mail_admin_password
-        default_pass_scheme = CRYPT
-        password_query = SELECT email as user, password FROM users WHERE email='%u';
-        ~~~
+    {{< file >}}
+/etc/dovecot/dovecot-sql.conf.ext
+:   ~~~
+driver = mysql
+connect = host=127.0.0.1 dbname=mail user=mail_admin password=mail_admin_password
+default_pass_scheme = CRYPT
+password_query = SELECT email as user, password FROM users WHERE email='%u';
+~~~
+
+{{< /file >}}
 
 4.  Restrict access to the file by changing the permissions to allow users in the `dovecot` group to access it, while denying access to others:
 
@@ -381,12 +393,14 @@ This completes the configuration for Postfix.
 
 1.  Edit the file `/etc/aliases`, making sure the `postmaster` and `root` directives are set properly for your organization:
 
-    {: .file }
-    /etc/aliases
-    :   ~~~
-        postmaster: root
-        root: postmaster@example.com
-        ~~~
+    {{< file >}}
+/etc/aliases
+:   ~~~
+postmaster: root
+root: postmaster@example.com
+~~~
+
+{{< /file >}}
 
 2.  Update aliases and restart Postfix:
 

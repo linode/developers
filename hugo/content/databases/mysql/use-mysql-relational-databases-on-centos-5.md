@@ -23,12 +23,14 @@ System Configuration
 
 Make sure your `/etc/hosts` file has proper entries, similar to the ones shown below:
 
-{: .file }
+{{< file >}}
 /etc/hosts
 :   ~~~
-    127.0.0.1 localhost.localdomain localhost
-    12.34.56.78 servername.mydomain.com servername
-    ~~~
+127.0.0.1 localhost.localdomain localhost
+12.34.56.78 servername.mydomain.com servername
+~~~
+
+{{< /file >}}
 
 Be sure to substitute your Linode's public IP address for "12.34.56.78" in the example above.
 
@@ -54,16 +56,18 @@ After installing MySQL, it's recommended that you run `mysql_secure_installation
 
 By default, MySQL makes some assumptions about your server environment with respect to memory. To configure MySQL more conservatively, you'll need to edit some settings in its configuration file. Your file should resemble the following:
 
-{: .file }
+{{< file >}}
 /etc/my.cnf
 :   ~~~ ini
-    [mysqld]
-    datadir=/var/lib/mysql
-    socket=/var/lib/mysql/mysql.sock
-    user=mysql
-    # Default to using old password format for compatibility with mysql 3.x
-    # clients (those using the mysqlclient10 compatibility package).
-    old_passwords=1
+[mysqld]
+datadir=/var/lib/mysql
+socket=/var/lib/mysql/mysql.sock
+user=mysql
+# Default to using old password format for compatibility with mysql 3.x
+# clients (those using the mysqlclient10 compatibility package).
+old_passwords=1
+
+{{< /file >}}
 
     # Disabling symbolic-links is recommended to prevent assorted security risks;
     # to do so, uncomment this line:

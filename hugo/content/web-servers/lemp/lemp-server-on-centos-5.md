@@ -204,14 +204,16 @@ Edit the `/etc/sudoers` file to comment the `Defaults    requiretty` line and en
 
 Consider the following nginx virtual host configuration. Modify your configuration to resemble the one below, and ensure that the `location ~ \.php$ { }` resembles the one in this example:
 
-{: .file }
+{{< file >}}
 nginx virtual host configuration
 :   ~~~ nginx
-    server {
-        server_name www.example.com example.com;
-        access_log /srv/www/example.com/logs/access.log;
-        error_log /srv/www/example.com/logs/error.log;
-        root /srv/www/example.com/public_html;
+server {
+server_name www.example.com example.com;
+access_log /srv/www/example.com/logs/access.log;
+error_log /srv/www/example.com/logs/error.log;
+root /srv/www/example.com/public_html;
+
+{{< /file >}}
 
         location / {
             index index.html index.htm index.php;

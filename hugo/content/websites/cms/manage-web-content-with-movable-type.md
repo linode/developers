@@ -25,18 +25,20 @@ If your LAMP environment isn't already set up to allow Perl scripts to be run on
 
 Next, we'll make sure Apache knows where CGI scripts are allowed to be run.
 
-{: .file }
+{{< file >}}
 /etc/apache2/sites-available/example.com
 :   ~~~ apache
-    <VirtualHost *:80>
-         ServerAdmin support@example.com
-         ServerName example.com
-         ServerAlias www.example.com
-         DocumentRoot /srv/www/example.com/public_html/
-         ErrorLog /srv/www/example.com/logs/error.log
-         CustomLog /srv/www/example.com/logs/access.log combined
-         AddHandler cgi-script .cgi .pl
-    </VirtualHost>
+<VirtualHost *:80>
+ServerAdmin support@example.com
+ServerName example.com
+ServerAlias www.example.com
+DocumentRoot /srv/www/example.com/public_html/
+ErrorLog /srv/www/example.com/logs/error.log
+CustomLog /srv/www/example.com/logs/access.log combined
+AddHandler cgi-script .cgi .pl
+</VirtualHost>
+
+{{< /file >}}
 
     <Directory /srv/www/example.com/public_html/>
          Options +ExecCGI

@@ -31,8 +31,10 @@ Prior to following this guide, you will need to ensure that the following steps 
 
 -  This guide is written for a non-root user. Commands that require elevated privileges are prefixed with ``sudo``. If you're not familiar with the ``sudo`` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
 
-{: .note }
->If you wish, you may use the `root` account on your Linode to perform file transfers, although you may need to change [file ownership and permissions](/docs/tools-reference/linux-users-and-groups) on the server after doing so.
+{{< note >}}
+If you wish, you may use the `root` account on your Linode to perform file transfers, although you may need to change [file ownership and permissions](/docs/tools-reference/linux-users-and-groups) on the server after doing so.
+
+{{< /note >}}
 
 ## Installing FileZilla
 
@@ -65,8 +67,10 @@ CentOS/Fedora
 
 If you have followed our [Securing Your Server](/docs/security/securing-your-server) guide, you won't be able to connect to your Linode using a password. If you are using Linux or OS X, the keys that you generated while following that guide will be automatically used for authentication.
 
-{: .note }
->If you are using OS X, the passphrase for your key will need to be stored in your keychain in order to successfully connect via SSH key. FileZilla will not be able to use a key that was generated without a passphrase to connect to your Linode.
+{{< note >}}
+If you are using OS X, the passphrase for your key will need to be stored in your keychain in order to successfully connect via SSH key. FileZilla will not be able to use a key that was generated without a passphrase to connect to your Linode.
+
+{{< /note >}}
 
 If you are using Windows, you'll need to follow a few additional steps to enable key based authentication. The instructions below assume that you have already completed the guide for [generating your SSH key with Putty](/docs/security/use-public-key-authentication-with-ssh#windows-operating-system).
 

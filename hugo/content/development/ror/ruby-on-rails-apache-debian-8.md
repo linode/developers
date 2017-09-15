@@ -20,8 +20,10 @@ Ruby on Rails is a rapid development web framework that allows web designers and
 
 ![Ruby on Rails with Apache on Debian 8](/docs/assets/ruby_on_rails_with_apache_debian_8.png "Ruby on Rails with Apache on Debian 8")
 
-{: .note }
->This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the sudo command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< note >}}
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the sudo command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+{{< /note >}}
 
 ## Before You Begin
 

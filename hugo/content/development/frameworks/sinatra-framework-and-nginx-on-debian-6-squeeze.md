@@ -114,12 +114,14 @@ Insert the following line into the `/opt/nginx/conf/nginx.conf` file, modifying 
 
 This inserts the contents of `/srv/www/example.com/nginx.conf` into your nginx configuration, and allows you to specify the configuration of the virtual host for the `example.com` site. Consider the following example configuration, and modify this file to meet the needs of your deployment:
 
-{: .file }
+{{< file >}}
 /srv/www/example.com/nginx.conf
 :   ~~~ nginx
-    server {
-            listen 80;
-            server_name www.example.com example.com;
+server {
+listen 80;
+server_name www.example.com example.com;
+
+{{< /file >}}
 
         access_log /srv/www/example.com/logs/access.log;
             error_log /srv/www/example.com/logs/error.log;
@@ -144,11 +146,13 @@ Create a Basic Sinatra Application
 
 The following is a very basic Sinatra application. Place the following code in the `/srv/www/example.com/application/app.rb` file.
 
-{: .file }
+{{< file >}}
 /srv/www/example.com/application/app.rb
 :   ~~~ ruby
-    require 'rubygems'
-    require 'sinatra'
+require 'rubygems'
+require 'sinatra'
+
+{{< /file >}}
 
     get '/' do
       "Hello and Goodbye"
@@ -168,11 +172,13 @@ Deploy Sinatra Applications with Rack
 
 Create a Rack configuration file located at `/srv/www/example.com/application/config.ru` to allow Passenger to run your application properly. Deploy the following `config.ru` file:
 
-{: .file }
+{{< file >}}
 /srv/www/example.com/application/config.ru
 :   ~~~ ruby
-    require 'rubygems'
-    require 'sinatra'
+require 'rubygems'
+require 'sinatra'
+
+{{< /file >}}
 
     require 'app'
     run Sinatra::Application

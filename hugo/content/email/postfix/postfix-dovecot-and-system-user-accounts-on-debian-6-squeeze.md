@@ -59,8 +59,10 @@ Edit the `/etc/default/saslauthd` file to allow the SASL authentication daemon t
 
 Create the `/etc/postfix/sasl/smtpd.conf` file, and insert the following line:
 
-{: .file }
+{{< file >}}
 /etc/postfix/sasl/smtpd.conf
+
+{{< /file >}}
 
 > pwcheck\_method: saslauthd
 
@@ -146,8 +148,10 @@ Every existing user that receives email will also need to make their own `Maildi
 
 Create a `/etc/postfix/virtual` file to map incoming email addresses to their destinations. Consider the following example:
 
-{: .file }
+{{< file >}}
 /etc/postfix/virtual
+
+{{< /file >}}
 
 > <username@example.com> username <username@example.net> username <username@example.com> username
 >
@@ -184,15 +188,17 @@ Issue the following command to create a back up of the default `/etc/dovecot/dov
     cp /etc/dovecot/dovecot.conf /etc/dovecot/dovecot.conf-backup
     rm /etc/dovecot/dovecot.conf
 
-{: .file }
+{{< file >}}
 /etc/dovecot/dovecot.conf
 :   ~~~ INI
-    protocols = imap imaps pop3 pop3s
-    log_timestamp = "%Y-%m-%d %H:%M:%S "
-    mail_privileged_group = mail
-    ssl_cert_file = /etc/ssl/certs/postfix.pem
-    ssl_key_file = /etc/ssl/private/postfix.key
-    mail_location = maildir:~/mail:LAYOUT=fs:INBOX=~/mail/
+protocols = imap imaps pop3 pop3s
+log_timestamp = "%Y-%m-%d %H:%M:%S "
+mail_privileged_group = mail
+ssl_cert_file = /etc/ssl/certs/postfix.pem
+ssl_key_file = /etc/ssl/private/postfix.key
+mail_location = maildir:~/mail:LAYOUT=fs:INBOX=~/mail/
+
+{{< /file >}}
 
     protocol imap {
     }

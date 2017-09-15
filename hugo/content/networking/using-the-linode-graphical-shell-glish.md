@@ -15,10 +15,12 @@ title: 'Using the Linode Graphical Shell (Glish)'
 
 Glish is the graphical version of the [Linode Shell](/docs/networking/using-the-linode-shell-lish) (Lish). It allows you to use a graphic environment running natively on your Linode's operating system.
 
-{: .note }
-> Linode base distribution images do not have graphic environments installed. You will need to install one, or use a [Custom Distro](/docs/tools-reference/custom-kernels-distros/custom-distro-on-kvm-linode) with a graphic environment pre-installed.
->
->Glish is only available on KVM Linodes.
+{{< note >}}
+Linode base distribution images do not have graphic environments installed. You will need to install one, or use a [Custom Distro](/docs/tools-reference/custom-kernels-distros/custom-distro-on-kvm-linode) with a graphic environment pre-installed.
+
+Glish is only available on KVM Linodes.
+
+{{< /note >}}
 
 ## Enable Glish on a Linode-Supplied Image
 
@@ -28,8 +30,10 @@ When using one of Linode's distribution templates with Distro Helper turned on, 
 
 	exec /sbin/getty -8 38400 tty1 &
 
-{: .note }
-> The process for launching a getty may differ depending on your distribution.
+{{< note >}}
+The process for launching a getty may differ depending on your distribution.
+
+{{< /note >}}
 
 ## Access Glish
 

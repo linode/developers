@@ -84,8 +84,10 @@ It's important to set up a git repository that will be the "origin" repository f
 
 Edit the `~/wiki/.git/config` file to create the remote repository so that it looks something like the following example:
 
-{: .file }
+{{< file >}}
 \~/wiki/.git/config
+
+{{< /file >}}
 
 > [core]
 > :   repositoryformatversion = 0 filemode = true bare = false logallrefupdates = true
@@ -146,8 +148,10 @@ The process for creating a bare repository to push/pull the `wiki-admin` git rep
 
 Next, edit the `~/wiki-admin/.git/config` file to set up the remote repository. Use the following example as a guideline.
 
-{: .file }
+{{< file >}}
 \~/wiki/.git/config
+
+{{< /file >}}
 
 > [core]
 > :   repositoryformatversion = 0 filemode = true bare = false logallrefupdates = true

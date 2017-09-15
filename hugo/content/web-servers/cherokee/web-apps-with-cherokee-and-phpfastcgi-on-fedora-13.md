@@ -132,11 +132,13 @@ Test Your Configuration
 
 Create a test PHP script as follows:
 
-{: .file }
+{{< file >}}
 /srv/www/example.com/www/public\_html/test.php
 :   ~~~ php
-    <?php echo "<html><body><h1>This is a test. It is only a test.</h1></body></html>"; ?>
-    ~~~
+<?php echo "<html><body><h1>This is a test. It is only a test.</h1></body></html>"; ?>
+~~~
+
+{{< /file >}}
 
 Visit `/test.php` on your site to verfify PHP-FastCGI is operating correctly. Congratulations, you've successfully configured PHP-FastCGI for dynamic content using the Cherokee web server!
 

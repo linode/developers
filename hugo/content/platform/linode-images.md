@@ -25,8 +25,10 @@ When saving a Linode image it is the aspects of the Linode that are on the **dis
 
 Linode Images captures an exact copy of your disk at the moment when the process is kicked off. Here's how to capture your first image.
 
- {: .note }
- >While an image can be captured while your Linode is running, we would recommend shutting your Linode down first if you are running any active databases. Capturing an image that includes a running database can cause corruption or data loss in the imaged copy of the database.
+ {{< note >}}
+While an image can be captured while your Linode is running, we would recommend shutting your Linode down first if you are running any active databases. Capturing an image that includes a running database can cause corruption or data loss in the imaged copy of the database.
+
+{{< /note >}}
 
 1.  Navigate to your Linode Dashboard and select the disk that you wish to freeze from the **Disks** list.
 

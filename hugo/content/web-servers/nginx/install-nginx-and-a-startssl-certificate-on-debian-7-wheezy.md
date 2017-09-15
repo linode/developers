@@ -230,9 +230,11 @@ You should now be logged into your StartSSL account.
             }
         }
 
-    {: .note }
-    >
-    >The changes are to `server_name`, `ssl_certificate`, `ssl_certificate_key`, `ssl_session_cache`, `ssl_ciphers`, and the removal of # signs. Also note, the addition of `ssl_protocols`.
+    {{< note >}}
+
+The changes are to `server_name`, `ssl_certificate`, `ssl_certificate_key`, `ssl_session_cache`, `ssl_ciphers`, and the removal of # signs. Also note, the addition of `ssl_protocols`.
+
+{{< /note >}}
 
 3.  Restart Nginx to apply your changes.
 

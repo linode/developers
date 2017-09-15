@@ -21,9 +21,11 @@ external_resources:
 
 StackScripts are usually Bash scripts, stored in the Linode Manager, and can be accessed when you use the **Rebuild** link from the Linode Dashboard. During the first boot job of the newly created disks, the StackScript will run, using any variable you may have added, and perform the scripted commands.
 
- {: .caution }
->
-> The **Rebuild** option will destroy all existing disks and profiles.
+ {{< caution >}}
+
+The **Rebuild** option will destroy all existing disks and profiles.
+
+{{< /caution >}}
 
 ## Deploying from a StackScript
 
@@ -80,19 +82,21 @@ Alternatively, you can follow along with this video, which will show you how to 
 
     Here's the code used in our example script. The comment lines explain what each section does:
 
-    {: .file }
-    Initial Setup StackScript
-    : ~~~ bash
-      #!/bin/bash
-      # This block defines the variables the user of the script needs to input
-      # when deploying using this script.
-      #
-      #
-      #<UDF name="hostname" label="The hostname for the new Linode.">
-      # HOSTNAME=
-      #
-      #<UDF name="fqdn" label="The new Linode's Fully Qualified Domain Name">
-      # FQDN=
+    {{< file >}}
+Initial Setup StackScript
+: ~~~ bash
+#!/bin/bash
+# This block defines the variables the user of the script needs to input
+# when deploying using this script.
+#
+#
+#<UDF name="hostname" label="The hostname for the new Linode.">
+# HOSTNAME=
+#
+#<UDF name="fqdn" label="The new Linode's Fully Qualified Domain Name">
+# FQDN=
+
+{{< /file >}}
 
       # This sets the variable $IPADDR to the IP address the new Linode receives.
       IPADDR=$(/sbin/ifconfig eth0 | awk '/inet / { print $2 }' | sed 's/addr://')
@@ -161,10 +165,12 @@ You can see the [community StackScript Library](http://linode.com/stackscripts/)
 
 If you have an existing deployment script, you can use StackScripts to deploy instances with this script. Consider the following methods for "bootstrapping" one script with StackScripts:
 
-{: .file }
+{{< file >}}
 StackScript
 :   ~~~ bash
-    #!/bin/bash
+#!/bin/bash
+
+{{< /file >}}
 
     wget http://example.com/ --output-document=/opt/deployment-script.pl
     chmod +x /opt/deployment-script.pl
@@ -174,10 +180,12 @@ StackScript
 
 This approach is useful for bootstrapping scripts written in languages that are not included in the default instance template, as in the following example:
 
-{: .file }
+{{< file >}}
 StackScript
 :   ~~~ bash
-    #!/bin/bash
+#!/bin/bash
+
+{{< /file >}}
 
     if [ -f /etc/apt/sources.list ]; then
        apt-get upgrade
@@ -201,10 +209,12 @@ StackScript
 
 If you do not want to rely on an existing external server to host your scripts for download, you can embed the bootstrapped script in the StackScript. Consider the following example:
 
-{: .file }
+{{< file >}}
 StackScript
 :   ~~~ bash
-    #!/bin/bash
+#!/bin/bash
+
+{{< /file >}}
 
     if [ -f /etc/apt/sources.list ]; then
        apt-get upgrade
@@ -240,9 +250,11 @@ The [Linode API](http://www.linode.com/api/index.cfm) contains support for manag
 -   [stackscript.update](https://www.linode.com/api/stackscript/stackscript.update)
 -   [linode.disk.createfromstackscript](https://www.linode.com/api/linode/linode.disk.createfromstackscript)
 
-    {: .note }
-    >
-    > If creating a disk with `linode.disk.createfromstackscript`, you will need to create a configuration profile and attach the disk to the profile before you can boot and run the StackScript.
+    {{< note >}}
+
+If creating a disk with `linode.disk.createfromstackscript`, you will need to create a configuration profile and attach the disk to the profile before you can boot and run the StackScript.
+
+{{< /note >}}
 
 ### Variables and UDFs
 
@@ -274,8 +286,10 @@ StackScript
     # [...]
     ~~~
 
-{: .note }
-> If you would like to create a masked password input field, use the word 'password' anywhere in the UDF name.
+{{< note >}}
+If you would like to create a masked password input field, use the word 'password' anywhere in the UDF name.
+
+{{< /note >}}
 
 There are also a set of Linode created environmental variables that can be used for API calls or other tasks from within the script.
 

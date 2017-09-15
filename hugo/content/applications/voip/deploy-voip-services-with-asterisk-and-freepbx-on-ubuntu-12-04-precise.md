@@ -25,9 +25,11 @@ For this guide we will install Asterisk from source rather than from Ubuntu's re
 
 **Please note:** Because of the special configuration options required for this setup, you should not run other services on the Linode you intend to use Asterisk on. It is also worth noting that this guide will walk you through using PV-GRUB. Any alterations to the steps in this guide will fall outside the scope of support.
 
- {: .note }
->
-> The steps required in this guide require root privileges. Be sure to run the steps below as `root` or with the **sudo** prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+ {{< note >}}
+
+The steps required in this guide require root privileges. Be sure to run the steps below as `root` or with the **sudo** prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+{{< /note >}}
 
 ## Terms
 
@@ -277,9 +279,11 @@ Before you can use FreePBX, you will need to set up a LAMP stack. An basic step-
         su - asterisk
         cd /opt/freepbx/
 
-    {: .note }
-    >
-    > This is the latest version of FreePBX at the time of this guide's publication. You can check [this page](http://www.freepbx.org/downloads/freepbx-distro/) for the latest build of FreePBX.
+    {{< note >}}
+
+This is the latest version of FreePBX at the time of this guide's publication. You can check [this page](http://www.freepbx.org/downloads/freepbx-distro/) for the latest build of FreePBX.
+
+{{< /note >}}
 
 2.  The FreePBX directory contains SQL files that you can insert into the database we created previously. Issue the following commands to insert this data:
 
@@ -300,16 +304,18 @@ You need to pass the credentials of the MySQL user and database you created abov
 
 Before you continue your FreePBX installation, you will want to configure a `VirtualHost` for the web interface. You should also secure your installation using SSL and an `.htaccess` file. By default, FreePBX installs files to `/var/www/html/`; you may leave this as it is. Your `VirtualHost` may resemble the following:
 
-{: .file }
+{{< file >}}
 VirtualHost Entry
 :   ~~~ apache
-    <VirtualHost *:80>
-        ServerAdmin webmaster@example.com
-        ServerName example.com
-        ServerAlias www.example.com
-        DocumentRoot /var/www/html                        
-    </VirtualHost>
-    ~~~
+<VirtualHost *:80>
+ServerAdmin webmaster@example.com
+ServerName example.com
+ServerAlias www.example.com
+DocumentRoot /var/www/html                        
+</VirtualHost>
+~~~
+
+{{< /file >}}
 
 To update your Apache configuration, you will need to restart the server. Issue the following command:
 

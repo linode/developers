@@ -60,12 +60,14 @@ Nginx uses `server` directives to specify name-based virtual hosts. Nginx calls 
 
 2.  You should now have the following server block in the nginx virtual host configuration:
 
-    {: .file }
-    /etc/nginx/sites-available/example.com
-    :   ~~~ nginx
-        server {
-            listen 80;
-            listen [::]:80;
+    {{< file >}}
+/etc/nginx/sites-available/example.com
+:   ~~~ nginx
+server {
+listen 80;
+listen [::]:80;
+
+{{< /file >}}
 
             server_name example.com;
 
@@ -129,12 +131,14 @@ In order to deploy PHP applications, implement the following *PHP-FastCGI* solut
 
 2.  Modify your virtual host configuration to include the location directive as shown below:
 
-    {: .file }
-    /etc/nginx/sites-available/example.com
-    :   ~~~ nginx
-        server {
-                listen 80;
-                listen [::]:80;
+    {{< file >}}
+/etc/nginx/sites-available/example.com
+:   ~~~ nginx
+server {
+listen 80;
+listen [::]:80;
+
+{{< /file >}}
 
                 server_name example.com;
 
@@ -197,15 +201,17 @@ In this section, you'll create a test page that shows whether nginx can render P
 
 1.  Paste the following code into a new file, `phptest.php`, in the `public_html` directory. Modify `webuser` and `password` to match the information entered in the **Install the MySQL Database Server** section above:
 
-    {: .file }
-    /var/www/html/example.com/public_html/phptest.php
-    :   ~~~ php
-        <html>
-        <head>
-            <title>PHP Test</title>
-        </head>
-            <body>
-            <?php echo '<p>Hello World</p>';
+    {{< file >}}
+/var/www/html/example.com/public_html/phptest.php
+:   ~~~ php
+<html>
+<head>
+<title>PHP Test</title>
+</head>
+<body>
+<?php echo '<p>Hello World</p>';
+
+{{< /file >}}
 
             // In the variables section below, replace user and password with your own MySQL credentials as created on your server
             $servername = "localhost";

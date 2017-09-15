@@ -74,31 +74,35 @@ If there is a `<NameVirtualHost>` entry in the default site's configuration file
 
 First, create a file in the `/etc/apache2/sites-available/` directory for each virtual host that you want to set up. Name each file with the domain for which you want to provide virtual hosting. See the following example configurations for the hypothetical "example.com" and "example.org" domains.
 
-{: .file }
+{{< file >}}
 /etc/apache2/sites-available/example.com
 :   ~~~ apache
-    <VirtualHost 12.34.56.78:80>
-         ServerAdmin webmaster@example.com
-         ServerName example.com
-         ServerAlias www.example.com
-         DocumentRoot /srv/www/example.com/public_html/
-         ErrorLog /srv/www/example.com/logs/error.log
-         CustomLog /srv/www/example.com/logs/access.log combined
-    </VirtualHost>
-    ~~~
+<VirtualHost 12.34.56.78:80>
+ServerAdmin webmaster@example.com
+ServerName example.com
+ServerAlias www.example.com
+DocumentRoot /srv/www/example.com/public_html/
+ErrorLog /srv/www/example.com/logs/error.log
+CustomLog /srv/www/example.com/logs/access.log combined
+</VirtualHost>
+~~~
 
-{: .file }
+{{< /file >}}
+
+{{< file >}}
 /etc/apache2/sites-available/example.org
 :   ~~~ apache
-    <VirtualHost 12.34.56.78:80>
-         ServerAdmin webmaster@example.org     
-         ServerName example.org
-         ServerAlias www.example.org
-         DocumentRoot /srv/www/example.org/public_html/
-         ErrorLog /srv/www/example.org/logs/error.log
-         CustomLog /srv/www/example.org/logs/access.log combined
-    </VirtualHost>
-    ~~~
+<VirtualHost 12.34.56.78:80>
+ServerAdmin webmaster@example.org     
+ServerName example.org
+ServerAlias www.example.org
+DocumentRoot /srv/www/example.org/public_html/
+ErrorLog /srv/www/example.org/logs/error.log
+CustomLog /srv/www/example.org/logs/access.log combined
+</VirtualHost>
+~~~
+
+{{< /file >}}
 
 Notes regarding this example configuration:
 

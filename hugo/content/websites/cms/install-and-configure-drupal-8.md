@@ -129,9 +129,11 @@ Ensure that the version number matches the Drupal 8 version you wish to download
 
     [![Drupal 8 database configuration.](/docs/assets/drupal-database-configuration-small.png)](/docs/assets/drupal-database-configuration.png)
 
-    {: .note }
-    >
-    >If you forgot the name of your database, log back in to MySQL with: `mysql -u root -p` and enter: `show databases;`.
+    {{< note >}}
+
+If you forgot the name of your database, log back in to MySQL with: `mysql -u root -p` and enter: `show databases;`.
+
+{{< /note >}}
 
 4.  After Drupal 8 installs your site, you'll be shown a site configuration page where you must create the admin user for your website. Do not use the same password that you used for your database.
 

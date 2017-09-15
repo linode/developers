@@ -30,12 +30,14 @@ Nginx is included in the Ubuntu software repositories. While using this method w
 
 To install nginx from the Ubuntu repositories, you'll need to uncomment the universe lines in your `/etc/apt/sources.list` file.
 
-{: .file }
+{{< file >}}
 /etc/apt/sources.list
 :   ~~~
-    ## main & restricted repositories
-    deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted         
-    deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
+## main & restricted repositories
+deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted         
+deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
+
+{{< /file >}}
 
     deb http://security.ubuntu.com/ubuntu karmic-security main restricted
     deb-src http://security.ubuntu.com/ubuntu karmic-security main restricted

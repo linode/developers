@@ -111,14 +111,16 @@ Issue the following sequence of commands to download a small wrapper script for 
 
 Below is a sample Nginx virtual host configuration file. Modify your configuration to be similar to the one below. Remember to replace example.com with your domain.
 
-{: .file }
+{{< file >}}
 /etc/nginx/sites-available/example.com
 :   ~~~ nginx
-    server {
-        server_name www.example.com example.com;
-        access_log /srv/www/example.com/logs/access.log;
-        error_log /srv/www/example.com/logs/error.log;
-        root /srv/www/example.com/public_html;
+server {
+server_name www.example.com example.com;
+access_log /srv/www/example.com/logs/access.log;
+error_log /srv/www/example.com/logs/error.log;
+root /srv/www/example.com/public_html;
+
+{{< /file >}}
 
         location / {
             index index.html index.htm index.php;
@@ -127,16 +129,18 @@ Below is a sample Nginx virtual host configuration file. Modify your configurati
 
 In addition, with in the Nginx virtual host file, ensure the `location ~ \.php$ { }` block resembles the one in this example:
 
-{: .file }
+{{< file >}}
 /etc/nginx/sites-available/example.com
 :   ~~~ nginx
-    location ~ \.php$ {
-        include /etc/nginx/fastcgi_params;
-        fastcgi_pass  127.0.0.1:9000;
-        fastcgi_index index.php;
-        fastcgi_param SCRIPT_FILENAME /srv/www/example.com/public_html$fastcgi_script_name;
-    }
-    ~~~
+location ~ \.php$ {
+include /etc/nginx/fastcgi_params;
+fastcgi_pass  127.0.0.1:9000;
+fastcgi_index index.php;
+fastcgi_param SCRIPT_FILENAME /srv/www/example.com/public_html$fastcgi_script_name;
+}
+~~~
+
+{{< /file >}}
 
     > }
 

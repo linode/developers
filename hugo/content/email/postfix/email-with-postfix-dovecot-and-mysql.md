@@ -131,9 +131,11 @@ Now that the database and tables have been created, add some data to MySQL.
           ('3', 'hostname'),
           ('4', 'localhost.example.com');
 
-    {: .note }
-    >
-    > Note which `id` goes with which domain, the `id` is necessary for the next two steps.
+    {{< note >}}
+
+Note which `id` goes with which domain, the `id` is necessary for the next two steps.
+
+{{< /note >}}
 
 2.  Add email addresses to the `virtual_users` table. Replace the email address values with the addresses that you wish to configure on the mailserver. Replace the `password` values with strong passwords. 
 
@@ -213,10 +215,12 @@ Next, set up Postfix so the server can accept incoming messages for the domains.
 
 2.  Edit the `/etc/postfix/main.cf` file to match the following. Ensure that occurrences of `example.com` are replaced with the domain name. Also, replace `hostname` with the system's hostname on line 44.
 
-    {:.file }
-    /etc/postfix/main.cf
-    : ~~~
-      # See /usr/share/postfix/main.cf.dist for a commented, more complete version
+    {{< file >}}
+/etc/postfix/main.cf
+: ~~~
+# See /usr/share/postfix/main.cf.dist for a commented, more complete version
+
+{{< /file >}}
 
       # Debian specific:  Specifying a file name will cause the first
       # line of that file to be used as the name.  The Debian default
@@ -283,51 +287,59 @@ Next, set up Postfix so the server can accept incoming messages for the domains.
 
 3.  Create the file for virtual domains. Ensure that you change the password for the `mailuser` account. If you used a different user, database name, or table name, change those settings as well.
 
-    {: .file }
-    /etc/postfix/mysql-virtual-mailbox-domains.cf
-    : ~~~
-      user = mailuser
-      password = mailuserpass
-      hosts = 127.0.0.1
-      dbname = mailserver
-      query = SELECT 1 FROM virtual_domains WHERE name='%s'
-      ~~~
+    {{< file >}}
+/etc/postfix/mysql-virtual-mailbox-domains.cf
+: ~~~
+user = mailuser
+password = mailuserpass
+hosts = 127.0.0.1
+dbname = mailserver
+query = SELECT 1 FROM virtual_domains WHERE name='%s'
+~~~
+
+{{< /file >}}
 
 4.  Create the `/etc/postfix/mysql-virtual-mailbox-maps.cf` file, and enter the following values. Make sure you use the `mailuser`'s password and make any other changes as needed.
 
-    {: .file }
-    /etc/postfix/mysql-virtual-mailbox-maps.cf
-    : ~~~
-      user = mailuser
-      password = mailuserpass
-      hosts = 127.0.0.1
-      dbname = mailserver
-      query = SELECT 1 FROM virtual_users WHERE email='%s'
-      ~~~
+    {{< file >}}
+/etc/postfix/mysql-virtual-mailbox-maps.cf
+: ~~~
+user = mailuser
+password = mailuserpass
+hosts = 127.0.0.1
+dbname = mailserver
+query = SELECT 1 FROM virtual_users WHERE email='%s'
+~~~
+
+{{< /file >}}
 
 5.  Create the `/etc/postfix/mysql-virtual-alias-maps.cf` file and enter the following values. Again, make sure you use the mailuser's password, and make any other changes as necessary.
 
-    {: .file }
-    /etc/postfix/mysql-virtual-alias-maps.cf
-    : ~~~
-      user = mailuser
-      password = mailuserpass
-      hosts = 127.0.0.1
-      dbname = mailserver
-      query = SELECT destination FROM virtual_aliases WHERE source='%s'
-      ~~~
+    {{< file >}}
+/etc/postfix/mysql-virtual-alias-maps.cf
+: ~~~
+user = mailuser
+password = mailuserpass
+hosts = 127.0.0.1
+dbname = mailserver
+query = SELECT destination FROM virtual_aliases WHERE source='%s'
+~~~
+
+{{< /file >}}
 
 6.  Create the `/etc/postfix/mysql-virtual-email2email.cf` file and enter the following values. Again, make sure you use the mailuser's password, and make any other changes as necessary.
 
-    {: .file }
-    /etc/postfix/mysql-virtual-email2email.cf
-    : ~~~
-      user = mailuser
-      password = mailuserpass
-      hosts = 127.0.0.1
-      dbname = mailserver
-      query = SELECT email FROM virtual_users WHERE email='%s'
-      ~~~
+    {{< file >}}
+/etc/postfix/mysql-virtual-email2email.cf
+: ~~~
+user = mailuser
+password = mailuserpass
+hosts = 127.0.0.1
+dbname = mailserver
+query = SELECT email FROM virtual_users WHERE email='%s'
+~~~
+
+{{< /file >}}
 
 7.  Save the changes you've made to the `/etc/postfix/mysql-virtual-email2email.cf` file, and restart Postfix: 
 
@@ -410,10 +422,12 @@ Dovecot allows users to log in and check their email using POP3 and IMAP. In thi
 
 2.  Open the main configuration file and edit the contents to match the following. Specifically, add the line beginning with `protocols` under the section beginning with "Enable installed protocols."
 
-    {:.file }
-    /etc/dovecot/dovecot.conf
-    : ~~~
-      ## Dovecot configuration file
+    {{< file >}}
+/etc/dovecot/dovecot.conf
+: ~~~
+## Dovecot configuration file
+
+{{< /file >}}
 
       # If you're in a hurry, see http://wiki2.dovecot.org/QuickConfiguration
 
@@ -868,10 +882,12 @@ Click the link to see the final, complete version of <a href="/docs/assets/1241-
 
 You now have a functioning mail server that can securely send and receive email. If things are not working smoothly, try consulting the [Troubleshooting Problems with Postfix, Dovecot, and MySQL](/docs/email/postfix/troubleshooting) guide. At this point, consider adding spam and virus filtering and a webmail client. If DNS records have not been created for the mail server yet, do so now. Once the DNS records have propagated, email will be delivered via the new mail server.
 
-{: .note }
->If errors are encountered in the /var/log/syslog stating "Invalid settings: postmaster_address setting not given", you may need to append the following line to the /etc/dovecot/dovecot.conf file, replacing domain with the domain name.
->
->     postmaster_address=postmaster at DOMAIN
+{{< note >}}
+If errors are encountered in the /var/log/syslog stating "Invalid settings: postmaster_address setting not given", you may need to append the following line to the /etc/dovecot/dovecot.conf file, replacing domain with the domain name.
+
+postmaster_address=postmaster at DOMAIN
+
+{{< /note >}}
 
 ## Adding New Domains, Email Addresses, and Aliases
 
@@ -927,9 +943,11 @@ You have successfully added the new domain to the Postfix and Dovecot setup.
         VALUES
           ('5', ENCRYPT('newpassword', CONCAT('$6$', SUBSTRING(SHA(RAND()), -16))) , 'email3@newdomain.com');
 
-    {: .note }
-    >
-    > Be sure to use the correct number for the `domain_id`. In this case, we are using `5`, because we want to make an email address for `newdomain.com`, and `newdomain.com` has an `id` of `5` in the `virtual_domains` table.
+    {{< note >}}
+
+Be sure to use the correct number for the `domain_id`. In this case, we are using `5`, because we want to make an email address for `newdomain.com`, and `newdomain.com` has an `id` of `5` in the `virtual_domains` table.
+
+{{< /note >}}
 
 2.  Verify that the new email address has been added.  The new email address should be displayed in the output.
 
@@ -950,9 +968,11 @@ You have successfully added the new email address to the Postfix and Dovecot set
         VALUES
           ('5', 'alias@newdomain.com', 'myemail@gmail.com');
 
-    {: .note }
-    >
-    > Ensure that the correct number is entered for the `domain_id` value. Use the `id` of the domain for this email address. For an explanation of `id` us, see the email users section above.
+    {{< note >}}
+
+Ensure that the correct number is entered for the `domain_id` value. Use the `id` of the domain for this email address. For an explanation of `id` us, see the email users section above.
+
+{{< /note >}}
 
     You can also add a "catch-all" alias which will forward all emails sent to a domain which do not have matching aliases or users by specifying `@newdomain.com` as the source of the alias.
 

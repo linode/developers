@@ -29,12 +29,14 @@ Be aware, if you have opted to install the `php-suhosin` package, there are some
 
 The `mcrypt` PHP module required by phpMyAdmin is contained in the "universe" repository for Ubuntu Karmic. Edit your `/etc/apt/sources.list` file to enable the "universe" repositories by removing the hash symbol in front of the universe lines. The file should resemble the following example:
 
-{: .file }
+{{< file >}}
 /etc/apt/sources.list
 :   ~~~
-    ## main & restricted repositories
-    deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted         
-    deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted 
+## main & restricted repositories
+deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted         
+deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
+
+{{< /file >}}
 
     deb http://security.ubuntu.com/ubuntu karmic-security main restricted
     deb-src http://security.ubuntu.com/ubuntu karmic-security main restricted

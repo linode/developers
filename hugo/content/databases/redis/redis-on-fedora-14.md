@@ -65,12 +65,14 @@ All Redis configuration options can be specified in the `redis.conf` file locate
 
 Consider the following configuration:
 
-{: .file }
+{{< file >}}
 /opt/redis/redis.conf
 :   ~~~
-    daemonize yes
-    pidfile /var/run/redis.pid
-    logfile /var/log/redis.log
+daemonize yes
+pidfile /var/run/redis.pid
+logfile /var/log/redis.log
+
+{{< /file >}}
 
     port 6379
     bind 127.0.0.1

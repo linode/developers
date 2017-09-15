@@ -95,13 +95,15 @@ To enable the Nginx Longview app manually, follow these steps on your Linode via
 
 3.  Edit `/etc/linode/longview.d/Nginx.conf` to look like the following:
 
-    {: .file }
-    /etc/linode/longview.d/Nginx.conf
-    :   ~~~
-        location http://127.0.0.1/nginx_status
-        ~~~
-        
+    {{< file >}}
+/etc/linode/longview.d/Nginx.conf
+:   ~~~
+location http://127.0.0.1/nginx_status
+~~~
+
 4.  Restart Longview:
+
+{{< /file >}}
 
         service longview restart
 
@@ -165,9 +167,11 @@ If you don't see Longview data for Nginx, you'll instead get an error on the pag
 
 More specifically, the error will state `Unable to access server status page (http://example.com/example) for Nginx: <error>`. This error occurs when Nginx's status setting is disabled or has been changed from the default location.
 
- {: .note }
->
-> This error occurs when Longview attempts to check the status page `location` listed in `/etc/linode/longview.d/Nginx.conf`, or the default page at `http://127.0.0.1/nginx_status`, but receives a non-200 HTTP response code. Basically, it means that the status page Longview is checking doesn't exist.
+ {{< note >}}
+
+This error occurs when Longview attempts to check the status page `location` listed in `/etc/linode/longview.d/Nginx.conf`, or the default page at `http://127.0.0.1/nginx_status`, but receives a non-200 HTTP response code. Basically, it means that the status page Longview is checking doesn't exist.
+
+{{< /note >}}
 
 To fix this, follow these steps:
 
@@ -195,29 +199,35 @@ To fix this, follow these steps:
 3.  Longview is designed to check the default location automatically. If you use the default location shown above, you should be done. Refresh the Longview Nginx tab in the Linode Manager to verify that it's working now.
 4.  If you're not using the default location, you need to create a new file, `/etc/linode/longview.d/Nginx.conf`, and set the `location` variable to match what you set in the Nginx configuration file:
 
-    {: .file }
-    /etc/linode/longview.d/Nginx.conf
-    :   ~~~
-        location http://127.0.0.1/url-goes-here
-        ~~~
-        
+    {{< file >}}
+/etc/linode/longview.d/Nginx.conf
+:   ~~~
+location http://127.0.0.1/url-goes-here
+~~~
+
 5.  Restart Longview:
+
+{{< /file >}}
 
         service longview restart
 
 6.  Refresh the Longview Nginx tab in the Linode Manager to verify that it's working now.
 
- {: .note }
->
-> If you originally compiled Nginx without the status module, you will need to recompile it with `--with-http_stub_status_module` and all your other settings. Then go back and try to enable the Longview Nginx App.
+ {{< note >}}
+
+If you originally compiled Nginx without the status module, you will need to recompile it with `--with-http_stub_status_module` and all your other settings. Then go back and try to enable the Longview Nginx App.
+
+{{< /note >}}
 
 ### The Nginx Status Page Doesn't Look Right
 
 More specifically, the error will state `The Nginx status page doesn't look right. Check <http://example.com/example> and investigate any redirects for misconfiguration.` This error occurs when Longview is able to reach the status page, but doesn't receive the expected content.
 
- {: .note }
->
-> This error occurs when Longview attempts to check the status page, and receives a 200 HTTP response code, but can't scrape the expected status content from the page. That is, the page exists on your Linode, but it doesn't have the right content. If, for example, Longview was to check your website's home page, you would get this error.
+ {{< note >}}
+
+This error occurs when Longview attempts to check the status page, and receives a 200 HTTP response code, but can't scrape the expected status content from the page. That is, the page exists on your Linode, but it doesn't have the right content. If, for example, Longview was to check your website's home page, you would get this error.
+
+{{< /note >}}
 
 To resolve this issue, follow these steps:
 

@@ -48,11 +48,13 @@ In order for `mod_wsgi` to be able to provide access to your application, you wi
 
 In this example, the application is stored in `/srv/www/example.com/application` directory. Modify this example and all following examples to conform to the actual files and locations used in your deployment.
 
-{: .file }
+{{< file >}}
 /srv/www/example.com/application/application.wsgi
 :   ~~~ python
-    import os
-    import sys
+import os
+import sys
+
+{{< /file >}}
 
     sys.path.append('/srv/www/example.com/application')
 

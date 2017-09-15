@@ -134,12 +134,14 @@ Issue the following commands to enable proxy support:
 
 Configure an Apache virtualhost for your Redmine installation. The example shown below assumes Apache is configured as recommended in our [Ubuntu 9.10 LAMP guide](/docs/lamp-guides/ubuntu-9.10-karmic/). Remember to replace "12.34.56.78" with your Linode's IP address.
 
-{: .file }
+{{< file >}}
 /etc/apache2/sites-available/redmine.example.com
 :   ~~~ apache
-    <VirtualHost 12.34.56.78:80>
-         ServerAdmin support@example.com
-         ServerName redmine.example.com
+<VirtualHost 12.34.56.78:80>
+ServerAdmin support@example.com
+ServerName redmine.example.com
+
+{{< /file >}}
 
          ProxyPass / http://localhost:8080/
 
@@ -192,18 +194,20 @@ Issue these commands in the `psql` shell to set up the database for Redmine. Be 
 
 Create the file `config/database.yml` with the following contents:
 
-{: .file }
+{{< file >}}
 config/database.yml
 :   ~~~ yaml
-    production:
-      adapter: postgresql
-      database: redmine
-      host: localhost
-      username: redmine
-      password: changeme
-      encoding: utf8
-      schema_search_path: public
-    ~~~
+production:
+adapter: postgresql
+database: redmine
+host: localhost
+username: redmine
+password: changeme
+encoding: utf8
+schema_search_path: public
+~~~
+
+{{< /file >}}
 
 Issue the following commands to complete database configuration:
 
@@ -259,17 +263,19 @@ Enter "root" and an email address at your domain for the postmaster mail query.
 
 Create the file `config/email.yml` and copy in the following contents. Be sure to replace the domain field with your fully qualified domain name.
 
-{: .file }
+{{< file >}}
 config/email.yml
 :   ~~~ yaml
-    production:
-      delivery_method: :smtp
-      smtp_settings:
-        address: 127.0.0.1
-        port: 25
-        domain: redmine.example.com
-        authentication: :none
-    ~~~
+production:
+delivery_method: :smtp
+smtp_settings:
+address: 127.0.0.1
+port: 25
+domain: redmine.example.com
+authentication: :none
+~~~
+
+{{< /file >}}
 
 This completes email configuration for your Redmine installation.
 

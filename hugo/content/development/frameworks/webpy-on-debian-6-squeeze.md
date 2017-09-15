@@ -82,10 +82,12 @@ Create a Basic Application with Web.py
 
 There are a number of examples of basic applications developed using the web.py framework. The "main" application file is typically called "code.py". Consider the following, "Hello World" application:
 
-{: .file }
+{{< file >}}
 code.py
 :   ~~~ python
-    import web
+import web
+
+{{< /file >}}
 
     urls = (
         '/(.*)', 'hello'
@@ -172,10 +174,12 @@ Build a Database Driven Application with Web.py
 
 The "Hello World" application above is functional, but isn't able to store or access persistent data in a database system. The following example is simple but inserts and retrieves data from a database system. Consider the following code:
 
-{: .file }
+{{< file >}}
 code.py
 :   ~~~ python
-    import web
+import web
+
+{{< /file >}}
 
     urls = (
         '/(.*)', 'hello'

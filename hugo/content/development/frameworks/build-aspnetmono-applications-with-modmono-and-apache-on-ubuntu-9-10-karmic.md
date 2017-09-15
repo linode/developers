@@ -37,12 +37,14 @@ Install Required Software
 
 Before installing `mod_mono` we must ensure that the `universe` repositories are enabled on your system. Your `/etc/apt/sources.list` should resemble the following (you may have to uncomment or add the `universe` lines:)
 
-{: .file }
+{{< file >}}
 /etc/apt/sources.list
 :   ~~~
-    ## main & restricted repositories
-    deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted         
-    deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted 
+## main & restricted repositories
+deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted         
+deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
+
+{{< /file >}}
 
     deb http://us.archive.ubuntu.com/ubuntu/ karmic-updates main restricted         
     deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted 

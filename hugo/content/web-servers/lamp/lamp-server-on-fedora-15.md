@@ -53,10 +53,12 @@ By default, all files ending in the `.conf` extension in `/etc/httpd/conf.d/` ar
 
 Edit the main Apache configuration file to adjust the resource use settings. The settings shown below are a good starting point for a **Linode 2GB**.
 
-{: .file }
+{{< file >}}
 /etc/httpd/conf/httpd.conf
 :   ~~~ apache
-    KeepAlive Off
+KeepAlive Off
+
+{{< /file >}}
 
     ...
 
@@ -201,11 +203,13 @@ If you need support for MySQL in PHP, then you must install the php5-mysql packa
 
 You can test PHP by creating a file with the following contents under your "public\_html" directory:
 
-{: .file }
+{{< file >}}
 /srv/www/example.com/public\_html/test.php
 :   ~~~ php
-    <?php phpinfo(); ?>
-    ~~~
+<?php phpinfo(); ?>
+~~~
+
+{{< /file >}}
 
 When you view this page in your browser, you should be presented with detailed PHP configuration information.
 

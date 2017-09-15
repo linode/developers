@@ -89,11 +89,13 @@ Edit the `urlpatterns` array in the `/srv/www/example.com/application/urls.py` f
 
 Create an `application.wsgi` file, using the following as a model:
 
-{: .file }
+{{< file >}}
 /srv/www/example.com/application/application.wsgi
 :   ~~~ python
-    import os
-    import sys
+import os
+import sys
+
+{{< /file >}}
 
     path = '/srv/www/example.com'
     if path not in sys.path:

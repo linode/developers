@@ -87,25 +87,27 @@ By creating a systemd unit file for your ARK server, it can be set to start auto
 
 2.  Create a new systemd service file and add the following values to it. Fill in the `SessionName` value on line 12 with the name you'll use to identify your ARK server:
 
-    {: .file }
-    /lib/systemd/system/ark.service
-    :   ~~~
-        [Unit]
-        Description=ARK Survival Evolved
-        [Service]
-        Type=simple
-        Restart=on-failure
-        RestartSec=5
-        StartLimitInterval=60s
-        StartLimitBurst=3
-        User=ark
-        Group=ark
-        ExecStartPre=/home/ark/steamcmd +login anonymous +force_install_dir /home/ark/server +app_update 376030 +quit
-        ExecStart=/home/ark/server/ShooterGame/Binaries/Linux/ShooterGameServer TheIsland?listen?SessionName=example -server -log
-        ExecStop=killall -TERM srcds_linux
-        [Install]
-        WantedBy=multi-user.target
-        ~~~
+    {{< file >}}
+/lib/systemd/system/ark.service
+:   ~~~
+[Unit]
+Description=ARK Survival Evolved
+[Service]
+Type=simple
+Restart=on-failure
+RestartSec=5
+StartLimitInterval=60s
+StartLimitBurst=3
+User=ark
+Group=ark
+ExecStartPre=/home/ark/steamcmd +login anonymous +force_install_dir /home/ark/server +app_update 376030 +quit
+ExecStart=/home/ark/server/ShooterGame/Binaries/Linux/ShooterGameServer TheIsland?listen?SessionName=example -server -log
+ExecStop=killall -TERM srcds_linux
+[Install]
+WantedBy=multi-user.target
+~~~
+
+{{< /file >}}
 
     Save and exit the file.
 
@@ -122,12 +124,14 @@ By creating a systemd unit file for your ARK server, it can be set to start auto
 
 Once you've started the server, you can add or remove settings by editing the `GameUserSettings.ini` file under `/home/ark/server/ShooterGame/Saved/Config/LinuxServer`. Add the following settings within the `[ServerSettings]` section of that file, replacing the "example" passwords with your own:
 
-  {: .file }
-  /home/ark/server/ShooterGame/Saved/Config/LinuxServer/GameUserSettings.ini
-  :   ~~~
-      ServerPassword=example
-      ServerAdminPassword=example
-      ~~~
+  {{< file >}}
+/home/ark/server/ShooterGame/Saved/Config/LinuxServer/GameUserSettings.ini
+:   ~~~
+ServerPassword=example
+ServerAdminPassword=example
+~~~
+
+{{< /file >}}
 
 `ServerPassword` determines the password that users will be required to enter when connecting to your server. You can omit this line to allow access without a password. `ServerAdminPassword` specifies the administrative password that will be used when issuing [game commands](http://ark.gamepedia.com/Console_Commands).
 

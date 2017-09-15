@@ -30,9 +30,11 @@ It works by launching a SOCKS proxy server on your computer using SSH. It will l
 -   A Linode running your favorite GNU/Linux flavor.
 -   The SSH service running in your Linode, with the forwarding option enabled (it is enabled by default).
 
-    {: .note }
-    >
-    > If it is disabled, look for the parameter `AllowTcpForwarding no` in your server's **/etc/ssh/sshd\_config file**, and change it to **yes** before restarting the service.
+    {{< note >}}
+
+If it is disabled, look for the parameter `AllowTcpForwarding no` in your server's **/etc/ssh/sshd\_config file**, and change it to **yes** before restarting the service.
+
+{{< /note >}}
 
 -   The ability to remotely access your server using SSH (by its host name or IP address).
 -   SSH client software on the computer you will use for browsing: a favorite SSH client for Linux or Mac OS X, PuTTY for Windows.

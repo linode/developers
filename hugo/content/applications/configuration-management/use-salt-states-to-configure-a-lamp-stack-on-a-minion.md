@@ -20,28 +20,32 @@ The steps below configure all Salt Minions for a 2GB Linode, feel free to adjust
 
 1.  Open the `/etc/salt/base/top.sls` file and add the additional line:
  
-    {:.file }
-    /etc/salt/base/top.sls
-    :  ~~~  
-       base:
-         '*':
-            - lamp
-            - extras
-            - lampconf
-       ~~~
+    {{< file >}}
+/etc/salt/base/top.sls
+:  ~~~  
+base:
+'*':
+- lamp
+- extras
+- lampconf
+~~~
+
+{{< /file >}}
 
 2.  Create and edit the `/etc/salt/base/lampconf.sls` file:
 
-    {:.file }
-    /etc/salt/base/lampconf.sls
-    :  ~~~
-       #Apache Conguration for 2GB Linode
-       /etc/apache2/apache2.conf-KA:
-         file.replace:
-           - name: /etc/apache2/apache2.conf
-           - pattern: 'KeepAlive On'
-           - repl: 'KeepAlive Off'
-           - show_changes: True
+    {{< file >}}
+/etc/salt/base/lampconf.sls
+:  ~~~
+#Apache Conguration for 2GB Linode
+/etc/apache2/apache2.conf-KA:
+file.replace:
+- name: /etc/apache2/apache2.conf
+- pattern: 'KeepAlive On'
+- repl: 'KeepAlive Off'
+- show_changes: True
+
+{{< /file >}}
 
        /etc/apache2/apache2.conf-IM:
          file.append:
@@ -149,11 +153,13 @@ Salt State Modules are used for settings across groups of Minions. To adjust a c
 
 4.  Create the `/etc/salt/base/minionsites/example.com.conf` vhost file for the specified Minion. Replace `example.com` throughout and in the following commands.
 
-    {:.file }
-    /etc/salt/base/minionsites/example.com.conf
-    :  ~~~  
-       # domain: example.com
-       # public: /var/www/example.com/public_html/
+    {{< file >}}
+/etc/salt/base/minionsites/example.com.conf
+:  ~~~  
+# domain: example.com
+# public: /var/www/example.com/public_html/
+
+{{< /file >}}
 
        <VirtualHost *:80>
          # Admin email, Server Name (domain name), and any aliases

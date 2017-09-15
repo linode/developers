@@ -42,15 +42,17 @@ Most of the relevant configuration for the OpenVPN public key infrastructure is 
 
 Before you can generate the public key infrastructure for OpenVPN, you must configure a few variables that the easy-rsa scripts will use to generate the scripts. These variables are set near the end of the `/etc/openvpn/easy-rsa/2.0/vars` file. Here is an example of the relevant values:
 
-{: .file }
+{{< file >}}
 /etc/openvpn/easy-rsa/2.0/vars
 :   ~~~
-    export KEY_COUNTRY="US"
-    export KEY_PROVINCE="OH"
-    export KEY_CITY="Oxford"
-    export KEY_ORG="My Company"
-    export KEY_EMAIL="username@example.com"
-    ~~~
+export KEY_COUNTRY="US"
+export KEY_PROVINCE="OH"
+export KEY_CITY="Oxford"
+export KEY_ORG="My Company"
+export KEY_EMAIL="username@example.com"
+~~~
+
+{{< /file >}}
 
 Alter the examples to reflect your configuration. This information will be included in certificates you create and it is important that the information be accurate, particularly the `KEY_ORG` and `KEY_EMAIL` values.
 
@@ -141,30 +143,34 @@ We'll now need to configure our server file. There is an example file in `/usr/s
 
 Modify the `remote` line in your `~/client.conf` file to reflect the OpenVPN server's name.
 
-{: .file }
+{{< file >}}
 ~/client.conf
 :   ~~~
-    # The hostname/IP and port of the server.
-    # You can have multiple remote entries
-    # to load balance between the servers.
-    remote example.com 1194
-    ~~~
+# The hostname/IP and port of the server.
+# You can have multiple remote entries
+# to load balance between the servers.
+remote example.com 1194
+~~~
+
+{{< /file >}}
 
 Edit the `client.conf` file to reflect the name of your key. In this example we use `client1` for the file name.
 
-{: .file }
+{{< file >}}
 ~/client.conf
 :   ~~~
-    # SSL/TLS parms.
-    # See the server config file for more
-    # description. It's best to use
-    # a separate .crt/.key file pair
-    # for each client. A single ca
-    # file can be used for all clients.
-    ca ca.crt
-    cert client1.crt
-    key client1.key
-    ~~~
+# SSL/TLS parms.
+# See the server config file for more
+# description. It's best to use
+# a separate .crt/.key file pair
+# for each client. A single ca
+# file can be used for all clients.
+ca ca.crt
+cert client1.crt
+key client1.key
+~~~
+
+{{< /file >}}
 
 Copy the `~/client1.conf` file to your client system. You'll need to repeat the entire key generation and distribution process for every user and every key that will connect to your network.
 

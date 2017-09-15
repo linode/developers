@@ -37,12 +37,14 @@ Enable Universe Repositories
 
 Edit your `/etc/apt/sources.list` file to enable the "universe" repositories by removing the hash symbol in front of the universe lines. The file should resemble the following example:
 
-{: .file }
+{{< file >}}
 /etc/apt/sources.list
 :   ~~~
-    ## main & restricted repositories
-    deb http://us.archive.ubuntu.com/ubuntu/ lucid main restricted         
-    deb-src http://us.archive.ubuntu.com/ubuntu/ lucid main restricted
+## main & restricted repositories
+deb http://us.archive.ubuntu.com/ubuntu/ lucid main restricted         
+deb-src http://us.archive.ubuntu.com/ubuntu/ lucid main restricted
+
+{{< /file >}}
 
     deb http://security.ubuntu.com/ubuntu lucid-security main restricted
     deb-src http://security.ubuntu.com/ubuntu lucid-security main restricted

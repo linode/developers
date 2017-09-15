@@ -119,10 +119,12 @@ For the configuration of this file, `0` means *off* and `1` means *on*.
 
 1.  Create a startup script for TF2 with the following contents:
 
-    {: .file }
-    ~/starttf2.sh
-    :   ~~~
-        #!/bin/sh
+    {{< file >}}
+~/starttf2.sh
+:   ~~~
+#!/bin/sh
+
+{{< /file >}}
 
         cd ./Steam/tf2
         screen -S "Team Fortress 2 Server" ./srcds_run -game tf +map ctf_2fort.bsp

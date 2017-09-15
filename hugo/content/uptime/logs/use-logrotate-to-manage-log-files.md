@@ -33,12 +33,14 @@ Running `logrotate` as a [cronjob](/docs/tools-reference/tools/schedule-tasks-wi
 
 For most daemon processes, logs should be rotated by the root user. In most cases, `logrotate` is invoked from a script in the `/etc/cron.daily/` directory. If one does not exist, create a script that resembles the following in the `/etc/cron.daily/` folder:
 
-{: .file }
+{{< file >}}
 /etc/cron.daily/logrotate
 :   ~~~ bash
-    #!/bin/sh
-    logrotate /etc/logrotate.conf
-    ~~~
+#!/bin/sh
+logrotate /etc/logrotate.conf
+~~~
+
+{{< /file >}}
 
 You may also use an entry in the root user's `crontab`.
 

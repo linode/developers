@@ -25,8 +25,10 @@ Enable Universe Repositories
 
 The NSD packages are included in the Ubuntu's universe repositories. Before installing NSD, edit your `/etc/apt/sources.list` file to enable the "universe" repositories by removing the hash symbol in front of the universe lines. The file should resemble the following example:
 
-{: .file }
+{{< file >}}
 /etc/apt/sources.list
+
+{{< /file >}}
 
 > \#\# main & restricted repositories deb <http://us.archive.ubuntu.com/ubuntu/> karmic main restricted deb-src <http://us.archive.ubuntu.com/ubuntu/> karmic main restricted
 >

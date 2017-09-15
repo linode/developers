@@ -36,15 +36,19 @@ The first command should show your short hostname, and the second should show yo
 
 Next, edit your `/etc/hosts` file to resemble the following example, replacing "titan" with your chosen hostname, "example.com" with your system's domain name, and "12.34.56.78" with your Linode's IP address.
 
-{: .file }
+{{< file >}}
 /etc/hosts
+
+{{< /file >}}
 
 > 127.0.0.1 localhost.localdomain localhost 12.34.56.78 titan.example.com titan
 
 If you have IPv6 enabled on your Linode, you will also want to add an entry for your IPv6 address, as shown in this example:
 
-{: .file }
+{{< file >}}
 /etc/hosts
+
+{{< /file >}}
 
 > 127.0.0.1 localhost.localdomain localhost 12.34.56.78 titan.example.com titan 2600:3c01::a123:b456:c789:d012 titan.example.com titan
 
@@ -79,11 +83,13 @@ By default, Apache listens on all available IP addresses. While this may be idea
 
 Begin by replacing the existing `NameVirtualHost` line in the `/etc/apache2/vhosts.d/00_default_vhost.conf` so that it reads:
 
-{: .file }
+{{< file >}}
 /etc/apache2/vhosts.d/00\_default\_vhost.conf
 :   ~~~ apache
-    NameVirtualHost 12.34.56.78:80
-    ~~~
+NameVirtualHost 12.34.56.78:80
+~~~
+
+{{< /file >}}
 
 Be sure to replace "12.34.56.78" with your Linode's public IP address.
 
@@ -91,18 +97,20 @@ There are numerous ways to configure virtual hosts, but we recommend that you do
 
 Now we will create virtual host entries for each site that we need to host with this server. We'll want to replace the existing `VirtualHost` blocks with ones that resemble the following.
 
-{: .file }
+{{< file >}}
 /etc/apache2/vhosts.d/example.conf
 :   ~~~ apache
-    <VirtualHost 12.34.56.78:80>
-         ServerAdmin username@example.com
-         ServerName example.com
-         ServerAlias www.example.com
-         DocumentRoot /srv/www/example.com/public_html/
-         ErrorLog /srv/www/example.com/logs/error.log
-         CustomLog /srv/www/example.com/logs/access.log combined
-    </VirtualHost>
-    ~~~
+<VirtualHost 12.34.56.78:80>
+ServerAdmin username@example.com
+ServerName example.com
+ServerAlias www.example.com
+DocumentRoot /srv/www/example.com/public_html/
+ErrorLog /srv/www/example.com/logs/error.log
+CustomLog /srv/www/example.com/logs/access.log combined
+</VirtualHost>
+~~~
+
+{{< /file >}}
 
 `ErrorLog` and `CustomLog` entries are suggested for more fine-grained logging, but are not required. If they are defined (as shown above), the `logs` directories must be created before you restart Apache.
 

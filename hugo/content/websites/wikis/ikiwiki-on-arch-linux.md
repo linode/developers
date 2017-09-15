@@ -240,15 +240,17 @@ Edit the `~/wiki/ikiwiki.yaml` file to suit the needs of your deployment, paying
 
 Create content in the `~/wiki/source/index.mdwn` file, for example:
 
-{: .file }
+{{< file >}}
 ~/wiki/source/index.mdwn
 :   ~~~
-    # Welcome to $wiki
-    
-    Hello World. What should we call [[this site]]?
-    ~~~
-    
+# Welcome to $wiki
+
+Hello World. What should we call [[this site]]?
+~~~
+
 When the configuration file has been edited, and there is content in the `~/wiki/source/index.mdwn` file, issue the following command to rebuild the wiki:
+
+{{< /file >}}
 
     ikiwiki --setup ~/wiki/ikiwiki.yaml
 

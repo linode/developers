@@ -30,12 +30,14 @@ Issue the following commands to set your system hostname, substituting a unique 
 
 Edit your `/etc/hosts` file to resemble the following, substituting your Linode's public IP address for 12.34.56.78, your hostname for "hostname," and your primary domain name for "example.com." :
 
-{: .file }
+{{< file >}}
 /etc/hosts
 :   ~~~
-    127.0.0.1 localhost.localdomain localhost
-    12.34.56.78 hostname.example.com hostname
-    ~~~
+127.0.0.1 localhost.localdomain localhost
+12.34.56.78 hostname.example.com hostname
+~~~
+
+{{< /file >}}
 
 Install Required Packages
 -------------------------
@@ -73,15 +75,17 @@ Add the following lines to your `/etc/nginx/nginx.conf` file, immediately after 
 
 Next, you'll need to define the site's virtual host file:
 
-{: .file }
+{{< file >}}
 /etc/nginx/sites-available/www.example.com
 :   ~~~ nginx
-    server {
-        listen   80;
-        server_name www.example.com example.com;
-        access_log /srv/www/www.example.com/logs/access.log;
-        error_log /srv/www/www.example.com/logs/error.log;
-        root /srv/www/www.example.com/public_html;
+server {
+listen   80;
+server_name www.example.com example.com;
+access_log /srv/www/www.example.com/logs/access.log;
+error_log /srv/www/www.example.com/logs/error.log;
+root /srv/www/www.example.com/public_html;
+
+{{< /file >}}
 
         location / {
             index  index.html index.htm;
@@ -126,10 +130,12 @@ Test Perl with FastCGI
 
 Create a file called "test.pl" in your site's "public\_html" directory with the following contents:
 
-{: .file }
+{{< file >}}
 /srv/www/www.example.com/public\_html/test.pl
 :   ~~~ perl
-    #!/usr/bin/perl
+#!/usr/bin/perl
+
+{{< /file >}}
 
     print "Content-type:text/html\n\n";
     print <<EndOfHTML;

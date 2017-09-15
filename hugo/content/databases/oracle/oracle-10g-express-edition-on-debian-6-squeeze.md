@@ -31,11 +31,13 @@ First, make sure your Linode has a private IP address assigned to it. To do so, 
 
 Edit your network interfaces file to define your public and private IPs. Change the values shown below to match your Linode's network configuration, paying special attention to the subnet mask for the private IP.
 
-{: .file }
+{{< file >}}
 /etc/network/interfaces
 :   ~~~
-    auto lo
-    iface lo inet loopback
+auto lo
+iface lo inet loopback
+
+{{< /file >}}
 
     auto eth0
     iface eth0 inet static
@@ -51,13 +53,15 @@ Edit your network interfaces file to define your public and private IPs. Change 
 
 Make sure your `/etc/hosts` file contains valid entries. You can use the following example for reference; substitute your Linode's IP addresses and hostname information for the values shown below.
 
-{: .file }
+{{< file >}}
 /etc/hosts
 :   ~~~
-    127.0.0.1        localhost.localdomain        localhost
-    69.164.198.62    saturn.example.com           saturn
-    192.168.146.68   oracle
-    ~~~
+127.0.0.1        localhost.localdomain        localhost
+69.164.198.62    saturn.example.com           saturn
+192.168.146.68   oracle
+~~~
+
+{{< /file >}}
 
 Issue the following commands to set the system hostname:
 

@@ -50,17 +50,19 @@ Configure the FastCGI Wrapper
 
 Now, edit the `/etc/conf.d/fcgiwrap` file to resemble the following example:
 
-{: .file }
+{{< file >}}
 /etc/conf.d/fcgiwrap
 :   ~~~
-    SPAWNER='/usr/bin/spawn-fcgi'
-    FCGI_ADDRESS='127.0.0.1'
-    FCGI_PORT='9001'
-    FCGI_USER='http'
-    FCGI_GROUP='http'
-    FCGI_EXTRA_OPTIONS=''
-    SPAWNER_ARGS="-a $FCGI_ADDRESS -p $FCGI_PORT -u $FCGI_USER -g $FCGI_GROUP $FCGI_EXTRA_OPTIONS -- /usr/sbin/fcgiwrap"
-    ~~~
+SPAWNER='/usr/bin/spawn-fcgi'
+FCGI_ADDRESS='127.0.0.1'
+FCGI_PORT='9001'
+FCGI_USER='http'
+FCGI_GROUP='http'
+FCGI_EXTRA_OPTIONS=''
+SPAWNER_ARGS="-a $FCGI_ADDRESS -p $FCGI_PORT -u $FCGI_USER -g $FCGI_GROUP $FCGI_EXTRA_OPTIONS -- /usr/sbin/fcgiwrap"
+~~~
+
+{{< /file >}}
 
 Issue the following command to start the FastCGI wrapper for the first time:
 
@@ -81,14 +83,16 @@ Issue the following commands to create nginx virtual host directories:
 
 Create a virtual host configuration file for your site. Be sure to replace "example.com" with your domain name in the following example configuration.
 
-{: .file }
+{{< file >}}
 /etc/nginx/conf/sites-available/www.example.com
 :   ~~~ nginx
-    server {
-        listen   80;
-        server_name example.com www.example.com;
-        access_log /srv/http/example.com/logs/access.log;
-        error_log /srv/http/example.com/logs/error.log;
+server {
+listen   80;
+server_name example.com www.example.com;
+access_log /srv/http/example.com/logs/access.log;
+error_log /srv/http/example.com/logs/error.log;
+
+{{< /file >}}
 
         location / {
             root   /srv/http/example.com/public_html;
@@ -131,10 +135,12 @@ Test Perl with FastCGI
 
 Create a file called "test.cgi" in your site's "public\_html" directory with the following contents:
 
-{: .file }
+{{< file >}}
 /srv/http/example.com/public\_html/test.cgi
 :   ~~~ perl
-    #!/usr/bin/perl
+#!/usr/bin/perl
+
+{{< /file >}}
 
     print "Content-type:text/html\n\n";
     print <<EndOfHTML;

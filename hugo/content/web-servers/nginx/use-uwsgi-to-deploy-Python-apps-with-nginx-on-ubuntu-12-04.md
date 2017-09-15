@@ -46,14 +46,16 @@ To get started, you'll install uWSGI and other packages, and then configure ngin
 
 3.  Using the virtual host configuration below as a guide, create your configuration file.
 
-    {: .file }
-    /etc/nginx/sites-available/example.com
-    :   ~~~ nginx
-        server {
-                listen          80;
-                server_name     $hostname;
-                access_log /srv/www/example.com/logs/access.log;
-                error_log /srv/www/example.com/logs/error.log;
+    {{< file >}}
+/etc/nginx/sites-available/example.com
+:   ~~~ nginx
+server {
+listen          80;
+server_name     $hostname;
+access_log /srv/www/example.com/logs/access.log;
+error_log /srv/www/example.com/logs/error.log;
+
+{{< /file >}}
 
                 location / {
                     #uwsgi_pass      127.0.0.1:9001;
@@ -99,14 +101,16 @@ Now, we need to configure uWSGI. Here's how:
 
 2.  Using the configuration below as a guide, create your configuration file.
 
-    {: .file }
-    /etc/uwsgi/apps-available/example.com.xml
-    :   ~~~ xml
-        <uwsgi>
-            <plugin>python</plugin>
-            <socket>/run/uwsgi/app/example.com/example.com.socket</socket>
-            <pythonpath>/srv/www/example.com/application/</pythonpath>
-            <app mountpoint="/">
+    {{< file >}}
+/etc/uwsgi/apps-available/example.com.xml
+:   ~~~ xml
+<uwsgi>
+<plugin>python</plugin>
+<socket>/run/uwsgi/app/example.com/example.com.socket</socket>
+<pythonpath>/srv/www/example.com/application/</pythonpath>
+<app mountpoint="/">
+
+{{< /file >}}
 
                 <script>wsgi_configuration_module</script>
 
@@ -132,11 +136,13 @@ Now, we need to configure uWSGI. Here's how:
 
 4.  If you want to deploy a "Hello World" application, insert the following code into the `/srv/www/example.com/application/wsgi_configuration_module.py` file:
 
-    {: .file }
-    /srv/www/example.com/application/wsgi\_configuration\_module.py
-    :   ~~~ python
-        import os
-        import sys
+    {{< file >}}
+/srv/www/example.com/application/wsgi\_configuration\_module.py
+:   ~~~ python
+import os
+import sys
+
+{{< /file >}}
 
         sys.path.append('/srv/www/example.com/application')
 

@@ -23,8 +23,10 @@ Simple Machines Forum (SMF) is a popular forum solution for small- to large-size
 
 Before you begin, be sure you have followed the steps outlined in the [Getting Started Guide](/docs/getting-started/). You will also need a working [LAMP stack](/docs/websites/lamp/).
 
-{: .note }
->This guide is written for a non-root user. Commands that require elevated privileges are prefixed with ``sudo``. If you're not familiar with the ``sudo`` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< note >}}
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with ``sudo``. If you're not familiar with the ``sudo`` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+{{< /note >}}
 
 ##Prerequisites
 
@@ -44,8 +46,10 @@ You will need to create a MySQL user and database for SMF.
 
 The following instructions will download the latest stable release, which is 2.0.9 as of publication.
 
-{: .note }
-> If you're using a web server other than Apache, or otherwise have an alternate system user for your web server, be sure to replace `www-data` in the commands below with the appropriate system user.
+{{< note >}}
+If you're using a web server other than Apache, or otherwise have an alternate system user for your web server, be sure to replace `www-data` in the commands below with the appropriate system user.
+
+{{< /note >}}
 
 1.  Navigate to the document root (typically similar to `/var/www/example.com/public_html`) and create a directory for the forums:
 

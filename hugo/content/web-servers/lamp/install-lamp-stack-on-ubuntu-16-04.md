@@ -117,17 +117,19 @@ You can set up virtual hosts several ways; however, below is the recommended met
 
 2.  Edit the new `example.com.conf` configuration file by uncommenting `ServerName` and replacing `example.com` with your site's IP or Fully Qualified Domain Name (FQDN). Enter the document root path and log directories as shown below, and add a `Directory` block before `</VirtualHost>`:
 
-    {: .file }
-    /etc/apache2/sites-available/example.com.conf
-    :   ~~~ apache
-        <Directory /var/www/html/example.com/public_html>
-                Require all granted
-        </Directory>
-        <VirtualHost *:80>
-                ServerName example.com
-                ServerAlias www.example.com
-                ServerAdmin webmaster@localhost
-                DocumentRoot /var/www/html/example.com/public_html
+    {{< file >}}
+/etc/apache2/sites-available/example.com.conf
+:   ~~~ apache
+<Directory /var/www/html/example.com/public_html>
+Require all granted
+</Directory>
+<VirtualHost *:80>
+ServerName example.com
+ServerAlias www.example.com
+ServerAdmin webmaster@localhost
+DocumentRoot /var/www/html/example.com/public_html
+
+{{< /file >}}
 
                 ErrorLog /var/www/html/example.com/logs/error.log
                 CustomLog /var/www/html/example.com/logs/access.log combined
@@ -135,10 +137,12 @@ You can set up virtual hosts several ways; however, below is the recommended met
         </VirtualHost>
         ~~~
 
-    {: .note }
-    > The file example above has all comment sections removed for brevity; you may keep or remove the commented areas as you see fit.
-    >
-    > The `ServerAlias` directive allows you to include multiple domain names or subdomains for a single host. The example above allows visitors to use `example.com` or `www.example.com` to navigate to this virtual host.
+    {{< note >}}
+The file example above has all comment sections removed for brevity; you may keep or remove the commented areas as you see fit.
+
+The `ServerAlias` directive allows you to include multiple domain names or subdomains for a single host. The example above allows visitors to use `example.com` or `www.example.com` to navigate to this virtual host.
+
+{{< /note >}}
 
 3.  Create the directories referenced above:
 

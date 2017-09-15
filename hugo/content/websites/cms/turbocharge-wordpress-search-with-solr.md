@@ -227,25 +227,27 @@ If using a different version of Solr, change the `JETTY_HOME=/opt/solr-4.10.4/ex
 
 {{< /note >}}
 
-    {:.file }
-    /etc/init.d/solr
-    :   ~~~
-        #!/bin/sh -e
-        #
-        # /etc/init.d/solr -- startup script for Apache Solr
-        #
-        #
-        ### BEGIN INIT INFO
-        # Provides:          solr
-        # Required-Start:    $local_fs $remote_fs $network
-        # Required-Stop:     $local_fs $remote_fs $network
-        # Should-Start:      $named
-        # Should-Stop:       $named
-        # Default-Start:     2 3 4 5
-        # Default-Stop:      0 1 6
-        # Short-Description: Start Solr
-        # Description:       Start Apache Solr jetty server
-        ### END INIT INFO
+    {{< file >}}
+/etc/init.d/solr
+:   ~~~
+#!/bin/sh -e
+#
+# /etc/init.d/solr -- startup script for Apache Solr
+#
+#
+### BEGIN INIT INFO
+# Provides:          solr
+# Required-Start:    $local_fs $remote_fs $network
+# Required-Stop:     $local_fs $remote_fs $network
+# Should-Start:      $named
+# Should-Stop:       $named
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start Solr
+# Description:       Start Apache Solr jetty server
+### END INIT INFO
+
+{{< /file >}}
 
         PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
         NAME=solr

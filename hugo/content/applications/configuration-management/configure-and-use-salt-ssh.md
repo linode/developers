@@ -57,14 +57,16 @@ The Roster file is configured on the master server.
 
     This is an example of minimal host definition
 
-    {: .file }
-    /etc/salt/roster
-    :  ~~~ config
-    linode1:
-         host: <IPADDRESS OR HOSTNAME>
-         user: <username>
-         passwd: <password>
-       ~~~
+    {{< file >}}
+/etc/salt/roster
+:  ~~~ config
+linode1:
+host: <IPADDRESS OR HOSTNAME>
+user: <username>
+passwd: <password>
+~~~
+
+{{< /file >}}
 
     {{< note >}}
 
@@ -74,15 +76,17 @@ The Roster file stores data in YAML format. Do not add unnecessary spaces to the
 
 2.  If you have a public key stored on the minion, and a private key on the master system, you can configure access to a minion using a private key. For public key authentication, add the following lines to the Roster file:
 
-    {: .file }
-    /etc/salt/roster
-    :  ~~~ config
-    #This is an example of minimal host definition using private key:
-    linode1:
-        host: <IPADDRESS OR HOSTNAME>
-        user: <username>
-        priv: /<username_home_folder>/.ssh/id_rsa
-       ~~~
+    {{< file >}}
+/etc/salt/roster
+:  ~~~ config
+#This is an example of minimal host definition using private key:
+linode1:
+host: <IPADDRESS OR HOSTNAME>
+user: <username>
+priv: /<username_home_folder>/.ssh/id_rsa
+~~~
+
+{{< /file >}}
 
     {{< note >}}
 

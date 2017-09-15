@@ -280,16 +280,18 @@ Before you continue your FreePBX installation, you will want to configure a `Vir
 
 You will need to create a `VirtualHost` for your FreePBX installation. By default, FreePBX installs files to `/var/www/html/`; you may leave this as it is. Your `VirtualHost` may resemble the following:
 
-{: .file }
+{{< file >}}
 VirtualHost Entry
 :   ~~~ apache
-    <VirtualHost 12.34.56.78:80>
-        ServerAdmin webmaster@e-cabi.net
-        ServerName pbx.e-cabi.net
-        ServerAlias pbx.e-cabi.net
-        DocumentRoot /var/www/html                        
-    </VirtualHost>
-    ~~~
+<VirtualHost 12.34.56.78:80>
+ServerAdmin webmaster@e-cabi.net
+ServerName pbx.e-cabi.net
+ServerAlias pbx.e-cabi.net
+DocumentRoot /var/www/html                        
+</VirtualHost>
+~~~
+
+{{< /file >}}
 
 To update your Apache configuration, you will need to restart the server. Issue the following command:
 

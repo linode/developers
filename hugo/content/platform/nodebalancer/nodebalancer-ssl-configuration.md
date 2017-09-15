@@ -16,9 +16,11 @@ This guide will help you install an SSL certificate on your NodeBalancer. It inc
 
 ![Forcing all connections to use SSL with NodeBalancers.](/docs/assets/NodeBalancer_SSL_Configuration_smg.png "Forcing all connections to use SSL with NodeBalancers.")
 
-{: .note }
->
-> Throughout this guide we will offer several suggested values for specific configuration settings; some of these values will be set by default. These settings are shown in the guide as a reference and you may need to modify them to suit your application accordingly.
+{{< note >}}
+
+Throughout this guide we will offer several suggested values for specific configuration settings; some of these values will be set by default. These settings are shown in the guide as a reference and you may need to modify them to suit your application accordingly.
+
+{{< /note >}}
 
 ## Before you Begin
 

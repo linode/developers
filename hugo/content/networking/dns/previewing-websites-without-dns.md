@@ -21,9 +21,11 @@ Sometimes, you may want to preview your website here at Linode before you update
 
 The hosts file exists on all major operating systems. You can use the hosts file to force your local computer to look for your domain at Linode, rather than its current location on the Internet. From a technical perspective, the hosts file is used to associate specific hostnames to IP addresses, and takes precedence over the association provided by DNS queries. By manually specifying a specific IP address/hostname pair, web traffic sent to a domain can be directed to a server other than what's specified in the domain's A records. If these terms are unfamiliar, you might want to take a look at our [DNS](/docs/networking/dns/introduction-to-dns-records) guide.
 
- {: .note }
->
-> As an aside, hosts files are sometimes altered on computers infected by malware in order to bring you to malicious servers under the guise of a trusted domain name. It's a good idea to make sure your hosts file isn't altered by anyone but you.
+ {{< note >}}
+
+As an aside, hosts files are sometimes altered on computers infected by malware in order to bring you to malicious servers under the guise of a trusted domain name. It's a good idea to make sure your hosts file isn't altered by anyone but you.
+
+{{< /note >}}
 
 ## Finding Your Hosts File
 
@@ -45,7 +47,7 @@ Open a terminal or terminal emulator. You can use your preferred text editor to 
 
     nano /etc/hosts
 
-{: .file }
+{{< file >}}
 /etc/hosts
 : ~~~
 	 ##
@@ -59,6 +61,8 @@ Open a terminal or terminal emulator. You can use your preferred text editor to 
 	 ::1             localhost
 	 fe80::1%lo0     localhost
 ~~~
+
+{{< /file >}}
 
 Don't be surprised if your hosts file looks slightly different. The default configuration will vary depending on your OS.
 

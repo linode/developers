@@ -55,10 +55,12 @@ Minecraft version 1.12 is only compatible with OpenJDK 8. If you are using OpenJ
 
     Assign a secure password, and configure any additional [SSH hardening](/docs/security/use-public-key-authentication-with-ssh) options at this time.
 
-{: .note }
-> If you have a firewall configured according to our [Securing Your Server](/docs/security/securing-your-server) guide, add the following line to your `iptables.firewall.rules` file to add an exception for port 25565:
->
->     -A INPUT -p tcp --dport 25565 -j ACCEPT
+{{< note >}}
+If you have a firewall configured according to our [Securing Your Server](/docs/security/securing-your-server) guide, add the following line to your `iptables.firewall.rules` file to add an exception for port 25565:
+
+-A INPUT -p tcp --dport 25565 -j ACCEPT
+
+{{< /note >}}
 
 ## Install Minecraft
 
@@ -72,18 +74,22 @@ Minecraft version 1.12 is only compatible with OpenJDK 8. If you are using OpenJ
 
 3.  Create a script to run the Minecraft server:
 
-    {: .file }
-    /home/minecraft/run.sh
-    :   ~~~ sh
-        #!/bin/sh
-        BINDIR=$(dirname "$(readlink -fn "$0")")
-        cd "$BINDIR"
+    {{< file >}}
+/home/minecraft/run.sh
+:   ~~~ sh
+#!/bin/sh
+BINDIR=$(dirname "$(readlink -fn "$0")")
+cd "$BINDIR"
+
+{{< /file >}}
 
         java -Xms1024M -Xmx1536M -jar minecraft_server.1.12.jar -o true
         ~~~
 
-    {: .note }
-    > The `Xms` and `Xmx` flags define the minimum and maximum amount of RAM the Minecraft server will use. The settings above are recommended for a Linode 2GB used solely for this purpose. Adjust these values to fit your needs.
+    {{< note >}}
+The `Xms` and `Xmx` flags define the minimum and maximum amount of RAM the Minecraft server will use. The settings above are recommended for a Linode 2GB used solely for this purpose. Adjust these values to fit your needs.
+
+{{< /note >}}
 
 4.  Make `run.sh` executable:
 
@@ -104,13 +110,15 @@ Minecraft version 1.12 is only compatible with OpenJDK 8. If you are using OpenJ
 
 2.  Open the `eula.txt` file and change the value of `eula` to true:
 
-    {: .file }
-    /home/minecraft/eula.txt
-    :   ~~~ sh
-        #By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).
-        #Tue Jan 27 21:40:00 UTC 2015
-        eula=true
-        ~~~
+    {{< file >}}
+/home/minecraft/eula.txt
+:   ~~~ sh
+#By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).
+#Tue Jan 27 21:40:00 UTC 2015
+eula=true
+~~~
+
+{{< /file >}}
 
 
 3.  To ensure that the Minecraft server runs independent of an SSH connection, execute `run.sh` from within a [GNU Screen](/docs/networking/ssh/using-gnu-screen-to-manage-persistent-terminal-sessions) session:

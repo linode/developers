@@ -58,16 +58,20 @@ http://munin-monitoring.org/wiki/munin.conf). You can also find quick explanatio
 
 The last section of the `munin.conf` file defines the hosts Munin retrieves information from. For a default configuration, adding a host can be done in the form shown below:
 
-{: .file }
+{{< file >}}
 /etc/munin/munin.conf
+
+{{< /file >}}
 
 > [example.org]
 > :   address example.org
 >
 For more complex configurations, including grouping domains, see the comment section in the file, reproduced below for your convenience:
 
-{: .file }
+{{< file >}}
 /etc/munin/munin.conf
+
+{{< /file >}}
 
 > \# From and including the first host, no more global directives can be defined. \# Everything after one host definition belongs to that host, until another host definition is found.
 >
@@ -89,8 +93,10 @@ For more complex configurations, including grouping domains, see the comment sec
 
 The default `/etc/munin/munin-node.conf` file contains several variables you'll want to adjust to your preference. For a basic configuration, you'll only need to add the IP address of the master Munin server as a regular expression. Simply follow the style of the existing `allow` line if you're unfamiliar with regular expressions.
 
-{: .file }
+{{< file >}}
 /etc/munin/munin-node.conf
+
+{{< /file >}}
 
 > \# A list of addresses that are allowed to connect. This must be a \# regular expression, due to brain damage in Net::Server, which \# doesn't understand CIDR-style network notation. You may repeat \# the allow line as many times as you'd like
 >
@@ -108,23 +114,25 @@ You can use Munin with the web server of your choice, simply point your web serv
 
 If you are using the [Apache HTTP Server](/docs/web-servers/apache/) you can create a Virtual Host configuration to serve the reports from Munin. In this scenario, we've created a subdomain in the DNS Manager and are now creating the virtual host file:
 
-{: .file }
+{{< file >}}
 /etc/apache2/sites-available/stats.example.org
 :   ~~~ apache
-    <VirtualHost 123.45.67.89:80>
-       ServerAdmin webmaster@stats.example.org
-       ServerName stats.example.org
-       DocumentRoot /var/cache/munin/www
-       <Directory />
-           Options FollowSymLinks
-           AllowOverride None
-       </Directory>
-       LogLevel notice
-       CustomLog /var/log/apache2/access.log combined
-       ErrorLog /var/log/apache2/error.log
-       ServerSignature On
-    </VirtualHost>
-    ~~~
+<VirtualHost 123.45.67.89:80>
+ServerAdmin webmaster@stats.example.org
+ServerName stats.example.org
+DocumentRoot /var/cache/munin/www
+<Directory />
+Options FollowSymLinks
+AllowOverride None
+</Directory>
+LogLevel notice
+CustomLog /var/log/apache2/access.log combined
+ErrorLog /var/log/apache2/error.log
+ServerSignature On
+</VirtualHost>
+~~~
+
+{{< /file >}}
 
 If you use this configuration you will want to issue the following commands to ensure that all required directories exist, and that your site is enabled:
 

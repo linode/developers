@@ -35,8 +35,10 @@ Before installing themes, modules, and a backup system with Drush, make sure tha
        sudo apt-get update && sudo apt-get upgrade
 
 
-{: .note }
->This guide is written for a non-root user. Commands that require elevated privileges are prefixed with ``sudo``. If you're not familiar with the ``sudo`` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< note >}}
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with ``sudo``. If you're not familiar with the ``sudo`` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+{{< /note >}}
 
 ##Installing Themes with Drush
 
@@ -55,9 +57,11 @@ At the time of this guide's publication, this theme is not yet available for Dru
 
        drush en corporateclean -y
 
-     {: .note }
-    >
-    > Notice the warning that "corporateclean was not found." The `drush en` command looks for the theme or module locally before downloading.
+     {{< note >}}
+
+Notice the warning that "corporateclean was not found." The `drush en` command looks for the theme or module locally before downloading.
+
+{{< /note >}}
 
 3. Set Corporate Clean as the default, active theme:
 
@@ -77,9 +81,11 @@ Downloading and enabling a module is similar to working with a theme. However, m
 
        drush en commerce -y
 
-     {: .note }
-    >
-    > Notice that Commerce includes 21 sub-modules. Each has its own functionality and most have a control switch within the admin's browser interface.
+     {{< note >}}
+
+Notice that Commerce includes 21 sub-modules. Each has its own functionality and most have a control switch within the admin's browser interface.
+
+{{< /note >}}
 
 3. Sign in to the Drupal browser interface and click on the "Modules" selection.
 
@@ -121,15 +127,17 @@ The backup process above can be automated. You must create an SHH Pair Key, a Ba
 
        nano drupal-backup.sh
 
-    {: .file }
-    ~/drupal-backup.sh
-    : ~~~
-      #!/bin/bash
-      # Drupal Backup Script
-      cd /var/www/example.com/public_html/drupal/
-      drush archive-dump
-      rsync -avz /home/local-user/drush-backups/archive-dump/ remote-user@remote-ip-address:/home/user/
-      ~~~
+    {{< file >}}
+~/drupal-backup.sh
+: ~~~
+#!/bin/bash
+# Drupal Backup Script
+cd /var/www/example.com/public_html/drupal/
+drush archive-dump
+rsync -avz /home/local-user/drush-backups/archive-dump/ remote-user@remote-ip-address:/home/user/
+~~~
+
+{{< /file >}}
 
 3. Make the script file executable:
 

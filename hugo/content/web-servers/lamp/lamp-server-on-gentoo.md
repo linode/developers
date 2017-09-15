@@ -23,9 +23,11 @@ This guide provides step-by-step instructions for installing a full-featured LAM
 
 In this guide, you will be instructed on setting up Apache, MySQL, and PHP. If you don't feel that you will need MySQL or PHP, please don't feel obligated to install them.
 
- {: .note }
->
-> Throughout this guide we will offer several suggested values for specific configuration settings. Some of these values will be set by default. These settings are shown in the guide as a reference, in the event that you change these settings to suit your needs and then need to change them back.
+ {{< note >}}
+
+Throughout this guide we will offer several suggested values for specific configuration settings. Some of these values will be set by default. These settings are shown in the guide as a reference, in the event that you change these settings to suit your needs and then need to change them back.
+
+{{< /note >}}
 
 ## Set the Hostname and Configure /etc/hosts
 
@@ -55,25 +57,29 @@ Additional files are located in `/etc/apache2/modules.d/` and `/etc/apache2/vhos
 
 Edit the 00\_mpm.conf Apache configuration file in /etc/apache2/modules.d/ to adjust the resource use settings. The settings shown below are a good starting point for a **Linode 2GB**.
 
-{: .file }
+{{< file >}}
 /etc/apache2/modules.d/00\_mpm.conf
 :   ~~~ apache
-    <IfModule prefork.c>
-            StartServers        4
-            MinSpareServers     20
-            MaxSpareServers     40
-            MaxClients          200
-            MaxRequestsPerChild 4500
-    </IfModule>
-    ~~~
+<IfModule prefork.c>
+StartServers        4
+MinSpareServers     20
+MaxSpareServers     40
+MaxClients          200
+MaxRequestsPerChild 4500
+</IfModule>
+~~~
+
+{{< /file >}}
 
 Also edit the 00\_default\_settings.conf file to turn KeepAlives off.
 
-{: .file }
+{{< file >}}
 /etc/apache2/modules.d/00\_default\_settings.conf
 :   ~~~ apache
-    KeepAlive Off
-    ~~~
+KeepAlive Off
+~~~
+
+{{< /file >}}
 
 Issue the following command to start Apache for the first time:
 
@@ -91,11 +97,13 @@ By default, Apache listens on all available IP addresses. While this may be pref
 
 Begin by replacing the existing `NameVirtualHost` line in the `/etc/apache2/vhosts.d/00_default_vhost.conf` so that it reads:
 
-{: .file }
+{{< file >}}
 /etc/apache2/vhosts.d/00\_default\_vhost.conf
 :   ~~~ apache
-    NameVirtualHost 12.34.56.78:80
-    ~~~
+NameVirtualHost 12.34.56.78:80
+~~~
+
+{{< /file >}}
 
 Be sure to replace "12.34.56.78" with your Linode's public IP address.
 
@@ -103,18 +111,20 @@ There are numerous ways to configure virtual hosts, but we recommend that you cr
 
 Now we will create virtual host entries for each site being hosted on this server. We'll want to replace the existing `VirtualHost` blocks with ones that resemble the following:
 
-{: .file }
+{{< file >}}
 /etc/apache2/vhosts.d/example.conf
 :   ~~~ apache
-    <VirtualHost 12.34.56.78:80>
-         ServerAdmin username@example.com
-         ServerName example.com
-         ServerAlias www.example.com
-         DocumentRoot /srv/www/example.com/public_html/
-         ErrorLog /srv/www/example.com/logs/error.log
-         CustomLog /srv/www/example.com/logs/access.log combined
-    </VirtualHost>
-    ~~~
+<VirtualHost 12.34.56.78:80>
+ServerAdmin username@example.com
+ServerName example.com
+ServerAlias www.example.com
+DocumentRoot /srv/www/example.com/public_html/
+ErrorLog /srv/www/example.com/logs/error.log
+CustomLog /srv/www/example.com/logs/access.log combined
+</VirtualHost>
+~~~
+
+{{< /file >}}
 
 `ErrorLog` and `CustomLog` entries are suggested for more fine-grained logging, but are not required.
 
@@ -125,16 +135,18 @@ Before you can use the above configuration, you'll need to create the specified 
 
 You'll also need to adjust the restrictive default access settings in `00_default_settings.conf` by commenting out the `Deny from all` line.
 
-{: .file }
+{{< file >}}
 /etc/apache2/modules.d/00\_default\_settings.conf
 :   ~~~ apache
-    <Directory />
-            Options FollowSymLinks
-            AllowOverride None
-            Order deny,allow
-    #       Deny from all
-    </Directory>
-    ~~~
+<Directory />
+Options FollowSymLinks
+AllowOverride None
+Order deny,allow
+#       Deny from all
+</Directory>
+~~~
+
+{{< /file >}}
 
 After you've set up your virtual hosts, load them into your running apache session:
 
@@ -209,11 +221,13 @@ Gentoo includes portage scripts for installing PHP from the terminal. Issue the 
 
 Before we can use PHP with Apache, we'll need to add the `-D PHP5` option in the `APACHE2_OPTS` setting in the `/etc/conf.d/apache2` file, if it isn't already set. This line should now resemble:
 
-{: .file }
+{{< file >}}
 /etc/conf.d/apache2
 :   ~~~ apache
-    APACHE2_OPTS="-D DEFAULT_VHOST -D INFO -D LANGUAGE -D SSL -D SSL_DEFAULT_VHOST -D PHP5"
-    ~~~
+APACHE2_OPTS="-D DEFAULT_VHOST -D INFO -D LANGUAGE -D SSL -D SSL_DEFAULT_VHOST -D PHP5"
+~~~
+
+{{< /file >}}
 
 Now, restart Apache with the following command:
 
@@ -223,18 +237,20 @@ Once PHP is installed and enabled, we'll need to tune the configuration file loc
 
 Make sure that the following values are set, and relevant lines are uncommented (comments are lines beginning with a semi-colon (`;` character)):
 
-{: .file }
+{{< file >}}
 /etc/php/apache2-php5.5/php.ini
 :   ~~~ ini
-    error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
-    display_errors = Off
-    log_errors = On
-    error_log = /var/log/php/error.log
-    max_execution_time = 30
-    memory_limit = 128M
-    register_globals = Off
-    max_input_time = 30
-    ~~~
+error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
+display_errors = Off
+log_errors = On
+error_log = /var/log/php/error.log
+max_execution_time = 30
+memory_limit = 128M
+register_globals = Off
+max_input_time = 30
+~~~
+
+{{< /file >}}
 
 You will need to create the log directory for PHP and give the Apache user ownership:
 

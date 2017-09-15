@@ -57,18 +57,20 @@ To create a virtual host we need to add an "[A Record](/docs/dns-guides/introduc
 
 We'll create the following host file, located at `/etc/apache2/sites-available/stats.example.com`:
 
-{: .file }
+{{< file >}}
 /etc/apache2/sites-available/stats.example.com
 :   ~~~ apache
-    <VirtualHost 12.34.56.78:80>
-        ServerAdmin admin@stats.example.com
-        ServerName stats.example.com
-        ServerAlias stats.example.com
-        DocumentRoot /srv/www/stats.example.com/public_html/
-        ErrorLog /srv/www/stats.example.com/logs/error.log
-        CustomLog /srv/www/stats.example.com/logs/access.log combined
-    </VirtualHost>
-    ~~~
+<VirtualHost 12.34.56.78:80>
+ServerAdmin admin@stats.example.com
+ServerName stats.example.com
+ServerAlias stats.example.com
+DocumentRoot /srv/www/stats.example.com/public_html/
+ErrorLog /srv/www/stats.example.com/logs/error.log
+CustomLog /srv/www/stats.example.com/logs/access.log combined
+</VirtualHost>
+~~~
+
+{{< /file >}}
 
 We'll need to create the `logs/` and `public_html/` directories by issuing the following commands:
 

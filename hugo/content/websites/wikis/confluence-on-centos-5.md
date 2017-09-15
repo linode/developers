@@ -188,10 +188,12 @@ Edit the `/etc/httpd/conf/httpd.conf` file, adding the following excerpt at the 
 
 Create a file named `/etc/httpd/conf.d/vhost.conf` with the following contents, replacing "confluence.example.com" with the your actual domain name. Please note that you will need to add an "A" record to your DNS configuration to point the site to your Linode's public IP address. This example assumes that Confluence will be running on its default port (8080).
 
-{: .file }
+{{< file >}}
 /etc/httpd/conf.d/vhost.conf
 :   ~~~ apache
-    NameVirtualHost *:80
+NameVirtualHost *:80
+
+{{< /file >}}
 
     <VirtualHost *:80>
          ServerAdmin support@example.com

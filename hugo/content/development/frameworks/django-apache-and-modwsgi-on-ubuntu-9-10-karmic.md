@@ -25,12 +25,14 @@ Install Dependencies
 
 Before we can proceed with the installation and deployment of Django, we mus enable the `universe` repositories for Ubuntu 9.10 Karmic. To enable `universe`, first modify your `/etc/apt/sources.list` file to mirror the example file below. You'll need to uncomment the universe lines:
 
-{: .file }
+{{< file >}}
 /etc/apt/sources.list
 :   ~~~
-    ## main & restricted repositories
-    deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted         
-    deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted 
+## main & restricted repositories
+deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted         
+deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
+
+{{< /file >}}
 
     deb http://security.ubuntu.com/ubuntu karmic-security main restricted
     deb-src http://security.ubuntu.com/ubuntu karmic-security main restricted
@@ -83,11 +85,13 @@ Configure Django Applications for WSGI
 
 In order for `mod_wsgi` to be able to provide access to your Django application, you will need to create a `django.wsgi` file inside of your application directory. For the purposes of this example, we assume that your application will be located *outside* of your `DocumentRoot` in the directory `/srv/www/example.com/application`. Modify this example and all following examples to conform to the actual files and locations used in your deployment.
 
-{: .file }
+{{< file >}}
 /srv/www/example.com/application/django.wsgi
 :   ~~~ python
-    import os
-    import sys
+import os
+import sys
+
+{{< /file >}}
 
     sys.path.append('/srv/www/example.com/application')
 

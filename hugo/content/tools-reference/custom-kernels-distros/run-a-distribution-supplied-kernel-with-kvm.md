@@ -115,8 +115,10 @@ At the time of this writing, these steps have been tested on:
 
         apt-get install linux-image-virtual grub2
 
-    {: .note }
-    > During the installation of `grub` you may be asked which disk image to install to. Since Linode provides the grub bootloader, the system need only provide the `grub.cfg` file, and you don't need to install `grub` to your MBR.
+    {{< note >}}
+During the installation of `grub` you may be asked which disk image to install to. Since Linode provides the grub bootloader, the system need only provide the `grub.cfg` file, and you don't need to install `grub` to your MBR.
+
+{{< /note >}}
 
     You'll see the kernel and other components you just installed and generated in the `/boot` directory. For example:
  
@@ -165,8 +167,10 @@ At the time of this writing, these steps have been tested on:
         touch /.autorelabel
 
 
-    {: .note }
-    > The autorelabel command is necessary to queue the SELinux filesystem relabeling process when rebooting from the Linode kernel to the CentOS or Fedora kernel.
+    {{< note >}}
+The autorelabel command is necessary to queue the SELinux filesystem relabeling process when rebooting from the Linode kernel to the CentOS or Fedora kernel.
+
+{{< /note >}}
 
     ##### Debian and Ubuntu
 

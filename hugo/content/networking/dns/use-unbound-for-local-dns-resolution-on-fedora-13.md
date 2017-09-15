@@ -95,8 +95,10 @@ Before you can begin using your Unbound instance to resolve DNS queries, you nee
 
 If you're accessing your Unbound instance over the local interface, make sure your `/etc/resolv.conf` resembles the following:
 
-{: .file }
+{{< file >}}
 /etc/resolve.conf
+
+{{< /file >}}
 
 > nameserver 127.0.0.1
 

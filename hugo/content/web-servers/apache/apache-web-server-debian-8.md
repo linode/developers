@@ -141,18 +141,20 @@ Apache supports *name-based virtual hosting*, which allows you to host multiple 
 
 2.  Create an `example.com.conf` file in `/etc/apache2/sites-available` with your text editor, replacing instances of `example.com` with your own domain URL in both the configuration file and in the file name:
 
-    {: .file }
-    /etc/apache2/sites-available/example.com.conf
-    :   ~~~ conf
-        <VirtualHost *:80>
-             ServerAdmin webmaster@example.com
-             ServerName example.com
-             ServerAlias www.example.com
-             DocumentRoot /var/www/example.com/public_html/
-             ErrorLog /var/www/example.com/logs/error.log
-             CustomLog /var/www/example.com/logs/access.log combined
-        </VirtualHost>
-        ~~~
+    {{< file >}}
+/etc/apache2/sites-available/example.com.conf
+:   ~~~ conf
+<VirtualHost *:80>
+ServerAdmin webmaster@example.com
+ServerName example.com
+ServerAlias www.example.com
+DocumentRoot /var/www/example.com/public_html/
+ErrorLog /var/www/example.com/logs/error.log
+CustomLog /var/www/example.com/logs/access.log combined
+</VirtualHost>
+~~~
+
+{{< /file >}}
 
     Repeat this process for any other domains you host.
 

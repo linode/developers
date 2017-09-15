@@ -29,9 +29,11 @@ This leads to a more complex setup for certain deployments. For these and other 
 
 All nginx configuration files are located in the `/etc/nginx/` directory. The primary configuration file is `/etc/nginx/nginx.conf`.
 
- {: .note }
->
-> This is where the files will be located if you install nginx from the package manager. Other possible locations include `/opt/nginx/conf/`.
+ {{< note >}}
+
+This is where the files will be located if you install nginx from the package manager. Other possible locations include `/opt/nginx/conf/`.
+
+{{< /note >}}
 
 ## Prerequisites
 
@@ -190,9 +192,11 @@ gzip
 
     For full definitions of the gzip options, check out [this page](http://nginx.org/en/docs/http/ngx_http_gzip_module.html) from the nginx docs.
 
-{: .note }
->
-> If you keep gzip compression enabled here, note that you are trading increased CPU costs in exchange for your lower bandwidth use. Set the `gzip_comp_level` to a value between 1 and 9, where 9 requires the greatest amount of CPU resources and 1 requires the least. The default value is 1.
+{{< note >}}
+
+If you keep gzip compression enabled here, note that you are trading increased CPU costs in exchange for your lower bandwidth use. Set the `gzip_comp_level` to a value between 1 and 9, where 9 requires the greatest amount of CPU resources and 1 requires the least. The default value is 1.
+
+{{< /note >}}
 
 Note that the code snippet shown above does not include the closing bracket (**}**), because the HTTP section isn't finished. For detailed explanations of every directive in the `HTTP` block, check out [this page](http://nginx.org/en/docs/http/ngx_http_core_module.html) from the nginx documentation.
 
@@ -235,9 +239,11 @@ The `listen` directive, which is located in the `server` block, tells nginx the 
 
 Next we'll present a few common examples for the `listen` directive.
 
- {: .note }
->
-> You can use more than one `listen` directive, if needed.
+ {{< note >}}
+
+You can use more than one `listen` directive, if needed.
+
+{{< /note >}}
 
 {: .file-excerpt }
 /etc/nginx/sites-available/default
@@ -363,9 +369,11 @@ Using non-domain hostnames may be useful if your nginx server is deployed on a L
 
 Finally, if you set `server_name` to the empty quote set (**""**), nginx will process all requests that either do not have a hostname, or that have an unspecified hostname, such as requests for the IP address itself.
 
-{: .note }
->
-> Individual names are separated with a space. You can use regular expressions if desired.
+{{< note >}}
+
+Individual names are separated with a space. You can use regular expressions if desired.
+
+{{< /note >}}
 
 #### Access Logs
 
@@ -401,9 +409,11 @@ The final component of the `server` settings block is the `location` directive. 
 
 The `location` setting lets you configure how nginx will respond to requests for resources within the server. Just like the `server_name` directive tells nginx how to process requests for the domain, such as **http://example.com**, the `location` directive covers requests for specific files and folders, such as **http://example.com/blog/**.
 
-{: .note }
->
-> You can have more than one location directive.
+{{< note >}}
+
+You can have more than one location directive.
+
+{{< /note >}}
 
 Here are a few examples:
 
@@ -472,9 +482,11 @@ Directives are processed in the following order:
 
 Make sure each file and folder under a domain will match at least one `location` directive.
 
- {: .note }
->
-> While nginx's configuration parser is technically capable of reading nested location blocks, this is neither recommended nor supported.
+ {{< note >}}
+
+While nginx's configuration parser is technically capable of reading nested location blocks, this is neither recommended nor supported.
+
+{{< /note >}}
 
 ##### Location Root and Index
 
@@ -497,9 +509,11 @@ In this example, the document root is located in the `html/` directory. Given th
 
 **Returns:** nginx will attempt to serve the file located at `/etc/nginx/html/blog/includes/style.css`
 
- {: .note }
->
-> You can use absolute paths for the `root` directive if desired.
+ {{< note >}}
+
+You can use absolute paths for the `root` directive if desired.
+
+{{< /note >}}
 
 The `index` variable tells nginx which file to serve if none is specified. For example:
 
@@ -568,8 +582,10 @@ The examples and explanations in the previous sections should help you learn to 
     }
     ~~~
 
-{: .note }
->
-> You can also use a relative path, if desired.
+{{< note >}}
+
+You can also use a relative path, if desired.
+
+{{< /note >}}
 
 -   Name your files with a consistent pattern. Keeping your files well-organized and cleanly formatted will greatly reduce the burden of maintaining an nginx server.

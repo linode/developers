@@ -182,11 +182,13 @@ Apache Virtual Host Configuration
 
 Now create the required `django.wsgi` file, as specified:
 
-{: .file }
+{{< file >}}
 /srv/www/example.com/osqa/django.wsgi
 :   ~~~ python
-    import os
-    import sys
+import os
+import sys
+
+{{< /file >}}
 
     sys.path.append('/srv/www/example.com/osqa')
 

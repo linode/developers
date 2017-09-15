@@ -173,14 +173,16 @@ We will use Nginx as the reverse proxy for Gogs, so we can access Gogs using our
 
 3.  Set Nginx as the reverse proxy for Gogs. Using `sudo`, create a new file named `/etc/nginx/sites-available/gogs`, and set the content as shown below:
 
-    {: .file }
-    /etc/nginx/sites-available/gogs
-    :   ~~~ conf
-        server {
-            listen 80;
-            server_name example.com;
-            return 302 https://$server_name$request_uri;
-        }
+    {{< file >}}
+/etc/nginx/sites-available/gogs
+:   ~~~ conf
+server {
+listen 80;
+server_name example.com;
+return 302 https://$server_name$request_uri;
+}
+
+{{< /file >}}
 
         server {
             listen 443 ssl;

@@ -139,51 +139,59 @@ Configure Postfix to work with MySQL
 
 Create a virtual domain configuration file for Postfix called `/etc/postfix/mysql-virtual_domains.cf` with the following contents. Be sure to replace "mail\_admin\_password" with the password you chose earlier for the MySQL mail administrator user.
 
-{: .file }
+{{< file >}}
 /etc/postfix/mysql-virtual_domains.cf
 :   ~~~
-    user = mail_admin
-    password = mail_admin_password
-    dbname = mail
-    query = SELECT domain AS virtual FROM domains WHERE domain='%s'
-    hosts = 127.0.0.1
-    ~~~
+user = mail_admin
+password = mail_admin_password
+dbname = mail
+query = SELECT domain AS virtual FROM domains WHERE domain='%s'
+hosts = 127.0.0.1
+~~~
+
+{{< /file >}}
 
 Create a virtual forwarding file for Postfix called `/etc/postfix/mysql-virtual_forwardings.cf` with the following contents. Be sure to replace "mail\_admin\_password" with the password you chose earlier for the MySQL mail administrator user.
 
-{: .file }
+{{< file >}}
 /etc/postfix/mysql-virtual_forwardings.cf
 :   ~~~
-    user = mail_admin
-    password = mail_admin_password
-    dbname = mail
-    query = SELECT destination FROM forwardings WHERE source='%s'
-    hosts = 127.0.0.1
-    ~~~
+user = mail_admin
+password = mail_admin_password
+dbname = mail
+query = SELECT destination FROM forwardings WHERE source='%s'
+hosts = 127.0.0.1
+~~~
+
+{{< /file >}}
 
 Create a virtual mailbox configuration file for Postfix called `/etc/postfix/mysql-virtual_mailboxes.cf` with the following contents. Be sure to replace "mail\_admin\_password" with the password you chose earlier for the MySQL mail administrator user. Make sure the "query =" section is all on one line; it's broken up here to prevent issues with lower browser resolutions.
 
-{: .file }
+{{< file >}}
 /etc/postfix/mysql-virtual_mailboxes.cf
 :   ~~~
-    user = mail_admin
-    password = mail_admin_password
-    dbname = mail
-    query = SELECT CONCAT(SUBSTRING_INDEX(email,'@',-1),'/',SUBSTRING_INDEX(email,'@',1),'/') FROM users WHERE email='%s'
-    hosts = 127.0.0.1
-    ~~~
+user = mail_admin
+password = mail_admin_password
+dbname = mail
+query = SELECT CONCAT(SUBSTRING_INDEX(email,'@',-1),'/',SUBSTRING_INDEX(email,'@',1),'/') FROM users WHERE email='%s'
+hosts = 127.0.0.1
+~~~
+
+{{< /file >}}
 
 Create a virtual email mapping file for Postfix called `/etc/postfix/mysql-virtual_email2email.cf` with the following contents. Be sure to replace "mail\_admin\_password" with the password you chose earlier for the MySQL mail administrator user.
 
-{: .file }
+{{< file >}}
 /etc/postfix/mysql-virtual_email2email.cf
 :   ~~~
-    user = mail_admin
-    password = mail_admin_password
-    dbname = mail
-    query = SELECT email FROM users WHERE email='%s'
-    hosts = 127.0.0.1
-    ~~~
+user = mail_admin
+password = mail_admin_password
+dbname = mail
+query = SELECT email FROM users WHERE email='%s'
+hosts = 127.0.0.1
+~~~
+
+{{< /file >}}
 
 Set proper permissions and ownership for these configuration files by issuing the following commands:
 
@@ -254,13 +262,15 @@ Issue the following command to create a directory for `saslauthd`:
 
 Edit the file `/etc/default/saslauthd`, setting "START" to "YES" and changing the "OPTIONS" line to match the configuration shown below.
 
-{: .file }
+{{< file >}}
 /etc/default/saslauthd
 :   ~~~
-    #
-    # Settings for saslauthd daemon
-    # Please read /usr/share/doc/sasl2-bin/README.Debian for details.
-    #
+#
+# Settings for saslauthd daemon
+# Please read /usr/share/doc/sasl2-bin/README.Debian for details.
+#
+
+{{< /file >}}
 
     # Should saslauthd run automatically on startup? (default: no)
     START=yes
@@ -317,30 +327,34 @@ Edit the file `/etc/default/saslauthd`, setting "START" to "YES" and changing th
 
 Next, create the file `/etc/pam.d/smtp` and copy in the following two lines. For display purposes, each line is broken up into two lines, but these should be combined in your configuration file so that you have two lines beginning with "auth" and "account". Be sure to change "mail\_admin\_password" to the password you chose for your mail administration MySQL user earlier.
 
-{: .file }
+{{< file >}}
 /etc/pam.d/smtp
 :   ~~~
-    auth    required   pam_mysql.so user=mail_admin passwd=mail_admin_password host=127.0.0.1
-            db=mail table=users usercolumn=email passwdcolumn=password crypt=1
-    account sufficient pam_mysql.so user=mail_admin passwd=mail_admin_password host=127.0.0.1
-            db=mail table=users usercolumn=email passwdcolumn=password crypt=1
-    ~~~
+auth    required   pam_mysql.so user=mail_admin passwd=mail_admin_password host=127.0.0.1
+db=mail table=users usercolumn=email passwdcolumn=password crypt=1
+account sufficient pam_mysql.so user=mail_admin passwd=mail_admin_password host=127.0.0.1
+db=mail table=users usercolumn=email passwdcolumn=password crypt=1
+~~~
+
+{{< /file >}}
 
 Create a file named `/etc/postfix/sasl/smtpd.conf` with the following contents. Be sure to change "mail\_admin\_password" to the password you chose for your mail administration MySQL user earlier.
 
-{: .file }
+{{< file >}}
 /etc/postfix/sasl/smtpd.conf
 :   ~~~
-    pwcheck_method: saslauthd
-    mech_list: plain login
-    allow_plaintext: true
-    auxprop_plugin: mysql
-    sql_hostnames: 127.0.0.1
-    sql_user: mail_admin
-    sql_passwd: mail_admin_password
-    sql_database: mail
-    sql_select: select password from users where email = '%u'
-    ~~~
+pwcheck_method: saslauthd
+mech_list: plain login
+allow_plaintext: true
+auxprop_plugin: mysql
+sql_hostnames: 127.0.0.1
+sql_user: mail_admin
+sql_passwd: mail_admin_password
+sql_database: mail
+sql_select: select password from users where email = '%u'
+~~~
+
+{{< /file >}}
 
 Restrict the access for the files created above by issuing the following commands:
 
@@ -360,13 +374,15 @@ Configure Courier to use MySQL
 
 Edit the file `/etc/courier/authdaemonrc`, changing the "authmodulelist" line to read as follows.
 
-{: .file }
+{{< file >}}
 /etc/courier/authdaemonrc
 :   ~~~
-    ...
-    authmodulelist="authmysql"
-    ...
-    ~~~
+...
+authmodulelist="authmysql"
+...
+~~~
+
+{{< /file >}}
 
 Back up the current `/etc/courier/authmysqlrc` file and create an empty one as follows:
 
@@ -375,22 +391,24 @@ Back up the current `/etc/courier/authmysqlrc` file and create an empty one as f
 
 Edit the file `/etc/courier/authmysqlrc`, copying in the following contents. Be sure to change "mail\_admin\_password" to the password you chose for your mail administration MySQL user earlier.
 
-{: .file }
+{{< file >}}
 /etc/courier/authmysqlrc
 :   ~~~
-    MYSQL_SERVER localhost
-    MYSQL_USERNAME mail_admin
-    MYSQL_PASSWORD mail_admin_password
-    MYSQL_PORT 0
-    MYSQL_DATABASE mail
-    MYSQL_USER_TABLE users
-    MYSQL_CRYPT_PWFIELD password
-    MYSQL_UID_FIELD 5000
-    MYSQL_GID_FIELD 5000
-    MYSQL_LOGIN_FIELD email
-    MYSQL_HOME_FIELD "/home/vmail"
-    MYSQL_MAILDIR_FIELD CONCAT(SUBSTRING_INDEX(email,'@',-1),'/',SUBSTRING_INDEX(email,'@',1),'/')
-    ~~~
+MYSQL_SERVER localhost
+MYSQL_USERNAME mail_admin
+MYSQL_PASSWORD mail_admin_password
+MYSQL_PORT 0
+MYSQL_DATABASE mail
+MYSQL_USER_TABLE users
+MYSQL_CRYPT_PWFIELD password
+MYSQL_UID_FIELD 5000
+MYSQL_GID_FIELD 5000
+MYSQL_LOGIN_FIELD email
+MYSQL_HOME_FIELD "/home/vmail"
+MYSQL_MAILDIR_FIELD CONCAT(SUBSTRING_INDEX(email,'@',-1),'/',SUBSTRING_INDEX(email,'@',1),'/')
+~~~
+
+{{< /file >}}
 
 Delete the original certificates created by Courier by issuing the following commands:
 
@@ -428,12 +446,14 @@ Configure Mail Aliases
 
 Edit the file `/etc/aliases`, making sure the "postmaster" and "root" directives are set properly for your organization.
 
-{: .file }
+{{< file >}}
 /etc/aliases
 :   ~~~
-    postmaster: root
-    root: postmaster@example.com
-    ~~~
+postmaster: root
+root: postmaster@example.com
+~~~
+
+{{< /file >}}
 
 After modifying this file, you must run the following commands to update aliases and restart Postfix:
 

@@ -66,14 +66,16 @@ Add the following lines to your `/etc/nginx/nginx.conf` file, immediately after 
 
 Next, define your site's virtual host file:
 
-{: .file }
+{{< file >}}
 /etc/nginx/sites-available/www.example.com
 :   ~~~ nginx
-    server {
-        server_name www.example.com example.com;
-        access_log /srv/www/www.example.com/logs/access.log;
-        error_log /srv/www/www.example.com/logs/error.log;
-        root /srv/www/www.example.com/public_html;
+server {
+server_name www.example.com example.com;
+access_log /srv/www/www.example.com/logs/access.log;
+error_log /srv/www/www.example.com/logs/error.log;
+root /srv/www/www.example.com/public_html;
+
+{{< /file >}}
 
         location / {
             index index.html index.htm index.php;
@@ -144,11 +146,13 @@ Test PHP with FastCGI
 
 Create a file called "test.php" in your site's "public\_html" directory with the following contents:
 
-{: .file }
+{{< file >}}
 /srv/www/www.example.com/public\_html/test.php
 :   ~~~ php
-    <?php echo phpinfo(); ?>
-    ~~~
+<?php echo phpinfo(); ?>
+~~~
+
+{{< /file >}}
 
 When you visit `http://www.example.com/test.php` in your browser, the standard "PHP info" output is shown. Congratulations, you've configured the nginx web server to use PHP-FastCGI for dynamic content!
 

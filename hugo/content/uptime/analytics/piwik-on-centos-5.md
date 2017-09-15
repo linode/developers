@@ -54,17 +54,19 @@ To create a virtual host we need to add an "[A Record](/docs/dns-guides/introduc
 
 We'll append the following virtual host to our `vhost.conf` file, located at `/etc/httpd/conf.d/vhost.conf`:
 
-{: .file }
+{{< file >}}
 /etc/httpd/conf.d/vhost.conf
 :   ~~~ apache
-    <VirtualHost *:80>
-         ServerAdmin admin@example.net
-         ServerName stats.example.net
-         DocumentRoot /srv/www/stats.example.net/public_html/
-         ErrorLog /srv/www/stats.example.net/logs/error.log
-         CustomLog /srv/www/stats.example.net/logs/access.log combined
-    </VirtualHost>
-    ~~~
+<VirtualHost *:80>
+ServerAdmin admin@example.net
+ServerName stats.example.net
+DocumentRoot /srv/www/stats.example.net/public_html/
+ErrorLog /srv/www/stats.example.net/logs/error.log
+CustomLog /srv/www/stats.example.net/logs/access.log combined
+</VirtualHost>
+~~~
+
+{{< /file >}}
 
 We'll need to create the `logs` and `public_html` directories by issuing the following commands:
 

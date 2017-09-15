@@ -14,19 +14,23 @@ published: 2012-05-24
 title: Migrating a Server to Your Linode
 ---
 
- {: .note }
->
-> The process for migrating a server image to your Linode will vary depending upon how the image was created. We recommend making an `.iso` file from your existing image, and
- then following the steps in our updated [custom distribution](/docs/tools-reference/custom-kernels-distros/install-a-custom-distribution-on-a-linode) guide to deploy it on a
- Linode. This guide is no longer being maintained, and the procedure outlined here is not recommended for new migrations.
+ {{< note >}}
+
+The process for migrating a server image to your Linode will vary depending upon how the image was created. We recommend making an `.iso` file from your existing image, and
+then following the steps in our updated [custom distribution](/docs/tools-reference/custom-kernels-distros/install-a-custom-distribution-on-a-linode) guide to deploy it on a
+Linode. This guide is no longer being maintained, and the procedure outlined here is not recommended for new migrations.
+
+{{< /note >}}
 
 You can migrate an existing server to your Linode from another hosting provider or a local machine. This is a great option if you're moving to Linode from another hosting provider or if you've built a custom server on your local machine. You can even migrate virtualized servers created with products like VirtualBox or VMware. This guide shows you how to prepare the Linode to receive the files, copy the files from the existing server to the Linode, and then make the disks bootable.
 
 ![Migrating a Server to Your Linode](/docs/assets/migrating_a_server_to_your_linode.png "Migrating a Server to Your Linode")
 
- {: .note }
->
-> These instructions assume that you'll be working with a live server. If you can boot into an alternate environment, such as a live CD, you should do so. However, most hosting providers do not offer a bootable recovery or maintenance environment.
+ {{< note >}}
+
+These instructions assume that you'll be working with a live server. If you can boot into an alternate environment, such as a live CD, you should do so. However, most hosting providers do not offer a bootable recovery or maintenance environment.
+
+{{< /note >}}
 
 ## Preparing the Linode
 
@@ -36,9 +40,11 @@ First you'll need to prepare the Linode to receive the files from the existing s
 
 Create two disks: one for the files on your existing server, and another for a swap disk. That way, the import from the existing server will be bootable. Here's how to create the disks:
 
- {: .note }
->
-> We assume that your existing server has a single root partition. If you have multiple partitions set up, you'll need to add extra disks to accommodate each partition.
+ {{< note >}}
+
+We assume that your existing server has a single root partition. If you have multiple partitions set up, you'll need to add extra disks to accommodate each partition.
+
+{{< /note >}}
 
 1.  Log in to the [Linode Manager](https://manager.linode.com).
 2.  Click the **Linodes** tab.
@@ -73,9 +79,11 @@ You'll need a configuration profile to boot your existing server after you uploa
 3.  Enter a name for the configuration profile in the **Label** field.
 4.  *Optional:* Enter notes for the configuration profile in the **Notes** field.
 
-	 {: .note }
-	 >
+	 {{< note >}}
+
 	 > Make sure that you select the correct kernel for your existing server. There are 32-bit and 64-bit versions available. The 64-bit version has `x86_64` in the name.
+
+{{< /note >}}
 
 5.  Set `/dev/sda` to the primary disk you created for the existing server.
 6.  Set `/dev/sdb` to the swap disk you created for the existing server.
@@ -115,9 +123,11 @@ Now it's time to copy the files from your existing server to your Linode. Here's
 
         rsync --exclude="/sys/*" --exclude="/proc/*" -aHSKDvz -e ssh / root@123.45.67.890:/media/sda/
 
- {: .note }
->
-> If you receive a message indicating that the rsync command couldn't be found, you'll need to install it by entering `apt-get install rsync` on Ubuntu or Debian. If you're using a different distribution, you may need to enter a different command.
+ {{< note >}}
+
+If you receive a message indicating that the rsync command couldn't be found, you'll need to install it by entering `apt-get install rsync` on Ubuntu or Debian. If you're using a different distribution, you may need to enter a different command.
+
+{{< /note >}}
 
 The files on your existing server will be copied to your Linode. Depending on the amount of data stored on existing server, the network copy may take a long time. You can monitor the progress from your current server's SSH session.
 

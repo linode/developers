@@ -39,13 +39,15 @@ This guide can be started immediately after terminal login on a new Linode, it's
 
 4.  Create a new sites-available file, replacing `example.com` with your domain or IP address:
 
-    {:.file }
-    /etc/nginx/sites-available/example.com
-    : ~~~ nginx
-    #Names a server and declares the listening port
-    server {
-        listen 80;
-        server_name example.com www.example.com;
+    {{< file >}}
+/etc/nginx/sites-available/example.com
+: ~~~ nginx
+#Names a server and declares the listening port
+server {
+listen 80;
+server_name example.com www.example.com;
+
+{{< /file >}}
 
         #Configures the publicly served root directory
         #Configures the index file to be served
@@ -92,12 +94,14 @@ NGINX is now configured. However, the `example.com` server block points to direc
 
 3.  Create the HTML index file:
 
-    {:.file }
-    /var/www/example.com/index.html
-    : ~~~
-        <!DOCTYPE html>
-        <html>
-        <body>
+    {{< file >}}
+/var/www/example.com/index.html
+: ~~~
+<!DOCTYPE html>
+<html>
+<body>
+
+{{< /file >}}
 
         <br>
         <br>
@@ -142,15 +146,17 @@ NGINX is now listening on port 80 and serving content. It's also configured to p
 
 4.  While still in the `/var/www/example.com` directory, create a Node.js server:
 
-    {:.file }
-    /var/www/example.com/server.js
-    : ~~~ javascript
-        //nodejs.org/api for API docs
-        //Node.js web server                         
-        var http = require("http"),                           //Import Node.js modules
-            url = require("url"),                             
-            path = require("path"),
-            fs = require("fs");
+    {{< file >}}
+/var/www/example.com/server.js
+: ~~~ javascript
+//nodejs.org/api for API docs
+//Node.js web server                         
+var http = require("http"),                           //Import Node.js modules
+url = require("url"),                             
+path = require("path"),
+fs = require("fs");
+
+{{< /file >}}
 
         http.createServer(function(request, response) {       //Create server
         var name = url.parse(request.url).pathname;           //Parse URL
@@ -185,12 +191,14 @@ NGINX is listening on port 80 and passing any `/test.js` requests to port 3000. 
 
 1.  Create the file:
 
-    {:.file }
-    /var/www/example.com/test.js
-    : ~~~ html
-        <!DOCTYPE html>
-        <html>
-        <body>
+    {{< file >}}
+/var/www/example.com/test.js
+: ~~~ html
+<!DOCTYPE html>
+<html>
+<body>
+
+{{< /file >}}
 
         <center>
         <h2>

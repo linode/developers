@@ -57,8 +57,10 @@ The above command will additionally install the Apache web server. Consider our 
 
 SNMPD binds to all local interface by default. If you only plan on using Cacti locally to monitor your Linode, you may want to consider modifying `/etc/sysconfig/snmpd.options` to limit the exposure of SNMP to the Internet at large. Uncomment the following line and append the addresses you would like the SNMP daemon to "listen" for data on as follows:
 
-{: .file }
+{{< file >}}
 /etc/sysconfig/snmpd.options
+
+{{< /file >}}
 
 > OPTIONS="-Lsd -Lf /dev/null -p /var/run/snmpd.pid -a 192.168.169.170"
 
@@ -66,8 +68,10 @@ In this example SNMPD is configured to listen for data only on the LAN IP addres
 
 We'll create an SNMP "community" to help identify our group of devices for Cacti. In this instance, our hostname is "example.org", so we've named the community "example". The community name choice is up to the user. Add the following line to the section of `snmpd.conf` with `com2sec` directives making sure to only grant `readonly` privileges.
 
-{: .file }
+{{< file >}}
 /etc/snmp/snmpd.conf
+
+{{< /file >}}
 
 > com2sec readonly localhost example
 
@@ -188,8 +192,10 @@ Next we'll need to modify the `/etc/snmp/snmpd.conf` file with the name of our c
 
 Note that the format is "rocommunity community\_name", where `community_name` is the name of the community you originally used with Cacti, e.g. `example`. If you're monitoring a CentOS machine and you need to configure which interface SNMPD binds to you must edit the `/etc/sysconfig/snmpd.options` file. Append any IP address needed to the end of the following line, and uncomment it by removing the `#` at the beginning if needed. You should not need to edit this file.
 
-{: .file }
+{{< file >}}
 /etc/sysconfig/snmpd.options
+
+{{< /file >}}
 
 > OPTIONS='-Lsd -Lf /dev/null -I -smux -p /var/run/snmpd.pid'
 

@@ -27,9 +27,11 @@ This guide makes three assumptions:
 *   You know how to sign in to the [Linode Manager](https://manager.linode.com/).
 *   You have a basic knowledge of how to use SSH.
 
-{: .note }
->
-> Because this guide is intended to be general in nature, it does not take into account the specific dependencies or frameworks of each individual setup. If you're unsure whether or not your website is compatible with a LAMP configuration, we strongly suggest consulting your web developer before proceeding.
+{{< note >}}
+
+Because this guide is intended to be general in nature, it does not take into account the specific dependencies or frameworks of each individual setup. If you're unsure whether or not your website is compatible with a LAMP configuration, we strongly suggest consulting your web developer before proceeding.
+
+{{< /note >}}
 
 See our [Getting Started](/docs/getting-started) guide for more information on signing up and setting up your Linode.
 
@@ -51,9 +53,11 @@ When changing servers, however, you want a shorter TTL to make sure that when yo
 
 5.  Make sure you wait out the original TTL from Step 3 before actually moving your domain. In the meantime, you can continue through this guide to back up your data, deploy your Linode and upload your website. For more information on domain TTL, see our [DNS guide](/docs/networking/dns/dns-manager#setting-the-time-to-live-or-ttl).
 
-{: .note }
->
-> If you can't shorten your TTL, it's not the end of the world. The first day or two of your transition to Linode may be a little bumpy, but your updated domain information will eventually spread throughout the internet, and in less than a week you won't notice any difference.
+{{< note >}}
+
+If you can't shorten your TTL, it's not the end of the world. The first day or two of your transition to Linode may be a little bumpy, but your updated domain information will eventually spread throughout the internet, and in less than a week you won't notice any difference.
+
+{{< /note >}}
 
 ## Back Up Your Website
 
@@ -157,9 +161,11 @@ Once you've installed all the underlying software for your Linode, you can uploa
 
 3.  Now check your website's IP address in your browser. Your website should be displayed.
 
-    {: .note }
-    >
-    > Your website may not yet function completely correctly if it is URL-dependent. A website created with WordPress is an example of a URL-dependent website. Because you're using the IP address instead of the URL, WordPress gets confused. It should start working correctly once you move your domain to point to Linode.
+    {{< note >}}
+
+Your website may not yet function completely correctly if it is URL-dependent. A website created with WordPress is an example of a URL-dependent website. Because you're using the IP address instead of the URL, WordPress gets confused. It should start working correctly once you move your domain to point to Linode.
+
+{{< /note >}}
 
 ### A Note About Email
 
@@ -187,9 +193,11 @@ The last step in your Linode migration is to point your domain at your Linode's 
 
 6.  [Set reverse DNS](/docs/networking/dns/setting-reverse-dns) for your domain so you don't have mail problems.
 
-    {: .note }
-    >
-    > If you're having trouble seeing your site at the new IP address, you may need to try visiting it in a different browser, or in a private browsing session. Sometimes your browser will cache old DNS data, even if it has updated everywhere else.
+    {{< note >}}
+
+If you're having trouble seeing your site at the new IP address, you may need to try visiting it in a different browser, or in a private browsing session. Sometimes your browser will cache old DNS data, even if it has updated everywhere else.
+
+{{< /note >}}
 
 Your website is now fully migrated to Linode. It is a good idea to wait a few days before cancelling your shared hosting service to make sure that everything is running smoothly, and you don't need to obtain more files from your shared host.
 

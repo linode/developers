@@ -41,12 +41,14 @@ Before we get started there are a number of system-level dependencies that you w
 
 We going to add a repository to our `/etc/apt/sources.list` to install pakages of Passenger from Ubuntu's "universe" repository. Add the following lines to your `sources.list` with the text editor of your choice:
 
-{: .file }
+{{< file >}}
 /etc/apt/sources.list
 :   ~~~
-    deb http://us.archive.ubuntu.com/ubuntu/ jaunty universe
-    deb-src http://us.archive.ubuntu.com/ubuntu/ jaunty universe
-    ~~~
+deb http://us.archive.ubuntu.com/ubuntu/ jaunty universe
+deb-src http://us.archive.ubuntu.com/ubuntu/ jaunty universe
+~~~
+
+{{< /file >}}
 
 When you've saved this file, you will need to rebuild the package database:
 

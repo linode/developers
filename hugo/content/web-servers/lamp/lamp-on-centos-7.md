@@ -122,11 +122,13 @@ There are different ways to set up virtual hosts; however, the method below is r
 
 MySQL is replaced with MariaDB in CentOS 7. MariaDB is a popular drop-in replacement for MySQL.
 
-{: .note }
->
-> If you prefer to use the MySQL branded database in CentOS 7, you will need to add the required repositories by issuing the following command:
->
->     sudo yum install http://dev.mysql.com/get/mysql57-community-release-el7-7.noarch.rpm
+{{< note >}}
+
+If you prefer to use the MySQL branded database in CentOS 7, you will need to add the required repositories by issuing the following command:
+
+sudo yum install http://dev.mysql.com/get/mysql57-community-release-el7-7.noarch.rpm
+
+{{< /note >}}
 
 1.  Install the MariaDB-server package:
 

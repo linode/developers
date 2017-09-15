@@ -44,12 +44,14 @@ If you choose to run OpenJDK, you can skip the rest of this section, as OpenJDK 
 
 If you would like to run the Sun Microsystems implementation of Java, edit the `/etc/apt/sources.list` so that it resembles the following example. This will enable access to the "partner" repository:
 
-{: .file }
+{{< file >}}
 /etc/apt/sources.list
 :   ~~~
-    ## main & restricted repositories
-    deb http://us.archive.ubuntu.com/ubuntu/ lucid main restricted
-    deb-src http://us.archive.ubuntu.com/ubuntu/ lucid main restricted
+## main & restricted repositories
+deb http://us.archive.ubuntu.com/ubuntu/ lucid main restricted
+deb-src http://us.archive.ubuntu.com/ubuntu/ lucid main restricted
+
+{{< /file >}}
 
     deb http://security.ubuntu.com/ubuntu lucid-updates main restricted
     deb-src http://security.ubuntu.com/ubuntu lucid-updates main restricted

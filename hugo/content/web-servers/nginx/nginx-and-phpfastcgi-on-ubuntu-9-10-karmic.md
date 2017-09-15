@@ -28,8 +28,10 @@ Issue the following commands to set your system hostname, substituting a unique 
 
 Edit your `/etc/hosts` file to resemble the following, substituting your Linode's public IP address for 12.34.56.78, your hostname for "hostname," and your primary domain name for "example.com." :
 
-{: .file }
+{{< file >}}
 /etc/hosts
+
+{{< /file >}}
 
 > 127.0.0.1 localhost.localdomain localhost 12.34.56.78 hostname.example.com hostname
 
@@ -38,12 +40,14 @@ Install Required Packages
 
 Make sure you have the "universe" repositories enabled in `/etc/apt/sources.list`. Your file should resemble the following:
 
-{: .file }
+{{< file >}}
 /etc/apt/sources.list
 :   ~~~
-    ## main & restricted repositories
-    deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
-    deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
+## main & restricted repositories
+deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
+deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
+
+{{< /file >}}
 
     deb http://security.ubuntuu.com/ubuntu karmic-security main restricted
     deb-src http://security.ubuntu.com/ubuntu karmic-security main restricted
@@ -77,14 +81,16 @@ In this guide, we'll be using the domain "example.com" as our example site. You 
 
 Next, define your site's virtual host file:
 
-{: .file }
+{{< file >}}
 /etc/nginx/sites-available/www.example.com
 :   ~~~ nginx
-    server {
-        server_name www.example.com example.com;
-        access_log /srv/www/example.com/www/logs/access.log;
-        error_log /srv/www/example.com/www/logs/error.log;
-        root /srv/www/example.com/www/public_html;
+server {
+server_name www.example.com example.com;
+access_log /srv/www/example.com/www/logs/access.log;
+error_log /srv/www/example.com/www/logs/error.log;
+root /srv/www/example.com/www/public_html;
+
+{{< /file >}}
 
         location / {
             index index.html index.htm index.php;
@@ -164,11 +170,13 @@ Test PHP with FastCGI
 
 Create a file called "test.php" in your site's "public\_html" directory with the following contents:
 
-{: .file }
+{{< file >}}
 /srv/www/www.example.com/public\_html/test.php
 :   ~~~ php
-    <?php echo phpinfo(); ?>
-    ~~~
+<?php echo phpinfo(); ?>
+~~~
+
+{{< /file >}}
 
 When you visit `http://www.example.com/test.php` in your browser, the standard "PHP info" output is shown. Congratulations, you've configured the nginx web server to use PHP-FastCGI for dynamic content!
 

@@ -138,9 +138,11 @@ Deleting a rule is also done using the rule number. For example, to delete the r
 
     sudo iptables -D INPUT 7
 
-{: .caution }
->
->Editing rules does not automatically save them. See our section on [deploying rulesets](/docs/security/firewalls/control-network-traffic-with-iptables#deploy-your-iptables-rulesets) for the specific instructions for your distribution.
+{{< caution >}}
+
+Editing rules does not automatically save them. See our section on [deploying rulesets](/docs/security/firewalls/control-network-traffic-with-iptables#deploy-your-iptables-rulesets) for the specific instructions for your distribution.
+
+{{< /caution >}}
 
 ### View Your Current iptables Rules
 
@@ -471,9 +473,11 @@ In these distros, FirewallD is used to implement firewall rules instead of using
         sudo service iptables save
         sudo service ip6tables save
 
-    {: .note }
-    >
-    >Firewall rules are saved to `/etc/sysconfig/iptables` and `/etc/sysconfig/ip6tables`.
+    {{< note >}}
+
+Firewall rules are saved to `/etc/sysconfig/iptables` and `/etc/sysconfig/ip6tables`.
+
+{{< /note >}}
 
 4.  Remove the temporary rule files:
 

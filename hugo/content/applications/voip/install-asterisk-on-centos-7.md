@@ -74,10 +74,12 @@ iptables will be used to secure the Linode against unwanted traffic. The Linode 
 
 2.  Create `/etc/iptables.firewall.rules` using your preferred text editor. This file will be used to activate the firewall with the desired rules every time the Linode boots.
 
-    {:.file }
-    /etc/iptables.firewall.rules
-    :   ~~~ conf
-        *filter
+    {{< file >}}
+/etc/iptables.firewall.rules
+:   ~~~ conf
+*filter
+
+{{< /file >}}
 
         #  Allow all loopback (lo0) traffic and drop all traffic to 127/8 that doesn't use lo0
         -A INPUT -i lo -j ACCEPT

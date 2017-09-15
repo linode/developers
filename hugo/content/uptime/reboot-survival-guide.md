@@ -24,8 +24,10 @@ The best way to know what occurs during a server reboot is to test for it. Durin
 
 In most cases a reboot is required when upgrading to a newer Linux kernel. By default, Linode configuration profiles are set to use the latest kernel available provided by Linode at each boot. If you've changed this option or are using a custom configuration, you're responsible for updating the kernel on your system.
 
-{: .note }
-> Linode maintains an RSS feed and web page for cataloging current and deprecated Linux kernels. When the support status of a kernel changes, that change will always be recorded and be pushed out to RSS subscribers. See [Available Kernels](https://www.linode.com/kernels).
+{{< note >}}
+Linode maintains an RSS feed and web page for cataloging current and deprecated Linux kernels. When the support status of a kernel changes, that change will always be recorded and be pushed out to RSS subscribers. See [Available Kernels](https://www.linode.com/kernels).
+
+{{< /note >}}
 
 Updating certain packages will occasionally require a system reboot too. This does not happen often, but when necessary, the terminal output will inform you that a reboot is needed.
 
@@ -52,8 +54,10 @@ If you aren't implementing a system wide backups solution like Linode Backups, y
 
 For future reboots, ensure that any critical stack software is configured to start at boot. This differs depending on operating systems.
 
-{: .note }
-> This guide is a high-level overview, and does not discuss runlevels. Read more about runlevels [here](https://www.centos.org/docs/5/html/5.2/Installation_Guide/s2-init-boot-shutdown-rl.html).
+{{< note >}}
+This guide is a high-level overview, and does not discuss runlevels. Read more about runlevels [here](https://www.centos.org/docs/5/html/5.2/Installation_Guide/s2-init-boot-shutdown-rl.html).
+
+{{< /note >}}
 
 ### Debian and Ubuntu
 

@@ -30,8 +30,10 @@ Set your system's host name by issuing the following commands:
 
 Configure your `/etc/hosts` file to include your Linode's fully qualified domain name (FQDN) and localhost are set up in your `/etc/hosts` file. You can use the following example file, modifying the entries to suit your setup (12.34.56.78 should be replaced with your Linode's IP address):
 
-{: .file }
+{{< file >}}
 /etc/hosts
+
+{{< /file >}}
 
 > 127.0.0.1 localhost.localdomain localhost 12.34.56.78 hostname.example.com hostname
 

@@ -124,20 +124,24 @@ In this section, we will modify critical system files. It is recommended that yo
 
 1.  Configure your file systems table (*fstab*), entering a single hard tab between each column. This file specifies how each disk drive is initialized or mounted into the overall filesystem:
 
-    {: .file }
-    /alpine/etc/fstab
-    :   ~~~ conf
-        /dev/sdb    /       ext4    defaults,noatime    0   0
-        /dev/sda    /boot   ext4    defaults,noatime    0   1
-        /dev/sdc    swap    swap    defaults    0   0
-        ~~~
+    {{< file >}}
+/alpine/etc/fstab
+:   ~~~ conf
+/dev/sdb    /       ext4    defaults,noatime    0   0
+/dev/sda    /boot   ext4    defaults,noatime    0   1
+/dev/sdc    swap    swap    defaults    0   0
+~~~
+
+{{< /file >}}
 
 2.  Modify the *inittab*. This file contains options to be read when the system boots or changes run states:
 
-    {: .file }
-    /alpine/etc/inittab
-    :   ~~~ conf
-        # /etc/inittab
+    {{< file >}}
+/alpine/etc/inittab
+:   ~~~ conf
+# /etc/inittab
+
+{{< /file >}}
 
         ::sysinit:/sbin/rc sysinit
         ::sysinit:/sbin/rc boot
@@ -159,12 +163,14 @@ In this section, we will modify critical system files. It is recommended that yo
 
     Create a new file, `grub.cfg` within this directory, and add the following contents. This file specifies configuration options for GRUB 2 to use during the boot process:
 
-    {: .file }
-    /alpine/boot/grub/grub.cfg
-    :   ~~~ conf
-        set root=(hd0)
-        set default="Alpine Linux"
-        set timeout=0
+    {{< file >}}
+/alpine/boot/grub/grub.cfg
+:   ~~~ conf
+set root=(hd0)
+set default="Alpine Linux"
+set timeout=0
+
+{{< /file >}}
 
         menuentry "Alpine Linux" {
             linux /vmlinuz-grsec root=/dev/sdb modules=sd-mod,usb-storage,ext4 console=ttyS0 quiet
@@ -178,11 +184,13 @@ In this section, we will modify critical system files. It is recommended that yo
 
     Create a new file, `mkinitfs.conf`, within this directory and add the following contents. This file specifies options for building the initial RAM file system (*initramfs*):
 
-    {: .file }
-    /alpine/etc/mkinitfs/mkinitfs.conf
-    :   ~~~ conf
-        features="ata ide scsi virtio base ext4"
-        ~~~
+    {{< file >}}
+/alpine/etc/mkinitfs/mkinitfs.conf
+:   ~~~ conf
+features="ata ide scsi virtio base ext4"
+~~~
+
+{{< /file >}}
 
 5.  Copy the system's `resolv.conf` file into `/alpine/etc`:
 
@@ -271,8 +279,10 @@ In this section, we will modify critical system files. It is recommended that yo
 
         echo "%sudo   ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
-    {: .caution }
-    > This configuration is less secure, and generally not recommended.
+    {{< caution >}}
+This configuration is less secure, and generally not recommended.
+
+{{< /caution >}}
 
 6.  Create the sudo group and add your new user to it:
 

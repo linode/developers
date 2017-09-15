@@ -64,11 +64,13 @@ Check the file `/etc/default/webcit` to make sure the installer correctly set yo
 
 Finally, edit the `/etc/mailname` file to reflect your system's fully qualified domain name:
 
-{: .file }
+{{< file >}}
 /etc/mailname
 :   ~~~
-    hostname.example.com
-    ~~~
+hostname.example.com
+~~~
+
+{{< /file >}}
 
 Enable Spamassassin Filtering
 -----------------------------
@@ -153,10 +155,12 @@ Running Citadel
 
 Customize the logon banner for your Citadel server by editing the `/etc/citadel/messages/hello` file:
 
-{: .file }
+{{< file >}}
 /etc/citadel/messages/hello
 :   ~~~
-    Welcome to ^humannode!
+Welcome to ^humannode!
+
+{{< /file >}}
 
     This logon banner resides in ^bbsdir/hello -- please customize it for your site.
     ~~~

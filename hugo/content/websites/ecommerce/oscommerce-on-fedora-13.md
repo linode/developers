@@ -83,22 +83,24 @@ SSL Certificates
 
 You may want to install a commercial SSL certificate on your store to encrypt the data sent from your customer to your server. After [Obtaining a Commercial SSL Certificate](/docs/security/ssl/obtaining-a-commercial-ssl-certificate), you'll need to make a couple of changes to your `includes/configure.php` file. Below is an example section from that file that highlights the changes you need to make:
 
-{: .file }
+{{< file >}}
 /srv/www/example.com/public\_html/includes/configure.php
 :   ~~~ php
-    // Define the webserver and path parameters
-    // * DIR_FS_* = Filesystem directories (local/physical)
-    // * DIR_WS_* = Webserver directories (virtual/URL)
-    define('HTTP_SERVER', 'http://www.example.com'); // eg, http://localhost - should not be empty for productive servers
-    define('HTTPS_SERVER', 'https://example.com'); // eg, https://localhost - should not be empty for productive servers
-    define('ENABLE_SSL', true); // secure webserver for checkout procedure?
-    define('HTTP_COOKIE_DOMAIN', 'www.example.com');
-    define('HTTPS_COOKIE_DOMAIN', 'example.com);
-    define('HTTP_COOKIE_PATH', '/');
-    define('HTTPS_COOKIE_PATH', '/');
-    define('DIR_WS_HTTP_CATALOG', '/');
-    define('DIR_WS_HTTPS_CATALOG', '/');
-    ~~~
+// Define the webserver and path parameters
+// * DIR_FS_* = Filesystem directories (local/physical)
+// * DIR_WS_* = Webserver directories (virtual/URL)
+define('HTTP_SERVER', 'http://www.example.com'); // eg, http://localhost - should not be empty for productive servers
+define('HTTPS_SERVER', 'https://example.com'); // eg, https://localhost - should not be empty for productive servers
+define('ENABLE_SSL', true); // secure webserver for checkout procedure?
+define('HTTP_COOKIE_DOMAIN', 'www.example.com');
+define('HTTPS_COOKIE_DOMAIN', 'example.com);
+define('HTTP_COOKIE_PATH', '/');
+define('HTTPS_COOKIE_PATH', '/');
+define('DIR_WS_HTTP_CATALOG', '/');
+define('DIR_WS_HTTPS_CATALOG', '/');
+~~~
+
+{{< /file >}}
 
 It should be noted that in this example, the certificate was issued without the `www` qualifier. Your specific requirements may require tweaking.
 

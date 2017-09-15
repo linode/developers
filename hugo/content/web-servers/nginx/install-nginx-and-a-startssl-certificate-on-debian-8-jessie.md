@@ -34,9 +34,11 @@ This guide will show you how to install the latest stable version of nginx on De
 
         sudo apt-get update && sudo apt-get upgrade
 
-{: .note }
->
-> Many steps in this guide require root privileges. Be sure to run the steps below as **root** or with the `sudo` prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< note >}}
+
+Many steps in this guide require root privileges. Be sure to run the steps below as **root** or with the `sudo` prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+{{< /note >}}
 
 ## Install nginx
 

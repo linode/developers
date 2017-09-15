@@ -27,12 +27,14 @@ Openfire requires a Java runtime engine (JRE). This tutorial uses the version pr
 
 Examine your `/etc/apt/sources.list` file to make sure you have the `multiverse` repository enabled. You can use an editor like `nano` to edit configuration files through the shell; you would issue the command `nano /etc/apt/sources.list` to edit this one. Please consult the [nano manual page](http://www.nano-editor.org/dist/v1.2/nano.1.html) for information on using the editor. Your file should look similar to the following.
 
-{: .file }
+{{< file >}}
 /etc/apt/sources.list
 :   ~~~
-    ## main & restricted repositories
-    deb http://us.archive.ubuntu.com/ubuntu/ jaunty main restricted multiverse
-    deb-src http://us.archive.ubuntu.com/ubuntu/ jaunty main restricted multiverse
+## main & restricted repositories
+deb http://us.archive.ubuntu.com/ubuntu/ jaunty main restricted multiverse
+deb-src http://us.archive.ubuntu.com/ubuntu/ jaunty main restricted multiverse
+
+{{< /file >}}
 
     deb http://security.ubuntu.com/ubuntu jaunty-security main restricted multiverse
     deb-src http://security.ubuntu.com/ubuntu jaunty-security main restricted multiverse

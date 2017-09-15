@@ -50,9 +50,11 @@ After you purchase a domain, set your domain registrar to use Linode's name serv
 
 See the instructions on your domain name registrar's website for more information.
 
- {: .note }
->
-> DNS changes can take up to 24 hours to propagate throughout the Internet, although the changes are usually visible within a couple hours.
+ {{< note >}}
+
+DNS changes can take up to 24 hours to propagate throughout the Internet, although the changes are usually visible within a couple hours.
+
+{{< /note >}}
 
 ## The DNS Manager
 
@@ -124,9 +126,11 @@ When you first create a domain zone, you'll need to add some DNS records. The DN
 
 2.  The page is divided into different sections for each type of DNS record. Locate the section for the type of DNS record you want to add, and then click the **Add new [DNS] record** link.
 
-	{: .note }
-	>
+	{{< note >}}
+
 	> The exact form fields will vary depending on the type of DNS record you select.
+
+{{< /note >}}
 
     ![This page allows you to create a new A/AAAA record.](/docs/assets/1122-dns10.png)
 
@@ -161,9 +165,11 @@ Here's how to import a zone file:
 2.  Enter the domain name in the **Domain** field, as shown in the example above.
 3.  Enter the name server in the **Remote Nameserver** field.
 
-	{: .note }
-	>
+	{{< note >}}
+
 	> The name server must allow zone transfers (AXFR) from: 96.126.114.97, 96.126.114.98, 2600:3c00::5e, and 2600:3c00::5f
+
+{{< /note >}}
 
 4.  Click **Import Zone**.
 
@@ -213,10 +219,12 @@ Click **Yes, delete this sucker** to permanently delete the zone, including all 
 
 You have successfully removed the DNS record. It can take up to 30 minutes for the changes to be removed.
 
-{: .caution }
->Once removed, you **MUST** delete the Linode nameserver entries from the domain at the registrar level.
-> This is a very important step; if the entries are not removed, someone could use your domain without your
-> permission.
+{{< caution >}}
+Once removed, you **MUST** delete the Linode nameserver entries from the domain at the registrar level.
+This is a very important step; if the entries are not removed, someone could use your domain without your
+permission.
+
+{{< /caution >}}
 
 ### Subdomains
 

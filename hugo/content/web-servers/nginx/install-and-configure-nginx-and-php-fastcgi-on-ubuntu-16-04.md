@@ -72,12 +72,14 @@ Nginx uses `server` directives to specify name-based virtual hosts. Nginx calls 
 
 2.  You should now have the following server block in the nginx virtual host configuration. Replace all instances of `example.com` with your domain, modify the **root** path as shown below, and add the `location ~ \.php$` block:
 
-    {: .file }
-    /etc/nginx/sites-available/example.com
-    :   ~~~ nginx
-        server {
-            listen 80;
-            listen [::]:80;
+    {{< file >}}
+/etc/nginx/sites-available/example.com
+:   ~~~ nginx
+server {
+listen 80;
+listen [::]:80;
+
+{{< /file >}}
 
             server_name example.com;
 
@@ -162,11 +164,13 @@ fastcgi_param SCRIPT_FILENAME /var/www/html/example.com/public_html/$fastcgi_scr
 
 Create a file called `test.php` in your site's `public_html` directory with the following contents:
 
-{: .file }
+{{< file >}}
 /var/www/html/example.com/public_html/test.php
 :   ~~~ php
-    <?php phpinfo(); ?>
-    ~~~
+<?php phpinfo(); ?>
+~~~
+
+{{< /file >}}
 
 When you visit `http://www.example.com/test.php` in your browser, the standard "PHP info" output is shown.
 

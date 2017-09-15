@@ -318,9 +318,11 @@ The bottom-up approach presented here breaks up the complex task of building a m
 
 The second part of this guide presents a step-by-step mail server build organized by function, progressing from core functions to more peripheral ones, with tests at each step. You should have the [main setup guide](/docs/email/postfix/email-with-postfix-dovecot-and-mysql) open at the same time, because we will be referring back to it. As you read the main setup guide, you'll notice that we are installing items in a different order here. The main guide is designed for a streamlined approach that avoids editing the same file multiple times. This guide is focused on a deeper understanding of each component, so you will sometimes need to jump around to different sections of the main guide for reference. Once you successfully complete a stage, I suggest that you make a [system-level backup](/docs/platform/backup-service) so you can get back to that point easily!
 
-{: .caution }
->
-> Keep in mind that the earlier builds presented here are functional, but should not be considered production-ready for security and functionality reasons, mainly because passwords are sent in plain text, and/or outgoing SMTP is not enabled.
+{{< caution >}}
+
+Keep in mind that the earlier builds presented here are functional, but should not be considered production-ready for security and functionality reasons, mainly because passwords are sent in plain text, and/or outgoing SMTP is not enabled.
+
+{{< /caution >}}
 
 Throughout this section, we will provide links to the appropriate [Postfix](http://www.postfix.org/documentation.html) and [Dovecot](http://wiki2.dovecot.org/) documentation. These are great jumping-off points.
 
@@ -418,9 +420,11 @@ In this section, you'll install Dovecot and set it up so you can check your emai
 7.  Send yourself another test message.
 8.  Check your email. You can use either Telnet or a mail client. At this stage, your email address will be for your system user (<myuser@example.com>), and your username and password will be the same as they are for SSH (no `@example.com` part in the username at this stage). Your connection type will be standard (non-secure) and your password will be plain. You will probably have to set up your mail client manually, rather than through a wizard.
 
-{: .note }
->
-> The Telnet and mail client tests will not work for `root`. Use a different system user.
+{{< note >}}
+
+The Telnet and mail client tests will not work for `root`. Use a different system user.
+
+{{< /note >}}
 
 If you succeeded in checking your mail over an IMAP or POP3 connection, you have successfully installed Dovecot and configured it for the most basic inbox access.
 
@@ -588,9 +592,11 @@ The `userdb` line tells Dovecot where to find the mail on the server and which s
 18. Send yourself another test message.
 19. See if you can check your email with IMAP or POP3; you can use a mail client or Telnet. You should now be able to use your email address and email password to log in, rather than your system username and password.
 
-    {: .note }
-    >
-    > Remember that these three paths have to match: the `virtual_mailbox_base` + `/etc/postfix/virtual_users_list` relative path in Postfix's settings, the `mail_location` in Dovecot, and the `home=` in Dovecot.
+    {{< note >}}
+
+Remember that these three paths have to match: the `virtual_mailbox_base` + `/etc/postfix/virtual_users_list` relative path in Postfix's settings, the `mail_location` in Dovecot, and the `home=` in Dovecot.
+
+{{< /note >}}
 
 If your most recent test worked, you have now set up both Postfix and Dovecot successfully with virtual domains and users.
 
@@ -865,11 +871,13 @@ First, you're going to tell Postfix to use Dovecot's SSL certificate and key, be
 7.  Restart Postfix.
 8.  Set up your mail client to connect to your Linode as an outgoing mail server. You should use TLS encryption, or STARTTLS if you have that option, over ports 25, 465, or 587. Your username and password are the same as they are for incoming mail. Try sending a test message.
 
-{: .note }
->
-> You will no longer be able to use Telnet for testing. If you want to run a manual test for troubleshooting purposes, you can use [openssl](http://www.openssl.org/docs/apps/s_client.html) instead. Your command should look like this (you can test on ports 465 and 587 as well):
->
->     openssl s_client -connect example.com:25 -starttls smtp
+{{< note >}}
+
+You will no longer be able to use Telnet for testing. If you want to run a manual test for troubleshooting purposes, you can use [openssl](http://www.openssl.org/docs/apps/s_client.html) instead. Your command should look like this (you can test on ports 465 and 587 as well):
+
+openssl s_client -connect example.com:25 -starttls smtp
+
+{{< /note >}}
 
 Your mail server is now perfectly viable and secure. If you're happy storing all your domains and users in flat files, you can stop here. However, for the sake of making long-term maintenance easier, we suggest that you store your lists of domains, users, and aliases in MySQL databases instead.
 

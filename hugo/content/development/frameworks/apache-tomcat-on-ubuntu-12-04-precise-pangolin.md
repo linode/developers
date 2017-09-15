@@ -41,9 +41,11 @@ To install Tomcat, issue the following command:
 
     apt-get install tomcat6
 
- {: .note }
->
-> OpenJDK will be installed as a dependency when you install the `tomcat6` package. OpenJDK is pulled in by the `default-java` meta package in Ubuntu.
+ {{< note >}}
+
+OpenJDK will be installed as a dependency when you install the `tomcat6` package. OpenJDK is pulled in by the `default-java` meta package in Ubuntu.
+
+{{< /note >}}
 
 You may also want to install the `tomcat6-docs`, `tomcat6-examples`, and `tomcat6-admin` tools which provide web-based applications that document, test, and allow you to administer Tomcat. You can install all three with the following command:
 

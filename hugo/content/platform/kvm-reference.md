@@ -47,8 +47,10 @@ Virtual machine mode determines whether devices inside your virtual machine are 
 | Net     | Virtio Net          | e1000                 |
 | Serial  | ttyS0               | ttyS0                 |
 
-{: .note }
-> If you're unfamiliar with these distinctions, choose paravirtualization
+{{< note >}}
+If you're unfamiliar with these distinctions, choose paravirtualization
+
+{{< /note >}}
 
 ### Custom Kernel Configuration
 
@@ -113,8 +115,10 @@ This means your Kernel doesn't have the necessary `virtio` drivers. To resolve:
 
 3.  Edit your Linode's configuration profile back to the previous setting.
 
-{: .note }
-> Remember to check [Glish](/docs/networking/use-the-graphic-shell-glish) as well as Lish while testing. Without the grub terminal set to serial, your startup output may only appear on the Glish output.
+{{< note >}}
+Remember to check [Glish](/docs/networking/use-the-graphic-shell-glish) as well as Lish while testing. Without the grub terminal set to serial, your startup output may only appear on the Glish output.
+
+{{< /note >}}
 
 ### CentOS 6
 

@@ -138,10 +138,12 @@ Typically, authentication for sending email is handled by the daemon that's conf
 
 Save the following script in the `/opt` directory on the system you wish to send email *from*:
 
-{: .file }
+{{< file >}}
 /opt/smtp-tunnel
 :   ~~~ perl
-    #!/usr/bin/perl
+#!/usr/bin/perl
+
+{{< /file >}}
 
     # A SMTP-over-SSH Port Forwarding Script
     # Copyright (c) 2010 Linode, LLC

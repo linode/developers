@@ -68,18 +68,20 @@ There are different ways to set up virtual hosts; however, the method below is r
 
 1.  Within the `/etc/apache2/sites-available/` directory, create a configuration file for your website, `example.com.conf`, replacing `example.com` with your own domain information:
 
-    {: .file }
-    /etc/apache2/sites-available/example.com.conf
-    :   ~~~ conf
-        <VirtualHost *:80>
-             ServerAdmin webmaster@example.com
-             ServerName example.com
-             ServerAlias www.example.com
-             DocumentRoot /var/www/example.com/public_html/
-             ErrorLog /var/www/example.com/logs/error.log
-             CustomLog /var/www/example.com/logs/access.log combined
-        </VirtualHost>
-        ~~~
+    {{< file >}}
+/etc/apache2/sites-available/example.com.conf
+:   ~~~ conf
+<VirtualHost *:80>
+ServerAdmin webmaster@example.com
+ServerName example.com
+ServerAlias www.example.com
+DocumentRoot /var/www/example.com/public_html/
+ErrorLog /var/www/example.com/logs/error.log
+CustomLog /var/www/example.com/logs/access.log combined
+</VirtualHost>
+~~~
+
+{{< /file >}}
 
     {{< note >}}
 

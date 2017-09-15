@@ -85,14 +85,16 @@ Borrowing from the scripts described [here](http://www.howtogeek.com/howto/linux
 
 Create a `tomcat` "init" file with the following content:
 
-{: .file }
+{{< file >}}
 /etc/init.d/tomcat
 :   ~~~ bash
-    # Tomcat auto-start
-    #
-    # description: Auto-starts tomcat
-    # processname: tomcat
-    # pidfile: /var/run/tomcat.pid
+# Tomcat auto-start
+#
+# description: Auto-starts tomcat
+# processname: tomcat
+# pidfile: /var/run/tomcat.pid
+
+{{< /file >}}
 
     export JAVA_HOME=/usr/lib/jvm/java-6-sun
 

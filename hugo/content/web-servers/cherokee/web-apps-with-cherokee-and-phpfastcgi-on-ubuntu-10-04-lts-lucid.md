@@ -115,11 +115,13 @@ Test Your Configuration
 
 Restart Cherokee by clicking the "Save" button under the left page navigation list. Once Cherokee has restarted, create a test PHP script as follows:
 
-{: .file }
+{{< file >}}
 /srv/www/mydomain.com/www/public\_html/test.php
 :   ~~~ php
-    <?php phpinfo(); ?>
-    ~~~
+<?php phpinfo(); ?>
+~~~
+
+{{< /file >}}
 
 Visit "/test.php" on your site to verfify PHP-FastCGI is operating correctly. You should see the standard PHPInfo page. Congratulations, you've successfully configured PHP-FastCGI for dynamic content using the Cherokee web server!
 

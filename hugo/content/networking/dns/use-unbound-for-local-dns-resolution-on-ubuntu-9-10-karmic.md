@@ -25,8 +25,10 @@ Install Unbound
 
 The unbound package for Ubuntu is included in the `universe` repository. To enable `universe`, modify your `/etc/apt/sources.list` file to mirror the example file below. You'll need to uncomment the universe lines:
 
-{: .file }
+{{< file >}}
 /etc/apt/sources.list
+
+{{< /file >}}
 
 > \#\# main & restricted repositories deb <http://us.archive.ubuntu.com/ubuntu/> karmic main restricted deb-src <http://us.archive.ubuntu.com/ubuntu/> karmic main restricted
 >
@@ -104,8 +106,10 @@ Before you can begin using your Unbound instance to resolve DNS queries, you nee
 
 If you're accessing your Unbound instance over the local interface, make sure your `/etc/resolv.conf` resembles the following:
 
-{: .file }
+{{< file >}}
 /etc/resolve.conf
+
+{{< /file >}}
 
 > nameserver 127.0.0.1
 

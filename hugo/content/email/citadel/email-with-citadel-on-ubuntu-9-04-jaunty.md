@@ -65,12 +65,14 @@ You'll also need to set the hostname for your system. This can be any name you l
 
 Now you will need to configure your Linode so that it associates its hostname with its public IP address. Edit the `/etc/hosts` file so that the first section resembles the following example. Replace `12.34.56.78` and `username.example.com` with your Linode's public IP and FQDN (name.domain.com).
 
-{: .file }
+{{< file >}}
 /etc/hosts
 :   ~~~
-    127.0.0.1 localhost.localdomain localhost
-    12.34.56.78 username.example.com username
-    ~~~
+127.0.0.1 localhost.localdomain localhost
+12.34.56.78 username.example.com username
+~~~
+
+{{< /file >}}
 
 You're now ready to begin installing Citadel!
 
@@ -90,19 +92,23 @@ Enabling Spamassassin Filtering
 
 Edit the `/etc/mailname` file to reflect your system's domain name:
 
-{: .file }
+{{< file >}}
 /etc/mailname
 :   ~~~
-    username.example.com
-    ~~~
+username.example.com
+~~~
 You'll need to edit the SpamAssassin configuration file to enable spamd:
 
-{: .file }
+{{< /file >}}
+
+{{< file >}}
 /etc/default/spamassassin
 :   ~~~
-    # Change to one to enable spamd
-    ENABLED=1
-    ~~~
+# Change to one to enable spamd
+ENABLED=1
+~~~
+
+{{< /file >}}
 
 Start the spamassassin service as follows:
 
@@ -115,11 +121,13 @@ Running Citadel
 
 Customize the logon banner for your Citadel server by editing the relevant file:
 
-{: .file }
+{{< file >}}
 /usr/share/citadel-server/messages/hello
 :   ~~~
-    Citadel Groupware Server Login
-    ~~~
+Citadel Groupware Server Login
+~~~
+
+{{< /file >}}
 
 Use the following startup script to initialize Citadel.
 

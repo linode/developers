@@ -33,9 +33,11 @@ GitLab provides a [.deb package](https://www.gitlab.com/downloads/) which contai
 
 This guide will help you install and configure GitLab on your Ubuntu 14.04 (Trusty Tahr) Linode. We will be using the latest Ruby and GitLab as of this writing, so check for the latest version. We will assume that you want to install GitLab on `git.example.com` and you have configured the DNS properly. If you are new to Linux system administration, you might want to consider the [Introduction to Linux Concepts guide](/docs/tools-reference/introduction-to-linux-concepts) and [Linux Administration Basics guide](/docs/tools-reference/linux-system-administration-basics) guides. Hosting your own software projects could benefit from large amounts of disk space, so consider using our [Block Storage](/docs/platform/how-to-use-block-storage-with-your-linode) service with this setup.
 
- {: .note }
->
-> This guide is written for non-root users. Commands that require elevated privileges are prefixed with sudo. If you are not familiar with the sudo command, you can check out our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+ {{< note >}}
+
+This guide is written for non-root users. Commands that require elevated privileges are prefixed with sudo. If you are not familiar with the sudo command, you can check out our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+{{< /note >}}
 
 ## System Requirements
 
@@ -160,8 +162,10 @@ In this section you will install GitLab and make some configuration changes.
             support_email: support@example.com
         ~~~
 
-     {: .note } 
-     > If you specified a database name other than `gitlabhq_production` when creating the PostgreSQL database in the previous section, edit the `config/database.yml` file to match with your database name.
+     {{< note >}}
+If you specified a database name other than `gitlabhq_production` when creating the PostgreSQL database in the previous section, edit the `config/database.yml` file to match with your database name.
+
+{{< /note >}}
 
 4. Save and exit the file.
 
@@ -286,9 +290,11 @@ In this section you will install GitLab and make some configuration changes.
         sudo -u git -H git config --global core.autocrlf input
 
 
-     {: .note }
-    >
-    > Set the value for user.email according to what is set in config/gitlab.yml
+     {{< note >}}
+
+Set the value for user.email according to what is set in config/gitlab.yml
+
+{{< /note >}}
 
 19. Start GitLab:
 

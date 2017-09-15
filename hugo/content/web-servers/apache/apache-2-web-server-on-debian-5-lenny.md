@@ -85,18 +85,20 @@ Each additional virtual host needs its own file in the `/etc/apache2/sites-avail
 
 First create example.com (`/etc/apache2/sites-available/example.net`) so that it resembles the following example.
 
-{: .file }
+{{< file >}}
 /etc/apache2/sites-available/example.net
 :   ~~~ apache
-    <VirtualHost *:80>
-        ServerAdmin webmaster@example.net     
-        ServerName example.net
-        ServerAlias www.example.net
-        DocumentRoot /srv/www/example.net/public_html/
-        ErrorLog /srv/www/example.net/logs/error.log
-        CustomLog /srv/www/example.net/logs/access.log combined
-    </VirtualHost>
-    ~~~
+<VirtualHost *:80>
+ServerAdmin webmaster@example.net     
+ServerName example.net
+ServerAlias www.example.net
+DocumentRoot /srv/www/example.net/public_html/
+ErrorLog /srv/www/example.net/logs/error.log
+CustomLog /srv/www/example.net/logs/access.log combined
+</VirtualHost>
+~~~
+
+{{< /file >}}
 
 If you would like to enable Perl support, then add the following lines to the `VirtualHost` entry above.
 
@@ -109,18 +111,20 @@ If you would like to enable Perl support, then add the following lines to the `V
 
 Next, create example.com (`/etc/apache2/sites-available/example.org`) so that it resembles this:
 
-{: .file }
+{{< file >}}
 /etc/apache2/sites-available/example.org
 :   ~~~ apache
-    <VirtualHost *:80>
-         ServerAdmin admin@example.org
-         ServerName example.org
-         ServerAlias www.example.org
-         DocumentRoot /srv/www/example.org/public_html/
-         ErrorLog /srv/www/example.org/logs/error.log
-         CustomLog /srv/www/example.org/logs/access.log combined
-    </VirtualHost>
-    ~~~
+<VirtualHost *:80>
+ServerAdmin admin@example.org
+ServerName example.org
+ServerAlias www.example.org
+DocumentRoot /srv/www/example.org/public_html/
+ErrorLog /srv/www/example.org/logs/error.log
+CustomLog /srv/www/example.org/logs/access.log combined
+</VirtualHost>
+~~~
+
+{{< /file >}}
 
 You'll note that some basic options are specified for both sites, including where the files for the site will reside (under `/srv/www/`). You can add (or remove) additional configuration options, such as the Perl support, on a site-by-site basis to these files as your needs dictate.
 

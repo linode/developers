@@ -29,8 +29,10 @@ Before installing Drush and Drupal, ensure that the following prerequisites have
 
        sudo apt-get update && sudo apt-get upgrade
 
-{: .note }
->This guide is written for a non-root user. Commands that require elevated privileges are prefixed with ``sudo``. If you're not familiar with the ``sudo`` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< note >}}
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with ``sudo``. If you're not familiar with the ``sudo`` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+
+{{< /note >}}
 
 ##Install Git & Composer
 
@@ -111,8 +113,10 @@ Drush can create a Drupal site with half the steps of a normal installation. The
 
        sudo apt-get install php5-gd
 
-	{: .note }
-	> If the install process displays a prompt concerning a modified configuration file, choose the "keep the local version currently installed" option.
+	{{< note >}}
+If the install process displays a prompt concerning a modified configuration file, choose the "keep the local version currently installed" option.
+
+{{< /note >}}
 
 2. Check that the Apache2 rewrite module is enabled:
 
@@ -131,8 +135,10 @@ Drush can create a Drupal site with half the steps of a normal installation. The
 
        sudo drush dl drupal --drupal-project-rename=drupal
 
-    {: .note }
-    > You can specify versions of Drupal. For example to install Drupal 8, which is in beta at the time of this publication, use **`drush dl drupal-8`**.
+    {{< note >}}
+You can specify versions of Drupal. For example to install Drupal 8, which is in beta at the time of this publication, use **`drush dl drupal-8`**.
+
+{{< /note >}}
 
 6. Change the working directory to the new 'drupal' folder:
 
@@ -144,8 +150,10 @@ Drush can create a Drupal site with half the steps of a normal installation. The
        sudo drush si standard --db-url=mysql://username:password@localhost/databasename --site-name=example.com
 
 
-    {: .note }
-    >Although MySQL accepts passwords with a special character, for example an exclamation point, the `drush si standard` command does not. If you have a special character in your MySQL password, you may need to change it.
+    {{< note >}}
+Although MySQL accepts passwords with a special character, for example an exclamation point, the `drush si standard` command does not. If you have a special character in your MySQL password, you may need to change it.
+
+{{< /note >}}
 
 
 
@@ -186,8 +194,10 @@ To create a new user for the site owner position, review the [Securing Your Serv
 
         drush status
 
-    {: .caution }
-    >File permissions are a constant concern for the system owner or root user. When installing new files, like a module or theme, make sure the Apache user www-data has access rights. Use the command `ls -al` to list the file permissions within a directory.
+    {{< caution >}}
+File permissions are a constant concern for the system owner or root user. When installing new files, like a module or theme, make sure the Apache user www-data has access rights. Use the command `ls -al` to list the file permissions within a directory.
+
+{{< /caution >}}
 
 Your site is now available at **`example.com`/drupal** or **`ipaddress`/drupal**. Sign-in with the generated username and password and start delivering content to the world!
 
@@ -232,8 +242,10 @@ You may want to install Drush for only certain users, for example, the **site ow
 
        composer global require drush/drush:dev-master
 
-    {: .note }
-    > To install a different version of Drush, replace `drush/drush:dev-master` with another version. For example, to install the stable release of Drush 6.x, use `drush/drush:6.*`. For more information, check out the [Drush GitHub](https://github.com/drush-ops/drush) repository.
+    {{< note >}}
+To install a different version of Drush, replace `drush/drush:dev-master` with another version. For example, to install the stable release of Drush 6.x, use `drush/drush:6.*`. For more information, check out the [Drush GitHub](https://github.com/drush-ops/drush) repository.
+
+{{< /note >}}
 
 4. Check to see that Drush was installed successfully:
 

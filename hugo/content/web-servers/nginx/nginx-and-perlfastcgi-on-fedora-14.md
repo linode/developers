@@ -64,15 +64,17 @@ Add the following lines to your `/etc/nginx/nginx.conf` file, immediately after 
 
 Next, define your site's virtual host file:
 
-{: .file }
+{{< file >}}
 /etc/nginx/sites-available/www.example.com
 :   ~~~ nginx
-    server {
-        listen   80;
-        server_name www.example.com example.com;
-        access_log /srv/www/www.example.com/logs/access.log;
-        error_log /srv/www/www.example.com/logs/error.log;
-        root /srv/www/www.example.com/public_html;
+server {
+listen   80;
+server_name www.example.com example.com;
+access_log /srv/www/www.example.com/logs/access.log;
+error_log /srv/www/www.example.com/logs/error.log;
+root /srv/www/www.example.com/public_html;
+
+{{< /file >}}
 
         location / {
             index  index.html index.htm;
@@ -321,10 +323,12 @@ Test Perl with FastCGI
 
 Create a file called "test.pl" in your site's "public\_html" directory with the following contents:
 
-{: .file }
+{{< file >}}
 /srv/www/www.example.com/public\_html/test.pl
 :   ~~~ perl
-    #!/usr/bin/perl
+#!/usr/bin/perl
+
+{{< /file >}}
 
     print "Content-type:text/html\n\n";
     print <<EndOfHTML;

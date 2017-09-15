@@ -59,8 +59,10 @@ Edit the `/etc/default/saslauthd` file to allow the SASL authentication daemon t
 
 Create the `/etc/postfix/sasl/smtpd.conf` file, and insert the following line:
 
-{: .file }
+{{< file >}}
 /etc/postfix/sasl/smtpd.conf
+
+{{< /file >}}
 
 > pwcheck\_method: saslauthd
 
@@ -132,8 +134,10 @@ Every existing user that receives email will also need to make their own `Maildi
 
 Create a `/etc/postfix/virtual` file to map incoming email addresses to their destinations. Consider the following example:
 
-{: .file }
+{{< file >}}
 /etc/postfix/virtual
+
+{{< /file >}}
 
 > <username@example.com> username <username@example.net> username <username@example.com> username
 >
