@@ -63,7 +63,7 @@ This guide is written for a non-root user. Commands that require elevated privil
 
 3.  With `sudo`, or as the root user, create the file `/etc/apt/sources.list.d/passenger.list` containing Phusion's repository info:
 
-    {{< file "/etc/apt/sources.list.d/passenger.list" list >}}
+    {{< file "/etc/apt/sources.list.d/passenger.list" sourceslist >}}
 deb https://oss-binaries.phusionpassenger.com/apt/passenger precise main
 {{< /file >}}
 

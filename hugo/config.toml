@@ -5,6 +5,8 @@ title = "Linode Guides & Tutorials"
 enableEmoji = true
 
 # Highlighting config (Pygments)
+
+pygmentsUseClasses =  false
 # TODO(bep)
 pygmentsCodeFences = false
 

@@ -57,7 +57,7 @@ Prefixing the `sudo` command is necessary when editing files where read and/or w
 
 2.  Open the *vimrc* file for editing. The file may syntactically differ between Linux distributions, but the core settings remain the same. In the file below, the segment containing the bulk of the configuration options is shown. Uncomment the lines whose behavior you wish to enable. 
 
-{{< file "/etc/vimrc" vimrc >}}
+{{< file "/etc/vimrc" vim >}}
 set showcmd› › " Show (partial) command in status line.
   set showmatch› › " Show matching brackets.
   set ignorecase›› " Do case insensitive matching
@@ -79,7 +79,7 @@ The configurations in this section will apply only to the active user account.
 
 From your active Vim session, create a *.vimrc* file in your home directory. The contents below consist of basic configuration settings most users would find helpful when utilizing Vim in any circumstance. You may pick and choose which settings you would like to add to your personal *.vimrc* file.
 
-{{< file "~/.vimrc" vimrc >}}
+{{< file "~/.vimrc" vim >}}
 " Set compatibility to Vim only.
   set nocompatible
 
@@ -201,7 +201,7 @@ Using a plug-in manager automates both the installation and setup of any plug-in
 
 2.  Open *.vimrc* in the Vim editor and add the following text at the bottom to call the *.vimrc.plug* file.
 
-    {{< file "~/.vimrc" Vimrc >}}
+    {{< file "~/.vimrc" vim >}}
 . . .
           " Call the .vimrc.plug file
           if filereadable(expand("~/.vimrc.plug"))
@@ -218,7 +218,7 @@ Any additional plug-ins to be installed need to be added between the "plug#begin
 
 {{< /note >}}
 
-    {{< file "~/.vimrc.plug" vimrc >}}
+    {{< file "~/.vimrc.plug" vim >}}
 call plug#begin('~/.vim/plugged')
 
         "Fugitive Vim Github Wrapper

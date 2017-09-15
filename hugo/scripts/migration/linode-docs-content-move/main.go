@@ -236,14 +236,18 @@ func fixContent(path, s string) (string, error) {
 
 			// Correct to supported Pygments lexers
 			// See http://pygments.org/docs/lexers/
-			if style == "conf" || style == "config" || style == "apache2" || style == "cnf" || style == "httpd" {
+			if style == "conf" || style == "config" || style == "apache2" || style == "cnf" || style == "httpd" || style == "pp" {
 				style = "aconf" // Apache conf
 			} else if style == "aspx" {
 				style = "aspx-cs"
 			} else if style == "yml" {
 				style = "yaml"
-			} else if style == "text" || style == "txt" || style == "pp" || style == "log" {
+			} else if style == "text" || style == "txt" || style == "log" {
 				style = "resource"
+			} else if strings.EqualFold(style, "vimrc") {
+				style = "vim"
+			} else if strings.EqualFold(style, "list") {
+				style = "sourceslist"
 			}
 
 			if style != "" {

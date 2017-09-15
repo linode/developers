@@ -1,3 +1,21 @@
-<div class="file">
-{{ .Inner | markdownify }}
-</div>
+{{ if .Params }}
+{{ if gt (len .Params ) 0 }}
+<dl class="file">
+	<dt>
+		{{ .Get 0 }} {{ if gt (len .Params ) 1 }} {{ .Get 1 }} {{ end }} {{/* TODO(bep) */}}
+	</dt>
+</dl>
+{{ end }}
+{{ if gt (len .Params ) 1 }}
+{{ $style := (.Get 1) }}
+{{ $whiteList := "pp,aconf" }}
+{{ if strings.Contains $whiteList  $style }}
+{{ .Scratch.Set "style" $style }}
+{{ end }}
+{{ end }}
+{{ end }}
+{{ with .Scratch.Get "style" }}
+{{- highlight $.Inner  . "linenos=inline" | -}}
+{{ else }}
+<pre><code class="nohighlight">{{ $.Inner }}</code></pre>
+{{ end }}
