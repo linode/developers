@@ -75,21 +75,18 @@ To enable the Nginx Longview app manually, follow these steps on your Linode via
 
 1.  Add the following lines to your Nginx configuration to enable the status module and set the location of the status page. The lines can go at the end of the main configuration file at `nginx.conf` or in a separate vhost configuration file:
 
-    {{< file-excerpt >}}
-nginx.conf
-:   ~~~
+    {{< file-excerpt "nginx.conf" >}}
 server {
-listen 127.0.0.1:80;
-server_name 127.0.0.1;
-location /nginx_status {
-stub_status on;
-allow 127.0.0.1;
-deny all;
-}
-}
-~~~
-
+            listen 127.0.0.1:80;
+            server_name 127.0.0.1;
+            location /nginx_status {
+                stub_status on;
+                allow 127.0.0.1;
+                deny all;
+            }
+        }
 {{< /file-excerpt >}}
+
 
 2.  Restart Nginx:
 
@@ -97,15 +94,12 @@ deny all;
 
 3.  Edit `/etc/linode/longview.d/Nginx.conf` to look like the following:
 
-    {{< file >}}
-/etc/linode/longview.d/Nginx.conf
-:   ~~~
+    {{< file "/etc/linode/longview.d/Nginx.conf" >}}
 location http://127.0.0.1/nginx_status
-~~~
-
-4.  Restart Longview:
-
 {{< /file >}}
+
+        
+4.  Restart Longview:
 
         service longview restart
 
@@ -183,35 +177,29 @@ To fix this, follow these steps:
 
 2.  Check the status page location, and make sure it's available over Port 80. The default location Longview checks is `http://127.0.0.1/nginx_status` on localhost, but Nginx doesn't typically have a status page location set up by default. In the Nginx configuration file (typically `nginx.conf` or a vhost configuration file), this is designated with the lines:
 
-    {{< file-excerpt >}}
-nginx.conf
-:   ~~~
+    {{< file-excerpt "nginx.conf" >}}
 server {
-listen 127.0.0.1:80;
-server_name 127.0.0.1;
-location /nginx_status {
-stub_status on;
-allow 127.0.0.1;
-deny all;
-}
-}
-~~~
-
+            listen 127.0.0.1:80;
+            server_name 127.0.0.1;
+            location /nginx_status {
+                stub_status on;
+                allow 127.0.0.1;
+                deny all;
+            }
+        }
 {{< /file-excerpt >}}
+
 
 
 3.  Longview is designed to check the default location automatically. If you use the default location shown above, you should be done. Refresh the Longview Nginx tab in the Linode Manager to verify that it's working now.
 4.  If you're not using the default location, you need to create a new file, `/etc/linode/longview.d/Nginx.conf`, and set the `location` variable to match what you set in the Nginx configuration file:
 
-    {{< file >}}
-/etc/linode/longview.d/Nginx.conf
-:   ~~~
+    {{< file "/etc/linode/longview.d/Nginx.conf" >}}
 location http://127.0.0.1/url-goes-here
-~~~
-
-5.  Restart Longview:
-
 {{< /file >}}
+
+        
+5.  Restart Longview:
 
         service longview restart
 

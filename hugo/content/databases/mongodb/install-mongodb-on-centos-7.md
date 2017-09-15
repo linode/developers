@@ -48,18 +48,15 @@ The most current stable version of MongoDB is 3.2 and, as of this writing, the d
 
 Create a new file, `/etc/yum.repos.d/mongodb-org-3.2.repo`, so that you can install the latest release using `yum`. Add the following contents to the file:
 
-{{< file >}}
-/etc/yum.repos.d/mongodb-org-3.2.repo
-:   ~~~
+{{< file "/etc/yum.repos.d/mongodb-org-3.2.repo" >}}
 [mongodb-org-3.2]
-name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.2/x86_64/
-gpgcheck=1
-enabled=1
-gpgkey=https://www.mongodb.org/static/pgp/server-3.2.asc
-~~~
-
+    name=MongoDB Repository
+    baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.2/x86_64/
+    gpgcheck=1
+    enabled=1
+    gpgkey=https://www.mongodb.org/static/pgp/server-3.2.asc
 {{< /file >}}
+
 
 ## Install MongoDB
 
@@ -97,14 +94,11 @@ These are only a few basic configuration options that are set by default.
 
 We **strongly** recommend uncommenting the `security` section and adding the following:
 
-{{< file-excerpt >}}
-/etc/mongod.conf
-:   ~~~ conf
+{{< file-excerpt "/etc/mongod.conf" conf >}}
 security:
-authorization: enabled
-~~~
-
+      authorization: enabled
 {{< /file-excerpt >}}
+
 
 The `authorization` option enables [role-based access control](https://docs.mongodb.com/manual/core/authorization/) for your databases. If no value is specified, any user will have the ability to modify any database. We'll explain how to create database users and set their permissions later in this guide.
 

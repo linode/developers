@@ -20,16 +20,13 @@ Before configuration, install a Salt Master and Salt Minions with the Linode [In
 
 1.  Open the `/etc/salt/master` file. Then search for **file_roots**, optionally read the surrounding "File Server settings" section, and edit the following:
     
-    {{< file >}}
-/etc/salt/master
-:   ~~~
+    {{< file "/etc/salt/master" >}}
 # Example:
-file_roots:
-base:
-- /etc/salt/base
-~~~
-
+          file_roots:
+            base:
+              - /etc/salt/base
 {{< /file >}}
+
 
         {{< note >}}
 
@@ -50,32 +47,24 @@ As mentioned in the note above, each of these configuration files requires speci
 
 1.  Create the `/etc/salt/base/top.sls` file and add the following. Again, ensure exact formatting for the YAML two space nesting.
 
-    {{< file >}}
-/etc/salt/base/top.sls
-:  ~~~  
-base:
-'*':
-- lamp
-- extras
-~~~
-
-{{< /file >}}
-
+    {{< file "/etc/salt/base/top.sls" >}}
 2.  Create the `/etc/salt/base/lamp.sls` file referred to in Step 1, and add the following: 
 
     {{< file >}}
 /etc/salt/base/lamp.sls
-:  ~~~
-lamp-stack:
-pkg.installed:
-- pkgs:
-- mysql-server
-- php5
-- php-pear
-- php5-mysql
-~~~
+:
+{{< /file >}}
 
 {{< /file >}}
+
+       lamp-stack:
+         pkg.installed:
+           - pkgs:
+             - mysql-server
+             - php5
+             - php-pear
+             - php5-mysql
+       ~~~
 
     This file defines a simple Salt State using the [pkg State Module](http://docs.saltstack.com/en/latest/ref/states/all/salt.states.pkg.html). This Salt State ensures that a LAMP stack is installed across Minions.
 

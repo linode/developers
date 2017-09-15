@@ -50,12 +50,8 @@ This guide is written for a non-root user. Commands that require elevated privil
 
 2.  Edit the main Apache configuration file to adjust the resource use settings. The settings shown below are a good starting point for a **Linode 2GB**:
 
-    {{< file >}}
-/etc/httpd/conf/httpd.conf
-:   ~~~ conf
+    {{< file "/etc/httpd/conf/httpd.conf" conf >}}
 KeepAlive Off
-
-{{< /file >}}
 
 
         <IfModule prefork.c>
@@ -65,26 +61,24 @@ KeepAlive Off
             MaxClients          200
             MaxRequestsPerChild 4500
         </IfModule>
-        ~~~
+{{< /file >}}
+
 
 ### Configure Apache for Virtual Hosting
 
 1.  Create a file under `/etc/httpd/conf.d` named `vhost.conf`. Replace instances of `example.com` with your own domain information:
 
-    {{< file-excerpt >}}
-/etc/httpd/conf.d/vhost.conf
-:   ~~~ conf
+    {{< file-excerpt "/etc/httpd/conf.d/vhost.conf" conf >}}
 <VirtualHost *:80> 
-ServerAdmin admin@example.org
-ServerName example.org
-ServerAlias www.example.org
-DocumentRoot /srv/www/example.org/public_html/
-ErrorLog /srv/www/example.org/logs/error.log 
-CustomLog /srv/www/example.org/logs/access.log combined
-</VirtualHost>
-~~~
-
+             ServerAdmin admin@example.org
+             ServerName example.org
+             ServerAlias www.example.org
+             DocumentRoot /srv/www/example.org/public_html/
+             ErrorLog /srv/www/example.org/logs/error.log 
+             CustomLog /srv/www/example.org/logs/access.log combined
+        </VirtualHost>
 {{< /file-excerpt >}}
+
 
     Additional virtual host blocks can be added to the file for any other domains you wish to host on the Linode.
 

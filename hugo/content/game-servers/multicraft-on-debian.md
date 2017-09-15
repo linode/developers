@@ -36,18 +36,15 @@ Multicraft for Linux depends on several software packages in order to run.
 
 3.  In Apache's default virtual host file under the `<Directory /var/www/>` section, change the `AllowOverride` value to `all`.
 
-    {{< file-excerpt >}}
-/etc/apache2/sites-enabled/000-default
-:   ~~~ apache
+    {{< file-excerpt "/etc/apache2/sites-enabled/000-default" apache >}}
 <Directory /var/www/>
-Options Indexes FollowSymLinks MultiViews
-AllowOverride all
-Order allow,deny
-allow from all
-</Directory>
-~~~
-
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride all
+                Order allow,deny
+                allow from all
+        </Directory>
 {{< /file-excerpt >}}
+
 
         {{< note >}}
 If you want a dedicated Apache virtual host for Multicraft, follow the instructions [here](/docs/websites/hosting-a-website#configuring-name-based-virtual-hosts). Be sure to configure the `AllowOverride` option on your custom virtual host.
@@ -148,14 +145,11 @@ Because of the insecure nature of FTP, we strongly recommend that you **not** en
 
 5.  After reading the End User License Agreement, open the file `eula.txt` in your terminal, and change the value of `eula` to `true`:
 
-    {{< file >}}
-/home/minecraft/multicraft/servers/server1/eula.txt
-:   ~~~ conf
+    {{< file "/home/minecraft/multicraft/servers/server1/eula.txt" conf >}}
 #By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).
-#Wed Feb 04 22:24:38 UTC 2015
-eula=true
-~~~
-
+        #Wed Feb 04 22:24:38 UTC 2015
+        eula=true
 {{< /file >}}
+
 
     You can now successfully start and manage your Minecraft server through Multicraft! For instructions on connecting to your Minecraft server, click [here](/docs/applications/game-servers/minecraft-on-debian-and-ubuntu#connecting-to-your-minecraft-server).

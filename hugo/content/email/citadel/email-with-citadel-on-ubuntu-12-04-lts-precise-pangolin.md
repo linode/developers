@@ -79,25 +79,19 @@ Enabling Spamassassin Filtering
 
 Edit the `/etc/mailname` file to reflect your system's domain name:
 
-{{< file >}}
-/etc/mailname
-:   ~~~
+{{< file "/etc/mailname" >}}
 name.example.com
-~~~
-
 {{< /file >}}
+
 
 You'll need to edit the SpamAssassin configuration file to enable spamd:
 
-{{< file >}}
-/etc/default/spamassassin
-:   ~~~
+{{< file "/etc/default/spamassassin" >}}
 # Change to one to enable spamd
-ENABLED=1
-~~~
-Start the spamassassin service as follows:
-
+    ENABLED=1
 {{< /file >}}
+
+Start the spamassassin service as follows:
 
     /etc/init.d/spamassassin start
 
@@ -108,14 +102,11 @@ Running Citadel
 
 Customize the login banner for your Citadel server by editing the relevant file:
 
-{{< file >}}
-/etc/citadel/messages/hello
-:   ~~~
+{{< file "/etc/citadel/messages/hello" >}}
 Citadel Groupware Server Login
-~~~
-Use the following startup script to initialize Citadel.
-
 {{< /file >}}
+
+Use the following startup script to initialize Citadel.
 
     /etc/init.d/citadel restart 
 

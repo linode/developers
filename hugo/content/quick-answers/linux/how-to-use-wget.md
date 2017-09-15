@@ -67,16 +67,13 @@ Picking the right location for your Linode is important, you have to decide what
 	Wget will then make a file and log the download information inside of it: 
 	
 	
-	{{< file >}}
-newarkTest
-: ~~~ 
-	  02350K .......... .......... .......... .......... ..........100%  457M 0s
+	{{< file "newarkTest" >}}
+02350K .......... .......... .......... .......... ..........100%  457M 0s
 	  102400K                                                       100% 0.00 =0.6s
 
+	  2017-06-23 13:31:54 (179 MB/s) - ‘100MB-newark.bin.2’ saved [104857600/104857600]
 {{< /file >}}
 
-	  2017-06-23 13:31:54 (179 MB/s) - ‘100MB-newark.bin.2’ saved [104857600/104857600]
-  ~~~
 
 3. If you are trying to download a large file, wget offers the `-b` option for downloading in the background:
    

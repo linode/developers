@@ -54,15 +54,12 @@ Our first step in creating a high-availability setup is to install and configure
 
 Edit the `/etc/hosts` file on each Linode to match the following, substituting your own private IP addresses, fully qualified domain names, and host names:
 
-{{< file-excerpt >}}
-/etc/hosts
-: ~~~
+{{< file-excerpt "/etc/hosts" >}}
 192.168.1.2    gluster1.yourdomain.com    gluster1
-192.168.3.4    gluster2.yourdomain.com    gluster2
-192.168.5.6    gluster3.yourdomain.com    gluster3
-~~~
-
+  192.168.3.4    gluster2.yourdomain.com    gluster2
+  192.168.5.6    gluster3.yourdomain.com    gluster3
 {{< /file-excerpt >}}
+
 
 ### Install GlusterFS
 
@@ -181,15 +178,12 @@ Now that we have a replicated file system, we can begin to set up our database c
 
 We'll use three 2GB Linodes with hostnames `galera1`, `galera2`, and `galera3` as our database nodes. Create these now if you have not already, and edit the `/etc/hosts` file on each to add the following, replacing the private IP addresses, fully qualified domain names, and hostnames of your database nodes:
 
-{{< file-excerpt >}}
-/etc/hosts
-: ~~~
+{{< file-excerpt "/etc/hosts" >}}
 192.168.1.2    galera1.yourdomain.com    galera1
-192.168.3.4    galera2.yourdomain.com    galera2
-192.168.5.6    galera3.yourdomain.com    galera3
-~~~
-
+  192.168.3.4    galera2.yourdomain.com    galera2
+  192.168.5.6    galera3.yourdomain.com    galera3
 {{< /file-excerpt >}}
+
 
 {{< note >}}
 You will need an additional private IP address for one of your database nodes, as we'll be using it as a *floating IP* for failover in a later section. To request an additional private IP address, you'll need to [contact support](/docs/platform/support/).
@@ -221,13 +215,9 @@ We will configure the cluster to use XtraBackup for *state snapshot transfer* (S
 
 1.  Make the following changes to `/etc/my.cnf` on each of your database nodes:
 
-    {{< file-excerpt >}}
-/etc/my.cnf
-:   ~~~ conf
+    {{< file-excerpt "/etc/my.cnf" conf >}}
 [mysqld]
-bind_address                   = 0.0.0.0
-
-{{< /file-excerpt >}}
+        bind_address                   = 0.0.0.0
 
         ...
 
@@ -245,7 +235,8 @@ bind_address                   = 0.0.0.0
 
         wsrep_sst_method               = xtrabackup-v2
         wsrep_sst_auth                 = sstuser:password
-        ~~~
+{{< /file-excerpt >}}
+
 
     The values for `wsrep_node_name` and `wsrep_node_address` should be configured individually for each node, using the private IP address for that node and its hostname. The rest of the lines should match on all your database nodes. 
 
@@ -348,20 +339,17 @@ Run the following commands on each database node.
 
 1.  Create and edit `/etc/firewalld/services/galera.xml` to match the following:
 
-    {{< file >}}
-/etc/firewalld/services/galera.xml
-:   ~~~
+    {{< file "/etc/firewalld/services/galera.xml" >}}
 <?xml version="1.0" encoding="utf-8"?>
-<service>
-<short>Galera Replication</short>
-<description>Galera Master-Master Replication and State Transfer</description>
-<port protocol="tcp" port="4567"/>
-<port protocol="tcp" port="4568"/>
-<port protocol="tcp" port="4444"/>
-</service>
-~~~
-
+        <service>
+          <short>Galera Replication</short>
+          <description>Galera Master-Master Replication and State Transfer</description>
+          <port protocol="tcp" port="4567"/>
+          <port protocol="tcp" port="4568"/>
+          <port protocol="tcp" port="4444"/>
+        </service>
 {{< /file >}}
+
 
 2.  Start `firewalld`:
 
@@ -391,19 +379,16 @@ With file system and database clusters set up, you'll now need web servers to de
 
 Before you start, edit the `/etc/hosts` file on each application node to include the private IP address and hostname for each application node and for the file system nodes we set up previously:
 
-{{< file-excerpt >}}
-/etc/hosts
-: ~~~ conf
+{{< file-excerpt "/etc/hosts" conf >}}
 192.168.0.1    app1.yourdomain.com        app1
-192.168.2.3    app2.yourdomain.com        app2
-192.168.4.5    app3.yourdomain.com        app3
-
-{{< /file-excerpt >}}
+  192.168.2.3    app2.yourdomain.com        app2
+  192.168.4.5    app3.yourdomain.com        app3
 
   192.168.1.2    gluster1.yourdomain.com    gluster1
   192.168.3.4    gluster2.yourdomain.com    gluster2
   192.168.5.6    gluster3.yourdomain.com    gluster3
-  ~~~
+{{< /file-excerpt >}}
+
 
 ### Install Apache
 
@@ -444,13 +429,10 @@ Next, we'll mount the Gluster volume on our application servers. The steps in th
 
 2.  Add the following line to `/etc/fstab`, substituting your own GlusterFS hostnames for `gluster1`, `gluster2` and `gluster3`, and your volume name for `example-volume` if appropriate:
 
-    {{< file-excerpt >}}
-/etc/fstab
-:   ~~~ conf
+    {{< file-excerpt "/etc/fstab" conf >}}
 gluster1:/example-volume  /srv/www  glusterfs defaults,_netdev,backup-volfile-servers=gluster2:gluster3 0 0
-~~~
-
 {{< /file-excerpt >}}
+
 
 3.  Create the `/srv/www/` directory and mount the volume to it:
 
@@ -459,19 +441,16 @@ gluster1:/example-volume  /srv/www  glusterfs defaults,_netdev,backup-volfile-se
 
 4.  Set the document root to `/srv/www` so that Apache serves content from the Gluster volume. Edit your `welcome.conf` file to match the following:
 
-    {{< file >}}
-/etc/httpd/conf.d/welcome.conf
-:   ~~~ conf
+    {{< file "/etc/httpd/conf.d/welcome.conf" conf >}}
 <VirtualHost *:80>
-DocumentRoot "/srv/www"
-<Directory /srv/www>
-Require all granted
-Options Indexes FollowSymLinks Multiviews 
-</Directory>
-</VirtualHost>
-~~~
-
+            DocumentRoot "/srv/www"
+            <Directory /srv/www>
+                Require all granted
+                Options Indexes FollowSymLinks Multiviews 
+            </Directory>
+        </VirtualHost>
 {{< /file >}}
+
 
 5.  Start the Apache server:
 
@@ -534,13 +513,10 @@ First, we'll configure IP failover on `galera2` and `galera3` to take on the flo
 
 1.  Edit the following line in your `/etc/sysconfig/keepalived` file on all database nodes, adding `-P` to enable virtual router redundancy protocol:
 
-    {{< file-excerpt >}}
-/etc/sysconfig/keepalived
-:   ~~~ conf
+    {{< file-excerpt "/etc/sysconfig/keepalived" conf >}}
 KEEPALIVED_OPTIONS="-D -P"
-~~~
-
 {{< /file-excerpt >}}
+
 
 2.  On all database nodes, back up `keepalived.conf`:
 
@@ -548,57 +524,54 @@ KEEPALIVED_OPTIONS="-D -P"
 
 3.  On all database nodes, replace the original file with the following:
 
-    {{< file >}}
-/etc/keepalived/keepalived.conf
-:   ~~~ conf
+    {{< file "/etc/keepalived/keepalived.conf" conf >}}
 ! Configuration File for keepalived
-global_defs {
-notification_email {
-}
-
-router_id LVS_DBCLUSTER
-}
-
-vrrp_script chk_pxc {
-script "/usr/bin/clustercheck clustercheck example_password 0"
-interval 15 
-fall 4 
-rise 2
-}
-
-vrrp_instance VI_1 {
-state BACKUP
-nopreempt 
-interface eth0
-virtual_router_id 51
-priority 50
-advert_int 1
-track_interface {
-eth0
-}
-track_script {
-chk_pxc
-}
-authentication {
-auth_type PASS
-auth_pass example_password
-}
-unicast_src_ip  192.168.0.1
-unicast_peer {
-192.168.2.3
-192.168.4.5
-}
-
-virtual_ipaddress {
-192.168.9.9/17
-}
-notify_master "/bin/echo 'now master' > /tmp/keepalived.state"
-notify_backup "/bin/echo 'now backup' > /tmp/keepalived.state"
-notify_fault "/bin/echo 'now fault' > /tmp/keepalived.state"
-}
-~~~
-
+        global_defs {
+            notification_email {
+            }
+ 
+            router_id LVS_DBCLUSTER
+        }
+ 
+        vrrp_script chk_pxc {
+            script "/usr/bin/clustercheck clustercheck example_password 0"
+            interval 15 
+            fall 4 
+            rise 2
+        }
+ 
+        vrrp_instance VI_1 {
+            state BACKUP
+            nopreempt 
+            interface eth0
+            virtual_router_id 51
+            priority 50
+            advert_int 1
+            track_interface {
+                eth0
+            }
+            track_script {
+                chk_pxc
+            }
+            authentication {
+                auth_type PASS
+                auth_pass example_password
+            }
+            unicast_src_ip  192.168.0.1
+            unicast_peer {
+            192.168.2.3
+            192.168.4.5
+            }
+ 
+            virtual_ipaddress {
+            192.168.9.9/17
+            }
+            notify_master "/bin/echo 'now master' > /tmp/keepalived.state"
+            notify_backup "/bin/echo 'now backup' > /tmp/keepalived.state"
+            notify_fault "/bin/echo 'now fault' > /tmp/keepalived.state"
+        }
 {{< /file >}}
+
 
     In the lines beginning with `script` and `auth_pass`, change `example_password` to a secure password of your choosing. In the `virtual_ipaddress` block, replace `192.168.9.9` with the floating IP address you configured previously. Be sure to include the `/17` netmask on this line. These sections, and the rest of the file, should be the same on all database nodes. 
 
@@ -617,16 +590,13 @@ notify_fault "/bin/echo 'now fault' > /tmp/keepalived.state"
 
 6.  On all of your database nodes, add the following entry to your firewall configuration, within the `<zone>` block:
 
-    {{< file-excerpt >}}
-/etc/firewalld/zones/internal.xml
-:   ~~~ xml
+    {{< file-excerpt "/etc/firewalld/zones/internal.xml" xml >}}
 <rule>
-<protocol value="vrrp" />
-<accept />
-</rule>
-~~~
-
+            <protocol value="vrrp" />
+            <accept />
+        </rule>
 {{< /file-excerpt >}}
+
 
 7.  Reload your firewall rules:
 

@@ -69,13 +69,9 @@ Configure Django Applications for WSGI
 
 In order for `mod_wsgi` to be able to provide access to your Django application, you will need to create a `django.wsgi` file inside of your application directory. For the purposes of this example, we assume that your application will be located *outside* of your `DocumentRoot` in the directory `/srv/www/example.com/application`. Modify this example and all following examples to conform to the actual files and locations used in your deployment.
 
-{{< file >}}
-/srv/www/example.com/application/django.wsgi
-:   ~~~ python
+{{< file "/srv/www/example.com/application/django.wsgi" python >}}
 import os
-import sys
-
-{{< /file >}}
+    import sys
 
     sys.path.append('/srv/www/example.com/application')
 
@@ -84,7 +80,8 @@ import sys
 
     import django.core.handlers.wsgi
     application = django.core.handlers.wsgi.WSGIHandler()
-    ~~~
+{{< /file >}}
+
 
 You must append the path of your application to the system path as above. Additionally, declaration of the `PYTHON_EGG_CACHE` variable is optional but may be required for some applications when WSGI scripts are executed with the permissions of the web server. Finally, the `DJANGO_SETTINGS_MODULE` must refer to the Django `settings.py` file for your project. You will need to restart Apache after modifying the `django.wsgi` file.
 
@@ -93,15 +90,11 @@ Configure Apache
 
 Consider the following example virtual host configuration:
 
-{{< file-excerpt >}}
-Apache Virtual Host Configuration
-:   ~~~ apache
+{{< file-excerpt "Apache Virtual Host Configuration" apache >}}
 <VirtualHost *:80>
-ServerName example.com
-ServerAlias www.example.com
-ServerAdmin username@example.com
-
-{{< /file-excerpt >}}
+       ServerName example.com
+       ServerAlias www.example.com
+       ServerAdmin username@example.com
 
        DocumentRoot /srv/www/example.com/public_html
 
@@ -119,7 +112,8 @@ ServerAdmin username@example.com
        ErrorLog /srv/www/example.com/logs/error.log 
        CustomLog /srv/www/example.com/logs/access.log combined
     </VirtualHost>
-    ~~~
+{{< /file-excerpt >}}
+
 
 In this example, the `WSGIScriptAlias` directive tells Apache that for this virtual host, all requests below `/` should be handled by the WSGI script specified. In the directory block that follows, we allow Apache to serve these requests. Finally, the series of four `Alias` directives allow Apache to serve the `robots.txt` and `favicon.ico` files as well as all resources beneath the `/images` and `/static` locations, directly from the `DocumentRoot` without engaging the WSGI application. You can add as many Alias directives as you need to.
 

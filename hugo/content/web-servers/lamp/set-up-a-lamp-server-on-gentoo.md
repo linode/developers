@@ -36,60 +36,10 @@ The first command should show your short hostname, and the second should show yo
 
 Next, edit your `/etc/hosts` file to resemble the following example, replacing "titan" with your chosen hostname, "example.com" with your system's domain name, and "12.34.56.78" with your Linode's IP address.
 
-{{< file >}}
-/etc/hosts
-
-{{< /file >}}
-
-> 127.0.0.1 localhost.localdomain localhost 12.34.56.78 titan.example.com titan
-
-If you have IPv6 enabled on your Linode, you will also want to add an entry for your IPv6 address, as shown in this example:
-
-{{< file >}}
-/etc/hosts
-
-{{< /file >}}
-
-> 127.0.0.1 localhost.localdomain localhost 12.34.56.78 titan.example.com titan 2600:3c01::a123:b456:c789:d012 titan.example.com titan
-
-The value you assign as your system's FQDN should have an "A" record in DNS pointing to your Linode's IPv4 address. For Linodes with IPv6 enabled, you should also set up a "AAAA" record in DNS pointing to your Linode's IPv6 address. For more information on configuring DNS, please see our guide on [configuring DNS with the Linode Manager](/docs/dns-guides/configuring-dns-with-the-linode-manager).
-
-## Install and Configure the Apache Web Server
-
-Begin by making sure that your package repositories and installed programs are up to date by issuing the following commands:
-
-    emerge --sync
-    emerge --update world
-
-Once this process has completed, issue the following command to install Apache:
-
-    emerge www-servers/apache
-
-Apache's main configuration file is located at `/etc/httpd/conf/httpd.conf`. Additional files are located in `/etc/apache2/modules.d/` and `/etc/apache2/vhosts.d/`.
-
-Issue the following command to start Apache for the first time:
-
-    /etc/init.d/apache2 start
-
-If you would like Apache to start following the next reboot, issue the following command:
-
-    rc-update add apache2 default
-
-You will now need to configure virtual hosting in order to be able to serve content for multiple domains.
-
-### Configure Virtual Hosts
-
-By default, Apache listens on all available IP addresses. While this may be ideal for some setups, it's generally a good idea to manually specify which IPs you would like Apache to listen on.
-
-Begin by replacing the existing `NameVirtualHost` line in the `/etc/apache2/vhosts.d/00_default_vhost.conf` so that it reads:
-
-{{< file >}}
-/etc/apache2/vhosts.d/00\_default\_vhost.conf
-:   ~~~ apache
+{{< file "/etc/hosts" apache >}}
 NameVirtualHost 12.34.56.78:80
-~~~
-
 {{< /file >}}
+
 
 Be sure to replace "12.34.56.78" with your Linode's public IP address.
 
@@ -97,20 +47,17 @@ There are numerous ways to configure virtual hosts, but we recommend that you do
 
 Now we will create virtual host entries for each site that we need to host with this server. We'll want to replace the existing `VirtualHost` blocks with ones that resemble the following.
 
-{{< file >}}
-/etc/apache2/vhosts.d/example.conf
-:   ~~~ apache
+{{< file "/etc/apache2/vhosts.d/example.conf" apache >}}
 <VirtualHost 12.34.56.78:80>
-ServerAdmin username@example.com
-ServerName example.com
-ServerAlias www.example.com
-DocumentRoot /srv/www/example.com/public_html/
-ErrorLog /srv/www/example.com/logs/error.log
-CustomLog /srv/www/example.com/logs/access.log combined
-</VirtualHost>
-~~~
-
+         ServerAdmin username@example.com
+         ServerName example.com
+         ServerAlias www.example.com
+         DocumentRoot /srv/www/example.com/public_html/
+         ErrorLog /srv/www/example.com/logs/error.log
+         CustomLog /srv/www/example.com/logs/access.log combined
+    </VirtualHost>
 {{< /file >}}
+
 
 `ErrorLog` and `CustomLog` entries are suggested for more fine-grained logging, but are not required. If they are defined (as shown above), the `logs` directories must be created before you restart Apache.
 

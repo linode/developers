@@ -39,15 +39,11 @@ This guide can be started immediately after terminal login on a new Linode, it's
 
 4.  Create a new sites-available file, replacing `example.com` with your domain or IP address:
 
-    {{< file >}}
-/etc/nginx/sites-available/example.com
-: ~~~ nginx
+    {{< file "/etc/nginx/sites-available/example.com" nginx >}}
 #Names a server and declares the listening port
-server {
-listen 80;
-server_name example.com www.example.com;
-
-{{< /file >}}
+    server {
+        listen 80;
+        server_name example.com www.example.com;
 
         #Configures the publicly served root directory
         #Configures the index file to be served
@@ -62,7 +58,8 @@ server_name example.com www.example.com;
             proxy_set_header Host $host;
         }
     }
-    ~~~
+{{< /file >}}
+
 
 5.  Change the working directory to the NGINX sites-enabled directory:
 
@@ -94,14 +91,10 @@ NGINX is now configured. However, the `example.com` server block points to direc
 
 3.  Create the HTML index file:
 
-    {{< file >}}
-/var/www/example.com/index.html
-: ~~~
+    {{< file "/var/www/example.com/index.html" >}}
 <!DOCTYPE html>
-<html>
-<body>
-
-{{< /file >}}
+        <html>
+        <body>
 
         <br>
         <br>
@@ -128,7 +121,8 @@ NGINX is now configured. However, the `example.com` server block points to direc
 
         </body>
         </html>
-    ~~~
+{{< /file >}}
+
 
 
 ##Install Node.js and Write a Web Server
@@ -146,17 +140,13 @@ NGINX is now listening on port 80 and serving content. It's also configured to p
 
 4.  While still in the `/var/www/example.com` directory, create a Node.js server:
 
-    {{< file >}}
-/var/www/example.com/server.js
-: ~~~ javascript
+    {{< file "/var/www/example.com/server.js" javascript >}}
 //nodejs.org/api for API docs
-//Node.js web server                         
-var http = require("http"),                           //Import Node.js modules
-url = require("url"),                             
-path = require("path"),
-fs = require("fs");
-
-{{< /file >}}
+        //Node.js web server                         
+        var http = require("http"),                           //Import Node.js modules
+            url = require("url"),                             
+            path = require("path"),
+            fs = require("fs");
 
         http.createServer(function(request, response) {       //Create server
         var name = url.parse(request.url).pathname;           //Parse URL
@@ -174,7 +164,8 @@ fs = require("fs");
          });                                                  //header and body sent
         }).listen(3000);                                      //Listening port
         console.log("Server is listening on port 3000.")      //Terminal output
-    ~~~
+{{< /file >}}
+
 
 5.  Run a new [screen](/docs/networking/ssh/using-gnu-screen-to-manage-persistent-terminal-sessions) session:
 
@@ -191,14 +182,10 @@ NGINX is listening on port 80 and passing any `/test.js` requests to port 3000. 
 
 1.  Create the file:
 
-    {{< file >}}
-/var/www/example.com/test.js
-: ~~~ html
+    {{< file "/var/www/example.com/test.js" html >}}
 <!DOCTYPE html>
-<html>
-<body>
-
-{{< /file >}}
+        <html>
+        <body>
 
         <center>
         <h2>
@@ -223,7 +210,8 @@ NGINX is listening on port 80 and passing any `/test.js` requests to port 3000. 
 
         </body>
         </html>
-    ~~~
+{{< /file >}}
+
 
 2.  Test the NGINX server at the IP address or domain. Use the "Go to test.js" button to test that the Node.js server is serving files. On the test page, the "Display the date and time" button will execute a client-side snippet of javascript to return the current time.
 

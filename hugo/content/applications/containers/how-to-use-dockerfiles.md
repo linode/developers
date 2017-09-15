@@ -68,19 +68,16 @@ Note that in the example below, multiple packages are installed on separate line
 
 2.  Open `Dockerfile` using a text editor and enter the following example to create a Dockerfile that installs `build-essential`, `curl`, and `make` onto a Ubuntu image:
 
-    {{< file >}}
-Dockerfile
-:   ~~~ docker
+    {{< file "Dockerfile" docker >}}
 FROM ubuntu
-MAINTAINER NAME EMAIL
-RUN apt-get update && apt-get install -y \
-build-essential \
-gcc \
-curl \
-make
-~~~
-
+        MAINTAINER NAME EMAIL
+        RUN apt-get update && apt-get install -y \
+            build-essential \
+            gcc \
+            curl \
+            make
 {{< /file >}}
+
 
         In this example:
 

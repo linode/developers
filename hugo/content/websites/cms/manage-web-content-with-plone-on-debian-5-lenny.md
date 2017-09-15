@@ -57,14 +57,10 @@ Begin by installing the Apache web server. You can read more about this process 
 
 Edit the `/etc/apache2/mods-available/proxy.conf` file to properly configure the [ProxyPass](/docs/web-servers/apache/proxy-configuration/multiple-webservers-proxypass-debian-5-lenny) as follows:
 
-{{< file-excerpt >}}
-/etc/apache2/mods-available/proxy.conf
-:   ~~~ apache
+{{< file-excerpt "/etc/apache2/mods-available/proxy.conf" apache >}}
 <IfModule mod_proxy.c>
-#turning ProxyRequests on and allowing proxying from all may allow
-#spammers to use your proxy to send email.
-
-{{< /file-excerpt >}}
+            #turning ProxyRequests on and allowing proxying from all may allow
+            #spammers to use your proxy to send email.
 
             ProxyRequests Off
 
@@ -80,7 +76,8 @@ Edit the `/etc/apache2/mods-available/proxy.conf` file to properly configure the
 
             ProxyVia On
     </IfModule>
-    ~~~
+{{< /file-excerpt >}}
+
 
 This enables proxy support in the module's configuration. **Please note** the warning regarding the `ProxyRequests` directive. This setting should be "off" in your configuration. Next, we'll issue the following commands:
 
@@ -90,15 +87,11 @@ This enables proxy support in the module's configuration. **Please note** the wa
 
 Apache should restart cleanly. If you encounter any issues, you may wish to inspect the logs available under `/var/log/apache2/` for more information. Now, consider the following virtual hosting configuration directives:
 
-{{< file-excerpt >}}
-Apache Virtual Hosting Configuration
-:   ~~~ apache
+{{< file-excerpt "Apache Virtual Hosting Configuration" apache >}}
 <VirtualHost *:80>
-ServerAdmin admin@example.com
-ServerName example.com
-ServerAlias www.example.com
-
-{{< /file-excerpt >}}
+         ServerAdmin admin@example.com
+         ServerName example.com
+         ServerAlias www.example.com
 
         ProxyPreserveHost On
          ProxyPass / http://localhost:8081/
@@ -106,7 +99,8 @@ ServerAlias www.example.com
          # Uncomment the line below if your site uses SSL.
          #SSLProxyEngine On
     </VirtualHost>
-    ~~~
+{{< /file-excerpt >}}
+
 
 In this configuration all requests for the `VirtualHost` named `example.com` are passed back to the Plone instance. If you want to only serve dynamic content with Plone and use Apache to serve static content, use a virtual hosting configuration that resembles the following. Enable `mod_rewrite` by issuing the following command:
 
@@ -114,15 +108,11 @@ In this configuration all requests for the `VirtualHost` named `example.com` are
 
 Now modify the configuration of your virtual host as follows:
 
-{{< file-excerpt >}}
-Apache Virtual Host Configuration
-:   ~~~ apache
+{{< file-excerpt "Apache Virtual Host Configuration" apache >}}
 <VirtualHost *:80>
-ServerName example.com
-ServerAlias www.example.com
-DocumentRoot /srv/www/example.com/public_html/
-
-{{< /file-excerpt >}}
+        ServerName example.com
+        ServerAlias www.example.com
+        DocumentRoot /srv/www/example.com/public_html/
 
         ErrorLog /srv/www/example.com/logs/error.log 
         CustomLog /srv/www/example.com/logs/access.log combined
@@ -132,7 +122,8 @@ DocumentRoot /srv/www/example.com/public_html/
         RewriteCond /srv/www/example.com/public_html%{REQUEST_FILENAME} !-f
         RewriteRule ^/(.*)$ http://localhost:8081/$1 [proxy,last]
     </VirtualHost>
-    ~~~
+{{< /file-excerpt >}}
+
 
 Issue the following command to restart apache:
 
@@ -144,14 +135,10 @@ In this example, requests for content will **only** be proxied to Plone **if** r
 
 Somewhere in your nginx configuration file, include configuration options which resemble the following:
 
-{{< file-excerpt >}}
-Nginx Configuration Directives
-:   ~~~ nginx
+{{< file-excerpt "Nginx Configuration Directives" nginx >}}
 server {
-listen       21.43.65.91:80;
-server_name  example.com www.example.com;
-
-{{< /file-excerpt >}}
+            listen       21.43.65.91:80;
+            server_name  example.com www.example.com;
 
             access_log  logs/example.access.log combined;
 
@@ -165,7 +152,8 @@ server_name  example.com www.example.com;
                 proxy_pass http://127.0.0.1;
             }
     }
-    ~~~
+{{< /file-excerpt >}}
+
 
 In this example, nginx listens for incoming requests on port `80` of the public IP address `21.43.65.91` and the domain of `example.com`. All requests are passed to the Plone instance running on the local machine on port `8081`. However, requests for locations in `/media/` will be served from the static content located in the `/srv/media` directory. Additionally, all files that terminate in a `.php` extension will be proxied to another HTTP server, presumably Apache, running on the local interface. Nginx will always fulfill the request using the most specific `Location` directive match.
 

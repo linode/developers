@@ -59,103 +59,20 @@ This will install version 0.6.33 of the nginx server.
 
 Apart from the difference in the following procedure, installing from stable and backported packages are identical. Edit the `/etc/apt/sources.list` file to add the following line:
 
-{{< file-excerpt >}}
-/etc/apt/sources.list
-
-{{< /file-excerpt >}}
-
-> deb <http://backports.debian.org/debian-backports> lenny-backports main
-
-Pin the `nginx` package to the `lenny-backports` repository by inserting the following lines in the `/etc/apt/preferences` file (note: you will need to create this file if it doesn't already exist.)
-
-{{< file-excerpt >}}
-/etc/apt/preferences
-
-{{< /file-excerpt >}}
-
-> Package: nginx Pin: release a=lenny-backports Pin-Priority: 999
-
-Now issue the following commands to update the package manger and install the nginx package and the required dependencies:
-
-    apt-get update
-    apt-get install nginx
-
-At the time of writing, this will install version 0.7.67 of the nginx server. Issue the following command to start nginx for the first time:
-
-    /etc/init.d/nginx start
-
-### Compile nginx from Source
-
-If you want to compile and install nginx from source, issue the following commands to install the prerequisites:
-
-    apt-get install libpcre3-dev build-essential libssl-dev sudo
-
-Check the [nginx download page](http://nginx.org/en/download.html) and ensure that version 1.0.0 is the most recent "stable" version. If not, replace the version specified in the following command sequence with the latest stable version. Issue the following commands to download and install the nginx web server:
-
-    cd /opt/
-    wget http://nginx.org/download/nginx-1.0.0.tar.gz
-    tar -zxvf nginx-1.0.0.tar.gz
-    cd /opt/nginx-1.0.0/
-
-The following `./configure` command will prepare nginx for compilation:
-
-    ./configure --prefix=/opt/nginx --user=nginx --group=nginx --with-http_ssl_module
-
-When the `./configure` command completes it will display the following information regarding the location of important nginx-related files after the installation is completed.
-
-    nginx path prefix: "/opt/nginx"
-    nginx binary file: "/opt/nginx/sbin/nginx"
-    nginx configuration prefix: "/opt/nginx/conf"
-    nginx configuration file: "/opt/nginx/conf/nginx.conf"
-    nginx pid file: "/opt/nginx/logs/nginx.pid"
-    nginx error log file: "/opt/nginx/logs/error.log"
-    nginx http access log file: "/opt/nginx/logs/access.log"
-    nginx http client request body temporary files: "client_body_temp"
-    nginx http proxy temporary files: "proxy_temp"
-    nginx http fastcgi temporary files: "fastcgi_temp"
-
-Issue the following commands to compile and then install the software as specified above:
-
-    make
-    make install
-
-Create a dedicated system user to run the nginx process under by issuing the following command:
-
-    adduser --system --no-create-home --disabled-login --disabled-password --group nginx
-
-Now install and configure the [init script](/docs/assets/549-init-deb.sh) to make it possible to start and stop the web server more easily. Issue the following command sequence:
-
-    wget -O init-deb.sh http://www.linode.com/docs/assets/549-init-deb.sh
-    mv init-deb.sh /etc/init.d/nginx
-    chmod +x /etc/init.d/nginx
-    /usr/sbin/update-rc.d -f nginx defaults
-
-Now, issue the following command to start the web-server:
-
-    /etc/init.d/nginx start
-
-Configure nginx Virtual Hosting
--------------------------------
-
-Regardless of the method you use to install nginx, you will need to configure `server` declarations to specify name-based virtual hosts. There are a number of approaches to organizing configuration files with nginx. Regardless of the organizational strategy, all virtual host configurations are contained within `server` configuration blocks that are in turn contained within the `http` block in the `nginx.conf` file. Consider the following nginx virtual host configuration:
-
-{{< file-excerpt >}}
-nginx server configuration
-:   ~~~ nginx
+{{< file-excerpt "/etc/apt/sources.list" nginx >}}
 server {
-listen   80;
-server_name www.example.com example.com;
-access_log /srv/www/example.com/logs/access.log;
-error_log /srv/www/example.com/logs/error.log;
-
-{{< /file-excerpt >}}
+        listen   80;
+        server_name www.example.com example.com;
+        access_log /srv/www/example.com/logs/access.log;
+        error_log /srv/www/example.com/logs/error.log;
 
         location / {
             root   /srv/www/example.com/public_html;
             index  index.html index.htm;
         }
     }
-    ~~~
+{{< /file-excerpt >}}
+
 
 Create the directories referenced in this configuration by issuing the following commands:
 
@@ -176,35 +93,29 @@ The source file is saved, and the site can be re-enabled at any time.
 
 If you installed the web server after compiling it from source you have a number of options. You may insert the server directives directly into the `http` section of the `/opt/nginx/conf/nginx.conf` or `/etc/nginx/nginx.conf` file, although this may be difficult to manage. You may also replicate the management system created for the Debian project by creating `sites-available/` and `sites-enabled/` directories and inserting the following line into your `nginx.conf` file:
 
-{{< file-excerpt >}}
-/etc/nginx/nginx.conf
-:   ~~~ nginx
+{{< file-excerpt "/etc/nginx/nginx.conf" nginx >}}
 http {
-# [...]
-
-{{< /file-excerpt >}}
+    # [...]
 
     include /opt/etc/nginx/sites-enabled/*;
 
     # [...]       
     }
-    ~~~
+{{< /file-excerpt >}}
+
 
 Modify the include statement to point to the path of your `sites-enabled` directory. In some circumstances, it may make more sense to create and include a file named `/opt/nginx-sites.conf` that is included in the `nginx.conf` file as follows:
 
-{{< file-excerpt >}}
-/opt/nginx/conf/nginx.conf
-:   ~~~ nginx
+{{< file-excerpt "/opt/nginx/conf/nginx.conf" nginx >}}
 http {
-# [...]
-
-{{< /file-excerpt >}}
+    # [...]
 
     include /opt/nginx-sites.conf;
 
     # [...]       
     }
-    ~~~
+{{< /file-excerpt >}}
+
 
 Then, depending on the size and nature of your deployment, place your virtual host configurations either directly in the `/opt/nginx-sites.conf` file or include statements for server-specific configuration files in the `nginx-sites.file`. For more information regarding nginx configuration options, consider our [overview of nginx configuration](/docs/websites/nginx/basic-nginx-configuration).
 
@@ -246,16 +157,12 @@ Issue the following sequence of commands to download a small wrapper script for 
 
 Consider the following nginx virtual host configuration. Modify your configuration to resemble the one below, and ensure that the `location ~ \.php$ { }` resembles the one in this example:
 
-{{< file >}}
-nginx virtual host configuration
-:   ~~~ nginx
+{{< file "nginx virtual host configuration" nginx >}}
 server {
-server_name www.example.com example.com;
-access_log /srv/www/example.com/logs/access.log;
-error_log /srv/www/example.com/logs/error.log;
-root /srv/www/example.com/public_html;
-
-{{< /file >}}
+        server_name www.example.com example.com;
+        access_log /srv/www/example.com/logs/access.log;
+        error_log /srv/www/example.com/logs/error.log;
+        root /srv/www/example.com/public_html;
 
         location / {
             index index.html index.htm index.php;
@@ -268,7 +175,8 @@ root /srv/www/example.com/public_html;
             fastcgi_param SCRIPT_FILENAME /srv/www/example.com/public_html$fastcgi_script_name;
         }
     }
-    ~~~
+{{< /file >}}
+
 
 **Important security note:** If you're planning to run applications that support file uploads (images, for example), the above configuration may expose you to a security risk by allowing arbitrary code execution. The short explanation for this behavior is that a properly crafted URI which ends in ".php", in combination with a malicious image file that actually contains valid PHP, can result in the image being processed as PHP. For more information on the specifics of this behavior, you may wish to review the information provided on [Neal Poole's blog](https://nealpoole.com/blog/2011/04/setting-up-php-fastcgi-and-nginx-dont-trust-the-tutorials-check-your-configuration/).
 

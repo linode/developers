@@ -55,77 +55,15 @@ The above command will additionally install the Apache web server. Consider our 
 
 SNMPD binds to all local interfaces by default. If you only plan on using Cacti locally to monitor your Linode, you may want to consider modifying `/etc/sysconfig/snmpd.options` to limit the exposure of SNMP to the Internet at large. Uncomment the following line and append the addresses you would like the SNMP daemon to "listen" for data, as follows:
 
-{{< file >}}
-/etc/sysconfig/snmpd.options
-
-{{< /file >}}
-
-> OPTIONS="-Lsd -Lf /dev/null -p /var/run/snmpd.pid -a 192.168.169.170"
-
-In this example, SNMPD is configured to listen for data only on the LAN IP address `192.168.169.170`. To limit access to SNMPD so that only local data can access the daemon, use `127.0.0.1` as the IP address. If, however, you need to receive data from machines on the Internet at large, do not append any IP addresses to this line.
-
-We'll create an SNMP "community" to help identify our group of devices for Cacti. In this instance, our hostname is "example.org", so we've named the community "example". The community name choice is up to the user. Add the following line to the section of `snmpd.conf` with `com2sec` directives making sure to only grant `readonly` privileges.
-
-{{< file >}}
-/etc/snmp/snmpd.conf
-
-{{< /file >}}
-
-> com2sec readonly localhost example
-
-If you want a remote machine to connect to Cacti, replace "localhost" with the IP address of the remote machine.
-
-You need to restart snmpd any time `/etc/snmp/snmpd.conf` is modified. Run the following command after closing the file:
-
-    /etc/init.d/snmpd restart
-
-Installing Cacti
-----------------
-
-To install the Cacti package from the distribution software repositories, issue the following command:
-
-    yum install cacti
-
-Install all packages as recommended. Before we can begin using Cacti we must first configure MySQL. Use the following commands to start the MySQL server and enter the secure installation configuration:
-
-    /etc/init.d/mysqld start
-    mysql_secure_installation
-
-Your MySQL instance does not have a root password when installed, but you will want to set a secure password, remove anonymous users, disallow root logins, and remove all of the test databases. Finally accept the invitation to reload all privilege tables and you will return to the root prompt. Issue the following command to enter the MySQL prompt and create a database and MySQL user for Cacti:
-
-    mysql -u root -p
-
-Supply the requested password and issue the following SQL statements at the `mysql>` prompt.
-
-    CREATE DATABASE cactidb;
-
-    CREATE USER 'cactiuser'@localhost IDENTIFIED BY 'c@t1u53r';
-
-    GRANT ALL PRIVILEGES ON cactidb.* TO 'cactiuser'@localhost;
-
-    exit
-
-Before we can begin to configure Cacti in the conventional manner, we must set up the database by issuing the following commands:
-
-    cd /opt/
-    wget http://svn.cacti.net/viewvc/cacti/tags/0.8.7e/cacti.sql?view=co
-    mv cacti.sql\?view\=co cacti.sql
-    mysql -u cactiuser -p cactidb < cacti.sql
-
-Enter the password created above (e.g. `c@t1u53r`) and press return. Now edit the `/etc/cacti/db.php` file to include the relevant settings as in the below example:
-
-{{< file-excerpt >}}
-/etc/cacti/db.php
-:   ~~~ php
+{{< file "/etc/sysconfig/snmpd.options" php >}}
 $database_type = "mysql";
-$database_default = "cactidb";
-$database_hostname = "localhost";
-$database_username = "cactiuser";
-$database_password = "c@t1u53r";
-$database_port = "3306";
-~~~
+    $database_default = "cactidb";
+    $database_hostname = "localhost";
+    $database_username = "cactiuser";
+    $database_password = "c@t1u53r";
+    $database_port = "3306";
+{{< /file >}}
 
-{{< /file-excerpt >}}
 
 Issue the following command to start Apache if you have not already:
 

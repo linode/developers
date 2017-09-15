@@ -272,13 +272,10 @@ Check if the file `/etc/default/dhcpcd` exists, and it's contents.
 
 If the returned value is `SET_HOSTNAME='yes'`, edit `/etc/default/dhcpcd` and comment out the `SET_HOSTNAME` directive:
 
-{{< file-excerpt >}}
-/etc/default/dhcpcd
-: ~~~
+{{< file-excerpt "/etc/default/dhcpcd" >}}
 #SET_HOSTNAME='yes'
-~~~
-
 {{< /file-excerpt >}}
+
 
 ### CentOS 6 / Fedora version 17 and below
 
@@ -306,26 +303,20 @@ Update the `/etc/hosts` file. This file creates static associations between IP a
 
 As with the hostname, the domain name part of your FQDN does not necessarily need to have any relationship to websites or other services hosted on the server (although it may if you wish). As an example, you might host "www.something.com" on your server, but the system's FQDN might be "mars.somethingelse.com."
 
-{{< file >}}
-/etc/hosts
-: ~~~
+{{< file "/etc/hosts" >}}
 127.0.0.1 localhost.localdomain localhost
-203.0.113.10 hostname.example.com hostname
-~~~
-
+  203.0.113.10 hostname.example.com hostname
 {{< /file >}}
+
 
 If you have IPv6 enabled on your Linode, you may also want to add an entry for your IPv6 address, as shown in this example:
 
-{{< file >}}
-/etc/hosts
-: ~~~
+{{< file "/etc/hosts" >}}
 127.0.0.1 localhost.localdomain localhost
-203.0.113.10 hostname.example.com hostname
-2600:3c01::a123:b456:c789:d012 hostname.example.com hostname
-~~~
-
+  203.0.113.10 hostname.example.com hostname
+  2600:3c01::a123:b456:c789:d012 hostname.example.com hostname
 {{< /file >}}
+
 
 The value you assign as your system's FQDN should have an "A" record in DNS pointing to your Linode's IPv4 address. For Linodes with IPv6 enabled, you should also set up a "AAAA" record in DNS pointing to your Linode's IPv6 address. For more information on configuring DNS, see [Adding DNS Records](/docs/hosting-website#sph_adding-dns-records).
 

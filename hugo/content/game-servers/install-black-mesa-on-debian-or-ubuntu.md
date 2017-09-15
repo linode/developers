@@ -108,9 +108,7 @@ At the time of writing this guide, Black Mesa has yet to share with customers an
 ###Server.cfg
 The **server.cfg** file contains the settings of your server. It is not needed because you can start the server every time by specifying desidered values using parameters.
 
-{{< file-excerpt >}}
-/home/steam/Steam/steamapps/common/Black Mesa Dedicated Server/bms/cfg/server.cfg
-: ~~~config
+{{< file-excerpt "/home/steam/Steam/steamapps/common/Black Mesa Dedicated Server/bms/cfg/server.cfg" config >}}
 // Black Mesa server.cfg file
 hostname "Black Mesa: Deathmatch" --> Your server's name.
 mp_timelimit 900                  --> Round time limit.
@@ -123,9 +121,8 @@ mp_warmup_time 30                 --> Time before the match starts.
 // mp_fraglimit 45                --> The number of kills needed to end the match.
 // sv_logecho 1                   --> Prints logs in the console (0 = disabled|1 = enabled).
 // sv_logfile 1                   --> Saves the logs to a file (0 = disabled|1 = enabled).
-~~~
-
 {{< /file-excerpt >}}
+
 
 {{< caution >}}
 
@@ -168,17 +165,14 @@ Mesa Dedicated Server/bms/maps/`.
 The add-ons to be loaded need to be specified in the **addonlist.txt** file.
 In the following example, maps that were downloaded from workshop to the list are added to **dm_boom** and **dm_shipping**:
 
-{{< file >}}
-/home/steam/Steam/steamapps/common/Black Mesa Dedicated Server/bms/addonlist.txt
-: ~~~txt
+{{< file "/home/steam/Steam/steamapps/common/Black Mesa Dedicated Server/bms/addonlist.txt" txt >}}
 "AddonList"
-{
-"workshop\432070352.vpk"		"1"
-"workshop\432074065.vpk"		"1"
-}
-~~~
-
+  {
+   "workshop\432070352.vpk"		"1"
+   "workshop\432074065.vpk"		"1"
+  }
 {{< /file >}}
+
 
 {{< note >}}
 
@@ -191,9 +185,7 @@ You can find more maps in the [Steam Workshop](http://steamcommunity.com/worksho
 When a match ends, the server starts a new one with the next map in the rotation list.
 The map rotation list is in **mapcycle.txt**:
 
-{{< file-excerpt >}}
-/home/steam/Steam/steamapps/common/Black Mesa Dedicated Server/bms/cfg/mapcycle.txt
-:  ~~~txt
+{{< file-excerpt "/home/steam/Steam/steamapps/common/Black Mesa Dedicated Server/bms/cfg/mapcycle.txt" txt >}}
 dm_bounce
 dm_gasworks
 dm_lambdabunker
@@ -201,11 +193,10 @@ dm_stalkyard
 dm_subtransit
 dm_undertow
 dm_custom
-~~~
-
-To put a custom map in the rotation, simply write its name; for example: if you have the map **dm_custom.bsp**, you need to write **dm_custom** inside **mapcycle.txt**.
-
 {{< /file-excerpt >}}
+
+    
+To put a custom map in the rotation, simply write its name; for example: if you have the map **dm_custom.bsp**, you need to write **dm_custom** inside **mapcycle.txt**.
 
 ##Connect to Your Server
 
@@ -233,16 +224,13 @@ This script automatically starts a Black Mesa Dedicated Server into a **Screen s
 
 2.  Create the file to contain the script:
 
-	{{< file >}}
-/home/steam/Steam/steamapps/common/Black Mesa Dedicated Server/run.sh
-	: ~~~ sh
-	#!/bin/sh
+	{{< file "/home/steam/Steam/steamapps/common/Black Mesa Dedicated Server/run.sh" sh >}}
+#!/bin/sh
 	cd "$HOME/Steam/steamapps/common/Black Mesa Dedicated Server"
 	screen -S "BMDS" -d -m
 	screen -r "BMDS" -X stuff "./srcds_run -game bms +map gasworks +maxplayers 24\n"
-	~~~
-
 {{< /file >}}
+
 
 3.  Run the script:
 

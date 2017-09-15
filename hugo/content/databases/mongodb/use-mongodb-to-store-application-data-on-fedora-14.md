@@ -76,16 +76,12 @@ Review the contents of the `mongodb-start` and `mongodb-stop` and modify these f
 
 Create the `/opt/config/mongodb` and use the following example as a template:
 
-{{< file >}}
-/opt/config/mongodb
-:   ~~~ ini
+{{< file "/opt/config/mongodb" ini >}}
 # Configuration Options for MongoDB
-# 
-# For More Information, Consider:
-# - Configuration Parameters: http://www.mongodb.org/display/DOCS/Command+Line+Parameters
-# - File Based Configuration: http://www.mongodb.org/display/DOCS/File+Based+Configuration
-
-{{< /file >}}
+    # 
+    # For More Information, Consider:
+    # - Configuration Parameters: http://www.mongodb.org/display/DOCS/Command+Line+Parameters
+    # - File Based Configuration: http://www.mongodb.org/display/DOCS/File+Based+Configuration
 
     dbpath = /srv/db/mongodb
     logpath = /srv/db/mongodb.log
@@ -97,7 +93,8 @@ Create the `/opt/config/mongodb` and use the following example as a template:
 
     auth = true
     # noauth = true
-    ~~~
+{{< /file >}}
+
 
 This specifies a number of important options that you may modify to control the functionality of `mongodb`. The `dbpath` option indicates that database files will be stored in `/srv/db/mongodb`. The `logpath` directive indicates that MongoDB's logs will be located in the `/srv/db/mongodb.log` file, and that new log entries will be appended to the end of the log rather than overwriting existing log entries even after MongoDB restarts.
 

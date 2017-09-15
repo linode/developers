@@ -155,8 +155,13 @@ var (
 	dateRe     = regexp.MustCompile(`(published|modified): '?(.*)'?\s*\n`)
 	keywordsRe = regexp.MustCompile(`keywords: '(.*)'\s*\n?`)
 
-	calloutsRe  = regexp.MustCompile(`(?s){:\s?\.([\w|-]*)\s?}(.*?)\n\n`)
-	fileExcerpt = regexp.MustCompile(`(?s){{< (file(-excerpt))? >}}(.*):\s*~~~.*\n(.*)\n~~~.*{{< /(file(-excerpt)?) >}}`)
+	calloutsFiles = regexp.MustCompile(`(?s){:\s?\.(file[\w|-]*)\s?}\n(.*?)\n.*?~~~\s?(\w*)\n(.*?)~~~`)
+	calloutsRe    = regexp.MustCompile(`(?s){:\s?\.([\w|-]*)\s?}(.*?)\n\n`)
+
+	// (?s){{< (file-?\w*) >}}\n(.*?)\n.*?~~~\s?(\w*)\n(.*?)~~~.*?{< /file-excerpt >}}
+
+	//	fileExcerpt = regexp.MustCompile(`(?s){{< (file-?\w*) >}}(.*):\s*~~~.*\n(.*)\n~~~.*?({{< /file-?\w* >}})?`)
+	//fileExcerpt = regexp.MustCompile(`(?s){{< (file-?\w*) >}}\n(.*?)\n.*?~~~\s?(\w*)\n(.*?)~~~.*?{< /file-?\w* >}}`)
 
 	ndRe     = regexp.MustCompile(`(\d+)(th|nd|st|rd)`)
 	commaRe1 = regexp.MustCompile(`([0-9])\s([0-9])`)
@@ -208,7 +213,39 @@ func fixContent(path, s string) (string, error) {
 
 	// TODO(bep) fix markdown titles: ##Configure Apache
 
+	// Handle file and file-excerpt shortcodes
 	// Replace callouts with shortcodes
+	s = calloutsFiles.ReplaceAllStringFunc(s, func(s string) string {
+		m := calloutsFiles.FindAllStringSubmatch(s, -1)
+		if len(m) > 0 {
+			tmpCount++
+
+			first := m[0]
+
+			shortcode := strings.TrimSpace(first[1])
+			filename := strings.TrimSpace(first[2])
+			style := strings.TrimSpace(first[3])
+			code := strings.TrimSpace(first[4])
+
+			// Misspelled
+			if shortcode == "file-exceprt" || shortcode == "file-exerpt" {
+				shortcode = "file-excerpt"
+			}
+
+			if style != "" {
+				style += " "
+			}
+
+			return fmt.Sprintf(`{{< %s %q %s>}}
+%s
+{{< /%s >}}
+`, shortcode, filename, style, code, shortcode)
+		}
+
+		return s
+	})
+
+	// Replace the reset of the callouts with shortcodes
 	s = calloutsRe.ReplaceAllStringFunc(s, func(s string) string {
 		m := calloutsRe.FindAllStringSubmatch(s, -1)
 		if len(m) > 0 {
@@ -216,11 +253,6 @@ func fixContent(path, s string) (string, error) {
 			name, content := first[1], first[2]
 			content = strings.TrimSpace(content)
 			name = strings.TrimSpace(name)
-
-			// Misspelled
-			if name == "file-exceprt" || name == "file-exerpt" {
-				name = "file-excerpt"
-			}
 
 			// Block level markdown is superflous.
 			lines := strings.Split(content, "\n")
@@ -235,24 +267,6 @@ func fixContent(path, s string) (string, error) {
 
 `, name, newContent, name)
 
-		}
-
-		return s
-	})
-
-	// Handle file and file-excerpt shortcodes
-	// Replace callouts with shortcodes
-	s = fileExcerpt.ReplaceAllStringFunc(s, func(s string) string {
-		m := fileExcerpt.FindAllStringSubmatch(s, -1)
-		if len(m) > 0 {
-			tmpCount++
-
-			if tmpCount > 5 {
-				return s
-			}
-			first := m[0]
-
-			fmt.Printf(">>>%d: %#v\n", len(first), first[1])
 		}
 
 		return s

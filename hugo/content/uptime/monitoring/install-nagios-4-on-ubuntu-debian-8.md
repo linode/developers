@@ -152,14 +152,10 @@ For Ubuntu versions after 14.04, see the [Systemd section below](#systemd) befor
 
 As of this guide's publication, the Nagios build process does not create a systemd service file. In order to manage the service with systemd, create a Nagios service file for the system to load on initialization:
 
- {{< file >}}
-/etc/systemd/system/nagios.service
-:    ~~~ ini
+ {{< file "/etc/systemd/system/nagios.service" ini >}}
 [Unit]
-Description=Nagios
-BindTo=network.target
-
-{{< /file >}}
+      Description=Nagios
+      BindTo=network.target
 
       [Install]
       WantedBy=multi-user.target
@@ -169,7 +165,8 @@ BindTo=network.target
       Group=nagios
       Type=simple
       ExecStart=/usr/local/nagios/bin/nagios /usr/local/nagios/etc/nagios.cfg
-      ~~~
+{{< /file >}}
+
 
 
 Enable the link, start the Nagios service, and check the status:

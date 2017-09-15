@@ -44,86 +44,65 @@ Before you get started, make sure you follow the steps outlined in our [Getting 
 
 3.  Edit the `/boot/grub/menu.lst` file as follows. As noted in the file, please do not uncomment entries that begin with the `#` character. First, locate the following excerpt:
 
-    {{< file-excerpt >}}
-/boot/grub/menu.lst
-	: ~~~
-		timeout 3
-	~~~
+    {{< file-excerpt "/boot/grub/menu.lst" >}}
+timeout 3
+{{< /file-excerpt >}}
+
 	
 4.  Change it to match the following excerpt. This will give you a bit of additional time at boot to select your desired kernel, in case you feel the need to go back to an older one in the future.
 
+    {{< file-excerpt "/boot/grub/menu.lst" >}}
+timeout 10
 {{< /file-excerpt >}}
 
-    {{< file-excerpt >}}
-/boot/grub/menu.lst
-	: ~~~
-	timeout 10
-	~~~
 	
 5.  Next, locate the line containing `kopt` that resembles the following excerpt:
 
+    {{< file-excerpt "/boot/grub/menu.lst" >}}
+# kopt=root=UUID=de400b9f-2578-488e-8664-250a8455a6fc ro
 {{< /file-excerpt >}}
 
-    {{< file-excerpt >}}
-/boot/grub/menu.lst
-	: ~~~
-		# kopt=root=UUID=de400b9f-2578-488e-8664-250a8455a6fc ro
-	~~~
 	
 6.  Change it to match the following excerpt:
 
+    {{< file-excerpt "/boot/grub/menu.lst" >}}
+# kopt=root=/dev/xvda console=hvc0 ro quiet
 {{< /file-excerpt >}}
 
-    {{< file-excerpt >}}
-/boot/grub/menu.lst
-	: ~~~
-		# kopt=root=/dev/xvda console=hvc0 ro quiet
-	~~~
 	
 7.  Next, locate the line containing `groot` that resembles the following excerpt:
 
+    {{< file-excerpt "/boot/grub/menu.lst" >}}
+# groot=(hd0,0)
 {{< /file-excerpt >}}
 
-    {{< file-excerpt >}}
-/boot/grub/menu.lst
-	: ~~~
-		# groot=(hd0,0)
-	~~~
 	
 8.  Change it to match the following excerpt:
 
+    {{< file-excerpt "/boot/grub/menu.lst" >}}
+# groot=(hd0)
 {{< /file-excerpt >}}
 
-    {{< file-excerpt >}}
-/boot/grub/menu.lst
-	: ~~~
-		# groot=(hd0)
-	~~~
 	
 9.  Issue the following command to update `grub`:
-
-{{< /file-excerpt >}}
 
         update-grub
 
 10. Next, open the file `/etc/init/hvc0.conf` and verify that it matches the following excerpt:
 
-    {{< file >}}
-/etc/init/hvc0.conf
-	: ~~~
-		# hvc0 - getty
+    {{< file "/etc/init/hvc0.conf" >}}
+# hvc0 - getty
 		#
 		# This service maintains a getty on hvc0 from the point the system is
 		# started until it is shut down again.
-
-{{< /file >}}
 
 		start on stopped rc RUNLEVEL=[2345]
 		stop on runlevel [!2345]
 
 		respawn
 		exec /sbin/getty -8 38400 hvc0
-	~~~
+{{< /file >}}
+
 
 11. In the Linode Manager, edit your Linode's configuration profile to use either **pv-grub-x86\_32** or **pv-grub-x86\_64** as the kernel, depending on the version of Ubuntu you have deployed (32-bit or 64-bit).
 12. Make sure the root device is specified as **xvda**.
@@ -156,86 +135,65 @@ Before you get started, make sure you follow the steps outlined in our [Getting 
 
 3.  Edit the `/boot/grub/menu.lst` file as follows. As noted in the file, please do not uncomment entries that begin with the `#` character. First, locate the following excerpt:
 
-    {{< file-excerpt >}}
-/boot/grub/menu.lst
-	: ~~~
-		timeout 3
-	~~~
+    {{< file-excerpt "/boot/grub/menu.lst" >}}
+timeout 3
+{{< /file-excerpt >}}
+
 	
 4.  Edit the file to match the following excerpt. This will give you a bit of additional time at boot to select your desired kernel, in case you feel the need to go back to an older one in the future.
 
+    {{< file-excerpt "/boot/grub/menu.lst" >}}
+timeout 10
 {{< /file-excerpt >}}
 
-    {{< file-excerpt >}}
-/boot/grub/menu.lst
-	: ~~~
-	 timeout 10
-	~~~
 	
 5.  Next, locate the line containing `kopt` that resembles the following excerpt:
 
+    {{< file-excerpt "/boot/grub/menu.lst" >}}
+# kopt=root=UUID=de400b9f-2578-488e-8664-250a8455a6fc ro
 {{< /file-excerpt >}}
 
-    {{< file-excerpt >}}
-/boot/grub/menu.lst
-	: ~~~
-	# kopt=root=UUID=de400b9f-2578-488e-8664-250a8455a6fc ro
-	~~~
 	
 6.  Edit it to match the following excerpt:
 
+    {{< file-excerpt "/boot/grub/menu.lst" >}}
+kopt=root=/dev/xvda console=hvc0 ro quiet
 {{< /file-excerpt >}}
 
-    {{< file-excerpt >}}
-/boot/grub/menu.lst
-	: ~~~
-	 kopt=root=/dev/xvda console=hvc0 ro quiet
-	~~~
-
-{{< /file-excerpt >}}
 
 7.  Next, locate the line containing "groot" that resembles the following excerpt:
 
-    {{< file-excerpt >}}
-/boot/grub/menu.lst
-	: ~~~
-		# groot=(hd0,0)
-	~~~
+    {{< file-excerpt "/boot/grub/menu.lst" >}}
+# groot=(hd0,0)
+{{< /file-excerpt >}}
+
 	
 8.  Change it to match the following excerpt:
 
+    {{< file-excerpt "/boot/grub/menu.lst" >}}
+# groot=(hd0)
 {{< /file-excerpt >}}
 
-    {{< file-excerpt >}}
-/boot/grub/menu.lst
-	: ~~~
-		# groot=(hd0)
-	~~~
 	
 9.  Issue the following command to update `grub`:
-
-{{< /file-excerpt >}}
 
         update-grub
 
 10. Next, open the file "/etc/init/hvc0.conf" and verify that it matches the following excerpt:
 
-    {{< file >}}
-/etc/init/hvc0.conf
-	: ~~~
-		# hvc0 - getty
+    {{< file "/etc/init/hvc0.conf" >}}
+# hvc0 - getty
 		#
 		# This service maintains a getty on hvc0 from the point the system is
 		# started until it is shut down again.
-
-{{< /file >}}
 
 		start on stopped rc RUNLEVEL=[2345]
 		stop on runlevel [!2345]
 
 		respawn
 		exec /sbin/getty -8 38400 hvc0
-	~~~
+{{< /file >}}
+
 
 11. In the Linode Manager, edit your Linode's configuration profile to use either **pv-grub-x86\_32** or **pv-grub-x86\_64** as the kernel, depending on the version of Ubuntu you have deployed (32-bit or 64-bit).
 12. Make sure the root device is specified as **xvda**.
@@ -270,86 +228,65 @@ Before you get started, make sure you follow the steps outlined in our [Getting 
 
 3.  Edit the `/boot/grub/menu.lst` file as follows. As noted in the file, please do not uncomment entries that begin with the `#` character. First, locate the following excerpt:
 
-    {{< file >}}
-/boot/grub/menu.lst
-	: ~~~
-		timeout 3
-	~~~
+    {{< file "/boot/grub/menu.lst" >}}
+timeout 3
+{{< /file >}}
+
 	
 4.  Edit this line to match the following excerpt. This will give you a bit of additional time at boot to select your desired kernel, in case you feel the need to go back to an older one in the future.
 
+    {{< file "/boot/grub/menu.lst" >}}
+timeout 10
 {{< /file >}}
 
-    {{< file >}}
-/boot/grub/menu.lst
-	: ~~~
-		timeout 10
-	~~~
 	
 5.  Next, locate the line containing `kopt` that resembles the following excerpt:
 
+    {{< file "/boot/grub/menu.lst" >}}
+# kopt=root=UUID=de400b9f-2578-488e-8664-250a8455a6fc ro
 {{< /file >}}
 
-    {{< file >}}
-/boot/grub/menu.lst
-	: ~~~
-		# kopt=root=UUID=de400b9f-2578-488e-8664-250a8455a6fc ro
-	~~~
 	
 6.  Change it to match the following excerpt:
 
+    {{< file "/boot/grub/menu.lst" >}}
+# kopt=root=/dev/xvda console=hvc0 ro quiet
 {{< /file >}}
 
-    {{< file >}}
-/boot/grub/menu.lst
-	: ~~~
-		# kopt=root=/dev/xvda console=hvc0 ro quiet
-	~~~
 	
 7.  Next, locate the line containing `groot` that resembles the following excerpt:
 
+    {{< file "/boot/grub/menu.lst" >}}
+# groot=de400b9f-2578-488e-8664-250a8455a6fc
 {{< /file >}}
 
-    {{< file >}}
-/boot/grub/menu.lst
-	: ~~~
-		# groot=de400b9f-2578-488e-8664-250a8455a6fc
-	~~~
 	
 8.  Change it to match the following excerpt:
 
+    {{< file "/boot/grub/menu.lst" >}}
+# groot=(hd0)
 {{< /file >}}
 
-    {{< file >}}
-/boot/grub/menu.lst
-	: ~~~
-		# groot=(hd0)
-	~~~
 	
 9.  Issue the following command to update `grub`:
-
-{{< /file >}}
 
         update-grub
 
 10. Create the file `/etc/init/hvc0.conf` with the following contents:
 
-    {{< file >}}
-/etc/init/hvc0.conf
-	: ~~~
-		# hvc0 - getty
+    {{< file "/etc/init/hvc0.conf" >}}
+# hvc0 - getty
 		#
 		# This service maintains a getty on hvc0 from the point the system is
 		# started until it is shut down again.
-
-{{< /file >}}
 
 		start on stopped rc RUNLEVEL=[2345]
 		stop on runlevel [!2345]
 
 		respawn
 		exec /sbin/getty -8 38400 hvc0
-	~~~
+{{< /file >}}
+
 
 11. In the Linode Manager, edit your Linode's configuration profile to use either **pv-grub-x86\_32** or **pv-grub-x86\_64** as the kernel, depending on the version of Ubuntu you have deployed (32-bit or 64-bit).
 12. Make sure the root device is specified as **xvda**.
@@ -393,55 +330,40 @@ Before you get started, make sure you follow the steps outlined in our [Getting 
 
 4.  Edit the `/boot/grub/menu.lst` file as follows. As noted in the file, please do not uncomment entries that begin with the `#` character. First, locate the following excerpt:
 
-    {{< file-excerpt >}}
-/boot/grub/menu.lst
-	: ~~~
-		timeout 5
-	~~~
+    {{< file-excerpt "/boot/grub/menu.lst" >}}
+timeout 5
+{{< /file-excerpt >}}
+
 	
 5.  Change it to match the following excerpt. This will give you a bit of additional time at boot to select your desired kernel, in case you feel the need to go back to an older one in the future.
 
+    {{< file-excerpt "/boot/grub/menu.lst" >}}
+timeout 10
 {{< /file-excerpt >}}
 
-    {{< file-excerpt >}}
-/boot/grub/menu.lst
-	: ~~~
-		timeout 10
-	~~~
 	
 6.  Next, locate the line containing `kopt` that resembles the following excerpt:
 
+    {{< file-excerpt "/boot/grub/menu.lst" >}}
+# kopt=root=UUID=de400b9f-2578-488e-8664-250a8455a6fc ro
 {{< /file-excerpt >}}
 
-    {{< file-excerpt >}}
-/boot/grub/menu.lst
-	: ~~~
-		# kopt=root=UUID=de400b9f-2578-488e-8664-250a8455a6fc ro
-	~~~
 	
 7.  Change it to match the following excerpt:
 
+    {{< file-excerpt "/boot/grub/menu.lst" >}}
+# kopt=root=/dev/xvda console=hvc0 ro quiet
 {{< /file-excerpt >}}
 
-    {{< file-excerpt >}}
-/boot/grub/menu.lst
-	: ~~~
-		# kopt=root=/dev/xvda console=hvc0 ro quiet
-	~~~
 	
 8.  Next, locate the line containing `groot=` and verify that it matches the following excerpt:
 
+    {{< file-excerpt "/boot/grub/menu.lst" >}}
+# groot=(hd0)
 {{< /file-excerpt >}}
 
-    {{< file-excerpt >}}
-/boot/grub/menu.lst
-	: ~~~
-		# groot=(hd0)
-	~~~
 	
 9.  Issue the following command to update `grub`:
-
-{{< /file-excerpt >}}
 
         update-grub
 
@@ -487,55 +409,40 @@ Before you get started, make sure you follow the steps outlined in our [Getting 
 
 4.  Edit the `/boot/grub/menu.lst` file as follows. As noted in the file, please do not uncomment entries that begin with the `#` character. First, locate the following excerpt:
 
-    {{< file-excerpt >}}
-/boot/grub/menu.lst
-	: ~~~
-		timeout 5
-	~~~
+    {{< file-excerpt "/boot/grub/menu.lst" >}}
+timeout 5
+{{< /file-excerpt >}}
+
 	
 5.  Change it to match the following excerpt. This will give you a bit of additional time at boot to select your desired kernel, in case you feel the need to go back to an older one in the future:
 
+    {{< file-excerpt "/boot/grub/menu.lst" >}}
+timeout 10
 {{< /file-excerpt >}}
 
-    {{< file-excerpt >}}
-/boot/grub/menu.lst
-	: ~~~
-		timeout 10
-	~~~
 	
 6.  Next, locate the line containing `kopt` that resembles the following excerpt:
 
+    {{< file-excerpt "/boot/grub/menu.lst" >}}
+# kopt=root=UUID=de400b9f-2578-488e-8664-250a8455a6fc ro
 {{< /file-excerpt >}}
 
-    {{< file-excerpt >}}
-/boot/grub/menu.lst
-	: ~~~
-		# kopt=root=UUID=de400b9f-2578-488e-8664-250a8455a6fc ro
-	~~~
 	
 7.  Change it to match the following excerpt:
 
+    {{< file-excerpt "/boot/grub/menu.lst" >}}
+# kopt=root=/dev/xvda console=hvc0 ro quiet
 {{< /file-excerpt >}}
 
-    {{< file-excerpt >}}
-/boot/grub/menu.lst
-	: ~~~
-		# kopt=root=/dev/xvda console=hvc0 ro quiet
-	~~~
 	
 8.  Next, locate the line containing `groot=` and verify that it matches the following excerpt:
 
+    {{< file-excerpt "/boot/grub/menu.lst" >}}
+# groot=(hd0)
 {{< /file-excerpt >}}
 
-    {{< file-excerpt >}}
-/boot/grub/menu.lst
-	: ~~~
-		# groot=(hd0)
-	~~~
 	
 9.  Issue the following command to update `grub`:
-
-{{< /file-excerpt >}}
 
         update-grub
 
@@ -580,17 +487,14 @@ Before you get started, make sure you follow the steps outlined in our [Getting 
 
 6.  Create a file named `/boot/grub/menu.lst` with the following contents. Adjust the `title`, `kernel`, and `initrd` lines to reflect the actual file names found in the `/boot/` directory.
 
-    {{< file >}}
-/boot/grub/menu.lst
-	: ~~~
+    {{< file "/boot/grub/menu.lst" >}}
 timeout 5
 title CentOS (2.6.32-431.23.3.el6.x86_64)
 	root (hd0)
 	kernel /boot/vmlinuz-2.6.32-431.23.3.el6.x86_64 root=/dev/xvda
 	initrd /boot/initramfs-2.6.32-431.23.3.el6.x86_64.img
-	~~~
-
 {{< /file >}}
+
 
 7.  In the Linode Manager, edit your Linode's configuration profile to use either **pv-grub-x86\_32** or **pv-grub-x86\_64** as the **Kernel**, depending on the version of CentOS you have deployed (32-bit or 64-bit).
 8.  Make sure the root device is specified as **xvda**.
@@ -648,21 +552,18 @@ title CentOS (2.6.32-431.23.3.el6.x86_64)
 
 3.  Create a file named `/boot/grub/menu.lst` with the following contents. Adjust the `title`, `kernel`, and `initrd` lines to reflect the actual file names found in the `/boot/` directory.
 
-    {{< file >}}
-/boot/grub/menu.lst
-	: ~~~
-		timeout 5
-	
-	title Fedora 17, kernel 3.9.10-100.fc17.x86\_64 root (hd0) kernel /boot/vmlinuz-3.9.10-100.fc17.x86\_64 root=/dev/xvda ro quiet initrd /boot/initramfs-3.9.10-100.fc17.x86\_64.img
-	~~~
+    {{< file "/boot/grub/menu.lst" >}}
+timeout 5
+    	
+    	title Fedora 17, kernel 3.9.10-100.fc17.x86\_64 root (hd0) kernel /boot/vmlinuz-3.9.10-100.fc17.x86\_64 root=/dev/xvda ro quiet initrd /boot/initramfs-3.9.10-100.fc17.x86\_64.img
+{{< /file >}}
+
 	
 4.  In the Linode Manager, edit your Linode's configuration profile to use either **pv-grub-x86\_32** or **pv-grub-x86\_64** as the **Kernel**, depending on the version of Fedora you have deployed (32-bit or 64-bit).
 5.  Make sure the root device is specified as **xvda**.
 6.  Save your changes by clicking **Save Profile** at the bottom of the page.
 7.  Reboot your Linode from the **Dashboard** tab.
 8.  Once your Linode has rebooted, log in via SSH and issue the following command:
-
-{{< /file >}}
 
         uname -a
 

@@ -114,23 +114,20 @@ Configure nginx Virtual Hosting
 
 Regardless of the method you use to install nginx, you will need to configure `server` declarations to specify name-based virtual hosts. There are a number of approaches to organizing configuration files with nginx. Regardless of the organizational strategy, all virtual host configurations are contained within `server` configuration blocks that are in turn contained within the `http` block in the `nginx.conf` file. Consider the following nginx virtual host configuration:
 
-{{< file-excerpt >}}
-nginx server configuration
-:   ~~~ nginx
+{{< file-excerpt "nginx server configuration" nginx >}}
 server {
-listen   80;
-server_name www.example.com example.com;
-access_log /srv/www/example.com/logs/access.log;
-error_log /srv/www/example.com/logs/error.log;
-
-{{< /file-excerpt >}}
+        listen   80;
+        server_name www.example.com example.com;
+        access_log /srv/www/example.com/logs/access.log;
+        error_log /srv/www/example.com/logs/error.log;
 
         location / {
             root   /srv/www/example.com/public_html;
             index  index.html index.htm;
         }
     }
-    ~~~
+{{< /file-excerpt >}}
+
 
 Create the directories referenced in this configuration by issuing the following commands:
 
@@ -139,35 +136,29 @@ Create the directories referenced in this configuration by issuing the following
 
 Beyond placing configuration directives in the `nginx.conf` directory, there are several methods you can use to ensure that these options are included in your nginx configuration. You may insert the server directives directly into the `http` section of the `/opt/nginx/conf/nginx.conf` or `/etc/nginx/nginx.con` file, although this may be difficult to manage. You may also replicate the management system created by the Debian/Ubuntu operating systems by creating `sites-available/` and `sites-enabled/` directories and inserting the following line into your `nginx.conf` file:
 
-{{< file-excerpt >}}
-nginx.conf
-:   ~~~ nginx
+{{< file-excerpt "nginx.conf" nginx >}}
 http {
-# [...]
-
-{{< /file-excerpt >}}
+    # [...]
 
     include /opt/etc/nginx/sites-enabled/*;
 
     # [...]       
     }
-    ~~~
+{{< /file-excerpt >}}
+
 
 Modify the include statement to point to the path of your `sites-enabled` directory. Create site configurations in the `sites-available` directory and then create symbolic links to these files in the `sites-enabled` directory. In other circumstances, it may make more sense to create and include a file named `/opt/nginx-sites.conf` that is included in the `nginx.conf` file as follows:
 
-{{< file-excerpt >}}
-nginx.conf
-:   ~~~ nginx
+{{< file-excerpt "nginx.conf" nginx >}}
 http {
-# [...]
-
-{{< /file-excerpt >}}
+    # [...]
 
     include /opt/nginx-sites.conf;
 
     # [...]       
     }
-    ~~~
+{{< /file-excerpt >}}
+
 
 Then, depending on the size and nature of your deployment, place your virtual host configurations either directly in the `/opt/nginx-sites.conf` file or include statements for server-specific configuration files in the `nginx-sites.file` format. For more information regarding nginx configuration options, consider our [overview of nginx configuration](/docs/websites/nginx/basic-nginx-configuration).
 
@@ -198,16 +189,12 @@ Issue the following sequence of commands to download a small wrapper script for 
 
 Consider the following nginx virtual host configuration. Modify your configuration to resemble the one below, and ensure that the `location ~ \.php$ { }` resembles the one in this example:
 
-{{< file >}}
-nginx virtual host configuration
-:   ~~~ nginx
+{{< file "nginx virtual host configuration" nginx >}}
 server {
-server_name www.example.com example.com;
-access_log /srv/www/example.com/logs/access.log;
-error_log /srv/www/example.com/logs/error.log;
-root /srv/www/example.com/public_html;
-
-{{< /file >}}
+        server_name www.example.com example.com;
+        access_log /srv/www/example.com/logs/access.log;
+        error_log /srv/www/example.com/logs/error.log;
+        root /srv/www/example.com/public_html;
 
         location / {
             index index.html index.htm index.php;
@@ -220,7 +207,8 @@ root /srv/www/example.com/public_html;
             fastcgi_param SCRIPT_FILENAME /srv/www/example.com/public_html$fastcgi_script_name;
         }
     }
-    ~~~
+{{< /file >}}
+
 
 **Important security note:** If you're planning to run applications that support file uploads (images, for example), the above configuration may expose you to a security risk by allowing arbitrary code execution. The short explanation for this behavior is that a properly crafted URI which ends in ".php", in combination with a malicious image file that actually contains valid PHP, can result in the image being processed as PHP. For more information on the specifics of this behavior, you may wish to review the information provided on [Neal Poole's blog](https://nealpoole.com/blog/2011/04/setting-up-php-fastcgi-and-nginx-dont-trust-the-tutorials-check-your-configuration/).
 

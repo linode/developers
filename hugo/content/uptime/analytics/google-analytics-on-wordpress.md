@@ -68,14 +68,10 @@ This guide assumes you have configured your LAMP server as described in our guid
 
 4.  Open `header.php` and add your Google Analytics **tracking code** underneath the `<body <?php body_class(); ?>>` tag:
 
-    {{< file-excerpt >}}
-/var/www/example.com/public_html/wp-content/themes/header.php
-:   ~~~
+    {{< file-excerpt "/var/www/example.com/public_html/wp-content/themes/header.php" >}}
 /**
-* Google Analytics code block
-*/
-
-{{< /file-excerpt >}}
+         * Google Analytics code block
+        */
 
         <script>
          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -87,7 +83,8 @@ This guide assumes you have configured your LAMP server as described in our guid
          ga('send', 'pageview');
 
         </script>
-        ~~~
+{{< /file-excerpt >}}
+
 
     {{< note >}}
 

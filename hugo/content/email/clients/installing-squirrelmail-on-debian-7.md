@@ -49,12 +49,8 @@ Since SquirrelMail is accessed through a web server (Apache in this example), we
 
         sudo nano /etc/apache2/sites-available/squirrelmail 
 
-	{{< file >}}
-/etc/apache2/sites-available/squirrelmail
-	:   ~~~ apache
-		Alias /squirrelmail /usr/share/squirrelmail
-
-{{< /file >}}
+	{{< file "/etc/apache2/sites-available/squirrelmail" apache >}}
+Alias /squirrelmail /usr/share/squirrelmail
 
 		<Directory /usr/share/squirrelmail>
 		  Options FollowSymLinks
@@ -94,7 +90,8 @@ Since SquirrelMail is accessed through a web server (Apache in this example), we
 		#    </Location>
 		#  </IfModule>
 		#</IfModule>
-    ~~~
+{{< /file >}}
+
 
 	{{< note >}}
 

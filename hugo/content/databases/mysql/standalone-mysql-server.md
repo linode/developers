@@ -32,29 +32,10 @@ Edit /etc/hosts
 
 You will want to create hostnames for each machine so you can keep track of them later. This also saves work, should you find yourself in a situation where you need to change the IP address of the server. Edit the `/etc/hosts` file to include the **private** IP addresses of each Linode. Use the following excerpt from an example `/etc/hosts` file as an example:
 
-{{< file >}}
-/etc/hosts
-
+{{< file "/etc/hosts" ini >}}
+bind-address = mysql
 {{< /file >}}
 
-> 127.0.0.1 localhost 192.168.192.168 mysql.example.com mysql 192.168.192.169 app.example.com app
-
-Remember to replace `192.168.192.168` and `192.168.192.169` with the actual private IP addresses.
-
-While this step is optional, configuring `hosts` entries will allow you to avoid hard coding application configurations to specific IP addresses. You will be able to quickly migrate your application and database servers to alternate servers if you ever have to change your IP addresses.
-
-Configuring the MySQL Server
-----------------------------
-
-The next step is to modify the `/etc/mysql/my.cnf` file on your MySQL server to listen on your private IP address. Using your favorite editor, open the `/etc/mysql/my.cnf` file and insert the hostname of the MySQL database. For this example, the MySQL database hostname is `mysql`. Locate the `bind-address` line:
-
-{{< file-excerpt >}}
-/etc/mysql/my.cnf
-:   ~~~ ini
-bind-address = mysql
-~~~
-
-{{< /file-excerpt >}}
 
 You can alternatively use the private IP address. Save the file, and run the following command to restart the MySQL daemon:
 
@@ -84,14 +65,11 @@ Using MySQL on a separate database server is very similar to running a local dat
 
 For example, in [WordPress](/docs/web-applications/cms-guides/wordpress/) database settings are contained in the `wp-config.php` file, and the hostname is specified in the following format:
 
-{{< file-excerpt >}}
-wp-config.php
-:   ~~~ php
+{{< file-excerpt "wp-config.php" php >}}
 /** MySQL hostname */ 
-define('DB_HOST', 'mysql');
-~~~
-
+    define('DB_HOST', 'mysql');
 {{< /file-excerpt >}}
+
 
 Note that the method for setting the hostname varies from application to application. Furthermore, you can substitute the specific IP address of the database server, rather than using the hostname as configured in `/etc/hosts` above.
 

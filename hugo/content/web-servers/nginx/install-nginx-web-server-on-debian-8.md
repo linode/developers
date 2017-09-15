@@ -65,14 +65,11 @@ This method differs from the one above in that it installs from the official ngi
 
 2.  Add the following lines to the file:
 
-    {{< file >}}
-/etc/apt/sources.list.d/nginx.list
-:   ~~~
+    {{< file "/etc/apt/sources.list.d/nginx.list" >}}
 deb http://nginx.org/packages/debian/ jessie nginx
-deb-src http://nginx.org/packages/debian/ jessie nginx
-~~~
-
+        deb-src http://nginx.org/packages/debian/ jessie nginx
 {{< /file >}}
+
 
 3.  Download the PGP key used to sign the packages in the nginx repository and import it into your keyring:
 
@@ -139,14 +136,10 @@ The Debian project does not track the latest development of the nginx server. Co
 
 8.  Create a systemd service script to run nginx:
 
-    {{< file >}}
-/lib/systemd/system/nginx.service
-:   ~~~ shell
+    {{< file "/lib/systemd/system/nginx.service" shell >}}
 [Unit]
-Description=A high performance web server and a reverse proxy server
-After=network.target
-
-{{< /file >}}
+        Description=A high performance web server and a reverse proxy server
+        After=network.target
 
         [Service]
         Type=forking
@@ -160,7 +153,8 @@ After=network.target
 
         [Install]
         WantedBy=multi-user.target
-        ~~~
+{{< /file >}}
+
 
     {{< note >}}
 

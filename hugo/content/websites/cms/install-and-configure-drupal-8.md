@@ -64,16 +64,13 @@ Ensure that the version number matches the Drupal 8 version you wish to download
 
 5.  Enforce [trusted hostnames](https://www.drupal.org/node/2410395) with those that users will access your site by.
 
-    {{< file-excerpt >}}
-/var/www/html/example.com/public_html/sites/default/settings.php
-:   ~~~ conf
+    {{< file-excerpt "/var/www/html/example.com/public_html/sites/default/settings.php" conf >}}
 $settings['trusted_host_patterns'] = array(
-'^www\.example\.com$',
-'^example\.com$',
-);
-~~~
-
+          '^www\.example\.com$',
+          '^example\.com$',
+          );
 {{< /file-excerpt >}}
+
 
     {{< note >}}
 
@@ -89,23 +86,20 @@ $settings['trusted_host_patterns'] = array(
 
 2.  Then specify the rewrite conditions for DocumentRoot in Apache's configuration file.
 
-    {{< file-excerpt >}}
-/etc/apache2/apache2.conf
-:   ~~~ conf
+    {{< file-excerpt "/etc/apache2/apache2.conf" conf >}}
 <Directory /var/www/>
-Options Indexes FollowSymLinks
-AllowOverride All
-Require all granted
-RewriteEngine on
-RewriteBase /
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_URI} !=/favicon.ico
-RewriteRule ^ index.php [L]
-</Directory>
-~~~
-
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+          RewriteEngine on
+            RewriteBase /
+            RewriteCond %{REQUEST_FILENAME} !-f
+            RewriteCond %{REQUEST_FILENAME} !-d
+            RewriteCond %{REQUEST_URI} !=/favicon.ico
+            RewriteRule ^ index.php [L]
+        </Directory>
 {{< /file-excerpt >}}
+
 
 3.  Change ownership of Apache's DocumentRoot from the system's root user to Apache. This allows you to install modules and themes, and to update Drupal, all without being prompted for FTP credentials.
 

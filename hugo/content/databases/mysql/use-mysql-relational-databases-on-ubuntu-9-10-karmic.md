@@ -36,14 +36,11 @@ You will be prompted to set a password for the MySQL root user. Choose a strong 
 
 The MySQL server package will be installed on your server, along with dependencies and client libraries. Next, make sure your `/etc/hosts` file has proper entries, similar to the ones shown below:
 
-{{< file >}}
-/etc/hosts
-:   ~~~
+{{< file "/etc/hosts" >}}
 127.0.0.1 localhost.localdomain localhost
-12.34.56.78 servername.mydomain.com servername
-~~~
-
+    12.34.56.78 servername.mydomain.com servername
 {{< /file >}}
+
 
 Be sure to substitute your Linode's public IP address for "12.34.56.78" in the example above.
 
@@ -58,18 +55,15 @@ Configuring MySQL
 
 By default, MySQL makes some assumptions about your server environment with respect to memory. To configure MySQL more conservatively, you'll need to edit some settings in the configuration file (`/etc/mysql/my.cnf`) as follows:
 
-{{< file-excerpt >}}
-/etc/mysql/my.cnf
-:   ~~~ ini
+{{< file-excerpt "/etc/mysql/my.cnf" ini >}}
 key_buffer = 16M
-max_allowed_packet = 1M
-thread_stack = 64K
-table_cache = 4
-sort_buffer = 64K
-net_buffer_length = 2K
-~~~
-
+    max_allowed_packet = 1M
+    thread_stack = 64K
+    table_cache = 4
+    sort_buffer = 64K
+    net_buffer_length = 2K
 {{< /file-excerpt >}}
+
 
 These settings are only suggested values for a low memory environment; please feel free to tune them to appropriate values for your server. Consult the "More Information" section at the end of this tutorial for additional resources for this topic.
 

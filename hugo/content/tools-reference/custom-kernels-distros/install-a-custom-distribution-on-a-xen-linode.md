@@ -206,22 +206,19 @@ watch df -h
 
     Modify the file to match the following:
 
-    {{< file >}}
-/media/xvda/etc/fstab
-:   ~~~
+    {{< file "/media/xvda/etc/fstab" >}}
 # /etc/fstab: static file system information.
-#
-# Use 'blkid' to print the universally unique identifier for a
-# device; this may be used with UUID= as a more robust way to name devices
-# that works even if disks are added and removed. See fstab(5).
-#<file system> <mount point>   <type>  <options>       <dump>  <pass>
-proc /proc proc defaults 0 0
-/dev/xvda       /       ext4    noatime,errors=remount-ro 0     1
-/dev/xvdb       none    swap    sw      0       0
-~~~~
-6.  Exit and save the file by pressing `Ctrl+x`, type `y` to save your changes, and press `enter` to exit.
-
+        #
+        # Use 'blkid' to print the universally unique identifier for a
+        # device; this may be used with UUID= as a more robust way to name devices
+        # that works even if disks are added and removed. See fstab(5).
+        #<file system> <mount point>   <type>  <options>       <dump>  <pass>
+        proc /proc proc defaults 0 0
+        /dev/xvda       /       ext4    noatime,errors=remount-ro 0     1
+        /dev/xvdb       none    swap    sw      0       0
 {{< /file >}}
+~
+6.  Exit and save the file by pressing `Ctrl+x`, type `y` to save your changes, and press `enter` to exit.
 
 The disk has been transferred to your Linode. You should now be able to boot your Linode normally and log in [via SSH](https://www.linode.com/docs/getting-started#logging-in-for-the-first-time). Remember to use the username and password created during step 23 under the [Creating the Virtual Machine](#creating-the-virtual-machine) heading. Also, check your network configuration and if necessary refer to the [Linux Static IP Configuration](https://www.linode.com/docs/networking/linux-static-ip-configuration/) guide.
 

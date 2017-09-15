@@ -106,15 +106,12 @@ The default behavior of SSH is to allow *any* user to log in to the server, but 
 
 ### Custom Rules Example
 
-{{< file-excerpt >}}
-/etc/ssh/sshd_config
-:   ~~~ conf
+{{< file-excerpt "/etc/ssh/sshd_config" conf >}}
 DenyUsers adam ben clark@198.51.100.0/24
 
+    AllowUsers clark dan@192.168.5.200 eva
 {{< /file-excerpt >}}
 
-    AllowUsers clark dan@192.168.5.200 eva
-    ~~~
 
 Let's look at these rules in more detail. In the first line, Adam and Ben are blocked from accessing the server via SSH under any circumstances. Clark is not able to connect from a specific range of IP addresses, specified by `198.51.100.0/24`. In the second line, only Clark, Dan, and Eva will have SSH access. However, Clark's previous restriction from the `DenyUsers` line applies and Dan is *only* able to connect from one specific IP address. Eva is the only one who is able to connect via SSH from any computer.
 
@@ -193,14 +190,11 @@ However, this strategy involves a time-consuming process to configure the jailed
 
 10. Finally, edit your `/etc/ssh/sshd_config` file to configure your new user:
 
-    {{< file >}}
-/etc/ssh/sshd_config
-:   ~~~ conf
+    {{< file "/etc/ssh/sshd_config" conf >}}
 Match User restricted-user
-ChrootDirectory /home/chroot/restricted-user
-~~~
-
+        ChrootDirectory /home/chroot/restricted-user
 {{< /file >}}
+
 
 11.  Restart your SSH service to apply these changes.
 
@@ -212,13 +206,10 @@ Keep in mind that our restricted user can't use any command or binary that is no
 
 There are cases where you want to revoke specific public keys to prevent attempts to log in with them. For example, if you rotate your SSH keys every few months, you may want to disable them from being used in the future. OpenSSH has a directive to do just that: `RevokedKeys`. Simply edit your `/etc/ssh/sshd_config` and add the desired location for revoked keys list:
 
-{{< file >}}
-/etc/ssh/sshd_config
-:   ~~~ conf
+{{< file "/etc/ssh/sshd_config" conf >}}
 RevokedKeys /etc/ssh/revoked_keys
-~~~
-
 {{< /file >}}
+
 
 The list should contain one key per line in plain text format. Remember to restart your SSH service each time you add a new key to the file.
 
@@ -247,13 +238,10 @@ To apply any combination that suits your needs just edit your server's `/etc/ssh
 
 This step will not harden your server security, but your legal-conscientious-parameters. In some locations, the simple fact of warning unauthorized users of the consequences of their actions is determinant for taking legal action. To display a warning banner each time a user logs to your server, add the following line to the `/etc/ssh/sshd_config` configuration:
 
-{{< file >}}
-/etc/ssh/sshd_config
-:   ~~~ conf
+{{< file "/etc/ssh/sshd_config" conf >}}
 Banner /location/of/WarningMessage
-~~~
-
 {{< /file >}}
+
 
 The value `/location/of/WarningMessage` is the path to your banner text file. The following banner example was taken from [Ubuntu's Community Help page](https://help.ubuntu.com/community/SSH/OpenSSH/Configuring) for OpenSSH:
 

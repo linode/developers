@@ -25,25 +25,22 @@ If your LAMP environment isn't already set up to allow Perl scripts to be run on
 
 Next, we'll make sure Apache knows where CGI scripts are allowed to be run.
 
-{{< file >}}
-/etc/apache2/sites-available/example.com
-:   ~~~ apache
+{{< file "/etc/apache2/sites-available/example.com" apache >}}
 <VirtualHost *:80>
-ServerAdmin support@example.com
-ServerName example.com
-ServerAlias www.example.com
-DocumentRoot /srv/www/example.com/public_html/
-ErrorLog /srv/www/example.com/logs/error.log
-CustomLog /srv/www/example.com/logs/access.log combined
-AddHandler cgi-script .cgi .pl
-</VirtualHost>
-
-{{< /file >}}
+         ServerAdmin support@example.com
+         ServerName example.com
+         ServerAlias www.example.com
+         DocumentRoot /srv/www/example.com/public_html/
+         ErrorLog /srv/www/example.com/logs/error.log
+         CustomLog /srv/www/example.com/logs/access.log combined
+         AddHandler cgi-script .cgi .pl
+    </VirtualHost>
 
     <Directory /srv/www/example.com/public_html/>
          Options +ExecCGI
     </Directory>
-    ~~~
+{{< /file >}}
+
 
 We've added a line to the `<VirtualHost>` section of our site's Apache configuration file which uses "AddHandler" to tell Apache how to treat files that end in `.pl` or `.cgi`. We've added a \<Directory\> section as well to allow CGI scripts to be run from the public\_html directory. Reload Apache as follows:
 

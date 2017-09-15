@@ -50,13 +50,10 @@ If only your `example_user` needs access to the Box account contents, making the
 
     The fstab (or file systems table) file is a system configuration file commonly found at `/etc/fstab`. It contains the necessary information to automate the process of mounting. Add an entry for your Box account:
 
-    {{< file-excerpt >}}
-/etc/fstab
-:   ~~~ conf
+    {{< file-excerpt "/etc/fstab" conf >}}
 https://dav.box.com/dav /home/example_user/box davfs rw,user,noauto 0 0
-~~~
-
 {{< /file-excerpt >}}
+
 
 ## Configure WebDAV and User Permissions
 

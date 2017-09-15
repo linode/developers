@@ -80,12 +80,8 @@ Create a Basic Application with Web.py
 
 There are a number of examples of basic applications developed using the web.py framework. The "main" application file is typically called "code.py". Consider the following, "Hello World" application:
 
-{{< file >}}
-code.py
-:   ~~~ python
+{{< file "code.py" python >}}
 import web
-
-{{< /file >}}
 
     urls = (
         '(.*)', 'hello'
@@ -100,7 +96,8 @@ import web
 
     if __name__ == "__main__":
         app.run()
-    ~~~
+{{< /file >}}
+
 
 Save this file at `/var/www/example.com/application/code.py` or the equivalent path depending on your virtual hosting deployment, and proceed with the deployment of the application.
 
@@ -119,29 +116,22 @@ Issue the following command to ensure that the required modules are enabled with
 
 WSGI requires a slight modification to your web.py application. Add the following lines to the end of the `code.py` file:
 
-{{< file-excerpt >}}
-code.py
-:   ~~~ python
+{{< file-excerpt "code.py" python >}}
 app = web.application(urls, globals(), autoreload=False)
-application = app.wsgifunc()
-~~~
-
+    application = app.wsgifunc()
 {{< /file-excerpt >}}
+
 
 Consider the following Apache VirtualHost configuration for a `mod_wsgi` powered Web.py application:
 
-{{< file-excerpt >}}
-Apache VirtualHost Configuration
-:   ~~~ apache
+{{< file-excerpt "Apache VirtualHost Configuration" apache >}}
 <VirtualHost example.com:80> 
-ServerAdmin username@example.com    
-ServerName example.com
-ServerAlias www.example.com
-DocumentRoot /var/www/example.com/public_html/
-ErrorLog /var/www/example.com/logs/error.log 
-CustomLog /var/www/example.com/logs/access.log combined
-
-{{< /file-excerpt >}}
+        ServerAdmin username@example.com    
+        ServerName example.com
+           ServerAlias www.example.com
+           DocumentRoot /var/www/example.com/public_html/
+           ErrorLog /var/www/example.com/logs/error.log 
+           CustomLog /var/www/example.com/logs/access.log combined
 
         WSGIScriptAlias / /var/www/example.com/application
         Alias /static /var/www/example.com/public_html
@@ -160,8 +150,9 @@ CustomLog /var/www/example.com/logs/access.log combined
           RewriteCond %{REQUEST_URI} !^(/.*)+code.py/
           RewriteRule ^(.*)$ code.py/$1 [PT]
         </Location>
-    </VirtualHost> 
-    ~~~
+    </VirtualHost>
+{{< /file-excerpt >}}
+
 
 Ensure that this virtual host has been enabled, and issue the following command to restart the server:
 
@@ -174,16 +165,12 @@ Build a Database Driven Application with Web.py
 
 The "Hello World" application above is functional, but isn't able to store or access persistent data in a database system. The following example is simple but inserts and retrieves data from a database system. Consider the following code:
 
-{{< file >}}
-code.py
-:   ~~~ python
+{{< file "code.py" python >}}
 import web
-urls = (
-'/(.*)', 'hello'
-)
-app = web.application(urls, globals())
-
-{{< /file >}}
+    urls = (
+        '/(.*)', 'hello'
+    )
+    app = web.application(urls, globals())
 
     db = web.database(dbn='postgres', db='webpy', user='webpy', pw='webweb')
 
@@ -203,7 +190,8 @@ app = web.application(urls, globals())
 
     app = web.application(urls, globals(), autoreload=False)
     application = app.wsgifunc()
-    ~~~
+{{< /file >}}
+
 
 This program connects to the PostgreSQL database "webpy" and looks in the table "notes" for a note that matches the text "a note." If the note is found, the program returns the text "a note is found"; otherwise, the page will return "no notes are found." Make sure there is a role or user in your PostgreSQL database called "webpy" with the credentials specified on the `db` line of this example.
 

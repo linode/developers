@@ -63,15 +63,12 @@ This guide is written for a non-root user. Commands that require elevated privil
 
 The directives required to enable PHP CGI may be set anywhere in Apache's [configuration tree](/docs/web-servers/apache/configuration/configuration-basics). We recommend creating the `php-cgi.conf` file in Apache's `conf.d/` directory and setting these variables there. For CentOS systems, this is located at `/etc/httpd/conf.d/`. Regardless of their location, the relevant settings are:
 
-{{< file-excerpt >}}
-Apache Configuration Block
-:   ~~~ apache
+{{< file-excerpt "Apache Configuration Block" apache >}}
 ScriptAlias /local-bin /usr/bin
-AddHandler application/x-httpd-php5 php
-Action application/x-httpd-php5 /local-bin/php-cgi
-~~~
-
+    AddHandler application/x-httpd-php5 php
+    Action application/x-httpd-php5 /local-bin/php-cgi
 {{< /file-excerpt >}}
+
 
 In this example, the path to the `php-cgi` binary is `/usr/bin/php-cgi`. All files with the `php` extension will be handed to the PHP CGI binary.
 
@@ -79,19 +76,16 @@ You may also choose to put these configuration directives within a virtual hosti
 
 The configuration file for PHP is located at `/etc/php.ini`. You can modify this file to suit the needs of your deployment.
 
-{{< file-excerpt >}}
-/etc/php.ini
-:   ~~~ ini
+{{< file-excerpt "/etc/php.ini" ini >}}
 error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
-display_errors = Off
-log_errors = On
-error_log = /var/log/php.log
-max_execution_time = 300
-memory_limit = 64M
-register_globals = Off
-~~~
-
+    display_errors = Off
+    log_errors = On
+    error_log = /var/log/php.log
+    max_execution_time = 300
+    memory_limit = 64M
+    register_globals = Off
 {{< /file-excerpt >}}
+
 
 If you need support for MySQL in PHP, then you must install the php5-mysql package with the following command:
 

@@ -27,19 +27,16 @@ Openfire requires a Java runtime engine (JRE). This tutorial uses the version pr
 
 Examine your `/etc/apt/sources.list` file to make sure you have the `non-free` repository enabled. You can use an editor like `nano` to edit configuration files through the shell; you would issue the command `nano /etc/apt/sources.list` to edit this one. Please consult the [nano manual page](http://www.nano-editor.org/dist/v1.2/nano.1.html) for information on using the editor. Your file should look similar to the following.
 
-{{< file >}}
-/etc/apt/sources.list
-:   ~~~
+{{< file "/etc/apt/sources.list" >}}
 # the main Debian packages.
-deb http://mirror.cc.columbia.edu/pub/linux/debian/debian/ lenny main contrib non-free
-# Uncomment the deb-src line if you want 'apt-get source'
-# to work with most packages.
-# deb-src http://mirror.cc.columbia.edu/pub/linux/debian/debian/ lenny main contrib
-# uncommenting the following line will enable security updates
-deb http://security.debian.org/ stable/updates main contrib non-free
-~~~
-
+    deb http://mirror.cc.columbia.edu/pub/linux/debian/debian/ lenny main contrib non-free
+    # Uncomment the deb-src line if you want 'apt-get source'
+    # to work with most packages.
+    # deb-src http://mirror.cc.columbia.edu/pub/linux/debian/debian/ lenny main contrib
+    # uncommenting the following line will enable security updates
+    deb http://security.debian.org/ stable/updates main contrib non-free
 {{< /file >}}
+
 
 If you had to add the `non-free` repository to your sources, issue the following command to update your package database:
 
@@ -83,13 +80,10 @@ Install the software using `dpkg` as follows:
 
 Next, edit the configuration file `/etc/openfire/openfire.xml`, inserting your Linode's public IP address in the `<interface>` section, and removing the `<!-- -->` comment markers that surround this section.
 
-{{< file-excerpt >}}
-/etc/openfire/openfire.xml
-:   ~~~ xml
+{{< file-excerpt "/etc/openfire/openfire.xml" xml >}}
 <interface>12.34.56.78</interface>
-~~~
-
 {{< /file-excerpt >}}
+
 
 Restart Openfire with the following command:
 

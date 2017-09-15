@@ -36,17 +36,14 @@ Multicraft for Linux depends on several software packages in order to run.
 
 3.  In Apache's configuration file, under the `<Directory /var/www/>` section, change the `AllowOverride` value to `all`.
 
-    {{< file-excerpt >}}
-/etc/apache2/apache2.conf
-:   ~~~ apache
+    {{< file-excerpt "/etc/apache2/apache2.conf" apache >}}
 <Directory /var/www/>
-Options Indexes FollowSymLinks
-AllowOverride All
-Require all granted
-</Directory>
-~~~
-
+                Options Indexes FollowSymLinks
+                AllowOverride All
+                Require all granted
+        </Directory>
 {{< /file-excerpt >}}
+
 
 4.  Reload the Apache configuration:
 
@@ -147,14 +144,11 @@ Require all granted
 
 5.  After reading the End User License Agreement, open the file `eula.txt` in your terminal and change the value of `eula` to `true`:
 
-    {{< file >}}
-/home/minecraft/multicraft/servers/server1/eula.txt
-:   ~~~ conf
+    {{< file "/home/minecraft/multicraft/servers/server1/eula.txt" conf >}}
 #By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).
-#Wed Feb 04 22:24:38 UTC 2015
-eula=true
-~~~
-
+        #Wed Feb 04 22:24:38 UTC 2015
+        eula=true
 {{< /file >}}
+
 
     You can now successfully start and manage your Minecraft server through Multicraft! For instructions on connecting to your Minecraft server, click [here](/docs/applications/game-servers/minecraft-on-debian-and-ubuntu#connecting-to-your-minecraft-server). 

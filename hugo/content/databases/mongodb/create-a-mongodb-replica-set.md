@@ -64,15 +64,12 @@ Whether you're using public or private IP addresses to send data, you'll need to
 
 Each member of your replica set should have a hostname that identifies it as a member of the set. This way, you'll be able to keep your infrastructure organized at scale (for example, if you add more replica sets). In order to simplify the configuration of your replica set, add the following lines to the `/etc/hosts` file on each member of the replica set:
 
-{{< file-excerpt >}}
-/etc/hosts
-:   ~~~ conf
+{{< file-excerpt "/etc/hosts" conf >}}
 192.0.2.1    mongo-repl-1
-192.0.2.2    mongo-repl-2
-192.0.2.3    mongo-repl-3
-~~~
-
+    192.0.2.2    mongo-repl-2
+    192.0.2.3    mongo-repl-3
 {{< /file-excerpt >}}
+
 
 If you're using more than three Linodes, add all of your hosts at this stage. Replace the hostnames with your actual hostnames, and the IP addresses with the IP addresses of your Linodes.
 
@@ -130,21 +127,18 @@ In this section you'll create a key file that will be used to secure authenticat
 
 On each of your Linodes, make the following changes to your `/etc/mongod.conf` file:
 
-{{< file-excerpt >}}
-/etc/mongod.conf
-:   ~~~ conf
+{{< file-excerpt "/etc/mongod.conf" conf >}}
 net:
-port: 27017
-bindIp: 127.0.0.1,192.0.2.1
-
-{{< /file-excerpt >}}
+      port: 27017
+      bindIp: 127.0.0.1,192.0.2.1
 
     security:
       keyFile: /opt/mongo/mongo-keyfile
 
     replication:
       replSetName: rs0
-    ~~~
+{{< /file-excerpt >}}
+
 
 The `port` value of 27017 is the default. If you have reason to use a different port you may do so, but the rest of this guide will use the default. The `bindIp` directive specifies the IP address on which the MongoDB daemon will listen, and since we're connecting several hosts, this should be the IP address that corresponds with the Linode on which you're configuring it (the same address added to the hosts files in the previous section). Leaving the default of `127.0.0.1` allows you to connect locally as well, which may be useful for testing replication.
 

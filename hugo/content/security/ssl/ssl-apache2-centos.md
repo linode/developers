@@ -37,16 +37,12 @@ This guide assumes that you are running Apache2 on CentOS or Fedora. Prior to st
 
     If you're using a commercially signed certificate and you've manually downloaded the root CA cert to `/etc/pki/tls/certs`, ensure that the `SSLCACertificateFile` value is configured to point to the root certificate directly. If the root certificate is being provided via the "ca-certificates" bundle, you can simply exclude the `SSLCACertificateFile` line.
 
-    {{< file-excerpt >}}
-/etc/httpd/conf.d/ssl.conf
-:   ~~~ conf
+    {{< file-excerpt "/etc/httpd/conf.d/ssl.conf" conf >}}
 <VirtualHost *:443>
-SSLEngine On
-SSLCertificateFile /etc/pki/tls/certs/example.com.crt
-SSLCertificateKeyFile /etc/pki/tls/private/example.com.key
-SSLCACertificateFile /etc/pki/tls/certs/root-certificate.crt  #If using a self-signed certificate or a root certificate provided by ca-certificates, omit this line
-
-{{< /file-excerpt >}}
+             SSLEngine On
+             SSLCertificateFile /etc/pki/tls/certs/example.com.crt
+             SSLCertificateKeyFile /etc/pki/tls/private/example.com.key
+             SSLCACertificateFile /etc/pki/tls/certs/root-certificate.crt  #If using a self-signed certificate or a root certificate provided by ca-certificates, omit this line
 
              ServerAdmin info@example.com
              ServerName www.example.com
@@ -54,7 +50,8 @@ SSLCACertificateFile /etc/pki/tls/certs/root-certificate.crt  #If using a self-s
              ErrorLog /var/www/example.com/logs/error.log
              CustomLog /var/www/example.com/logs/access.log combined
         </VirtualHost>
-        ~~~
+{{< /file-excerpt >}}
+
 
 2.  Restart Apache:
 

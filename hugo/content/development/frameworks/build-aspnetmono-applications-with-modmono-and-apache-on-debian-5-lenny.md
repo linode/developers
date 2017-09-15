@@ -66,18 +66,14 @@ Recent versions of `mod_mono` utilize the `AutoHosting` method of application de
 
 For the sake of this guide, we're going to create a site on the root of our example domain, `example.com`. If you already have an Apache configuration for the root of your site, you will need to modify your existing virtual host file or create a new one on a subdomain of your site. Create the virtual host file, taking the following example virtual host configuration and modifying it to suit your needs. You may also use the [Mod\_Mono Configuration Generator](http://go-mono.com/config-mod-mono/) to generate your own custom configuration.
 
-{{< file-excerpt >}}
-/etc/apache2/sites-available/example.com
-:   ~~~ apache
+{{< file-excerpt "/etc/apache2/sites-available/example.com" apache >}}
 <VirtualHost *:80>
-ServerName example.com
-ServerAdmin admin@example.com
-ServerAlias www.example.com
-DocumentRoot /srv/www/example.com/public_html
-ErrorLog /srv/www/example.com/logs/error.log
-CustomLog /srv/www/example.com/logs/access.log combined
-
-{{< /file-excerpt >}}
+      ServerName example.com
+      ServerAdmin admin@example.com
+      ServerAlias www.example.com
+      DocumentRoot /srv/www/example.com/public_html
+      ErrorLog /srv/www/example.com/logs/error.log
+      CustomLog /srv/www/example.com/logs/access.log combined
 
       MonoServerPath example.com "/usr/bin/mod-mono-server2"
       MonoDebug example.com true
@@ -95,7 +91,8 @@ CustomLog /srv/www/example.com/logs/access.log combined
         AddOutputFilterByType DEFLATE text/html text/plain text/xml text/javascript
       </IfModule>
     </VirtualHost>
-    ~~~
+{{< /file-excerpt >}}
+
 
 Save and close the file, and create the directories referenced in the `DocumentRoot` and `ErrorLog` directive:
 
@@ -163,19 +160,15 @@ Creating a Simple ASP.NET Application
 
 Now that you have created a sample database, you can test your installation with the following test page. This will not only test your Mono installation but it will also will test your MySQL connector configuration. First create a file called `testdb.aspx` in your `DocumentRoot` and paste the text below into it. Be sure to change the `User ID` and `Password` to match what you specified above.
 
-{{< file-excerpt >}}
-/srv/www/example.com/public_html/testdb.aspx
-:   ~~~ aspx
+{{< file-excerpt "/srv/www/example.com/public_html/testdb.aspx" aspx >}}
 <%@ Page Language="C#" %>
-<%@ Import Namespace="System.Data" %>
-<%@ Import Namespace="MySql.Data.MySqlClient" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-<title>ASP and MySQL Test Page</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-{{< /file-excerpt >}}
+    <%@ Import Namespace="System.Data" %>
+    <%@ Import Namespace="MySql.Data.MySqlClient" %>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+    <title>ASP and MySQL Test Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <script runat="server">
     private void Page_Load(Object sender, EventArgs e)
@@ -204,26 +197,24 @@ Now that you have created a sample database, you can test your installation with
     </body>
 
     </html>
-    ~~~
+{{< /file-excerpt >}}
+
 
 Next you will need to create a `web.config` file. You can copy and paste the example below. Please note that `Custom Errors` have been turned off in this web.config for debugging purposes. The `customErrors mode` line should be removed in a production environment.
 
-{{< file-excerpt >}}
-/srv/www/example.com/public_html/web.config
-:   ~~~
+{{< file-excerpt "/srv/www/example.com/public_html/web.config" >}}
 <configuration>
-<system.web>
-<customErrors mode="Off"/>
-<compilation>
-<assemblies>
-<add assembly="MySql.Data"/>
-</assemblies>
-</compilation>
-</system.web>
-</configuration>
-~~~
-
+      <system.web>
+        <customErrors mode="Off"/>
+        <compilation>
+          <assemblies>
+            <add assembly="MySql.Data"/>
+          </assemblies>
+        </compilation>
+      </system.web>
+    </configuration>
 {{< /file-excerpt >}}
+
 
 Visit the `testdb.aspx` file in a web browser. If you see the text "Testing Sample Databases" in your browser with the information that you inserted into the database above, you now have a functioning `mod_mono` installation and can continue with the development and deployment of your own application!
 

@@ -215,12 +215,8 @@ Next, set up Postfix so the server can accept incoming messages for the domains.
 
 2.  Edit the `/etc/postfix/main.cf` file to match the following. Ensure that occurrences of `example.com` are replaced with the domain name. Also, replace `hostname` with the system's hostname on line 44.
 
-    {{< file >}}
-/etc/postfix/main.cf
-: ~~~
+    {{< file "/etc/postfix/main.cf" >}}
 # See /usr/share/postfix/main.cf.dist for a commented, more complete version
-
-{{< /file >}}
 
       # Debian specific:  Specifying a file name will cause the first
       # line of that file to be used as the name.  The Debian default
@@ -283,63 +279,52 @@ Next, set up Postfix so the server can accept incoming messages for the domains.
       virtual_mailbox_maps = mysql:/etc/postfix/mysql-virtual-mailbox-maps.cf
       virtual_alias_maps = mysql:/etc/postfix/mysql-virtual-alias-maps.cf,
               mysql:/etc/postfix/mysql-virtual-email2email.cf
-      ~~~
+{{< /file >}}
+
 
 3.  Create the file for virtual domains. Ensure that you change the password for the `mailuser` account. If you used a different user, database name, or table name, change those settings as well.
 
-    {{< file >}}
-/etc/postfix/mysql-virtual-mailbox-domains.cf
-: ~~~
+    {{< file "/etc/postfix/mysql-virtual-mailbox-domains.cf" >}}
 user = mailuser
-password = mailuserpass
-hosts = 127.0.0.1
-dbname = mailserver
-query = SELECT 1 FROM virtual_domains WHERE name='%s'
-~~~
-
+      password = mailuserpass
+      hosts = 127.0.0.1
+      dbname = mailserver
+      query = SELECT 1 FROM virtual_domains WHERE name='%s'
 {{< /file >}}
+
 
 4.  Create the `/etc/postfix/mysql-virtual-mailbox-maps.cf` file, and enter the following values. Make sure you use the `mailuser`'s password and make any other changes as needed.
 
-    {{< file >}}
-/etc/postfix/mysql-virtual-mailbox-maps.cf
-: ~~~
+    {{< file "/etc/postfix/mysql-virtual-mailbox-maps.cf" >}}
 user = mailuser
-password = mailuserpass
-hosts = 127.0.0.1
-dbname = mailserver
-query = SELECT 1 FROM virtual_users WHERE email='%s'
-~~~
-
+      password = mailuserpass
+      hosts = 127.0.0.1
+      dbname = mailserver
+      query = SELECT 1 FROM virtual_users WHERE email='%s'
 {{< /file >}}
+
 
 5.  Create the `/etc/postfix/mysql-virtual-alias-maps.cf` file and enter the following values. Again, make sure you use the mailuser's password, and make any other changes as necessary.
 
-    {{< file >}}
-/etc/postfix/mysql-virtual-alias-maps.cf
-: ~~~
+    {{< file "/etc/postfix/mysql-virtual-alias-maps.cf" >}}
 user = mailuser
-password = mailuserpass
-hosts = 127.0.0.1
-dbname = mailserver
-query = SELECT destination FROM virtual_aliases WHERE source='%s'
-~~~
-
+      password = mailuserpass
+      hosts = 127.0.0.1
+      dbname = mailserver
+      query = SELECT destination FROM virtual_aliases WHERE source='%s'
 {{< /file >}}
+
 
 6.  Create the `/etc/postfix/mysql-virtual-email2email.cf` file and enter the following values. Again, make sure you use the mailuser's password, and make any other changes as necessary.
 
-    {{< file >}}
-/etc/postfix/mysql-virtual-email2email.cf
-: ~~~
+    {{< file "/etc/postfix/mysql-virtual-email2email.cf" >}}
 user = mailuser
-password = mailuserpass
-hosts = 127.0.0.1
-dbname = mailserver
-query = SELECT email FROM virtual_users WHERE email='%s'
-~~~
-
+      password = mailuserpass
+      hosts = 127.0.0.1
+      dbname = mailserver
+      query = SELECT email FROM virtual_users WHERE email='%s'
 {{< /file >}}
+
 
 7.  Save the changes you've made to the `/etc/postfix/mysql-virtual-email2email.cf` file, and restart Postfix: 
 
@@ -365,10 +350,8 @@ query = SELECT email FROM virtual_users WHERE email='%s'
 
 12. Open the configuration file for editing and uncomment the two lines starting with `submission` and `smtps` and the block of lines starting with `-o` after each. The first section of the `/etc/postfix/master.cf` file should resemble the following:
 
-    {{< file-excerpt >}}
-/etc/postfix/master.cf
-	  : ~~~
-	    #
+    {{< file-excerpt "/etc/postfix/master.cf" >}}
+#
 	    # Postfix master process configuration file.  For details on the format
 	    # of the file, see the master(5) manual page (command: "man 5 master").
 	    #
@@ -395,9 +378,8 @@ query = SELECT email FROM virtual_users WHERE email='%s'
 	      -o smtpd_sasl_auth_enable=yes
 	      -o smtpd_client_restrictions=permit_sasl_authenticated,reject
 	      -o milter_macro_daemon_name=ORIGINATING
-	    ~~~
-
 {{< /file-excerpt >}}
+
 
 13. Change the permissions on the `/etc/postfix` directory to restrict permissions to allow only its owner and the corresponding group:
 
@@ -424,12 +406,8 @@ Dovecot allows users to log in and check their email using POP3 and IMAP. In thi
 
 2.  Open the main configuration file and edit the contents to match the following. Specifically, add the line beginning with `protocols` under the section beginning with "Enable installed protocols."
 
-    {{< file >}}
-/etc/dovecot/dovecot.conf
-: ~~~
+    {{< file "/etc/dovecot/dovecot.conf" >}}
 ## Dovecot configuration file
-
-{{< /file >}}
 
       # If you're in a hurry, see http://wiki2.dovecot.org/QuickConfiguration
 
@@ -520,7 +498,8 @@ Dovecot allows users to log in and check their email using POP3 and IMAP. In thi
       # A config file can also tried to be included without giving an error if
       # it's not found:
       !include_try local.conf
-      ~~~
+{{< /file >}}
+
 
 3.  Save the changes to the `/etc/dovecot/dovecot.conf` file.
 
@@ -534,15 +513,12 @@ Click [this link](/docs/assets/1239-dovecot_10-mail.conf.txt) to see the final, 
 
     Modify the following variables within the configuration file:
 
-    {{< file-excerpt >}}
-/etc/dovecot/conf.d/10-mail.conf
-:   ~~~
+    {{< file-excerpt "/etc/dovecot/conf.d/10-mail.conf" >}}
 mail_location = maildir:/var/mail/vhosts/%d/%n
-...
-mail_privileged_group = mail
-~~~
-
+        ...
+        mail_privileged_group = mail
 {{< /file-excerpt >}}
+
 
     Save your changes and exit.
 
@@ -573,49 +549,37 @@ mail_privileged_group = mail
 
 10. Open the user authentication file, located in `/etc/dovecot/conf.d/10-auth.conf` and disable plain-text authentication by uncommenting this line:
 
-    {{< file-excerpt >}}
-/etc/dovecot/conf.d/10-auth.conf
-: ~~~
+    {{< file-excerpt "/etc/dovecot/conf.d/10-auth.conf" >}}
 disable_plaintext_auth = yes
-~~~
-
 {{< /file-excerpt >}}
+
 
     Set the `auth_mechanisms` by modifying the following line:
 
-    {{< file-excerpt >}}
-/etc/dovecot/conf.d/10-auth.conf
-	: ~~~
-	  auth_mechanisms = plain login
-	  ~~~
-
+    {{< file-excerpt "/etc/dovecot/conf.d/10-auth.conf" >}}
+auth_mechanisms = plain login
 {{< /file-excerpt >}}
+
 
     Comment out the system user login line:
 
-    {{< file-excerpt >}}
-/etc/dovecot/conf.d/10-auth.conf
-	: ~~~
-	  #!include auth-system.conf.ext
-	  ~~~
-
+    {{< file-excerpt "/etc/dovecot/conf.d/10-auth.conf" >}}
+#!include auth-system.conf.ext
 {{< /file-excerpt >}}
+
 
     Enable MySQL authentication by uncommenting the `auth-sql.conf.ext` line:
 
-    {{< file-excerpt >}}
-/etc/dovecot/conf.d/10-auth.conf
-	: ~~~
-	  #!include auth-system.conf.ext
+    {{< file-excerpt "/etc/dovecot/conf.d/10-auth.conf" >}}
+#!include auth-system.conf.ext
 	  !include auth-sql.conf.ext
 	  #!include auth-ldap.conf.ext
 	  #!include auth-passwdfile.conf.ext
 	  #!include auth-checkpassword.conf.ext
 	  #!include auth-vpopmail.conf.ext
 	  #!include auth-static.conf.ext
-	  ~~~
-
 {{< /file-excerpt >}}
+
 
     {{< note >}}
 
@@ -627,10 +591,8 @@ Click here to see the final, complete version of <a href="/docs/assets/1238-dove
 
 11. Edit the `/etc/dovecot/conf.d/auth-sql.conf.ext` file with the authentication information. Ensure your file contains the following lines and that they are uncommented:
 
-    {{< file-excerpt >}}
-/etc/dovecot/conf.d/auth-sql.conf.ext
-	  : ~~~
-	    passdb {
+    {{< file-excerpt "/etc/dovecot/conf.d/auth-sql.conf.ext" >}}
+passdb {
 	      driver = sql
 	      args = /etc/dovecot/dovecot-sql.conf.ext
 	    }
@@ -638,9 +600,8 @@ Click here to see the final, complete version of <a href="/docs/assets/1238-dove
 	      driver = static
 	      args = uid=vmail gid=vmail home=/var/mail/vhosts/%d/%n
 	   }
-	    ~~~
-
 {{< /file-excerpt >}}
+
 
     Save the changes to the `/etc/dovecot/conf.d/auth-sql.conf.ext` file.
 
@@ -648,43 +609,31 @@ Click here to see the final, complete version of <a href="/docs/assets/1238-dove
 
     Uncomment and set the `driver` line as shown below:
 
-    {{< file-excerpt >}}
-/etc/dovecot/dovecot-sql.conf.ext
-	  :   ~~~
-	      driver = mysql
-	      ~~~
-
+    {{< file-excerpt "/etc/dovecot/dovecot-sql.conf.ext" >}}
+driver = mysql
 {{< /file-excerpt >}}
+
 
     Uncomment the `connect` line and set the MySQL connection information. Use the `mailuser`'s password and any other custom settings:
 
-    {{< file-excerpt >}}
-/etc/dovecot/dovecot-sql.conf.ext
-	  :   ~~~
-	      connect = host=127.0.0.1 dbname=mailserver user=mailuser password=mailuserpass
-	      ~~~
-
+    {{< file-excerpt "/etc/dovecot/dovecot-sql.conf.ext" >}}
+connect = host=127.0.0.1 dbname=mailserver user=mailuser password=mailuserpass
 {{< /file-excerpt >}}
+
 
     Uncomment the `default_pass_scheme` line and set it to `SHA512-CRYPT`:
 
-    {{< file-excerpt >}}
-/etc/dovecot/dovecot-sql.conf.ext
-	  : ~~~
-	    default_pass_scheme = SHA512-CRYPT
-	    ~~~
-
+    {{< file-excerpt "/etc/dovecot/dovecot-sql.conf.ext" >}}
+default_pass_scheme = SHA512-CRYPT
 {{< /file-excerpt >}}
+
 
     Uncomment the `password_query` line and set it to the following:
 
-    {{< file-excerpt >}}
-/etc/dovecot/dovecot-sql.conf.ext
-	  : ~~~
-	    password_query = SELECT email as user, password FROM virtual_users WHERE email='%u';
-	    ~~~
-
+    {{< file-excerpt "/etc/dovecot/dovecot-sql.conf.ext" >}}
+password_query = SELECT email as user, password FROM virtual_users WHERE email='%u';
 {{< /file-excerpt >}}
+
 
 	{{< note >}}
 
@@ -720,31 +669,28 @@ Click this link to see the final version of <a href="/docs/assets/1240-dovecot_1
 
 16. Disable unencrypted IMAP and POP3 by setting the protocols' ports to 0, as shown below. Ensure that the entries for port and ssl below the IMAPS and pop3s entries are uncommented:
 
-    {{< file-excerpt >}}
-/etc/dovecot/conf.d/10-master.conf
-	  : ~~~
+    {{< file-excerpt "/etc/dovecot/conf.d/10-master.conf" >}}
 service imap-login {
-inet_listener imap {
-port = 0
-}
-inet_listener imaps {
-port = 993
-ssl = yes
-}
+        inet_listener imap {
+          port = 0
+        }
+      inet_listener imaps {
+        port = 993
+        ssl = yes
+        }
 	  	...
 		  service pop3-login {
 	  	  inet_listener pop3 {
 		      port = 0
-		  }
-inet_listener pop3s {
-port = 995
-ssl = yes
-}
+  		  }
+        inet_listener pop3s {
+          port = 995
+          ssl = yes
+        }
 		  ...
 		  }
-	    ~~~
-
 {{< /file-excerpt >}}
+
 
     {{< note >}}
 
@@ -754,15 +700,13 @@ Leave the secure versions unedited, specifically the `imaps` and `pop3s`, so tha
 
     Find the `service lmtp` section and use the configuration shown below:
 
-    {{< file-excerpt >}}
-/etc/dovecot/conf.d/10-master.conf
-	  : ~~~
+    {{< file-excerpt "/etc/dovecot/conf.d/10-master.conf" >}}
 service lmtp {
-unix_listener /var/spool/postfix/private/dovecot-lmtp {
-mode = 0600
-user = postfix
-group = postfix
-}
+          unix_listener /var/spool/postfix/private/dovecot-lmtp {
+            mode = 0600
+            user = postfix
+            group = postfix
+          }
 		    # Create inet listener only if you can't use the above UNIX socket
 		    #inet_listener lmtp {
 		      # Avoid making LMTP visible for the entire internet
@@ -770,16 +714,13 @@ group = postfix
 		      #port =
 		    #}
 		  }
-	    ~~~
-
 {{< /file-excerpt >}}
+
 
     Locate the `service auth` section and configure it as shown below:
 
-    {{< file-excerpt >}}
-/etc/dovecot/conf.d/10-master.conf
-	  : ~~~
-	    service auth {
+    {{< file-excerpt "/etc/dovecot/conf.d/10-master.conf" >}}
+service auth {
 	      # auth_socket_path points to this userdb socket by default. It's typically
 	      # used by dovecot-lda, doveadm, possibly imap process, etc. Its default
 	      # permissions make it readable only by root, but you may need to relax these
@@ -790,8 +731,6 @@ group = postfix
 	        user = postfix
 	        group = postfix
 	      }
-
-{{< /file-excerpt >}}
 
 	      unix_listener auth-userdb {
 	        mode = 0600
@@ -807,22 +746,20 @@ group = postfix
 	      # Auth process is run as this user.
 	      user = dovecot
 	    }
-	    ~~~
+{{< /file-excerpt >}}
+
 
     In the `service auth-worker` section, uncomment the `user` line and set it to `vmail` as shown below:
 
-    {{< file-excerpt >}}
-/etc/dovecot/conf.d/10-master.conf
-	  :   ~~~
-	      service auth-worker {
+    {{< file-excerpt "/etc/dovecot/conf.d/10-master.conf" >}}
+service auth-worker {
 	        # Auth worker process is run as root by default, so that it can access
 	        # /etc/shadow. If this isn't necessary, the user should be changed to
 	        # $default_internal_user.
 	        user = vmail
 	      }
-	      ~~~
-
 {{< /file-excerpt >}}
+
 
     Save the changes to the `/etc/dovecot/conf.d/10-master.conf` file.
 
@@ -849,24 +786,18 @@ Click the link to see the final, complete version of <a href="/docs/assets/1241-
 
 19. Verify that the `ssl_cert` setting has the correct path to the certificate, and that the `ssl_key` setting has the correct path to the key. The default setting displayed uses Dovecot's built-in certificate, so you can leave this as-is if using the Dovecot certificate. Update the paths accordingly if you are using a different certificate and key.
 
-    {{< file-excerpt >}}
-/etc/dovecot/conf.d/10-ssl.conf
-	  : ~~~
-	    ssl_cert = </etc/dovecot/dovecot.pem
+    {{< file-excerpt "/etc/dovecot/conf.d/10-ssl.conf" >}}
+ssl_cert = </etc/dovecot/dovecot.pem
 	    ssl_key = </etc/dovecot/private/dovecot.pem
-	    ~~~
-
 {{< /file-excerpt >}}
+
 
     Force the clients to use SSL encryption by uncommenting the `ssl` line and setting it to `required`:
 
-    {{< file-excerpt >}}
-/etc/dovecot/conf.d/10-ssl.conf
-:   ~~~
+    {{< file-excerpt "/etc/dovecot/conf.d/10-ssl.conf" >}}
 ssl = required
-~~~
-
 {{< /file-excerpt >}}
+
 
     Save the changes to the `/etc/dovecot/conf.d/10-ssl.conf` file.
 
@@ -887,10 +818,8 @@ ssl = required
 
 2.  Try sending an email to this account from an outside email account and then reply to it. Check the mail log file in */var/log/mail.log* for the following output (the first block is for an incoming message, and the second block for an outgoing message):
 
-    {{< file-excerpt >}}
-/var/log/mail.log
-	  : ~~~
-	    Mar 22 18:18:15 host postfix/smtpd[22574]: connect from mail1.linode.com[96.126.108.55]
+    {{< file-excerpt "/var/log/mail.log" >}}
+Mar 22 18:18:15 host postfix/smtpd[22574]: connect from mail1.linode.com[96.126.108.55]
 	    Mar 22 18:18:15 host postfix/smtpd[22574]: 2BD192839B: client=mail1.linode.com[96.126.108.55]
 	    Mar 22 18:18:15 host postfix/cleanup[22583]: 2BD192839B: message-id=<D4887A5E-DEAC-45CE-BDDF-3C89DEA84236@example.com>
 	    Mar 22 18:18:15 host postfix/qmgr[15878]: 2BD192839B: from=<support@linode.com>, size=1156, nrcpt=1 (queue active)
@@ -900,23 +829,19 @@ ssl = required
 	    Mar 22 18:18:15 host dovecot: lmtp(22587): Disconnect from local: Client quit (in reset)
 	    Mar 22 18:18:15 host postfix/lmtp[22586]: 2BD192839B: to=<email1@example.com>, relay=host.example.com[private/dovecot-lmtp], delay=0.09, delays=0.03/0.02/0.03/0.01, dsn=2.0.0, status=sent (250 2.0.0 <email1@example.com> 5GjrDafYTFE7WAAABf1gKA Saved)
 	    Mar 22 18:18:15 host postfix/qmgr[15878]: 2BD192839B: removed
-	    ~~~
-
 {{< /file-excerpt >}}
 
-    {{< file-excerpt >}}
-/var/log/mail.log
-	  : ~~~
-	    Mar 22 18:20:29 host postfix/smtpd[22590]: connect from 173-161-199-49-Philadelphia.hfc.comcastbusiness.net[173.161.199.49]
+
+    {{< file-excerpt "/var/log/mail.log" >}}
+Mar 22 18:20:29 host postfix/smtpd[22590]: connect from 173-161-199-49-Philadelphia.hfc.comcastbusiness.net[173.161.199.49]
 	    Mar 22 18:20:29 host dovecot: auth-worker: mysql(127.0.0.1): Connected to database mailserver
 	    Mar 22 18:20:29 host postfix/smtpd[22590]: AA10A2839B: client=173-161-199-49-Philadelphia.hfc.comcastbusiness.net[173.161.199.49], sasl_method=PLAIN, sasl_username=email1@example.com
 	    Mar 22 18:20:29 host postfix/cleanup[22599]: AA10A2839B: message-id=<FB6213FA-6F13-49A8-A5DD-F324A4FCF9E9@example.com>
 	    Mar 22 18:20:29 host postfix/qmgr[15878]: AA10A2839B: from=<email1@example.com>, size=920, nrcpt=1 (queue active)
 	    Mar 22 18:20:29 host postfix/smtp[22601]: AA10A2839B: to=<support@linode.com>, relay=mail1.linode.com[96.126.108.55]:25, delay=0.14, delays=0.08/0.01/0.05/0.01, dsn=2.0.0, status=sent (250 2.0.0 Ok: queued as C4232266C9)
 	    Mar 22 18:20:29 host postfix/qmgr[15878]: AA10A2839B: removed
-	    ~~~
-
 {{< /file-excerpt >}}
+
 
 You now have a functioning mail server that can securely send and receive email. If things are not working smoothly, try consulting the [Troubleshooting Problems with Postfix, Dovecot, and MySQL](/docs/email/postfix/troubleshooting) guide. At this point, consider adding spam and virus filtering and a webmail client. If DNS records have not been created for the mail server yet, do so now. Once the DNS records have propagated, email will be delivered via the new mail server.
 

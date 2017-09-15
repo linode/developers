@@ -37,15 +37,7 @@ The steps in this section will need to be run on *each* of your Linodes.
 
 1.  Create the file `/etc/apt/sources.list.d/salt.list` and enter the following lines to add the Salt repository: 
     
-	{{< file >}}
-/etc/apt/sources.list.d/salt.list
-	:  ~~~  
-	   # salt
-	   deb http://debian.saltstack.com/debian jessie-saltstack main
-	   ~~~
-
-{{< /file >}}
-
+	{{< file "/etc/apt/sources.list.d/salt.list" >}}
 2.  Add the repository key:
 	
 		wget -q -O- "http://debian.saltstack.com/debian-salt-team-joehealy.gpg.key" | apt-key add -
@@ -70,7 +62,9 @@ The following steps will be run only on the Linode designated as your Salt maste
 
     {{< file >}}
 /etc/salt/master 
-:   ~~~  
+:
+{{< /file >}}
+
 # The address of the interface to bind to:
 interface: <master Linode IP address>
 ~~~
@@ -105,15 +99,12 @@ The following steps will need to be run on *each* of your Salt minions.
     
 2.  Edit the `/etc/salt/minion` file to uncomment the `#master: salt` line, and replace "salt" with the IP address of your Salt Master:
 
-    {{< file >}}
-/etc/salt/minion 
-:   ~~~ 
+    {{< file "/etc/salt/minion" >}}
 # Set the location of the salt master server. If the master server cannot be
-# resolved, then the minion will fail to start. 
-master: <master's IP address>
-~~~
-
+        # resolved, then the minion will fail to start. 
+          master: <master's IP address>
 {{< /file >}}
+
 
 3.  Restart Salt:
 
@@ -187,15 +178,12 @@ Salt Formulas create a framework of software and configurations to be deployed t
 
 2.  Create a state file to store your configuration. For this example, we'll create a simple Apache state:
 
-    {{< file >}}
-/srv/salt/apache.sls
-:   ~~~ yaml
+    {{< file "/srv/salt/apache.sls" yaml >}}
 apache2:
-pkg:
-- installed
-~~~
-
+          pkg:
+            - installed
 {{< /file >}}
+
 
 3.  To install the packages contained within the SLS file and enable the state, execute the following command. You can replace `*` with the ID of a specific minion:
 

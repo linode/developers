@@ -53,23 +53,17 @@ SASL Authentication
 
 Edit the `/etc/default/saslauthd` file to allow the SASL authentication daemon to start. Uncommon or add the following line:
 
-{{< file-excerpt >}}
-/etc/default/saslauthd
-:   ~~~ ini
+{{< file-excerpt "/etc/default/saslauthd" ini >}}
 START=yes
-~~~
-
 {{< /file-excerpt >}}
+
 
 Create the `/etc/postfix/sasl/smtpd.conf` file, and insert the following line:
 
-{{< file >}}
-/etc/postfix/sasl/smtpd.conf
-:   ~~~ ini
+{{< file "/etc/postfix/sasl/smtpd.conf" ini >}}
 pwcheck_method: saslauthd
-~~~
-
 {{< /file >}}
+
 
 Issue the following command to start the SASL daemon for the first time:
 
@@ -98,13 +92,9 @@ Postfix
 
 Edit the `/etc/postfix/main.cf` file to edit or add the following lines:
 
-{{< file-excerpt >}}
-/etc/postfix/main.cf
-:   ~~~ ini
+{{< file-excerpt "/etc/postfix/main.cf" ini >}}
 smtpd_tls_cert_file=/etc/ssl/postfix.pem
-smtpd_tls_key_file=/etc/ssl/postfix.key
-
-{{< /file-excerpt >}}
+    smtpd_tls_key_file=/etc/ssl/postfix.key
 
     smtp_use_tls = yes                                                                                               
     smtpd_use_tls = yes                                                                                              
@@ -122,7 +112,8 @@ smtpd_tls_key_file=/etc/ssl/postfix.key
     broken_sasl_auth_clients = yes
 
     smtpd_recipient_restrictions = reject_unknown_sender_domain, reject_unknown_recipient_domain, reject_unauth_pipelining, permit_mynetworks, permit_sasl_authenticated, reject_unauth_destination
-    ~~~
+{{< /file-excerpt >}}
+
 
 These settings make it possible for the SASL authentication process to interact with Postfix, and for Postfix to use the SSL certificate generated above. If you're using an SSL certificate with a different name, modify the first two lines of this configuration section.
 
@@ -138,15 +129,12 @@ Consider the [basic email gateway guide](/docs/email/postfix/gateway-debian-5-le
 
 The above Postfix configuration makes it possible to *send* mail using postfix. If your server receives email, Postfix requires additional configuration to deliver mail locally. Edit the `main.cf` file to insert or modify the following configuration directives:
 
-{{< file-excerpt >}}
-/etc/postfix/main.cf
-:   ~~~ ini
+{{< file-excerpt "/etc/postfix/main.cf" ini >}}
 myhostname = lollipop.example.com
-virtual_alias_maps = hash:/etc/postfix/virtual
-home_mailbox = mail/
-~~~
-
+    virtual_alias_maps = hash:/etc/postfix/virtual
+    home_mailbox = mail/
 {{< /file-excerpt >}}
+
 
 Issue the following command to ensure that new user accounts have a `~/mail` directory:
 

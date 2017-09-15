@@ -44,30 +44,22 @@ Apache `mod_status` diplays information related to incoming server connections b
 
 2.  Add the following to the `<virtual_hosts>` block:
 
-	{{< file-excerpt >}}
-/etc/apache2/sites-available/example.com.conf (Debian/Ubuntu)
-	/etc/httpd/conf.d/vhost.conf (CentOS/Fedora)
-	:	~~~
-		<Location /server-status>
+	{{< file-excerpt "/etc/apache2/sites-available/example.com.conf (Debian/Ubuntu)" >}}
+<Location /server-status>
 	      SetHandler server-status
 	      Order Deny,Allow
 	      Deny from all
 		  Allow from localhost
 		</Location>
-		~~~
-
 {{< /file-excerpt >}}
+
 
 3.  Apache `mod_status` also offers an option called **ExtendedStatus**, which provides additional information about each request made to Apache. To enable **ExtendedStatus** edit your Apache configuration file:
 
-	{{< file-excerpt >}}
-/etc/apache2/apache2.conf (Debian/Ubuntu)
-	/etc/httpd/confd/httpd.conf (CentOS/Fedora)
-	:	~~~
-		ExtendedStatus On
-		~~~
-
+	{{< file-excerpt "/etc/apache2/apache2.conf (Debian/Ubuntu)" >}}
+ExtendedStatus On
 {{< /file-excerpt >}}
+
 
 	{{< note >}}
 
@@ -139,20 +131,16 @@ The event module is *only* available on Apache 2.4 and is based off the worker M
 
 Once you select your MPM, you will need to change the values inside the configuration. These settings are located in the `/etc/apache2/apache2.conf` file on Debian/Ubuntu, and the `/etc/httpd/conf/httpd.conf` file on CentOS/Fedora. The MPM looks like this:
 
-{{< file-excerpt >}}
-/etc/apache2/apache2.conf (Debian/Ubuntu)
-/etc/httpd/conf/httpd.conf (CentOS/Fedora)
-:	~~~
-	<IfModule mpm_prefork_module>
-	StartServers          4
-	MinSpareServers       20
-	MaxSpareServers      40
-	MaxClients           200
-	MaxRequestsPerChild  4500
+{{< file-excerpt "/etc/apache2/apache2.conf (Debian/Ubuntu)" >}}
+<IfModule mpm_prefork_module>
+    	StartServers          4
+    	MinSpareServers       20
+    	MaxSpareServers      40
+    	MaxClients           200
+    	MaxRequestsPerChild  4500
 	</IfModule>
-	~~~
-
 {{< /file-excerpt >}}
+
 
 For other MPMs replace `<IfModule mpm_prefork_module>` with `<IfModule mpm_worker_module>` or `<IfModule mpm_event_module>` for worker and event, respectively.
 

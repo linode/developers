@@ -20,32 +20,23 @@ The steps below configure all Salt Minions for a 2GB Linode, feel free to adjust
 
 1.  Open the `/etc/salt/base/top.sls` file and add the additional line:
  
-    {{< file >}}
-/etc/salt/base/top.sls
-:  ~~~  
-base:
-'*':
-- lamp
-- extras
-- lampconf
-~~~
-
-{{< /file >}}
-
+    {{< file "/etc/salt/base/top.sls" >}}
 2.  Create and edit the `/etc/salt/base/lampconf.sls` file:
 
     {{< file >}}
 /etc/salt/base/lampconf.sls
-:  ~~~
-#Apache Conguration for 2GB Linode
-/etc/apache2/apache2.conf-KA:
-file.replace:
-- name: /etc/apache2/apache2.conf
-- pattern: 'KeepAlive On'
-- repl: 'KeepAlive Off'
-- show_changes: True
+:
+{{< /file >}}
 
 {{< /file >}}
+
+       #Apache Conguration for 2GB Linode
+       /etc/apache2/apache2.conf-KA:
+         file.replace:
+           - name: /etc/apache2/apache2.conf
+           - pattern: 'KeepAlive On'
+           - repl: 'KeepAlive Off'
+           - show_changes: True
 
        /etc/apache2/apache2.conf-IM:
          file.append:

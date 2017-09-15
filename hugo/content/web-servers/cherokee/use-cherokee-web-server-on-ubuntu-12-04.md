@@ -36,14 +36,10 @@ The first command will show your short hostname, and the second will show your f
 
 First, make sure you have the `universe` repositories enabled on your system. Your `/etc/apt/sources.list` should resemble the following (you may have to uncomment or add the `universe` lines):
 
-{{< file-excerpt >}}
-/etc/apt/sources.list
-:   ~~~
+{{< file-excerpt "/etc/apt/sources.list" >}}
 ## main & restricted repositories
-deb http://us.archive.ubuntu.com/ubuntu/ lucid main restricted         
-deb-src http://us.archive.ubuntu.com/ubuntu/ lucid main restricted
-
-{{< /file-excerpt >}}
+    deb http://us.archive.ubuntu.com/ubuntu/ lucid main restricted         
+    deb-src http://us.archive.ubuntu.com/ubuntu/ lucid main restricted
 
     deb http://security.ubuntu.com/ubuntu lucid-security main restricted
     deb-src http://security.ubuntu.com/ubuntu lucid-security main restricted
@@ -57,7 +53,8 @@ deb-src http://us.archive.ubuntu.com/ubuntu/ lucid main restricted
 
     deb http://security.ubuntu.com/ubuntu lucid-security universe
     deb-src http://security.ubuntu.com/ubuntu lucid-security universe
-    ~~~
+{{< /file-excerpt >}}
+
 
 If you had to enable new repositories, update your package lists:
 

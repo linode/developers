@@ -78,18 +78,15 @@ The `g` option appended to the substitution statement sets a "global" mode that 
 
 It's possible to use `sed` to modify streams of text in shell scripts. Consider the following bash function:
 
-{{< file >}}
-bash function
-:   ~~~ bash
+{{< file "bash function" bash >}}
 txt2text (){
-for i in `ls -1`
-do 
-mv $i `echo $i | sed 's/.*\.txt$/.text/'`
-done
-}
-~~~
-
+        for i in `ls -1`
+        do 
+            mv $i `echo $i | sed 's/.*\.txt$/.text/'`
+        done
+    }
 {{< /file >}}
+
 
 When this function is called, the following operations are performed: for every item `i` (the file names in the current directory,) the move command (`mv`) is issued with the existing file name and the old file name filtered through a `sed` function. The `sed` function matches for the string of characters `.txt` at the end of the file name, and replaces that with `.text`. If the sed script fails to match, the original file name will be output and the move will fail.
 

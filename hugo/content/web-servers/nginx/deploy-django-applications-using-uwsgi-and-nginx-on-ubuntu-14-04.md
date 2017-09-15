@@ -118,14 +118,10 @@ If your application uses another database, skip installing `python-sqlite` and `
 
 2.  Create configuration file `sample.ini` with the following contents:
 
-    {{< file >}}
-/etc/uwsgi/sites/sample.ini
-:   ~~~ ini
+    {{< file "/etc/uwsgi/sites/sample.ini" ini >}}
 [uwsgi]
-project = sample
-base = /home/django
-
-{{< /file >}}
+        project = sample
+        base = /home/django
 
         chdir = %(base)/%(project)
         home = %(base)/Env/%(project)
@@ -137,25 +133,23 @@ base = /home/django
         socket = %(base)/%(project)/%(project).sock
         chmod-socket = 664
         vacuum = true
-        ~~~
+{{< /file >}}
+
 
 3.  Create an Upstart job for uWSGI:
 
-    {{< file >}}
-/etc/init/uwsgi.conf
-:   ~~~ conf
+    {{< file "/etc/init/uwsgi.conf" conf >}}
 description "uWSGI"
-start on runlevel [2345]
-stop on runlevel [06]
-respawn
-
-{{< /file >}}
+        start on runlevel [2345]
+        stop on runlevel [06]
+        respawn
 
         env UWSGI=/usr/local/bin/uwsgi
         env LOGTO=/var/log/uwsgi.log
 
         exec $UWSGI --master --emperor /etc/uwsgi/sites --die-on-term --uid django --gid www-data --logto $LOGTO
-        ~~~
+{{< /file >}}
+
 
     This job will start uWSGI in *Emperor* mode, meaning that it will monitor `/etc/uwsgi/sites` directory and will spawn instances (*vassals*) for each configuration file it finds. Whenever a config file is changed, the emperor will automatically restart its vassals.
 
@@ -171,14 +165,10 @@ respawn
 
 2.  Create an nginx site configuration file for your Django application:
 
-    {{< file >}}
-/etc/nginx/sites-available/sample
-:   ~~~ conf
+    {{< file "/etc/nginx/sites-available/sample" conf >}}
 server {
-listen 80;
-server_name example.com;
-
-{{< /file >}}
+            listen 80;
+            server_name example.com;
 
             location = /favicon.ico { access_log off; log_not_found off; }
             location /static/ {
@@ -190,7 +180,8 @@ server_name example.com;
                 uwsgi_pass      unix:/home/django/sample/sample.sock;
             }
         }
-        ~~~
+{{< /file >}}
+
 
 
 3.  Create a symlink to nginx's `sites-enabled` directory to enable your site configuration file:

@@ -102,21 +102,17 @@ Create a dedicated system user to run the nginx process under by issuing the fol
 
 Now create the init script to make it possible to start and stop the web server more easily. Create `/etc/rc.d/init.d/nginx` with the following content:
 
-{{< file-excerpt >}}
-/etc/rc.d/init.d/nginx
-:   ~~~ bash
+{{< file-excerpt "/etc/rc.d/init.d/nginx" bash >}}
 #!/bin/sh
-#
-# nginx – this script starts and stops the nginx daemon
-#
-# chkconfig: - 85 15
-# description: Nginx is an HTTP(S) server, HTTP(S) reverse \
-# proxy and IMAP/POP3 proxy server
-# processname: nginx
-# config: /opt/nginx/conf/nginx.conf
-# pidfile: /opt/nginx/logs/nginx.pid
-
-{{< /file-excerpt >}}
+    #
+    # nginx – this script starts and stops the nginx daemon
+    #
+    # chkconfig: - 85 15
+    # description: Nginx is an HTTP(S) server, HTTP(S) reverse \
+    # proxy and IMAP/POP3 proxy server
+    # processname: nginx
+    # config: /opt/nginx/conf/nginx.conf
+    # pidfile: /opt/nginx/logs/nginx.pid
 
     # Source function library.
     . /etc/rc.d/init.d/functions
@@ -213,7 +209,8 @@ Now create the init script to make it possible to start and stop the web server 
             echo $"Usage: $0 {start|stop|status|restart|condrestart|try-restart|reload|force-reload|configtest}"
             exit 2
         esac
-    ~~~
+{{< /file-excerpt >}}
+
 
 Next issue the following commands to make the script executable, set nginx to start on boot, and start the server for the first time:
 
@@ -226,23 +223,20 @@ Next issue the following commands to make the script executable, set nginx to st
 
 Regardless of the method you use to install nginx, you will need to configure `server` declarations to specify name-based virtual hosts. There are a number of approaches to organizing configuration files with nginx. Regardless of the organizational strategy, all virtual host configurations are contained within `server` configuration blocks that are in turn contained within the `http` block in the `nginx.conf` file. Consider the following nginx virtual host configuration:
 
-{{< file-excerpt >}}
-nginx server configuration
-:   ~~~ nginx
+{{< file-excerpt "nginx server configuration" nginx >}}
 server {
-listen   80;
-server_name www.example.com example.com;
-access_log /srv/www/example.com/logs/access.log;
-error_log /srv/www/example.com/logs/error.log;
-
-{{< /file-excerpt >}}
+           listen   80;
+           server_name www.example.com example.com;
+           access_log /srv/www/example.com/logs/access.log;
+           error_log /srv/www/example.com/logs/error.log;
 
            location / {
                root   /srv/www/example.com/public_html;
                index  index.html index.htm;
            }
     }
-    ~~~
+{{< /file-excerpt >}}
+
 
 Create the directories referenced in this configuration by issuing the following commands:
 
@@ -251,35 +245,29 @@ Create the directories referenced in this configuration by issuing the following
 
 You may insert the server directives directly into the `http` section of the `/opt/nginx/conf/nginx.conf` or `/etc/nginx/nginx.con` file, although this may be difficult to manage. You may also replicate the management system created by the Debian/Ubuntu operating systems by creating `sites-available/` and `sites-enabled/` directories and inserting the following line into your `nginx.conf` file:
 
-{{< file-excerpt >}}
-nginx.conf
-:   ~~~ nginx
+{{< file-excerpt "nginx.conf" nginx >}}
 http {
-# [...]
-
-{{< /file-excerpt >}}
+    # [...]
 
     include /opt/etc/nginx/sites-enabled/*;
 
     # [...]      
     }
-    ~~~
+{{< /file-excerpt >}}
+
 
 Modify the include statement to point to the path of your `sites-enabled` directory. Create site configurations in the `sites-available` directory and then create symbolic links to these files in the `sites-enabled` directory. In other circumstances, it may make more sense to create and include a file named `/opt/nginx-sites.conf` that is included in the `nginx.conf` file as follows:
 
-{{< file-excerpt >}}
-nginx.conf
-:   ~~~ nginx
+{{< file-excerpt "nginx.conf" nginx >}}
 http {
-# [...]
-
-{{< /file-excerpt >}}
+    # [...]
 
     include /opt/nginx-sites.conf;
 
     # [...]      
     }
-    ~~~
+{{< /file-excerpt >}}
+
 
 Depending on the size and nature of your deployment, place your virtual host configurations either directly in the `/opt/nginx-sites.conf` file or include statements for server-specific configuration files in the `nginx-sites.file` format. For more information regarding nginx configuration options, consider our [overview of nginx configuration](/docs/websites/nginx/basic-nginx-configuration).
 
@@ -299,12 +287,8 @@ If your application includes PHP code you will need to implement the following "
 
 Next you will need to create the scripts that start and control the php-cgi process. First create `/usr/bin/php-fastcgi` with the following contents:
 
-{{< file-excerpt >}}
-/usr/bin/php-fastcgi
-:   ~~~ bash
+{{< file-excerpt "/usr/bin/php-fastcgi" bash >}}
 #!/bin/sh
-
-{{< /file-excerpt >}}
 
     if [ `grep -c "nginx" /etc/passwd` = "1" ]; then
        FASTCGI_USER=nginx
@@ -320,16 +304,13 @@ Next you will need to create the scripts that start and control the php-cgi proc
     fi
 
     /usr/bin/spawn-fcgi -a 127.0.0.1 -p 9000 -C 6 -u $FASTCGI_USER -f /usr/bin/php-cgi
-    ~~~
+{{< /file-excerpt >}}
+
 
 Then create the init script to automatically start and the php-cgi process. To do so create a file at `/etc/init.d/php-fastcgi` with the following content:
 
-{{< file-excerpt >}}
-/etc/init.d/php-fastcgi
-:   ~~~ bash
+{{< file-excerpt "/etc/init.d/php-fastcgi" bash >}}
 #!/bin/sh
-
-{{< /file-excerpt >}}
 
     # php-fastcgi - Use php-fastcgi to run php applications
     #
@@ -390,7 +371,8 @@ Then create the init script to automatically start and the php-cgi process. To d
             ;;
         esac
         exit 0
-    ~~~
+{{< /file-excerpt >}}
+
 
 Issue the following sequence of commands to make the scripts executable, start the process for the first time, and ensure that the process will start following a reboot cycle:
 
@@ -402,26 +384,19 @@ Issue the following sequence of commands to make the scripts executable, start t
 
 Edit the `/etc/sudoers` file to comment the `Defaults    requiretty` line and ensure that the init script will start on boot. Create a comment by prepending a hash (e.g. `#`) to the beginning of the line, so that it resembles the following:
 
-{{< file-excerpt >}}
-/etc/sudoers
-:   ~~~
+{{< file-excerpt "/etc/sudoers" >}}
 # Defaults requiretty
-~~~
-
 {{< /file-excerpt >}}
+
 
 Consider the following nginx virtual host configuration. Modify your configuration to resemble the one below, and ensure that the `location ~ \.php$ { }` resembles the one in this example:
 
-{{< file >}}
-nginx virtual host configuration
-:   ~~~ nginx
+{{< file "nginx virtual host configuration" nginx >}}
 server {
-server_name www.example.com example.com;
-access_log /srv/www/example.com/logs/access.log;
-error_log /srv/www/example.com/logs/error.log;
-root /srv/www/example.com/public_html;
-
-{{< /file >}}
+        server_name www.example.com example.com;
+        access_log /srv/www/example.com/logs/access.log;
+        error_log /srv/www/example.com/logs/error.log;
+        root /srv/www/example.com/public_html;
 
         location / {
             index index.html index.htm index.php;
@@ -434,7 +409,8 @@ root /srv/www/example.com/public_html;
             fastcgi_param SCRIPT_FILENAME /srv/www/example.com/public_html$fastcgi_script_name;
         }
     }
-    ~~~
+{{< /file >}}
+
 
 **Important security note:** If you're planning to run applications that support file uploads (images, for example), the above configuration may expose you to a security risk by allowing arbitrary code execution. The short explanation for this behavior is that a properly crafted URI which ends in ".php", in combination with a malicious image file that actually contains valid PHP, can result in the image being processed as PHP. For more information on the specifics of this behavior, you may wish to review the information provided on [Neal Poole's blog](https://nealpoole.com/blog/2011/04/setting-up-php-fastcgi-and-nginx-dont-trust-the-tutorials-check-your-configuration/).
 

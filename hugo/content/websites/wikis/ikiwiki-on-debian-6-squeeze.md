@@ -26,14 +26,11 @@ Issue the following commands to set your system hostname, substituting a unique 
 
 Edit your `/etc/hosts` file to resemble the following, substituting your Linode's public IP address for 12.34.56.78, your hostname for "hostname", and your primary domain name for "example.com".
 
-{{< file >}}
-/etc/hosts
-:   ~~~
+{{< file "/etc/hosts" >}}
 127.0.0.1 localhost.localdomain localhost
-12.34.56.78 hostname.example.com hostname
-~~~
-
+    12.34.56.78 hostname.example.com hostname
 {{< /file >}}
+
 
 If you haven't already added an unprivileged system user, create one now. This will be the user that manages your ikiwiki content. Issue the following command, substituting a unique username for "username":
 
@@ -66,15 +63,11 @@ Issue the following command to install Apache:
 
 Create a virtual host that resembles the following example. Be sure to substitute your own domain name for "example.com".
 
-{{< file >}}
-/etc/apache2/sites-available/www.example.com
-:   ~~~ apache
+{{< file "/etc/apache2/sites-available/www.example.com" apache >}}
 <VirtualHost *:80>
-ServerAdmin username@example.com
-ServerName example.com
-ServerAlias www.example.com
-
-{{< /file >}}
+        ServerAdmin username@example.com
+        ServerName example.com
+        ServerAlias www.example.com
 
         DocumentRoot /srv/www/example.com/public_html
         ErrorLog /srv/www/example.com/logs/error.log
@@ -83,7 +76,8 @@ ServerAlias www.example.com
         AddHandler cgi-script .cgi 
         Options FollowSymLinks +ExecCGI
     </VirtualHost>
-    ~~~
+{{< /file >}}
+
 
 Issue the following commands to create the required directories, enable the site, and restart the web server. Replace "example.com" with your own domain name, and "username" with the username you created at the beginning of this guide:
 
@@ -101,12 +95,8 @@ If you've already installed Apache, or another web server, please skip this sect
 
 Create a filed named `/usr/bin/fastcgi-wrapper.pl` with the following contents:
 
-{{< file >}}
-/usr/bin/fastcgi-wrapper.pl
-:   ~~~ perl
+{{< file "/usr/bin/fastcgi-wrapper.pl" perl >}}
 #!/usr/bin/perl
-
-{{< /file >}}
 
     use FCGI;
     use Socket;
@@ -205,40 +195,38 @@ Create a filed named `/usr/bin/fastcgi-wrapper.pl` with the following contents:
 
             }
     }
-    ~~~
+{{< /file >}}
+
 
 Create a file named `/etc/init.d/perl-fastcgi` with the following contents:
 
-{{< file >}}
-/etc/init.d/perl-fastcgi
-:   ~~~ bash
+{{< file "/etc/init.d/perl-fastcgi" bash >}}
 #!/bin/bash
-PERL_SCRIPT=/usr/bin/fastcgi-wrapper.pl
-FASTCGI_USER=www-data
-RETVAL=0
-case "$1" in
-start)
-su - $FASTCGI_USER -c $PERL_SCRIPT
-RETVAL=$?
-;;
-stop)
-killall -9 fastcgi-wrapper.pl
-RETVAL=$?
-;;
-restart)
-killall -9 fastcgi-wrapper.pl
-su - $FASTCGI_USER -c $PERL_SCRIPT
-RETVAL=$?
-;;
-*)
-echo "Usage: perl-fastcgi {start|stop|restart}"
-exit 1
-;;
-esac      
-exit $RETVAL
-~~~
-
+    PERL_SCRIPT=/usr/bin/fastcgi-wrapper.pl
+    FASTCGI_USER=www-data
+    RETVAL=0
+    case "$1" in
+        start)
+          su - $FASTCGI_USER -c $PERL_SCRIPT
+          RETVAL=$?
+      ;;
+        stop)
+          killall -9 fastcgi-wrapper.pl
+          RETVAL=$?
+      ;;
+        restart)
+          killall -9 fastcgi-wrapper.pl
+          su - $FASTCGI_USER -c $PERL_SCRIPT
+          RETVAL=$?
+      ;;
+        *)
+          echo "Usage: perl-fastcgi {start|stop|restart}"
+          exit 1
+      ;;
+    esac      
+    exit $RETVAL
 {{< /file >}}
+
 
 Issue the following commands to make the scripts executable and start Perl-FastCGI:
 
@@ -255,16 +243,12 @@ In this guide, the domain "example.com" is used as an example site. You should s
 
 Next, you'll need to define your site's virtual host file:
 
-{{< file >}}
-/etc/nginx/sites-available/www.example.com
-:   ~~~ nginx
+{{< file "/etc/nginx/sites-available/www.example.com" nginx >}}
 server {
-listen   80;
-server_name www.example.com example.com;
-access_log /srv/www/example.com/logs/access.log;
-error_log /srv/www/example.com/logs/error.log;
-
-{{< /file >}}
+        listen   80;
+        server_name www.example.com example.com;
+        access_log /srv/www/example.com/logs/access.log;
+        error_log /srv/www/example.com/logs/error.log;
 
         location / {
             root   /srv/www/example.com/public_html;
@@ -279,7 +263,8 @@ error_log /srv/www/example.com/logs/error.log;
             fastcgi_param  SCRIPT_FILENAME  /srv/www/example.com/public_html$fastcgi_script_name;
         }
     }
-    ~~~
+{{< /file >}}
+
 
 Issue the following commands to enable the site:
 
@@ -303,19 +288,16 @@ Issue the following commands to create a `~/wiki/` directory as a git repository
 
 Add the following excerpt to `~/wiki/.git/config`:
 
-{{< file-excerpt >}}
-~/wiki/.git/config
-:   ~~~
+{{< file-excerpt "~/wiki/.git/config" >}}
 [remote "origin"]
-fetch = +refs/heads/*:refs/remotes/origin/*
-url = /srv/git/wiki.git
-
-[branch "master"]
-remote = origin
-merge = refs/heads/master
-~~~
-
+        fetch = +refs/heads/*:refs/remotes/origin/*
+        url = /srv/git/wiki.git
+    
+    [branch "master"]
+        remote = origin
+        merge = refs/heads/master
 {{< /file-excerpt >}}
+
 
 Issue the following commands to copy the default `basewiki` and `templates` to the `~/wiki` directory, download a [sample ikiwiki configuration file](ikiwiki.yaml), and create an initial commit in the `~/wiki` repository:
 
@@ -334,17 +316,14 @@ Edit the `~/wiki/ikiwiki.yaml` file to suit the needs of your deployment, paying
 
 Create content in the `~/wiki/source/index.mdwn` file, for example:
 
-{{< file >}}
-~/wiki/source/index.mdwn
-:   ~~~
+{{< file "~/wiki/source/index.mdwn" >}}
 # Welcome to $wiki
-
-Hello World. What should we call [[this site]?
-~~~
-
-When the configuration file has been edited, and there is content in the `~/wiki/source/index.mdwn` file, issue the following command to rebuild the wiki:
-
+    
+    Hello World. What should we call [[this site]?
 {{< /file >}}
+
+    
+When the configuration file has been edited, and there is content in the `~/wiki/source/index.mdwn` file, issue the following command to rebuild the wiki:
 
     ikiwiki --setup ~/wiki/ikiwiki.yaml
 

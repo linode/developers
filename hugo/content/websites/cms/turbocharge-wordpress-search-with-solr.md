@@ -148,28 +148,25 @@ By default, Solr listens for search requests on all IP addresses at port 8983. F
 
 2.  Locate the section where listening host and port are set:
 
-    {{< file-excerpt >}}
-/opt/solr-4.10.4/example/etc/jetty.xml
-:   ~~~
+    {{< file-excerpt "/opt/solr-4.10.4/example/etc/jetty.xml" >}}
 <!--
-<Call name="addConnector">
-<Arg>
-<New class="org.eclipse.jetty.server.nio.SelectChannelConnector">
-<Set name="host"><SystemProperty name="jetty.host" /></Set>
-<Set name="port"><SystemProperty name="jetty.port" default="8983"/></Set>
-<Set name="maxIdleTime">50000</Set>
-<Set name="Acceptors">2</Set>
-<Set name="statsOn">false</Set>
-<Set name="confidentialPort">8443</Set>
-<Set name="lowResourcesConnections">5000</Set>
-<Set name="lowResourcesMaxIdleTime">5000</Set>
-</New>
-</Arg>
-</Call>
--->
-~~~
-
+            <Call name="addConnector">
+              <Arg>
+                  <New class="org.eclipse.jetty.server.nio.SelectChannelConnector">
+                    <Set name="host"><SystemProperty name="jetty.host" /></Set>
+                    <Set name="port"><SystemProperty name="jetty.port" default="8983"/></Set>
+                    <Set name="maxIdleTime">50000</Set>
+                    <Set name="Acceptors">2</Set>
+                    <Set name="statsOn">false</Set>
+                    <Set name="confidentialPort">8443</Set>
+                    <Set name="lowResourcesConnections">5000</Set>
+                    <Set name="lowResourcesMaxIdleTime">5000</Set>
+                  </New>
+              </Arg>
+            </Call>
+        -->
 {{< /file-excerpt >}}
+
 
 3.  Set the appropriate listening IP address:
 
@@ -229,27 +226,23 @@ If using a different version of Solr, change the `JETTY_HOME=/opt/solr-4.10.4/ex
 
 {{< /note >}}
 
-    {{< file >}}
-/etc/init.d/solr
-:   ~~~
+    {{< file "/etc/init.d/solr" >}}
 #!/bin/sh -e
-#
-# /etc/init.d/solr -- startup script for Apache Solr
-#
-#
-### BEGIN INIT INFO
-# Provides:          solr
-# Required-Start:    $local_fs $remote_fs $network
-# Required-Stop:     $local_fs $remote_fs $network
-# Should-Start:      $named
-# Should-Stop:       $named
-# Default-Start:     2 3 4 5
-# Default-Stop:      0 1 6
-# Short-Description: Start Solr
-# Description:       Start Apache Solr jetty server
-### END INIT INFO
-
-{{< /file >}}
+        #
+        # /etc/init.d/solr -- startup script for Apache Solr
+        #
+        #
+        ### BEGIN INIT INFO
+        # Provides:          solr
+        # Required-Start:    $local_fs $remote_fs $network
+        # Required-Stop:     $local_fs $remote_fs $network
+        # Should-Start:      $named
+        # Should-Stop:       $named
+        # Default-Start:     2 3 4 5
+        # Default-Stop:      0 1 6
+        # Short-Description: Start Solr
+        # Description:       Start Apache Solr jetty server
+        ### END INIT INFO
 
         PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
         NAME=solr
@@ -410,7 +403,8 @@ If using a different version of Solr, change the `JETTY_HOME=/opt/solr-4.10.4/ex
         esac
 
         exit 0
-        ~~~
+{{< /file >}}
+
 
 3.  After saving the script, run the following commands:
 

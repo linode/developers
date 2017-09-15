@@ -57,13 +57,9 @@ In order for `mod_wsgi` to be able to provide access to your application, you wi
 
 In this example, the application is stored in `/var/www/example.com/application` directory. Modify this example and all following examples to conform to the actual files and locations used in your deployment.
 
-{{< file >}}
-/var/www/example.com/application/application.wsgi
-:   ~~~ python
+{{< file "/var/www/example.com/application/application.wsgi" python >}}
 import os
-import sys
-
-{{< /file >}}
+    import sys
 
     sys.path.append('/var/www/example.com/application')
 
@@ -78,7 +74,8 @@ import sys
         start_response(status, response_headers)
 
         return [output]
-    ~~~
+{{< /file >}}
+
 
 You must append the path of your application to the system path as above. The declaration of the `PYTHON_EGG_CACHE` variable is optional but may be required for some applications when WSGI scripts are executed with the permissions of the web server. The WSGI application must be callable as `application`, regardless of how the application code is structured.
 
@@ -86,12 +83,8 @@ You must append the path of your application to the system path as above. The de
 
 In this example the Web.py *application* is embedded in a `application.wsgi` file. The [Web.py Framework](/docs/websites/frameworks/webpy-on-ubuntu-12-04-precise-pangolin/) must be installed in order for the following application to run successfully.
 
-{{< file-excerpt >}}
-/var/www/example.com/application/application.wsgi
-:   ~~~ python
+{{< file-excerpt "/var/www/example.com/application/application.wsgi" python >}}
 import web
-
-{{< /file-excerpt >}}
 
     urls = (
         '/(.*)', 'hello'
@@ -108,19 +101,16 @@ import web
 
     app = web.application(urls, globals(), autoreload=False)
     application = app.wsgifunc()
-    ~~~
+{{< /file-excerpt >}}
+
 
 ### Django WSGI Configuration
 
 The following example `application.wsgi` file is configured for Django applications:
 
-{{< file-excerpt >}}
-/var/www/example.com/application/application.wsgi
-:   ~~~ python
+{{< file-excerpt "/var/www/example.com/application/application.wsgi" python >}}
 import os
-import sys
-
-{{< /file-excerpt >}}
+    import sys
 
     sys.path.append('/var/www/example.com/application')
 
@@ -130,7 +120,8 @@ import sys
 
     import django.core.handlers.wsgi
     application = django.core.handlers.wsgi.WSGIHandler()
-    ~~~
+{{< /file-excerpt >}}
+
 
 `Django` must be installed on your system along with a working Django application before this example will function. The `DJANGO_SETTINGS_MODULE` points to the "`settings.py` file for your application, which would be located at `/var/www/example.com/application/settings.py` in the case of this example.
 
@@ -138,15 +129,11 @@ import sys
 
 Deploy the following `VirtualHost` configuration and modify the paths and domains to reflect the requirements of your application:
 
-{{< file-excerpt >}}
-Apache `VirtualHost` Configuration
-:   ~~~ apache
+{{< file-excerpt "Apache `VirtualHost` Configuration" apache >}}
 <VirtualHost *:80>
-ServerName example.com
-ServerAlias www.example.com
-ServerAdmin username@example.com
-
-{{< /file-excerpt >}}
+       ServerName example.com
+       ServerAlias www.example.com
+       ServerAdmin username@example.com
 
        DocumentRoot /var/www/example.com/public_html
 
@@ -160,7 +147,8 @@ ServerAdmin username@example.com
        Alias /images /var/www/example.com/public_html/images
        Alias /static /var/www/example.com/public_html/static
     </VirtualHost>
-    ~~~
+{{< /file-excerpt >}}
+
 
 In this example, the `WSGIScriptAlias` directive tells Apache that for this `VirtualHost`, all requests below `/` should be handled by the WSGI script specified. The series of four `Alias` directives allow Apache to serve the `robots.txt` and `favicon.ico` files as well as all resources beneath the `/images` and `/static` locations, directly from the `DocumentRoot` without engaging the WSGI application. You can add as many `Alias` directives as you require.
 

@@ -82,21 +82,17 @@ Alternatively, you can follow along with this video, which will show you how to 
 
     Here's the code used in our example script. The comment lines explain what each section does:
 
-    {{< file >}}
-Initial Setup StackScript
-: ~~~ bash
+    {{< file "Initial Setup StackScript" bash >}}
 #!/bin/bash
-# This block defines the variables the user of the script needs to input
-# when deploying using this script.
-#
-#
-#<UDF name="hostname" label="The hostname for the new Linode.">
-# HOSTNAME=
-#
-#<UDF name="fqdn" label="The new Linode's Fully Qualified Domain Name">
-# FQDN=
-
-{{< /file >}}
+      # This block defines the variables the user of the script needs to input
+      # when deploying using this script.
+      #
+      #
+      #<UDF name="hostname" label="The hostname for the new Linode.">
+      # HOSTNAME=
+      #
+      #<UDF name="fqdn" label="The new Linode's Fully Qualified Domain Name">
+      # FQDN=
 
       # This sets the variable $IPADDR to the IP address the new Linode receives.
       IPADDR=$(/sbin/ifconfig eth0 | awk '/inet / { print $2 }' | sed 's/addr://')
@@ -111,7 +107,8 @@ Initial Setup StackScript
 
       # This section sets the Fully Qualified Domain Name (FQDN) in the hosts file.
       echo $IPADDR $FQDN $HOSTNAME >> /etc/hosts
-      ~~~
+{{< /file >}}
+
 
 3.  Once you've written the StackScript press **Save Changes**. Remember, you can always edit the script later if you want to make adjustments.
 4.  Now you can go back to the **Deploy from StackScript** page to see that your new StackScript is available. It can be deployed following the same procedure as step 2 of [Using a Community StackScript](#using-a-community-stackscript)
@@ -165,27 +162,20 @@ You can see the [community StackScript Library](http://linode.com/stackscripts/)
 
 If you have an existing deployment script, you can use StackScripts to deploy instances with this script. Consider the following methods for "bootstrapping" one script with StackScripts:
 
-{{< file >}}
-StackScript
-:   ~~~ bash
+{{< file "StackScript" bash >}}
 #!/bin/bash
-
-{{< /file >}}
 
     wget http://example.com/ --output-document=/opt/deployment-script.pl
     chmod +x /opt/deployment-script.pl
 
     ./opt/deployment-script.pl
-    ~~~
+{{< /file >}}
+
 
 This approach is useful for bootstrapping scripts written in languages that are not included in the default instance template, as in the following example:
 
-{{< file >}}
-StackScript
-:   ~~~ bash
+{{< file "StackScript" bash >}}
 #!/bin/bash
-
-{{< /file >}}
 
     if [ -f /etc/apt/sources.list ]; then
        apt-get upgrade
@@ -205,16 +195,13 @@ StackScript
     chmod +x /opt/deployment-script.php
 
     ./opt/deployment-script.php
-    ~~~
+{{< /file >}}
+
 
 If you do not want to rely on an existing external server to host your scripts for download, you can embed the bootstrapped script in the StackScript. Consider the following example:
 
-{{< file >}}
-StackScript
-:   ~~~ bash
+{{< file "StackScript" bash >}}
 #!/bin/bash
-
-{{< /file >}}
 
     if [ -f /etc/apt/sources.list ]; then
        apt-get upgrade
@@ -238,7 +225,8 @@ StackScript
     chmod +x /opt/deployment-script.php
 
     ./opt/deployment-script.php
-    ~~~
+{{< /file >}}
+
 
 ### Using StackScripts from the Linode API
 
@@ -275,18 +263,15 @@ The UDF tags are explained in the table below:
 
 Below is an example implementation of the UDF variables:
 
-{{< file-excerpt >}}
-StackScript
-:   ~~~ bash
+{{< file-excerpt "StackScript" bash >}}
 # [...]
-<UDF name="var1" Label="A question" default="" example="Enter something here." />
-<UDF name="var2" Label="Pick one of" oneOf="foo,bar" example="Enter something here." />
-<UDF name="var3" Label="A question" oneOf="foo,bar" default="foo" />
-<UDF name="var4" Label="Pick several from" manyOf="foo,bar" default="foo,bar" />
-# [...]
-~~~
-
+    <UDF name="var1" Label="A question" default="" example="Enter something here." />
+    <UDF name="var2" Label="Pick one of" oneOf="foo,bar" example="Enter something here." />
+    <UDF name="var3" Label="A question" oneOf="foo,bar" default="foo" />
+    <UDF name="var4" Label="Pick several from" manyOf="foo,bar" default="foo,bar" />
+    # [...]
 {{< /file-excerpt >}}
+
 
 {{< note >}}
 If you would like to create a masked password input field, use the word 'password' anywhere in the UDF name.
@@ -308,13 +293,9 @@ There are also a set of Linode created environmental variables that can be used 
 
 If you do not want to use the StackScript system to set your environment variables, you might consider hosting files with settings on a different system. This is accomplished with the following fragment:
 
-{{< file-excerpt >}}
-StackScript
-:   ~~~ bash
+{{< file-excerpt "StackScript" bash >}}
 # [...]
-IPADDR=$(/sbin/ifconfig eth0 | awk '/inet / { print $2 }' | sed 's/addr://')
-
-{{< /file-excerpt >}}
+    IPADDR=$(/sbin/ifconfig eth0 | awk '/inet / { print $2 }' | sed 's/addr://')
 
     wget http://example.com/base.env --output-document=/tmp/base.env
     wget http://example.com/$IPADDR.env --output-document=/tmp/system.env
@@ -322,6 +303,7 @@ IPADDR=$(/sbin/ifconfig eth0 | awk '/inet / { print $2 }' | sed 's/addr://')
     source /tmp/base.env
     source /tmp/system.env
     # [...]
-    ~~~
+{{< /file-excerpt >}}
+
 
 Make sure that there are files accessible via `HTTP` hosted on the `example.com` domain for both basic environment (e.g. `base.env`) and machine specific (e.g. `[ip-address].env`) files before launching this StackScript. Also consider the possible security implications of allowing any file with sensitive information regarding your deployment to be publicly accessible.

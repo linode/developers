@@ -27,28 +27,10 @@ Basic System Configuration
 
 Edit your `/etc/hosts` file to resemble the following example, replacing "12.34.56.78" with your Linode's IP address, "hostname.example.com" with your fully qualified domain name, and "hostname" with your short hostname.
 
-{{< file >}}
-/etc/hosts
-
-{{< /file >}}
-
-> 127.0.0.1 localhost.localdomain localhost 12.34.56.78 hostname.example.com hostname
-
-Set your hostname by issuing the following commands, replacing "hostname" with your short hostname.
-
-    echo "hostname" > /etc/hostname
-    hostname -F /etc/hostname
-
-Edit your `/etc/apt/sources.list` file to match the following example.
-
-{{< file >}}
-/etc/apt/sources.list
-:   ~~~
+{{< file "/etc/hosts" >}}
 ## main & restricted repositories
-deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted         
-deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
-
-{{< /file >}}
+    deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted         
+    deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted 
 
     deb http://security.ubuntu.com/ubuntu karmic-security main restricted
     deb-src http://security.ubuntu.com/ubuntu karmic-security main restricted
@@ -61,7 +43,8 @@ deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
 
     deb http://security.ubuntu.com/ubuntu karmic-security universe
     deb-src http://security.ubuntu.com/ubuntu karmic-security universe
-    ~~~
+{{< /file >}}
+
 
 Make sure your package repositories and installed programs are up to date by issuing the following commands:
 

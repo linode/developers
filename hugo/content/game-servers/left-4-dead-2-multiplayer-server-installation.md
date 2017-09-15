@@ -163,13 +163,10 @@ This guide requires additional libraries which are not included in our standard 
 
 4.  Next, it is a good idea to write a custom startup script that will execute your custom config files. 
 
-    {{< file >}}
-~/Steam/L4D2-server/start_L4D2.sh
-:   ~~~
+    {{< file "~/Steam/L4D2-server/start_L4D2.sh" >}}
 screen ./srcds_run -console -game left4dead2 +port 27020 +maxplayers 8 +exec server.cfg +map c2m1_highway
-~~~
-
 {{< /file >}}
+
 
     {{< note >}}
 

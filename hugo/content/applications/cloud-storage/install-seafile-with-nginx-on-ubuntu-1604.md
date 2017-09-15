@@ -82,13 +82,10 @@ If you don't want UFW allowing SSH on port 22 for both IPv4 and IPv6, you can de
 		
 7. Add the new hostname to `/etc/hosts`. The second line in the file should look like this:
 
-    {{< file-excerpt >}}
-/etc/hosts
-:   ~~~ conf
+    {{< file-excerpt "/etc/hosts" conf >}}
 127.0.1.1    members.linode.com     seafile
-~~~
-
 {{< /file-excerpt >}}
+
 
 8.  On first boot, your Linode's timezone will be set to UTC. Changing this is optional, but if you wish, use:
 
@@ -126,10 +123,8 @@ If you don't already have an SSL/TLS certificate, you can create one. This certi
 
 2.  Create the site configuration file. The only line you need to change below is `server_name`. For more HTTPS configuration options, see our guide on [TLS Best Practices with nginx](/docs/web-servers/nginx/nginx-ssl-and-tls-deployment-best-practices).     
     
-    {{< file >}}
-/etc/nginx/sites-available/seafile.conf
-:   ~~~ conf
-		server{
+    {{< file "/etc/nginx/sites-available/seafile.conf" conf >}}
+server{
 			listen 80;
 			server_name example.com;
 			rewrite ^ https://$http_host$request_uri? permanent;
@@ -189,9 +184,8 @@ If you don't already have an SSL/TLS certificate, you can create one. This certi
 		        root /home/sfadmin/sfroot/seafile-server-latest/seahub;
 		    }
 	}
-~~~
-
 {{< /file >}}
+
 
 3.  Disable the default site configuration and enable the one you just created:
 
@@ -248,14 +242,10 @@ The `seafile.sh` and `seahub.sh` scripts don't automatically run if your Linode 
 
 1.  Create the systemd unit files:
 
-    {{< file >}}
-/etc/systemd/system/seafile.service
-:   ~~~ config
+    {{< file "/etc/systemd/system/seafile.service" config >}}
 [Unit]
-Description=Seafile Server
-After=network.target mysql.service
-
-{{< /file >}}
+        Description=Seafile Server
+        After=network.target mysql.service
 
         [Service]
         Type=oneshot
@@ -267,17 +257,14 @@ After=network.target mysql.service
 
         [Install]
         WantedBy=multi-user.target
-        ~~~
-
-
-    {{< file >}}
-/etc/systemd/system/seahub.service
-:   ~~~ config
-[Unit]
-Description=Seafile Hub
-After=network.target seafile.service
-
 {{< /file >}}
+
+
+
+    {{< file "/etc/systemd/system/seahub.service" config >}}
+[Unit]
+        Description=Seafile Hub
+        After=network.target seafile.service
 
         [Service]
         Type=oneshot
@@ -289,7 +276,8 @@ After=network.target seafile.service
 
         [Install]
         WantedBy=multi-user.target
-        ~~~
+{{< /file >}}
+
 
 2.  Then enable the services:
 

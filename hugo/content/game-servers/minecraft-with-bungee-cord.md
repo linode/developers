@@ -131,35 +131,29 @@ This downloads the latest version of BungeeCord. You can find older versions for
 
 3.  Edit the following block of the configuration, in order to add our existing Spigot servers:
 
-	{{< file-excerpt >}}
-config.yml
-:   ~~~ yml
+	{{< file-excerpt "config.yml" yml >}}
 servers:
-lobby:
-address: localhost:25565
-restricted: false
-motd: 'Just another BungeeCord - Forced Host'
-~~~
-
+          lobby:
+            address: localhost:25565
+            restricted: false
+            motd: 'Just another BungeeCord - Forced Host'
 {{< /file-excerpt >}}
+
 
     For the servers that are specified as examples in the introduction, it would look like:
     
-    {{< file-excerpt >}}
-config.yml
-:   ~~~ yml
+    {{< file-excerpt "config.yml" yml >}}
 servers:
-lobby:
-address: 203.0.113.112:25565
-restricted: false
-motd: 'Just another BungeeCord - Forced Host'
+          lobby:
+            address: 203.0.113.112:25565
+            restricted: false
+            motd: 'Just another BungeeCord - Forced Host'
 	      games:
 	        address: 203.0.113.198:25565
 	        restricted: false
 	        motd: 'Just another BungeeCord - Forced Host'
-~~~
-
 {{< /file-excerpt >}}
+
 
     Each server block has a label: In the case of the example, `lobby` or `games`. These can be any word you want, but it's important that they are descriptive, as they will be used by the players to change servers.
     
@@ -175,15 +169,12 @@ motd: 'Just another BungeeCord - Forced Host'
 
 1.  Create the file:
 
-    {{< file >}}
-/home/bungeecord/bungeestart.sh
-:   ~~~ shell
+    {{< file "/home/bungeecord/bungeestart.sh" shell >}}
 #!/bin/bash	
-
-screen -dmS "bungeecord" java -jar BungeeCord.jar
-~~~
-
+    
+        screen -dmS "bungeecord" java -jar BungeeCord.jar
 {{< /file >}}
+
 
 2.  Run `chmod +x bungeestart.sh`, to make the file executable.
 

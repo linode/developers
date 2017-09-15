@@ -67,14 +67,11 @@ This will create a symbolic link named `phpmyadmin` in your document root.
 
 We recommend securing your phpMyAdmin directory using an `.htaccess file` and only allowing specified IP addresses to access it. You can do this by creating an `.htaccess` file in your `phpmyadmin` directory. Refer to the sample `.htaccess` file below. Be sure to substitute the proper paths and **IP addresses** for your particular configuration.
 
-{{< file-excerpt >}}
-/srv/www/example.com/public\_html/phpmyadmin/.htaccess
-:   ~~~ apache
+{{< file-excerpt "/srv/www/example.com/public\\_html/phpmyadmin/.htaccess" apache >}}
 order allow,deny
-allow from 12.34.56.78
-~~~
-
+    allow from 12.34.56.78
 {{< /file-excerpt >}}
+
 
 ### Force SSL
 
@@ -82,13 +79,10 @@ Since you are required to enter your MySQL credentials when using phpMyAdmin, we
 
 You can force phpMyAdmin to use SSL in the phpMyAdmin configuration file `/etc/phpmyadmin/config.inc.php` by adding the following lines under the `Server(s) configuration` section:
 
-{{< file-excerpt >}}
-/etc/phpmyadmin/config.inc.php
-:   ~~~ php
+{{< file-excerpt "/etc/phpmyadmin/config.inc.php" php >}}
 $cfg['ForceSSL'] = 'true';
-~~~
-
 {{< /file-excerpt >}}
+
 
 ## Testing Your phpMyAdmin Installation
 

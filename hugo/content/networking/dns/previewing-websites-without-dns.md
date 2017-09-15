@@ -47,10 +47,8 @@ Open a terminal or terminal emulator. You can use your preferred text editor to 
 
     nano /etc/hosts
 
-{{< file >}}
-/etc/hosts
-: ~~~
-	 ##
+{{< file "/etc/hosts" >}}
+##
 	 # Host Database
 	 #
 	 # localhost is used to configure the loopback interface
@@ -60,9 +58,8 @@ Open a terminal or terminal emulator. You can use your preferred text editor to 
 	 255.255.255.255 broadcasthost
 	 ::1             localhost
 	 fe80::1%lo0     localhost
-~~~
-
 {{< /file >}}
+
 
 Don't be surprised if your hosts file looks slightly different. The default configuration will vary depending on your OS.
 

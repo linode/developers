@@ -51,16 +51,12 @@ In this guide, the domain "example.com" is used as an example site. You should s
 
 Next, you'll need to define the site's virtual host file:
 
-{{< file >}}
-/etc/nginx/sites-available/www.example.com
-:   ~~~ nginx
+{{< file "/etc/nginx/sites-available/www.example.com" nginx >}}
 server {
-listen   80;
-server_name www.example.com example.com;
-access_log /srv/www/www.example.com/logs/access.log;
-error_log /srv/www/www.example.com/logs/error.log;
-
-{{< /file >}}
+        listen   80;
+        server_name www.example.com example.com;
+        access_log /srv/www/www.example.com/logs/access.log;
+        error_log /srv/www/www.example.com/logs/error.log;
 
         location / {
             root   /srv/www/www.example.com/public_html;
@@ -75,7 +71,8 @@ error_log /srv/www/www.example.com/logs/error.log;
             fastcgi_param  SCRIPT_FILENAME  /srv/www/www.example.com/public_html$fastcgi_script_name;
         }
     }
-    ~~~
+{{< /file >}}
+
 
 Issue the following commands to enable the site:
 
@@ -105,12 +102,8 @@ Test Perl with FastCGI
 
 Create a file called "test.pl" in your site's "public\_html" directory with the following contents:
 
-{{< file >}}
-/srv/www/www.example.com/public\_html/test.pl
-:   ~~~ perl
+{{< file "/srv/www/www.example.com/public\\_html/test.pl" perl >}}
 #!/usr/bin/perl
-
-{{< /file >}}
 
     print "Content-type:text/html\n\n";
     print <<EndOfHTML;
@@ -124,7 +117,8 @@ Create a file called "test.pl" in your site's "public\_html" directory with the 
     }
 
     print "</body></html>";
-    ~~~
+{{< /file >}}
+
 
 Make the script executable by issuing the following command:
 

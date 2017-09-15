@@ -36,14 +36,11 @@ If you would like to run the Sun Microsystems implementation of Java you must fi
 
 Add the following two lines to your `sources.list` list:
 
-{{< file-excerpt >}}
-/etc/apt/sources.list
-:   ~~~
+{{< file-excerpt "/etc/apt/sources.list" >}}
 deb http://us.archive.ubuntu.com/ubuntu/ jaunty multiverse
-deb-src http://us.archive.ubuntu.com/ubuntu/ jaunty multiverse
-~~~
-
+    deb-src http://us.archive.ubuntu.com/ubuntu/ jaunty multiverse
 {{< /file-excerpt >}}
+
 
 Update apt to get the necessary package lists:
 
@@ -77,14 +74,11 @@ Test and Use Tomcat
 
 You can test your Tomcat installation by pointing your browser at `http://[yourdomain-or-ip-address]:8080/`. By default, files are located in the `/usr/share/tomcat6` directory. To configure the admin area, you'll need to add the following lines to the end of your `tomcat-users.xml` file (replacing "s3cret" with a more appropriate password):
 
-{{< file >}}
-/etc/tomcat6/tomcat-users.xml
-:   ~~~ xml
+{{< file "/etc/tomcat6/tomcat-users.xml" xml >}}
 <role rolename="manager"/>
-<user username="tomcat" password="s3cret" roles="manager"/>
-~~~
-
+    <user username="tomcat" password="s3cret" roles="manager"/>
 {{< /file >}}
+
 
 Congratulations! You know have a working Apache Tomcat installation.
 

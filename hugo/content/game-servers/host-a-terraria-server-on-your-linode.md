@@ -61,18 +61,15 @@ Firewalld is the default iptables controller in CentOS 7+ and Fedora. See our [g
 
 2.  Create a firewalld service file for Terraria:
 
-    {{< file >}}
-/etc/firewalld/services/terraria.xml
-:   ~~~ config
+    {{< file "/etc/firewalld/services/terraria.xml" config >}}
 <?xml version="1.0" encoding="utf-8"?>
-<service>
-<short>Terraria</short>
-<description>Open TCP port 7777 for incoming Terraria client connections.</description>
-<port protocol="tcp" port="7777"/>
-</service>
-~~~
-
+        <service>
+          <short>Terraria</short>
+          <description>Open TCP port 7777 for incoming Terraria client connections.</description>
+          <port protocol="tcp" port="7777"/>
+        </service>
 {{< /file >}}
+
 
 3.  Enable the firewalld service, reload firewalld and verify that the Terraria service is being used:
 
@@ -161,16 +158,13 @@ Before you install Terraria, be sure the version you download is the same as the
 
     Create a new server configuration file for yourself. The options below will automatically create and serve `MyWorld` when the game server starts up. Note that you should change `MyWorld` to a world name of your choice.
 
-    {{< file >}}
-/opt/terraria/serverconfig.txt
-:   ~~~ ini
+    {{< file "/opt/terraria/serverconfig.txt" ini >}}
 world=/srv/terraria/Worlds/MyWorld.wld
-autocreate=1
-worldname=MyWorld
-worldpath=/srv/terraria/Worlds
-~~~
-
+        autocreate=1
+        worldname=MyWorld
+        worldpath=/srv/terraria/Worlds
 {{< /file >}}
+
 
 ## Managing the Terraria Service
 
@@ -194,13 +188,9 @@ It's useful to have an automated way to start, stop, and bring up Terraria on bo
 
 Create the following file to define the `terraria` systemd service:
 
-{{< file >}}
-/etc/systemd/system/terraria.service
-:   ~~~ ini
+{{< file "/etc/systemd/system/terraria.service" ini >}}
 [Unit]
-Description=server daemon for terraria
-
-{{< /file >}}
+    Description=server daemon for terraria
 
     [Service]
     Type=forking
@@ -211,7 +201,8 @@ Description=server daemon for terraria
 
     [Install]
     WantedBy=multi-user.target
-    ~~~
+{{< /file >}}
+
 
 *   **ExecStart** instructs systemd to spawn a screen session containing the 64-bit `TerrariaServer` binary, which starts the daemon. `KillMode=none` is used to ensure that systemd does not prematurely kill the server before it has had a chance to save and shut down gracefully.
 
@@ -232,12 +223,8 @@ The Terraria administration script needs two primary functions:
 
 1.  Create a `terrariad` file, enter the following script, then save and close:
 
-    {{< file >}}
-/usr/local/bin/terrariad
-:   ~~~
+    {{< file "/usr/local/bin/terrariad" >}}
 #!/usr/bin/env bash
-
-{{< /file >}}
 
         send="`printf \"$*\r\"`"
         attach='script /dev/null -qc "screen -r terraria"'
@@ -251,7 +238,8 @@ The Terraria administration script needs two primary functions:
         else
             su - terraria -c "$cmd"
         fi
-        ~~~
+{{< /file >}}
+
 
 2.  Verify that you can execute the script:
 

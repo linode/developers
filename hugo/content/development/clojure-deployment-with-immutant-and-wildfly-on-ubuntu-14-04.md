@@ -169,14 +169,10 @@ Make sure port 3000 is open in firewall for this to work.
 
 2.  Create file `/etc/nginx/sites-available/wildfly` with the following content:
 
-    {{< file >}}
-/etc/nginx/sites-available/wildfly
-:   ~~~ conf
+    {{< file "/etc/nginx/sites-available/wildfly" conf >}}
 upstream http_backend {
-server 127.0.0.1:8080;
-}
-
-{{< /file >}}
+            server 127.0.0.1:8080;
+        }
 
         server {
             listen 80;
@@ -198,7 +194,8 @@ server 127.0.0.1:8080;
                 error_log /var/log/nginx/wildfly.error.log;
             }
         }
-        ~~~
+{{< /file >}}
+
 
     Do not forget to substitute `example.com` with your Linode domain name or public IP address.
 
@@ -217,30 +214,24 @@ To deploy Clojure application with WildFly you will need to install the Immutant
 
 1.  Open `project.clj` file in `clj-app` directory and add `[lein-immutant "2.1.0"]` to the `:plugins` section of configuration:
 
-    {{< file-excerpt >}}
-/home/linode-user/clj-app/project.clj
-:   ~~~ clj
+    {{< file-excerpt "/home/linode-user/clj-app/project.clj" clj >}}
 :plugins [[lein-environ "1.0.1"]
-[lein-immutant "2.1.0"]]
-~~~
-
+                  [lein-immutant "2.1.0"]]
 {{< /file-excerpt >}}
+
 
 2.  In `project.clj` and after `:plugins`, add a new `:immutant` section with the following content :
 
-    {{< file-excerpt >}}
-/home/linode-user/clj-app/project.clj
-:   ~~~ clj
+    {{< file-excerpt "/home/linode-user/clj-app/project.clj" clj >}}
 :immutant {
-:war {
-:name "ROOT"
-:destination "/opt/wildfly/standalone/deployments"
-:context-path "/"
-}
-}
-~~~
-
+            :war {
+                :name "ROOT"
+                :destination "/opt/wildfly/standalone/deployments"
+                :context-path "/"
+            }
+        }
 {{< /file-excerpt >}}
+
 
     This sets three parameters for Immutant installation: 
 

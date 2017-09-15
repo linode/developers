@@ -74,13 +74,9 @@ Here's how to upgrade from Debian 6 to Debian 7:
 
 1.  Edit your `/etc/apt/sources.list` file and change all instances of `squeeze` to `wheezy`. Once you have finished, your `/etc/apt/sources.list` should resemble the following:
 
-{{< file-excerpt >}}
-/etc/apt/sources.list
-:   ~~~
+{{< file-excerpt "/etc/apt/sources.list" >}}
 deb http://ftp.us.debian.org/debian/ wheezy main
-deb-src http://ftp.us.debian.org/debian/ wheezy main
-
-{{< /file-excerpt >}}
+    deb-src http://ftp.us.debian.org/debian/ wheezy main
 
     deb http://security.debian.org/ wheezy/updates main
     deb-src http://security.debian.org/ wheezy/updates main
@@ -88,7 +84,8 @@ deb-src http://ftp.us.debian.org/debian/ wheezy main
     # wheezy-updates, previously known as 'volatile'
     deb http://ftp.us.debian.org/debian/ wheezy-updates main
     deb-src http://ftp.us.debian.org/debian/ wheezy-updates main
-    ~~~
+{{< /file-excerpt >}}
+
 
 2.  Enter the following command to update your package lists:
 

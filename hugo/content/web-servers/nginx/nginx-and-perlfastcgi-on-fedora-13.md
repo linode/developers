@@ -30,16 +30,13 @@ Issue the following commands to set your system hostname, substituting a unique 
 
 Edit your `/etc/hosts` file to resemble the following, substituting your Linode's public IP address for 12.34.56.78, your hostname for "hostname," and your primary domain name for "example.com." :
 
-{{< file >}}
-/etc/hosts
-:   ~~~
+{{< file "/etc/hosts" >}}
 127.0.0.1 localhost.localdomain localhost
-12.34.56.78 hostname.example.com hostname
-~~~
+    12.34.56.78 hostname.example.com hostname
+{{< /file >}}
+
 Install Required Packages
 -------------------------
-
-{{< /file >}}
 
 Issue the following commands to update your system and install the nginx web server and compiler tools (Perl should already be installed):
 
@@ -65,27 +62,20 @@ Issue the following commands to create virtual hosting directories:
 
 Add the following lines to your `/etc/nginx/nginx.conf` file, immediately after the line for `include /etc/nginx/conf.d/*.conf`:
 
-{{< file-excerpt >}}
-/etc/nginx/nginx.conf
-:   ~~~
+{{< file-excerpt "/etc/nginx/nginx.conf" >}}
 # Load virtual host configuration files.
-include /etc/nginx/sites-enabled/*;
-~~~
-Next, we'll need to define our site's virtual host file:
-
+    include /etc/nginx/sites-enabled/*;
 {{< /file-excerpt >}}
 
-{{< file >}}
-/etc/nginx/sites-available/www.example.com
-:   ~~~ nginx
-server {
-listen   80;
-server_name www.example.com example.com;
-access_log /srv/www/www.example.com/logs/access.log;
-error_log /srv/www/www.example.com/logs/error.log;
-root /srv/www/www.example.com/public_html;
+Next, we'll need to define our site's virtual host file:
 
-{{< /file >}}
+{{< file "/etc/nginx/sites-available/www.example.com" nginx >}}
+server {
+        listen   80;
+        server_name www.example.com example.com;
+        access_log /srv/www/www.example.com/logs/access.log;
+        error_log /srv/www/www.example.com/logs/error.log;
+        root /srv/www/www.example.com/public_html;
 
         location / {
             index  index.html index.htm;
@@ -99,7 +89,8 @@ root /srv/www/www.example.com/public_html;
             fastcgi_param  SCRIPT_FILENAME  /srv/www/www.example.com/public_html$fastcgi_script_name;
         }
     }
-    ~~~
+{{< /file >}}
+
 
 Issue the following commands to enable the site:
 
@@ -130,12 +121,8 @@ Test Perl with FastCGI
 
 Create a file called "test.pl" in your site's "public\_html" directory with the following contents:
 
-{{< file >}}
-/srv/www/www.example.com/public\_html/test.pl
-:   ~~~ perl
+{{< file "/srv/www/www.example.com/public\\_html/test.pl" perl >}}
 #!/usr/bin/perl
-
-{{< /file >}}
 
     print "Content-type:text/html\n\n";
     print <<EndOfHTML;
@@ -149,7 +136,8 @@ Create a file called "test.pl" in your site's "public\_html" directory with the 
     }
 
     print "</body></html>";
-    ~~~
+{{< /file >}}
+
 
 Make the script executable by issuing the following command:
 

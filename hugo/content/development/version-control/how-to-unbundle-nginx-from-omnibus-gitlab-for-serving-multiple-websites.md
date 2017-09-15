@@ -69,16 +69,13 @@ Note that nginx cannot be disabled in older versions of GitLab Community Edition
 
 1.  To unbundle nginx from GitLab, we'll need to disable the version included in the Omnibus package. Add the following lines to `/etc/gitlab/gitlab.rb`:
 
-    {{< file-excerpt >}}
-/etc/gitlab/gitlab.rb
-:   ~~~
+    {{< file-excerpt "/etc/gitlab/gitlab.rb" >}}
 # Unbundle nginx from Omnibus GitLab
-nginx['enable'] = false
-# Set your Nginx's username
-web_server['external_users'] = ['www-data']
-~~~
-
+        nginx['enable'] = false
+        # Set your Nginx's username
+        web_server['external_users'] = ['www-data']
 {{< /file-excerpt >}}
+
 
 2.  Reconfigure GitLab to apply the changes:
 
@@ -102,13 +99,10 @@ Now that GitLab's bundled nginx has been disabled, the next step is to install a
 
 3.  Add Passenger's APT repository by adding the following lines to `/etc/apt/sources.list.d/passenger.list`:
 
-    {{< file >}}
-/etc/apt/sources.list.d/passenger.list
-:   ~~~
+    {{< file "/etc/apt/sources.list.d/passenger.list" >}}
 deb https://oss-binaries.phusionpassenger.com/apt/passenger trusty main
-~~~
-
 {{< /file >}}
+
 
     {{< note >}}
 If you're using Ubuntu 16.04, replace `trusty` with `xenial` in the above command.
@@ -125,13 +119,10 @@ If you're using Ubuntu 16.04, replace `trusty` with `xenial` in the above comman
 
 6.  Enable the new Passenger module by uncommenting the `include /etc/nginx/passenger.conf;` line from the `/etc/nginx/nginx.conf` file:
 
-    {{< file-excerpt >}}
-/etc/nginx/nginx.conf
-:   ~~~ conf
+    {{< file-excerpt "/etc/nginx/nginx.conf" conf >}}
 include /etc/nginx/passenger.conf;
-~~~
-
 {{< /file-excerpt >}}
+
 
 4.  Finally, restart nginx. On Ubuntu 14.04:
 
@@ -153,14 +144,10 @@ In this section, we'll create a new virtual host to serve GitLab. Since we've un
 
 2.  Edit your new virtual host file to match the following, replacing `example.com` with your own hostname:
 
-    {{< file >}}
-/etc/nginx/sites-available/example.com
-:   ~~~
+    {{< file "/etc/nginx/sites-available/example.com" >}}
 upstream gitlab {
-	    server unix:/var/opt/gitlab/gitlab-rails/sockets/gitlab.socket;
-}
-
-{{< /file >}}
+       	    server unix:/var/opt/gitlab/gitlab-rails/sockets/gitlab.socket;
+        }
 
 	    server {
             listen 80;
@@ -184,7 +171,8 @@ upstream gitlab {
                 proxy_pass http://gitlab;
             }
         }
-        ~~~
+{{< /file >}}
+
 
 3.  Enable your new virtual host by symbolically linking it to `sites-enabled` (change `example.com`):
 

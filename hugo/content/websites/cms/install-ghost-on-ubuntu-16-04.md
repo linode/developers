@@ -72,13 +72,9 @@ Next you'll configure nginx to receive requests and pass them along to Ghost.
 
 4. Paste the following configuration code into the file. Change `example.com` to your blog's domain.
 
-    {{< file >}}
-/etc/nginx/sites-available/ghost
-:   ~~~ conf
+    {{< file "/etc/nginx/sites-available/ghost" conf >}}
 server {
-listen 80;
-
-{{< /file >}}
+          listen 80;
 
           server_name example.com;
 
@@ -88,7 +84,8 @@ listen 80;
               proxy_pass         http://127.0.0.1:2368;
           }
         }
-        ~~~
+{{< /file >}}
+
 
     Once you've made the necessary changes, save and close the file.
 
@@ -133,13 +130,9 @@ Now you're ready to install Ghost. You can find the most recent version of Ghost
 
 3. Edit the `url` section, replacing `example.com` with the URL or IP address of your blog:
 
-    {{< file-excerpt >}}
-~/ghost/config.js
-:   ~~~ javascript
+    {{< file-excerpt "~/ghost/config.js" javascript >}}
 var path = require('path'),
-config;
-
-{{< /file-excerpt >}}
+        config;
 
         config = {
         // ### Production
@@ -154,7 +147,8 @@ config;
         },
 
         (...)
-        ~~~
+{{< /file-excerpt >}}
+
 
     When you're finished, save your changes and exit the editor.
 

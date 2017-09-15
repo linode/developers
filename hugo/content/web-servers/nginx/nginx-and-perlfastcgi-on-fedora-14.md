@@ -55,28 +55,21 @@ Issue the following commands to create virtual hosting directories:
 
 Add the following lines to your `/etc/nginx/nginx.conf` file, immediately after the line for `include /etc/nginx/conf.d/*.conf`:
 
-{{< file-excerpt >}}
-/etc/nginx/nginx.conf
-:   ~~~
+{{< file-excerpt "/etc/nginx/nginx.conf" >}}
 # Load virtual host configuration files.
-include /etc/nginx/sites-enabled/*;
-~~~
-
+    include /etc/nginx/sites-enabled/*;
 {{< /file-excerpt >}}
+
 
 Next, define your site's virtual host file:
 
-{{< file >}}
-/etc/nginx/sites-available/www.example.com
-:   ~~~ nginx
+{{< file "/etc/nginx/sites-available/www.example.com" nginx >}}
 server {
-listen   80;
-server_name www.example.com example.com;
-access_log /srv/www/www.example.com/logs/access.log;
-error_log /srv/www/www.example.com/logs/error.log;
-root /srv/www/www.example.com/public_html;
-
-{{< /file >}}
+        listen   80;
+        server_name www.example.com example.com;
+        access_log /srv/www/www.example.com/logs/access.log;
+        error_log /srv/www/www.example.com/logs/error.log;
+        root /srv/www/www.example.com/public_html;
 
         location / {
             index  index.html index.htm;
@@ -90,7 +83,8 @@ root /srv/www/www.example.com/public_html;
             fastcgi_param  SCRIPT_FILENAME  /srv/www/www.example.com/public_html$fastcgi_script_name;
         }
     }
-    ~~~
+{{< /file >}}
+
 
 Issue the following commands to enable the site:
 
@@ -105,12 +99,8 @@ Configure FastCGI Wrapper
 
 First create the FastCGI wrapper script (credit: [Denis S. Filimonov](http://www.ruby-forum.com/topic/145858)) at `/usr/bin/fastcgi-wrapper.pl` with the following contents:
 
-{{< file-excerpt >}}
-/usr/bin/fastcgi-wrapper.pl
-:   ~~~ perl
+{{< file-excerpt "/usr/bin/fastcgi-wrapper.pl" perl >}}
 #!/usr/bin/perl
-
-{{< /file-excerpt >}}
 
     use FCGI;
     use Socket;
@@ -209,25 +199,22 @@ First create the FastCGI wrapper script (credit: [Denis S. Filimonov](http://www
 
             }
     }
-    ~~~
+{{< /file-excerpt >}}
+
 
 Then create an init script to control the FastCGI process that matches the one shown below:
 
-{{< file-excerpt >}}
-/etc/rc.d/init.d/perl-fastcgi
-:   ~~~ bash
+{{< file-excerpt "/etc/rc.d/init.d/perl-fastcgi" bash >}}
 #!/bin/sh
-#
-# nginx – this script starts and stops the nginx daemon
-#
-# chkconfig: - 85 15
-# description: Nginx is an HTTP(S) server, HTTP(S) reverse \
-# proxy and IMAP/POP3 proxy server
-# processname: nginx
-# config: /opt/nginx/conf/nginx.conf
-# pidfile: /opt/nginx/logs/nginx.pid
-
-{{< /file-excerpt >}}
+    #
+    # nginx – this script starts and stops the nginx daemon
+    #
+    # chkconfig: - 85 15
+    # description: Nginx is an HTTP(S) server, HTTP(S) reverse \
+    # proxy and IMAP/POP3 proxy server
+    # processname: nginx
+    # config: /opt/nginx/conf/nginx.conf
+    # pidfile: /opt/nginx/logs/nginx.pid
 
     # Source function library.
     . /etc/rc.d/init.d/functions
@@ -314,7 +301,8 @@ Then create an init script to control the FastCGI process that matches the one s
             echo $"Usage: $0 {start|stop|status|restart|condrestart|try-restart|reload|force-reload}"
             exit 2
         esac
-    ~~~
+{{< /file-excerpt >}}
+
 
 Next issue the following commands to make the scripts executable and set the perl-fastcgi process to start on boot:
 
@@ -329,12 +317,8 @@ Test Perl with FastCGI
 
 Create a file called "test.pl" in your site's "public\_html" directory with the following contents:
 
-{{< file >}}
-/srv/www/www.example.com/public\_html/test.pl
-:   ~~~ perl
+{{< file "/srv/www/www.example.com/public\\_html/test.pl" perl >}}
 #!/usr/bin/perl
-
-{{< /file >}}
 
     print "Content-type:text/html\n\n";
     print <<EndOfHTML;
@@ -348,7 +332,8 @@ Create a file called "test.pl" in your site's "public\_html" directory with the 
     }
 
     print "</body></html>";
-    ~~~
+{{< /file >}}
+
 
 Make the script executable by issuing the following command:
 

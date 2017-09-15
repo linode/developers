@@ -99,52 +99,46 @@ Follow these instructions:
 
         nano /etc/apache2/sites-available/example.net
 
-    {{< file >}}
-/etc/apache2/sites-available/example.net
-:   ~~~ apache
+    {{< file "/etc/apache2/sites-available/example.net" apache >}}
 <VirtualHost *:80>
-ServerAdmin webmaster@example.net     
-ServerName example.net
-ServerAlias www.example.net
-DocumentRoot /srv/www/example.net/public_html/
-ErrorLog /srv/www/example.net/logs/error.log
-CustomLog /srv/www/example.net/logs/access.log combined
-</VirtualHost>
-~~~
-
+             ServerAdmin webmaster@example.net     
+             ServerName example.net
+             ServerAlias www.example.net
+             DocumentRoot /srv/www/example.net/public_html/
+             ErrorLog /srv/www/example.net/logs/error.log
+             CustomLog /srv/www/example.net/logs/access.log combined
+        </VirtualHost>
 {{< /file >}}
+
 
     {{< note >}}
 
 If you would like to enable Perl support, add the following lines to the `VirtualHost` entry, right above the closing `</VirtualHost>` tag:
 
-{: .file-excerpt }
-/etc/apache2/sites-available/example.net
-:   ~~~ apache
+{{< file-excerpt "/etc/apache2/sites-available/example.net" apache >}}
 Options ExecCGI
 AddHandler cgi-script .pl
-~~~
 
-3.  Now you'll make the configuration file for the second domain. Create the file for **example.org**, called `/etc/apache2/sites-available/example.org`, with the following content. Be sure to replace **example.org** with your own domain name.
+{{< /file-excerpt >}}
 
 {{< /note >}}
 
+    >
+3.  Now you'll make the configuration file for the second domain. Create the file for **example.org**, called `/etc/apache2/sites-available/example.org`, with the following content. Be sure to replace **example.org** with your own domain name.
+
         nano /etc/apache2/sites-available/example.org
 
-    {{< file >}}
-/etc/apache2/sites-available/example.org
-:   ~~~ apache
+    {{< file "/etc/apache2/sites-available/example.org" apache >}}
 <VirtualHost *:80>
-ServerAdmin admin@example.org
-ServerName example.org
-ServerAlias www.example.org
-DocumentRoot /srv/www/example.org/public_html/
-ErrorLog /srv/www/example.org/logs/error.log
-CustomLog /srv/www/example.org/logs/access.log combined
-</VirtualHost>
-~~~
-
+             ServerAdmin admin@example.org
+             ServerName example.org
+             ServerAlias www.example.org
+             DocumentRoot /srv/www/example.org/public_html/
+             ErrorLog /srv/www/example.org/logs/error.log
+             CustomLog /srv/www/example.org/logs/access.log combined
+        </VirtualHost>
 {{< /file >}}
+
 
     {{< note >}}
 
@@ -256,15 +250,12 @@ For more complex setups, however, we recommend that you consider using an altern
 
     Add the following lines to the file's `<VirtualHost >` block:
 
-    {{< file-excerpt >}}
-/etc/apache2/sites-available/example.net
-:   ~~~ apache
+    {{< file-excerpt "/etc/apache2/sites-available/example.net" apache >}}
 <IfModule mpm_itk_module>
-AssignUserId webeditor webgroup
-</IfModule>
-~~~
-
+           AssignUserId webeditor webgroup
+        </IfModule>
 {{< /file-excerpt >}}
+
 
     In this example, `webeditor` is the name of the user for example.net, and `webgroup` is the name of the group that owns example.net. Remember that you must create the user accounts and groups using the `useradd` command.
 

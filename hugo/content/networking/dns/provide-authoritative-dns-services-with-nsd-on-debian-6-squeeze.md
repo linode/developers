@@ -47,33 +47,27 @@ Configure NSD
 
 Edit the `nsd.conf` file to configure the behavior of the NSD service and the hosted DNS zones. The NSD package provides an example configuration file located at `/etc/nsd3/nsd.conf.sample` that you may reference. Your file should resemble the following:
 
-{{< file-excerpt >}}
-/etc/nsd3/nsd.conf
-: ~~~
-	server:
+{{< file-excerpt "/etc/nsd3/nsd.conf" >}}
+server:
 	    logfile: "/var/log/nsd.log"
 	    username: nsd
-~~~
-
 {{< /file-excerpt >}}
+
 
 ### Host Zones with NSD
 
 You must specify at least one zone in the `/etc/nsd3/nsd.conf` file before NSD will begin serving DNS records. Refer to the following example configuration for proper syntax.
 
-{{< file-excerpt >}}
-/etc/nsd3/nsd.conf
-: ~~~
-	zone:
+{{< file-excerpt "/etc/nsd3/nsd.conf" >}}
+zone:
 	    name: example.com
 	    zonefile: /etc/nsd3/example.com.zone
-
-{{< /file-excerpt >}}
 
 	zone:
 	    name: example.org
 	    zonefile: /etc/nsd3/example.org.zone
-~~~
+{{< /file-excerpt >}}
+
 
 Once zones are added to the `nsd.conf` file, proceed to create a zone file for each DNS zone.
 
@@ -82,13 +76,9 @@ Creating Zone Files
 
 Each domain has zone file specified in the `nsd.conf` file. The syntax of an NSD zone file is similar BIND zone files. Refer to the example zone files that follow for syntax, and modify domain names and IP addresses to reflect the needs of your deployment.
 
-{{< file-excerpt >}}
-/etc/nsd3/example.com.zone
-: ~~~
-	$ORIGIN example.com.
+{{< file-excerpt "/etc/nsd3/example.com.zone" >}}
+$ORIGIN example.com.
 	$TTL 86400
-
-{{< /file-excerpt >}}
 
 	@       IN      SOA     ns1.example.com.      admin.example.com. (
 	                                2010011801      ; serial number
@@ -110,15 +100,12 @@ Each domain has zone file specified in the `nsd.conf` file. The syntax of an NSD
 	mail            IN      A       88.77.66.55
 	*               IN      A       77.66.55.44
 	@               IN      A       99.88.77.66
-~~~
-
-{{< file-excerpt >}}
-/etc/nsd3/example.org.zone
-: ~~~
-	$ORIGIN example.org.
-	$TTL 86400
-
 {{< /file-excerpt >}}
+
+
+{{< file-excerpt "/etc/nsd3/example.org.zone" >}}
+$ORIGIN example.org.
+	$TTL 86400
 
 	@       IN      SOA     ns1.example.org.      web-admin.example.org. (
 	                                    2009011803      ; serial number
@@ -140,7 +127,8 @@ Each domain has zone file specified in the `nsd.conf` file. The syntax of an NSD
 	mail            IN      A       99.88.77.66
 
 	pizzapie        IN      CNAME   paisano
-~~~
+{{< /file-excerpt >}}
+
 
 Rebuild the NSD database and restart the daemon with following command sequence:
 
@@ -187,15 +175,12 @@ Adjusting NSD for Low-Memory Situations
 
 If you are running NSD in a low-memory environment, amending the values of the following directives in your `/etc/nsd3/nsd.conf` file will lower your memory and system resource usage.
 
-{{< file-excerpt >}}
-/etc/nsd3/nsd.conf
-: ~~~
-	ip4-only: yes
+{{< file-excerpt "/etc/nsd3/nsd.conf" >}}
+ip4-only: yes
 	tcp-count: 10
 	server-count: 1
-~~~
-
 {{< /file-excerpt >}}
+
 
 More Information
 ----------------

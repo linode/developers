@@ -173,16 +173,12 @@ We will use Nginx as the reverse proxy for Gogs, so we can access Gogs using our
 
 3.  Set Nginx as the reverse proxy for Gogs. Using `sudo`, create a new file named `/etc/nginx/sites-available/gogs`, and set the content as shown below:
 
-    {{< file >}}
-/etc/nginx/sites-available/gogs
-:   ~~~ conf
+    {{< file "/etc/nginx/sites-available/gogs" conf >}}
 server {
-listen 80;
-server_name example.com;
-return 302 https://$server_name$request_uri;
-}
-
-{{< /file >}}
+            listen 80;
+            server_name example.com;
+            return 302 https://$server_name$request_uri;
+        }
 
         server {
             listen 443 ssl;
@@ -196,7 +192,8 @@ return 302 https://$server_name$request_uri;
                 proxy_pass http://localhost:3000;
             }
         }
-        ~~~
+{{< /file >}}
+
 
 4.  Activate the reverse proxy:
 
@@ -213,17 +210,13 @@ In this section we will setup Gogs to run automatically on boot by creating a sy
 
 1.  Using `sudo`, create `/etc/systemd/system/gogs.service`:
 
-    {{< file >}}
-/etc/systemd/system/gogs.service
-:   ~~~ ini
+    {{< file "/etc/systemd/system/gogs.service" ini >}}
 [Unit]
-Description=Gogs (Go Git Service)
-After=syslog.target
-After=network.target
-After=postgresql.service
-After=nginx.service
-
-{{< /file >}}
+        Description=Gogs (Go Git Service)
+        After=syslog.target
+        After=network.target
+        After=postgresql.service
+        After=nginx.service
 
         [Service]
         Type=simple
@@ -236,7 +229,8 @@ After=nginx.service
 
         [Install]
         WantedBy=multi-user.target
-        ~~~
+{{< /file >}}
+
 
 2.  Enable the systemd unit file:
 
@@ -304,20 +298,17 @@ If you notice, the Gogs site is still accessible using the plain HTTP via `http:
 
 2.  Open the generated configuration file `custom/conf/app.ini`. Add a new configuration value `HTTP_ADDR` under the `[server]` section. The section should look like this:
 
-    {{< file-excerpt >}}
-/home/git/go/src/github.com/gogits/gogs/custom/conf/app.ini
-:   ~~~ ini
+    {{< file-excerpt "/home/git/go/src/github.com/gogits/gogs/custom/conf/app.ini" ini >}}
 [server]
-DOMAIN = example.com
-HTTP_ADDR = 127.0.0.1
-HTTP_PORT = 3000
-ROOT_URL = https://example.com/
-DISABLE_SSH = false
-SSH_PORT = 22
-OFFLINE_MODE = false
-~~~
-
+        DOMAIN = example.com
+        HTTP_ADDR = 127.0.0.1
+        HTTP_PORT = 3000
+        ROOT_URL = https://example.com/
+        DISABLE_SSH = false
+        SSH_PORT = 22
+        OFFLINE_MODE = false
 {{< /file-excerpt >}}
+
 
 4.  Logout from user `git`:
 

@@ -96,15 +96,11 @@ This guide is written for a non-root user. Commands that require elevated privil
 
 2.  Create the file `config/unicorn.rb` which contains the unicorn configuration and paste the following configuration in the file.
 
-    {{< file >}}
-/home/username/example/config/unicorn.rb
-:   ~~~config
+    {{< file "/home/username/example/config/unicorn.rb" config >}}
 # set path to the application
-app_dir git File.expand_path("../..", __FILE__)
-shared_dir = "#{app_dir}/shared"
-working_directory app_dir
-
-{{< /file >}}
+        app_dir git File.expand_path("../..", __FILE__)
+        shared_dir = "#{app_dir}/shared"
+        working_directory app_dir
 
         # Set unicorn options
         worker_processes 2
@@ -120,7 +116,8 @@ working_directory app_dir
 
         # Set proccess id path
         pid "#{shared_dir}/pids/unicorn.pid"
-        ~~~
+{{< /file >}}
+
 
 3.  Now, create the directories mentioned in the Unicorn config file:
 
@@ -140,16 +137,13 @@ Please note that we are still in the Rails application directory.
 
 2.  We need to configure nginx to work as the reverse proxy. Edit the config file `/etc/nginx/nginx.conf` and paste the following configuration in the HTTP block:
 
-    {{< file-excerpt >}}
-/etc/nginx/nginx.conf
-:   ~~~ nginx
+    {{< file-excerpt "/etc/nginx/nginx.conf" nginx >}}
 upstream rails {
-# Path to Unicorn socket file
-server unix:/home/username/example/shared/sockets/unicorn.sock fail_timeout=0;
-}
-~~~
-
+        # Path to Unicorn socket file
+        server unix:/home/username/example/shared/sockets/unicorn.sock fail_timeout=0;
+        }
 {{< /file-excerpt >}}
+
 
     {{< note >}}
 
@@ -163,14 +157,10 @@ Edit `username` and `example` with appropriate values.
 
 4.  Create new nginx site configuration file for the Rails application:
 
-    {{< file >}}
-/etc/nginx/sites-available/example
-:   ~~~ nginx
+    {{< file "/etc/nginx/sites-available/example" nginx >}}
 server {
-listen 80;
-server_name localhost;
-
-{{< /file >}}
+        listen 80;
+        server_name localhost;
 
         root /home/username/example;
 
@@ -187,7 +177,8 @@ server_name localhost;
         client_max_body_size 4G;
         keepalive_timeout 10;
         }
-        ~~~
+{{< /file >}}
+
 
     {{< note >}}
 

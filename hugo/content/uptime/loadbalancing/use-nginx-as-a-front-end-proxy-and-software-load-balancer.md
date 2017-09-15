@@ -56,68 +56,59 @@ This guide assumes you are using Apache 2.4. Some path names will be slightly di
 
         sudo nano /etc/apache2/ports.conf
 
-    {{< file-excerpt >}}
-/etc/apache2/ports.conf
-:   ~~~ httpd
+    {{< file-excerpt "/etc/apache2/ports.conf" httpd >}}
 NameVirtualHost *:8000
-Listen 8000
-
-<IfModule mod_ssl.c>
-# If you add NameVirtualHost *:443 here, you will also have to change
-# the VirtualHost statement in /etc/apache2/sites-available/default-ssl
-# to <VirtualHost*:443>
-# Server Name Indication for SSL named virtual hosts is currently not
-# supported by MSIE on Windows XP.
-Listen 443
-</IfModule>
-
-<IfModule mod_gnutls.c>
-Listen 443
-</IfModule>
-~~~
-
+        Listen 8000
+         
+        <IfModule mod_ssl.c>
+          # If you add NameVirtualHost *:443 here, you will also have to change
+          # the VirtualHost statement in /etc/apache2/sites-available/default-ssl
+          # to <VirtualHost*:443>
+          # Server Name Indication for SSL named virtual hosts is currently not
+          # supported by MSIE on Windows XP.
+          Listen 443
+        </IfModule>
+ 
+        <IfModule mod_gnutls.c>
+          Listen 443
+        </IfModule>
 {{< /file-excerpt >}}
+
 
 2.  Next, in the virtual host configuration file, edit the port to match the new default port set in the previous step. More specifically, edit the `<VirtualHost *:>` line to use port 8000.
 
         sudo nano /etc/apache2/sites-available/example.com.conf
 
-      {{< file-excerpt >}}
-/etc/apache2/sites-available/example.com.conf
-:  ~~~ httpd
+      {{< file-excerpt "/etc/apache2/sites-available/example.com.conf" httpd >}}
 <VirtualHost *:8000>
-ServerAdmin webmaster@example.com
-ServerName  www.example.com
-DocumentRoot /var/www/html/example.com
-
-<Directory />
-Options FollowSymLink
-AllowOverride None
-</Directory>
-
-<Directory /var/www/html/example.com>
-Options Indexes FollowSymLinks MultiViews
-AllowOverride None
-Order allow,deny
-allow from all
-</Directory>
-</VirtualHost>
-~~~
-
+          ServerAdmin webmaster@example.com
+          ServerName  www.example.com
+          DocumentRoot /var/www/html/example.com
+ 
+          <Directory />
+            Options FollowSymLink
+            AllowOverride None
+          </Directory>
+ 
+          <Directory /var/www/html/example.com>
+            Options Indexes FollowSymLinks MultiViews
+            AllowOverride None
+            Order allow,deny
+            allow from all
+          </Directory>
+         </VirtualHost>
 {{< /file-excerpt >}}
+
 
 3.  In the `/etc/apache2/apache2.conf` file, comment out the `LogFormat {User-Agent}` line. Then, add a forward so that Apache will log the original user’s IP address in the access logs instead of nginx's IP address (which would be listed as 127.0.0.1).
 
         sudo nano /etc/apache2/apache2.conf
 
-    {{< file-excerpt >}}
-/etc/apache2/apache2.conf
-:   ~~~ httpd
+    {{< file-excerpt "/etc/apache2/apache2.conf" httpd >}}
 #LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
-LogFormat "%{X-Forwarded-For}i %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
-~~~
-
+        LogFormat "%{X-Forwarded-For}i %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
 {{< /file-excerpt >}}
+
 
 4.  Install the Apache module `libapache2-mod-rpaf`, which takes care of logging the correct IP address.
 
@@ -131,14 +122,10 @@ LogFormat "%{X-Forwarded-For}i %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-A
 
         sudo nano /etc/nginx/proxy_params
 
-    {{< file >}}
-/etc/nginx/sites-available/example.com
-:   ~~~ nginx
+    {{< file "/etc/nginx/sites-available/example.com" nginx >}}
 proxy_set_header Host $host;
-proxy_set_header X-Real-IP $remote_addr;
-proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-
-{{< /file >}}
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 
         client_max_body_size 100M;
         client_body_buffer_size 1m;
@@ -150,21 +137,18 @@ proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_temp_file_write_size 256k;
         proxy_max_temp_file_size 0;
         proxy_read_timeout 300;
-        ~~~
+{{< /file >}}
+
 
 7.  Create the nginx `example.com` virtual host file at `/etc/nginx/sites-available/example.com`. Make sure you specify the same document root here that you did for Apache (for example, `/var/www/html/example.com`). This will ensure that nginx can deliver static files directly without passing the request to Apache. Static files (like JavaScript, CSS, images, PDF files, static HTML files, etc.) can be delivered much faster with nginx than Apache.
 
         sudo nano /etc/nginx/sites-available/example.com
 
-    {{< file-excerpt >}}
-/etc/nginx/sites-available/example.com
-:   ~~~ nginx
+    {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
 server {
-listen 80;
-server_name www.example.com example.com;
-root /var/www/html/example.com;
-
-{{< /file-excerpt >}}
+            listen 80;
+            server_name www.example.com example.com;
+            root /var/www/html/example.com;
 
             if ($http_host != "www.example.com") {
                 rewrite ^ www.example.com$request_uri permanent;
@@ -181,34 +165,29 @@ root /var/www/html/example.com;
             }
 
         }
-        ~~~
+{{< /file-excerpt >}}
+
 
     There are some additional `location` directives to add in the `server` section of the `/etc/nginx/sites-available/example.com` file. You will probably need these directives, but it's possible that you may not, depending on your nginx and Apache configuration.
 
 8.  Add a `location` directive to make nginx refuse all requests for files beginning with the characters `.ht`. There's a similar directive in nearly every default Apache configuration. This directive is useful if your Apache deployment relies on settings from `.htaccess` and `.htpasswd`.
     
-    {{< file-excerpt >}}
-/etc/nginx/sites-available/example.com
-:   ~~~ nginx
+    {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
 location ~ /\.ht {
-deny  all;
-}
-~~~
-
+            deny  all;
+        }
 {{< /file-excerpt >}}
+
 
 9.  If you need to proxy requests for a specific location to a specific resource, use a rewrite rule to capture the path to the resource and pass that along to the proxied server. For example, if you want all requests for `http://example.com/` to be handed to a server running on `192.168.3.105` with a path of `/teams/~example/`, you would write the following `location` block:
 
-    {{< file-excerpt >}}
-/etc/nginx/sites-available/example.com
-:   ~~~ nginx
+    {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
 location / {
-rewrite ^(.*)$ /teams/~example/$1 break;
-proxy_pass   http://192.168.3.105;
-}
-~~~
-
+          rewrite ^(.*)$ /teams/~example/$1 break;
+          proxy_pass   http://192.168.3.105;
+        }
 {{< /file-excerpt >}}
+
 
     Here, the rewrite rule (`^(.*)$`) captures the entire request string and appends it (`$1`) to the path on the new server (`/teams/~example/`). Here's how this would play out:
 
@@ -222,16 +201,13 @@ proxy_pass   http://192.168.3.105;
 
 10. For most conventional proxy setups, you will also want to add a `proxy_redirect` specification to your `location` directive blocks. This directive rewrites the HTTP headers that nginx receives from the proxy server to make them appear as if they were generated by the nginx server.
 
-    {{< file-excerpt >}}
-example.com.vhost proxy location directive
-:   ~~~ nginx
+    {{< file-excerpt "example.com.vhost proxy location directive" nginx >}}
 location /pictures/ {
-proxy_pass       http://192.168.3.106:8080;
-proxy_redirect   http://192.168.3.106:8080 http://example.com/pictures/;
-}
-~~~
-
+          proxy_pass       http://192.168.3.106:8080;
+          proxy_redirect   http://192.168.3.106:8080 http://example.com/pictures/;
+        }
 {{< /file-excerpt >}}
+
 
     In this example, requests are made for resources under `http://example.com/pictures/`, then passed to a server running on port `8080` of the LAN IP address `192.168.3.106`. Without the `proxy_redirect` directive, the `Location:` header of the HTTP response would return the location for a request of `http://example.com/team.jpg` as `http://192.168.3.106:8080/team.jpg`. By adding the `proxy_redirect` directive, proxied requests return the expected `Location:` header.
 
@@ -243,12 +219,8 @@ In addition to using nginx as a front-end proxy to pass requests to other web se
 
 In this example, we'll show you how to build a cluster named `appcluster` with a simple round-robin load balancer. Here are the appropriate excerpts from the `/etc/nginx/sites-available/example.com` file:
 
-{{< file-excerpt >}}
-/etc/nginx/sites-available/example.com
-:   ~~~ nginx
+{{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
 server {
-
-{{< /file-excerpt >}}
 
       listen 80;
       server_name example.com www.example.com;
@@ -272,7 +244,8 @@ server {
     }
     
     # [...]
-    ~~~
+{{< /file-excerpt >}}
+
 
 In this example, in the `server` directive block, nginx is configured to listen for requests on a specific IP address and port (e.g. `192.0.2.0` and `80`), and respond to requests for the domains `example.com` and `www.example.com`. All requests for resources at this domain (e.g. `/`) will be passed to the `http://appcluster` server established in the `upstream` directive.
 
@@ -286,19 +259,16 @@ The `upstream` directive establishes the round-robin load balancer. Within this 
 
 nginx also allows you to control the behavior of the `upstream` resource cluster beyond a simple round-robin setup. The simplest modification is to add the `ip_hash` directive to the configuration block. This causes requests from the same IP address to be routed to the same back-end server. Consider the following example excerpt:
 
-{{< file-excerpt >}}
-/etc/nginx/sites-available/example.com
-:   ~~~ nginx
+{{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
 upstream appcluster {
-ip_hash; 
-server linode.example.com:8801;
-server linode.example.com:8802;
-server galloway.example.com:8801 down;
-server galloway.example.com:8802;
-}
-~~~
-
+       ip_hash; 
+       server linode.example.com:8801;
+       server linode.example.com:8802;
+       server galloway.example.com:8801 down;
+       server galloway.example.com:8802;
+    }
 {{< /file-excerpt >}}
+
 
 Here, the `ip_hash` directive causes nginx to attempt to match requests originating from a single IP address with the same back-end component. If a component server is unreachable, nginx will route those connections to an alternate component.
 
@@ -310,21 +280,18 @@ If a server needs to be taken offline for an extended period of time, append the
 
 Here is a more advanced configuration, where seven server components running on unique ports on the server `linode.example.com` comprise the `appcluster` upstream:
 
-{{< file-excerpt >}}
-/etc/nginx/sites-available/example.com
-:   ~~~ nginx
+{{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
 upstream appcluster {
-server linode.example.com:8801;
-server linode.example.com:8802 weight=1;
-server linode.example.com:8803 weight=2 max_fails=2;
-server linode.example.com:8804 weight=2 max_fails=2 fail_timeout=20;
-server linode.example.com:8805 weight=4;
-server linode.example.com:8806 weight=4 fail_timeout=4;
-server linode.example.com:8807 weight=2 fail_timeout=20;
-}
-~~~
-
+       server linode.example.com:8801;
+       server linode.example.com:8802 weight=1;
+       server linode.example.com:8803 weight=2 max_fails=2;
+       server linode.example.com:8804 weight=2 max_fails=2 fail_timeout=20;
+       server linode.example.com:8805 weight=4;
+       server linode.example.com:8806 weight=4 fail_timeout=4;
+       server linode.example.com:8807 weight=2 fail_timeout=20;
+    }
 {{< /file-excerpt >}}
+
 
 Using these arguments, you can use nginx to manage the behavior and distribution of load across a cluster of servers:
 

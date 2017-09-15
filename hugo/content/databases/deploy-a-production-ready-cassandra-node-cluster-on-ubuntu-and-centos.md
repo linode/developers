@@ -75,30 +75,16 @@ The instructions here must be executed on each Cassandra node to be clustered. A
 
 **Example**
 
-{{< file >}}
-**/etc/cassandra/conf/cassandra.yaml**
-: ~~~ yaml		
-cluster_name: '[Your Cluster Name]'
-listen_address: [public_ip_address]
-rpc_address: [public_ip_address]
-num_tokens: 256
-seed_provider:
-	- class_name: org.apache.cassandra.locator.SimpleSeedProvider
-	  parameters:
-			- seeds: "[node1_ip_address],[node2_ip_address]"
-endpoint_snitch: GossipingPropertyFileSnitch
-auto_bootstrap: false
-~~~
-
-{{< /file >}}
-
+{{< file "**/etc/cassandra/conf/cassandra.yaml**" >}}
 3. Edit the `cassandra-rackdc.properties` file. Assign each node the same datacenter and rack name.
 
 **Example**
 
 {{< file >}}
 **/etc/cassandra/conf/cassandra-rackdc.properties**
-: ~~~ properties
+:
+{{< /file >}}
+properties
 # These properties are used with GossipingPropertyFileSnitch and will
 # indicate the rack and dc for this node
 dc=DC1
@@ -154,16 +140,12 @@ Setting up encryption between nodes offers additional security and protects the 
 2. Create a configuration file for openssl to help automate the certificate creation process. Copy the contents below into a new file and title it *rootCAcert.conf*. The contents in **bold** should be updated with your specific information.
 	
 
-{{< file >}}
-**~/.keystore/rootCAcert.conf**
-: ~~~ conf
-	[ req ]
+{{< file "**~/.keystore/rootCAcert.conf**" conf >}}
+[ req ]
 	distinguished_name     = req_distinguished_name
 	prompt                 = no
 	output_password        = set_strong_password_here
 	default_bits           = 4096
-
-{{< /file >}}
 
 	[ req_distinguished_name ]
 	C                      = US
@@ -171,7 +153,8 @@ Setting up encryption between nodes offers additional security and protects the 
 	L                      = Seattle
 	OU                     = Cluster_Name
 	CN                     = Cluster_Name_MasterCA
-  ~~~
+{{< /file >}}
+
 
 2. Create the public and private key files.
 
@@ -237,25 +220,21 @@ Setting up encryption between nodes offers additional security and protects the 
 
 1. Edit the `cassandra.yaml` file on each node to match the following. Replace text in [brackets] with the indicated information.
 
-{{< file >}}
-**/etc/cassandra/conf/cassandra.yaml**
-: ~~~ yaml
+{{< file "**/etc/cassandra/conf/cassandra.yaml**" yaml >}}
 server_encryption_options:
-internode_encryption: all
-keystore: /etc/cassandra/conf/[keystore_file.jks]
-keystore_password: cassandra
-truststore: /etc/cassandra/conf/[truststore_file.jks]
-truststore_password: cassandra
-# More advanced defaults below:
-protocol: TLS
-algorithm: SunX509
-store_type: JKS
-cipher_suites: [TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA]
-require_client_auth: true
-
+    internode_encryption: all
+    keystore: /etc/cassandra/conf/[keystore_file.jks]
+    keystore_password: cassandra
+    truststore: /etc/cassandra/conf/[truststore_file.jks]
+    truststore_password: cassandra
+    # More advanced defaults below:
+    protocol: TLS
+    algorithm: SunX509
+    store_type: JKS
+    cipher_suites: [TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA]
+    require_client_auth: true
 {{< /file >}}
 
-  ~~~
 
 You may want to configure the *internode_encryption* setting to better meet the needs of your specific environment. A breakdown of available values are shown below.
 

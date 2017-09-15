@@ -93,14 +93,10 @@ Please understand that when using this method, you will be responsible for updat
 
 10. Create a systemd service script to run nginx:
 
-    {{< file >}}
-/lib/systemd/system/nginx.service
-:   ~~~ shell
+    {{< file "/lib/systemd/system/nginx.service" shell >}}
 [Unit]
-Description=A high performance web server and a reverse proxy server
-After=network.target
-
-{{< /file >}}
+        Description=A high performance web server and a reverse proxy server
+        After=network.target
 
         [Service]
         Type=forking
@@ -114,7 +110,8 @@ After=network.target
 
         [Install]
         WantedBy=multi-user.target
-        ~~~
+{{< /file >}}
+
 
     If you used the build configuration options shown in Step 7, you may use this script exactly as shown. However, if you specified your own file paths, you may need to adjust the value for `PIDFile` to match your PID file, and the paths in the lines beginning with `Exec` to match your nginx binary file path. These files paths were included in the output in Step 7.
 
@@ -252,16 +249,12 @@ The text of the `.crt` file will appear to have two certificates in it. It is im
 
 1.  By default, nginx is configured to only serve HTTP requests on TCP port 80. To make use of SSL, you will need to configure nginx to serve HTTPS requests on TCP port 443. Open the sample nginx SSL server block configuration file and adjust your configuration so that it matches the example below.
 
-    {{< file >}}
-/etc/nginx/conf.d/example_ssl.conf
-:   ~~~ conf
+    {{< file "/etc/nginx/conf.d/example_ssl.conf" conf >}}
 # HTTPS server
-#
-server {
-listen       443 ssl;
-server_name  example.com;
-
-{{< /file >}}
+        #
+        server {
+            listen       443 ssl;
+            server_name  example.com;
 
             ssl_certificate      /etc/ssl/nginx/nginx.crt;
             ssl_certificate_key  /etc/ssl/nginx/server.key;
@@ -279,19 +272,17 @@ server_name  example.com;
                 index  index.html index.htm;
             }
         }
-        ~~~
+{{< /file >}}
+
 
     Replace the value of `server_name` with your domain or subdomain name. Make sure that the values of `ssl_certificate` and `ssl_certificate_key` match the file paths of the certificate and private key you created. The lines `ssl_session_cache`, `ssl_ciphers`, and `ssl_protocols` should match the above configuration.
 
     Depending on how you installed nginx, this file may not have been created by default. For example, if you compiled nginx from source, you will need to create the `example_ssl.conf` file and copy this configuration into it. If that is the case, you will also need to add the following line to the `http` block in your main nginx configuration file:
 
-    {{< file-excerpt >}}
-/etc/nginx/nginx.conf
-:   ~~~ conf
+    {{< file-excerpt "/etc/nginx/nginx.conf" conf >}}
 include     /etc/nginx/conf.d/*.conf;
-~~~
-
 {{< /file-excerpt >}}
+
 
 3.  Restart nginx to apply your changes.
 

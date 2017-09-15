@@ -72,19 +72,16 @@ This setup uses three Linodes running two instances of Redis server per Linode. 
 
 2. In `a_master.conf`, comment the `bind` directive and enable cluster mode. The ports in this example will range from 6379 to 6381.
 
-   {{< file >}}
-/redis-stable/a_master.conf
-: ~~~
+   {{< file "/redis-stable/a_master.conf" >}}
 # bind 127.0.0.1
-protected-mode no
-port 6379
-pidfile /var/run/redis_6379.pid
-cluster-enabled yes
-cluster-config-file nodes-6379.conf
-cluster-node-timeout 15000
-~~~
-
+     protected-mode no
+     port 6379
+     pidfile /var/run/redis_6379.pid
+     cluster-enabled yes
+     cluster-config-file nodes-6379.conf
+     cluster-node-timeout 15000
 {{< /file >}}
+
 
    {{< caution >}}
 A node in the Redis cluster requires a defined port and a port higher than 10000. In this instance, TCP ports 6379 and 16379 are both required to be open. Ensure iptables or ufw is configured properly.
@@ -94,19 +91,16 @@ A node in the Redis cluster requires a defined port and a port higher than 10000
 
 3. In `c_slave.conf`, the configuration will be similar except for an update of the port number. `redis-trib.rb` will be used later to configure this into a slave for the appropriate master, rather than the `slaveof` directive.
 
-   {{< file >}}
-/redis-stable/c_slave.conf
-: ~~~
+   {{< file "/redis-stable/c_slave.conf" >}}
 # bind 127.00.1
-protected-mode no
-port 6381
-pidfile /var/run/redis_6381.pid
-cluster-enabled yes
-cluster-config-file nodes-6381.conf
-cluster-node-timeout 15000
-~~~
-
+     protected-mode no
+     port 6381
+     pidfile /var/run/redis_6381.pid
+     cluster-enabled yes
+     cluster-config-file nodes-6381.conf
+     cluster-node-timeout 15000
 {{< /file >}}
+
 
 4. Repeat this process across the remaining two Linodes, taking care to specify the port numbers for all master slave pairs.
 
@@ -127,29 +121,26 @@ Master/slave replication can be achieved across three nodes by running two insta
 
 2. Substitute `a_master.conf` and `c_slave.conf` with the appropriate configuration file for the remaining two servers. All the master nodes should be starting in cluster mode.
 
-   {{< file >}}
-Server 1
-:  ~~~
+   {{< file "Server 1" >}}
 _._
-_.-``__ ''-._
-_.-``    `.  `_.  ''-._           Redis 4.0.1 (00000000/0) 64 bit
-.-`` .-```.  ```\/    _.,_ ''-._
-(    '      ,       .-`  | `,    )     Running in cluster mode
-|`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
-|    `-._   `._    /     _.-'    |     PID: 10352
-`-._    `-._  `-./  _.-'    _.-'
-|`-._`-._    `-.__.-'    _.-'_.-'|
-|    `-._`-._        _.-'_.-'    |           http://redis.io
-`-._    `-._`-.__.-'_.-'    _.-'
-|`-._`-._    `-.__.-'    _.-'_.-'|
-|    `-._`-._        _.-'_.-'    |
-`-._    `-._`-.__.-'_.-'    _.-'
-`-._    `-.__.-'    _.-'
-`-._        _.-'
-`-.__.-'
-~~~
-
+                _.-``__ ''-._
+           _.-``    `.  `_.  ''-._           Redis 4.0.1 (00000000/0) 64 bit
+       .-`` .-```.  ```\/    _.,_ ''-._
+      (    '      ,       .-`  | `,    )     Running in cluster mode
+      |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
+      |    `-._   `._    /     _.-'    |     PID: 10352
+      `-._    `-._  `-./  _.-'    _.-'
+      |`-._`-._    `-.__.-'    _.-'_.-'|
+      |    `-._`-._        _.-'_.-'    |           http://redis.io
+       `-._    `-._`-.__.-'_.-'    _.-'
+      |`-._`-._    `-.__.-'    _.-'_.-'|
+      |    `-._`-._        _.-'_.-'    |
+      `-._    `-._`-.__.-'_.-'    _.-'
+          `-._    `-.__.-'    _.-'
+              `-._        _.-'
+                  `-.__.-'
 {{< /file >}}
+
 
 ## Create Cluster Using Built-In Ruby Script
 At this point, each Linode hosts two independent master nodes. The Redis installation comes with a Ruby script located in `~/redis-stable/src/` that can help create and manage a cluster.

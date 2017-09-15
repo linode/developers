@@ -52,13 +52,10 @@ This guide is written for a non-root user. Commands that require elevated privil
 
 2.  Edit the main Apache configuration file and turn off the `KeepAlive` setting:
 
-    {{< file-excerpt >}}
-/etc/apache2/apache2.conf
-:   ~~~ conf
+    {{< file-excerpt "/etc/apache2/apache2.conf" conf >}}
 KeepAlive Off
-~~~
-
 {{< /file-excerpt >}}
+
 
 ### Configure the Multi-Processing Module
 
@@ -68,17 +65,13 @@ Apache 2.4 offers various multi-processing modules (MPMs) to handle connections.
 
 1.  Open `/etc/apache2/mods-available/mpm_prefork.conf` in your text editor and edit the values as needed. The following is optimized for a 2GB Linode:
 
-    {{< file >}}
-/etc/apache2/mods-available/mpm_prefork.conf
-:   ~~~ conf
+    {{< file "/etc/apache2/mods-available/mpm_prefork.conf" conf >}}
 # prefork MPM
-# StartServers: number of server processes to start
-# MinSpareServers: minimum number of server processes which are kept spare
-# MaxSpareServers: maximum number of server processes which are kept spare
-# MaxRequestWorkers: maximum number of server processes allowed to start
-# MaxConnectionsPerChild: maximum number of requests a server process serves
-
-{{< /file >}}
+        # StartServers: number of server processes to start
+        # MinSpareServers: minimum number of server processes which are kept spare
+        # MaxSpareServers: maximum number of server processes which are kept spare
+        # MaxRequestWorkers: maximum number of server processes allowed to start
+        # MaxConnectionsPerChild: maximum number of requests a server process serves
 
         <IfModule mpm_prefork_module>
                 StartServers              4
@@ -87,7 +80,8 @@ Apache 2.4 offers various multi-processing modules (MPMs) to handle connections.
                 MaxRequestWorkers         200
                 MaxConnectionsPerChild    4500
         </IfModule>
-        ~~~
+{{< /file >}}
+
 
 4.  On Debian 8, the *event module* is enabled by default. This will need to be disabled, and the *prefork module* enabled:
 
@@ -105,28 +99,25 @@ If you choose to keep the *event module* enabled, these settings are suggested f
 
 1.  Open `/etc/apache2/mods-available/mpm_event.conf` in your text editor and edit the values as needed:
 
-    {{< file >}}
-/etc/apache2/mods-available/mpm_event.conf
-:   ~~~ conf
+    {{< file "/etc/apache2/mods-available/mpm_event.conf" conf >}}
 # event MPM
-# StartServers: initial number of server processes to start
-# MinSpareThreads: minimum number of worker threads which are kept spare
-# MaxSpareThreads: maximum number of worker threads which are kept spare
-# ThreadsPerChild: constant number of worker threads in each server process
-# MaxRequestWorkers: maximum number of worker threads
-# MaxConnectionsPerChild: maximum number of requests a server process serves
-<IfModule mpm_event_module>
-StartServers             2
-MinSpareThreads          25
-MaxSpareThreads          75
-ThreadLimit              64
-ThreadsPerChild          25
-MaxRequestWorkers        150
-MaxConnectionsPerChild   3000
-</IfModule>
-~~~
-
+        # StartServers: initial number of server processes to start
+        # MinSpareThreads: minimum number of worker threads which are kept spare
+        # MaxSpareThreads: maximum number of worker threads which are kept spare
+        # ThreadsPerChild: constant number of worker threads in each server process
+        # MaxRequestWorkers: maximum number of worker threads
+        # MaxConnectionsPerChild: maximum number of requests a server process serves
+        <IfModule mpm_event_module>
+                StartServers             2
+                MinSpareThreads          25
+                MaxSpareThreads          75
+                ThreadLimit              64
+                ThreadsPerChild          25
+                MaxRequestWorkers        150
+                MaxConnectionsPerChild   3000
+        </IfModule>
 {{< /file >}}
+
 
 2.  Restart Apache:
 
@@ -143,20 +134,17 @@ Apache supports *name-based virtual hosting*, which allows you to host multiple 
 
 2.  Create an `example.com.conf` file in `/etc/apache2/sites-available` with your text editor, replacing instances of `example.com` with your own domain URL in both the configuration file and in the file name:
 
-    {{< file >}}
-/etc/apache2/sites-available/example.com.conf
-:   ~~~ conf
+    {{< file "/etc/apache2/sites-available/example.com.conf" conf >}}
 <VirtualHost *:80>
-ServerAdmin webmaster@example.com
-ServerName example.com
-ServerAlias www.example.com
-DocumentRoot /var/www/example.com/public_html/
-ErrorLog /var/www/example.com/logs/error.log
-CustomLog /var/www/example.com/logs/access.log combined
-</VirtualHost>
-~~~
-
+             ServerAdmin webmaster@example.com
+             ServerName example.com
+             ServerAlias www.example.com
+             DocumentRoot /var/www/example.com/public_html/
+             ErrorLog /var/www/example.com/logs/error.log
+             CustomLog /var/www/example.com/logs/access.log combined
+        </VirtualHost>
 {{< /file >}}
+
 
     Repeat this process for any other domains you host.
 
@@ -164,14 +152,14 @@ CustomLog /var/www/example.com/logs/access.log combined
 
 If you would like to enable Perl support, add the following lines above the closing `</VirtualHost>` tag:
 
-{: .file-excerpt }
-/etc/apache2/sites-available/example.com.conf
-:   ~~~ conf
+{{< file-excerpt "/etc/apache2/sites-available/example.com.conf" conf >}}
 Options ExecCGI
 AddHandler cgi-script .pl
-~~~
+
+{{< /file-excerpt >}}
 
 {{< /note >}}
+
 
 3.  Create directories for your websites and websites' logs, replacing `example.com` with your own domain information:
 

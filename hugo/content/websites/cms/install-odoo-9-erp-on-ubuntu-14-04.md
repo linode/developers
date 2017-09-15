@@ -161,21 +161,18 @@ Install Python libraries using the following commands:
 
 2.  Next we need to modify the configuration file. The finished file should look similar to this depending on your deploying needs:
 
-    {{< file >}}
-/etc/odoo-server.conf
-:   ~~~ conf
+    {{< file "/etc/odoo-server.conf" conf >}}
 [options]
-admin_passwd = admin
-db_host = False 
-db_port = False
-db_user = odoo
-db_password = <PostgreSQL_user_password>
-addons_path = /opt/odoo/addons
-logfile = /var/log/odoo/odoo-server.log
-xmlrpc_port = 8069
-~~~
-
+        admin_passwd = admin
+        db_host = False 
+        db_port = False
+        db_user = odoo
+        db_password = <PostgreSQL_user_password>
+        addons_path = /opt/odoo/addons
+        logfile = /var/log/odoo/odoo-server.log
+        xmlrpc_port = 8069
 {{< /file >}}
+
 
     *  `admin_passwd = admin` This is the password that allows database operations.
     *  `db_host = False` Unless you plan to connect to a different database server address, leave this line untouched.
@@ -190,23 +187,19 @@ xmlrpc_port = 8069
 
 Next step is creating a boot script called `odoo-server` to gain control over Odoo's behavior and use it at server startup and shutdown.
 
-{{< file >}}
-/etc/init.d/odoo-server
-:   ~~~ shell
+{{< file "/etc/init.d/odoo-server" shell >}}
 #!/bin/sh
-### BEGIN INIT INFO
-# Provides: odoo-server
-# Required-Start: $remote_fs $syslog
-# Required-Stop: $remote_fs $syslog
-# Should-Start: $network
-# Should-Stop: $network
-# Default-Start: 2 3 4 5
-# Default-Stop: 0 1 6
-# Short-Description: Odoo ERP
-# Description: Odoo is a complete ERP business solution.
-### END INIT INFO
-
-{{< /file >}}
+    ### BEGIN INIT INFO
+    # Provides: odoo-server
+    # Required-Start: $remote_fs $syslog
+    # Required-Stop: $remote_fs $syslog
+    # Should-Start: $network
+    # Should-Stop: $network
+    # Default-Start: 2 3 4 5
+    # Default-Stop: 0 1 6
+    # Short-Description: Odoo ERP
+    # Description: Odoo is a complete ERP business solution.
+    ### END INIT INFO
 
     PATH=/bin:/sbin:/usr/bin
     # Change the Odoo source files location according your needs.
@@ -280,7 +273,8 @@ Next step is creating a boot script called `odoo-server` to gain control over Od
     esac
 
     exit 0
-    ~~~
+{{< /file >}}
+
 
 ###Odoo File Ownership and Permissions
 

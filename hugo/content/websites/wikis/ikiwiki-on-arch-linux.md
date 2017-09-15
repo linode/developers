@@ -91,25 +91,18 @@ Issue the following command to install Apache:
 
 Edit the `/etc/httpd/conf/httpd.conf` file to uncomment or add the following line:
 
-{{< file-excerpt >}}
-/etc/httpd/conf/extra/httpd-vhosts.conf
-:   ~~~ apache
+{{< file-excerpt "/etc/httpd/conf/extra/httpd-vhosts.conf" apache >}}
 Include conf/extra/httpd-vhosts.conf
-~~~
-
 {{< /file-excerpt >}}
+
 
 Replace the existing example `VirtualHost` configuration examples with one that resembles the following. Modify this example as needed to suit the needs of your deployment:
 
-{{< file-excerpt >}}
-/etc/httpd/conf/extra/httpd-vhosts.conf
-:   ~~~ apache
+{{< file-excerpt "/etc/httpd/conf/extra/httpd-vhosts.conf" apache >}}
 <VirtualHost *:80>
-ServerAdmin username@example.com
-ServerName example.com
-ServerAlias www.example.com
-
-{{< /file-excerpt >}}
+            ServerAdmin username@example.com
+            ServerName example.com
+            ServerAlias www.example.com
 
             DocumentRoot /srv/http/example.com/public_html
             ErrorLog /srv/http/example.com/logs/error.log
@@ -120,7 +113,8 @@ ServerAlias www.example.com
                    Options FollowSymLinks +ExecCGI
         </Directory> 
     </VirtualHost>
-    ~~~
+{{< /file-excerpt >}}
+
 
 Issue the following commands to create the required directories and to restart the web server:
 
@@ -146,16 +140,13 @@ You will want to add the `fcgiwrap` daemon to the `DAEMONS=()` array at the end 
 
 Add an `include` directive to the `/etc/nginx/conf/nginx.conf` file so that nginx will read configuration files in the `/etc/nginx/conf.d/` directory. Use the following form:
 
-{{< file-excerpt >}}
-/etc/nginx/conf/nginx.conf
-:   ~~~ nginx
+{{< file-excerpt "/etc/nginx/conf/nginx.conf" nginx >}}
 http {
-include       /etc/nginx/conf.d/*.conf; 
-include       mime.types;
-default_type  application/octet-stream;
-~~~
-
+        include       /etc/nginx/conf.d/*.conf; 
+        include       mime.types;
+        default_type  application/octet-stream;
 {{< /file-excerpt >}}
+
 
 Issue the following command to create a `conf.d/` directory:
 
@@ -163,16 +154,12 @@ Issue the following command to create a `conf.d/` directory:
 
 Create a virtual host by inserting a version of the following excerpt into your nginx configuration. Modify this example for the needs of your deployment:
 
-{{< file-excerpt >}}
-/etc/nginx/conf.d/vhost.conf
-:   ~~~ nginx
+{{< file-excerpt "/etc/nginx/conf.d/vhost.conf" nginx >}}
 server {
-listen   80;
-server_name www.example.com example.com;
-access_log /srv/http/example.com/logs/access.log;
-error_log /srv/http/example.com/logs/error.log;
-
-{{< /file-excerpt >}}
+        listen   80;
+        server_name www.example.com example.com;
+        access_log /srv/http/example.com/logs/access.log;
+        error_log /srv/http/example.com/logs/error.log;
 
         location / {
         root   /srv/http/example.com/public_html;
@@ -187,7 +174,8 @@ error_log /srv/http/example.com/logs/error.log;
         fastcgi_param  SCRIPT_FILENAME  /srv/http/example.com/public_html$fastcgi_script_name;
         }
     }
-    ~~~
+{{< /file-excerpt >}}
+
 
 Issue the following commands to create the required directories and to restart the web server:
 
@@ -214,19 +202,16 @@ Issue the following commands to create a `~/wiki/` directory as a git repository
 
 Add the following excerpt to `~/wiki/.git/config`:
 
-{{< file-excerpt >}}
-~/wiki/.git/config
-:   ~~~
+{{< file-excerpt "~/wiki/.git/config" >}}
 [remote "origin"]
-fetch = +refs/heads/*:refs/remotes/origin/*
-url = /srv/git/wiki.git
-
-{{< /file-excerpt >}}
+        fetch = +refs/heads/*:refs/remotes/origin/*
+        url = /srv/git/wiki.git
 
     [branch "master"]
         remote = origin
         merge = refs/heads/master
-    ~~~
+{{< /file-excerpt >}}
+
 
 Configure the `username` user's identity within git. Modify the following model for your user:
 
@@ -250,17 +235,14 @@ Edit the `~/wiki/ikiwiki.yaml` file to suit the needs of your deployment, paying
 
 Create content in the `~/wiki/source/index.mdwn` file, for example:
 
-{{< file >}}
-~/wiki/source/index.mdwn
-:   ~~~
+{{< file "~/wiki/source/index.mdwn" >}}
 # Welcome to $wiki
-
-Hello World. What should we call [[this site]]?
-~~~
-
-When the configuration file has been edited, and there is content in the `~/wiki/source/index.mdwn` file, issue the following command to rebuild the wiki:
-
+    
+    Hello World. What should we call [[this site]]?
 {{< /file >}}
+
+    
+When the configuration file has been edited, and there is content in the `~/wiki/source/index.mdwn` file, issue the following command to rebuild the wiki:
 
     ikiwiki --setup ~/wiki/ikiwiki.yaml
 

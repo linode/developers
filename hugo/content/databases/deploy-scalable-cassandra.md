@@ -191,20 +191,8 @@ More information on this file can be found by following the *Cassandra .yaml Con
 
 After editing the file restart Cassandra.
 
-{{< file >}}
-Ubuntu /etc/cassandra/cassandra.yaml
-Centos /etc/cassandra/conf/cassandra.yaml
-: ~~~ yaml		
-authenticator: org.apache.cassandra.auth.PasswordAuthenticator
-authorizer: org.apache.cassandra.auth.CassandraAuthorizer
-role_manager: CassandraRoleManager
-roles_validity_in_ms: 0
-permissions_validity_in_ms: 0
-~~~
-			
+{{< file "Ubuntu /etc/cassandra/cassandra.yaml" >}}
 ### Add An Administration Superuser
-
-{{< /file >}}
 
 1. Open the Cassandra command terminal by typing `cqlsh`. Login with the credentials shown below for the default user "Cassandra":
 
@@ -247,7 +235,9 @@ CentOS 7 users can find a sample file containing all the configuration options a
 
 {{< file >}}
 .cassandra/cqlshrc
-: ~~~ conf
+:
+{{< /file >}}
+conf
 
 {{< /file >}}
 

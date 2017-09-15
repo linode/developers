@@ -57,20 +57,17 @@ Prefixing the `sudo` command is necessary when editing files where read and/or w
 
 2.  Open the *vimrc* file for editing. The file may syntactically differ between Linux distributions, but the core settings remain the same. In the file below, the segment containing the bulk of the configuration options is shown. Uncomment the lines whose behavior you wish to enable. 
 
-{{< file >}}
-/etc/vimrc
-: ~~~ vimrc
+{{< file "/etc/vimrc" vimrc >}}
 set showcmd› › " Show (partial) command in status line.
-set showmatch› › " Show matching brackets.
-set ignorecase›› " Do case insensitive matching
-set smartcase› › " Do smart case matching
-set incsearch› › " Incremental search
-set autowrite› › " Automatically save before commands like :next and :make
-set hidden›› " Hide buffers when they are abandoned
-set mouse=a› › " Enable mouse usage (all modes)
-~~~
-
+  set showmatch› › " Show matching brackets.
+  set ignorecase›› " Do case insensitive matching
+  set smartcase› › " Do smart case matching
+  set incsearch› › " Incremental search
+  set autowrite› › " Automatically save before commands like :next and :make
+  set hidden›› " Hide buffers when they are abandoned
+  set mouse=a› › " Enable mouse usage (all modes)
 {{< /file >}}
+
 
 ## Customize the Local *.vimrc* File
 
@@ -82,13 +79,9 @@ The configurations in this section will apply only to the active user account.
 
 From your active Vim session, create a *.vimrc* file in your home directory. The contents below consist of basic configuration settings most users would find helpful when utilizing Vim in any circumstance. You may pick and choose which settings you would like to add to your personal *.vimrc* file.
 
-{{< file >}}
-~/.vimrc
-: ~~~ vimrc
+{{< file "~/.vimrc" vimrc >}}
 " Set compatibility to Vim only.
-set nocompatible
-
-{{< /file >}}
+  set nocompatible
 
   " Helps force plug-ins to load correctly when it is turned back on below.
   filetype off
@@ -168,7 +161,8 @@ set nocompatible
   " Automatically save and load folds
   autocmd BufWinLeave *.* mkview
   autocmd BufWinEnter *.* silent loadview"
-  ~~~
+{{< /file >}}
+
 
 ## Integrate Plug-Ins
 
@@ -207,17 +201,14 @@ Using a plug-in manager automates both the installation and setup of any plug-in
 
 2.  Open *.vimrc* in the Vim editor and add the following text at the bottom to call the *.vimrc.plug* file.
 
-    {{< file >}}
-~/.vimrc
-: ~~~ Vimrc
+    {{< file "~/.vimrc" Vimrc >}}
 . . .
-" Call the .vimrc.plug file
-if filereadable(expand("~/.vimrc.plug"))
-source ~/.vimrc.plug
-endif
-~~~
-
+          " Call the .vimrc.plug file
+          if filereadable(expand("~/.vimrc.plug"))
+              source ~/.vimrc.plug
+          endif
 {{< /file >}}
+
 
 
 3.  Now, open the *.vimrc.plug* file in Vim. Populate the file with the contents below to add the *Fugitive Vim* plug-in, a Github wrapper. With this plug-in installed, you can now run a Git terminal from within Vim!
@@ -227,18 +218,15 @@ Any additional plug-ins to be installed need to be added between the "plug#begin
 
 {{< /note >}}
 
-    {{< file >}}
-~/.vimrc.plug
-: ~~~ vimrc
+    {{< file "~/.vimrc.plug" vimrc >}}
 call plug#begin('~/.vim/plugged')
-
-{{< /file >}}
 
         "Fugitive Vim Github Wrapper
         Plug 'tpope/vim-fugitive'
 
         call plug#end()
-      ~~~
+{{< /file >}}
+
 
      {{< note >}}
 If after this step you receive an error similar to `E117 Unknown Function: plug#end` check the user permissions over `~/.vim/` you may need to `chmod -R 0755

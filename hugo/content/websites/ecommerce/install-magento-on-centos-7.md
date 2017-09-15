@@ -60,19 +60,15 @@ Since Magento will be served by Apache, some additional configuration is needed 
 
 2.  Modify the virtual host file for your Magento site to resemble the example below. If you have not previously created a virtual host file, do so now and refer to our [Apache on CentOS 7](/docs/websites/apache/install-and-configure-apache-on-centos-7) guide for additional guidance.
 
-    {{< file >}}
-/etc/httpd/conf.d/vhost.conf
-:   ~~~ conf
+    {{< file "/etc/httpd/conf.d/vhost.conf" conf >}}
 <Directory /var/www/html/example.com/public_html>
-Require all granted
-</Directory>
-<VirtualHost *:80>
-ServerName example.com
-ServerAlias www.example.com
-ServerAdmin webmaster@localhost
-DocumentRoot /var/www/html/example.com/public_html
-
-{{< /file >}}
+            Require all granted
+        </Directory>
+        <VirtualHost *:80>
+            ServerName example.com
+            ServerAlias www.example.com
+            ServerAdmin webmaster@localhost
+            DocumentRoot /var/www/html/example.com/public_html
 
             ErrorLog /var/www/html/example.com/logs/error.log
             CustomLog /var/www/html/example.com/logs/access.log combined
@@ -83,7 +79,8 @@ DocumentRoot /var/www/html/example.com/public_html
             </Directory>
 
 		</VirtualHost>
-        ~~~
+{{< /file >}}
+
 
     The `Directory` block inside the `Virtual Host` block should point to the directory where you plan to install Magento. For simplicity, we will be installing it in our web root, but if you want to put it elsewhere (e.g., a subdirectory of your web root), then modify this setting.
 
@@ -160,19 +157,8 @@ Magento is a PHP application, so you will need to install PHP 7 and make some ad
 
 3.  Modify the following settings in your `php.ini` file:
 
-    {{< file-excerpt >}}
-/etc/php.ini
-:   ~~~  ini
-max_input_time = 30
-memory_limit= 2G
-error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
-error_log = /var/log/php/error.log
-date.timezone = America/New_York
-~~~
-
-{{< /file-excerpt >}}
-
-    This sets the time zone for PHP's `date()` function and imposes a 2GB limit to the amount of memory PHP can use. This value is recommended for a 4GB Linode, but could be increased for a larger server.
+    {{< file-excerpt "/etc/php.ini" >}}
+This sets the time zone for PHP's `date()` function and imposes a 2GB limit to the amount of memory PHP can use. This value is recommended for a 4GB Linode, but could be increased for a larger server.
 
     {{< note >}}
 The value for `date.timezone` will vary based on your system's time zone. Refer to the [PHP time zone documentation](http://php.net/manual/en/timezones.php) and ensure this value matches the time zone you set when you configured your Linode.
@@ -192,7 +178,9 @@ The value for `date.timezone` will vary based on your system's time zone. Refer 
 
     {{< file >}}
 /var/www/html/example.com/public_html/phpinfo.php
-:   ~~~ php
+:
+{{< /file-excerpt >}}
+php
 <?php phpinfo(); ?>
 ~~~
 
@@ -341,13 +329,10 @@ For more information about setting up cron jobs for development servers and cust
 
 We strongly recommended that you disable the ability to display your Magento storefront in a frame to prevent [clickjacking](https://en.wikipedia.org/wiki/Clickjacking) attacks. To do this, modify the following line in your `env.php` file:
 
-{{< file-excerpt >}}
-/var/www/html/example.com/public_html/app/etc/env.php
-:   ~~~ php
+{{< file-excerpt "/var/www/html/example.com/public_html/app/etc/env.php" php >}}
 'x-frame-options' => 'DENY',
-~~~
-
 {{< /file-excerpt >}}
+
 
 This prevents attackers from embedding your site in a frame (for example, on a malicious site that mimics your store) in an attempt to intercept payment and other sensitive customer information.
 

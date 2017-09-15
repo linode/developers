@@ -97,25 +97,19 @@ You will be presented with a menu like the one below asking you to choose a disk
 
     Change the `groot` line to resemble the following:
 
-    {{< file-excerpt >}}
-/boot/grub/menu.lst
-:   ~~~
+    {{< file-excerpt "/boot/grub/menu.lst" >}}
 ## default grub root device 
-## e.g. groot=(hd0,0)
-# groot=(hd0)
-~~~
+        ## e.g. groot=(hd0,0)
+        # groot=(hd0)
+{{< /file-excerpt >}}
+
 3.  Change the `indomU` line to resemble the following:
 
-{{< /file-excerpt >}}
-
-    {{< file-excerpt >}}
-/boot/grub/menu.lst
-:   ~~~
+    {{< file-excerpt "/boot/grub/menu.lst" >}}
 # indomU=false
-~~~
-4.  Save and exit the file. You will now need to update GRUB again in order to apply the changes. Issue the following command:
-
 {{< /file-excerpt >}}
+
+4.  Save and exit the file. You will now need to update GRUB again in order to apply the changes. Issue the following command:
 
         update-grub
 
@@ -258,15 +252,12 @@ Before you can use FreePBX, you will need to set up a LAMP stack. An basic step-
 
 7.  For this installation, we want Apache to run as the Asterisk user. This will allow Apache to access all of the files it needs in order to run FreePBX. Make sure your `/etc/apache2/envvars` file resembles the following:
 
-    {{< file-excerpt >}}
-/etc/apache2/envvars
-:   ~~~
+    {{< file-excerpt "/etc/apache2/envvars" >}}
 export APACHE_RUN_USER=asterisk
 		export APACHE_RUN_GROUP=asterisk
-~~~
-8.  Change ownership of the Apache lock file:
-
 {{< /file-excerpt >}}
+
+8.  Change ownership of the Apache lock file:
 
         chown asterisk:asterisk /var/lock/apache2/
 
@@ -310,18 +301,15 @@ You need to pass the credentials of the MySQL user and database you created abov
 
 Before you continue your FreePBX installation, you will want to configure a `VirtualHost` for the web interface. You should also secure your installation using SSL and an `.htaccess` file. By default, FreePBX installs files to `/var/www/html/`; you may leave this as it is. Your `VirtualHost` may resemble the following:
 
-{{< file >}}
-VirtualHost Entry
-:   ~~~ apache
+{{< file "VirtualHost Entry" apache >}}
 <VirtualHost *:80>
-ServerAdmin webmaster@example.com
-ServerName example.com
-ServerAlias www.example.com
-DocumentRoot /var/www/html                        
-</VirtualHost>
-~~~
-
+        ServerAdmin webmaster@example.com
+        ServerName example.com
+        ServerAlias www.example.com
+        DocumentRoot /var/www/html                        
+    </VirtualHost>
 {{< /file >}}
+
 
 To update your Apache configuration, you will need to restart the server. Issue the following command:
 

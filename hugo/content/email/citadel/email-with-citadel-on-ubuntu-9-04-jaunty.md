@@ -31,19 +31,16 @@ Before beginning the Citadel installation process, it is important that you sati
 
 You'll need to make sure the `universe` repositories are enabled in your `/etc/apt/sources.list` file. If necessary, uncomment or add them as follows:
 
-{{< file-excerpt >}}
-/etc/apt/sources.list
-:   ~~~
+{{< file-excerpt "/etc/apt/sources.list" >}}
 ## universe repositories
-deb http://us.archive.ubuntu.com/ubuntu/ jaunty universe
-deb-src http://us.archive.ubuntu.com/ubuntu/ jaunty universe
-deb http://us.archive.ubuntu.com/ubuntu/ jaunty-updates universe
-deb-src http://us.archive.ubuntu.com/ubuntu/ jaunty-updates universe
-deb http://security.ubuntu.com/ubuntu jaunty-security universe
-deb-src http://security.ubuntu.com/ubuntu jaunty-security universe
-~~~
-
+    deb http://us.archive.ubuntu.com/ubuntu/ jaunty universe
+    deb-src http://us.archive.ubuntu.com/ubuntu/ jaunty universe
+    deb http://us.archive.ubuntu.com/ubuntu/ jaunty-updates universe
+    deb-src http://us.archive.ubuntu.com/ubuntu/ jaunty-updates universe
+    deb http://security.ubuntu.com/ubuntu jaunty-security universe
+    deb-src http://security.ubuntu.com/ubuntu jaunty-security universe
 {{< /file-excerpt >}}
+
 
 Run the following commands to make sure your system is up to date:
 
@@ -67,14 +64,11 @@ You'll also need to set the hostname for your system. This can be any name you l
 
 Now you will need to configure your Linode so that it associates its hostname with its public IP address. Edit the `/etc/hosts` file so that the first section resembles the following example. Replace `12.34.56.78` and `username.example.com` with your Linode's public IP and FQDN (name.domain.com).
 
-{{< file >}}
-/etc/hosts
-:   ~~~
+{{< file "/etc/hosts" >}}
 127.0.0.1 localhost.localdomain localhost
-12.34.56.78 username.example.com username
-~~~
-
+    12.34.56.78 username.example.com username
 {{< /file >}}
+
 
 You're now ready to begin installing Citadel!
 
@@ -94,23 +88,17 @@ Enabling Spamassassin Filtering
 
 Edit the `/etc/mailname` file to reflect your system's domain name:
 
-{{< file >}}
-/etc/mailname
-:   ~~~
+{{< file "/etc/mailname" >}}
 username.example.com
-~~~
+{{< /file >}}
+
 You'll need to edit the SpamAssassin configuration file to enable spamd:
 
-{{< /file >}}
-
-{{< file >}}
-/etc/default/spamassassin
-:   ~~~
+{{< file "/etc/default/spamassassin" >}}
 # Change to one to enable spamd
-ENABLED=1
-~~~
-
+    ENABLED=1
 {{< /file >}}
+
 
 Start the spamassassin service as follows:
 
@@ -123,13 +111,10 @@ Running Citadel
 
 Customize the logon banner for your Citadel server by editing the relevant file:
 
-{{< file >}}
-/usr/share/citadel-server/messages/hello
-:   ~~~
+{{< file "/usr/share/citadel-server/messages/hello" >}}
 Citadel Groupware Server Login
-~~~
-
 {{< /file >}}
+
 
 Use the following startup script to initialize Citadel.
 

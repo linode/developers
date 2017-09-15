@@ -68,26 +68,20 @@ Visit the [Confluence download page](http://www.atlassian.com/software/confluenc
 
 Edit the `confluence-init.properties` file, adding the following line to it. Adjust the full path to the file as necessary to reflect the current version number.
 
-{{< file-excerpt >}}
-/usr/local/confluence/confluence-3.3.1-std/confluence/WEB-INF/classes/confluence-init.properties
-: ~~~
+{{< file-excerpt "/usr/local/confluence/confluence-3.3.1-std/confluence/WEB-INF/classes/confluence-init.properties" >}}
 confluence.home=/var/lib/confluence
-~~~
-
 {{< /file-excerpt >}}
+
 
 Edit the `setenv.sh` file, adding the following lines. Adjust the full path to the file as necessary to reflect the current version number.
 
-{{< file-excerpt >}}
-/usr/local/confluence/confluence-3.3.1-std/bin/setenv.sh
-:  ~~~
+{{< file-excerpt "/usr/local/confluence/confluence-3.3.1-std/bin/setenv.sh" >}}
 JAVA_HOME="/usr/lib/jvm/java-6-sun"
-export JAVA_HOME
-~~~
-
-Issue the following command to return to a root shell.
-
+   export JAVA_HOME
 {{< /file-excerpt >}}
+
+   
+Issue the following command to return to a root shell.
 
     exit
 
@@ -163,14 +157,10 @@ Issue the following commands to install Apache and enable proxy modules.
 
 Edit the `/etc/apache2/mods-available/proxy.conf` file to match the following example.
 
-{{< file >}}
-/etc/apache2/mods-available/proxy.conf
-:   ~~~ apache
+{{< file "/etc/apache2/mods-available/proxy.conf" apache >}}
 <IfModule mod_proxy.c>
-#turning ProxyRequests on and allowing proxying from all may allow
-#spammers to use your proxy to send email.
-
-{{< /file >}}
+            #turning ProxyRequests on and allowing proxying from all may allow
+            #spammers to use your proxy to send email.
 
             ProxyRequests Off
 
@@ -186,22 +176,20 @@ Edit the `/etc/apache2/mods-available/proxy.conf` file to match the following ex
 
             ProxyVia On
     </IfModule>
-    ~~~
+{{< /file >}}
+
 
 Create a virtual host configuration file for your Confluence site. Use the following example, editing the filename and contents as necessary to reflect your actual domain name and public IP address. Please note that you will need to add an "A" record to your DNS configuration to point the site to your Linode's public IP address. This example assumes that Confluence will be running on its default port (8080).
 
-{{< file >}}
-/etc/apache2/sites-available/confluence.example.com
-:   ~~~ apache
+{{< file "/etc/apache2/sites-available/confluence.example.com" apache >}}
 <VirtualHost *:80>
-ServerAdmin support@example.com
-ServerName confluence.example.com
-ProxyPass / http://localhost:8080/
-ProxyPassReverse / http://localhost:8080/
-</VirtualHost>
-~~~
-
+         ServerAdmin support@example.com
+         ServerName confluence.example.com
+         ProxyPass / http://localhost:8080/
+         ProxyPassReverse / http://localhost:8080/
+    </VirtualHost>
 {{< /file >}}
+
 
 Issue the following commands to enable the site, restart Apache, and start Confluence.
 

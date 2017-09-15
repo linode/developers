@@ -124,17 +124,14 @@ chmod 757 /var/www/html/example.com/public_html/sites/default/settings.php
 
 1.  Increase password security by adding the following to `services.yml`:
 
-    {{< file-excerpt >}}
-/var/www/html/example.com/public_html/sites/default/services.yml
-: ~~~ yml
+    {{< file-excerpt "/var/www/html/example.com/public_html/sites/default/services.yml" yml >}}
 # Increase the number of password hash iterations. Minimum = 7; Maximum = 30; Default = 16
-services:
-password:
-class: Drupal\Core\Password\PhpassHashedPassword
-arguments: [19]
-~~~
-
+        services:
+        password:
+        class: Drupal\Core\Password\PhpassHashedPassword
+        arguments: [19]
 {{< /file-excerpt >}}
+
 
       {{< note >}}
 You may need to add write permission to this file before you can edit it:

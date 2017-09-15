@@ -59,17 +59,14 @@ Lastly, you can utilize `multi_accept` in order for a worker to accept all new c
 The `events` function should look something like this when configured:
 
 
-{{< file-excerpt >}}
-/etc/nginx/nginx.conf
-:	~~~ conf
-	events {
+{{< file-excerpt "/etc/nginx/nginx.conf" conf >}}
+events {
 		worker_connections 65536;
 		use epoll;
 		multi_accept on;
 	}
-	~~~
-
 {{< /file-excerpt >}}
+
 
 
 ## HTTP and TCP Optimizations
@@ -86,17 +83,14 @@ Keep alive allows for fewer reconnections from the browser. Remember to place th
 
 -	`tcp_nopush` optimizes the amount of data sent down the wire at once by activating the *TCP_CORK* option within the TCP stack. TCP_CORK blocks the data until the packet reaches the MSS, which is equal to the MTU minus the 40 or 60 bytes of the IP header.
 
-{{< file-excerpt >}}
-/etc/nginx/nginx.conf
-:	~~~ conf
-	keepalive_timeout 65;
+{{< file-excerpt "/etc/nginx/nginx.conf" conf >}}
+keepalive_timeout 65;
 	keepalive_requests 100000;
 	sendfile on;
 	tcp_nopush on;
 	tcp_nodelay on;
-	~~~
-
 {{< /file-excerpt >}}
+
 
 
 ### Buffer Size
@@ -113,32 +107,26 @@ Making tweaks to the buffer size can be advantageous. If the buffer sizes are to
 
 -	`output_buffers` sets the number and size of the buffers used for reading a response from a disk.  If possible, the transmission of client data will be postponed until nginx has at least the set size of bytes of data to send. The zero value disables postponing data transmission.
 
-{{< file-excerpt >}}
-/etc/nginx/nginx.conf
-:	~~~ conf
-	client_body_buffer_size      128k;
+{{< file-excerpt "/etc/nginx/nginx.conf" conf >}}
+client_body_buffer_size      128k;
 	client_max_body_size         10m;
 	client_header_buffer_size    1k;
 	large_client_header_buffers  4 4k;
 	output_buffers               1 32k;
 	postpone_output              1460;
-	~~~
-
 {{< /file-excerpt >}}
+
 
 
 ### Connection Queue
 
 Some directives in the in the `/etc/sysctl.conf` file can be changed in order to set the size of a Linux queue for connections and buckets.  Updating the `net.core.somaxconn` and `net.ipv4.tcp_max_tw_buckets` changes the size of the queue for connections waiting for acceptance by nginx.  If there are error messages in the kernel log, increase the value until errors stop.
 
-{{< file-excerpt >}}
-/etc/sysctl.conf
-:	~~~ conf
-	net.core.somaxconn = 65536
+{{< file-excerpt "/etc/sysctl.conf" conf >}}
+net.core.somaxconn = 65536
 	net.ipv4.tcp_max_tw_buckets = 1440000
-	~~~
-
 {{< /file-excerpt >}}
+
 
 Packets can be buffered in the network card before being handed to the CPU by setting the max backlog with the `net.core.netdev_max_backlog` tag. Consult the network card documentation for advice on changing this value.
 
@@ -153,59 +141,47 @@ Timeouts can also drastically improve performance. Remember to place these setti
 
 -	`send_timeout` specifies the response timeout to the client. This timeout does not apply to the entire transfer but, rather, only between two subsequent client-read operations. Thus, if the client has not read any data for this amount of time, then nginx shuts down the connection.
 
-{{< file-excerpt >}}
-/etc/nginx/nginx.conf
-:	~~~ conf
-	client_header_timeout  3m;
+{{< file-excerpt "/etc/nginx/nginx.conf" conf >}}
+client_header_timeout  3m;
 	client_body_timeout    3m;
 	send_timeout           3m;
-	~~~
-
 {{< /file-excerpt >}}
+
 
 
 ### Static Asset Serving
 
 If your site serves static assets (such as CSS/JavaScript/images), nginx can cache these files for a short period of time.  Adding this within your configuration block tells nginx to cache 1000 files for 30 seconds, excluding any files that haven't been accessed in 20 seconds, and only files that have been accessed at least 5 times in that timeframe. If you aren't deploying frequently you can safely bump up these numbers higher. Remember to place these settings inside the http {} directive.
 
-{{< file-excerpt >}}
-/etc/nginx/nginx.conf
-:	~~~ conf
-	open_file_cache max=1000 inactive=20s;
+{{< file-excerpt "/etc/nginx/nginx.conf" conf >}}
+open_file_cache max=1000 inactive=20s;
 	open_file_cache_valid 30s;
 	open_file_cache_min_uses 5;
 	open_file_cache_errors off;
-	~~~
-
 {{< /file-excerpt >}}
+
 
 You can also cache via a particular location.  Caching files for a long time is beneficial, especially if the files have a version control system delivered by the build process or CMS. This should be placed in the virtual host configuration or main configuration (e.g: /etc/nginx/sites-available/default)
 
-{{< file-excerpt >}}
-/etc/nginx/nginx.conf
-:	~~~ conf
-	location ~* .(woff|eot|ttf|svg|mp4|webm|jpg|jpeg|png|gif|ico|css|js)$ {
+{{< file-excerpt "/etc/nginx/nginx.conf" conf >}}
+location ~* .(woff|eot|ttf|svg|mp4|webm|jpg|jpeg|png|gif|ico|css|js)$ {
 		expires 365d;
 	}
-	~~~
-
 {{< /file-excerpt >}}
+
 
 
 ### Gzipping Content
 
 For content that is plain text, nginx can use gzip compression to serve back these assets compressed to the client.  Modern web browsers will accept gzip compression and this will shave bytes off of each request that comes in for plain text assets. The list below is a "safe" list of compressible content types; however, you only want to enable the content types that you are utilizing within your web application. Remember to place these settings inside the http {} directive.
 
-{{< file-excerpt >}}
-/etc/nginx/nginx.conf
-:	~~~ conf
-	gzip on;
+{{< file-excerpt "/etc/nginx/nginx.conf" conf >}}
+gzip on;
 	gzip_min_length 1000;
 	gzip_types text/html application/x-javascript text/css application/javascript text/javascript text/plain text/xml application/json application/vnd.ms-fontobject application/x-font-opentype application/x-font-truetype application/x-font-ttf application/xml font/eot font/opentype font/otf image/svg+xml image/vnd.microsoft.icon;
 	gzip_disable "MSIE [1-6]\.";
-	~~~
-
 {{< /file-excerpt >}}
+
 
 
 ## Filesystem Optimizations
@@ -220,13 +196,10 @@ The IPv4 local port range defines a port range value.  A common setting is `net.
 
 The TCP FIN timeout belays the amount of time a port must be inactive before it can reused for another connection. The default is often 60 seconds, but can normally be safely reduced to 30 or even 15 seconds:
 
-{{< file-excerpt >}}
-/etc/sysctl.conf
-:	~~~
-	net.ipv4.tcp_fin_timeout = 15
-	~~~
-
+{{< file-excerpt "/etc/sysctl.conf" >}}
+net.ipv4.tcp_fin_timeout = 15
 {{< /file-excerpt >}}
+
 
 
 ### Scale TCP Window
@@ -250,14 +223,11 @@ File descriptors are operating system resources used to handle things such as co
 
 `sys.fs.file_max` defines the system wide limit for file descriptors. `nofile` defines the user file descriptor limit, set in the `/etc/security/limits.conf` file.
 
-{{< file-excerpt >}}
-/etc/security/limits.conf
-:	~~~ conf
-	soft nofile 4096
+{{< file-excerpt "/etc/security/limits.conf" conf >}}
+soft nofile 4096
 	hard nofile 4096
-	~~~
-
 {{< /file-excerpt >}}
+
 
 ### Error Logs
 
@@ -281,53 +251,44 @@ File descriptors are operating system resources used to handle things such as co
 
 Access logs with the `log_format` directive to configure a format of logged messages, as well as the `access_log` directive to specify the location of the log and the format.
 
-{{< file-excerpt >}}
-/etc/nginx/nginx.conf
-:	~~~ conf
-	http {
+{{< file-excerpt "/etc/nginx/nginx.conf" conf >}}
+http {
 		log_format compression '$remote_addr - $remote_user [$time_local] ' '"$request" $status $body_bytes_sent ' '"$http_referer" "$http_user_agent" "$gzip_ratio"';
 		server {
 			gzip on;
 			access_log /spool/logs/nginx-access.log compression;
 		}
 	}
-	~~~
-
 {{< /file-excerpt >}}
+
 
 
 ### Conditional Logging
 
 Conditional logging can be completed if the system administrator only wants to log certain requests.  The example below excludes logging for both 2XX and 3XX HTTP status codes:
 
-{{< file-excerpt >}}
-/etc/nginx/nginx.conf
-:	~~~ conf
-	map $status $loggable {
+{{< file-excerpt "/etc/nginx/nginx.conf" conf >}}
+map $status $loggable {
 		~^[23]  0;
 		default 1;
 	}
-	~~~
-
 {{< /file-excerpt >}}
+
 
 
 ### Turning off Logging Completely
 
 Logging can be turned off completely if you have an alternative logging methodology or if you don't care about logging any of the requests to the server.  Turning off logging can be performed with the following server directives
 
-{{< file-excerpt >}}
-/etc/nginx/nginx.conf
-:	~~~ conf
-	server {
+{{< file-excerpt "/etc/nginx/nginx.conf" conf >}}
+server {
 	    listen       80;
 	    server_name  example.com;
 	    access_log  off;
 	    error_log off;
 	}
-	~~~
-
 {{< /file-excerpt >}}
+
 
 
 ### Activity Monitoring
@@ -343,39 +304,29 @@ Several tweaks have now been made across three files to improve nginx performanc
 
 ###sysctl.conf
 
-{{< file-excerpt >}}
-/etc/sysctl.conf
-:	~~~ conf
-	net.core.somaxconn = 65536
+{{< file-excerpt "/etc/sysctl.conf" conf >}}
+net.core.somaxconn = 65536
 	net.ipv4.tcp_max_tw_buckets = 1440000
 	net.ipv4.ip_local_port_range = 1024 65000
 	net.ipv4.tcp_fin_timeout = 15
 	net.ipv4.tcp_window_scaling = 1
 	net.ipv4.tcp_max_syn_backlog = 3240000
-	~~~
-
 {{< /file-excerpt >}}
+
 
 ###limits.conf
 
-{{< file-excerpt >}}
-/etc/security/limits.conf
-:	~~~ conf
-	soft nofile 4096
-hard nofile 4096
-	~~~
-
+{{< file-excerpt "/etc/security/limits.conf" conf >}}
+soft nofile 4096
+    hard nofile 4096
 {{< /file-excerpt >}}
+
 
 ###nginx.conf
 
-{{< file-excerpt >}}
-nginx.conf
-:	~~~ conf
-	pid /var/run/nginx.pid;
+{{< file-excerpt "nginx.conf" conf >}}
+pid /var/run/nginx.pid;
 	worker_processes  2;
-
-{{< /file-excerpt >}}
 
 	events {
 		worker_connections   65536;
@@ -457,4 +408,5 @@ nginx.conf
 			}
 		}
 	}
-	~~~
+{{< /file-excerpt >}}
+
