@@ -71,7 +71,7 @@ After you have added the file, stage a commit and leave a commit message. Commit
 
 This table lists basic commands, a description, and an example of the command in use: 
 
-{: .table .table-striped }
+
 | Command           | Description                                                                           | Example                    |
 |:------------------|:--------------------------------------------------------------------------------------|:---------------------------|
 | `git add`         | Add a file to a repository.                                                           | `git add filename`         |
@@ -89,7 +89,7 @@ Branches are used for editing files without disturbing the working portions of a
 
 The basic options used with the `git branch` command are:
 
-{: .table .table-striped}
+
 | Option   | Description                         |
 |:---------|:------------------------------------|
 | -r       | List the remote branches            |

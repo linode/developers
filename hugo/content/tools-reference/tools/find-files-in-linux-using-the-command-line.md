@@ -44,7 +44,7 @@ This command enables the maximum optimization level (-O3) and allows `find` to f
 
 ###Basic Examples
 
-{: .table .table-striped .table-bordered}
+
 | Command                                              | Description                                                                     |
 |------------------------------------------------------|:--------------------------------------------------------------------------------|
 | `find . -name testfile.txt`                          | Find a file called testfile.txt in current and sub-directories.                  |
@@ -62,7 +62,7 @@ The default configuration for `find` will ignore symbolic links (shortcut files)
 
 Optimization at the `-O2` level prioritizes file name filters, as in `-O1`, and then runs all file-type filtering before proceeding with other more resource-intensive conditions. Level `-O3` optimization allows `find` to perform the most severe optimization and reorders all tests based on their relative expense and the likelihood of their success.
 
-{: .table .table-striped .table-bordered}
+
 | Command     | Description                                                                                               |
 |------------:|:----------------------------------------------------------------------------------------------------------|
 | `-O1`       | (Default) filter based on file name first.                                                                 |

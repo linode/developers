@@ -53,7 +53,7 @@ To create a new standard user, use the `useradd` command. The syntax is as follo
 
 The useradd command utilizes a variety of variables, some of which are shown in the table below:
 
-{: .table .table-striped}
+
 | Option          | Description                                                        | Example                                    |
 |:----------------|:-------------------------------------------------------------------|:-------------------------------------------|
 | `-d <home_dir>` | home\_dir will be used as the value for the user's login directory | `useradd <name> -d /home/<user's home>`    |
@@ -205,7 +205,7 @@ Since a directory itself is a file, any directory will always show `4096` as it'
 
 The command `chmod` is short for change mode. Chmod is used to change permissions on files and directories. The command `chmod` may be used with either letters or numbers (also known as octal) to set the permissions. The letters used with chmod are in the table below:
 
-{: .table .table-striped }
+
 | Letter | Permission                                                   |
 |:-------|:-------------------------------------------------------------|
 | r      | Read                                                         |

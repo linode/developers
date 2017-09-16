@@ -154,7 +154,7 @@ Solution: Check for incompatible settings and modules in your Apache configurati
 
 Different distributions make Apache 2.4 the norm at different times. When you upgrade to one of the distributions in this chart, you will also be upgrading to Apache 2.4 by default.
 
-{: .table .table-striped }
+
 |Distribution    | Version    | Release Date
 |:--------------|:------------|: -----------------
 |Ubuntu         | 13.10       | out

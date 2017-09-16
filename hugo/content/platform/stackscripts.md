@@ -250,7 +250,7 @@ The StackScript system provides a basic markup specification that interfaces wit
 
 The UDF tags are explained in the table below:
 
-{: .table .table-striped}
+
 |Label    | Description           | Requirements
 |--------------------------------------------
 |name     | The variable name     | Alphanumeric, len <64, must be unique
@@ -280,7 +280,7 @@ If you would like to create a masked password input field, use the word 'passwor
 
 There are also a set of Linode created environmental variables that can be used for API calls or other tasks from within the script.
 
-{: .table .table-striped}
+
 | Environment Variable               | Description                                                                               |
 |:-----------------------------------|:------------------------------------------------------------------------------------------|
 | `LINODE_ID=123456`                 | The Linode's ID number                                                                    |

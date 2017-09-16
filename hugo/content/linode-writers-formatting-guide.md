@@ -156,7 +156,7 @@ Upon first mention of a new concept or software, use the full name or term, then
 
 Use a **Bold** font weight for buttons, menu selections and anything that requires emphasis or that you want to stand out to the reader. *Italicize* new terms and concepts the first time they are used.
 
-{: .table .table-striped .table-bordered }
+
 | Formatting | Example |
 |:--------------|:------------|
 | \*\*bold\*\* | **bold** |
@@ -179,7 +179,7 @@ For example:
 
 Inline commands should be denoted by backtics.
 
-{: .table .table-striped .table-bordered }
+
 | Formatting | Example |
 |:--------------|:------------|
 | Update your system by running \`yum update\`. | Update your system by running `yum update`. |
@@ -212,7 +212,7 @@ Within the file formatting, a code language or syntax should be defined at the e
 
 **Example**: File format
 
-{: .table .table-striped .table-bordered }
+
 | Formatting | Example |
 |:--------------------------|:----------------------------------------------|
 | {{< file >}}
@@ -222,7 +222,7 @@ Within the file formatting, a code language or syntax should be defined at the e
 
 **Example**: File Excerpt format
 
-{: .table .table-striped .table-bordered }
+
 | Formatting | Example |
 |:--------------------------|:----------------------------------------------|
 | {{< file-excerpt >}}
@@ -234,7 +234,7 @@ Within the file formatting, a code language or syntax should be defined at the e
 
 Inline file paths should be unformatted text.
 
-{: .table .table-striped .table-bordered }
+
 | Formatting | Example |
 |:--------------|:------------|
 | Navigate to \`/var/www/html\`. | Navigate to `/var/www/html`. |
@@ -242,7 +242,7 @@ Inline file paths should be unformatted text.
 
 ### Headings
 
-{: .table .table-striped .table-bordered }
+
 | Formatting | Example |
 |:--------------------------|:----------------------------------------------|
 | \#\# Section title (h2) | <font size="5">Section title (h2)</font> |
@@ -255,7 +255,7 @@ Images should be in *.png* or *.jpg* format. If an image is over 650 pixels wide
 When adding an image, ensure that all identifying attributes such as names and IP addresses are removed, obfuscated, or replaced with dummy text, such as **example_user** or **192.0.2.0**. Be mindful of metadata in images taken with mobile devices.
 
 
-{: .table .table-striped .table-bordered }
+
 | Up to 650 px wide. | Over 650 px wide. |
 |:--------------------------|:----------------------------------------------|
 | \!\[description\](/docs/assets/filename.png) | \[!\[description\](/docs/assets/filename_small.png)](/docs/assets/filename.png) |
@@ -264,7 +264,7 @@ When adding an image, ensure that all identifying attributes such as names and I
 
 When instructing a reader to use a combination of keys, format the key combination in bold:
 
-{: .table .table-striped .table-bordered }
+
 | Formatting | Example |
 |:--------------|:------------|
 | Press \*\*CTRL+N\*\* then \*\*X\*\* to exit the program.  | Press **CTRL+N** then **X** to exit the program. |
@@ -274,7 +274,7 @@ When instructing a reader to use a combination of keys, format the key combinati
 
 Internal links to other Linode guides should be relative, starting at `/docs/`, and external links should be formatted as shown below and use HTTPS URLs whenever possible.
 
-{: .table .table-striped .table-bordered }
+
 | Internal | External |
 |:--------------------------|:----------------------------------------------|
 | \[Getting Started\](/docs/getting-started) | \[Apache HTTP Server Documentation\](https://httpd.apache.org/docs/)] |
@@ -283,7 +283,7 @@ Internal links to other Linode guides should be relative, starting at `/docs/`, 
 
 Be sure that lists have the proper horizontal spacing. This should be *two* spaces for ordered lists and *three* for unordered. This is to keep the lists aligned properly with the four-space soft tabs used in the guides.
 
-{: .table .table-striped .table-bordered }
+
 | Ordered |  Unordered |
 |:--------------------------|:----------------------------------------------|
 | 1&nbsp;&nbsp;Step 1.<br><br>2&nbsp;&nbsp;Step 2.<br><br>3&nbsp;&nbsp;Step 3. | \*&nbsp;&nbsp;&nbsp;Item 1.<br><br>\*&nbsp;&nbsp;&nbsp;Item 2.<br><br>\*&nbsp;&nbsp;&nbsp;Item 3. |
@@ -292,7 +292,7 @@ Be sure that lists have the proper horizontal spacing. This should be *two* spac
 
 Notes should be important text that does not necessarily fit the narrative of the preceeding step or paragraph. If a step in your guide can cause any major issues with the user's Linode or computer, a caution note should be included.
 
-{: .table .table-striped .table-bordered }
+
 | Formatting | Example |
 |:--------------------------|:----------------------------------------------|
 | {{< note >}}
@@ -303,7 +303,7 @@ Notes should be important text that does not necessarily fit the narrative of th
 
 ### Numerical Values
 
-{: .table .table-striped .table-bordered }
+
 | 1-10 | Greater than 10 |
 |:--------------|:------------|
 | Use words (one, two, three, etc.)  | Use numerical digits (11, 22, 33). |
@@ -319,7 +319,7 @@ Use single spaces between sentences; do not double-space.
   <thead><th>Formatting</th><th>Example</th></thead>
   <tr>
     <td>
-{: .table .table-striped}
+
 <br>
 | Left-Aligned | Centered     | Right-Aligned |
 <br>
@@ -341,7 +341,7 @@ Use single spaces between sentences; do not double-space.
 
 Variables that the reader will need to change for their system or preference should be formatted using backtics. Do not include any brackets or parentheses when using these temporary values in examples, as the reader may include them in their final version.
 
-{: .table .table-striped .table-bordered }
+
 | Formatting | Example |
 |:--------------|:------------|
 | Change the \`password\` and \`username\` values. | Change the `password` and `username` values. |

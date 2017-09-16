@@ -214,7 +214,7 @@ If you expect output from a command but don't see it, you may need to return to 
 
 Irssi commands are provided in the table below:
 
-{: .table .table-striped }
+
 | Command | Description                                                                      |
 |:---------------|:--------------------------------------------------------------------------|
 | /ban           | Sets or lists bans for a channel                                          |

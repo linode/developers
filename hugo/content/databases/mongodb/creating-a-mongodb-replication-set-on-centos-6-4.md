@@ -318,7 +318,7 @@ To clarify how data is stored it is important to understand how MongoDB classifi
 
 ### Basic MongoDB Commands
 
-{: .table .table-striped}
+
 |--------------------|------------------------------------------------------------------------|
 | Command            | Description                                                            |
 |--------------------|------------------------------------------------------------------------|

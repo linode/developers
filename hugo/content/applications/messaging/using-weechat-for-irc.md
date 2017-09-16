@@ -221,7 +221,7 @@ All WeeChat commands begin with a **/**. Every channel in WeeChat is a *buffer*.
 
 A list of basic commands is below.
 
-  {: .table .table-striped }
+  
   | Command    | Description                                                                     |
   | --------   | ------------------------------------------------------------------------------- |
   | `/help`    | Lists commands, if a command is given then shows command usage and description  |

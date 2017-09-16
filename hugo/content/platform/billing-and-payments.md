@@ -23,7 +23,7 @@ All services are billed automatically at the end of the month. If you used a ser
 
 ### Standard Plans
 
-{: .table .table-striped }
+
 | Service      | Hourly Rate | Monthly | Backups Hourly Rate | Backups Monthly
 |:-------------|:------------|:--------|:--------------------|:---------------
 | Linode 1GB   | $0.0075/hr  | $5/mo   | $0.0019/hr          | $2/mo
@@ -41,7 +41,7 @@ Full specs of each plan can be found on our [pricing page](https://www.linode.co
 
 ### High Memory Plans
 
-{: .table .table-striped }
+
 | Service      | Hourly Rate | Monthly | Backups Hourly Rate | Backups Monthly
 |:-------------|:------------|:--------|:--------------------|:---------------
 | Linode 16GB  | $0.09/hr    | $60/mo  | $0.008/hr          | $5/mo
@@ -55,7 +55,7 @@ Full specs of each plan can be found on our [pricing page](https://www.linode.co
 
 ### Additional Linode Services
 
-{: .table .table-striped }
+
 | Service          | Hourly Rate | Monthly
 |:-----------------|:------------|:-------
 | Additional IP    | $0.0015/hr  | $1/mo

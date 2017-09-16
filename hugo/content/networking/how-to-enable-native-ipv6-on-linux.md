@@ -59,7 +59,7 @@ If your Linode does not have the correct IPv6 address or an IPv6 address at all,
 
 You can request additional IPv6 addresses at any time by opening a [support ticket](/docs/platform/support). Additional addresses are allotted in *pools*. Each pool size has a different number of IPv6 addresses. The IPv6 pool sizes Linode provides and their respective quantity of IPv6 addresses are below.
 
-{: .table .table-striped }
+
 | Pool   | No. of IPS                    |
 |:-------|------------------------------:|
 | /56    | 4,722,366,482,869,645,213,696 |

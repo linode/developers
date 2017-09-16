@@ -42,7 +42,7 @@ Run `date --help` to display a list of formatting options.
 
 Here's a small sample of the formatting tokens `date` supports:
 
-{: .table .table-striped} 
+ 
 | Token | Output |
 | ------| ------------|
 | %a    | locale's abbreviated weekday name (e.g., Sun) |

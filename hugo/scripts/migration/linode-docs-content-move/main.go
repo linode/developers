@@ -37,7 +37,7 @@ func fixContent(path, s string) (string, error) {
 
 		// TODO(bep) for now we just remove the callout styling for
 		// striped tables.
-		//tableStripedFixer,
+		tableFixer,
 	}
 
 	for _, fix := range fixers {
@@ -64,6 +64,8 @@ var (
 	calloutFilesFixer = func(path, s string) (string, error) {
 		// Handle file and file-excerpt shortcodes
 		// Replace callouts with shortcodes
+		calloutsFiles := regexp.MustCompile(`(?s){:\s?\.(file[\w|-]*)\s?}\n(.*?)\n.*?~~~\s?(\w*)\n(.*?)~~~`)
+
 		s = calloutsFiles.ReplaceAllStringFunc(s, func(s string) string {
 			m := calloutsFiles.FindAllStringSubmatch(s, -1)
 			if len(m) > 0 {
@@ -119,6 +121,8 @@ var (
 	}
 
 	calloutsToShortCodes = func(path, s string) (string, error) {
+		calloutsRe := regexp.MustCompile(`(?s){:\s?\.([\w|-]*)\s?}(.*?)\n\n`)
+
 		s = calloutsRe.ReplaceAllStringFunc(s, func(s string) string {
 			m := calloutsRe.FindAllStringSubmatch(s, -1)
 			if len(m) > 0 {
@@ -149,6 +153,7 @@ var (
 	}
 
 	keywordsToArray = func(path, s string) (string, error) {
+		keywordsRe := regexp.MustCompile(`keywords: '(.*)'\s*\n?`)
 
 		s = keywordsRe.ReplaceAllStringFunc(s, func(s string) string {
 			m := keywordsRe.FindAllStringSubmatch(s, -1)
@@ -170,6 +175,8 @@ var (
 	}
 
 	fixDates = func(path, s string) (string, error) {
+		dateRe := regexp.MustCompile(`(published|modified): '?(.*)'?\s*\n`)
+
 		// Make modified and published front matter date into proper dates.
 		var err error
 		s = dateRe.ReplaceAllStringFunc(s, func(s string) string {
@@ -192,9 +199,17 @@ var (
 		return s, err
 	}
 
-	tableStripedFixer = func(path, s string) (string, error) {
-		re := regexp.MustCompile("{: .table.*?}\n")
-		s = re.ReplaceAllString(s, "")
+	tableFixer = func(path, s string) (string, error) {
+		re := regexp.MustCompile(`(?s)({: \.table.*?})(.*?)\n\n`)
+		s = re.ReplaceAllStringFunc(s, func(s string) string {
+			m := re.FindAllStringSubmatch(s, 1)
+			if len(m) > 0 {
+				v := m[0]
+				return v[2] + "\n\n"
+			}
+			return s
+		})
+
 		return s, nil
 	}
 )
@@ -332,11 +347,6 @@ type frontmatterAddon struct {
 }
 
 var (
-	dateRe     = regexp.MustCompile(`(published|modified): '?(.*)'?\s*\n`)
-	keywordsRe = regexp.MustCompile(`keywords: '(.*)'\s*\n?`)
-
-	calloutsFiles = regexp.MustCompile(`(?s){:\s?\.(file[\w|-]*)\s?}\n(.*?)\n.*?~~~\s?(\w*)\n(.*?)~~~`)
-	calloutsRe    = regexp.MustCompile(`(?s){:\s?\.([\w|-]*)\s?}(.*?)\n\n`)
 
 	// (?s){{< (file-?\w*) >}}\n(.*?)\n.*?~~~\s?(\w*)\n(.*?)~~~.*?{< /file-excerpt >}}
 

@@ -175,7 +175,7 @@ The naming convention for these virtual hosts is derived from the domain names. 
 
 To modify the host directory format lighttpd recognizes, define the pattern that gets passed to the directory in which the content lives. The following table shows what host directory format is used as the document root for each pattern. It also shows which host file will be used to serve content, using the above URL as an example request:
 
-{: .table .table-striped}
+
 | Pattern | Host Directory Format   | Document Root Path                                     |
 | --------|-------------------------|--------------------------------------------------------|
 | %0      | Domain name and TLD     | /var/www/html/example.com/htdocs                        |

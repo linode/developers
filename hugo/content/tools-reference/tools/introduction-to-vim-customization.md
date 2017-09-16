@@ -239,7 +239,7 @@ If after this step you receive an error similar to `E117 Unknown Function: plug#
 
 5.  Additional commands for managing plug-ins via Vim-Plug are listed below.
 
-{: .table .table-striped .table-bordered}
+
  | Command                        | Description                                   |
  | :----------:                   | :-----------:                                 |
  | PlugInstall                    | Install plugins                               |

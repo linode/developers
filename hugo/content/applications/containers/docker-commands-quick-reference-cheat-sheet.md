@@ -19,7 +19,7 @@ Optimizing the platform's functionality begins with mastery of requisite Docker 
 
 ##Installation
 
-{: .table .table-striped .table-bordered} 
+ 
 | Docker Syntax | Description | 
 |:-------------|:---------| 
 | **curl -sSL https://get.docker.com/ \| sh**    | The Docker maintained installation script<br> for **Debian** or **Ubuntu**.   | 
@@ -29,7 +29,7 @@ Optimizing the platform's functionality begins with mastery of requisite Docker 
 
 ##Docker Hub
 
-{: .table .table-striped .table-bordered} 
+ 
 | Docker Syntax | Description | 
 |:-------------|:---------| 
 | **sudo docker search** searchitem | Search Docker Hub for images. Replace <br>`searchitem` with a search-able term. |
@@ -39,7 +39,7 @@ Optimizing the platform's functionality begins with mastery of requisite Docker 
 
 ##Use Containers and Images
 
-{: .table .table-striped .table-bordered} 
+ 
 | Docker Syntax | Description | 
 |:-------------|:---------| 
 | **sudo docker run -t -i** user/image | Runs an image, creating a container and<br> changing the command prompt<br> to within the container. |
@@ -53,7 +53,7 @@ Optimizing the platform's functionality begins with mastery of requisite Docker 
 
 ##Image Creation
 
-{: .table .table-striped .table-bordered} 
+ 
 | Docker Syntax | Description | 
 |:-------------|:---------| 
 | **FROM ubuntu:14.04 <br> MAINTAINER Sample User** <user.email@email.com> <br> **RUN apt-get update** | Create an empty directory <br> with a file named **`Dockerfile`**, <br> then insert this syntax. <br> From the new directory,<br> run the build command,<br> listed below.|
