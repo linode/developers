@@ -4,7 +4,7 @@ author:
   email: docs@linode.com
 description: 'Instructions for configuring your Debian or Ubuntu Linode to run a custom compiled kernel with PV-GRUB.'
 alias: ['custom-kernels-distros/custom-compiled-kernel-with-pvgrub-debian-7-ubuntu']
-keywords: 'compile kernel,kernel compiling,pv-grub,pvgrub,custom linux kernel,custom linode, debian,ubuntu'
+keywords: ["compile kernel", "kernel compiling", "pv-grub", "pvgrub", "custom linux kernel", "custom linode", " debian", "ubuntu"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 'Friday, April 3, 2015'
 modified_by:
@@ -86,16 +86,15 @@ Once your configuration options are set, exit the configuration interface and an
 
 3.  Create a `menu.lst` file with the following contents. Adjust the "title" and "kernel" lines to reflect the actual filenames found in the `/boot` directory.
 
-    {: .file-excerpt }
-    /boot/grub/menu.lst
-    :   ~~~
-    	timeout 5
+    {{< file-excerpt "/boot/grub/menu.lst" >}}
+timeout 5
 	
     	title Custom Compiled, kernel 3.19.3-custom 
     	root (hd0) 
     	kernel /boot/vmlinuz-3.19.3 root=/dev/xvda ro quiet
         initrd /boot/initrd.img-3.19.3
-        ~~~
+{{< /file-excerpt >}}
+
 
 ## Configure for PV-GRUB
 

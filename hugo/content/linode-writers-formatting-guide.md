@@ -3,7 +3,7 @@ author:
   name: Linode
   email: docs@linode.com
 description: 'The Linode Guides & Tutorials style guide for article submissions'
-keywords: 'style guide,format,formatting,how to write,write for us,write for linode,linode docs,submissions'
+keywords: ["style guide", "format", "formatting", "how to write", "write for us", "write for linode", "linode docs", "submissions"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 alias: ['style-guide/','linode-writers-guide/']
 modified: Friday, June 30, 2017
@@ -32,16 +32,14 @@ Linode Guides & Tutorials are written in [PHP Markdown Extra](https://michelf.ca
 
 Linode Guides & Tutorials store metadata and other information in a [YAML](http://yaml.org/) header at the top of every page. Use the template below for your own guide.
 
-{: .file-excerpt}
-Author Submission
-:   ~~~
-    ---
+{{< file-excerpt "Author Submission" >}}
+---
     author:
       name: Linode Community
       email: docs@linode.com
     description: 'Two to three sentences describing your guide.'
-    keywords: 'list,of,keywords,and key phrases'
-    license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
+    keywords: ["list", "of", "keywords", "and key phrases"]
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
     published: 'Weekday, Month 00st, 2015'
     modified: Weekday, Month 00th, 2015
     modified_by:
@@ -57,7 +55,8 @@ Author Submission
 
     *This is a Linode Community guide. If you're an expert on something for which we need a guide, you too can [get paid to write for us](/docs/contribute).*
     ----
-    ~~~
+{{< /file-excerpt >}}
+
 
 If you're updating an existing guide in our repository, you may also notice a `deprecated` field in the header. This defaults to false, and setting it to *true* inserts a pre-written message near the beginning stating that the guide is no longer maintained. Typically, this will be used on guides specific to applications or distributions that have reached End of Life (EOL).
 
@@ -69,10 +68,8 @@ Introductions should be concise; explain what the goal of the guide is and why. 
 
 The *Before You Begin* section is an area for basic prerequisites a reader should know or have completed before proceeding further in your guide. Use the example below and edit as needed:
 
-{: .file-excerpt}
-Author Submission
-:   ~~~
-    ## Before You Begin
+{{< file-excerpt "Author Submission" >}}
+## Before You Begin
 
     1.  Familiarize yourself with our [Getting Started](/docs/getting-started) guide and complete the steps for setting your Linode's hostname and timezone.
 
@@ -81,24 +78,27 @@ Author Submission
     3.  Update your system:
 
             sudo apt-get update && sudo apt-get upgrade
-    ~~~
+{{< /file-excerpt >}}
+
 
 #### Include a Note about Root or Non-Root users
 
-{: .file-excerpt}
-Guides Written for a Non-Root User
-:   ~~~ txt
-    {: .note}
-    >
-    > This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-    ~~~
+{{< file-excerpt "Guides Written for a Non-Root User" resource >}}
+{{< note >}}
 
-{: .file-excerpt}
-Guides Written for a Root User
-:   ~~~ txt
-    {: .note}
-    > The steps in this guide require root privileges. Be sure to run the steps below as `root` or with the `sudo` prefix. For more information on privileges, see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-    ~~~
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< /file-excerpt >}}
+
+{{< /note >}}
+
+
+{{< file-excerpt "Guides Written for a Root User" resource >}}
+{{< note >}}
+The steps in this guide require root privileges. Be sure to run the steps below as `root` or with the `sudo` prefix. For more information on privileges, see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+{{< /file-excerpt >}}
+
+{{< /note >}}
+
 
 #### Include a Note about Example Variables
 
@@ -140,9 +140,11 @@ For example:
         mysql -u testuser -p
 ~~~
 
-{: .note}
->
->The tab size is set to four, and **only** soft tabs should be used. This can be configured in the settings of most text editors.
+{{< note >}}
+
+The tab size is set to four, and **only** soft tabs should be used. This can be configured in the settings of most text editors.
+
+{{< /note >}}
 
 ## Markdown Formatting
 
@@ -213,14 +215,20 @@ Within the file formatting, a code language or syntax should be defined at the e
 {: .table .table-striped .table-bordered }
 | Formatting | Example |
 |:--------------------------|:----------------------------------------------|
-| {: .file }<br>/path/to/file.html<br>:&nbsp;&nbsp;&nbsp;~~~ conf<br>&nbsp;&nbsp;&nbsp;&nbsp;#Sample file text<br>&nbsp;&nbsp;&nbsp;&nbsp;Sample file syntax<br>&nbsp;&nbsp;&nbsp;&nbsp;~~~ | <img src="/docs/assets/example_file_file.png"> |
+| {{< file >}}
+<br>/path/to/file.html<br>:&nbsp;&nbsp;&nbsp;~~~ conf<br>&nbsp;&nbsp;&nbsp;&nbsp;#Sample file text<br>&nbsp;&nbsp;&nbsp;&nbsp;Sample file syntax<br>&nbsp;&nbsp;&nbsp;&nbsp;~~~ | <img src="/docs/assets/example_file_file.png"> |
+
+{{< /file >}}
 
 **Example**: File Excerpt format
 
 {: .table .table-striped .table-bordered }
 | Formatting | Example |
 |:--------------------------|:----------------------------------------------|
-| {: .file-excerpt }<br>/path/to/file.html<br>:&nbsp;&nbsp;&nbsp;~~~ ini<br>&nbsp;&nbsp;&nbsp;&nbsp;#Sample file excerpt text<br>&nbsp;&nbsp;&nbsp;&nbsp;Sample file excerpt syntax<br>&nbsp;&nbsp;&nbsp;&nbsp;~~~ | <img src="/docs/assets/example_file_excerpt.png"> |
+| {{< file-excerpt >}}
+<br>/path/to/file.html<br>:&nbsp;&nbsp;&nbsp;~~~ ini<br>&nbsp;&nbsp;&nbsp;&nbsp;#Sample file excerpt text<br>&nbsp;&nbsp;&nbsp;&nbsp;Sample file excerpt syntax<br>&nbsp;&nbsp;&nbsp;&nbsp;~~~ | <img src="/docs/assets/example_file_excerpt.png"> |
+
+{{< /file-excerpt >}}
 
 ### File Paths
 
@@ -287,8 +295,11 @@ Notes should be important text that does not necessarily fit the narrative of th
 {: .table .table-striped .table-bordered }
 | Formatting | Example |
 |:--------------------------|:----------------------------------------------|
-| {: .note}<br>><br>> This is a sample note.<br> | <img src="/docs/assets/example-note.png"> |
+| {{< note >}}
+<br>><br>> This is a sample note.<br> | <img src="/docs/assets/example-note.png"> |
 | {: .caution}<br>><br>> This is a sample caution.<br> | <img src="/docs/assets/example-caution.png"> |
+
+{{< /note >}}
 
 ### Numerical Values
 

@@ -14,6 +14,181 @@ import (
 	"time"
 )
 
+type contentFixer func(path, s string) (string, error)
+
+func fixContent(path, s string) (string, error) {
+
+	// TODO(bep) fix markdown titles: ##Configure Apache
+	// TODO(bep) check aliases
+	// TODO(bep) {: .table .table-striped .table-bordered}
+	// TODO(bep) {: .file-excerpt}  {:.file }
+	// TODO(bep) the rest {: -- maybe just create a "manual issue"
+
+	fixers := []contentFixer{
+		// Handles the callouts file and file-exerpt
+		calloutFilesFixer,
+
+		// Handles conversion of all the other callouts to shortcodes
+		calloutsToShortCodes,
+
+		keywordsToArray,
+
+		fixDates,
+	}
+
+	for _, fix := range fixers {
+		fixed, err := fix(path, s)
+		if err != nil {
+			fmt.Printf("%s\t%s\n", path, err)
+		} else {
+			s = fixed
+		}
+	}
+
+	relPath := path[strings.Index(path, "content_old")+17:]
+
+	// Add front matter to get them listen on the front page tiles.
+	if addon, ok := fundamentalPages[relPath]; ok {
+		s = addToFrontpage(s, addon)
+	}
+
+	return s, nil
+
+}
+
+var (
+	calloutFilesFixer = func(path, s string) (string, error) {
+		// Handle file and file-excerpt shortcodes
+		// Replace callouts with shortcodes
+		s = calloutsFiles.ReplaceAllStringFunc(s, func(s string) string {
+			m := calloutsFiles.FindAllStringSubmatch(s, -1)
+			if len(m) > 0 {
+
+				first := m[0]
+
+				shortcode := strings.TrimSpace(first[1])
+				filename := strings.TrimSpace(first[2])
+				style := strings.TrimSpace(first[3])
+				code := strings.TrimSpace(first[4])
+
+				// Misspelled
+				if shortcode == "file-exceprt" || shortcode == "file-exerpt" {
+					shortcode = "file-excerpt"
+				}
+
+				// TODO(bep)  fix code fenced styles
+				// TODO(bep) fix indentation
+
+				// Correct to supported Pygments lexers
+				// See http://pygments.org/docs/lexers/
+				if style == "conf" || style == "config" || style == "apache2" || style == "cnf" || style == "httpd" {
+					style = "aconf" // Apache conf
+				} else if style == "pp" {
+					style = "puppet"
+				} else if style == "aspx" {
+					style = "aspx-cs"
+				} else if style == "yml" {
+					style = "yaml"
+				} else if style == "text" || style == "txt" || style == "log" {
+					style = "resource"
+				} else if strings.EqualFold(style, "vimrc") {
+					style = "vim"
+				} else if strings.EqualFold(style, "list") {
+					style = "sourceslist"
+				}
+
+				if style != "" {
+					style += " "
+				}
+
+				return fmt.Sprintf(`{{< %s %q %s>}}
+%s
+{{< /%s >}}
+`, shortcode, filename, style, code, shortcode)
+			}
+
+			return s
+		})
+
+		return s, nil
+
+	}
+
+	calloutsToShortCodes = func(path, s string) (string, error) {
+		s = calloutsRe.ReplaceAllStringFunc(s, func(s string) string {
+			m := calloutsRe.FindAllStringSubmatch(s, -1)
+			if len(m) > 0 {
+				first := m[0]
+				name, content := first[1], first[2]
+				content = strings.TrimSpace(content)
+				name = strings.TrimSpace(name)
+
+				// Block level markdown is superflous.
+				lines := strings.Split(content, "\n")
+				newContent := ""
+				for _, line := range lines {
+					newContent += strings.TrimLeft(line, "> ") + "\n"
+				}
+
+				return fmt.Sprintf(`{{< %s >}}
+%s
+{{< /%s >}}
+
+`, name, newContent, name)
+
+			}
+
+			return s
+		})
+
+		return s, nil
+	}
+
+	keywordsToArray = func(path, s string) (string, error) {
+
+		s = keywordsRe.ReplaceAllStringFunc(s, func(s string) string {
+			m := keywordsRe.FindAllStringSubmatch(s, -1)
+			if len(m) > 0 {
+				kw := m[0][1]
+				kwStr := strings.Trim(kw, "'")
+				kwSplit := strings.Split(kwStr, ",")
+				r := fmt.Sprintf("keywords: %#v", kwSplit)
+				r = strings.Replace(r, "]string{", "", 1)
+				r = strings.Replace(r, "}", "]", 1)
+
+				return r + "\n"
+			}
+
+			return s + "\n"
+		})
+
+		return s, nil
+	}
+
+	fixDates = func(path, s string) (string, error) {
+		// Make modified and published front matter date into proper dates.
+		var err error
+		s = dateRe.ReplaceAllStringFunc(s, func(s string) string {
+			m := dateRe.FindAllStringSubmatch(s, -1)
+			key, val := m[0][1], m[0][2]
+			var tt time.Time
+			cleaned := dateCleaner(val)
+			if cleaned == "" {
+				return ""
+			}
+			tt, err = time.Parse("Monday, January 2, 2006", cleaned)
+			if err != nil {
+				err = fmt.Errorf("%s: %s", key, err)
+				return ""
+			}
+
+			return fmt.Sprintf("%s: %s\n", key, tt.Format("2006-01-02"))
+		})
+
+		return s, err
+	}
+)
+
 var (
 	skipFiles = map[string]bool{
 		// Handle these by manual copy.
@@ -27,11 +202,6 @@ var (
 /* TODO(bep)
 
 layouts in _index.md
-
-Dates:
-
-published: 'Wednesday, December 2nd, 2015'
-modified: Wednesday, December 2nd, 2015
 
 
 */
@@ -205,164 +375,6 @@ $2
 `, addition))
 
 	return replaced
-}
-
-var tmpCount = 0
-
-func fixContent(path, s string) (string, error) {
-
-	// TODO(bep) fix markdown titles: ##Configure Apache
-
-	// Handle file and file-excerpt shortcodes
-	// Replace callouts with shortcodes
-	s = calloutsFiles.ReplaceAllStringFunc(s, func(s string) string {
-		m := calloutsFiles.FindAllStringSubmatch(s, -1)
-		if len(m) > 0 {
-			tmpCount++
-
-			first := m[0]
-
-			shortcode := strings.TrimSpace(first[1])
-			filename := strings.TrimSpace(first[2])
-			style := strings.TrimSpace(first[3])
-			code := strings.TrimSpace(first[4])
-
-			// Misspelled
-			if shortcode == "file-exceprt" || shortcode == "file-exerpt" {
-				shortcode = "file-excerpt"
-			}
-
-			// TODO(bep)  fix code fenced styles
-			// TODO(bep) fix indentation
-
-			// Correct to supported Pygments lexers
-			// See http://pygments.org/docs/lexers/
-			if style == "conf" || style == "config" || style == "apache2" || style == "cnf" || style == "httpd" {
-				style = "aconf" // Apache conf
-			} else if style == "pp" {
-				style = "puppet"
-			} else if style == "aspx" {
-				style = "aspx-cs"
-			} else if style == "yml" {
-				style = "yaml"
-			} else if style == "text" || style == "txt" || style == "log" {
-				style = "resource"
-			} else if strings.EqualFold(style, "vimrc") {
-				style = "vim"
-			} else if strings.EqualFold(style, "list") {
-				style = "sourceslist"
-			}
-
-			if style != "" {
-				style += " "
-			}
-
-			return fmt.Sprintf(`{{< %s %q %s>}}
-%s
-{{< /%s >}}
-`, shortcode, filename, style, code, shortcode)
-		}
-
-		return s
-	})
-
-	// Replace the reset of the callouts with shortcodes
-	s = calloutsRe.ReplaceAllStringFunc(s, func(s string) string {
-		m := calloutsRe.FindAllStringSubmatch(s, -1)
-		if len(m) > 0 {
-			first := m[0]
-			name, content := first[1], first[2]
-			content = strings.TrimSpace(content)
-			name = strings.TrimSpace(name)
-
-			// Block level markdown is superflous.
-			lines := strings.Split(content, "\n")
-			newContent := ""
-			for _, line := range lines {
-				newContent += strings.TrimLeft(line, "> ") + "\n"
-			}
-
-			return fmt.Sprintf(`{{< %s >}}
-%s
-{{< /%s >}}
-
-`, name, newContent, name)
-
-		}
-
-		return s
-	})
-
-	// Make keywords into proper arrays
-	s = keywordsRe.ReplaceAllStringFunc(s, func(s string) string {
-		m := keywordsRe.FindAllStringSubmatch(s, -1)
-		if len(m) > 0 {
-			kw := m[0][1]
-			kwStr := strings.Trim(kw, "'")
-			kwSplit := strings.Split(kwStr, ",")
-			r := fmt.Sprintf("keywords: %#v", kwSplit)
-			r = strings.Replace(r, "]string{", "", 1)
-			r = strings.Replace(r, "}", "]", 1)
-
-			return r + "\n"
-		}
-
-		return s + "\n"
-	})
-
-	// TODO(bep) check aliases
-	// TODO(bep) {: .table .table-striped .table-bordered}
-	// TODO(bep) {: .file-excerpt}  {:.file }
-	// TODO(bep) the rest {: -- maybe just create a "manual issue"
-	/*
-
-		file-excerpt: code highlitht, linenum, lead title: "File:"
-
-			 {: .file-excerpt} {:.file } (is same?)
-		    /etc/puppet/modules/apache/manifests/init.pp
-		    :   ~~~ pp
-		          file { 'configuration-file':
-		            path    => $conffile,
-		            ensure  => file,
-		            source  => $confsource,
-		          }
-		        ~~~
-	*/
-	var err error
-
-	// Make modified and published front matter date into proper dates.
-	s = dateRe.ReplaceAllStringFunc(s, func(s string) string {
-		if err != nil {
-			return ""
-		}
-		m := dateRe.FindAllStringSubmatch(s, -1)
-		key, val := m[0][1], m[0][2]
-		var tt time.Time
-		cleaned := dateCleaner(val)
-		if cleaned == "" {
-			return ""
-		}
-		tt, err = time.Parse("Monday, January 2, 2006", cleaned)
-		if err != nil {
-			err = fmt.Errorf("%s: %s", key, err)
-			return ""
-		}
-
-		return fmt.Sprintf("%s: %s\n", key, tt.Format("2006-01-02"))
-	})
-
-	if err != nil {
-		return "", err
-	}
-
-	relPath := path[strings.Index(path, "content_old")+17:]
-
-	if addon, ok := fundamentalPages[relPath]; ok {
-		s = addToFrontpage(s, addon)
-	}
-
-	return s, nil
-
 }
 
 func dateCleaner(s string) string {

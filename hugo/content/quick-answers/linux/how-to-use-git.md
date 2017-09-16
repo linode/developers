@@ -3,7 +3,7 @@ author:
   name: Angel Guarisma
   email: aguarisma@linode.com
 description: 'This Quick Answer guide explains how to use Git to create a repository, stage a commit, and then push that commit.'
-keywords: 'Linux, how to use Git, github, create git repo'
+keywords: ["Linux", " how to use Git", " github", " create git repo"]
 alias: ['quick-answers/how-to-use-git/']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 'Monday, July 17th, 2017'
@@ -103,7 +103,10 @@ Git is a [version control system](https://en.wikipedia.org/wiki/Version_control)
 		create mode 100644 file2.txt
 		create mode 100644 file3.txt
 
-{: .note}
+{{< note >}}
+
+
+{{< /note >}}
 
 >`git add -A`, `git add .`, and `git add -u` can all be used to stage files for a commit.
 > `git add -A` stages `a`ll of the files in the directory. `git add .` stages only the new and modified files, omitting  any deleted files. `git add -u` stages only the modified and deleted files, omitting any new files.
