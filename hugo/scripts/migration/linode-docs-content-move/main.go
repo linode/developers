@@ -34,6 +34,10 @@ func fixContent(path, s string) (string, error) {
 		keywordsToArray,
 
 		fixDates,
+
+		// TODO(bep) for now we just remove the callout styling for
+		// striped tables.
+		//tableStripedFixer,
 	}
 
 	for _, fix := range fixers {
@@ -186,6 +190,12 @@ var (
 		})
 
 		return s, err
+	}
+
+	tableStripedFixer = func(path, s string) (string, error) {
+		re := regexp.MustCompile("{: .table.*?}\n")
+		s = re.ReplaceAllString(s, "")
+		return s, nil
 	}
 )
 
