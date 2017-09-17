@@ -32,7 +32,10 @@
         <link href="{{ relURL "assets/stylesheets/syntax.css" }}" rel='stylesheet' type='text/css'>
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
-        <link rel='canonical' href="TODO(bep)">
+        <link rel="canonical" href="{{ .Permalink | safeURL }}">
+        {{ range .AlternativeOutputFormats -}}
+        <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
+        {{ end -}}
         <link rel="shortcut icon" href="/favicon.ico">
 
         <style type="text/css">
