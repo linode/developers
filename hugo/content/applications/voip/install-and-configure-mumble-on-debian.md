@@ -81,8 +81,7 @@ sudo service mumble-server disable
 1.  If you need to address more exact configuration specifics, such as assigning port numbers and/or maximum users, Murmur has a settings file at `/etc/mumble-server.ini`. Below is a partial list of settings included; more settings exist and are further explained in the file.
 
 
-    
-    |:----------------------|:----------------------------------------------------------------------------------------|
+        |:----------------------|:----------------------------------------------------------------------------------------|
     | **autobanAttempts**   | Set how many times someone can fail to connect to the server within a given timeframe.  |
     | **autobanTimeframe**  | Set the given timeframe for attempts to login to the server.                            |
     | **autobanTime**       | Set the amount of time that the login ban lasts.                                        |

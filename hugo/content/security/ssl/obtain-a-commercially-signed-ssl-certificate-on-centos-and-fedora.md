@@ -160,7 +160,6 @@ The contents of the resulting file will appear similar to the following:
 
 Use this table to better visualize the command entered to prepare the chained SSL certificate:
 
-{: .table .table-striped }
 | **Certificate Type:**      | **Issued to:**                          | **Issued by:**                          |
 |----------------------------|:----------------------------------------|:----------------------------------------|
 | End-user Certificate       | example.com                             | Comodo LLC                              |

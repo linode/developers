@@ -44,7 +44,6 @@ This command enables the maximum optimization level (-O3) and allows `find` to f
 
 ###Basic Examples
 
-
 | Command                                              | Description                                                                     |
 |------------------------------------------------------|:--------------------------------------------------------------------------------|
 | `find . -name testfile.txt`                          | Find a file called testfile.txt in current and sub-directories.                  |
@@ -61,7 +60,6 @@ The default configuration for `find` will ignore symbolic links (shortcut files)
 `find` optimizes its filtering strategy to increase performance. Three user-selectable optimization levels are specified as `-O1`, `-O2`, and `-O3`. The `-O1` optimization is the default and forces `find` to filter based on filename before running all other tests.
 
 Optimization at the `-O2` level prioritizes file name filters, as in `-O1`, and then runs all file-type filtering before proceeding with other more resource-intensive conditions. Level `-O3` optimization allows `find` to perform the most severe optimization and reorders all tests based on their relative expense and the likelihood of their success.
-
 
 | Command     | Description                                                                                               |
 |------------:|:----------------------------------------------------------------------------------------------------------|

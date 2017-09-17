@@ -25,6 +25,10 @@ func fixContent(path, s string) (string, error) {
 	// TODO(bep) the rest {: -- maybe just create a "manual issue"
 
 	fixers := []contentFixer{
+		// TODO(bep) for now we just remove the callout styling for
+		// striped tables.
+		tableFixer,
+
 		// Handles the callouts file and file-exerpt
 		calloutFilesFixer,
 
@@ -34,10 +38,6 @@ func fixContent(path, s string) (string, error) {
 		keywordsToArray,
 
 		fixDates,
-
-		// TODO(bep) for now we just remove the callout styling for
-		// striped tables.
-		tableFixer,
 	}
 
 	for _, fix := range fixers {
@@ -219,17 +219,8 @@ var (
 	}
 
 	tableFixer = func(path, s string) (string, error) {
-		re := regexp.MustCompile(`(?s)({: \.table.*?})(.*?)\n\n`)
-		s = re.ReplaceAllStringFunc(s, func(s string) string {
-			m := re.FindAllStringSubmatch(s, 1)
-			if len(m) > 0 {
-				v := m[0]
-				return v[2] + "\n\n"
-			}
-			return s
-		})
-
-		return s, nil
+		re := regexp.MustCompile(`{: \.table.*?}\s*\n`)
+		return re.ReplaceAllString(s, ""), nil
 	}
 )
 

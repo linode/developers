@@ -205,7 +205,6 @@ On the original Iperf server, you will see:
 
 ### Options
 
-{: .table .table-striped}
 | Option                             | Description                                                                               |
 |:-----------------------------------|:------------------------------------------------------------------------------------------|
 | -f 		                     | Change the format in which the tests are run. For example, you can use `-f k` to get results in Kbits per second instead of Mbits per second. Valid options include `m` (Mbits, default), `k` (Kbits), `K` (KBytes), and `M` (MBytes). |

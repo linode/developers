@@ -198,7 +198,6 @@ Your output should include the following lines:
 
 These lines represent the OpenVAS scanner, the Greenbone Security Assistant, and the OpenVAS manager, respectively. If one of these lines is not present, simply start the daemon and try to reconnect. For example, if the `gsad` program is stopped, run `sudo service openvas-gsa restart`. Here are the names of the relevant daemons, as well as the commands you can use to restart them:
 
-{: .table .table-striped}
 | Program Name | Command to Restart                   |
 | -------------|--------------------------------------|
 | openvassd    | sudo service openvas-scanner restart |

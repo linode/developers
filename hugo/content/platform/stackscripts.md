@@ -246,7 +246,6 @@ The StackScript system provides a basic markup specification that interfaces wit
 
 The UDF tags are explained in the table below:
 
-
 |Label    | Description           | Requirements
 |--------------------------------------------
 |name     | The variable name     | Alphanumeric, len <64, must be unique
@@ -274,7 +273,6 @@ If you would like to create a masked password input field, use the word 'passwor
 {{< /note >}}
 
 There are also a set of Linode created environmental variables that can be used for API calls or other tasks from within the script.
-
 
 | Environment Variable               | Description                                                                               |
 |:-----------------------------------|:------------------------------------------------------------------------------------------|

@@ -62,7 +62,6 @@ The instructions here must be executed on each Cassandra node to be clustered. A
 		vim /etc/cassandra/conf/cassandra.yaml
 			
 
-
  |  Property  | Explanation |
  |:----------:|:-----------:|
  | cluster_name | Choose your cluster name here. |
@@ -243,7 +242,6 @@ server_encryption_options:
 
 
 You may want to configure the *internode_encryption* setting to better meet the needs of your specific environment. A breakdown of available values are shown below.
-
 
  |  Property  | Property description |
  |:----------:|:-------------:|

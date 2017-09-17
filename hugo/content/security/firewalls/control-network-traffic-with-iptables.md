@@ -45,7 +45,6 @@ The sample command above:
  3.  The `-s` parameter, along with the IP address (198.51.100.0), indicates the *source*.
  4.  Finally, the `-j` parameter stands for *jump*. It specifies the target of the rule and what action will be performed if the packet is a match.
 
-
 | Parameter             | Description                                                                              |
 |:----------------------|:-----------------------------------------------------------------------------------------|
 | `-p, --protocol`     | The protocol, such as TCP, UDP, etc.                                                         |
@@ -94,7 +93,6 @@ The default tables are as follows:
 ### Basic iptables Options
 
 There are many options that may be used with the `iptables` command:
-
 
 | Option                     | Description                                                                                                 |
 |:---------------------------|:------------------------------------------------------------------------------------------------------------|

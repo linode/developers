@@ -149,7 +149,6 @@ Upon first mention of a new concept or software, use the full name or term, then
 
 Use a **Bold** font weight for buttons, menu selections and anything that requires emphasis or that you want to stand out to the reader. *Italicize* new terms and concepts the first time they are used.
 
-
 | Formatting | Example |
 |:--------------|:------------|
 | \*\*bold\*\* | **bold** |
@@ -171,7 +170,6 @@ For example:
 >     yum update
 
 Inline commands should be denoted by backtics.
-
 
 | Formatting | Example |
 |:--------------|:------------|
@@ -205,7 +203,6 @@ Within the file formatting, a code language or syntax should be defined at the e
 
 **Example**: File format
 
-
 | Formatting | Example |
 |:--------------------------|:----------------------------------------------|
 |{{< file >}}
@@ -213,7 +210,6 @@ Within the file formatting, a code language or syntax should be defined at the e
 {{< /file >}}
 
 **Example**: File Excerpt format
-
 
 | Formatting | Example |
 |:--------------------------|:----------------------------------------------|
@@ -225,14 +221,12 @@ Within the file formatting, a code language or syntax should be defined at the e
 
 Inline file paths should be unformatted text.
 
-
 | Formatting | Example |
 |:--------------|:------------|
 | Navigate to \`/var/www/html\`. | Navigate to `/var/www/html`. |
 |:--------------|:------------|
 
 ### Headings
-
 
 | Formatting | Example |
 |:--------------------------|:----------------------------------------------|
@@ -246,7 +240,6 @@ Images should be in *.png* or *.jpg* format. If an image is over 650 pixels wide
 When adding an image, ensure that all identifying attributes such as names and IP addresses are removed, obfuscated, or replaced with dummy text, such as **example_user** or **192.0.2.0**. Be mindful of metadata in images taken with mobile devices.
 
 
-
 | Up to 650 px wide. | Over 650 px wide. |
 |:--------------------------|:----------------------------------------------|
 | \!\[description\](/docs/assets/filename.png) | \[!\[description\](/docs/assets/filename_small.png)](/docs/assets/filename.png) |
@@ -254,7 +247,6 @@ When adding an image, ensure that all identifying attributes such as names and I
 ### Key Combinations
 
 When instructing a reader to use a combination of keys, format the key combination in bold:
-
 
 | Formatting | Example |
 |:--------------|:------------|
@@ -265,7 +257,6 @@ When instructing a reader to use a combination of keys, format the key combinati
 
 Internal links to other Linode guides should be relative, starting at `/docs/`, and external links should be formatted as shown below and use HTTPS URLs whenever possible.
 
-
 | Internal | External |
 |:--------------------------|:----------------------------------------------|
 | \[Getting Started\](/docs/getting-started) | \[Apache HTTP Server Documentation\](https://httpd.apache.org/docs/)] |
@@ -274,7 +265,6 @@ Internal links to other Linode guides should be relative, starting at `/docs/`, 
 
 Be sure that lists have the proper horizontal spacing. This should be *two* spaces for ordered lists and *three* for unordered. This is to keep the lists aligned properly with the four-space soft tabs used in the guides.
 
-
 | Ordered |  Unordered |
 |:--------------------------|:----------------------------------------------|
 | 1&nbsp;&nbsp;Step 1.<br><br>2&nbsp;&nbsp;Step 2.<br><br>3&nbsp;&nbsp;Step 3. | \*&nbsp;&nbsp;&nbsp;Item 1.<br><br>\*&nbsp;&nbsp;&nbsp;Item 2.<br><br>\*&nbsp;&nbsp;&nbsp;Item 3. |
@@ -282,7 +272,6 @@ Be sure that lists have the proper horizontal spacing. This should be *two* spac
 ### Notes and Cautions
 
 Notes should be important text that does not necessarily fit the narrative of the preceeding step or paragraph. If a step in your guide can cause any major issues with the user's Linode or computer, a caution note should be included.
-
 
 | Formatting | Example |
 |:--------------------------|:----------------------------------------------|
@@ -293,7 +282,6 @@ Notes should be important text that does not necessarily fit the narrative of th
 {{< /note >}}
 
 ### Numerical Values
-
 
 | 1-10 | Greater than 10 |
 |:--------------|:------------|
@@ -310,7 +298,6 @@ Use single spaces between sentences; do not double-space.
   <thead><th>Formatting</th><th>Example</th></thead>
   <tr>
     <td>
-
 <br>
 | Left-Aligned | Centered     | Right-Aligned |
 <br>
@@ -331,7 +318,6 @@ Use single spaces between sentences; do not double-space.
 ### Variables
 
 Variables that the reader will need to change for their system or preference should be formatted using backtics. Do not include any brackets or parentheses when using these temporary values in examples, as the reader may include them in their final version.
-
 
 | Formatting | Example |
 |:--------------|:------------|

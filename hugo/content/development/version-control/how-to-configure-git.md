@@ -71,7 +71,6 @@ After you have added the file, stage a commit and leave a commit message. Commit
 
 This table lists basic commands, a description, and an example of the command in use: 
 
-
 | Command           | Description                                                                           | Example                    |
 |:------------------|:--------------------------------------------------------------------------------------|:---------------------------|
 | `git add`         | Add a file to a repository.                                                           | `git add filename`         |
@@ -88,7 +87,6 @@ This table lists basic commands, a description, and an example of the command in
 Branches are used for editing files without disturbing the working portions of a project. The main branch is normally named `master`, it's customary to name the branch after an issue being fixed or a feature being implemented. Because Git keep tracks of file changes, you can jump from branch to branch without overwriting or interfering with other branches in the repo.
 
 The basic options used with the `git branch` command are:
-
 
 | Option   | Description                         |
 |:---------|:------------------------------------|
@@ -123,7 +121,6 @@ The `remote` command will display the short names of your remote repositories. I
 
 Below are some basic commands for working with remote repositories:
 
-{: .table .table-striped }
 | Command                                   | Description                                                         |
 |:------------------------------------------|:--------------------------------------------------------------------|
 | `git remote add [remote-name] [url]`      | Add a new remote repository.                                        |

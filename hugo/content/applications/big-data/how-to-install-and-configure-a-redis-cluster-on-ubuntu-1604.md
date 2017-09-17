@@ -100,8 +100,7 @@ A node in the Redis cluster requires a defined port and a port higher than 10000
 
 4. Repeat this process across the remaining two Linodes, taking care to specify the port numbers for all master slave pairs.
 
-    
-    | Server | Master | Slave | 
+        | Server | Master | Slave | 
     |:-------|:-------|:------|
     |    1   |  6379  |  6381 |
     |    2   |  6380  |  6379 |
