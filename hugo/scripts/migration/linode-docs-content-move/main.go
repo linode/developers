@@ -83,7 +83,6 @@ var (
 				}
 
 				// TODO(bep)  fix code fenced styles
-				// TODO(bep) fix indentation
 
 				// Correct to supported Pygments lexers
 				// See http://pygments.org/docs/lexers/
@@ -233,13 +232,6 @@ var (
 
 	try = false
 )
-
-/* TODO(bep)
-
-layouts in _index.md
-
-
-*/
 
 type mover struct {
 	fromDir string
