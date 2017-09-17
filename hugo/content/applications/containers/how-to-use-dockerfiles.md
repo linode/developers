@@ -34,7 +34,6 @@ A `dockerfile` is a text file that contains the necessary commands to assemble a
 Do not store the Dockerfile in your root directory.
 
 Create a separate directory for the Dockerfile and place all necessary files within the same directory as the Dockerfile.
-
 {{< /note >}}
 
 A Dockerfile uses the following commands for building the images:
@@ -68,8 +67,8 @@ Note that in the example below, multiple packages are installed on separate line
 
 2.  Open `Dockerfile` using a text editor and enter the following example to create a Dockerfile that installs `build-essential`, `curl`, and `make` onto a Ubuntu image:
 
-    {{< file "Dockerfile" docker >}}
-FROM ubuntu
+{{< file "Dockerfile" docker >}}
+        FROM ubuntu
         MAINTAINER NAME EMAIL
         RUN apt-get update && apt-get install -y \
             build-essential \

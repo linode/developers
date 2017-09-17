@@ -43,9 +43,7 @@ In this guide, we'll explain how to host a highly available website with Wordpre
         yum update
 
 {{< note >}}
-
 Most steps in this guide require root privileges. Be sure you're entering the commands as root, or using `sudo` if you're using a limited user account. If you’re not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ## GlusterFS
@@ -55,7 +53,7 @@ Our first step in creating a high-availability setup is to install and configure
 Edit the `/etc/hosts` file on each Linode to match the following, substituting your own private IP addresses, fully qualified domain names, and host names:
 
 {{< file-excerpt "/etc/hosts" >}}
-192.168.1.2    gluster1.yourdomain.com    gluster1
+  192.168.1.2    gluster1.yourdomain.com    gluster1
   192.168.3.4    gluster2.yourdomain.com    gluster2
   192.168.5.6    gluster3.yourdomain.com    gluster3
 {{< /file-excerpt >}}
@@ -67,7 +65,6 @@ These steps should be run on each file system node in your cluster.
 
 {{< caution >}}
 GlusterFS generates a UUID upon installation. Do not clone a single Linode to replicate your GlusterFS installation; it must be installed separately on each node.
-
 {{< /caution >}}
 
 1.  Add the `centos-release-gluster37` repository, which will allow you to install the GlusterFS server edition package:
@@ -76,11 +73,10 @@ GlusterFS generates a UUID upon installation. Do not clone a single Linode to re
         yum install centos-release-gluster37 
         yum install glusterfs-server
 
-    {{< note >}}
+{{< note >}}
 When installing `glusterfs-server`, you may be prompted to verify a GPG key from the CentOS Storage SIG repository. Before running the third command, you can manually import the GPG key:
 
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-Storage
-
 {{< /note >}}
 
 2.  Start the GlusterFS daemon:
@@ -136,9 +132,8 @@ Run the following commands on each Linode in your pool.
         firewall-cmd --zone=internal --add-source=192.168.3.4/32 --permanent
         firewall-cmd --zone=internal --add-source=192.168.5.6/32 --permanent 
 
-    {{< note >}}
+{{< note >}}
 In the Linode Manger, you may notice that the netmask for your private IP addresses is /17. Firewalld does not recognize this, so a /32 prefix should be used instead.
-
 {{< /note >}}
 
 3.  Reload your firewall configuration:
@@ -179,7 +174,7 @@ Now that we have a replicated file system, we can begin to set up our database c
 We'll use three 2GB Linodes with hostnames `galera1`, `galera2`, and `galera3` as our database nodes. Create these now if you have not already, and edit the `/etc/hosts` file on each to add the following, replacing the private IP addresses, fully qualified domain names, and hostnames of your database nodes:
 
 {{< file-excerpt "/etc/hosts" >}}
-192.168.1.2    galera1.yourdomain.com    galera1
+  192.168.1.2    galera1.yourdomain.com    galera1
   192.168.3.4    galera2.yourdomain.com    galera2
   192.168.5.6    galera3.yourdomain.com    galera3
 {{< /file-excerpt >}}
@@ -187,7 +182,6 @@ We'll use three 2GB Linodes with hostnames `galera1`, `galera2`, and `galera3` a
 
 {{< note >}}
 You will need an additional private IP address for one of your database nodes, as we'll be using it as a *floating IP* for failover in a later section. To request an additional private IP address, you'll need to [contact support](/docs/platform/support/).
-
 {{< /note >}}
 
 ### Install Galera and XtraDB
@@ -202,11 +196,10 @@ You will need an additional private IP address for one of your database nodes, a
         yum install https://www.percona.com/redir/downloads/percona-release/redhat/latest/percona-release-0.1-3.noarch.rpm
         yum install Percona-XtraDB-Cluster-56 Percona-XtraDB-Cluster-shared-56
 
-    {{< note >}}
+{{< note >}}
 When installing `Percona-XtraDB-Cluster-56` and `Percona-XtraDB-Cluster-shared-56`, you will be prompted to verify a GPG key from the Percona repository. Before running the third command, you can manually import the GPG key:
 
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-Storage
-
 {{< /note >}}
 
 ### Configure Your Galera Cluster
@@ -215,8 +208,8 @@ We will configure the cluster to use XtraBackup for *state snapshot transfer* (S
 
 1.  Make the following changes to `/etc/my.cnf` on each of your database nodes:
 
-    {{< file-excerpt "/etc/my.cnf" aconf >}}
-[mysqld]
+{{< file-excerpt "/etc/my.cnf" aconf >}}
+        [mysqld]
         bind_address                   = 0.0.0.0
 
         ...
@@ -242,11 +235,9 @@ We will configure the cluster to use XtraBackup for *state snapshot transfer* (S
 
     In the line beginning with `wsrep_sst_auth`, replace `password` with a secure password of your choosing and keep it in a safe place. It will be needed later. 
 
-    {{< note >}}
+{{< note >}}
 The `xtrabackup-v2` service accesses the database as `sstuser`, authenticating using `password` to log into MySQL to grab backup locks for replication.
-
 {{< /note >}}
-
 
 2.  On your first database node, start MySQL as the primary component in your cluster. This process is known as *bootstrapping*; this tells the database node to start as the primary component that the other nodes in the cluster will use as a reference point when they join the cluster and sync their data:
 
@@ -268,9 +259,8 @@ The `xtrabackup-v2` service accesses the database as `sstuser`, authenticating u
 
         systemctl start mysql
 	
-   {{< note >}}
+{{< note >}}
 If you want to learn more about `xtrabackup` privileges their [documentation](https://www.percona.com/doc/percona-xtrabackup/2.4/using_xtrabackup/privileges.html) is a good place to start.
-
 {{< /note >}}
 
 ### Test Database Replication
@@ -293,9 +283,8 @@ Now that your database nodes are configured, we can test to make sure they've al
         +--------------------------+--------------------------------------+
         4 rows in set (0.00 sec)
 
-    {{< note >}}
+{{< note >}}
 If you add or remove nodes to and from the cluster in the future, you may notice the value for `wsrep_cluster_conf_id` increases each time. This value is the number of changes the cluster's configuration has gone through, and does not directly affect functionality. The above value of `3` is only an example.
-
 {{< /note >}}
 
 2.  Create a test database:
@@ -339,8 +328,8 @@ Run the following commands on each database node.
 
 1.  Create and edit `/etc/firewalld/services/galera.xml` to match the following:
 
-    {{< file "/etc/firewalld/services/galera.xml" >}}
-<?xml version="1.0" encoding="utf-8"?>
+{{< file "/etc/firewalld/services/galera.xml" >}}
+        <?xml version="1.0" encoding="utf-8"?>
         <service>
           <short>Galera Replication</short>
           <description>Galera Master-Master Replication and State Transfer</description>
@@ -363,9 +352,8 @@ Run the following commands on each database node.
         firewall-cmd --zone=internal --add-source=192.168.3.4/32 --permanent
         firewall-cmd --zone=internal --add-source=192.168.5.6/32 --permanent 
 
-    {{< note >}}
+{{< note >}}
 In the Linode Manger, you may notice that the netmask for your private IP addresses is /17. Firewalld does not recognize this, so a /32 prefix should be used instead.
-
 {{< /note >}}
 
 4.  Reload your firewall configuration and enable the `firewalld` service to start automatically on boot:
@@ -380,7 +368,7 @@ With file system and database clusters set up, you'll now need web servers to de
 Before you start, edit the `/etc/hosts` file on each application node to include the private IP address and hostname for each application node and for the file system nodes we set up previously:
 
 {{< file-excerpt "/etc/hosts" aconf >}}
-192.168.0.1    app1.yourdomain.com        app1
+  192.168.0.1    app1.yourdomain.com        app1
   192.168.2.3    app2.yourdomain.com        app2
   192.168.4.5    app3.yourdomain.com        app3
 
@@ -429,8 +417,8 @@ Next, we'll mount the Gluster volume on our application servers. The steps in th
 
 2.  Add the following line to `/etc/fstab`, substituting your own GlusterFS hostnames for `gluster1`, `gluster2` and `gluster3`, and your volume name for `example-volume` if appropriate:
 
-    {{< file-excerpt "/etc/fstab" aconf >}}
-gluster1:/example-volume  /srv/www  glusterfs defaults,_netdev,backup-volfile-servers=gluster2:gluster3 0 0
+{{< file-excerpt "/etc/fstab" aconf >}}
+        gluster1:/example-volume  /srv/www  glusterfs defaults,_netdev,backup-volfile-servers=gluster2:gluster3 0 0
 {{< /file-excerpt >}}
 
 
@@ -441,8 +429,8 @@ gluster1:/example-volume  /srv/www  glusterfs defaults,_netdev,backup-volfile-se
 
 4.  Set the document root to `/srv/www` so that Apache serves content from the Gluster volume. Edit your `welcome.conf` file to match the following:
 
-    {{< file "/etc/httpd/conf.d/welcome.conf" aconf >}}
-<VirtualHost *:80>
+{{< file "/etc/httpd/conf.d/welcome.conf" aconf >}}
+        <VirtualHost *:80>
             DocumentRoot "/srv/www"
             <Directory /srv/www>
                 Require all granted
@@ -496,7 +484,6 @@ No additional Linodes will be created in this section, and all configuration wil
 
 {{< caution >}}
 Make sure that [Network Helper](https://www.linode.com/docs/platform/network-helper) is turned **OFF** on your database nodes before proceeding.
-
 {{< /caution >}}
 
 ### Configure IP Failover
@@ -513,8 +500,8 @@ First, we'll configure IP failover on `galera2` and `galera3` to take on the flo
 
 1.  Edit the following line in your `/etc/sysconfig/keepalived` file on all database nodes, adding `-P` to enable virtual router redundancy protocol:
 
-    {{< file-excerpt "/etc/sysconfig/keepalived" aconf >}}
-KEEPALIVED_OPTIONS="-D -P"
+{{< file-excerpt "/etc/sysconfig/keepalived" aconf >}}
+        KEEPALIVED_OPTIONS="-D -P"
 {{< /file-excerpt >}}
 
 
@@ -524,8 +511,8 @@ KEEPALIVED_OPTIONS="-D -P"
 
 3.  On all database nodes, replace the original file with the following:
 
-    {{< file "/etc/keepalived/keepalived.conf" aconf >}}
-! Configuration File for keepalived
+{{< file "/etc/keepalived/keepalived.conf" aconf >}}
+        ! Configuration File for keepalived
         global_defs {
             notification_email {
             }
@@ -590,8 +577,8 @@ KEEPALIVED_OPTIONS="-D -P"
 
 6.  On all of your database nodes, add the following entry to your firewall configuration, within the `<zone>` block:
 
-    {{< file-excerpt "/etc/firewalld/zones/internal.xml" xml >}}
-<rule>
+{{< file-excerpt "/etc/firewalld/zones/internal.xml" xml >}}
+        <rule>
             <protocol value="vrrp" />
             <accept />
         </rule>
@@ -619,7 +606,6 @@ For instructions on how to install this component, follow our guide on [getting 
 
 {{< note >}}
 Nodebalancers are an add-on service. Be aware that adding a Nodebalancer will create an additional monthly charge to your account. Please see our [Billing and Payments](/docs/platform/billing-and-payments#additional-linode-services) guide for more information.
-
 {{< /note >}}
 
 ## Wordpress (Optional)

@@ -27,9 +27,7 @@ When installed and configured, OSSEC will provide a real-time view of what's tak
 This guide covers how to install and configure OSSEC on a single Linode running Debian 7 in such a manner that if a file is modified, added or deleted, OSSEC will notify you by email in real-time. OSSEC can also provide notifications for other acitivies.
 
 {{< note >}}
-
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ## Prerequisites
@@ -73,13 +71,9 @@ Debian 7 does not have an installation candidate for OSSEC in its repository, so
         sha1sum: WARNING: 1 line is improperly formatted
 
 
-    {{< note >}}
-
+{{< note >}}
 In both outputs, ignore the **WARNING** line. As long as the first line reads **OK**, the file is good.
-
 {{< /note >}}
-
-
 
 ## Install OSSEC
 
@@ -173,8 +167,8 @@ Although you specified an email and OSSEC auto-discovered the SMTP server, there
 
 1.  Open `ossec.conf`. The email settings are at the top of the file:
 
-    {{< file-excerpt "ossec.conf" >}}
-<global>
+{{< file-excerpt "ossec.conf" >}}
+          <global>
             <email_notification>yes</email_notification>
             <email_to>loginName@example.com</email_to>
             <smtp_server>mail.example.com.</smtp_server>
@@ -187,8 +181,8 @@ Although you specified an email and OSSEC auto-discovered the SMTP server, there
 
 2.  Modify the `< email_from >` line:
 
-    {{< file-excerpt "ossec.conf" >}}
-<global>
+{{< file-excerpt "ossec.conf" >}}
+          <global>
             <email_notification>yes</email_notification>
             <email_to>loginName@example.com</email_to>
             <smtp_server>mail.example.com.</smtp_server>
@@ -197,10 +191,8 @@ Although you specified an email and OSSEC auto-discovered the SMTP server, there
 {{< /file-excerpt >}}
 
 
-    {{< note >}}
-
+{{< note >}}
 The `< email_to >` and `< email_from >` values can be the same. If you are running your own mail server and it's on the same server that OSSEC is installed, you may change the `< smtp_server >` value to `localhost`.
-
 {{< /note >}}
 
     After making changes to the email settings, save and close the file.
@@ -235,8 +227,8 @@ By default OSSEC will not send out an alert when a new file is added to the syst
 
 1.  Open `ossec.conf` and scroll  down to the following section:
 
-    {{< file-excerpt "ossec.conf" >}}
-<syscheck>
+{{< file-excerpt "ossec.conf" >}}
+          <syscheck>
             <!-- Frequency that syscheck is executed - default to every 22 hours -->
             <frequency>79200</frequency>
 {{< /file-excerpt >}}
@@ -244,8 +236,8 @@ By default OSSEC will not send out an alert when a new file is added to the syst
 
 2.  Modify the file:
 
-    {{< file-excerpt "ossec.conf" >}}
-<syscheck>
+{{< file-excerpt "ossec.conf" >}}
+          <syscheck>
             <!-- Frequency that syscheck is executed - default to every 22 hours -->
             <frequency>79200</frequency>
 
@@ -260,8 +252,8 @@ By default OSSEC will not send out an alert when a new file is added to the syst
 
 1.  Open `ossec.conf`. Below the `< frequency >` setting is a list of system directories that OSSEC has been configured to monitor:
 
-    {{< file-excerpt "ossec.conf" >}}
-<!-- Directories to check  (perform all possible verifications) -->
+{{< file-excerpt "ossec.conf" >}}
+            <!-- Directories to check  (perform all possible verifications) -->
             <directories check_all="yes">/etc,/usr/bin,/usr/sbin</directories>
             <directories check_all="yes">/bin,/sbin</directories>
 {{< /file-excerpt >}}
@@ -269,8 +261,8 @@ By default OSSEC will not send out an alert when a new file is added to the syst
 
 2.  OSSEC can check the home directory and, if hosting a website on the server, monitor the website's data directory. For the specified directories, OSSEC can be configured to report changes in real-time:
 
-    {{< file-excerpt "ossec.conf" >}}
-<!-- Directories to check  (perform all possible verifications) -->
+{{< file-excerpt "ossec.conf" >}}
+            <!-- Directories to check  (perform all possible verifications) -->
             <directories report_changes="yes" realtime="yes" check_all="yes">/etc,/usr/bin,/usr/sbin</directories>
             <directories report_changes="yes" realtime="yes" check_all="yes">/bin,/sbin</directories>
             <directories report_changes="yes" realtime="yes" check_all="yes">/home/username,/var/www</directories>
@@ -284,7 +276,7 @@ By default OSSEC will not send out an alert when a new file is added to the syst
 For a Linux system, the default list of files and directories to ignore are:
 
 {{< file-excerpt "ossec.conf" >}}
-<!-- Files/directories to ignore -->
+        <!-- Files/directories to ignore -->
         <ignore>/etc/mtab</ignore>  
         <ignore>/etc/mnttab</ignore>
         <ignore>/etc/hosts.deny</ignore>
@@ -303,7 +295,7 @@ For a Linux system, the default list of files and directories to ignore are:
 If OSSEC is configured to monitor `/var/ossec`, include the additional lines:
 
 {{< file-excerpt "ossec.conf" >}}
-<ignore>/var/ossec/logs</ignore>
+        <ignore>/var/ossec/logs</ignore>
         <ignore>/var/ossec/queue</ignore>
         <ignore>/var/ossec/var</ignore>
         <ignore>/var/ossec/tmp</ignore>
@@ -318,7 +310,7 @@ OSSEC uses tcpwrappers (`host.deny`) and iptables to ban any IP addresses that t
 To alter the timeframe of a ban, change the  `< timeout >` setting to suit. Note that it has to be in **seconds**:
 
 {{< file-excerpt "ossec.conf" >}}
-<!-- Active Response Config -->
+      <!-- Active Response Config -->
       <active-response>
 
         <command>host-deny</command>
@@ -350,8 +342,8 @@ After making changes, save and close the file.
 
 2.  The rule that fires on new files is rule number **554**. The chunk of code that defines that rule in `ossec_rules.xml` is:
 
-    {{< file-excerpt "ossec_rules.xml" >}}
-<rule id="554" level="0">
+{{< file-excerpt "ossec_rules.xml" >}}
+          <rule id="554" level="0">
             <category>ossec</category>
             <decoded_as>syscheck_new_entry</decoded_as>
             <description>File added to the system.</description>
@@ -362,8 +354,8 @@ After making changes, save and close the file.
 
 3.  Since OSSEC does not alert on rules that are **level 0**, that rule has to be modified in `local_rules.xml` so that OSSEC can fire when a new file is added to the system. The rule modification should be located between the `< group > ... < /group >` tags:
 
-    {{< file-excerpt "local_rules.xml" >}}
-<rule id="554" level="7" overwrite="yes">
+{{< file-excerpt "local_rules.xml" >}}
+          <rule id="554" level="7" overwrite="yes">
             <category>ossec</category>
             <decoded_as>syscheck_new_entry</decoded_as>
             <description>File added to the system.</description>

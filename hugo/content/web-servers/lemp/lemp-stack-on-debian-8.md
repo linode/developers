@@ -22,9 +22,7 @@ external_resources:
 This document describes a compatible alternative to the **LAMP** (Linux, Apache, MySQL, and PHP) stack, known as **LEMP**. The LEMP stack replaces the Apache web server component (which is the "A" in LAMP) with Nginx (pronounced "engine x", providing the "E" in LEMP). LEMP is comprised of a variety of open source software used to build and run web servers.
 
 {{< note >}}
-
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ## Before You Begin
@@ -55,8 +53,8 @@ Install Nginx:
 
 1.  In Nginx `server blocks` are the equivalent of Apache's virtual hosts. Create the server block file `/etc/nginx/sites-available/example.com`. In this and all following steps, replace `example.com` with your domain:
 
-    {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
-server {
+{{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
+    server {
         listen   80;
         server_name www.example.com example.com;
         access_log /var/www/html/example.com/logs/access.log;
@@ -114,8 +112,8 @@ For more information regarding Nginx configuration options, check out our [Overv
 
 3.  In your server block file, add a `location` directive to pass PHP files through to FastCGI:
 
-    {{< file "/etc/nginx/sites-available/example.com" nginx >}}
-location ~ \.php$ {
+{{< file "/etc/nginx/sites-available/example.com" nginx >}}
+        location ~ \.php$ {
             include /etc/nginx/fastcgi_params;
             fastcgi_pass  127.0.0.1:9000;
             fastcgi_index index.php;
@@ -124,8 +122,7 @@ location ~ \.php$ {
 {{< /file >}}
 
 
-    {{< caution >}}
-
+{{< caution >}}
 If you are planning to run applications that support file uploads (images, for example), the configuration above may expose you to a security risk by allowing arbitrary code execution. The short explanation for this behavior is that a properly crafted URI which ends in ".php", in combination with a malicious image file that actually contains valid PHP, can result in the image being processed as PHP. For more information on the specifics of this behavior, you may wish to review the information provided on [Neal Poole's blog](https://nealpoole.com/blog/2011/04/setting-up-php-fastcgi-and-nginx-dont-trust-the-tutorials-check-your-configuration/).
 
 To mitigate this issue, you may wish to modify your configuration to include a `try_files` directive. Please note that this fix requires Nginx and the php-fcgi workers to reside on the same server.
@@ -152,7 +149,6 @@ fastcgi_index index.php;
 fastcgi_param SCRIPT_FILENAME /var/www/html/example.com/public_html$fastcgi_script_name;
 }
 ~~~
-
 {{< /caution >}}
 
 4.  When you have completed the modifications to the configuration, make sure that the sever block is enabled and restart Nginx:

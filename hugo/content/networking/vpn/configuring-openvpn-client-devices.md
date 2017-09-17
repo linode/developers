@@ -48,9 +48,7 @@ Linux and OS X can use SCP natively from the command line. To download your clie
     scp example_user@server_ip_address:/etc/openvpn/client1.tar.gz ~/
 
 {{< note >}}
-
 `example_user` is the VPN server's user account you want to connect as.
-
 {{< /note >}}
 
 ### Windows
@@ -64,9 +62,7 @@ Windows has no native SCP or SFTP support. See [our Filezilla guide](/docs/tools
 Android uses OpenVPN Connect to manage OpenVPN connections. If you have a Linux computer with the package `gvfs-backends` installed, or a Windows computer, you can connect the device by USB and it will be visible in the system's file manager as an external USB device. If you have Apple OS X, you need to first install [Android File Transfer](https://android.com/filetransfer/).
 
 {{< note >}}
-
 The following example was peformed on Android 5.1.1 with OpenVPN Connect 1.0.5.
-
 {{< /note >}}
 
 1.  Ensure that your Android device is fully updated, then install [OpenVPN Connect](https://play.google.com/store/apps/details?id=net.openvpn.openvpn).
@@ -94,9 +90,7 @@ The following example was peformed on Android 5.1.1 with OpenVPN Connect 1.0.5.
 Apple's iOS for iPhones and iPads uses OpenVPN Connect to manage OpenVPN connections. We'll use iTunes to transfer the file to the iOS device from a computer running OS X or Windows. A Linux computer with the pacage `gvfs-backends` installed can mount the iOS device as external storage. From there, the file manager can be used.
 
 {{< note >}}
-
 The following example was peformed on iOS 9.0.2 and OS X 10.10 using iTunes 12 and OpenVPN Connect 1.0.5.
-
 {{< /note >}}
 
 1.  Ensure that your iOS device is fully updated, then install [OpenVPN Connect](https://itunes.apple.com/us/app/openvpn-connect/id590379981) from the App store.
@@ -109,10 +103,8 @@ The following example was peformed on iOS 9.0.2 and OS X 10.10 using iTunes 12 a
 
     [![iTunes device summary](/docs/assets/itunes-device-summary-small.png)](/docs/assets/itunes-device-summary.png)
 
-    {{< note >}}
-
+{{< note >}}
 If this is the first time connecting your iOS device to iTunes, you'll need to click on the overflow menu (the three horizontal dots) and choose **Apps**, then click **Get Started**.
-
 {{< /note >}}
 
 4.  In the left sidebar, choose **Apps** and scroll down to the **File Sharing** category in the main window. You will see the icon for OpenVPN Connect. Click it, then click **Add** in the **OpenVPN Documents** box. Navigate to your `ta.key` file and `.opvn` client profile and drag them into the window from Finder. If you add them individually, add the key before the client profile. Otherwise, OpenVPN Connect will say it can't find the key.
@@ -140,9 +132,7 @@ If this is the first time connecting your iOS device to iTunes, you'll need to c
 ### Linux
 
 {{< note >}}
-
 The following example was performed using OpenVPN 2.3.2-7ubuntu3.1 and `network-manager-openvpn` 0.9.8.2-1ubuntu4 on Ubuntu 14.04.
-
 {{< /note >}}
 
 #### VPN
@@ -190,10 +180,8 @@ Configure VPN connections using the same method you would use to configure wirel
 
 7.  The VPN client is now configured and ready to connect. How you do this will differ by desktop environment and NetworkManager version, but after configuring the VPN, an entry for it will appear in the desktop environment's network connection menu.
 
-    {{< note >}}
-
+{{< note >}}
 Before first connection, it's a good idea to run `journalctl -f | grep vpn` or `tail -f /var/log/syslog | grep vpn` in a terminal on your client. This gives you a real-time output of OpenVPN's logging so if anything goes wrong or there are any errors or warning messags, they'll be visible here.
-
 {{< /note >}}
 
 #### Static DNS
@@ -217,9 +205,7 @@ Apple OS X does not natively support the OpenVPN protocol. [Tunnelblick](https:/
 ### Windows
 
 {{< note >}}
-
 The following example was performed using OpenVPN 2.3.8-I601 on Windows 7 Service Pack 1.
-
 {{< /note >}}
 
 #### VPN
@@ -228,10 +214,8 @@ The following example was performed using OpenVPN 2.3.8-I601 on Windows 7 Servic
 
     ![OpenVPN Windows TAP Installer](/docs/assets/openvpn-windows-tap-installer.png)
 
-    {{< note >}}
-
+{{< note >}}
 OpenVPN provides a GPG signature file to check the installer's integrity and authenticity. [GnuPG](https://gnupg.org/) must be installed to do this and performing the check is highly recommended.
-
 {{< /note >}}
 
 2.  Move the extracted client credentials into `C:\Program Files\OpenVPN\config`.
@@ -272,10 +256,8 @@ It is ideal for VPN clients to store their own DNS resolver addresses. This can 
 
 5.  Choose **Advanced**, then the **WINS** tab. Select the radio button to **Disable NetBIOS over TCP/IP**. Choose **OK**.
 
-    {{< note >}}
-
+{{< note >}}
 Don't do this if you need file access to your VPN through Windows for things like SMB or Active Directory.
-
 {{< /note >}}
 
     ![OpenVPN Windows TAP NetBIOS](/docs/assets/openvpn-tap-windows-disable-netbios.png)
@@ -302,6 +284,6 @@ To remove a client device's access to the VPN, SSH into your OpenVPN server and 
 
 3.  To ensure that no IPv6 traffic can be detected, run the test at [http://test-ipv6.com/](http://test-ipv6.com/). Your public IP address should again be that of your Linode VPN, and the results should show that no IPv6 address was detected.
 
-{: .caution}
->
->If the test results show you any IP addresses other than those of your Linode and intended DNS servers, your VPN is not properly tunnenling traffic. Reivew the logs on both server and client to determine how to troubleshoot the connection.
+{{< caution >}}
+If the test results show you any IP addresses other than those of your Linode and intended DNS servers, your VPN is not properly tunnenling traffic. Reivew the logs on both server and client to determine how to troubleshoot the connection.
+{{< /caution >}}

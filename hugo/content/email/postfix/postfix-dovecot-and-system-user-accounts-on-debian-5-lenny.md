@@ -54,14 +54,14 @@ SASL Authentication
 Edit the `/etc/default/saslauthd` file to allow the SASL authentication daemon to start. Uncommon or add the following line:
 
 {{< file-excerpt "/etc/default/saslauthd" ini >}}
-START=yes
+    START=yes
 {{< /file-excerpt >}}
 
 
 Create the `/etc/postfix/sasl/smtpd.conf` file, and insert the following line:
 
 {{< file "/etc/postfix/sasl/smtpd.conf" ini >}}
-pwcheck_method: saslauthd
+    pwcheck_method: saslauthd
 {{< /file >}}
 
 
@@ -93,7 +93,7 @@ Postfix
 Edit the `/etc/postfix/main.cf` file to edit or add the following lines:
 
 {{< file-excerpt "/etc/postfix/main.cf" ini >}}
-smtpd_tls_cert_file=/etc/ssl/postfix.pem
+    smtpd_tls_cert_file=/etc/ssl/postfix.pem
     smtpd_tls_key_file=/etc/ssl/postfix.key
 
     smtp_use_tls = yes                                                                                               
@@ -130,7 +130,7 @@ Consider the [basic email gateway guide](/docs/email/postfix/gateway-debian-5-le
 The above Postfix configuration makes it possible to *send* mail using postfix. If your server receives email, Postfix requires additional configuration to deliver mail locally. Edit the `main.cf` file to insert or modify the following configuration directives:
 
 {{< file-excerpt "/etc/postfix/main.cf" ini >}}
-myhostname = lollipop.example.com
+    myhostname = lollipop.example.com
     virtual_alias_maps = hash:/etc/postfix/virtual
     home_mailbox = mail/
 {{< /file-excerpt >}}
@@ -148,7 +148,6 @@ Create a `/etc/postfix/virtual` file to map incoming email addresses to their de
 
 {{< file >}}
 /etc/postfix/virtual
-
 {{< /file >}}
 
 > <username@example.com> username <username@example.net> username <username@example.com> username
@@ -165,7 +164,6 @@ Edit the `/etc/alias` file to add the following line. This will to reroute all l
 
 {{< file-excerpt >}}
 /etc/aliases
-
 {{< /file-excerpt >}}
 
 > root: username
@@ -190,7 +188,6 @@ Issue the following command to create a back up of the default `/etc/dovecot/dov
 
 {{< file >}}
 /etc/dovecot/dovecot.conf
-
 {{< /file >}}
 
 > protocols = imap imaps pop3 pop3s log\_timestamp = "%Y-%m-%d %H:%M:%S " mail\_privileged\_group = mail ssl\_cert\_file = /etc/ssl/postfix.pem ssl\_key\_file = /etc/ssl/postfix.key mail\_location = maildir:\~/mail:LAYOUT=fs

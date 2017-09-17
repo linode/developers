@@ -24,7 +24,7 @@ Installing Prerequisites
 Before installing Magento, we must ensure that the `universe` repositories are enabled on your system. Your `/etc/apt/sources.list` should resemble the following (you may have to uncomment or add the `universe` lines:)
 
 {{< file "/etc/apt/sources.list" >}}
-## main & restricted repositories
+    ## main & restricted repositories
     deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted         
     deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted 
 
@@ -66,7 +66,7 @@ Please see our [MySQL](/docs/databases/mysql/ubuntu-9.10-karmic) document for ad
 Additionally you will want to increase PHP's `memory_limit` setting, by editing the `/etc/php5/cli/php.ini` and `/etc/php5/apache2/php.ini` file as follows:
 
 {{< file-excerpt "/etc/php5/cli/php.ini and /etc/php5/apache2/php.ini" ini >}}
-memory_limit = 64M
+    memory_limit = 64M
 {{< /file-excerpt >}}
 
 

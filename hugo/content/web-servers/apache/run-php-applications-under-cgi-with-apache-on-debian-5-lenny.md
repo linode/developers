@@ -60,7 +60,7 @@ In order to set up Apache to use PHP-CGI on Debian systems, you must enable the 
 The required directives can be set anywhere in Apache's [configuration tree](/docs/web-servers/apache/configuration/configuration-basics). We recommend creating the `php-cgi.conf` file in Apache's `conf.d/` directory and setting these variables there. For Debian systems this directory is located at `/etc/apache2/conf.d/`. You may also choose to place these settings in your `/etc/apache2/httpd.conf` file. Regardless of their location, the relevant settings are:
 
 {{< file-excerpt "Apache Configuration Block" apache >}}
-ScriptAlias /local-bin /usr/bin
+    ScriptAlias /local-bin /usr/bin
     AddHandler application/x-httpd-php5 php
     Action application/x-httpd-php5 /local-bin/php-cgi
 {{< /file-excerpt >}}
@@ -73,7 +73,7 @@ You may also choose to put these configuration directives within a virtual hosti
 The configuration file for the CGI executable of PHP is located at `/etc/php5/cgi/php.ini`. You can modify this file to suit the needs of your deployment.
 
 {{< file-excerpt "/etc/php5/cgi/php.ini" ini >}}
-error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
+    error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
     display_errors = Off
     log_errors = On
     error_log = /var/log/php.log
@@ -105,7 +105,7 @@ Begin by installing the mpm-itk module:
 Now, in the `<VirtualHost >` entries for your sites (the site-specific files in `/etc/apache2/sites-avalible/`) add the following sub-block:
 
 {{< file-excerpt "Apache Virtual Hosting Configuration Block" apache >}}
-<IfModule mpm_itk_module>
+    <IfModule mpm_itk_module>
        AssignUserId webeditor webgroup
     </IfModule>
 {{< /file-excerpt >}}

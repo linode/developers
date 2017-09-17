@@ -29,7 +29,7 @@ Issue the following commands to set your system hostname, substituting a unique 
 Edit your `/etc/hosts` file to resemble the following, substituting your Linode's public IP address for 12.34.56.78, your hostname for "hostname," and your primary domain name for "example.com." :
 
 {{< file "/etc/hosts" >}}
-## main & restricted repositories
+    ## main & restricted repositories
     deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
     deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
 
@@ -67,7 +67,7 @@ In this guide, we'll be using the domain "example.com" as our example site. You 
 Next, define your site's virtual host file:
 
 {{< file "/etc/nginx/sites-available/www.example.com" nginx >}}
-server {
+    server {
         server_name www.example.com example.com;
         access_log /srv/www/example.com/www/logs/access.log;
         error_log /srv/www/example.com/www/logs/error.log;
@@ -153,7 +153,7 @@ Test PHP with FastCGI
 Create a file called "test.php" in your site's "public\_html" directory with the following contents:
 
 {{< file "/srv/www/www.example.com/public\\_html/test.php" php >}}
-<?php echo phpinfo(); ?>
+    <?php echo phpinfo(); ?>
 {{< /file >}}
 
 

@@ -80,7 +80,7 @@ Configure Django Applications for WSGI
 In order for `mod_wsgi` to be able to provide access to your Django application, you will need to create a `django.wsgi` file inside of your application directory. For the purposes of this example, we assume that your application will be located *outside* of your `DocumentRoot` in the directory `/srv/www/example.com/application`. Modify this example and all following examples to conform to the actual files and locations used in your deployment.
 
 {{< file "/srv/www/example.com/application/django.wsgi" python >}}
-import os
+    import os
     import sys
 
     sys.path.append('/srv/www/example.com/application')
@@ -101,7 +101,7 @@ Configure Apache
 Consider the following example virtual host configuration:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-<VirtualHost example.com:80>
+    <VirtualHost example.com:80>
        ServerName example.com
        ServerAlias www.example.com
        ServerAdmin username@example.com

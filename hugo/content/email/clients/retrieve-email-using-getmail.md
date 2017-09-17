@@ -98,7 +98,7 @@ All getmail configuration occurs in the `.getmail/` folder in the user's home di
 The following file provides a basic template for a getmail configuration file:
 
 {{< file "~/.getmail/getmailrc" >}}
-[retriever]
+    [retriever]
     type = SimplePOP3SSLRetriever
     server = pop.example.com
     port = 995
@@ -143,7 +143,7 @@ Getmail is capable of delivering mail in a number of different situations beyond
 If you want to use an external program to filter the email retrieved from getmail, modify the destination configuration options in the `getmailrc` file to resemble the following:
 
 {{< file-excerpt "~/.getmail/getmailrc" >}}
-[destination]
+    [destination]
     type = MDA_external
     path = /usr/bin/procmail
     arguments = ("-f", "%(sender)")
@@ -171,7 +171,7 @@ If you would like your system to check for email regularly, you can run the `get
 Add an entry to poll getmail every five minutes by adding the following line to the crontab:
 
 {{< file-excerpt "crontab" >}}
-*/5 * * * * getmail --quiet
+	*/5 * * * * getmail --quiet
 {{< /file-excerpt >}}
 
 

@@ -21,10 +21,8 @@ external_resources:
 
 If you're running a mail server, it's a good idea to have spam and virus filtering. Spam can flood your users' inboxes, and those running insecure local PCs are susceptible to virus infection. Protecting your email server protects your clients and you. This guide goes through the installation and configuration of virus and spam filtering, using Amavis-new, ClamAV, and SpamAssassin.
 
- {{< caution >}}
-
+{{< caution >}}
 This is a generic introductory guide. You are responsible for ensuring that your virus/spam filtering system meets the needs of your environment.
-
 {{< /caution >}}
 
 ## Prerequisites
@@ -65,7 +63,7 @@ Here, we'll make sure ClamAV stays updated with the latest virus definitions.
         crontab -e
 
 {{< file "crontab" >}}
-# Edit this file to introduce tasks to be run by cron.
+    # Edit this file to introduce tasks to be run by cron.
     #
     # Each task to run has to be defined through a single line
     # indicating with different fields when the task will be run
@@ -97,8 +95,8 @@ Here, we'll set various options and settings for SpamAssassin.
 
 1.  Before you can start SpamAssassin for the first time, you need to edit the `/etc/default/spamassassin` file by changing the value of the `ENABLED` variable to **1**. Here, you can also edit the `CRON` variable to make sure that SpamAssassin updates its rules regularly:
 
-    {{< file "/etc/default/spamassassin" >}}
-...
+{{< file "/etc/default/spamassassin" >}}
+        ...
 
         # Change to one to enable spamd
         ENABLED=1
@@ -118,8 +116,8 @@ Here, we'll set various options and settings for SpamAssassin.
 
 3.  SpamAssassin scores incoming messages and assigns a score based on its spam characteristics. A score of 0 is considered safe, while a score of 10 or higher is usually spam. You need to adjust its configuration file to determine what score threshold will be allowed through the filter. We're going to use 8, but this can be adjusted later. Locate and uncomment the line `# required_score 5.0` by removing the **\#** symbol, and adjust the value to 8:
 
-    {{< file "/etc/spamassassin/local.cf" >}}
-#   Set the threshold at which a message is considered spam (default: 5.0)
+{{< file "/etc/spamassassin/local.cf" >}}
+        #   Set the threshold at which a message is considered spam (default: 5.0)
         #
         required_score 8
 {{< /file >}}
@@ -134,8 +132,8 @@ Here, we'll set various options and settings for SpamAssassin.
 
 1.  On Debian-based systems like Ubuntu, Amavis splits its configuration among several files. Enable spam and antivirus filtering by opening the `/etc/amavis/conf.d/15-content_filter_mode` file and removing the comment symbols (**\#**) from the two bypass blocks, as shown below:
 
-    {{< file "/etc/amavis/conf.d/15-content\\_filter\\_mode" perl >}}
-use strict;
+{{< file "/etc/amavis/conf.d/15-content\\_filter\\_mode" perl >}}
+        use strict;
 
         # You can modify this file to re-enable SPAM checking through spamassassin
         # and to re-enable antivirus checking.
@@ -166,10 +164,8 @@ use strict;
 
 
 
-    {{< note >}}
-
+{{< note >}}
 Be sure to remove all four **\#** symbols, as shown above.
-
 {{< /note >}}
 
 2.  Once finished, save and exit the file.
@@ -179,16 +175,16 @@ Be sure to remove all four **\#** symbols, as shown above.
 
 4.  Open the Postfix main configuration file. If you followed our Email with Postfix Dovecot and MySQL guide, you should already have a backup. Add the following line to the bottom of the file:
 
-    {{< file "/etc/postfix/main.cf" >}}
-# Additional option for filtering
+{{< file "/etc/postfix/main.cf" >}}
+        # Additional option for filtering
         content_filter = smtp-amavis:[127.0.0.1]:10024
 {{< /file >}}
 
 
 5.  The next configuration file to edit is `/etc/postfix/master.cf`. On a new line below the `pickup` directive, add the following options:
 
-    {{< file "/etc/postfix/master.cf" >}}
-pickup    fifo  n       -       -       60      1       pickup
+{{< file "/etc/postfix/master.cf" >}}
+        pickup    fifo  n       -       -       60      1       pickup
                  -o content_filter=
                  -o receive_override_options=no_header_body_checks
 {{< /file >}}
@@ -196,8 +192,8 @@ pickup    fifo  n       -       -       60      1       pickup
 
 6.  Add the following lines to the bottom of the file, and be sure to include the indents on lines beginning with `-o`:
 
-    {{< file "/etc/postfix/master.cf" >}}
-# Options for the filter
+{{< file "/etc/postfix/master.cf" >}}
+        # Options for the filter
         smtp-amavis     unix    -       -       -       -       2       smtp
                 -o smtp_data_done_timeout=1200
                 -o smtp_send_xforward_command=yes
@@ -236,9 +232,7 @@ pickup    fifo  n       -       -       60      1       pickup
 You'll want to test that your email server is removing malicious emails from your users' inboxes. [The European Expert Group For IT-Security](http://www.eicar.org/) has files available for download that will be seen by ClamAV as a virus. You can download these test virus files [here](http://www.eicar.org/85-0-Download.html).
 
 {{< note >}}
-
 Please be aware that if you are running antivirus software locally, it may block these test files. Be sure to read the `Important Note` section of the EICAR download page before you continue.
-
 {{< /note >}}
 
 You can send these files as attachments to an email address on your mail server. If ClamAV is working, the recipient shouldn't see the email and your `/var/log/mail.log` file should have lines similar to this:
@@ -262,7 +256,7 @@ You can search for the relevant logfiles with `cat /var/log/mail.log | grep SPAM
 Depending on the amount of users and activity on your mail server, you may wish to receive notifications when ClamAV identifies and removes an incoming virus, or SpamAssassin filters an email as spam. If you want to receive emails, open the file `/etc/amavis/conf.d/21-ubuntu_defaults`. Add the desired email address to the **\$virus\_admin** and **\$spam\_admin** parameters, as shown below.
 
 {{< file "/etc/amavis/conf.d/21-ubuntu\\_defaults" >}}
-use strict;
+    use strict;
 
     #
     # These are Ubuntu specific defaults for amavisd-new configuration

@@ -52,10 +52,8 @@ If you don't use InnoDB tables, you should disable InnoDB support by adding the 
 
     skip-innodb
 
- {{< caution >}}
-
+{{< caution >}}
 The settings in this section are designed to help you temporarily test and troubleshoot MySQL. We recommend that you do not permanently use these settings.
-
 {{< /caution >}}
 
 ### Apache 2 Low-Memory Settings
@@ -84,10 +82,8 @@ MaxClients 24
 MaxRequestsPerChild 3000
 ~~~
 
- {{< caution >}}
-
+{{< caution >}}
 The settings in this section are designed to help you temporarily test and troubleshoot Apache. We recommend that you do not permanently use these settings.
-
 {{< /caution >}}
 
 ### Reducing SpamAssassin Memory Consumption

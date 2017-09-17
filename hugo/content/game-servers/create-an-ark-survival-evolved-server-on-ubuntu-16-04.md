@@ -22,7 +22,6 @@ This guide will show you how to set up a personal [ARK: Survival Evolved](http:/
 
 {{< note >}}
 The steps in this guide require root privileges unless otherwise noted. Be sure to run the steps below as `root` or with the `sudo` prefix. For more information on privileges, see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ##Before You Begin
@@ -87,8 +86,8 @@ By creating a systemd unit file for your ARK server, it can be set to start auto
 
 2.  Create a new systemd service file and add the following values to it. Fill in the `SessionName` value on line 12 with the name you'll use to identify your ARK server:
 
-    {{< file "/lib/systemd/system/ark.service" >}}
-[Unit]
+{{< file "/lib/systemd/system/ark.service" >}}
+        [Unit]
         Description=ARK Survival Evolved
         [Service]
         Type=simple
@@ -121,8 +120,8 @@ By creating a systemd unit file for your ARK server, it can be set to start auto
 
 Once you've started the server, you can add or remove settings by editing the `GameUserSettings.ini` file under `/home/ark/server/ShooterGame/Saved/Config/LinuxServer`. Add the following settings within the `[ServerSettings]` section of that file, replacing the "example" passwords with your own:
 
-  {{< file "/home/ark/server/ShooterGame/Saved/Config/LinuxServer/GameUserSettings.ini" >}}
-ServerPassword=example
+{{< file "/home/ark/server/ShooterGame/Saved/Config/LinuxServer/GameUserSettings.ini" >}}
+      ServerPassword=example
       ServerAdminPassword=example
 {{< /file >}}
 
@@ -131,7 +130,6 @@ ServerPassword=example
 
 {{< note >}}
 If you choose to use the `ServerPassword` option, when connecting to the server you will need to click on **Show Password Protected**, or manually add the server to your favorites list. Both options are shown in the next section.
-
 {{< /note >}}
 
 A number of options can be configured within this file - for more information take a look at the [Server Configuration](http://ark.gamepedia.com/Server_Configuration#GameUserSettings.ini) section of the ARK wiki.

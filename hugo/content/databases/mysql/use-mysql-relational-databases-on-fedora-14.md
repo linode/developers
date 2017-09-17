@@ -24,7 +24,7 @@ System Configuration
 Make sure your `/etc/hosts` file has proper entries, similar to the ones shown below. Replace "12.34.56.78" with your Linode's public address, "servername" with your short hostname, and "mydomain.com" with your system's domain name.
 
 {{< file "/etc/hosts" >}}
-127.0.0.1 localhost.localdomain localhost
+    127.0.0.1 localhost.localdomain localhost
     12.34.56.78 servername.mydomain.com servername
 {{< /file >}}
 
@@ -57,7 +57,7 @@ After installing MySQL, it's recommended that you run `mysql_secure_installation
 By default, MySQL makes some assumptions about your server environment with respect to memory. To configure MySQL more conservatively, you'll need to edit some settings in its configuration file. Your file should resemble the following:
 
 {{< file "/etc/my.cnf" ini >}}
-[mysqld]
+    [mysqld]
     datadir=/var/lib/mysql
     socket=/var/lib/mysql/mysql.sock
     user=mysql

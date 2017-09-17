@@ -38,7 +38,7 @@ Check Package Sources
 First, make sure you have the `universe` repositories enabled on your system. Your `/etc/apt/sources.list` should resemble the following (you may have to uncomment or add the `universe` lines):
 
 {{< file-excerpt "/etc/apt/sources.list" >}}
-## main & restricted repositories
+    ## main & restricted repositories
     deb http://us.archive.ubuntu.com/ubuntu/ lucid main restricted         
     deb-src http://us.archive.ubuntu.com/ubuntu/ lucid main restricted
 

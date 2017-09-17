@@ -30,9 +30,7 @@ In this guide, you will learn how to install and configure a Postfix server on D
 3.  Use your web browser to confirm your email login credentials by logging in to [Gmail](https://gmail.com).
 
 {{< note >}}
-
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ## Install Postfix
@@ -53,8 +51,8 @@ In this section, you will install Postfix as well as *libsasl2*, a package which
 
 4.  Once the installation is complete, confirm that the `myhostname` parameter is configured with your server's FQDN:
 
-    {{< file-excerpt "/etc/postfix/main.cf" >}}
-myhostname = fqdn.example.com
+{{< file-excerpt "/etc/postfix/main.cf" >}}
+        myhostname = fqdn.example.com
 {{< /file-excerpt >}}
 
 
@@ -80,8 +78,8 @@ Usernames and passwords are stored in `sasl_passwd` in the `/etc/postfix/sasl/` 
 
 1.  Open or create the `/etc/postfix/sasl/sasl_passwd` file and add the SMTP Host, username, and password information:
 
-    {{< file "/etc/postfix/sasl/sasl\\_passwd" >}}
-[smtp.gmail.com]:587 username@gmail.com:password
+{{< file "/etc/postfix/sasl/sasl\\_passwd" >}}
+        [smtp.gmail.com]:587 username@gmail.com:password
 {{< /file >}}
 
 
@@ -106,15 +104,15 @@ In this section, you will configure the `/etc/postfix/main.cf` file to use Gmail
 
 1.  Find and modify `relayhost` in `/etc/postfix/main.cf` to match the following example:
 
-    {{< file-excerpt "/etc/postfix/main.cf" >}}
-relayhost = [smtp.gmail.com]:587
+{{< file-excerpt "/etc/postfix/main.cf" >}}
+        relayhost = [smtp.gmail.com]:587
 {{< /file-excerpt >}}
 
 
 2.  At the end of the file, add the following parameters to enable authentication:
 
-    {{< file-excerpt "/etc/postfix/main.cf" >}}
-# Enable SASL authentication
+{{< file-excerpt "/etc/postfix/main.cf" >}}
+        # Enable SASL authentication
         smtp_sasl_auth_enable = yes
         # Disallow methods that allow anonymous authentication
         smtp_sasl_security_options = noanonymous

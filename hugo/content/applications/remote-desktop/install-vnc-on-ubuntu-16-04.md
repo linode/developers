@@ -32,9 +32,7 @@ This guide explains how to install a graphic desktop environment on your Linode 
         sudo apt-get update && sudo apt-get upgrade
 
 {{< note >}}
-
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ## Install a Desktop and VNC Server on your Linode
@@ -43,11 +41,10 @@ This guide is written for a non-root user. Commands that require elevated privil
 
         sudo apt-get install ubuntu-desktop gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal
 
-    {{< note >}}
+{{< note >}}
 This will install the full Ubuntu desktop environment, including office and web browsing tools. To install the desktop without these packages, run:
 
 sudo apt-get install --no-install-recommends ubuntu-desktop gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal
-
 {{< /note >}}
 
     During the install process, you will be asked whether or not to change a system file to the new version:
@@ -149,8 +146,8 @@ In the next few steps, we'll configure VNC to launch the full Unity desktop when
 
 2.  Edit the end of your `~/.vnc/xstartup` file to match the following configuration. This starts the desktop dependencies as background processes upon starting the VNC server:
 
-    {{< file-excerpt "~/.vnc/xstartup" >}}
-#!/bin/sh
+{{< file-excerpt "~/.vnc/xstartup" >}}
+        #!/bin/sh
 
         # Uncomment the following two lines for normal desktop:
         # unset SESSION_MANAGER
@@ -197,8 +194,8 @@ Below we've outlined optional steps to ensure that the VNC server starts automat
 
 2.  Add `@reboot /usr/bin/vncserver :1` to the bottom of the file. Your crontab should look like this:
 
-    {{< file-excerpt "crontab" >}}
-# Edit this file to introduce tasks to be run by cron.
+{{< file-excerpt "crontab" >}}
+        # Edit this file to introduce tasks to be run by cron.
         #
         # Each task to run has to be defined through a single line
         # indicating with different fields when the task will be run

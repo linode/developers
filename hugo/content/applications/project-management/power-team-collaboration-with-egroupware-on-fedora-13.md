@@ -43,7 +43,7 @@ Configure Access to eGroupware
 The configuration options for eGroupware are located in the file `/etc/httpd/conf.d/egroupware`. Add the following line to your virtual hosting configuration:
 
 {{< file-excerpt "Apache Virtual Hosting Configuration" apache >}}
-Alias /egroupware /usr/share/egroupware
+    Alias /egroupware /usr/share/egroupware
 {{< /file-excerpt >}}
 
 

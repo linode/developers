@@ -65,7 +65,7 @@ All Puppet files are stored in the `/etc/puppet/manifests/` directory, and Puppe
 Consider the following class, which is an elaboration on the canonical example Puppet `sudo` class:
 
 {{< file "/etc/puppet/manifests/classes/sudo.pp" puppet >}}
-# /etc/puppet/manifests/classes/sudo.pp
+    # /etc/puppet/manifests/classes/sudo.pp
 
     class sudo {
         file { "/etc/sudoers":
@@ -81,7 +81,7 @@ Consider the following class, which is an elaboration on the canonical example P
 In this example, configuration for the `/etc/sudoers` file is described, owned by the `root` user and group, with permissions of 440 that only allow read access for the owner and the members of the owner group. When applied, this manifest will ensure that the system in question has the above configuration applied to the `/etc/sudoers` file. The `source` specification allows puppet to copy a specific file from the Puppetmaster server. Distributing files with puppet will be covered [later](#serving_files).
 
 {{< file "/etc/puppet/manifests/site.pp" puppet >}}
-# /etc/puppet/manifests/site.pp
+    # /etc/puppet/manifests/site.pp
 
     import "classes/*"
 
@@ -100,7 +100,7 @@ By default, `puppetd` runs as a client on the machine that `puppetmasterd` is in
 As above, the `default` node provides a space to specify the configuration for all Puppet nodes. Of course, it is also possible to configure node descriptions in more specific terms. Consider the following setup:
 
 {{< file-excerpt "/etc/puppet/manifests/site.pp" puppet >}}
-# /etc/puppet/manifests/site.pp
+    # /etc/puppet/manifests/site.pp
 
     import "classes/*"
 
@@ -168,7 +168,7 @@ This makes it possible to write Puppet manifests that are sensitive to the actua
 While Puppet contains powerful abstractions for specifying configurations, in some cases it's necessary to deploy files to systems that are not configured using Puppet. The above example regarding the `/etc/sudoers` file presents one such situation. Puppet's fileserver is configured in the `/etc/puppet/fileserver.conf` file. Consider the following example configuration:
 
 {{< file-excerpt "/etc/puppet/fileserver.conf" >}}
-[files]
+    [files]
       path /etc/puppet/files
       allow *.example.com
       allow 192.168.0.0/24
@@ -180,7 +180,7 @@ In the Puppet fileserver configuration, the order of `allow` and `deny` statemen
 You may specify a `source` for a file object in Puppet manifests. Consider the following example:
 
 {{< file-excerpt "Puppet Configuration Manifest" puppet >}}
-file { "/etc/httpd/conf.d":
+    file { "/etc/httpd/conf.d":
         source => "puppet://example.com/files/web-server/httpd/conf.d",
         recurse => "true"
     }
@@ -193,7 +193,7 @@ Nodes that implemented the above configuration will recursively copy files from 
 Puppet makes it possible to require that nodes have configuration and services that extend beyond ensuring that files are present on a system, and can ensure that certain services are running. Consider the following example:
 
 {{< file-excerpt "Puppet Configuration Manifest" puppet >}}
-package { "openssh-server":
+    package { "openssh-server":
             ensure => latest
         }
     service { "sshd":
@@ -207,7 +207,7 @@ package { "openssh-server":
 By defining the `sshd` service within a class with these parameters, puppet will ensure that the SSH daemon is running. Furthermore, if the `sshdconfig` file (which is defined elsewhere) changes, Puppet will restart the daemon. In the following example we define an `apache2` service for Debian and Ubuntu systems:
 
 {{< file-excerpt "Puppet Configuration Manifest" puppet >}}
-package { "apache2":
+    package { "apache2":
             ensure => latest
         }
     service { "apache2":
@@ -224,7 +224,7 @@ This will ensure that the `apache2` service is running, that the required packag
 Puppet attempts to normalize the way administrators interact with all resources, regardless of their type. Puppet makes it possible to define arbitrary commands that you want to execute. Consider the following example:
 
 {{< file-excerpt "File Path" >}}
-exec {"rsync_config":
+    exec {"rsync_config":
         command => "/usr/bin/rsync -a username@hostname.example.com:/srv/puppet/www-config /opt/config",
         unless => "/bin/test -e /opt/config/fresh",
     }

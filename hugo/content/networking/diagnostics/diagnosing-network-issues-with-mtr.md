@@ -102,7 +102,6 @@ On some systems, it may require administrative privileges to run when using this
     sudo mtr -rwc 50 -i 0.2 -rw 12.34.56.78
 
 {{< note >}}
-
 The flags we are using above (`rwc [x] -i [y]`) are useful to our support technicians when contacting support about network-related issues.
 
 The `r` option flag generates the report (short for `--report`).
@@ -112,7 +111,6 @@ The `w` option flag uses the long-version of the hostname so our technicians and
 The `c` option flag sets how many packets are sent and recorded in the report. When not used, the default will generally be 10, but for faster intervals you may want to set it to 50 or 100. The report can take longer to finish when doing this.
 
 The `i` option flag runs the report at a faster rate to reveal packet loss that can occur only during network congestion. This flag instructs MTR to send one packet every *n* seconds. The default is 1 second, so setting it to a few tenths of a second (0.1, 0.2, etc.) is generally helpful.
-
 {{< /note >}}
 
 ### Using MTR on Windows Systems

@@ -42,7 +42,7 @@ To create a virtual host we need to add an "[A Record](/docs/dns-guides/introduc
 We'll create the following host file, located at `/etc/apache2/sites-available/stats.example.org`:
 
 {{< file "/etc/apache2/sites-available/stats.example.org" apache >}}
-<VirtualHost *:80>
+    <VirtualHost *:80>
         ServerAdmin admin@stats.example.org
         ServerName stats.example.org
         ServerAlias stats.example.org

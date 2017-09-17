@@ -21,10 +21,8 @@ external_resources:
 
 StackScripts are usually Bash scripts, stored in the Linode Manager, and can be accessed when you use the **Rebuild** link from the Linode Dashboard. During the first boot job of the newly created disks, the StackScript will run, using any variable you may have added, and perform the scripted commands.
 
- {{< caution >}}
-
+{{< caution >}}
 The **Rebuild** option will destroy all existing disks and profiles.
-
 {{< /caution >}}
 
 ## Deploying from a StackScript
@@ -82,8 +80,8 @@ Alternatively, you can follow along with this video, which will show you how to 
 
     Here's the code used in our example script. The comment lines explain what each section does:
 
-    {{< file "Initial Setup StackScript" bash >}}
-#!/bin/bash
+{{< file "Initial Setup StackScript" bash >}}
+      #!/bin/bash
       # This block defines the variables the user of the script needs to input
       # when deploying using this script.
       #
@@ -163,7 +161,7 @@ You can see the [community StackScript Library](http://linode.com/stackscripts/)
 If you have an existing deployment script, you can use StackScripts to deploy instances with this script. Consider the following methods for "bootstrapping" one script with StackScripts:
 
 {{< file "StackScript" bash >}}
-#!/bin/bash
+    #!/bin/bash
 
     wget http://example.com/ --output-document=/opt/deployment-script.pl
     chmod +x /opt/deployment-script.pl
@@ -175,7 +173,7 @@ If you have an existing deployment script, you can use StackScripts to deploy in
 This approach is useful for bootstrapping scripts written in languages that are not included in the default instance template, as in the following example:
 
 {{< file "StackScript" bash >}}
-#!/bin/bash
+    #!/bin/bash
 
     if [ -f /etc/apt/sources.list ]; then
        apt-get upgrade
@@ -201,7 +199,7 @@ This approach is useful for bootstrapping scripts written in languages that are 
 If you do not want to rely on an existing external server to host your scripts for download, you can embed the bootstrapped script in the StackScript. Consider the following example:
 
 {{< file "StackScript" bash >}}
-#!/bin/bash
+    #!/bin/bash
 
     if [ -f /etc/apt/sources.list ]; then
        apt-get upgrade
@@ -238,10 +236,8 @@ The [Linode API](http://www.linode.com/api/index.cfm) contains support for manag
 -   [stackscript.update](https://www.linode.com/api/stackscript/stackscript.update)
 -   [linode.disk.createfromstackscript](https://www.linode.com/api/linode/linode.disk.createfromstackscript)
 
-    {{< note >}}
-
+{{< note >}}
 If creating a disk with `linode.disk.createfromstackscript`, you will need to create a configuration profile and attach the disk to the profile before you can boot and run the StackScript.
-
 {{< /note >}}
 
 ### Variables and UDFs
@@ -264,7 +260,7 @@ The UDF tags are explained in the table below:
 Below is an example implementation of the UDF variables:
 
 {{< file-excerpt "StackScript" bash >}}
-# [...]
+    # [...]
     <UDF name="var1" Label="A question" default="" example="Enter something here." />
     <UDF name="var2" Label="Pick one of" oneOf="foo,bar" example="Enter something here." />
     <UDF name="var3" Label="A question" oneOf="foo,bar" default="foo" />
@@ -275,7 +271,6 @@ Below is an example implementation of the UDF variables:
 
 {{< note >}}
 If you would like to create a masked password input field, use the word 'password' anywhere in the UDF name.
-
 {{< /note >}}
 
 There are also a set of Linode created environmental variables that can be used for API calls or other tasks from within the script.
@@ -294,7 +289,7 @@ There are also a set of Linode created environmental variables that can be used 
 If you do not want to use the StackScript system to set your environment variables, you might consider hosting files with settings on a different system. This is accomplished with the following fragment:
 
 {{< file-excerpt "StackScript" bash >}}
-# [...]
+    # [...]
     IPADDR=$(/sbin/ifconfig eth0 | awk '/inet / { print $2 }' | sed 's/addr://')
 
     wget http://example.com/base.env --output-document=/tmp/base.env

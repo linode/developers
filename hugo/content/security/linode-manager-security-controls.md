@@ -51,10 +51,8 @@ You'll need to enable two-factor authentication to start using it with your Lino
 
     [![The key and QR code for two-factor authentication.](/docs/assets/1291-manager_2factor_key_qr-4.png)](/docs/assets/1291-manager_2factor_key_qr-4.png)
 
-    {{< caution >}}
-
+{{< caution >}}
 Do not refresh this page until you have configured Google Authenticator on your phone. The key will be shown only once. If you get locked out of your account, [contact support](/docs/support) to regain access.
-
 {{< /caution >}}
 
 7.  On your smartphone, open Google Authenticator.

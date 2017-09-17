@@ -24,7 +24,7 @@ Install Required Packages
 First, make sure you have the `universe` repository enabled in your `/etc/apt/sources.list` file. Your file should resemble the following:
 
 {{< file-excerpt "/etc/apt/sources.list" >}}
-## main & restricted repositories
+    ## main & restricted repositories
     deb http://us.archive.ubuntu.com/ubuntu/ hardy main restricted universe
     deb-src http://us.archive.ubuntu.com/ubuntu/ hardy main restricted universe
 

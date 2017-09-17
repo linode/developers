@@ -16,9 +16,7 @@ title: Install and Configure Salt Master and Minion Servers
 [Salt](https://saltstack.com/) is a server management platform, designed to control a number of servers from a single master server. The following directions will walk you through configuring a Salt master and multiple Salt minions, and deploying your first Salt Formula. These instructions assume that you are using Debian 8 but can be adjusted to function on other distributions.
 
 {{< note >}}
-
 The steps required in this guide require root privileges. Be sure to run the steps below as **root** or with the `sudo` prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ##Before You Begin
@@ -30,14 +28,18 @@ The steps required in this guide require root privileges. Be sure to run the ste
 ##Add the Salt Repository
 
 {{< note >}}
-
 The steps in this section will need to be run on *each* of your Linodes.
-
 {{< /note >}}
 
 1.  Create the file `/etc/apt/sources.list.d/salt.list` and enter the following lines to add the Salt repository: 
     
-	{{< file "/etc/apt/sources.list.d/salt.list" >}}
+{{< file "/etc/apt/sources.list.d/salt.list" >}}
+	   # salt
+	   deb http://debian.saltstack.com/debian jessie-saltstack main
+	
+{{< /file >}}
+
+
 2.  Add the repository key:
 	
 		wget -q -O- "http://debian.saltstack.com/debian-salt-team-joehealy.gpg.key" | apt-key add -
@@ -49,9 +51,7 @@ The steps in this section will need to be run on *each* of your Linodes.
 ##Configure Your Salt Master
 
 {{< note >}}
-
 The following steps will be run only on the Linode designated as your Salt master.
-
 {{< /note >}}
 
 1.  Install the Salt master package:
@@ -60,25 +60,18 @@ The following steps will be run only on the Linode designated as your Salt maste
 
 2.  Open `/etc/salt/master`. Uncomment the `#interface:` line and replace `<master's IP address>` below with the address of your Salt master Linode. If your Linodes are located in the same datacenter, you can utilize your private network address for this purpose.
 
-    {{< file >}}
-/etc/salt/master 
-:
+{{< file "/etc/salt/master" >}}
+        # The address of the interface to bind to:
+          interface: <master Linode IP address>
 {{< /file >}}
 
-# The address of the interface to bind to:
-interface: <master Linode IP address>
-~~~
 
-{{< /file >}}
-
-        {{< note >}}
-
+{{< note >}}
 As part of this step, you can also configure the user you wish to issue Salt commands to your minions. Uncomment the `#user:` line and enter your desired username to modify this setting. You will also need to issue the following command to set the required permissions for the user in question.
 
 chown -R user /etc/salt /var/cache/salt /var/log/salt /var/run/salt
 
 Once this setting has been modified, you will need to issue any further Salt commands on your Salt Master while logged in as that user.
-
 {{< /note >}}
 
 3.  Restart Salt:
@@ -88,9 +81,7 @@ Once this setting has been modified, you will need to issue any further Salt com
 ##Installing and Configuring a Salt Minion
 
 {{< note >}}
-
 The following steps will need to be run on *each* of your Salt minions.
-
 {{< /note >}}
 
 1.  Install Salt:
@@ -99,8 +90,8 @@ The following steps will need to be run on *each* of your Salt minions.
     
 2.  Edit the `/etc/salt/minion` file to uncomment the `#master: salt` line, and replace "salt" with the IP address of your Salt Master:
 
-    {{< file "/etc/salt/minion" >}}
-# Set the location of the salt master server. If the master server cannot be
+{{< file "/etc/salt/minion" >}}
+        # Set the location of the salt master server. If the master server cannot be
         # resolved, then the minion will fail to start. 
           master: <master's IP address>
 {{< /file >}}
@@ -178,8 +169,8 @@ Salt Formulas create a framework of software and configurations to be deployed t
 
 2.  Create a state file to store your configuration. For this example, we'll create a simple Apache state:
 
-    {{< file "/srv/salt/apache.sls" yaml >}}
-apache2:
+{{< file "/srv/salt/apache.sls" yaml >}}
+        apache2:
           pkg:
             - installed
 {{< /file >}}

@@ -26,7 +26,7 @@ Enabling the Proxy Module
 We'll edit the file `/etc/apache2/mods-available/proxy.conf` as follows:
 
 {{< file-excerpt "/etc/apache2/mods-available/proxy.conf" apache >}}
-<IfModule mod_proxy.c>
+    <IfModule mod_proxy.c>
             #turning ProxyRequests on and allowing proxying from all may allow
             #spammers to use your proxy to send email.
 
@@ -61,7 +61,7 @@ Proxying a Domain to Lighttpd
 We already have a site called "www.firstsite.org" running under Apache as a normal virtual host. We'll use Apache to send requests for the site "www.secondsite.org" to lighttpd, which we've configured to run on port 8080 on localhost. Here's the configuration file for "www.secondsite.org":
 
 {{< file "/etc/apache2/sites-available/www.secondsite.org" apache >}}
-<VirtualHost 74.207.231.112:80>
+    <VirtualHost 74.207.231.112:80>
          ServerAdmin support@secondsite.org
          ServerName secondsite.org
          ServerAlias www.secondsite.org
@@ -93,7 +93,7 @@ Proxying a Specific URL to Lighttpd
 If we wanted to have `http://www.firstsite.org/myapp/` served by a web application running under lighttpd, we'd simply modify its configuration file to look like this:
 
 {{< file "/apache2/sites-available/www.firstsite.org" apache >}}
-<VirtualHost 74.207.231.112:80>
+    <VirtualHost 74.207.231.112:80>
          ServerAdmin support@firstsite.org
          ServerName firstsite.org
          ServerAlias www.firstsite.org

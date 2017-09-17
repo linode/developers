@@ -18,11 +18,9 @@ Your desktop computer uses DNS to determine the IP address associated with a dom
 Before setting up the reverse DNS for your Linode, be sure to set up your domain zone and DNS records through Linode's [DNS Manager](/docs/networking/dns/dns-manager). You may also wish to view our guide on [Common DNS Configurations](/docs/networking/dns/common-dns-configurations).
 
 {{< note >}}
-
 Reverse DNS uses a *PTR Record* or *pointer record* to match the IP address with the domain or subdomain. Because PTR records are generally set with your hosting provider, when hosting on a Linode, you will always set the reverse DNS within the Linode Manager, using the method detailed below.
 
 For more information about [PTR records](/docs/networking/dns/introduction-to-dns-records#ptr) and DNS in general please see our [Introduction to DNS Records](/docs/networking/dns/introduction-to-dns-records) guide.
-
 {{< /note >}}
 
 ##Setting Reverse DNS

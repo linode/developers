@@ -104,10 +104,8 @@ You can make a manual backup of your Linode by taking a *snapshot*. Here's how:
 2.  Click the **Backups** tab.
 3.  Click **Take a New Snapshot Now**.
 
-    {{< note >}}
-
+{{< note >}}
 Taking a new snapshot will overwrite a saved snapshot.
-
 {{< /note >}}
 
 4.  A warning appears asking if you would like to overwrite the previous snapsnot. Click **OK**.
@@ -119,9 +117,7 @@ The Linode Backup Service initiates the manual snapshot. Be patient. Creating th
 This section will show you how to restore a backup to a [new](#restore-to-a-new-linode) Linode, or to an [existing](#restore-to-an-existing-linode) Linode.
 
 {{< note >}}
-
 The size of the disk(s) created by the restore process will be slightly larger than the total size of the files restored. You may want to resize your disk(s) after the restore process is completed.
-
 {{< /note >}}
 
 To restore a backup to a different data center, first restore to a Linode in the same data center, creating a new one if necessary. Once the restore is complete, use the [Clone](/docs/migrate-to-linode/disk-images/clone-your-linode) tab to copy the disk(s) to a Linode in a different data center.

@@ -24,9 +24,7 @@ alias: ['applications/game-servers/minecraft-with-bungee-cord/']
 After you’ve got a Minecraft server up and running with [Spigot on Debian and Ubuntu](/docs/game-servers/minecraft-with-spigot-ubuntu), you may want to connect different servers with different collections of plugins. BungeeCord acts as a proxy between the Minecraft client and the server, and allows for simple and easy switching between your Spigot servers. It allows for players to connect to one address, yet also access a wider variety of activities than can be easily set up on a single Minecraft server instance.
 
 {{< note >}}
-
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ## Setting Up Your Linode
@@ -68,9 +66,7 @@ If you're using iptables or ufw to act as a firewall, you'll need to make a rule
 For BungeeCord, the Spigot servers need to be in offline mode, as the BungeeCord proxy handles the authentication. This can make the servers vulnerable to people connecting directly, as they can connect with any username, potentially allowing for connection as a user with adminsitrative permissions. To prevent this, you can set up iptables to limit connections to only the BungeeCord server.
 
 {{< note >}}
-
 This section assumes that you've only got a Spigot server running on each Linode. If you have other services, you'll need to modify the rules to allow them to continue working.
-
 {{< /note >}}
 
 1.  Delete existing rules and then allow SSH. If you've changed your SSH port, make sure to change the `22` below:
@@ -82,10 +78,8 @@ This section assumes that you've only got a Spigot server running on each Linode
 
         sudo iptables -A INPUT -p tcp -s `203.0.113.0` --dport 25565 -j ACCEPT
 
-    {{< note >}}
-
+{{< note >}}
 If you're running other Spigot servers on the same Linode, then you will need to run step 2 again, but changing `25565` to the port of the other servers.
-
 {{< /note >}}
 
 3.  Allow loopback traffic through the firewall:
@@ -98,12 +92,9 @@ If you're running other Spigot servers on the same Linode, then you will need to
         sudo iptables -I INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
         sudo iptables -A INPUT -j DROP
 
-    {{< note >}}
-
+{{< note >}}
 If you've configured your `iptables` firewall by following our [Securing Your Server](/docs/security/securing-your-server/) tutorial, then you will need to append the exceptions in steps 1, 2 and 3 to `/etc/iptables.firewall.rules` to ensure that they're persistent between reboots.
-
 {{< /note >}}
-
 
 ## Installing BungeeCord
 
@@ -112,11 +103,8 @@ Log into the BungeeCord Linode as the `bungeecord` user created earlier, and dow
 	wget -O BungeeCord.jar http://ci.md-5.net/job/BungeeCord/lastSuccessfulBuild/artifact/bootstrap/target/BungeeCord.jar
 
 {{< note >}}
-
 This downloads the latest version of BungeeCord. You can find older versions for older Minecraft server versions, [here](http://ci.md-5.net/job/BungeeCord/).
-
 {{< /note >}}
-
 
 ### Setting up BungeeCord
 
@@ -131,8 +119,8 @@ This downloads the latest version of BungeeCord. You can find older versions for
 
 3.  Edit the following block of the configuration, in order to add our existing Spigot servers:
 
-	{{< file-excerpt "config.yml" yaml >}}
-servers:
+{{< file-excerpt "config.yml" yaml >}}
+        servers:
           lobby:
             address: localhost:25565
             restricted: false
@@ -142,8 +130,8 @@ servers:
 
     For the servers that are specified as examples in the introduction, it would look like:
     
-    {{< file-excerpt "config.yml" yaml >}}
-servers:
+{{< file-excerpt "config.yml" yaml >}}
+        servers:
           lobby:
             address: 203.0.113.112:25565
             restricted: false
@@ -169,8 +157,8 @@ servers:
 
 1.  Create the file:
 
-    {{< file "/home/bungeecord/bungeestart.sh" shell >}}
-#!/bin/bash	
+{{< file "/home/bungeecord/bungeestart.sh" shell >}}
+        #!/bin/bash	
     
         screen -dmS "bungeecord" java -jar BungeeCord.jar
 {{< /file >}}

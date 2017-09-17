@@ -25,7 +25,6 @@ This guide will show users how to create and configure a Chef server, a virtual 
 
 {{< note >}}
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ##Prerequisites
@@ -193,8 +192,8 @@ The workstation is used to add and edit cookbooks and other configuration files.
 
 2.	Copy the following configuration into the `knife.rb` file:
 
-	{{< file "~/chef-repo/.chef/knife.rb" >}}
-log_level                :info
+{{< file "~/chef-repo/.chef/knife.rb" >}}
+		log_level                :info
 		log_location             STDOUT
 		node_name                'username'
 		client_key               '~/chef-repo/.chef/username.pem'
@@ -203,6 +202,7 @@ log_level                :info
 		chef_server_url          'https://123.45.67.89/organizations/shortname'
 		syntax_check_cache_path  '~/chef-repo/.chef/syntax_check_cache'
 		cookbook_path [ '~/chef-repo/cookbooks' ]
+		
 {{< /file >}}
 
 
@@ -260,8 +260,8 @@ This section is optional, but provides instructions on downloading a cookbook to
 
 2.	Open the `default.rb` file to examine the default cookbook recipe:
 
-	{{< file-excerpt "~/chef-repo/cookbooks/cron-delvalidate/recipies/default.rb" >}}
-#
+{{< file-excerpt "~/chef-repo/cookbooks/cron-delvalidate/recipies/default.rb" >}}
+		#
 		# Cookbook Name:: cron-delvalidate
 		# Recipe:: Chef-Client Cron & Delete Validation.pem
 		#
@@ -277,6 +277,7 @@ This section is optional, but provides instructions on downloading a cookbook to
 		file "/etc/chef/validation.pem" do
 		  action :delete
 		end
+		
 {{< /file-excerpt >}}
 
 

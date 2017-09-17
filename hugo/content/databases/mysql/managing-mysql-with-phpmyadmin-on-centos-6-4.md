@@ -21,9 +21,7 @@ external_resources:
 phpMyAdmin is a web application that provides a GUI to aid in MySQL database administration. It supports multiple MySQL servers and is a robust and easy alternative to using the MySQL command line client.
 
 {{< note >}}
-
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ## Before You Begin
@@ -43,13 +41,11 @@ This guide is written for a non-root user. Commands that require elevated privil
         
 3.  Set up a working LAMP stack. Please see the [LAMP on CentOS 6](/docs/websites/lamp/lamp-server-on-centos-6) guide if needed.
 
-    {{< note >}}
-
+{{< note >}}
 If you have installed the `php-suhosin` package, there are some known issues when using phpMyAdmin. Please visit the [Suhosin phpMyAdmin Compatibility Issues page](http://www.hardened-php.net/hphp/troubleshooting.html) for more information about tuning and workarounds.
+{{< /note >}}
 
 4.  Enable the EPEL Repository:
-
-{{< /note >}}
 
         cd ~
         wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
@@ -96,8 +92,8 @@ Since you are required to enter your MySQL credentials when using phpMyAdmin, we
 
 1.  Force phpMyAdmin to use SSL in the phpMyAdmin configuration file `/etc/phpmyadmin/config.inc.php` by adding the following lines under the `Server(s) configuration` section:
 
-    {{< file-excerpt "/etc/phpmyadmin/config.inc.php" php >}}
-$cfg['ForceSSL'] = 'true';
+{{< file-excerpt "/etc/phpmyadmin/config.inc.php" php >}}
+        $cfg['ForceSSL'] = 'true';
 {{< /file-excerpt >}}
 
     

@@ -36,7 +36,7 @@ Begin by setting the timezone of your server if it isn't already set. Set your s
 First, make sure you have the `universe` repositories enabled on your system. Your `/etc/apt/sources.list` should resemble the following (you may have to uncomment or add the `universe` lines):
 
 {{< file "/etc/apt/sources.list" >}}
-## main & restricted repositories
+    ## main & restricted repositories
     deb http://us.archive.ubuntu.com/ubuntu/ lucid main restricted
     deb-src http://us.archive.ubuntu.com/ubuntu/ lucid main restricted
 
@@ -77,7 +77,6 @@ SNMPD binds to `localhost` by default. If you only plan on using Cacti to monito
 
 {{< file >}}
 /etc/default/snmpd
-
 {{< /file >}}
 
 > SNMPDOPTS='-Lsd -Lf /dev/null -u snmp -g snmp -I -smux -p /var/run/snmpd.pid'
@@ -88,7 +87,6 @@ We'll create an SNMP "community" to help identify our group of devices for Cacti
 
 {{< file >}}
 /etc/snmp/snmpd.conf
-
 {{< /file >}}
 
 > \#com2sec paranoid default public com2sec readonly localhost example \#com2sec readwrite default private
@@ -135,7 +133,6 @@ Note that the format is "rocommunity community\_name", where `community_name` is
 
 {{< file >}}
 /etc/default/snmpd
-
 {{< /file >}}
 
 > SNMPDOPTS='-Lsd -Lf /dev/null -u snmp -g snmp -I -smux -p /var/run/snmpd.pid'

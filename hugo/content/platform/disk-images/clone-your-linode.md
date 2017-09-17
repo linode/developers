@@ -18,9 +18,7 @@ This guide will show you how to clone your Linode's existing disks or configurat
 ![Clone Your Linode](/docs/assets/clone-your-linode.png "Clone Your Linode")
 
 {{< note >}}
-
 To follow the steps in this guide, you will need a Linode with enough free storage space to accommodate your cloned disks.
-
 {{< /note >}}
 
 ## Clone Your Linode

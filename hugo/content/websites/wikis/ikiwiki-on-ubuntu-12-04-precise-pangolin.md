@@ -27,7 +27,7 @@ Issue the following commands to set your system hostname, substituting a unique 
 Edit your `/etc/hosts` file to resemble the following, substituting your Linode's public IP address for 12.34.56.78, your hostname for "hostname", and your primary domain name for "example.com".
 
 {{< file "/etc/hosts" >}}
-127.0.0.1 localhost.localdomain localhost 
+    127.0.0.1 localhost.localdomain localhost 
     12.34.56.78 hostname.example.com hostname
 {{< /file >}}
 
@@ -64,7 +64,7 @@ Issue the following command to install Apache:
 Create a virtual host that resembles the following example. Be sure to substitute your own domain name for "example.com".
 
 {{< file "/etc/apache2/sites-available/example.com" apache >}}
-<VirtualHost *:80>
+    <VirtualHost *:80>
         ServerAdmin username@example.com
         ServerName example.com
         ServerAlias www.example.com
@@ -97,7 +97,7 @@ If you've already installed Apache, or another web server, please skip this sect
 Create a filed named `/usr/bin/fastcgi-wrapper.pl` with the following contents:
 
 {{< file "/usr/bin/fastcgi-wrapper.pl" perl >}}
-#!/usr/bin/perl
+    #!/usr/bin/perl
 
     use FCGI;
     use Socket;
@@ -202,7 +202,7 @@ Create a filed named `/usr/bin/fastcgi-wrapper.pl` with the following contents:
 Create a file named `/etc/init.d/perl-fastcgi` with the following contents:
 
 {{< file "/etc/init.d/perl-fastcgi" bash >}}
-#!/bin/bash
+    #!/bin/bash
     PERL_SCRIPT=/usr/bin/fastcgi-wrapper.pl
     FASTCGI_USER=www-data
     RETVAL=0
@@ -245,7 +245,7 @@ In this guide, the domain "example.com" is used as an example site. You should s
 Next, you'll need to define your site's virtual host file:
 
 {{< file "/etc/nginx/sites-available/example.com" nginx >}}
-server {
+    server {
         listen   80;
         server_name www.example.com example.com;
         access_log /srv/www/example.com/logs/access.log;
@@ -291,7 +291,6 @@ Add the following excerpt to `~/wiki/.git/config`:
 
 {{< file-excerpt >}}
 ~/wiki/.git/config
-
 {{< /file-excerpt >}}
 
     [remote "origin"]
@@ -323,7 +322,6 @@ Create content in the `~/wiki/source/index.mdwn` file, for example:
 
 {{< file >}}
 ~/wiki/source/index.mdwn
-
 {{< /file >}}
 
     # Welcome to $wiki

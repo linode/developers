@@ -32,7 +32,7 @@ First, make sure your Linode has a private IP address assigned to it. To do so, 
 Edit your network interfaces file to define your public and private IPs. Change the values shown below to match your Linode's network configuration, paying special attention to the subnet mask for the private IP.
 
 {{< file "/etc/network/interfaces" >}}
-auto lo
+    auto lo
     iface lo inet loopback
 
     auto eth0
@@ -51,7 +51,7 @@ auto lo
 Make sure your `/etc/hosts` file contains valid entries. You can use the following example for reference; substitute your Linode's IP addresses and hostname information for the values shown below.
 
 {{< file "/etc/hosts" >}}
-127.0.0.1        localhost.localdomain            localhost
+    127.0.0.1        localhost.localdomain            localhost
     69.164.198.62    saturn.example.com           saturn
     192.168.146.68   oracle
 {{< /file >}}
@@ -80,7 +80,7 @@ Installing the Oracle XE GPG key ensures that you will get verified Oracle softw
 Add the following repository to your `/etc/apt/sources.list` file:
 
 {{< file-excerpt "/etc/apt/sources.list" >}}
-deb http://oss.oracle.com/debian unstable main non-free
+    deb http://oss.oracle.com/debian unstable main non-free
 {{< /file-excerpt >}}
 
 
@@ -146,7 +146,7 @@ First, you'll need to locate the `tnsnames.ora` file. Issue the following comman
 You may find more than one location for this file; ignore the version located in a "samples" directory if it's listed. Edit `tnsnames.ora`, setting a valid entry for "HOST" to match the one assigned to your Linode's hostname ("oracle" in our example).
 
 {{< file-excerpt "tnsnames.ora" >}}
-XE =
+    XE =
       (DESCRIPTIONx =
         (ADDRESS = (PROTOCOL = TCP)(HOST = oracle)(PORT = 1521))
         (CONNECT_DATA =
@@ -158,7 +158,7 @@ XE =
 Next, edit the `listener.ora` file from the same directory:
 
 {{< file-excerpt "listener.ora" >}}
-LISTENER =
+    LISTENER =
       (DESCRIPTION_LIST =
         (DESCRIPTION =
           (ADDRESS = (PROTOCOL = IPC)(KEY = EXTPROC_FOR_XE))

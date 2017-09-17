@@ -21,11 +21,8 @@ The *Apache HTTP Server* (Apache) is an open-source web server application. This
 If instead you would like to install a full LAMP (Linux, Apache, MySQL, and PHP) stack, please see the [LAMP on CentOS 6](/docs/websites/lamp/lamp-server-on-centos-6) guide.
 
 {{< note >}}
-
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
-
 
 ## Before You Begin
 
@@ -50,8 +47,8 @@ This guide is written for a non-root user. Commands that require elevated privil
 
 2.  Edit the main Apache configuration file to adjust the resource use settings. The settings shown below are a good starting point for a **Linode 2GB**:
 
-    {{< file "/etc/httpd/conf/httpd.conf" aconf >}}
-KeepAlive Off
+{{< file "/etc/httpd/conf/httpd.conf" aconf >}}
+        KeepAlive Off
 
 
         <IfModule prefork.c>
@@ -68,8 +65,8 @@ KeepAlive Off
 
 1.  Create a file under `/etc/httpd/conf.d` named `vhost.conf`. Replace instances of `example.com` with your own domain information:
 
-    {{< file-excerpt "/etc/httpd/conf.d/vhost.conf" aconf >}}
-<VirtualHost *:80> 
+{{< file-excerpt "/etc/httpd/conf.d/vhost.conf" aconf >}}
+        <VirtualHost *:80> 
              ServerAdmin admin@example.org
              ServerName example.org
              ServerAlias www.example.org

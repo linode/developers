@@ -42,7 +42,7 @@ Configure nginx Virtual Hosting
 Replace the contents of the file `/etc/nginx/nginx.conf` with the following contents.
 
 {{< file "/etc/nginx/nginx.conf" nginx >}}
-user nginx;
+    user nginx;
     worker_processes 1;
     error_log /var/log/nginx/error.log;
 
@@ -83,7 +83,7 @@ Issue the following command to create directories for your nginx configuration f
 Create the file `/etc/nginx/sites-available/www.example.com`, replacing "example.com" with your domain name. It should contain the following configuration directives; again, be sure to replace "example.com" with your domain name.
 
 {{< file "/etc/nginx/sites-available/www.example.com" nginx >}}
-server {
+    server {
         server_name www.example.com example.com;
         access_log /srv/www/www.example.com/logs/access.log;
         error_log /srv/www/www.example.com/logs/error.log;
@@ -104,7 +104,7 @@ Issue the following commands to enable your site, replacing "example.com" with y
 Create a test index page for your website with the following contents.
 
 {{< file "/srv/www/www.example.com/public\\_html/index.html" html >}}
-<html>
+    <html>
     <head>
     <title>Welcome to example.com</title>
     </head>
@@ -134,7 +134,7 @@ Issue the following command to install packages required for PHP-FastCGI.
 Edit the file `/etc/sysconfig/spawn-fcgi` to match the following contents.
 
 {{< file "/etc/sysconfig/spawn-fcgi" ini >}}
-FASTCGI_USER=nginx
+    FASTCGI_USER=nginx
     FASTCGI_GROUP=nginx
     SOCKET=/var/run/spawn-fcgi.sock
     PIDFILE=/var/run/spawn-fcgi.pid
@@ -154,7 +154,7 @@ Issue the following command to set PHP-FastCGI to start on boot and start it now
 Edit your site's nginx configuration file to resembled the following example.
 
 {{< file "/etc/nginx/sites-available/www.example.com" nginx >}}
-server {
+    server {
         server_name www.example.com example.com;
         access_log /srv/www/www.example.com/logs/access.log;
         error_log /srv/www/www.example.com/logs/error.log;
@@ -181,7 +181,7 @@ Issue the following command to restart nginx.
 Create a PHP test page so you can verify that everything is working correctly.
 
 {{< file "/srv/www/www.example.com/public\\_html/test.php" php >}}
-<?php phpinfo(); ?>
+    <?php phpinfo(); ?>
 {{< /file >}}
 
 

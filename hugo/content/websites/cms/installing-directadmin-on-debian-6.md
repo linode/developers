@@ -23,7 +23,6 @@ Edit your `/etc/hosts` file to resemble the following example. Replace "hostname
 
 {{< file >}}
 /etc/hosts
-
 {{< /file >}}
 
 > 127.0.0.1 localhost.localdomain localhost 12.34.56.78 hostname.example.com hostname
@@ -37,7 +36,6 @@ Edit the `/etc/network/interfaces` file to resemble the following, replacing `12
 
 {{< file >}}
 /etc/network/interfaces
-
 {{< /file >}}
 
 > iface eth0 inet static
@@ -47,7 +45,6 @@ If your Linode has a second IP address, edit the `/etc/network/interfaces` file 
 
 {{< file >}}
 /etc/network/interfaces
-
 {{< /file >}}
 
 > iface eth0:0 inet static
@@ -61,7 +58,6 @@ Edit the `/etc/resolv.conf` to resemble the following, replacing `11.11.11.11` a
 
 {{< file >}}
 /etc/resolv.conf
-
 {{< /file >}}
 
 > nameserver 11.11.11.11 nameserver 22.22.22.22 options rotate
@@ -128,7 +124,6 @@ You may want to configure the DirectAdmin manager login to use SSL, either on th
 
 {{< file-excerpt >}}
 /usr/local/directadmin/conf/directadmin.conf
-
 {{< /file-excerpt >}}
 
 > SSL=0
@@ -137,7 +132,6 @@ And change it to:
 
 {{< file-excerpt >}}
 /usr/local/directadmin/conf/directadmin.conf
-
 {{< /file-excerpt >}}
 
 > SSL=1
@@ -146,7 +140,6 @@ If you would prefer to leave 2222 open as a non-SSL port and run a copy of Direc
 
 {{< file-excerpt >}}
 /usr/local/directadmin/conf/directadmin.conf
-
 {{< /file-excerpt >}}
 
 > port=2222
@@ -155,7 +148,6 @@ And add this line below it:
 
 {{< file-excerpt >}}
 /usr/local/directadmin/conf/directadmin.conf
-
 {{< /file-excerpt >}}
 
 > ssl\_port=2223
@@ -176,7 +168,6 @@ If your issuer does have a CA Root Cert, you'll also need to modify your directa
 
 {{< file-excerpt >}}
 /usr/local/directadmin/conf/directadmin.conf
-
 {{< /file-excerpt >}}
 
 > SSL=0 cacert=/usr/local/directadmin/conf/cacert.pem cakey=/usr/local/directadmin/conf/cakey.pem ssl\_cipher=SSLv3
@@ -185,7 +176,6 @@ And update it to:
 
 {{< file-excerpt >}}
 /usr/local/directadmin/conf/directadmin.conf
-
 {{< /file-excerpt >}}
 
 > SSL=0 cacert=/usr/local/directadmin/conf/cacert.pem cakey=/usr/local/directadmin/conf/cakey.pem carootcert=/usr/local/directadmin/conf/carootcert.pem ssl\_cipher=SSLv3
@@ -197,7 +187,6 @@ DirectAdmin also has basic support for IPv6. To activate this support, you'll ne
 
 {{< file-excerpt >}}
 /usr/local/directadmin/conf/directadmin.conf
-
 {{< /file-excerpt >}}
 
 > ipv6=1

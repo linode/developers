@@ -21,7 +21,6 @@ MariaDB replication with Galera adds redundancy for a site's database. With data
 
 {{< note >}}
 This guide assumes that your Linodes are each configured with a [Private IP Address](/docs/networking/remote-access#adding-private-ip-addresses).
-
 {{< /note >}}
 
 ##Install Required Packages
@@ -49,8 +48,8 @@ This guide assumes that your Linodes are each configured with a [Private IP Addr
 
 1.  Create the file `/etc/mysql/conf.d/galera.cnf` on each of the Linodes with the following content.  Replace the IP addresses in the `wsrep_cluster_address` section with the private IP addresses of each of the Linodes:
 
-	{{< file-excerpt "/etc/mysql/conf.d/galera.cnf" aconf >}}
-[mysqld]
+{{< file-excerpt "/etc/mysql/conf.d/galera.cnf" aconf >}}
+    [mysqld]
     #mysql settings
     binlog_format=ROW
     default-storage-engine=innodb

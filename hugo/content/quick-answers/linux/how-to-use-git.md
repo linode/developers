@@ -105,7 +105,6 @@ Git is a [version control system](https://en.wikipedia.org/wiki/Version_control)
 
 {{< note >}}
 
-
 {{< /note >}}
 
 >`git add -A`, `git add .`, and `git add -u` can all be used to stage files for a commit.

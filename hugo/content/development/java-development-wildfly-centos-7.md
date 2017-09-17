@@ -55,9 +55,7 @@ After full installation of above stack it was consuming around 650 MB of RAM wit
 ### Oracle Java 8 SE installation
 
 {{< note >}}
-
 Oracle is producing many updates for Java, so below steps ensures you are getting the latest updated Java version.
-
 {{< /note >}}
 
 1.  In any browser go to [Oracle Java SE download page](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
@@ -116,8 +114,8 @@ Oracle is producing many updates for Java, so below steps ensures you are gettin
  
 11. The above command will work for this session only, but you will need to be added to all system users especially when server reboots, so for the Bourne shell, create a new file called `/etc/profile.d/java.sh`, replacing `jdk1.8.0_45` with the appropriate version:
 
-    {{< file "/etc/profile.d/java.sh" shell >}}
-if ! echo ${PATH} | grep -q /opt/jdk1.8.0_45/bin ; then
+{{< file "/etc/profile.d/java.sh" shell >}}
+        if ! echo ${PATH} | grep -q /opt/jdk1.8.0_45/bin ; then
            export PATH=/opt/jdk1.8.0_45/bin:${PATH}
         fi
         if ! echo ${PATH} | grep -q /opt/jdk1.8.0_45/jre/bin ; then
@@ -131,8 +129,8 @@ if ! echo ${PATH} | grep -q /opt/jdk1.8.0_45/bin ; then
 
 12. For the C shell, create a new file called `/etc/profile.d/java.csh`, replacing `jdk1.8.0_51` with the appropriate version:
 
-    {{< file "/etc/profile.d/java.csh" shell >}}
-if ( "${path}" !~ */opt/jdk1.8.0_45/bin* ) then
+{{< file "/etc/profile.d/java.csh" shell >}}
+        if ( "${path}" !~ */opt/jdk1.8.0_45/bin* ) then
            set path = ( /opt/jdk1.8.0_45/bin $path )
         endif
         if ( "${path}" !~ */opt/jdk1.8.0_45/jre/bin* ) then
@@ -175,8 +173,8 @@ if ( "${path}" !~ */opt/jdk1.8.0_45/bin* ) then
 
     Create wildfly installation file, & execute using root user:
 
-    {{< file "/opt/wildfly-install.sh" shell >}}
-#!/bin/bash
+{{< file "/opt/wildfly-install.sh" shell >}}
+        #!/bin/bash
         #Title : wildfly-install.sh
         #Description : The script to install Wildfly 8.x
         #Original script: http://sukharevd.net/wildfly-8-installation.html
@@ -321,8 +319,8 @@ Please Follow these steps to install MySQL driver as "module" in WildFly
 
 3.  Create a file defining the module to the same folder `/opt/wildfly/modules/com/mysql/main` named `module.xml` have the following information, replacing the `mysql-connector-java-5.1.34-bin.jar` with the correct version:
 
-    {{< file "/opt/wildfly/modules/com/mysql/main/module.xml" xml >}}
-<module xmlns="urn:jboss:module:1.3" name="com.mysql">
+{{< file "/opt/wildfly/modules/com/mysql/main/module.xml" xml >}}
+        <module xmlns="urn:jboss:module:1.3" name="com.mysql">
            <resources>
                <resource-root path="mysql-connector-java-5.1.34-bin.jar"/>
            </resources>
@@ -340,8 +338,8 @@ Please Follow these steps to install MySQL driver as "module" in WildFly
 
 5.  We need to define MySQL driver in `/opt/wildfly/standalone/configuration/standalone.xml` by adding the following driver definition within the drivers tag, by default you will find only definition for h2:
 
-    {{< file-excerpt "/opt/wildfly/standalone/configuration/standalone.xml" xml >}}
-<drivers>
+{{< file-excerpt "/opt/wildfly/standalone/configuration/standalone.xml" xml >}}
+        <drivers>
             <driver name="h2" module="com.h2database.h2">
                 <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
             </driver>
@@ -428,38 +426,43 @@ There are multiple ways for setting Apache HTTP to direct calls to WildFly (mod_
 
 4.  We need to configure Apache HTTP server to use this module, we will create worker file for mod_jk, and add its content (Status worker is useful in debugging as well):
 
-    {{< file "/etc/httpd/conf.d/workers.properties" >}}
+{{< file "/etc/httpd/conf.d/workers.properties" aconf >}}
+        worker.list=jboss1,jkstatus
+        worker.jkstatus.type=status
+        worker.jboss1.type=ajp13
+        worker.jboss1.port=8009
+        # The host should be using IP not server name as reported bug
+        # https://www.apachelounge.com/viewtopic.php?t=5883
+        worker.jboss1.host=127.0.0.1
+{{< /file >}}
+
+ 
 5.  Instead of modifying Apache configuration file; better create extra Apache HTTP configuration file that will work as Apache by default has in the file `/etc/httpd/conf/httpd.conf` the directive `IncludeOptional conf.d/*.conf`:
 
-    {{< file >}}
-/etc/httpd/conf.d/modjk.conf
-:
+{{< file "/etc/httpd/conf.d/modjk.conf" aconf >}}
+        # To avoid error AH00558: httpd: Could not reliably
+        # determine the server's fully qualified domain name
+        # replace 1.2.3.4 with your server IP
+        ServerName    1.2.3.4
+         
+        # Load mod_jk
+        LoadModule    jk_module modules/mod_jk.so
+        JkWorkersFile /etc/httpd/conf.d/workers.properties
+        JkLogFile     /var/log/httpd/mod_jk_log
+         
+        # To be changed to warn in production, the mount point should match your application sample pathes
+        JkLogLevel    info
+        JKMount       /sample jboss1
+        JkMount       /sample/* jboss1
+        JKMount       /jkstatus jkstatus
+         
+        # To avoid write access error in mod_jk
+        # https://bugzilla.redhat.com/show_bug.cgi?id=912730
+        JKShmFile     /var/tmp/jk-runtime-status
 {{< /file >}}
-conf
-# To avoid error AH00558: httpd: Could not reliably
-# determine the server's fully qualified domain name
-# replace 1.2.3.4 with your server IP
-ServerName    1.2.3.4
 
-# Load mod_jk
-LoadModule    jk_module modules/mod_jk.so
-JkWorkersFile /etc/httpd/conf.d/workers.properties
-JkLogFile     /var/log/httpd/mod_jk_log
-
-# To be changed to warn in production, the mount point should match your application sample pathes
-JkLogLevel    info
-JKMount       /sample jboss1
-JkMount       /sample/* jboss1
-JKMount       /jkstatus jkstatus
-
-# To avoid write access error in mod_jk
-# https://bugzilla.redhat.com/show_bug.cgi?id=912730
-JKShmFile     /var/tmp/jk-runtime-status
-~~~
-
+ 
 6.  Restart Apache:
-
-{{< /file >}}
 
         sudo systemctl restart httpd
 

@@ -26,7 +26,7 @@ Installing Ikiwiki
 Before installing Ikiwiki, we must enable the `universe` repository. To enable `universe`, modify your `/etc/apt/sources.list` file to mirror the example file below. You'll need to uncomment the universe lines:
 
 {{< file "/etc/apt/sources.list" >}}
-## main & restricted repositories
+    ## main & restricted repositories
     deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted         
     deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted 
 
@@ -105,7 +105,6 @@ Edit the `~/wiki/.git/config` file to create the remote repository so that it lo
 
 {{< file >}}
 \~/wiki/.git/config
-
 {{< /file >}}
 
 > [core]
@@ -164,7 +163,6 @@ Next, edit the `~/wiki-admin/.git/config` file to set up the remote repository. 
 
 {{< file >}}
 \~/wiki/.git/config
-
 {{< /file >}}
 
 > [core]

@@ -30,7 +30,7 @@ Be aware, if you have opted to install the `php-suhosin` package, there are some
 The `mcrypt` PHP module required by phpMyAdmin is contained in the "universe" repository for Ubuntu Karmic. Edit your `/etc/apt/sources.list` file to enable the "universe" repositories by removing the hash symbol in front of the universe lines. The file should resemble the following example:
 
 {{< file "/etc/apt/sources.list" >}}
-## main & restricted repositories
+    ## main & restricted repositories
     deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted         
     deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted 
 
@@ -95,7 +95,7 @@ This will create a symbolic link named `phpmyadmin` in your document root.
 We recommend securing your phpMyAdmin directory using an `.htaccess file` and only allowing specified IP addresses to access it. You can do this by creating an `.htaccess` file in your `phpmyadmin` directory. Refer to the sample `.htaccess` file below. Be sure to substitute the proper paths and **IP addresses** for your particular configuration.
 
 {{< file-excerpt "/srv/www/example.com/public\\_html/phpmyadmin/.htaccess" apache >}}
-Order Deny,Allow
+    Order Deny,Allow
     Deny from all
     Allow from 12.34.56.78
 {{< /file-excerpt >}}
@@ -108,7 +108,7 @@ Since you are required to enter your MySQL credentials when using phpMyAdmin, we
 You can force phpMyAdmin to use SSL in the phpMyAdmin configuration file `/etc/phpmyadmin/config.inc.php` by adding the following lines under the `Server(s) configuration` section:
 
 {{< file-excerpt "/etc/phpmyadmin/config.inc.php" php >}}
-$cfg['ForceSSL'] = 'true';
+    $cfg['ForceSSL'] = 'true';
 {{< /file-excerpt >}}
 
 

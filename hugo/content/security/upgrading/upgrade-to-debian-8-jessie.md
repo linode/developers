@@ -18,7 +18,6 @@ Bear in mind that while package and distribution maintainers try to ensure cross
 
 {{< note >}}
 If you use the Apache web server, be aware that Debian 8 moves from Apache 2.2 to 2.4. This version change requires several adjustments to configuration files, and can break an existing website. Please follow our [Upgrading Apache](https://www.linode.com/docs/security/upgrading/updating-virtual-host-settings-from-apache-2-2-to-apache-2-4) guide before continuing.
-
 {{< /note >}}
 
 ## Preparing to Upgrade
@@ -68,8 +67,8 @@ You are now ready to install Debian 8 on your Linode.
 
 1.  Edit your `/etc/apt/sources.list` file and change all instances of `wheezy` to `jessie`. Once you have finished, your `/etc/apt/sources.list` should resemble the following:
 
-    {{< file-excerpt "/etc/apt/sources.list" >}}
-deb http://ftp.us.debian.org/debian/ jessie main
+{{< file-excerpt "/etc/apt/sources.list" >}}
+        deb http://ftp.us.debian.org/debian/ jessie main
         deb-src http://ftp.us.debian.org/debian/ jessie main
 
         deb http://security.debian.org/ jessie/updates main
@@ -81,10 +80,8 @@ deb http://ftp.us.debian.org/debian/ jessie main
 {{< /file-excerpt >}}
 
 
-    {{< note >}}
-
+{{< note >}}
 Check your `/etc/apt/sources.list.d` for additional package repositories, and ensure that they are querying for packages from `jessie`.  You will need to check with the maintainers of each package to ensure that their own repositories have been updated.
-
 {{< /note >}}
 
 2.  Update your package lists:
@@ -99,10 +96,8 @@ Check your `/etc/apt/sources.list.d` for additional package repositories, and en
 
         sudo apt-get dist-upgrade
 
-     {{< note >}}
-
+{{< note >}}
 Services using "NSS" (Network Security Services) and "PAM" (Pluggable Authentication Modules) will need to be restarted. In most cases the default list of services to be restarted is fine. If you have additional services that you run that use NSS or PAM, please add them to the list.
-
 {{< /note >}}
 
     During the upgrade process, configuration files that you've modified and require updates will be presented for manual review. Here's an example:

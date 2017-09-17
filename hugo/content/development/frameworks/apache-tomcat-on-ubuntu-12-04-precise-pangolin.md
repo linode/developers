@@ -41,10 +41,8 @@ To install Tomcat, issue the following command:
 
     apt-get install tomcat6
 
- {{< note >}}
-
+{{< note >}}
 OpenJDK will be installed as a dependency when you install the `tomcat6` package. OpenJDK is pulled in by the `default-java` meta package in Ubuntu.
-
 {{< /note >}}
 
 You may also want to install the `tomcat6-docs`, `tomcat6-examples`, and `tomcat6-admin` tools which provide web-based applications that document, test, and allow you to administer Tomcat. You can install all three with the following command:
@@ -62,7 +60,7 @@ Tomcat should now be totally functional, following installation and your next sy
 You can test your Tomcat installation by pointing your browser at `http://[yourdomain-or-ip-address]:8080/`. By default, files are located in the `/usr/share/tomcat6` directory. To configure the admin area, you'll need to add the following lines to the end of your `tomcat-users.xml` file, substituting your own username and password. Make sure you keep the "manager" role.
 
 {{< file-excerpt "/etc/tomcat6/tomcat-users.xml" xml >}}
-<role rolename="manager"/>
+    <role rolename="manager"/>
     <user username="username" password="examplemorris" roles="manager"/>
 {{< /file-excerpt >}}
 

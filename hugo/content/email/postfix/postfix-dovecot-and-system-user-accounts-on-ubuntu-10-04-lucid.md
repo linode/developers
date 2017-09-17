@@ -55,14 +55,14 @@ SASL Authentication
 Edit the `/etc/default/saslauthd` file to allow the SASL authentication daemon to start. Uncommon or add the following line:
 
 {{< file-excerpt "/etc/default/saslauthd" ini >}}
-START=yes
+    START=yes
 {{< /file-excerpt >}}
 
 
 Create the `/etc/postfix/sasl/smtpd.conf` file, and insert the following line:
 
 {{< file "/etc/postfix/sasl/smtpd.conf" ini >}}
-myhostname = lollipop.example.com
+    myhostname = lollipop.example.com
     virtual_alias_maps = hash:/etc/postfix/virtual
     home_mailbox = mail/
 {{< /file >}}
@@ -79,7 +79,7 @@ Every existing user that receives email will also need to make their own `Maildi
 Create a `/etc/postfix/virtual` file to map incoming email addresses to their destinations. Consider the following example:
 
 {{< file "/etc/postfix/virtual" ini >}}
-protocols = imap imaps pop3 pop3s
+    protocols = imap imaps pop3 pop3s
 {{< /file >}}
 
 
@@ -88,7 +88,7 @@ The `protocols` directive enables `imap` and `pop3` services within Dovecot alon
 Edit the following directives in `/etc/dovecot/conf.d/01-dovecot-postfix.conf` to ensure that Dovecot can find your user's Maildirs:
 
 {{< file-excerpt "/etc/dovecot/conf.d/01-dovecot-postfix.conf" ini >}}
-mail_location = maildir:~/mail:LAYOUT=fs
+    mail_location = maildir:~/mail:LAYOUT=fs
 {{< /file-excerpt >}}
 
 

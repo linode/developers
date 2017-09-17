@@ -54,14 +54,14 @@ Enabling Spamassassin Filtering
 Edit the `/etc/mailname` file to reflect your system's domain name:
 
 {{< file "/etc/mailname" >}}
-username.example.com
+    username.example.com
 {{< /file >}}
 
 
 You'll need to edit the SpamAssassin configuration file to enable spamd:
 
 {{< file "/etc/default/spamassassin" >}}
-# Change to one to enable spamd
+    # Change to one to enable spamd
     ENABLED=1
 {{< /file >}}
 
@@ -78,7 +78,7 @@ Running Citadel
 Customize the logon banner for your Citadel server by editing the relevant file:
 
 {{< file "/usr/share/citadel-server/messages/hello" >}}
-Citadel Groupware Server Login
+    Citadel Groupware Server Login
 {{< /file >}}
 
 

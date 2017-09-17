@@ -81,7 +81,7 @@ For the purposes of this document we will assume that you have configured virtua
 Within your Apache virtual host configuration, set the following directives.
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-PerlSwitches -I/srv/www/example.com/application/lib/
+    PerlSwitches -I/srv/www/example.com/application/lib/
     <Perl>
        use lib qw( /srv/www/example.com/application/lib/ );
     </Perl>
@@ -101,7 +101,7 @@ Alter this example to include the path to your Catalyst application's `lib/` dir
 It may be more effective to serve some resources directly from Apache without using the `modperl` handler. Include the following or equivalent lines in your virtual hosting configuration:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-DocumentRoot /srv/www/example.com/public_html
+    DocumentRoot /srv/www/example.com/public_html
     <Location /static>
         SetHandler default-handler
     </Location>
@@ -115,7 +115,7 @@ With these lines, requests for the resources `http://example.com/static/style.cs
 The following example represents a complete and fully functional virtual hosting configuration that combines elements from the previous three examples:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-<VirtualHost *:80> 
+    <VirtualHost *:80> 
          ServerAdmin admin@example.com
          ServerName example.com
          ServerAlias www.example.com

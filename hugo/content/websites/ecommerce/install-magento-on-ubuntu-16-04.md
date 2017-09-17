@@ -23,7 +23,6 @@ Considering the resources some Magento plugins demand, we strongly recommend tha
 
 {{< note >}}
 This guide explains how to install the latest Magento release at the time of publication. For the Community Edition, this will be version 2.1.x. If you plan to use data, themes, and extensions from an older Magento site, be sure to check for compatibility issues between the two versions since not everything may function as it did in older releases.
-
 {{< /note >}}
 
 ## Before You Begin
@@ -39,9 +38,7 @@ This guide explains how to install the latest Magento release at the time of pub
         sudo apt-get update && sudo apt-get upgrade
 
 {{< note >}}
-
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ## Prepare Your Server for Magento
@@ -66,8 +63,8 @@ Since Magento will be served by Apache, some additional configuration is needed 
 
 3.  Modify the virtual host file for your Magento site to resemble the example below. If you have not previously created a virtual host file, do so now and refer to the [Configure Virtual Hosts](/docs/websites/lamp/install-lamp-on-ubuntu-16-04#configure-virtual-hosts) section of the LAMP on Ubuntu 16.04 guide for additional guidance.
 
-    {{< file "/etc/apache2/sites-available/example.com.conf" aconf >}}
-<Directory /var/www/html/example.com/public_html>
+{{< file "/etc/apache2/sites-available/example.com.conf" aconf >}}
+        <Directory /var/www/html/example.com/public_html>
             Require all granted
         </Directory>
         <VirtualHost *:80>
@@ -128,24 +125,22 @@ Magento is a PHP application, so you'll need to make some adjustments to your sy
 
 1.  Modify the following settings in your `php.ini` files for the CLI and Apache PHP configurations. These files can be found at `/etc/php/7.0/apache2/php.ini` and `/etc/php/7.0/cli/php.ini`:
 
-    {{< file-excerpt "/etc/php/7.0/apache2/php.ini & /etc/php/7.0/cli/php.ini" >}}
-It is necessary to modify **both** files. This sets the time zone for PHP's `date()` function and imposes a 2GB limit to the amount of memory PHP can use. This value is recommended for a 4GB Linode, but could be increased for a larger server.
+{{< file-excerpt "/etc/php/7.0/apache2/php.ini & /etc/php/7.0/cli/php.ini" >}}
+    It is necessary to modify **both** files. This sets the time zone for PHP's `date()` function and imposes a 2GB limit to the amount of memory PHP can use. This value is recommended for a 4GB Linode, but could be increased for a larger server.
 
-    {{< note >}}
+{{< note >}}
 The value for `date.timezone` will vary based on your system's time zone. Refer to the [PHP time zone documentation](http://php.net/manual/en/timezones.php) and ensure this value matches the time zone you set when you configured your Linode.
-
 {{< /note >}}
 
 2.  **Optional**: You may want to take this opportunity to create a `phpinfo.php` page to ensure that PHP is active and working properly with Apache:
 
-    {{< file >}}
+{{< file >}}
 /var/www/html/example.com/public_html/phpinfo.php
-:
+    :
 {{< /file-excerpt >}}
-php
-<?php phpinfo(); ?>
-~~~
-
+ php
+        <?php phpinfo(); ?>
+        ~~~
 {{< /file >}}
 
     Once you've visited this page in your browser and confirmed that PHP is working, delete the test page.
@@ -166,9 +161,8 @@ In this section, we'll explain how to get the Magento Community Edition (CE) sof
 
     In this step, you'll also be able to download the software with optional sample data. Whether you choose this or the basic version is up to you.
 
-    {{< note >}}
+{{< note >}}
 When choosing a version, refer to Magento's [prerequisites](http://devdocs.magento.com/guides/v2.0/install-gde/prereq/prereq-overview.html) to ensure a particular version's compatibility with the components of your LAMP stack. As of the publication of this guide, Magento version 2.1.2 is compatible with all prerequisite package versions from the Ubuntu repositories.
-
 {{< /note >}}
 
 2.  From your local computer, copy the file to your Linode. Replace `/path/on/local/` with the path of your downloaded file, `user` with your standard user account on your Linode, and `yourhost` with your Linode's hostname or IP address:
@@ -211,9 +205,8 @@ When choosing a version, refer to Magento's [prerequisites](http://devdocs.magen
 
     This allows your `magento` user (and members of the `www-data` group) to write to the various files they need to run and serve Magento on your site.
 
-    {{< note >}}
+{{< note >}}
 The first two commands may take some time to run because they are matching various files and directories in your installation folder. It may appear that the system is inactive, but be sure to allow a couple minutes before cancelling the operations. You can always start a new SSH connection, or run these commands in a [screen](/docs/networking/ssh/using-gnu-screen-to-manage-persistent-terminal-sessions) session, and use tools like [htop & iotop](/docs/uptime/monitoring/top-htop-iotop#additional-top-like-programs) to monitor progress.
-
 {{< /note >}}
 
 4.  Restart Apache:
@@ -241,9 +234,8 @@ The first two commands may take some time to run because they are matching vario
     -   **db-user** - This is the MySQL database user you set up previously. In our example, we called it `magento` but if you chose a different name, use that here instead.
     -   **db-password** - This will be the password you configured for the `magento` MySQL user.
 
-    {{< note >}}
+{{< note >}}
 These are just a few of the available options to configure your Magento installation. For more information, refer to the [Magento Installation Guide](http://devdocs.magento.com/guides/v2.1/install-gde/install/cli/install-cli-install.html) and feel free to use additional options when running the script.
-
 {{< /note >}}
 
 3.  The installation script may take several minutes to run. Once it's finished, you'll see a success message:
@@ -290,7 +282,7 @@ For more information about setting up cron jobs for development servers and cust
 We strongly recommend to disable the ability to display your Magento storefront in a frame to prevent [clickjacking](https://en.wikipedia.org/wiki/Clickjacking) attacks. To do this, modify the following line in your `env.php` file:
 
 {{< file-excerpt "/var/www/html/example.com/public_html/app/etc/env.php" php >}}
-'x-frame-options' => 'DENY',
+    'x-frame-options' => 'DENY',
 {{< /file-excerpt >}}
 
 
@@ -307,7 +299,6 @@ Depending on whether you install custom themes or extensions, you may need to do
 
 {{< note >}}
 If you need to make additional configuration changes in the future, you'll need to manually add write permissions again before you can do so. For more information, see our guide on [Linux users and groups](/docs/tools-reference/linux-users-and-groups).
-
 {{< /note >}}
 
 ### Secure your Site with SSL
@@ -320,7 +311,6 @@ For instructions on how to use SSL certificates in your store, see our guides on
 Many payment vendors that require SSL do not support self-signed certificates. Depending on how you handle payments, it is likely you will need to purchase a commercially signed certificate.
 
 When you [configure Apache to use the SSL certificate](/docs/security/ssl/ssl-apache2-centos#configure-apache-to-use-the-ssl-certificate), if you installed Magento in a subdirectory of your site, and only want that section to be encrypted, make sure to modify your `<VirtualHost *:443>` block to match.
-
 {{< /note >}}
 
 Once you've installed your SSL certificate and configured Apache to serve your site securely, you'll need to configure Magento to use secure URLs.

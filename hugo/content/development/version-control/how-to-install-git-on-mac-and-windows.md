@@ -26,10 +26,8 @@ This guide explains how to install the latest, stable, prepackaged version `git`
 
 For more information about using and configuring Git, see our [Getting Started with Git](/docs/development/version-control/how-to-configure-git/) guide.
 
- {{< note >}}
-
+{{< note >}}
 This guide will use `sudo` wherever possible. Complete the sections of our [Securing Your Server](/docs/security/securing-your-server) to create a standard user account.
-
 {{< /note >}}
 
 ## Install Git on Linux
@@ -185,13 +183,11 @@ To install Git on Windows you will need to download the installer from the [Git]
 
     ![Select line ending conversions.](/docs/assets/1603-Git-Win-09.png)
 
-     {{< note >}}
-
+{{< note >}}
 It is strongly recommended that you keep the default settings for line ending conversions. Changing from the default may result in formatting problems when viewed on your Linode.
+{{< /note >}}
 
 10. The program will now begin installing:
-
-{{< /note >}}
 
     ![Git is installing.](/docs/assets/1604-Git-Win-10.png)
 

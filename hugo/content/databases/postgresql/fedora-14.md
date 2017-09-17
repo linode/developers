@@ -21,14 +21,14 @@ System Configuration
 Make sure your `/etc/hosts` file has proper entries, similar to the ones shown below. Replace "12.34.56.78" with your Linode's public address, "servername" with your short hostname, and "mydomain.com" with your system's domain name.
 
 {{< file "/etc/hosts" >}}
-local all all ident
+    local all all ident
 {{< /file >}}
 
 
 Change it to the following to use password authentication:
 
 {{< file-excerpt "/var/lib/pgsql/data/pg\\_hba.conf" >}}
-local all all md5
+    local all all md5
 {{< /file-excerpt >}}
 
 

@@ -23,11 +23,8 @@ Asterisk is an open source *private branch exchange* (PBX) server that uses *Ses
 This guide covers the steps necessary to provision a new CentOS 7 Linode as a dedicated Asterisk server for your home or office.
 
 {{< note >}}
-
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
-
 
 ## Before You Begin
 
@@ -37,8 +34,8 @@ This guide is written for a non-root user. Commands that require elevated privil
 
 3.  Edit `/etc/selinux/config` to ensure SELinux is disabled:
 
-    {{< file-excerpt "/etc/selinux/config" aconf >}}
-SELINUX=disabled
+{{< file-excerpt "/etc/selinux/config" aconf >}}
+        SELINUX=disabled
 {{< /file-excerpt >}}
 
         
@@ -73,8 +70,8 @@ iptables will be used to secure the Linode against unwanted traffic. The Linode 
 
 2.  Create `/etc/iptables.firewall.rules` using your preferred text editor. This file will be used to activate the firewall with the desired rules every time the Linode boots.
 
-    {{< file "/etc/iptables.firewall.rules" aconf >}}
-*filter
+{{< file "/etc/iptables.firewall.rules" aconf >}}
+        *filter
 
         #  Allow all loopback (lo0) traffic and drop all traffic to 127/8 that doesn't use lo0
         -A INPUT -i lo -j ACCEPT
@@ -127,10 +124,8 @@ iptables will be used to secure the Linode against unwanted traffic. The Linode 
 {{< /file >}}
 
 
-    {{< note >}}
-
+{{< note >}}
 Leave IAX commented out unless you know you need it. IAX is "Inter-Asterisk Exchange" and was meant to allow multiple Asterisk servers to communicate with one another. Some VOIP trunking providers use this, but most use SIP. Unless your VOIP provider requires it or you are running multiple Asterisk servers, you probably won't need IAX or IAX2.
-
 {{< /note >}}
 
 ### Start Firewall at Boot
@@ -278,11 +273,8 @@ Since DAHDI is a kernel module it needs kernel headers in order to compile. The 
 Follow the instructions at [Run a Distribution-Supplied Kernel on a XEN Linode](/docs/tools-reference/custom-kernels-distros/run-a-distributionsupplied-kernel-with-pvgrub) or [Run a Distribution-Supplied Kernel on a KVM Linode](/docs/tools-reference/custom-kernels-distros/run-a-distribution-supplied-kernel-with-kvm) before continuing with the next steps.
 
 {{< caution >}}
-
 You should not attempt to replace the Kernel on a system that is currently in production.
-
 {{< /caution >}}
-
 
 #### Build DAHDI
 
@@ -305,10 +297,8 @@ With the new Kernel in place, you're now ready to build DAHDI.
         cd dahdi-linux-complete-2.10.2+2.10.2/
 
 
-    {{< note >}}
-
+{{< note >}}
 Your version may be different, so substitute `2.10.2` with the version that was extracted.
-
 {{< /note >}}
 
 5.  Build DAHDI:
@@ -423,6 +413,6 @@ Congratulations! You now have a working Asterisk phone server. Let's fire up Ast
 Now that you have an Asterisk server running on your Linode, it's time to connect some phones, add extensions, and configure the various options that are available with Asterisk. For detailed instructions, check out
 the Asterisk Project's guide to [Configuring Asterisk](https://wiki.asterisk.org/wiki/display/AST/Basic+PBX+Functionality).
 
-{: .caution}
->
-> When running a phone system on a remote server such as a Linode, it's always good practice to secure the signaling data with TLS and the audio portion of calls using SRTP to prevent eavesdropping. Once you have a working dial-plan, be sure to follow the [Secure Calling Guide](https://wiki.asterisk.org/wiki/display/AST/Secure+Calling) to encrypt your communications.
+{{< caution >}}
+When running a phone system on a remote server such as a Linode, it's always good practice to secure the signaling data with TLS and the audio portion of calls using SRTP to prevent eavesdropping. Once you have a working dial-plan, be sure to follow the [Secure Calling Guide](https://wiki.asterisk.org/wiki/display/AST/Secure+Calling) to encrypt your communications.
+{{< /caution >}}

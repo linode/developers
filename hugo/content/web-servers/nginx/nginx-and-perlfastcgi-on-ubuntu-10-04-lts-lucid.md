@@ -78,7 +78,7 @@ In this guide, the domain "example.com" is used as an example site. You should s
 Next, you'll need to define the site's virtual host file. This example uses a UNIX socket to connect to fcgiwrap. Be sure to change all instances of "example.com" to your domain name.
 
 {{< file "/etc/nginx/sites-available/www.example.com" nginx >}}
-server {
+    server {
         listen   80;
         server_name www.example.com example.com;
         access_log /srv/www/www.example.com/logs/access.log;
@@ -105,7 +105,7 @@ server {
 Alternately, you may wish to use TCP sockets instead. If so, modify your nginx virtual host configuration file to resemble the following example. Again, make sure to replace all instances of "example.com" with your domain name.
 
 {{< file "/etc/nginx/sites-available/www.example.com" nginx >}}
-server {
+    server {
         listen   80;
         server_name www.example.com example.com;
         access_log /srv/www/www.example.com/logs/access.log;
@@ -130,7 +130,7 @@ server {
 If you elected to use TCP sockets instead of UNIX sockets, you'll also need to modify the fcgiwrap init script. Look for the following section in the `/etc/init.d/fcgiwrap` file:
 
 {{< file-excerpt "/etc/init.d/fcgiwrap" >}}
-# FCGI_APP Variables
+    # FCGI_APP Variables
     FCGI_CHILDREN="1"
     FCGI_SOCKET="/var/run/$NAME.socket"
     FCGI_USER="www-data"
@@ -140,7 +140,7 @@ If you elected to use TCP sockets instead of UNIX sockets, you'll also need to m
 Change it to match the following excerpt:
 
 {{< file-excerpt "/etc/init.d/fcgiwrap" >}}
-# FCGI_APP Variables
+    # FCGI_APP Variables
     FCGI_CHILDREN="1"
     FCGI_PORT="8999"
     FCGI_ADDR="127.0.0.1"
@@ -167,7 +167,7 @@ Test Perl with FastCGI
 Create a file called "test.pl" in your site's "public\_html" directory with the following contents:
 
 {{< file "/srv/www/www.example.com/public\\_html/test.pl" perl >}}
-#!/usr/bin/perl
+    #!/usr/bin/perl
 
     print "Content-type:text/html\n\n";
     print <<EndOfHTML;

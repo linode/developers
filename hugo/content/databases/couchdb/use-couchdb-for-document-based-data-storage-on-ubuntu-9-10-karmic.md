@@ -28,7 +28,7 @@ Installing CouchDB
 Edit your `/etc/apt/sources.list` file to enable the "universe" repositories by removing the hash symbol in front of the universe lines. The file should resemble the following example:
 
 {{< file "/etc/apt/sources.list" >}}
-## main & restricted repositories
+    ## main & restricted repositories
     deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted         
     deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted 
 

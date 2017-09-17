@@ -47,9 +47,8 @@ The Oracle JDK, includes a development environment for building applications wit
 
         sudo add-apt-repository ppa:webupd8team/java
 
-    {{< note >}}
+{{< note >}}
 This repository is *not* maintained by Oracle. It does not contain actual Java files, but does allow us to download installers for Oracle Java software. Before using the installers, you'll be prompted to accept a license agreement, which can be found in its entirety [here](http://www.oracle.com/technetwork/java/javase/terms/license/index.html).
-
 {{< /note >}}
 
 3.  Update the local package cache:
@@ -113,5 +112,6 @@ However, if you only need to run applications that you've already downloaded, yo
 
 Note that this is unnecessary if you've installed OpenJDK, since it includes the JRE.
 
-{: .caution}
-> OpenJDK and Oracle Java are *not* identical. There may be licensing, performance, and stability differences, and this should be considered carefully when developing production applications.
+{{< caution >}}
+OpenJDK and Oracle Java are *not* identical. There may be licensing, performance, and stability differences, and this should be considered carefully when developing production applications.
+{{< /caution >}}

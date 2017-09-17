@@ -112,10 +112,8 @@ Create files on the development Linode and push them to the forked repository on
 
         git add .
 
-     {{< note >}}
-
+{{< note >}}
 To add only one file, replace the period above with the full directory path and filename.
-
 {{< /note >}}
 
 6. Check the status again with `git status`, then commit the files to the Git project:
@@ -126,9 +124,8 @@ To add only one file, replace the period above with the full directory path and 
 
         git push https://github.com/SampleUser1234/test-repo-789.git newbranch
 
-    {{< note >}}
+{{< note >}}
 If you've configure two-factor authorization (2FA) on this account, you will need to push over SSH. See GitHub's guide on [Generating SSH Keys](https://help.github.com/articles/generating-ssh-keys/).
-
 {{< /note >}}
 
 ##Create a Pull Request Against the Original, Previously Cloned Repo

@@ -24,7 +24,6 @@ The nginx web server is a fast, lightweight server designed to efficiently handl
 
 {{< note >}}
 The steps in this guide require root privileges. Be sure to run the steps below as `root` or with the **sudo** prefix. For more information on privileges, see our [Linux Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ## Before You Begin
@@ -45,9 +44,7 @@ The steps in this guide require root privileges. Be sure to run the steps below 
       sudo apt-get update && sudo apt-get upgrade
 
 {{< note >}}
-
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ## Install nginx, PHP for Processing, and Required Packages
@@ -72,8 +69,8 @@ Nginx uses `server` directives to specify name-based virtual hosts. Nginx calls 
 
 2.  You should now have the following server block in the nginx virtual host configuration. Replace all instances of `example.com` with your domain, modify the **root** path as shown below, and add the `location ~ \.php$` block:
 
-    {{< file "/etc/nginx/sites-available/example.com" nginx >}}
-server {
+{{< file "/etc/nginx/sites-available/example.com" nginx >}}
+        server {
             listen 80;
             listen [::]:80;
 
@@ -127,7 +124,7 @@ If you're planning to run applications that support file uploads (images, for ex
 To mitigate this issue, you may wish to modify your configuration to include a `try_files` directive as shown in this excerpt:
 
 {{< file "/etc/nginx/sites-available/example.com" nginx >}}
-location ~ \.php$ {
+    location ~ \.php$ {
         try_files $uri =404;
         include /etc/nginx/fastcgi_params;
         fastcgi_pass unix:/run/php/php7.0-fpm.sock;
@@ -140,7 +137,7 @@ location ~ \.php$ {
 Additionally, it's a good idea to secure any upload directories your applications may use. The following configuration excerpt demonstrates securing an `/images` directory:
 
 {{< file "/etc/nginx/sites-available/example.com" nginx >}}
-location ~ \.php$ {
+    location ~ \.php$ {
         include /etc/nginx/fastcgi_params;
         if ($uri !~ "^/images/") {
             fastcgi_pass unix:/run/php/php7.0-fpm.sock;
@@ -156,7 +153,7 @@ location ~ \.php$ {
 Create a file called `test.php` in your site's `public_html` directory with the following contents:
 
 {{< file "/var/www/html/example.com/public_html/test.php" php >}}
-<?php phpinfo(); ?>
+    <?php phpinfo(); ?>
 {{< /file >}}
 
 

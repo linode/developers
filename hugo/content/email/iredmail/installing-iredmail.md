@@ -75,9 +75,8 @@ A DNS MX record tells the internet where to send email directed at you domain. B
 
     The remainder of the installation refers to on-screen confirmation of default options and selections. With the exception of the backend and hostname selections, most users will simply confirm the default options and continue the installation.
 
-    {{< note >}}
+{{< note >}}
 The next few steps were taken directly from the iRedMail [Ubuntu installation steps][u].
-
 {{< /note >}}
 
 5. Press "enter" to say "yes" to installing iRedMail. NOTE: Ctrl-C will exit the installation process when pressed at any time prior to step #12.
@@ -157,14 +156,12 @@ The next section assumes you have the .key and .crt (or .pem) file in hand and a
 
 {{< note >}}
 Be sure to apply for a certificate covering either your subdomain (mail.yourdomain.com) or a wildcard of your domain so all subdomains are covered).
-
 {{< /note >}}
 
 After first logging in to the postmaster account, you should have two emails waiting for you. The first is titled "Helpful Links iRedMail" and the second is titled "Details of this iRedMail installation." In the 2nd email, there are various file paths we'll need, since we'll be replacing the SSL certificate and need to know the DKIM public key for our DNS TXT entry. First up, certificate replacement.
 
 {{< note >}}
 For if your certificate issuer uses `.pem` files instead of `.crt`, be sure to replace the file extension in the instructions below.
-
 {{< /note >}}
 
 ### Certificates
@@ -176,8 +173,8 @@ For if your certificate issuer uses `.pem` files instead of `.crt`, be sure to r
 
 2. To replace the certificates used by Apache2, substitute the following paths in `default-ssl.conf` with the location of your certificate and key:
 
-    {{< file-excerpt "/etc/apache2/sites-available/default-ssl.conf" aconf >}}
-SSLCertificateFile /etc/ssl/certs/mail.yourdomain.com.crt
+{{< file-excerpt "/etc/apache2/sites-available/default-ssl.conf" aconf >}}
+        SSLCertificateFile /etc/ssl/certs/mail.yourdomain.com.crt
         SSLCertificateKeyFile /etc/ssl/private/mail.yourdomain.com.key
 {{< /file-excerpt >}}
 
@@ -185,16 +182,16 @@ SSLCertificateFile /etc/ssl/certs/mail.yourdomain.com.crt
 
 3. To replace the certificates used by Postfix, substitute the following paths in `main.cf` with the location of your certificate and key:
 
-    {{< file-excerpt "/etc/postfix/main.cf" aconf >}}
-smtpd_tls_cert_file = /etc/ssl/certs/mail.yourdomain.com.crt
+{{< file-excerpt "/etc/postfix/main.cf" aconf >}}
+	    smtpd_tls_cert_file = /etc/ssl/certs/mail.yourdomain.com.crt
         smtpd_tls_key_file = /etc/ssl/private/mail.yourdomain.com.key
 {{< /file-excerpt >}}
 
 
 4. To replace the certs used by Postfix, substitute the following paths in `dovecot.conf` with the location of your certificate and key:
 
-    {{< file-excerpt "/etc/dovecot/dovecot.conf" aconf >}}
-ssl_cert = </etc/ssl/certs/mail.yourdomain.com.crt
+{{< file-excerpt "/etc/dovecot/dovecot.conf" aconf >}}
+	    ssl_cert = </etc/ssl/certs/mail.yourdomain.com.crt
         ssl_key = </etc/ssl/private/mail.yourdomain.com.key
 {{< /file-excerpt >}}
 
@@ -268,8 +265,8 @@ AWStats quickly analyzes and displays log files/server activity via a few web-ba
 
 3.  Edit `apache2.conf` by adding the text block below to the end of the file. Make sure to comment out the existing Auth_MySQL lines at the end of the file.
 
-    {{< file-excerpt "/etc/apache2/conf/apache2.conf" aconf >}}
-#MySQL auth (mod_dbd, libaprutil1-dbd-mysql)
+{{< file-excerpt "/etc/apache2/conf/apache2.conf" aconf >}}
+        #MySQL auth (mod_dbd, libaprutil1-dbd-mysql)
         <IfModule mod_dbd.c>
 	    DBDriver mysql
         DBDParams "host=127.0.0.1 dbname=vmail user=vmail pass=(SUBSTITUTE WITH YOUR PASSWORD: see in your iRedMail.tips file)"
@@ -283,8 +280,8 @@ AWStats quickly analyzes and displays log files/server activity via a few web-ba
 
 4.  Edit `awstats.conf` to mirror the example text below, by adding the `mod_authn_dbd` section and commenting out the `Auth_MySQL` section.
 
-    {{< file "/etc/apache2/conf-available/awstats.conf" aconf >}}
-<Directory /usr/lib/cgi-bin/>
+{{< file "/etc/apache2/conf-available/awstats.conf" aconf >}}
+        <Directory /usr/lib/cgi-bin/>
             DirectoryIndex awstats.pl
             Options ExecCGI
             AuthType Basic
@@ -323,8 +320,8 @@ AWStats quickly analyzes and displays log files/server activity via a few web-ba
 
 5.  Edit `cluebringer.conf` to mirror the example text below, by adding the `mod_authn_dbd` section and commenting out `Auth_MySQL` section).
 
-    {{< file "/etc/apache2/conf-available/cluebringer.conf" aconf >}}
-<Directory /usr/share/postfix-cluebringer-webui/webui/>
+{{< file "/etc/apache2/conf-available/cluebringer.conf" aconf >}}
+         <Directory /usr/share/postfix-cluebringer-webui/webui/>
             DirectoryIndex index.php
             AuthType basic
             AuthName "Authorization Required"
@@ -385,9 +382,8 @@ For this reason, the author recommends turning this module off. Note, since bein
 
 As a final test, you can utilize a service such as [Mail Tester][m] to ensure that your records have been configured correctly. If you have followed this guide precisely, you should receive a score of 10/10 on Mail Tester's site. If not, Mail Tester will provide you with a report indicating what portion of your configuration needs improvement.
 
- {{< note >}}
+{{< note >}}
 While some DNS records update almost instantaneously, updates can take up to 24 hours to propagate. You may receive a lower score on these tests if your records have not yet updated.
-
 {{< /note >}}
 
 ### Conclusion

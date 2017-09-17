@@ -33,7 +33,7 @@ Linode Guides & Tutorials are written in [PHP Markdown Extra](https://michelf.ca
 Linode Guides & Tutorials store metadata and other information in a [YAML](http://yaml.org/) header at the top of every page. Use the template below for your own guide.
 
 {{< file-excerpt "Author Submission" >}}
----
+    ---
     author:
       name: Linode Community
       email: docs@linode.com
@@ -69,7 +69,7 @@ Introductions should be concise; explain what the goal of the guide is and why. 
 The *Before You Begin* section is an area for basic prerequisites a reader should know or have completed before proceeding further in your guide. Use the example below and edit as needed:
 
 {{< file-excerpt "Author Submission" >}}
-## Before You Begin
+    ## Before You Begin
 
     1.  Familiarize yourself with our [Getting Started](/docs/getting-started) guide and complete the steps for setting your Linode's hostname and timezone.
 
@@ -85,20 +85,15 @@ The *Before You Begin* section is an area for basic prerequisites a reader shoul
 
 {{< file-excerpt "Guides Written for a Non-Root User" resource >}}
 {{< note >}}
-
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
 {{< /file-excerpt >}}
-
 {{< /note >}}
-
 
 {{< file-excerpt "Guides Written for a Root User" resource >}}
 {{< note >}}
 The steps in this guide require root privileges. Be sure to run the steps below as `root` or with the `sudo` prefix. For more information on privileges, see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
 {{< /file-excerpt >}}
-
 {{< /note >}}
-
 
 #### Include a Note about Example Variables
 
@@ -141,9 +136,7 @@ For example:
 ~~~
 
 {{< note >}}
-
 The tab size is set to four, and **only** soft tabs should be used. This can be configured in the settings of most text editors.
-
 {{< /note >}}
 
 ## Markdown Formatting
@@ -215,9 +208,8 @@ Within the file formatting, a code language or syntax should be defined at the e
 
 | Formatting | Example |
 |:--------------------------|:----------------------------------------------|
-| {{< file >}}
+|{{< file >}}
 <br>/path/to/file.html<br>:&nbsp;&nbsp;&nbsp;~~~ conf<br>&nbsp;&nbsp;&nbsp;&nbsp;#Sample file text<br>&nbsp;&nbsp;&nbsp;&nbsp;Sample file syntax<br>&nbsp;&nbsp;&nbsp;&nbsp;~~~ | <img src="/docs/assets/example_file_file.png"> |
-
 {{< /file >}}
 
 **Example**: File Excerpt format
@@ -225,9 +217,8 @@ Within the file formatting, a code language or syntax should be defined at the e
 
 | Formatting | Example |
 |:--------------------------|:----------------------------------------------|
-| {{< file-excerpt >}}
+|{{< file-excerpt >}}
 <br>/path/to/file.html<br>:&nbsp;&nbsp;&nbsp;~~~ ini<br>&nbsp;&nbsp;&nbsp;&nbsp;#Sample file excerpt text<br>&nbsp;&nbsp;&nbsp;&nbsp;Sample file excerpt syntax<br>&nbsp;&nbsp;&nbsp;&nbsp;~~~ | <img src="/docs/assets/example_file_excerpt.png"> |
-
 {{< /file-excerpt >}}
 
 ### File Paths
@@ -295,10 +286,10 @@ Notes should be important text that does not necessarily fit the narrative of th
 
 | Formatting | Example |
 |:--------------------------|:----------------------------------------------|
-| {{< note >}}
+|{{< note >}}
 <br>><br>> This is a sample note.<br> | <img src="/docs/assets/example-note.png"> |
-| {: .caution}<br>><br>> This is a sample caution.<br> | <img src="/docs/assets/example-caution.png"> |
-
+|{{< caution >}}
+<br>><br>> This is a sample caution.<br> | <img src="/docs/assets/example-caution.png"> |
 {{< /note >}}
 
 ### Numerical Values
@@ -354,3 +345,4 @@ COPYRIGHT OWNERSHIP. Writer agrees that the Work is being created by the writer 
 CREDIT. Nothing contained in this Agreement shall be deeded to require Linode to use the Work, or any part thereof, in connection with Linode Guides & Tutorials or otherwise. Credit for the Work shall read, "Contributed by *writer's name*."
 
 PAYMENT. Upon publication of a submission to the Linode Guides & Tutorials Repository, the writer will be paid a sum of up to USD $300.00 either in the form of a credit to their Linode account, a hardcopy check, or as an electronic payment.
+{{< /caution >}}

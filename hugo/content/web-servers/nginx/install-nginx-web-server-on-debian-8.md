@@ -21,9 +21,7 @@ Nginx is a lightweight, high-performance web server designed for the purpose of 
 ![Install Nginx Web Server on Debian 8](/docs/assets/nginx-on-debian-8.png "Install Nginx Web Server on Debian 8")
 
 {{< note >}}
-
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ## Before You Begin
@@ -65,8 +63,8 @@ This method differs from the one above in that it installs from the official ngi
 
 2.  Add the following lines to the file:
 
-    {{< file "/etc/apt/sources.list.d/nginx.list" >}}
-deb http://nginx.org/packages/debian/ jessie nginx
+{{< file "/etc/apt/sources.list.d/nginx.list" >}}
+        deb http://nginx.org/packages/debian/ jessie nginx
         deb-src http://nginx.org/packages/debian/ jessie nginx
 {{< /file >}}
 
@@ -136,8 +134,8 @@ The Debian project does not track the latest development of the nginx server. Co
 
 8.  Create a systemd service script to run nginx:
 
-    {{< file "/lib/systemd/system/nginx.service" shell >}}
-[Unit]
+{{< file "/lib/systemd/system/nginx.service" shell >}}
+        [Unit]
         Description=A high performance web server and a reverse proxy server
         After=network.target
 
@@ -156,10 +154,8 @@ The Debian project does not track the latest development of the nginx server. Co
 {{< /file >}}
 
 
-    {{< note >}}
-
+{{< note >}}
 This script assumes that you used the build configuration options specified in Step 5. If your script is not working correctly, be sure that the path in the line beginning with `PIDFile` matches your PID file, and the path in lines beginning with `Exec` match your binary file. These file paths can be found in the output when you configured your build options.
-
 {{< /note >}}
 
 9.  Change the ownership of the script:

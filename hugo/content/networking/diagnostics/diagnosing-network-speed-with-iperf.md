@@ -23,9 +23,7 @@ Iperf measures the maximum network throughput a server can handle. It is particu
 ## Installing Iperf
 
 {{< note >}}
-
 The installation section assumes that you are the `root` user. If you are not using the super user, you will need to use `sudo` before each command.
-
 {{< /note >}}
 
 ### Debian and Ubuntu

@@ -66,7 +66,7 @@ All Redis configuration options can be specified in the `redis.conf` file locate
 Consider the following configuration:
 
 {{< file "/opt/redis/redis.conf" >}}
-daemonize yes
+    daemonize yes
     pidfile /var/run/redis.pid
     logfile /var/log/redis.log
 
@@ -149,7 +149,7 @@ If persistence is a major issue for your application, it is possible to use Redi
 To use this mode, ensure that the following values are set in `redis.conf`:
 
 {{< file-excerpt "/opt/redis/redis.conf" >}}
-appendonly yes
+    appendonly yes
     appendfsync everysec
 {{< /file-excerpt >}}
 
@@ -170,7 +170,7 @@ Redis contains limited support for master-slave replication which allows you to 
 To configure master-slave operation, ensure that the following configuration options are applied to the *slave* instance:
 
 {{< file-excerpt "redis.conf" >}}
-slaveof 192.168.10.101 6379
+    slaveof 192.168.10.101 6379
 {{< /file-excerpt >}}
 
 

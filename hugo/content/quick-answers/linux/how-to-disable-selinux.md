@@ -21,9 +21,7 @@ external_resources:
 SELinux can disupt the functionality of a recently installed application and may need to be disabled. This Quick Answer guides you through the steps necessary to disable it. 
 
 {{< note >}}
-
 This guide requires an unconfined root account. You will only be able to disable SELinux if you have the highest level of permissions on your machine.
-
 {{< /note >}}
 
 ## Disable SELinux
@@ -35,7 +33,6 @@ If you are considering disabling SELinux to fix an application on your system, c
 **We do not recommend disabling SELinux.**
 
 However, in certain instances it might be easier to disable SELinux than it is to write policies that support SELinux in your environment. Proceed at your own risk.
-
 {{< /caution >}}
 
 To disable SELinux on your Linode follow along with this video and the steps below:
@@ -48,8 +45,8 @@ To disable SELinux on your Linode follow along with this video and the steps bel
         cd /etc/sysconfig/selinux
         
 
-    {{< file-excerpt "/etc/sysconfig/selinux" aconf >}}
-# This file controls the state of SELinux on the system.
+{{< file-excerpt "/etc/sysconfig/selinux" aconf >}}
+      # This file controls the state of SELinux on the system.
       # SELINUX= can take one of these three values:
       #     enforcing - SELinux security policy is enforced.
       #     permissive - SELinux prints warnings instead of enforcing.
@@ -65,8 +62,8 @@ To disable SELinux on your Linode follow along with this video and the steps bel
 
 2. Change `SELINUX=enabled` to `SELINUX=disabled`:
 
-    {{< file-excerpt "/etc/sysconfig/selinux" selinux >}}
-# This file controls the state of SELinux on the system.
+{{< file-excerpt "/etc/sysconfig/selinux" selinux >}}
+      # This file controls the state of SELinux on the system.
       # SELINUX= can take one of these three values:
       #     enforcing - SELinux security policy is enforced.
       #     permissive - SELinux prints warnings instead of enforcing.

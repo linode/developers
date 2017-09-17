@@ -39,7 +39,7 @@ If you chose to run OpenJDK, then you can skip the remainder of this section. If
 Add the following two lines to your `sources.list` list:
 
 {{< file-excerpt "/etc/apt/sources.list" >}}
-deb http://us.archive.ubuntu.com/ubuntu/ hardy multiverse
+    deb http://us.archive.ubuntu.com/ubuntu/ hardy multiverse
     deb-src http://us.archive.ubuntu.com/ubuntu/ hardy multiverse
 {{< /file-excerpt >}}
 
@@ -85,7 +85,7 @@ Borrowing from the scripts described [here](http://www.howtogeek.com/howto/linux
 Create a `tomcat` "init" file with the following content:
 
 {{< file "/etc/init.d/tomcat" bash >}}
-# Tomcat auto-start
+    # Tomcat auto-start
     #
     # description: Auto-starts tomcat
     # processname: tomcat
@@ -112,7 +112,7 @@ Create a `tomcat` "init" file with the following content:
 Remember, if you installed open-jdk the `export JAVA_HOME` line should read:
 
 {{< file-excerpt "/etc/init.d/tomcat" bash >}}
-export JAVA_HOME=/usr/lib/jvm/java-6-openjdk
+    export JAVA_HOME=/usr/lib/jvm/java-6-openjdk
 {{< /file-excerpt >}}
 
 

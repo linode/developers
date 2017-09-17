@@ -30,9 +30,7 @@ This guide will show you how to generate a GPG key, set up your computer to serv
 ## Before You Begin
 
 {{< note >}}
-
 This guide will only work on UNIX-based (Linux & OS X) machines! The process is very complicated on Windows but may be possible with some research.
-
 {{< /note >}}
 
 This guide assumes:
@@ -48,9 +46,7 @@ You don't necessarily need to be familiar with [SSH public key authentication](/
 This section explains how to generate a new GPG keypair. If you already have one, you may skip these steps, as the next section will include instructions for how to create a subkey to use specifically for authentication. You will just need the 8-digit ID for your existing key to do so.
 
 {{< caution >}}
-
 As an additional security measure, this process may be undertaken on an offline (non network-connected) machine or single-use Virtual Machine (VM). After installing the pre-requisite packages and *only* the pre-requisite packages, disconnect it from the network and continue with the steps below.
-
 {{< /caution >}}
 
 All of these steps should be performed on a local machine, *not* your Linode.
@@ -250,9 +246,7 @@ Your terminal should now look like this:
 ### Secure Your GPG Key
 
 {{< caution >}}
-
 If you fail to back up or otherwise secure your key, any hardware failure will lead to you being unable to access your Linode with this key. If you lock out password access through SSH, you'll need to use [Lish](/docs/networking/using-the-linode-shell-lish) to regain access.
-
 {{< /caution >}}
 
 You should always have a backup of your private key in case something goes wrong and you end up locked out of everything that requires it. This private key, along with the instructions in this guide, will be enough to get your setup working again if you need to start afresh on a new computer.
@@ -290,9 +284,7 @@ You can reimport it with the ever-handy `gpg2 --import key-file` command.
 ## Move Your Key to a Smartcard or YubiKey (Optional)
 
 {{< note >}}
-
 If you're using a brand new YubiKey, you'll need to enable OpenPGP Card / CCID Mode first. This can be done through the YubiKey Personlisation Tool, or by running `ykpersonalise -m82`. `ykpersonalise` can be installed through your package manager.
-
 {{< /note >}}
 
 ### Secure Your Card
@@ -300,9 +292,7 @@ If you're using a brand new YubiKey, you'll need to enable OpenPGP Card / CCID M
 It is assumed that you have already configured your card/YubiKey's (herein referred to as 'GPG device') owner information. It is highly recommended that you secure your card before you start this section.
 
 {{< note >}}
-
 Some of these commands may ask for a PIN or Admin PIN. The default PIN is usually `123456`, and the default Admin PIN is usually `12345678`. If these don't work, contact the manufacturer or review online documentation.
-
 {{< /note >}}
 
 1.  Plug in the device and execute:
@@ -423,7 +413,6 @@ Congratulations! You've successfully transferred your authentication subkey to y
 
 {{< caution >}}
 If you weren't using a VM or offline machine, back up your local copies of the private keys, delete them, and ensure that the rest of the keys are still on the card.
-
 {{< /caution >}}
 
 ## Serve Your GPG key Instead of an SSH key
@@ -436,8 +425,8 @@ Return to your local machine, import all of the appropriate GPG keys and insert 
 
     **Linux:**
 
-    {{< file-excerpt "~/.bash_profile" >}}
-if [ -f "${HOME}/.gpg-agent-info" ]; then
+{{< file-excerpt "~/.bash_profile" >}}
+        if [ -f "${HOME}/.gpg-agent-info" ]; then
              source "${HOME}/.gpg-agent-info"
                export GPG_AGENT_INFO
                export SSH_AUTH_SOCK
@@ -450,8 +439,8 @@ if [ -f "${HOME}/.gpg-agent-info" ]; then
     
     **OS X**
     
-    {{< file-excerpt "~/.bash_profile" >}}
-[ -f ~/.gpg-agent-info ] && source ~/.gpg-agent-info
+{{< file-excerpt "~/.bash_profile" >}}
+        [ -f ~/.gpg-agent-info ] && source ~/.gpg-agent-info
         if [ -S "${GPG_AGENT_INFO%%:*}" ]; then
             export GPG_AGENT_INFO
             export SSH_AUTH_SOCK
@@ -466,8 +455,8 @@ if [ -f "${HOME}/.gpg-agent-info" ]; then
     
 2.  Edit or create `~/.gnupg/gpg-agent.conf`:
     
-    {{< file-excerpt "~/.gnupg/gpg-agent.conf" >}}
-default-cache-ttl 600
+{{< file-excerpt "~/.gnupg/gpg-agent.conf" >}}
+        default-cache-ttl 600
         max-cache-ttl 7200
         enable-ssh-support
         write-env-file ~/.gpg-agent-info

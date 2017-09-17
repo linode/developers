@@ -40,7 +40,6 @@ Up to this point, you have accessed your Linode as the `root` user, which has un
 
 {{< note >}}
 Not all Linux distributions include `sudo` on the system by default, but all the images provided by Linode have sudo in their package repositories. If you get the output `sudo: command not found`, install sudo before continuing.
-
 {{< /note >}}
 
 To add a new user, first [log in to your Linode](/docs/getting-started#logging-in-for-the-first-time) via SSH.
@@ -99,9 +98,8 @@ By default, password authentication is used to connect to your Linode via SSH. A
 
     **Linux / OS X**
 
-    {{< caution >}}
+{{< caution >}}
 If you've already created an RSA key-pair, this command will overwrite it, potentially locking you out of other systems. If you've already created a key-pair, skip this step. To check for existing keys, run `ls ~/.ssh/id_rsa*`.
-
 {{< /caution >}}
 
         ssh-keygen -b 4096
@@ -130,10 +128,8 @@ If you've already created an RSA key-pair, this command will overwrite it, poten
 
         scp ~/.ssh/id_rsa.pub example_user@203.0.113.10:~/.ssh/authorized_keys
 
-    {{< note >}}
-
+{{< note >}}
 `ssh-copy-id` is available in [Homebrew](http://brew.sh/) if you prefer it over SCP. Install with `brew install ssh-copy-id`.
-
 {{< /note >}}
 
     **Windows**
@@ -163,8 +159,8 @@ If you've already created an RSA key-pair, this command will overwrite it, poten
 1.  **Disallow root logins over SSH.** This requires all SSH connections be by non-root users. Once a limited user account is connected, administrative privileges are accessible either by using `sudo` or changing to a root shell using `su -`.
 
 
-    {{< file-excerpt "/etc/ssh/sshd_config" aconf >}}
-# Authentication:
+{{< file-excerpt "/etc/ssh/sshd_config" aconf >}}
+        # Authentication:
         ...
         PermitRootLogin no
 {{< /file-excerpt >}}
@@ -172,16 +168,14 @@ If you've already created an RSA key-pair, this command will overwrite it, poten
 
 2.  **Disable SSH password authentication.** This requires all users connecting via SSH to use key authentication. Depending on the Linux distribution, the line `PasswordAuthentication` may need to be added, or uncommented by removing the leading `#`.
 
-    {{< file-excerpt "/etc/ssh/sshd_config" aconf >}}
-# Change to no to disable tunnelled clear text passwords
+{{< file-excerpt "/etc/ssh/sshd_config" aconf >}}
+        # Change to no to disable tunnelled clear text passwords
         PasswordAuthentication no
 {{< /file-excerpt >}}
 
 
-    {{< note >}}
-
+{{< note >}}
 You may want to leave password authentication enabled if you connect to your Linode from many different computers. This will allow you to authenticate with a password instead of generating and uploading a key-pair for every device.
-
 {{< /note >}}
 
 3.  **Listen on only one internet protocol.** The SSH daemon listens for incoming connections over both IPv4 and IPv6 by default. Unless you need to SSH into your Linode using both protocols, disable whichever you do not need. *This does not disable the protocol system-wide, it is only for the SSH daemon.*

@@ -53,7 +53,6 @@ Edit the `nsd.conf` file to configure the behavior of the NSD service and the ho
 
 {{< file-excerpt >}}
 /etc/nsd3/nsd.conf
-
 {{< /file-excerpt >}}
 
 > server:
@@ -65,7 +64,6 @@ You must specify at least one zone in the `/etc/nsd3/nsd.conf` file before NSD w
 
 {{< file-excerpt >}}
 /etc/nsd3/nsd.conf
-
 {{< /file-excerpt >}}
 
 > zone:
@@ -83,7 +81,6 @@ Each domain has a zone file specified in the `nsd.conf` file. The syntax of an N
 
 {{< file-excerpt >}}
 /etc/nsd3/example.com.zone
-
 {{< /file-excerpt >}}
 
 > \$ORIGIN example.com. \$TTL 86400
@@ -100,7 +97,6 @@ Each domain has a zone file specified in the `nsd.conf` file. The syntax of an N
 
 {{< file-excerpt >}}
 /etc/nsd3/example.org.zone
-
 {{< /file-excerpt >}}
 
 > \$ORIGIN example.org. \$TTL 86400
@@ -167,7 +163,6 @@ If you are running NSD in a low-memory environment, amending the values of the f
 
 {{< file-excerpt >}}
 /etc/nsd3/nsd.conf
-
 {{< /file-excerpt >}}
 
 > ip4-only: yes tcp-count: 10 server-count: 1

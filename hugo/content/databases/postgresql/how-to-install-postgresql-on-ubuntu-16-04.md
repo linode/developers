@@ -31,9 +31,7 @@ The [PostgreSQL](http://www.postgresql.org/) relational database system is a pow
         sudo apt-get update && sudo apt-get upgrade
 
 {{< note >}}
-
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, visit the [Users and Groups guide](/docs/tools-reference/linux-users-and-groups) for more information.
-
 {{< /note >}}
 
 ## Install PostgreSQL
@@ -49,9 +47,7 @@ Install PostgreSQL from the Ubuntu package repository:
 By default, PostgreSQL will create a Linux user named `postgres` to access the database software. 
 
 {{< caution >}}
-
 The `postgres` user should not be used for for other purposes (e.g. connecting to other networks). Doing so presents a serious risk to the security of your databases.
-
 {{< /caution >}}
 
 1.  Change the `postgres` user's Linux password:
@@ -145,8 +141,8 @@ Commands in this section should be run as the `postgres` Linux user unless other
 
 1.  Edit the `/etc/postgresql/9.5/main/pg_hba.conf` file, under the `# "local" is for Unix domain socket connections only` header:
 
-    {{< file-excerpt "/etc/postgresql/9.5/main/pg_hba.conf" >}}
-# "local" is for Unix domain socket connections only
+{{< file-excerpt "/etc/postgresql/9.5/main/pg_hba.conf" >}}
+        # "local" is for Unix domain socket connections only
         local    all        all             peer
 {{< /file-excerpt >}}
 

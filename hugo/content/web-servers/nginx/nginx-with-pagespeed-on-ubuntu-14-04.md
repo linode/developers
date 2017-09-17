@@ -130,8 +130,8 @@ Now that we have downloaded ngx_pagespeed, we need to compile Nginx with the ngx
 
 4.  Then, you need to add the following code to the server block where you want to enable PageSpeed module:
 
-    {{< file-excerpt "/usr/local/nginx/conf/nginx.conf" aconf >}}
-pagespeed on;
+{{< file-excerpt "/usr/local/nginx/conf/nginx.conf" aconf >}}
+        pagespeed on;
         pagespeed FileCachePath /var/ngx_pagespeed_cache;
         location ~ "\.pagespeed\.([a-z]\.)?[a-z]{2}\.[^.]{10}\.[^.]+" {
          add_header "" "";

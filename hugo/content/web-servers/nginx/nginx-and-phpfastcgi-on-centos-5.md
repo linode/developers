@@ -34,7 +34,7 @@ Issue the following commands to set your system hostname, substituting a unique 
 Edit your `/etc/hosts` file to resemble the following, substituting your Linode's public IP address for 12.34.56.78, your hostname for "hostname," and your primary domain name for "example.com." :
 
 {{< file "/etc/hosts" >}}
-127.0.0.1 localhost.localdomain localhost
+    127.0.0.1 localhost.localdomain localhost
     12.34.56.78 hostname.example.com hostname
 {{< /file >}}
 
@@ -71,7 +71,7 @@ Issue the following commands to create virtual hosting directories:
 Add the following lines to your `/etc/nginx/nginx.conf` file, immediately after the line for `include /etc/nginx/conf.d/*.conf`:
 
 {{< file-excerpt "/etc/nginx/nginx.conf" nginx >}}
-# Load virtual host configuration files.
+    # Load virtual host configuration files.
     include /etc/nginx/sites-enabled/*;
 {{< /file-excerpt >}}
 
@@ -79,7 +79,7 @@ Add the following lines to your `/etc/nginx/nginx.conf` file, immediately after 
 Next, define your site's virtual host file:
 
 {{< file "/etc/nginx/sites-available/www.example.com" nginx >}}
-server {
+    server {
         server_name www.example.com example.com;
         access_log /srv/www/www.example.com/logs/access.log;
         error_log /srv/www/www.example.com/logs/error.log;
@@ -154,7 +154,7 @@ Issue the following command sequence to download scripts to control spawn-fcgi a
 Create a file called "test.php" in your site's "public\_html" directory with the following contents:
 
 {{< file "/srv/www/www.example.com/public\\_html/test.php" php >}}
-<?php echo phpinfo(); ?>
+    <?php echo phpinfo(); ?>
 {{< /file >}}
 
 

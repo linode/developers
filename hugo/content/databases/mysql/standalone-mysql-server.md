@@ -33,7 +33,7 @@ Edit /etc/hosts
 You will want to create hostnames for each machine so you can keep track of them later. This also saves work, should you find yourself in a situation where you need to change the IP address of the server. Edit the `/etc/hosts` file to include the **private** IP addresses of each Linode. Use the following excerpt from an example `/etc/hosts` file as an example:
 
 {{< file "/etc/hosts" ini >}}
-bind-address = mysql
+    bind-address = mysql
 {{< /file >}}
 
 
@@ -66,7 +66,7 @@ Using MySQL on a separate database server is very similar to running a local dat
 For example, in [WordPress](/docs/web-applications/cms-guides/wordpress/) database settings are contained in the `wp-config.php` file, and the hostname is specified in the following format:
 
 {{< file-excerpt "wp-config.php" php >}}
-/** MySQL hostname */ 
+    /** MySQL hostname */ 
     define('DB_HOST', 'mysql');
 {{< /file-excerpt >}}
 

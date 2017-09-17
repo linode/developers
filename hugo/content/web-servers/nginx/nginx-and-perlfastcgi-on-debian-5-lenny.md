@@ -52,7 +52,7 @@ In this guide, the domain "example.com" is used as an example site. You should s
 Next, you'll need to define the site's virtual host file:
 
 {{< file "/etc/nginx/sites-available/www.example.com" nginx >}}
-server {
+    server {
         listen   80;
         server_name www.example.com example.com;
         access_log /srv/www/www.example.com/logs/access.log;
@@ -103,7 +103,7 @@ Test Perl with FastCGI
 Create a file called "test.pl" in your site's "public\_html" directory with the following contents:
 
 {{< file "/srv/www/www.example.com/public\\_html/test.pl" perl >}}
-#!/usr/bin/perl
+    #!/usr/bin/perl
 
     print "Content-type:text/html\n\n";
     print <<EndOfHTML;

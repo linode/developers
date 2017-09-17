@@ -36,9 +36,8 @@ We'll compile the [Spigot](https://spigotmc.com) Minecraft server (1.8.3 at the 
 
         sudo apt-get install git openjdk-7-jre-headless
 
-    {{< note >}}
+{{< note >}}
 If your Linode is running Ubuntu 14.10 or higher, you can choose to install `openjdk-8-jre-headless` instead.
-
 {{< /note >}}
 
 3.  Run `java -version` to confirm. You should see something like this:
@@ -72,11 +71,9 @@ If your Linode is running Ubuntu 14.10 or higher, you can choose to install `ope
         wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
         java -jar BuildTools.jar
 
-    {{< note >}}
+{{< note >}}
 This may take approximately 10 minutes, depending in the size of the Linode you are building on.
-
 {{< /note >}}
-
 
 2.	When the build has finished, move the resulting `.jar` file to a server folder:
 
@@ -86,8 +83,8 @@ This may take approximately 10 minutes, depending in the size of the Linode you 
 
 3.	We'll make a few scripts to make sure that your server's always up. Open a file called `wrapper.sh` in your preferred text editor. In the text editor, insert the following:
 
-    {{< file "/home/minecraft/server/wrapper.sh" sh >}}
-#!/bin/bash
+{{< file "/home/minecraft/server/wrapper.sh" sh >}}
+        #!/bin/bash
         cd /home/minecraft/server;
 
         java -XX:MaxPermSize=1024M -Xms512M -Xmx1536M -jar spigot.jar
@@ -110,8 +107,8 @@ This may take approximately 10 minutes, depending in the size of the Linode you 
 
 6.  Open `eula.txt` and set the value to `true`:
 
-    {{< file "/home/minecraft/server/eula.txt" >}}
-By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).
+{{< file "/home/minecraft/server/eula.txt" >}}
+        By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).
         #Fri Apr 17 17:02:15 UTC 2015
         eula=true
 {{< /file >}}
@@ -125,8 +122,8 @@ By changing the setting below to TRUE you are indicating your agreement to our E
 
 2.  As the root user or with `sudo`, open `/etc/rc.local` and add the following before the `exit 0` line:
 
-    {{< file-excerpt "/etc/local.rc" >}}
-su -l minecraft -c "screen -dmS minecraft /home/minecraft/server/wrapper.sh"
+{{< file-excerpt "/etc/local.rc" >}}
+        su -l minecraft -c "screen -dmS minecraft /home/minecraft/server/wrapper.sh"
 {{< /file-excerpt >}}
 
 
@@ -179,9 +176,8 @@ Plugins can be found from the [Spigot Resources](http://www.spigotmc.org/resourc
 
         wget -P /home/minecraft/server/plugins/ --content-disposition <plugin url>
 
-    {{< note >}}
+{{< note >}}
 When downloading plugins from Spigot, the `wget` flag `--content-disposition` will help ensure the plugin is downloaded with the correct filename.
-
 {{< /note >}}
 
 2.  From within your screen session, enter `stop` to stop the server and exit the screen session. Your plugin will be loaded when you next start the SpigotMC server:

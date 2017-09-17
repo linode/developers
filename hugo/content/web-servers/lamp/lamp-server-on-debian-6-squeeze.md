@@ -58,7 +58,7 @@ There are different ways to set up virtual hosts, however we recommend the metho
 You can create as many virtual hosting files as you need to support the domains that you want to host with your Linode. First, create a file in the `/etc/apache2/sites-available/` directory for each virtual host that you want to set up. Name each file with the domain for which you want to provide virtual hosting. See the following example configurations for the hypothetical "example.com" and "example.org" domains.
 
 {{< file "/etc/apache2/sites-available/example.com" apache >}}
-<VirtualHost *:80>
+    <VirtualHost *:80>
          ServerAdmin webmaster@example.com
          ServerName example.com
          ServerAlias www.example.com
@@ -70,7 +70,7 @@ You can create as many virtual hosting files as you need to support the domains 
 
 
 {{< file "/etc/apache2/sites-available/example.org" apache >}}
-<VirtualHost *:80>
+    <VirtualHost *:80>
          ServerAdmin webmaster@example.org     
          ServerName example.org
          ServerAlias www.example.org
@@ -161,7 +161,7 @@ Once PHP5 is installed, you'll need to tune the configuration file located in `/
 Make sure that the following values are set, and relevant lines are uncommented (comments are lines beginning with a semi-colon (`;`)):
 
 {{< file-excerpt "/etc/php5/apache2/php.ini" ini >}}
-max_execution_time = 30
+    max_execution_time = 30
     memory_limit = 64M
     error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
     display_errors = Off

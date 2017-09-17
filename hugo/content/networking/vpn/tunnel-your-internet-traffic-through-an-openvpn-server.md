@@ -32,8 +32,8 @@ OpenVPN's server-side configuration file is `/etc/openvpn/server.conf`, and it r
 
 1.  Set OpenVPN to push a gateway configuration so all clients send internet traffic through it.
 
-    {{< file-excerpt "/etc/openvpn/server.conf" aconf >}}
-# If enabled, this directive will configure
+{{< file-excerpt "/etc/openvpn/server.conf" aconf >}}
+        # If enabled, this directive will configure
         # all clients to redirect their default
         # network gateway through the VPN, causing
         # all IP traffic such as web browsing and
@@ -51,8 +51,8 @@ OpenVPN's server-side configuration file is `/etc/openvpn/server.conf`, and it r
 
     If using the options below to push DNS resolvers to VPN clients, you can disable the Google DNS fallback on your clients (or leave it enabled as the fallback it was intended to be). [OpenDNS](https://www.opendns.com/) is provided by default but you can change this to your preference.
 
-    {{< file-excerpt "/etc/openvpn/server.conf" aconf >}}
-# Certain Windows-specific network settings
+{{< file-excerpt "/etc/openvpn/server.conf" aconf >}}
+        # Certain Windows-specific network settings
         # can be pushed to clients, such as DNS
         # or WINS server addresses.  CAVEAT:
         # http://openvpn.net/faq.html#dhcpcaveats
@@ -74,9 +74,7 @@ In [Part One](/docs/networking/vpn/set-up-a-hardened-openvpn-server) of this ser
 Since now the server should forward traffic out to the internet from clients, accept the responses and route them back to client machines, the firewall rules must be adjusted.
 
 {{< caution >}}
-
 The steps below will overwrite any custom IPv4 firewall rules you may have.
-
 {{< /caution >}}
 
 1.  Remove the v4 ruleset that you created in Part One of this series.
@@ -85,8 +83,8 @@ The steps below will overwrite any custom IPv4 firewall rules you may have.
 
 2.  Create a new IPv4 rule file using the ruleset below. The path `/etc/iptables/rules.v4` assumes Debian or Ubuntu with `iptables-persistent` installed.
 
-    {{< file "/etc/iptables/rules.v4" aconf >}}
-*filter
+{{< file "/etc/iptables/rules.v4" aconf >}}
+        *filter
 
         # Allow all loopback (lo) traffic and reject traffic
         # to localhost that does not originate from lo.

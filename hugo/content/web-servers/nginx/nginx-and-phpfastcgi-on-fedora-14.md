@@ -58,7 +58,7 @@ Issue the following commands to create virtual hosting directories:
 Add the following lines to your `/etc/nginx/nginx.conf` file, immediately after the line for `include /etc/nginx/conf.d/*.conf`:
 
 {{< file-excerpt "/etc/nginx/nginx.conf" nginx >}}
-# Load virtual host configuration files.
+    # Load virtual host configuration files.
     include /etc/nginx/sites-enabled/*;
 {{< /file-excerpt >}}
 
@@ -66,7 +66,7 @@ Add the following lines to your `/etc/nginx/nginx.conf` file, immediately after 
 Next, define your site's virtual host file:
 
 {{< file "/etc/nginx/sites-available/www.example.com" nginx >}}
-server {
+    server {
         server_name www.example.com example.com;
         access_log /srv/www/www.example.com/logs/access.log;
         error_log /srv/www/www.example.com/logs/error.log;
@@ -143,7 +143,7 @@ Test PHP with FastCGI
 Create a file called "test.php" in your site's "public\_html" directory with the following contents:
 
 {{< file "/srv/www/www.example.com/public\\_html/test.php" php >}}
-<?php echo phpinfo(); ?>
+    <?php echo phpinfo(); ?>
 {{< /file >}}
 
 

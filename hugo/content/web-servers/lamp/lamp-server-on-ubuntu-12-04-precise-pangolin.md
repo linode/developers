@@ -24,9 +24,7 @@ Setting up a LAMP (Linux, Apache, MySql, PHP) stack will allow for the creation 
 ![LAMP Server on Ubuntu 12.04](/docs/assets/lamp_server_on_ubuntu_12_04.png "LAMP Server on Ubuntu 12.04")
 
 {{< note >}}
-
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ## Before You Begin
@@ -47,8 +45,8 @@ This guide is written for a non-root user. Commands that require elevated privil
 
 2.  Edit the main Apache configuration file to adjust the resource use settings. The settings shown below are a good starting point for a **Linode 2GB**:
 
-    {{< file-excerpt "/etc/apache2/apache2.conf" aconf >}}
-KeepAlive Off
+{{< file-excerpt "/etc/apache2/apache2.conf" aconf >}}
+        KeepAlive Off
 
         <IfModule mpm_prefork_module>
         StartServers 4
@@ -67,8 +65,8 @@ There are different ways to set up virtual hosts; however, the method below is r
 
 1.  Within the `/etc/apache2/sites-available/` directory, create a configuration file for your website, `example.com.conf`, replacing `example.com` with your own domain information:
 
-    {{< file "/etc/apache2/sites-available/example.com.conf" aconf >}}
-<VirtualHost *:80>
+{{< file "/etc/apache2/sites-available/example.com.conf" aconf >}}
+        <VirtualHost *:80>
              ServerAdmin webmaster@example.com
              ServerName example.com
              ServerAlias www.example.com
@@ -79,10 +77,8 @@ There are different ways to set up virtual hosts; however, the method below is r
 {{< /file >}}
 
 
-    {{< note >}}
-
+{{< note >}}
 The `ErrorLog` and `CustomLog` entries are suggested for more fine-grained logging, but are not required. If they are defined (as shown above), the `logs` directories must be created before you restart Apache.
-
 {{< /note >}}
 
 2.  Create the directories referenced above:
@@ -94,12 +90,10 @@ The `ErrorLog` and `CustomLog` entries are suggested for more fine-grained loggi
 
         sudo a2ensite example.com.conf
 
-    {{< note >}}
-
+{{< note >}}
 If you need to disable your website later, run:
 
 sudo a2dissite example.com.conf
-
 {{< /note >}}
 
 4.  Reload Apache:
@@ -155,17 +149,15 @@ With Apache and MySQL installed you are now ready to install PHP.
 
 2.  Once PHP5 is installed, tune the configuration file located in `/etc/php5/apache2/php.ini` to enable more descriptive errors, logging, and better performance. The following modifications provide a good starting point:
 
-    {{< file-excerpt "/etc/php5/apache2/php.ini" ini >}}
-error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
+{{< file-excerpt "/etc/php5/apache2/php.ini" ini >}}
+        error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
         error_log = /var/log/php/error.log  
         max_input_time = 30
 {{< /file-excerpt >}}
 
 
-    {{< note >}}
-
+{{< note >}}
 Ensure the lines above are uncommented. Commented lines begin with a semicolon (**;**).
-
 {{< /note >}}
 
 3.  Create the log directory for PHP and give the Apache user ownership:

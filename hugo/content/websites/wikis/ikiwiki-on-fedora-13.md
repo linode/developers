@@ -86,7 +86,6 @@ Edit the `~/wiki/.git/config` file to create the remote repository so that it lo
 
 {{< file >}}
 \~/wiki/.git/config
-
 {{< /file >}}
 
 > [core]
@@ -150,7 +149,6 @@ Next, edit the `~/wiki-admin/.git/config` file to set up the remote repository. 
 
 {{< file >}}
 \~/wiki/.git/config
-
 {{< /file >}}
 
 > [core]

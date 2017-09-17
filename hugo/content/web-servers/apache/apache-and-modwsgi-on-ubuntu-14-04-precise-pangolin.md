@@ -35,9 +35,7 @@ The WSGI specification provides a standard and efficient method for dynamic web 
         sudo apt-get upgrade
 
 {{< note >}}
-
 The steps required in this guide require root privileges. Be sure to run the steps below as **root** or with the `sudo` prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ## Install Dependencies
@@ -57,7 +55,7 @@ In order for `mod_wsgi` to be able to provide access to your application, you wi
 In this example, the application is stored in `/var/www/html/example.com/application` directory. Modify this example and all following examples to conform to the actual files and locations used in your deployment.
 
 {{< file "/var/www/html/example.com/application/application.wsgi" python >}}
-import os
+    import os
     import sys
 
     sys.path.append('/var/www/html/example.com/application')
@@ -83,7 +81,7 @@ You must append the path of your application to the system path as above. The de
 In this example the Web.py *application* is embedded in a `application.wsgi` file. The [Web.py Framework](/docs/websites/frameworks/webpy-on-ubuntu-12-04-precise-pangolin/) must be installed in order for the following application to run successfully.
 
 {{< file-excerpt "/var/www/html/example.com/application/application.wsgi" python >}}
-import web
+    import web
 
     urls = (
         '/(.*)', 'hello'
@@ -108,7 +106,7 @@ import web
 The following example `application.wsgi` file is configured for Django applications:
 
 {{< file-excerpt "/var/www/html/example.com/application/application.wsgi" python >}}
-import os
+    import os
     import sys
 
     sys.path.append('/var/www/html/example.com/application')
@@ -129,7 +127,7 @@ import os
 Deploy the following `VirtualHost` configuration and modify the paths and domains to reflect the requirements of your application:
 
 {{< file-excerpt "Apache `VirtualHost` Configuration" apache >}}
-<VirtualHost *:80>
+    <VirtualHost *:80>
        ServerName example.com
        ServerAlias www.example.com
        ServerAdmin username@example.com

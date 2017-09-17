@@ -83,7 +83,7 @@ Issue the following command to download an init script to manage the uWSGI proce
 Create an `/etc/default/uwsgi` file to specify specific settings for your Python application. The `MODULE` specifies the name of the Python module that contains your `wsgi` specification. Consider the following example:
 
 {{< file-excerpt "/etc/default/uwsgi" bash >}}
-PYTHONPATH=/srv/www/example.com/application
+    PYTHONPATH=/srv/www/example.com/application
     MODULE=wsgi_configuration_module
 {{< /file-excerpt >}}
 
@@ -91,7 +91,7 @@ PYTHONPATH=/srv/www/example.com/application
 If you want to deploy a "Hello World" application, insert the following code into the `/srv/www/example.com/application/wsgi_configuration_module.py` file:
 
 {{< file "/srv/www/example.com/application/wsgi\\_configuration\\_module.py" python >}}
-import os
+    import os
     import sys
 
     sys.path.append('/srv/www/example.com/application')
@@ -122,7 +122,7 @@ Configure nginx Server
 Create an nginx server configuration that resembles the following for the site where the uWSGI app will be accessible:
 
 {{< file-excerpt "nginx virtual host configuration" nginx >}}
-server {
+    server {
         listen   80;
         server_name www.example.com example.com;
         access_log /srv/www/example.com/logs/access.log;
@@ -151,7 +151,7 @@ Additional Application Servers
 If the Python application you've deployed requires more application resources than a single Linode instance can provide, all of the methods for deploying a uWSGI application server are easily scaled to rely on multiple uSWGI instances that run on additional Linodes with the request load balanced using nginx's `upstream` capability. See our documentation of [proxy and software load balancing with nginx](/docs/uptime/loadbalancing/how-to-use-nginx-as-a-front-end-proxy-server-and-software-load-balancer) for more information. For a basic example configuration, see the following example:
 
 {{< file-excerpt "nginx configuration" nginx >}}
-upstream uwsgicluster {
+    upstream uwsgicluster {
          server 127.0.0.1:9001;
          server 192.168.100.101:9001;
          server 192.168.100.102:9001;

@@ -38,13 +38,10 @@ This guide will show how to deploy a Clojure application to WildFly - the popula
         sudo apt-get update && sudo apt-get upgrade
 
 {{< note >}}
-
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
 
 In this guide `example.com` will be used as a domain name, and `linode-user` as a name of non-root user. Substitute your own FQDN and username accordingly.
-
 {{< /note >}}
-
 
 ## Install Oracle JDK 8
 
@@ -74,9 +71,7 @@ In this guide `example.com` will be used as a domain name, and `linode-user` as 
         Java HotSpot(TM) 64-Bit Server VM (build 25.66-b17, mixed mode)
 
 {{< note >}}
-
 If you are not comfortable with using 3rd-party PPA, please use instructions for manual installation of Oracle Java 8 from [Java Development with WildFly on CentOS 7](/docs/applications/development/java-development-wildfly-centos-7) guide.
-
 {{< /note >}}
 
 ## Install Leiningen
@@ -113,10 +108,8 @@ Now, you will create a sample Clojure web application based on *Luminus* framewo
 
     ![Luminus application main page](/docs/assets/clj-luminus-main-page.png)
 
-    {{< note >}}
-
+{{< note >}}
 Make sure port 3000 is open in firewall for this to work.
-
 {{< /note >}}
 
 3.  Stop the development server by pressing **Ctrl-C** in console.
@@ -169,8 +162,8 @@ Make sure port 3000 is open in firewall for this to work.
 
 2.  Create file `/etc/nginx/sites-available/wildfly` with the following content:
 
-    {{< file "/etc/nginx/sites-available/wildfly" aconf >}}
-upstream http_backend {
+{{< file "/etc/nginx/sites-available/wildfly" aconf >}}
+        upstream http_backend {
             server 127.0.0.1:8080;
         }
 
@@ -214,16 +207,16 @@ To deploy Clojure application with WildFly you will need to install the Immutant
 
 1.  Open `project.clj` file in `clj-app` directory and add `[lein-immutant "2.1.0"]` to the `:plugins` section of configuration:
 
-    {{< file-excerpt "/home/linode-user/clj-app/project.clj" clj >}}
-:plugins [[lein-environ "1.0.1"]
+{{< file-excerpt "/home/linode-user/clj-app/project.clj" clj >}}
+        :plugins [[lein-environ "1.0.1"]
                   [lein-immutant "2.1.0"]]
 {{< /file-excerpt >}}
 
 
 2.  In `project.clj` and after `:plugins`, add a new `:immutant` section with the following content :
 
-    {{< file-excerpt "/home/linode-user/clj-app/project.clj" clj >}}
-:immutant {
+{{< file-excerpt "/home/linode-user/clj-app/project.clj" clj >}}
+        :immutant {
             :war {
                 :name "ROOT"
                 :destination "/opt/wildfly/standalone/deployments"

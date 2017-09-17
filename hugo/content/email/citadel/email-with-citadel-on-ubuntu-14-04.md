@@ -23,9 +23,7 @@ external_resources:
 Citadel is a groupware suite that provides system administrators with an easy method to set up and manage email, calendars, mailing lists and other collaboration tools. It also features an automated installation process and versatile deployment options that allow the application to be scaled across multiple servers.
 
 {{< caution >}}
-
 There is a known bug that prevents Citadel from running properly on 32-bit Linodes. Please see [the Ubuntu bugtracker](https://bugs.launchpad.net/ubuntu/+source/citadel/+bug/911732) for more information.
-
 {{< /caution >}}
 
 ## Prerequisites
@@ -35,9 +33,7 @@ Before installing Citadel, it is assumed that you have followed our [getting sta
 This guide also assumes that you wish to run Citadel by itself on this server on port 80 or 443 for browser-based access.
 
 {{< note >}}
-
 If you intend to install Citadel alongside another web server package such as Apache or nginx, select the "internal" option when asked about web server integration. Be sure to specify unique ports for Citadel such as 8080 for HTTP or 4343 for HTTPS.
-
 {{< /note >}}
 
 ## Set the Hostname
@@ -82,14 +78,14 @@ To edit the ports later, you will need to edit the file `/etc/default/webcit`.
 Edit the `/etc/mailname` file to reflect your system's domain name:
 
 {{< file "/etc/mailname" >}}
-name.example.com
+    name.example.com
 {{< /file >}}
 
 
 You'll need to edit the SpamAssassin configuration file to enable spamd:
 
 {{< file "/etc/default/spamassassin" >}}
-# Change to one to enable spamd
+    # Change to one to enable spamd
     ENABLED=1
 {{< /file >}}
 
@@ -104,7 +100,7 @@ Please note that you'll finish enabling SpamAssassin support within Citadel late
 Customize the login banner for your Citadel server by editing the relevant file:
 
 {{< file "/etc/citadel/messages/hello" >}}
-Citadel Groupware Server Login
+    Citadel Groupware Server Login
 {{< /file >}}
 
 Use the following startup script to initialize Citadel.

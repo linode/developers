@@ -48,7 +48,7 @@ Configure NSD
 Edit the `nsd.conf` file to configure the behavior of the NSD service and the hosted DNS zones. The NSD package provides an example configuration file located at `/etc/nsd3/nsd.conf.sample` that you may reference. Your file should resemble the following:
 
 {{< file-excerpt "/etc/nsd3/nsd.conf" >}}
-server:
+	server:
 	    logfile: "/var/log/nsd.log"
 	    username: nsd
 {{< /file-excerpt >}}
@@ -59,7 +59,7 @@ server:
 You must specify at least one zone in the `/etc/nsd3/nsd.conf` file before NSD will begin serving DNS records. Refer to the following example configuration for proper syntax.
 
 {{< file-excerpt "/etc/nsd3/nsd.conf" >}}
-zone:
+	zone:
 	    name: example.com
 	    zonefile: /etc/nsd3/example.com.zone
 
@@ -77,7 +77,7 @@ Creating Zone Files
 Each domain has zone file specified in the `nsd.conf` file. The syntax of an NSD zone file is similar BIND zone files. Refer to the example zone files that follow for syntax, and modify domain names and IP addresses to reflect the needs of your deployment.
 
 {{< file-excerpt "/etc/nsd3/example.com.zone" >}}
-$ORIGIN example.com.
+	$ORIGIN example.com.
 	$TTL 86400
 
 	@       IN      SOA     ns1.example.com.      admin.example.com. (
@@ -104,7 +104,7 @@ $ORIGIN example.com.
 
 
 {{< file-excerpt "/etc/nsd3/example.org.zone" >}}
-$ORIGIN example.org.
+	$ORIGIN example.org.
 	$TTL 86400
 
 	@       IN      SOA     ns1.example.org.      web-admin.example.org. (
@@ -176,7 +176,7 @@ Adjusting NSD for Low-Memory Situations
 If you are running NSD in a low-memory environment, amending the values of the following directives in your `/etc/nsd3/nsd.conf` file will lower your memory and system resource usage.
 
 {{< file-excerpt "/etc/nsd3/nsd.conf" >}}
-ip4-only: yes
+	ip4-only: yes
 	tcp-count: 10
 	server-count: 1
 {{< /file-excerpt >}}

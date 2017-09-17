@@ -29,7 +29,6 @@ If you are running Ubuntu 8.04 or 9.10, edit your `/etc/fstab` file to include t
 
 {{< file-excerpt >}}
 /etc/fstab
-
 {{< /file-excerpt >}}
 
 > dev /dev devtmpfs rw 0 0
@@ -47,7 +46,6 @@ Edit the `/etc/update-manager/release-upgrades` file, setting "Prompt=normal" as
 
 {{< file-excerpt >}}
 /etc/update-manager/release-upgrades
-
 {{< /file-excerpt >}}
 
 > Prompt=normal
@@ -105,7 +103,6 @@ Add the following line to your file:
 
 {{< file-excerpt >}}
 /media/xvda/etc/fstab
-
 {{< /file-excerpt >}}
 
 > dev /dev devtmpfs rw 0 0

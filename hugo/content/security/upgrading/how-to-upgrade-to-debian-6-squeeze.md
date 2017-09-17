@@ -31,7 +31,7 @@ Be sure to replace "titan" with the name that you wish to give to your server.
 Edit your `/etc/apt/sources.list` file and change instances of `lenny` to `squeeze`. Once you have finished this, your `/etc/apt/sources.list` should resemble the following:
 
 {{< file-excerpt "/etc/apt/sources.list" >}}
-# main repo
+    # main repo
     deb http://ftp.debian.org/debian/ squeeze main
     deb-src http://ftp.debian.org/debian/ squeeze main
     deb http://security.debian.org/ squeeze/updates main

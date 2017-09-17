@@ -100,14 +100,14 @@ First we must configure Apache to only "listen" for requests on a specific IP ad
 For name based Virtual Hosting, begin with a line that reads:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-NameVirtualHost *:80
+    NameVirtualHost *:80
 {{< /file-excerpt >}}
 
 
 Now, you will create virtual host entries for each site that you need to host with this server. Here are two examples for sites at "example.org" and "example.net:"
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-<VirtualHost *:80>
+    <VirtualHost *:80>
          ServerAdmin admin@example.org
          ServerName example.org
          ServerAlias www.example.org
@@ -214,7 +214,7 @@ These usernames and passwords need not (and should not) correspond to system use
 In the .htaccess file for the directory that you want to protect, add the following lines:
 
 {{< file-excerpt ".htaccess" apache >}}
-AuthUserFile /srv/www/example.com/.htpasswd
+    AuthUserFile /srv/www/example.com/.htpasswd
     AuthType Basic
     AuthName "Advanced Choreographic Information"
     Require valid-user
@@ -231,14 +231,14 @@ The mod\_rewrite engine is very powerful, and is available for your use by defau
 In a `<Directory >` block or `.htaccess` file, enable mod\_rewrite with the following line:
 
 {{< file-excerpt "Apache Virtual Host Configuration or .htaccess" apache >}}
-RewriteEngine on
+    RewriteEngine on
 {{< /file-excerpt >}}
 
 
 Now, you may create any number of separate rewrite rules. These rules provide a pattern that the server compares incoming requests against, and if a request matches a rewrite pattern, the server provides an alternate page. Here is an example rewrite rule:
 
 {{< file-excerpt "Apache Virtual Host Configuration or .htaccess" apache >}}
-RewriteRule ^post-id/([0-9]+)$ /posts/$1.html
+    RewriteRule ^post-id/([0-9]+)$ /posts/$1.html
 {{< /file-excerpt >}}
 
 

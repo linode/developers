@@ -27,9 +27,7 @@ external_resources:
 Yesod is a web framework based on the purely functional programming language Haskell. It is designed for productive development of type-safe, RESTful, and high performance web applications. This guide describes the required process for deploying Yesod and Nginx web server, MySQL database on Debian 7 (Wheezy).
 
 {{< note >}}
-
 The steps required in this guide require root privileges. Be sure to run the steps below as root or with the sudo prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ##Prerequisites 
@@ -148,7 +146,7 @@ If you want to construct another site, just go back to ``$HOME`` folder, and iss
 Before testing the scaffold of your site, you need to create a user and several databases in MySQL. The "yesod" command has generated a configuration file for MySQL, which is located at ``$HOME/myblog/config/mysql.yml``. Take a look. 
 
 {{< file-excerpt "$HOME/myblog/config/mysql.yml" >}}
-Default: &defaults
+     Default: &defaults
        user: myblog
        password: myblog
        host: localhost
@@ -241,8 +239,8 @@ Warp is a fast http server, but it lacks some advanced features like virtual hos
 
 3.  Before starting your site, you need to modify the file ``/var/myblog/config/settings.yml``. This file has the same structure as ``mysql.yml``. There is a ``Default`` section and four other sections for various environments. We will only run ``/var/myblog`` in the ``Production`` environment, so we only need to modify the last three lines of this settings file:
 
-    {{< file-excerpt "/var/myblog/config/settings.yml" >}}
-Production:
+{{< file-excerpt "/var/myblog/config/settings.yml" >}}
+        Production:
           approot: "http://www.yoursite.com"
           <<: *defaults
 {{< /file-excerpt >}}
@@ -259,8 +257,8 @@ Production:
 
 5.  If you want your site running as a daemon, which means in a constant state of running, you can create an init.d script. We have created a simple one, here, for your reference:
 
-    {{< file-excerpt "/etc/init.d/myblog" bash >}}
-#! /bin/sh
+{{< file-excerpt "/etc/init.d/myblog" bash >}}
+        #! /bin/sh
         ### BEGIN INIT INFO
         # Provides:          myblog
         # Required-Start:    $network $syslog mysql nginx
@@ -348,7 +346,7 @@ Production:
 Create the file ``/etc/nginx/sites-available/myblog``:
 
 {{< file "/etc/nginx/sites-available/myblog" nginx >}}
-server {
+    server {
 
         listen 80;
 

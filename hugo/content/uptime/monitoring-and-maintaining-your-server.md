@@ -89,10 +89,8 @@ Here's how to turn on and customize the alerts:
 
 You have successfully configured email alerts in the Linode Manager.
 
- {{< note >}}
-
+{{< note >}}
 If you receive an email threshold alert from the Linode Manager, don't panic. There's not necessarily anything wrong with your Linode. For example, your server may be operating above the threshold if you're compiling software or if a major website just linked to your blog.
-
 {{< /note >}}
 
 ### Using Linode Longview
@@ -140,10 +138,8 @@ To check for software updates and install them in Ubuntu or Debian, enter the fo
     apt-get update
     apt-get upgrade --show-upgraded
 
- {{< note >}}
-
+{{< note >}}
 If you're using a distribution other than Ubuntu or Debian, you can learn more about package management by reading our [Linux Package Management guide](/docs/using-linux/package-management).
-
 {{< /note >}}
 
 There are ways to automate the installation of software updates, but this is not recommended. You should always manually review the lists of available patches before installing updates.
@@ -171,10 +167,8 @@ Here's how to check for a new kernel and start using it on your Linode:
 
 7.  From the **Kernel** menu, verify that **Latest 64 bit** is selected, as shown below.
 
- {{< note >}}
-
+{{< note >}}
 Be sure to select the correct kernel (32- or 64-bit) for your distribution. The 64-bit kernels are available by selecting **Latest 64 bit**.
-
 {{< /note >}}
 
 [![Selecting the latest kernel](/docs/assets/1194-monitor7.png)](/docs/assets/1194-monitor7.png)
@@ -194,6 +188,6 @@ There are two ways to upgrade a Linode running an unsupported release. You can u
 -   To upgrade your server, use one of our [Upgrading Guides](/docs/upgrading) or check the distribution's website for instructions.
 -   To create a new Linode and transfer your files from the old server, use our [Getting Started](/docs/getting-started) guide and then [migrate the disk](/docs/migrate-to-linode/disk-images/migrating-a-server-to-your-linode) from the old server to transfer the files, or use an FTP client.
 
- {: .note }
->
-> Check the distribution's website to learn when support for your release will be discontinued. Ubuntu offers a *long-term support* (LTS) release that is supported for five years.
+{{< note >}}
+Check the distribution's website to learn when support for your release will be discontinued. Ubuntu offers a *long-term support* (LTS) release that is supported for five years.
+{{< /note >}}

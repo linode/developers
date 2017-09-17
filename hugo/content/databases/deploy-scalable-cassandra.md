@@ -46,9 +46,7 @@ After completing this guide, you will have a single-node, production-ready insta
 Add required repositories/gpg keys. Be sure to run the key add commands in the order shown. 
 
 {{< caution >}}
-
 (Ubuntu only) If you receive an error while running `apt update` that pertains to a missing key, copy the key listed in the error message and add it to your keyring using the commands in step 4. As of this publish date, the only keys required are listed below.
-
 {{< /caution >}}
 
 **Ubuntu 17.04**
@@ -66,9 +64,7 @@ Add required repositories/gpg keys. Be sure to run the key add commands in the o
 	   echo "deb http://www.apache.org/dist/cassandra/debian 39x main" |  tee /etc/apt/sources.list.d/cassandra.list
 
 {{< note >}}
-
 You may want to follow the link to the Apache repository to confirm that "39x" is the latest available version.
-
 {{< /note >}}
 
 4. Download the two public keys needed to access these repositories:
@@ -154,9 +150,7 @@ Search for `-Djava.rmi.server.hostname=` in the file. Uncomment this line and ad
 Restart Cassandra with `systemctl restart Cassandra` and check the node status `nodetool status`. 
 
 {{< note >}}
-
 It may take a few seconds for Cassandra to refresh the configuration. If you receive another connection error, try waiting 15 seconds before rechecking the node status.
-
 {{< /note >}}
 
 ### Configure Cassandra
@@ -166,9 +160,7 @@ It may take a few seconds for Cassandra to refresh the configuration. If you rec
 1. Enable user login authentication. Make a backup of the Cassandra configuration file "cassandra.yaml."
 
 {{< note >}}
-
 The CentOS 7 installation already includes a backup file located at `/etc/cassandra/conf/cassandra.yaml.orig`.
-
 {{< /note >}}
 
   **Ubuntu 17.04**
@@ -191,7 +183,15 @@ More information on this file can be found by following the *Cassandra .yaml Con
 
 After editing the file restart Cassandra.
 
-{{< file "Ubuntu /etc/cassandra/cassandra.yaml" >}}
+{{< file "Ubuntu /etc/cassandra/cassandra.yaml" yaml >}}
+  authenticator: org.apache.cassandra.auth.PasswordAuthenticator
+  authorizer: org.apache.cassandra.auth.CassandraAuthorizer
+  role_manager: CassandraRoleManager
+  roles_validity_in_ms: 0
+  permissions_validity_in_ms: 0
+{{< /file >}}
+
+			
 ### Add An Administration Superuser
 
 1. Open the Cassandra command terminal by typing `cqlsh`. Login with the credentials shown below for the default user "Cassandra":
@@ -228,19 +228,10 @@ Since your Cassandra username and password can be stored here in plaintext, this
 2. Copy any sections below that you wish to add to your configuration. Details for this file can be found by following the "Cassandra cqlshrc File Configuration Overview" link in the "External Resources" section.
 
 {{< note >}}
-
 CentOS 7 users can find a sample file containing all the configuration options at `/etc/cassandra/conf/cqlshrc.sample`.
-
 {{< /note >}}
 
-{{< file >}}
-.cassandra/cqlshrc
-:
-{{< /file >}}
-conf
-
-{{< /file >}}
-
+{{< file ".cassandra/cqlshrc" aconf >}}
 	;; Options that are common to both COPY TO and COPY FROM
 
 	[copy]
@@ -270,7 +261,8 @@ conf
 	float_precision = 5
 	;; The encoding used for characters
 	encoding = utf8
-~~~
+{{< /file >}}
+
 
 3. Save and close the file. Update the file and directory with the following permissions:
 

@@ -43,7 +43,6 @@ In this tutorial you will configure and install ntopng on your Linode. The tutor
 
 {{< note >}}
 The steps in this guide require root privileges. Be sure to run the steps below as `root` or with `sudo`. If two commands are presented in the same instance (seperated by `&&`), you must prefix each command with `sudo` (ex. `sudo [command] && sudo [command]`). For more information on privileges, see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ### Add the ntopng Repository
@@ -98,8 +97,8 @@ Ntopng has a built in web server and initializer. Configuration options can be d
 
 4.  Create `/etc/ntopng/ntopng.conf` and match the contents to the example listed below. Replace `192.0.2.0` with your Linode’s domain or public IP address. If needed, replace `eth0` with your primary network interface. If you want to review available configuration parameters, run `man ntopng` from the terminal.
 
-    {{< file "**/etc/ntopng/ntopng.conf**" aconf >}}
---user=ntopng
+{{< file "**/etc/ntopng/ntopng.conf**" aconf >}}
+      --user=ntopng
       --interface=eth0
       -w=192.0.2.0:3005
       --community
@@ -110,10 +109,8 @@ Ntopng has a built in web server and initializer. Configuration options can be d
 {{< /file >}}
 
 
-    {{< note >}}
-
+{{< note >}}
 The option flags commented with `# optional` are **not mandatory.** All flags requiring input must be followed by an `=` and a value. Replace `eth0` with your network interface below, if you are not using `eth0`.
-
 {{< /note >}}
 
 ##### Configuration File Breakdown
@@ -162,10 +159,8 @@ If you want to group devices over the same network or host a home media server, 
 
     ![Currently open connections](/docs/assets/ntopng/ntopng-currently-open-connections.png "Currently open connections")
 
-    {{< note >}}
-
+{{< note >}}
 If you want to see all the host connections on a single page, set the number of rows to display per page next to the filtering options above the table.
-
 {{< /note >}}
 
 ## Enable Security 
@@ -173,9 +168,7 @@ If you want to see all the host connections on a single page, set the number of 
 Ntopng provides a simple and convenient method for monitoring threats.
 
 {{< caution >}}
-
 Ntopng does not replace core security features such as a properly configured firewall. It is best to run this in tandem with an existing internal setup.
-
 {{< /caution >}}
 
 1.  Near the top of the web interface, scroll over **Settings** and select **Preferences**. Click on **Alerts** in the menu to the left. Click on **Enable Alerts** and choose which alerts you’d like to enable.

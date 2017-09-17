@@ -26,7 +26,7 @@ In this configuration, Apache provides two or more virtual hosts which perform d
 To accomplish this, insert the following configuration directives into your virtual hosting configuration:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-<VirtualHost *:80> 
+    <VirtualHost *:80> 
         ServerAdmin admin@example.com
         ServerName static.example.com
         DocumentRoot /srv/www/static.example.com/public_html/
@@ -59,7 +59,7 @@ In our guide to using [multiple web servers with ProxyPass](/docs/web-servers/ap
 Once `mod_proxy` is enabled and configured, you can insert the following directives into your virtual hosting configuration.
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-ProxyPass /static/ http://static.example.com/
+    ProxyPass /static/ http://static.example.com/
     ProxyPass /media http://media.example.com
     ProxyPass /wiki/static/ !
     ProxyPass /wiki/ http://application.example.com/
@@ -88,7 +88,7 @@ While using `ProxyPass` directives allows you to distribute resources by directo
 Once `mod_proxy` is enabled and configured, ensure that the server is [configured properly](/docs/web-servers/apache/proxy-configuration/multiple-webservers-proxypass-debian-5-lenny). Now, a number of additional proxy services will be available. Consider the following virtual host configuration:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-<VirtualHost *:80>
+    <VirtualHost *:80>
         ServerName example.com
         ServerAlias www.example.com
         DocumentRoot /srv/www/example.com/public_html/
@@ -107,7 +107,7 @@ In this example all requests for resources that end with `.php` are proxied to `
 While this method of specifying resources for proxying is much more limited in some respects, it does allow you to very specifically control and distribute HTTP requests among a group of servers. Use the above example, and the others that follow, as inspiration when constructing the rewrite rules for your deployment:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-RewriteRule ^/(.*)\.js$ http://static.example.com/javascript/$1.js [proxy]
+    RewriteRule ^/(.*)\.js$ http://static.example.com/javascript/$1.js [proxy]
     RewriteRule ^/(.*)\.css$ http://static.example.com/styles/$1.css [proxy]
     RewriteRule ^/(.*)\.jpg$ http://static.example.com/images/$1.jpg [proxy]
 
@@ -133,7 +133,7 @@ Using `mod_rewrite` to direct requests to proxied resources gives administrators
 The following case presents a more streamlined and simple proxy and rewrite example. Consider the following configuration directives:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-<VirtualHost *:80>
+    <VirtualHost *:80>
         ServerName example.com
         ServerAlias www.example.com
         DocumentRoot /srv/www/example.com/public_html/
@@ -163,7 +163,7 @@ All of the previous cases presented in this document outline configurations for 
 Edit the `/etc/apache2/mods-available/proxy.conf` file as described in [this documentation](/docs/web-servers/apache/proxy-configuration/multiple-webservers-proxypass-debian-5-lenny#enabling_the_proxy_module). Do not forget to reload the configuration Apache again once you have fully configured your virtual host and cluster. Consider the following Apache configuration directives:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-<VirtualHost *:80>
+    <VirtualHost *:80>
         ServerName example.com
         ServerAlias www.example.com
 
@@ -199,7 +199,7 @@ Apache also contains a "Balancer Manager" interface that you can use to first is
 Now include the following location directive in the virtual host where your cluster is configured:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-<Location /balancer-manager>
+    <Location /balancer-manager>
         SetHandler balancer-manager
         Order Deny,Allow
         Deny from all

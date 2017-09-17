@@ -39,9 +39,7 @@ This guide is written for Ubuntu 14.04. Before moving ahead, make sure you have 
 * [How to Install a LAMP Stack on Ubuntu 14.04](/docs/websites/lamp/lamp-on-ubuntu-14-04)
 
 {{< note >}}
-
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ## Install WP-CLI
@@ -86,8 +84,8 @@ The bash completion feature of WP-CLI allows you to see all the available comman
 
 2.  Edit the `.bashrc` file so that it is loaded by the shell every time you login. Open the file and add the following line in the editor:
 
-    {{< file-excerpt "~/.bashrc" bash >}}
-source /home/$USER/wp-completion.bash
+{{< file-excerpt "~/.bashrc" bash >}}
+    source /home/$USER/wp-completion.bash
 {{< /file-excerpt >}}
 
 

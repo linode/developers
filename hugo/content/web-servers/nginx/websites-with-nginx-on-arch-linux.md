@@ -44,7 +44,6 @@ Edit the `/etc/rc.conf` file, adding "nginx" to the "DEAMONS=" line as shown in 
 
 {{< file-excerpt >}}
 /etc/rc.conf
-
 {{< /file-excerpt >}}
 
 > DAEMONS=(syslog-ng network netfs crond sshd ntpd nginx)

@@ -74,10 +74,8 @@ See the guide on how to [Install a MySQL server on Ubuntu 14.04](/docs/databases
 
     ![MySQL Workbench Connection](/docs/assets/mysql-workbench-connection.png "MySQL Workbench Connection")
 
-    {{< note >}}
-
+{{< note >}}
 The MySQL server default port should be `3306` on `l27.0.0.1`. If you wish to connect to another server with a different port, update the inputs accordingly. See [Deploy MySQL Workbench for Database Administration](/docs/databases/mysql/deploy-mysql-workbench-for-database-administration) for more information.
-
 {{< /note >}}
 
 5.  Under **File**, select **Run SQL Script...**. Select `sakila-schema.sql` then click **Run**:

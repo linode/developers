@@ -24,9 +24,7 @@ It is important to note that Linode does not offer private IPv6 address allocati
 Internet Protocoal version 6 carries data packets from source to destination over disparate networks. Evolved from IPv4, IPv6 developed in hexadecimal format and contains 8 octets, accommodating up to 2128 possible node, or address, combinations, which facilitate expansive scalability. 
 
 {{< note >}}
-
 The steps provided in this guide require root privileges. It is assumed that you will run these commands as the root superuser. If you are not logged in as `root` you will need to prefix most commands with `sudo`. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups/) guide.
-
 {{< /note >}}
 
 ## Set up IPv6
@@ -73,7 +71,6 @@ Each /56 or /64 IPv6 address pool is routed to a specific Linode. If you want to
 
 {{< caution >}}
 This creates a single point of failure for your infrastructure. If a Linode set up in this way were to crash, lose networking, or encounter any another disruption in service, your entire IPv6 network will also be interrupted.
-
 {{< /caution >}}
 
 Unlike the other pools available, /116 IPv6 address pools route to all of the Linodes on your account within the same data center as the Linode to which the pool is assigned. This means there is no single point of failure.
@@ -86,22 +83,18 @@ While default IPv6 addresses are configured automatically, you will need to stat
 If SLAAC is not obtaining your IPv6 address, even after verifying that privacy extensions are disabled and your Linode is accepting router advertisements, you may need to statically configure your default IPv6 address as well.
 
 Be sure that [Network Helper](/docs/platform/network-helper) is disabled when adding addresses from a pool, otherwise your configuration files may be overwritten upon rebooting your Linode, causing disruption to your IPv6 networking.
-
 {{< /note >}}
-
 
 ### Debian / Ubuntu
 
 {{< note >}}
 Be sure that [Network Helper](/docs/platform/network-helper) is disabled when adding addresses from a pool, otherwise your configuration files may be overwritten upon rebooting your Linode, causing disruption to your IPv6 networking.
-
-
 {{< /note >}}
 
 1.  On Debian and Ubuntu, edit `/etc/network/interfaces` to set up statically configured IPv6:
 
-    {{< file "/etc/network/interfaces" >}}
-# This file describes the network interfaces available on your system
+{{< file "/etc/network/interfaces" >}}
+      # This file describes the network interfaces available on your system
       # and how to activate them. For more information, see interfaces(5).
 
       # The loopback network interface
@@ -129,15 +122,14 @@ Be sure that [Network Helper](/docs/platform/network-helper) is disabled when ad
 {{< /file >}}
 
 
-        {{< note >}}
+{{< note >}}
 On Debian Jessie, your default IPv6 address provided by SLAAC will no longer be automatically assigned after you request a /64 pool. You will need to manually add it as a static address or IPv6 routing will not work.
-
 {{< /note >}}
 
 2.  For /56 and /64 pools, addresses within your pool will be routed to your Linode's default IP address, or another Linode on your account in the same datacenter. You will see where the pool is routed under "Public IP Pools" within the Linode Manager's Remote Access tab. You must enable packet forwarding on that Linode to allow it to act as a router and enable external traffic from addresses within your IPv6 pool:
 
-    {{< file "/etc/sysctl.conf" aconf >}}
-# Uncomment the next line to enable packet forwarding for IPv6
+{{< file "/etc/sysctl.conf" aconf >}}
+      # Uncomment the next line to enable packet forwarding for IPv6
       #  Enabling this option disables Stateless Address Autoconfiguration
       #  based on Router Advertisements for this host
       net.ipv6.conf.all.forwarding=1
@@ -155,7 +147,7 @@ On Debian Jessie, your default IPv6 address provided by SLAAC will no longer be 
 On CentOS or Fedora, edit `/etc/sysconfig/network-scripts/ifcfg-eth0` to set up statically configured IPv6 addresses. You should configure [Static IP Networking](/docs/networking/linux-static-ip-configuration) for IPv4 as well.
 
 {{< file "/etc/sysconfig/network-scripts/ifcfg-eth0" >}}
-# Configuration for eth0
+  # Configuration for eth0
   DEVICE=eth0
   BOOTPROTO=none
   ONBOOT=yes
@@ -198,8 +190,8 @@ If you are using `systemd-networkd` on Arch Linux, you can statically configure 
 
 2.  Edit your current static IP networking configuration to allow for your IPv6 addresses. You will need to include your default IPv6 address as well.
 
-    {{< file "/etc/systemd/network/05-eth0.network" >}}
-[Match]
+{{< file "/etc/systemd/network/05-eth0.network" >}}
+        [Match]
         Name=eth0
 
         [Network]
@@ -226,8 +218,8 @@ If you are still using `netctl` in Arch Linux, you can statically configure your
 
 2.  Edit your newly copied file, entering your IPv6 networking information (e.g. IP address, gateway, etc.).
 
-    {{< file "/etc/netctl/ethernet-static" >}}
-Description='A basic static ethernet connection'
+{{< file "/etc/netctl/ethernet-static" >}}
+        Description='A basic static ethernet connection'
             Interface=eth0
             Connection=ethernet
 
@@ -258,7 +250,7 @@ Description='A basic static ethernet connection'
 The configuration of additional IPv6 addresses in Gentoo is simple. Append the IPv6 addresses and netmask you want to the `config_eth0` line in `/etc/conf.d/net`. The list itself is a space separated list.
 
 {{< file "/etc/conf.d/net" >}}
-# This blank configuration will automatically use DHCP for any net.*
+    # This blank configuration will automatically use DHCP for any net.*
     # scripts in /etc/init.d.  To create a more complete configuration,
     # please review /usr/share/doc/openrc*/net.example* and save your configuration
     # in /etc/conf.d/net (this file :]!).

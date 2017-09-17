@@ -50,10 +50,8 @@ Vagrant can be paired with Linode through the use of the *vagrant-linode* plugin
 
         vagrant plugin install vagrant-linode
 
-    {{< note >}}
-
+{{< note >}}
 If using a Mac, it may request to install development tools. Select yes, then re-run the command.
-
 {{< /note >}}
 
 3.  From the `vagrant-linode` directory, create the Vagrantfile:
@@ -66,8 +64,8 @@ If using a Mac, it may request to install development tools. Select yes, then re
 
 1.  Open the Vagrantfile in your text editor of choice. In Ruby, define what version of Vagrant you are using. The `2` defines that it is Vagrant 1.1.0 leading up to Vagrant 2.0. `1` is any version of Vagrant below that:
 
-    {{< file "~/vagrant-linode/Vagrantfile" ruby >}}
-Vagrant.configure('2') do |config|
+{{< file "~/vagrant-linode/Vagrantfile" ruby >}}
+        Vagrant.configure('2') do |config|
 
         end
 {{< /file >}}
@@ -77,8 +75,8 @@ Vagrant.configure('2') do |config|
 
 2.  When creating a *guest machine* -- the sever that will be created -- Vagrant will create a username, password, and private key to access the machine. The default username and password is `vagrant`. Define your own parameters for the `username`, and set the pathway to your own private key. If you have not generated a private and public key, you can do so by following the [Securing Your Server](/docs/security/securing-your-server/#using-ssh-key-pair-authentication) guide:
 
-    {{< file "~/vagrant-linode/Vagrantfile" ruby >}}
-Vagrant.configure('2') do |config|
+{{< file "~/vagrant-linode/Vagrantfile" ruby >}}
+        Vagrant.configure('2') do |config|
 
           ## SSH Configuration
           config.ssh.username = 'user'
@@ -92,8 +90,8 @@ Vagrant.configure('2') do |config|
 
 3.  Define the Linode provider:
 
-    {{< file-excerpt "~/vagrant-linode/Vagrantfile" ruby >}}
-Vagrant.configure('2') do |config|
+{{< file-excerpt "~/vagrant-linode/Vagrantfile" ruby >}}
+        Vagrant.configure('2') do |config|
 
           ...
 
@@ -112,8 +110,8 @@ Vagrant.configure('2') do |config|
 
 4.  Choose your Linode's settings:
 
-    {{< file-excerpt "~/vagrant-linode/Vagrantfile" ruby >}}
-Vagrant.configure('2') do |config|
+{{< file-excerpt "~/vagrant-linode/Vagrantfile" ruby >}}
+        Vagrant.configure('2') do |config|
 
           ...
 
@@ -147,8 +145,8 @@ Although the server can now be created successfully, many aspects of it still ne
 
 1.  Create a shell script called `setup.sh` to configure the Linode's hostname, set the proper timezone, and update the server. Replace `vagranttest` with your chosen hostname, and `EST` with your timezone.
 
-    {{< file "~/vagrant-linode/setup.sh" shell >}}
-#!/bin/bash
+{{< file "~/vagrant-linode/setup.sh" shell >}}
+        #!/bin/bash
         echo "vagranttest" > /etc/hostname
         hostname -F /etc/hostname
         ip=$(ip addr show eth0 | grep -Po 'inet \K[\d.]+')
@@ -168,8 +166,8 @@ Although the server can now be created successfully, many aspects of it still ne
 
 2.  Within the Vagrantfile, call to the shell script you just created by adding the `config.vm.provision` method:
 
-    {{< file-excerpt "~/vagrant-linode/Vagrantfile" ruby >}}
-Vagrant.configure('2') do |config|
+{{< file-excerpt "~/vagrant-linode/Vagrantfile" ruby >}}
+        Vagrant.configure('2') do |config|
 
         ...
 
@@ -184,8 +182,8 @@ Vagrant.configure('2') do |config|
 
 1.  Create an installation script for Apache called `apache.sh`, and add the following:
 
-    {{< file "~/vagrant-linode/apache.sh" shell >}}
-#!/bin/bash
+{{< file "~/vagrant-linode/apache.sh" shell >}}
+        #!/bin/bash
         apt-get install apache2 -y
         mv /etc/apache2/ports.conf /etc/apache2/ports.conf.backup
         mv /etc/apache2/ports1.conf /etc/apache2/ports.conf
@@ -203,8 +201,8 @@ Vagrant.configure('2') do |config|
 
 2.  Add the shell script provisioner method to your Vagrantfile, under the line that references `setup.sh`:
 
-    {{< file-excerpt "~/vagrant-linode/Vagrantfile" ruby >}}
-Vagrant.configure('2') do |config|
+{{< file-excerpt "~/vagrant-linode/Vagrantfile" ruby >}}
+        Vagrant.configure('2') do |config|
 
         ...
 
@@ -222,8 +220,8 @@ Vagrant.configure('2') do |config|
 
 4.  Because Vagrant is often used for development environments, we want to host Apache on a port other than 80. Create `ports1.conf`, as referenced in the shell script above. The port will be set to **6789**:
 
-    {{< file "~/vagrant-linode/apache2/ports1.conf" aconf >}}
-Listen 6789
+{{< file "~/vagrant-linode/apache2/ports1.conf" aconf >}}
+        Listen 6789
 
         <IfModule ssl_module>
                 Listen 443
@@ -239,8 +237,8 @@ Listen 6789
 
         mkdir sites-available
 
-    {{< file "~/vagrant-linode/apache2/sites-available/vhost.conf" aconf >}}
-<VirtualHost *:6789>
+{{< file "~/vagrant-linode/apache2/sites-available/vhost.conf" aconf >}}
+        <VirtualHost *:6789>
                 ServerAdmin webmaster@localhost
                 DocumentRoot /var/www/html
                 ErrorLog ${APACHE_LOG_DIR}/error.log
@@ -251,8 +249,8 @@ Listen 6789
 
 6.  Return to the Vagrantfile, and use the `config.vm.synced_folder` method to sync the local directories with directories on the server:
 
-    {{< file-excerpt "~/vagrant-linode/Vagrantfile" ruby >}}
-Vagrant.configure('2') do |config|
+{{< file-excerpt "~/vagrant-linode/Vagrantfile" ruby >}}
+        Vagrant.configure('2') do |config|
         
           ...
 
@@ -305,12 +303,10 @@ With the Vagrantfile configured, and scripts and files created, it's now time to
 
     Then go to your chosen web browser and navigate to your ip address with `:6789` appended to the end. You should see Apache2 Ubuntu Default Page.
 
-    {{< note >}}
-
+{{< note >}}
 If you wish to shut down or remove the Linode from your workspace you can do so through one of the following commands:
 
 -  `vagrant halt` will power down the Linode through the shutdown mechanism. You can then run `vagrant up` again to power on the Linode.
 -  `vagrant destroy` will remove the Linode entirely from your account, removing anything that was created during the Vagrant up process or added later to the server.
-
 {{< /note >}}
 

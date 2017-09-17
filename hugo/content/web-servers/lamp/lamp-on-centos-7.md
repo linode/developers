@@ -21,9 +21,7 @@ external_resources:
 A LAMP (Linux, Apache, MySQL, PHP) stack is a common web stack used for hosting web content. This guide shows you how to install a LAMP stack on a CentOS 7 server.
 
 {{< note >}}
-
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ## Before You Begin
@@ -51,16 +49,14 @@ This guide is written for a non-root user. Commands that require elevated privil
 
 2.  Edit `httpd.conf` and add the code below to turn off KeepAlive and adjust the resource use settings. The settings shown below are a good starting point for a **Linode 2GB**:
 
-    {{< note >}}
-
+{{< note >}}
 Before changing any configuration files, it is advised that you make a backup of the file. To make a backup:
 
 cp /etc/httpd/conf/httpd.conf ~/httpd.conf.backup
-
 {{< /note >}}
 
-    {{< file-excerpt "/etc/httpd/conf/httpd.conf" aconf >}}
-KeepAlive Off
+{{< file-excerpt "/etc/httpd/conf/httpd.conf" aconf >}}
+        KeepAlive Off
 
 
         <IfModule prefork.c>
@@ -81,8 +77,8 @@ There are different ways to set up virtual hosts; however, the method below is r
 
 1.  Within the `conf.d` directory create `vhost.conf` to store your virtual host configurations. The example below is a template for website `example.com`; change the necessary values for your domain:
 
-    {{< file-excerpt "/etc/httpd/conf.d/vhost.conf" aconf >}}
-NameVirtualHost *:80
+{{< file-excerpt "/etc/httpd/conf.d/vhost.conf" aconf >}}
+        NameVirtualHost *:80
 
         <VirtualHost *:80>
             ServerAdmin webmaster@example.com
@@ -97,10 +93,8 @@ NameVirtualHost *:80
 
     Additional domains can be added to the `vhost.conf` file as needed.
 
-    {{< note >}}
-
+{{< note >}}
 `ErrorLog` and `CustomLog` entries are suggested for more fine-grained logging, but are not required. If they are defined (as shown above), the `logs` directories must be created before you restart Apache.
-
 {{< /note >}}
 
 2.  Create the directories referenced above:
@@ -121,11 +115,9 @@ NameVirtualHost *:80
 MySQL is replaced with MariaDB in CentOS 7. MariaDB is a popular drop-in replacement for MySQL.
 
 {{< note >}}
-
 If you prefer to use the MySQL branded database in CentOS 7, you will need to add the required repositories by issuing the following command:
 
 sudo yum install http://dev.mysql.com/get/mysql57-community-release-el7-7.noarch.rpm
-
 {{< /note >}}
 
 1.  Install the MariaDB-server package:
@@ -178,17 +170,15 @@ With Apache and MariaDB installed, you are now ready to move on to installing PH
 
 2.  Edit `/etc/php.ini` for better error messages and logs, and upgraded performance. These modifications provide a good starting point for a **Linode 2GB**:
 
-    {{< file-excerpt "/etc/php.ini" ini >}}
-error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
+{{< file-excerpt "/etc/php.ini" ini >}}
+        error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
         error_log = /var/log/php/error.log
         max_input_time = 30
 {{< /file-excerpt >}}
 
 
-    {{< note >}}
-
+{{< note >}}
 Ensure that all lines noted above are uncommented. A commented line begins with a semicolon (**;**).
-
 {{< /note >}}
 
 3.  Create the log directory for PHP and give the Apache user ownership:

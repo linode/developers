@@ -49,7 +49,6 @@ Virtual machine mode determines whether devices inside your virtual machine are 
 
 {{< note >}}
 If you're unfamiliar with these distinctions, choose paravirtualization
-
 {{< /note >}}
 
 ### Custom Kernel Configuration
@@ -117,7 +116,6 @@ This means your Kernel doesn't have the necessary `virtio` drivers. To resolve:
 
 {{< note >}}
 Remember to check [Glish](/docs/networking/use-the-graphic-shell-glish) as well as Lish while testing. Without the grub terminal set to serial, your startup output may only appear on the Glish output.
-
 {{< /note >}}
 
 ### CentOS 6

@@ -31,9 +31,7 @@ This guide describes an alternative to the *LAMP* (Linux, Apache, MySQL, and PHP
       sudo apt-get update && sudo apt-get upgrade
 
 {{< note >}}
-
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups Guide](/docs/tools-reference/linux-users-and-groups).
-
 {{< /note >}}
 
 ## Nginx
@@ -60,8 +58,8 @@ Nginx uses `server` directives to specify name-based virtual hosts. Nginx calls 
 
 2.  You should now have the following server block in the nginx virtual host configuration:
 
-    {{< file "/etc/nginx/sites-available/example.com" nginx >}}
-server {
+{{< file "/etc/nginx/sites-available/example.com" nginx >}}
+        server {
             listen 80;
             listen [::]:80;
 
@@ -79,15 +77,15 @@ server {
 
     Replace `example.com` with your domain name. If your index page uses PHP, add `index.php` to the `index` line:
 
-    {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
-index index.html index.php;
+{{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
+            index index.html index.php;
 {{< /file-excerpt >}}
 
 
 3.  The nginx example configuration uses `/var/www/` as a document root, but Ubuntu uses `/var/www/html` as a standard. Additionally, Linode guides encourage the standard practice of using a subdirectory called `public_html` to exclude web files that shouldn't be publicly accesible. Update the `root` directive to match these conventions:
 
-    {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
-root   /var/www/html/example.com/public_html;
+{{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
+            root   /var/www/html/example.com/public_html;
 {{< /file-excerpt >}}
 
 
@@ -126,8 +124,8 @@ In order to deploy PHP applications, implement the following *PHP-FastCGI* solut
 
 2.  Modify your virtual host configuration to include the location directive as shown below:
 
-    {{< file "/etc/nginx/sites-available/example.com" nginx >}}
-server {
+{{< file "/etc/nginx/sites-available/example.com" nginx >}}
+        server {
                 listen 80;
                 listen [::]:80;
 
@@ -184,7 +182,6 @@ The MySQL database engine is one of the leading open-source relational database 
 If at any point you need to change the root password, log in as shown in Step 2 and enter the following command, replacing `password` with the new root password:
 
 ALTER USER 'root'@'localhost' IDENTIFIED WITH 'mysql_native_password' BY 'password';
-
 {{< /note >}}
 
 ## Optional: Test and Troubleshoot the LEMP Stack
@@ -193,8 +190,8 @@ In this section, you'll create a test page that shows whether nginx can render P
 
 1.  Paste the following code into a new file, `phptest.php`, in the `public_html` directory. Modify `webuser` and `password` to match the information entered in the **Install the MySQL Database Server** section above:
 
-    {{< file "/var/www/html/example.com/public_html/phptest.php" php >}}
-<html>
+{{< file "/var/www/html/example.com/public_html/phptest.php" php >}}
+        <html>
         <head>
             <title>PHP Test</title>
         </head>

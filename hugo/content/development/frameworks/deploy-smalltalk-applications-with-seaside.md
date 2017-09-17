@@ -75,7 +75,7 @@ Most of the configuration of Seaside occurs within a fully graphical Smalltalk i
 In addition to enabling mod\_proxy, you'll need to allow localhost to access the proxy. In `/etc/apache2/mods-enabled/proxy.conf`, add "Allow from localhost" in the `<Proxy *>` block:
 
 {{< file "/etc/apache2/mods-enabled/proxy.conf" apache >}}
-<IfModule mod_proxy.c>
+    <IfModule mod_proxy.c>
             #turning ProxyRequests on and allowing proxying from all may allow
             #spammers to use your proxy to send email.
 
@@ -120,7 +120,7 @@ In this first approach, we'll set up a separate sub-domain and virtual host for 
 With Apache installed, create the following Virtual Host file. Typically these are located in the `/etc/apache2/sites-available/` directory, and named by convention with the name of the virtual host (e.g. `static.example.com`). Be sure to change the `VirtualHost` IP to the IP of your Linode.
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-<VirtualHost *:80> 
+    <VirtualHost *:80> 
          ServerAdmin admin@example.com
          ServerName static.example.com
          DocumentRoot /srv/www/static.example.com/public_html/
@@ -150,7 +150,7 @@ When building your application point, ensure all static content is served from U
 Seaside applications are all provided by a server running inside the Smalltalk instance. The Apache web server functions as a front end and proxies requests for dynamic content to the Seaside instance. When you've confirmed that the Smalltalk server is responding on `localhost` port `8080`, create the following `VirtualHost`. Remember to change the IP to the IP of your Linode.
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-<VirtualHost *:80>
+    <VirtualHost *:80>
         ProxyPreserveHost On
         ServerName example.com
         ServerAlias www.example.com
@@ -170,7 +170,7 @@ Alter the path in the `RewriteRule` to match the location and port of your appli
 Your application may require additional rewrite rules and configuration. If you're running Pier, for example, you will want to use the following set of `Rewrite` specifications:
 
 {{< file-excerpt "Apache Rewrite Rules" apache >}}
-RewriteEngine On
+    RewriteEngine On
     RewriteRule ^/seaside/pier(.*)$ http://example.net$1 [redirect,last]
     RewriteRule ^/seaside/files/(.*)$ http://localhost:8080/seaside/files/$1 [proxy,last]
     RewriteCond /srv/www/example.net/public_html/%{REQUEST_seaFILENAME} !-f
@@ -186,7 +186,7 @@ Case Two: Serve Static and Dynamic Content with One Virtual Host
 In this example, all content is provided by the same virtual host. The web server looks for static content in the `DocumentRoot`, and if it finds nothing there it hands the request to the Smalltalk server to provide the dynamic content. Modify your virtual host configuration file to resemble the following. Change the `VirtualHost` IP to the IP of your Linode.
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-<VirtualHost *:80>
+    <VirtualHost *:80>
         ProxyPreserveHost On
         ServerName example.com
         ServerAlias www.example.com
@@ -208,7 +208,7 @@ The `!-f` option at the end of the `RewriteCond` rule tells Apache to only apply
 Your application may require additional rewrite rules and configuration. If you're running Pier, for example, you will want to use the following set of `Rewrite` specifications:
 
 {{< file-excerpt "Apache Rewrite Rules" apache >}}
-RewriteEngine On
+    RewriteEngine On
     RewriteRule ^/seaside/pier(.*)$ http://example.net$1 [redirect,last]
     RewriteRule ^/seaside/files/(.*)$ http://localhost:8080/seaside/files/$1 [proxy,last]
     RewriteCond /srv/www/example.net/public_html/%{REQUEST_seaFILENAME} !-f
@@ -226,7 +226,7 @@ In this example, we scale our Seaside deployment by providing Apache with multip
 This example expounds on the previous approach, where static content was served directly from Apache and dynamic content is passed to Seaside. Consider the following configuration example:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-<VirtualHost *:80>
+    <VirtualHost *:80>
         ProxyPreserveHost On
         ServerName example.com
         ServerAlias www.example.com

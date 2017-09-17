@@ -37,7 +37,6 @@ Before installing themes, modules, and a backup system with Drush, make sure tha
 
 {{< note >}}
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with ``sudo``. If you're not familiar with the ``sudo`` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ##Installing Themes with Drush
@@ -48,19 +47,16 @@ Downloading, enabling, and setting the theme is extremely easy with Drupal Drush
 
     [![Corporate Clean Drupal Theme Notes.](/docs/assets/corporate-clean-drupal-theme-name.png)](/docs/assets/corporate-clean-drupal-theme-name.png)
 
-   {{< note >}}
+{{< note >}}
 At the time of this guide's publication, this theme is not yet available for Drupal 8 beta. If you're using this version of Drupal, select another theme to replace Corporate Clean for this example.
-
 {{< /note >}}
 
 2. While logged in as the website owner, download and enable the theme:
 
        drush en corporateclean -y
 
-     {{< note >}}
-
+{{< note >}}
 Notice the warning that "corporateclean was not found." The `drush en` command looks for the theme or module locally before downloading.
-
 {{< /note >}}
 
 3. Set Corporate Clean as the default, active theme:
@@ -81,10 +77,8 @@ Downloading and enabling a module is similar to working with a theme. However, m
 
        drush en commerce -y
 
-     {{< note >}}
-
+{{< note >}}
 Notice that Commerce includes 21 sub-modules. Each has its own functionality and most have a control switch within the admin's browser interface.
-
 {{< /note >}}
 
 3. Sign in to the Drupal browser interface and click on the "Modules" selection.
@@ -127,8 +121,8 @@ The backup process above can be automated. You must create an SHH Pair Key, a Ba
 
        nano drupal-backup.sh
 
-    {{< file "~/drupal-backup.sh" >}}
-#!/bin/bash
+{{< file "~/drupal-backup.sh" >}}
+      #!/bin/bash
       # Drupal Backup Script
       cd /var/www/example.com/public_html/drupal/
       drush archive-dump
@@ -144,8 +138,8 @@ The backup process above can be automated. You must create an SHH Pair Key, a Ba
 
        crontab -e
 
-    {{< file-excerpt "/tmp/crontab.A6VByT/crontab" >}}
-# For example, you can run a backup of all your user accounts
+{{< file-excerpt "/tmp/crontab.A6VByT/crontab" >}}
+    # For example, you can run a backup of all your user accounts
     # at 5 a.m every week with:
     # 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
     #

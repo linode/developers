@@ -58,7 +58,7 @@ The above command will additionally install the Apache web server. Consider our 
 SNMPD binds to all local interface by default. If you only plan on using Cacti locally to monitor your Linode, you may want to consider modifying `/etc/sysconfig/snmpd.options` to limit the exposure of SNMP to the Internet at large. Uncomment the following line and append the addresses you would like the SNMP daemon to "listen" for data on as follows:
 
 {{< file "/etc/sysconfig/snmpd.options" php >}}
-$database_type = "mysql";
+    $database_type = "mysql";
     $database_default = "cactidb";
     $database_hostname = "localhost";
     $database_username = "cactiuser";
@@ -79,7 +79,6 @@ From this point we'll continue the configuration of Cacti through the browser. B
 
 {{< file-excerpt >}}
 /etc/httpd/conf.d/cacti.conf
-
 {{< /file-excerpt >}}
 
 > \<Directory /usr/share/cacti/\>
@@ -113,7 +112,6 @@ Now insert the following line:
 
 {{< file-excerpt >}}
 crontab
-
 {{< /file-excerpt >}}
 
 > */5* \* \* \* /usr/bin/php /usr/share/cacti/poller.php \> /dev/null 2\>&1
@@ -136,7 +134,6 @@ Note that the format is "rocommunity community\_name", where `community_name` is
 
 {{< file >}}
 /etc/sysconfig/snmpd.options
-
 {{< /file >}}
 
 > OPTIONS='-Lsd -Lf /dev/null -I -smux -p /var/run/snmpd.pid'

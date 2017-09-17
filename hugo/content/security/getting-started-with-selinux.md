@@ -30,9 +30,7 @@ Ideally, the person with root access should be trusted with it. But if security 
 SELinux defaults to denying anything that is not explicitly allowed. SELinux has global modes, `permissive` and `enforcing`. `Permissive` mode allows the system to function like a Discretionary Access Control system, while logging every violation to SELinux. The `enforcing` mode enforces a strict denial of access to anything that isn't explicitly allowed. To explicitly allow certain behavior on a machine, you, as the system administrator, have to write policies that allow it.
 
 {{< note >}}
-
 We do not recommend you disable SELinux. But if you wish to disable SELinux, please read our quick-answer guide on [disabling SELinux](/docs/quick-answers/linux/how-to-disable-selinux)
-
 {{< /note >}}
 
 ## Before You Begin

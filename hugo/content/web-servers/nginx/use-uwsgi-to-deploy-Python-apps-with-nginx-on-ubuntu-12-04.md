@@ -46,8 +46,8 @@ To get started, you'll install uWSGI and other packages, and then configure ngin
 
 3.  Using the virtual host configuration below as a guide, create your configuration file.
 
-    {{< file "/etc/nginx/sites-available/example.com" nginx >}}
-server {
+{{< file "/etc/nginx/sites-available/example.com" nginx >}}
+        server {
                 listen          80;
                 server_name     $hostname;
                 access_log /srv/www/example.com/logs/access.log;
@@ -98,8 +98,8 @@ Now, we need to configure uWSGI. Here's how:
 
 2.  Using the configuration below as a guide, create your configuration file.
 
-    {{< file "/etc/uwsgi/apps-available/example.com.xml" xml >}}
-<uwsgi>
+{{< file "/etc/uwsgi/apps-available/example.com.xml" xml >}}
+        <uwsgi>
             <plugin>python</plugin>
             <socket>/run/uwsgi/app/example.com/example.com.socket</socket>
             <pythonpath>/srv/www/example.com/application/</pythonpath>
@@ -130,8 +130,8 @@ Now, we need to configure uWSGI. Here's how:
 
 4.  If you want to deploy a "Hello World" application, insert the following code into the `/srv/www/example.com/application/wsgi_configuration_module.py` file:
 
-    {{< file "/srv/www/example.com/application/wsgi\\_configuration\\_module.py" python >}}
-import os
+{{< file "/srv/www/example.com/application/wsgi\\_configuration\\_module.py" python >}}
+        import os
         import sys
 
         sys.path.append('/srv/www/example.com/application')
@@ -165,7 +165,7 @@ Additional Application Servers
 If the Python application you've deployed requires more application resources than a single Linode instance can provide, all of the methods for deploying a uWSGI application server are easily scaled to rely on multiple uSWGI instances. These instances run on additional Linodes with the request load balanced using nginx's `upstream` capability. See our documentation of [proxy and software load balancing with nginx](/docs/uptime/loadbalancing/how-to-use-nginx-as-a-front-end-proxy-server-and-software-load-balancer) for more information. For a basic example configuration, see the following example:
 
 {{< file-excerpt "nginx configuration" nginx >}}
-upstream uwsgicluster {
+    upstream uwsgicluster {
          server 127.0.0.1:9001;
          server 192.168.100.101:9001;
          server 192.168.100.102:9001;

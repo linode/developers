@@ -28,7 +28,7 @@ Basic System Configuration
 Edit your `/etc/hosts` file to resemble the following example, replacing "12.34.56.78" with your Linode's IP address, "hostname.example.com" with your fully qualified domain name, and "hostname" with your short hostname.
 
 {{< file "/etc/hosts" >}}
-## main & restricted repositories
+    ## main & restricted repositories
     deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted         
     deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted 
 
@@ -124,7 +124,6 @@ Check that MySQL is set up to bind to localhost (127.0.0.1) by looking at the fi
 
 {{< file-excerpt >}}
 /etc/mysql/my.cnf
-
 {{< /file-excerpt >}}
 
 > bind-address = 127.0.0.1
@@ -144,7 +143,6 @@ Create a virtual domain configuration file for Postfix called `/etc/postfix/mysq
 
 {{< file >}}
 /etc/postfix/mysql-virtual\_domains.cf
-
 {{< /file >}}
 
 > user = mail\_admin password = mail\_admin\_password dbname = mail query = SELECT domain AS virtual FROM domains WHERE domain='%s' hosts = 127.0.0.1
@@ -153,7 +151,6 @@ Create a virtual forwarding file for Postfix called `/etc/postfix/mysql-virtual_
 
 {{< file >}}
 /etc/postfix/mysql-virtual\_forwardings.cf
-
 {{< /file >}}
 
 > user = mail\_admin password = mail\_admin\_password dbname = mail query = SELECT destination FROM forwardings WHERE source='%s' hosts = 127.0.0.1
@@ -162,7 +159,6 @@ Create a virtual mailbox configuration file for Postfix called `/etc/postfix/mys
 
 {{< file >}}
 /etc/postfix/mysql-virtual\_mailboxes.cf
-
 {{< /file >}}
 
 > user = mail\_admin password = mail\_admin\_password dbname = mail query = SELECT CONCAT(SUBSTRING\_INDEX(email,<'@'>,-1),'/',SUBSTRING\_INDEX(email,<'@'>,1),'/') FROM users WHERE email='%s' hosts = 127.0.0.1
@@ -171,7 +167,6 @@ Create a virtual email mapping file for Postfix called `/etc/postfix/mysql-virtu
 
 {{< file >}}
 /etc/postfix/mysql-virtual\_email2email.cf
-
 {{< /file >}}
 
 > user = mail\_admin password = mail\_admin\_password dbname = mail query = SELECT email FROM users WHERE email='%s' hosts = 127.0.0.1
@@ -253,7 +248,6 @@ Edit the file `/etc/default/saslauthd` to match the configuration shown below.
 
 {{< file >}}
 /etc/default/saslauthd
-
 {{< /file >}}
 
 > START=yes DESC="SASL Authentication Daemon" NAME="saslauthd" MECHANISMS="pam" MECH\_OPTIONS="" THREADS=5 OPTIONS="-c -m /var/spool/postfix/var/run/saslauthd -r"
@@ -262,7 +256,6 @@ Next, create the file `/etc/pam.d/smtp` and copy in the following two lines. Be 
 
 {{< file >}}
 /etc/pam.d/smtp
-
 {{< /file >}}
 
 > auth required pam\_mysql.so user=mail\_admin passwd=mail\_admin\_password host=127.0.0.1 db=mail table=users usercolumn=email passwdcolumn=password crypt=1 account sufficient pam\_mysql.so user=mail\_admin passwd=mail\_admin\_password host=127.0.0.1 db=mail table=users usercolumn=email passwdcolumn=password crypt=1
@@ -271,7 +264,6 @@ Create a file named `/etc/postfix/sasl/smtpd.conf` with the following contents. 
 
 {{< file >}}
 /etc/postfix/sasl/smtpd.conf
-
 {{< /file >}}
 
 > pwcheck\_method: saslauthd mech\_list: plain login allow\_plaintext: true auxprop\_plugin: mysql sql\_hostnames: 127.0.0.1 sql\_user: mail\_admin sql\_passwd: mail\_admin\_password sql\_database: mail sql\_select: select password from users where email = '%u'
@@ -296,7 +288,6 @@ Edit the file `/etc/postfix/master.cf` and add the dovecot service to the bottom
 
 {{< file-excerpt >}}
 /etc/postfix/master.cf
-
 {{< /file-excerpt >}}
 
 > dovecot unix - n n - - pipe
@@ -310,7 +301,6 @@ Replace the contents of the file with the following example, substituting your s
 
 {{< file >}}
 /etc/dovecot/dovecot.conf
-
 {{< /file >}}
 
 > protocols = imap imaps pop3 pop3s log\_timestamp = "%Y-%m-%d %H:%M:%S " mail\_location = maildir:/home/vmail/%d/%n/Maildir
@@ -368,7 +358,6 @@ Replace the contents of the file with the following example, making sure to repl
 
 {{< file >}}
 /etc/dovecot/dovecot-sql.conf
-
 {{< /file >}}
 
 > driver = mysql connect = host=127.0.0.1 dbname=mail user=mail\_admin password=mail\_admin\_password default\_pass\_scheme = CRYPT password\_query = SELECT email as user, password FROM users WHERE email='%u';
@@ -381,7 +370,6 @@ Now check your /var/log/mail.log to make sure dovecot started without errors. Yo
 
 {{< file-excerpt >}}
 /var/log/mail.log
-
 {{< /file-excerpt >}}
 
 > Sep 27 17:41:10 hostname dovecot: Dovecot v1.0.15 starting up Sep 27 17:41:10 hostname dovecot: auth-worker(default): mysql: Connected to 127.0.0.1 (mail)
@@ -411,7 +399,6 @@ Edit the file `/etc/aliases`, making sure the "postmaster" and "root" directives
 
 {{< file >}}
 /etc/aliases
-
 {{< /file >}}
 
 > postmaster: root root: <postmaster@example.com>
@@ -484,7 +471,6 @@ After you have sent the test mail, you'll want to check your error logs to make 
 
 {{< file-excerpt >}}
 /var/log/mail.log
-
 {{< /file-excerpt >}}
 
 > Sep 27 17:46:22 hostname postfix/cleanup[6108]: 544A88450: message-id=\<<20100927174622.544A88450@hostname.example.com>\> Sep 27 17:46:22 hostname postfix/qmgr[6032]: 544A88450: from=\<<root@hostname.example.com>\>, size=368, nrcpt=1 (queue active) Sep 27 17:46:22 hostname postfix/pipe[6114]: 544A88450: to=\<<pparadis@example.com>\>, relay=dovecot, delay=0.04, delays=0.03/0.01/0/0.01, dsn=2.0.0, status=sent (delivered via dovecot service) Sep 27 17:46:22 hostname postfix/qmgr[6032]: 544A88450: removed
@@ -493,7 +479,6 @@ Next you should check the Dovecot delivery log located in `/home/vmail/dovecot-d
 
 {{< file-excerpt >}}
 /home/vmail/dovecot-deliver.log
-
 {{< /file-excerpt >}}
 
 > deliver(<pparadis@example.com>): 2010-09-27 17:46:22 Info: msgid=\<<20100927174622.544A88450@hostname.example.com>\>: saved mail to INBOX

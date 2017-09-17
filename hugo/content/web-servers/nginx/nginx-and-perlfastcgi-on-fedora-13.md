@@ -31,7 +31,7 @@ Issue the following commands to set your system hostname, substituting a unique 
 Edit your `/etc/hosts` file to resemble the following, substituting your Linode's public IP address for 12.34.56.78, your hostname for "hostname," and your primary domain name for "example.com." :
 
 {{< file "/etc/hosts" >}}
-127.0.0.1 localhost.localdomain localhost
+    127.0.0.1 localhost.localdomain localhost
     12.34.56.78 hostname.example.com hostname
 {{< /file >}}
 
@@ -63,14 +63,14 @@ Issue the following commands to create virtual hosting directories:
 Add the following lines to your `/etc/nginx/nginx.conf` file, immediately after the line for `include /etc/nginx/conf.d/*.conf`:
 
 {{< file-excerpt "/etc/nginx/nginx.conf" >}}
-# Load virtual host configuration files.
+    # Load virtual host configuration files.
     include /etc/nginx/sites-enabled/*;
 {{< /file-excerpt >}}
 
 Next, we'll need to define our site's virtual host file:
 
 {{< file "/etc/nginx/sites-available/www.example.com" nginx >}}
-server {
+    server {
         listen   80;
         server_name www.example.com example.com;
         access_log /srv/www/www.example.com/logs/access.log;
@@ -122,7 +122,7 @@ Test Perl with FastCGI
 Create a file called "test.pl" in your site's "public\_html" directory with the following contents:
 
 {{< file "/srv/www/www.example.com/public\\_html/test.pl" perl >}}
-#!/usr/bin/perl
+    #!/usr/bin/perl
 
     print "Content-type:text/html\n\n";
     print <<EndOfHTML;

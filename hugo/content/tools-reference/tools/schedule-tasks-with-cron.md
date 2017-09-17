@@ -101,7 +101,6 @@ Allow us to consider several of examples of `crontab` entries:
 
 {{< file-excerpt >}}
 crontab
-
 {{< /file-excerpt >}}
 
 > 45 16 1,15 \* \* /opt/bin/payroll-bi-monthly 45 4 \* \* 5 /opt/bin/payroll-weekly
@@ -110,7 +109,6 @@ In the first example, the `/opt/bin/payroll-bi-monthly` application is run at 4:
 
 {{< file-excerpt >}}
 crontab
-
 {{< /file-excerpt >}}
 
 > 1 0 \* \* \* /opt/bin/cal-update-daily 1 0 */2* \* /opt/bin/cal-update
@@ -119,7 +117,6 @@ These `cronjobs` will both run at 12:01am (`1 0`). The `cal-update-daily` job wi
 
 {{< file-excerpt >}}
 crontab
-
 {{< /file-excerpt >}}
 
 > */20* \* \* \* /home/username/bin/rebuild-dns-zones 30 */2* \* \* /opt/bin/backup-static-files 0 \* \* \* \* /opt/bin/compress-static-files @hourly /opt/bin/compress-static-files

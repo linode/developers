@@ -37,11 +37,8 @@ external_resources:
         sudo apt-get update && sudo apt-get upgrade
 
 {{< note >}}
-
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
-
 
 ## Install nginx, Python Tools and uWSGI
 
@@ -49,10 +46,8 @@ This guide is written for a non-root user. Commands that require elevated privil
 
         sudo apt-get install build-essential nginx python-dev python-pip python-sqlite sqlite
 
-    {{< note >}}
-
+{{< note >}}
 If your application uses another database, skip installing `python-sqlite` and `sqlite`.
-
 {{< /note >}}
 
 4.  Install [virtualenv](https://virtualenv.pypa.io/en/latest/) and [virtualenvwrapper](http://virtualenvwrapper.readthedocs.org/en/latest/):
@@ -118,8 +113,8 @@ If your application uses another database, skip installing `python-sqlite` and `
 
 2.  Create configuration file `sample.ini` with the following contents:
 
-    {{< file "/etc/uwsgi/sites/sample.ini" ini >}}
-[uwsgi]
+{{< file "/etc/uwsgi/sites/sample.ini" ini >}}
+        [uwsgi]
         project = sample
         base = /home/django
 
@@ -138,8 +133,8 @@ If your application uses another database, skip installing `python-sqlite` and `
 
 3.  Create an Upstart job for uWSGI:
 
-    {{< file "/etc/init/uwsgi.conf" aconf >}}
-description "uWSGI"
+{{< file "/etc/init/uwsgi.conf" aconf >}}
+        description "uWSGI"
         start on runlevel [2345]
         stop on runlevel [06]
         respawn
@@ -165,8 +160,8 @@ description "uWSGI"
 
 2.  Create an nginx site configuration file for your Django application:
 
-    {{< file "/etc/nginx/sites-available/sample" aconf >}}
-server {
+{{< file "/etc/nginx/sites-available/sample" aconf >}}
+        server {
             listen 80;
             server_name example.com;
 

@@ -78,14 +78,14 @@ Additionally, the application you deploy will likely have additional dependencie
 If you configured Apache virtual hosting as outlined in the [Ubuntu 10.04 (Lucid) Apache guide](/docs/web-servers/apache/installation/ubuntu-10.04-lucid), the public directory for your domain (e.g. `example.com`) is located in `/srv/www/example.com/public_html/`, and your `<VirtualHost >` configuration block contains a line that reads:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-DocumentRoot /srv/www/example.com/public_html/
+    DocumentRoot /srv/www/example.com/public_html/
 {{< /file-excerpt >}}
 
 
 Modify this line to point to the `public/` folder within your Rails application's root directory. For instance, if your Rail application is located within `/srv/www/example.com/application/` then the `DocumentRoot` would point to `/srv/www/example.com/application/public/`, as in the following example:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-DocumentRoot /srv/www/example.com/application/public
+    DocumentRoot /srv/www/example.com/application/public
 {{< /file-excerpt >}}
 
 
@@ -98,7 +98,7 @@ Restart Apache once to ensure all settings have been loaded using the following 
 There are a number of strategies for deploying more than one Rails application using Passenger. The most simple approach requires running multiple distinct virtual hosts configured as above to host a single Rails app each. Alternatively, you may host multiple Rails apps within a single virtual host. Add `RailsBaseURI` directives that specify the path to your Rails application within the VirtualHost configuration as in the following example:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-DocumentRoot /srv/www/example.com/public_html/
+    DocumentRoot /srv/www/example.com/public_html/
     RailsBaseURI /lollipop
     RailsBaseURI /frogs
     RailsBaseURI /simon

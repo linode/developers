@@ -41,10 +41,8 @@ You'll need to perform several of the tasks outlined in this guide to start usin
 
 Once you've completed these steps, you'll have successfully configured Linode Managed.
 
- {{< note >}}
-
+{{< note >}}
 Misconfiguration of Linode Managed could prevent us from properly monitoring your services, resolving incidents when they are detected, or contacting you when an incident is detected.
-
 {{< /note >}}
 
 ## Credentials
@@ -78,10 +76,8 @@ Here's how to install Linode's SSH key for the `root` user:
 
         su
 
- {{< note >}}
-
+{{< note >}}
 If you followed the instructions in the [Securing Your Server](/docs/securing-your-server) guide to disable root login via SSH, you will need to reenable that feature to install the public key for the `root` user. Follow [these instructions](/docs/securing-your-server#sph_disabling-ssh-password-authentication-and-root-login) to edit the `sshd_config` file and reenable root login via SSH.
-
 {{< /note >}}
 
 3.  Open the `authorized_keys` file for editing by entering the following command:
@@ -110,7 +106,6 @@ Here's how to install Linode's SSH key as a non-root user:
 
 {{< file >}}
 /etc/sudoers
-
 {{< /file >}}
 
 > \# User privilege specification example\_user ALL=(ALL) NOPASSWD: ALL
@@ -120,10 +115,8 @@ Here's how to install Linode's SSH key as a non-root user:
 8.  Add the [Managed public key](/docs/linode-managed#sph_adding-the-public-key) to the `/home/user/.ssh/authorized_keys` file for this user.
 9.  Add this user to the [Account Credentials](/docs/linode-managed#sph_adding-service-credentials) list.
 
- {{< note >}}
-
+{{< note >}}
 Make sure this user is not in any groups that are in `/etc/sudoers`, as this may override the passwordless sudo setting.
-
 {{< /note >}}
 
 You have successfully added Linode's public key for the user. Repeat this process on every Linode you want to monitor with Linode Managed.
@@ -185,10 +178,8 @@ Here's how to add a contact to Linode Managed:
 5.  Enter the individual's phone numbers in the **Phone 1** and **Phone 2** fields. We may call the individual if we need additional information to troubleshoot an issue on your servers.
 6.  In the **Group** field, enter a group name. As described at the beginning of this section, groups can hold multiple contacts. Ideally, you'll combine all of the individuals responsible for a particular service or system into one group.
 
- {{< note >}}
-
+{{< note >}}
 This is a required field, so even if you're the only user on the account, you'll still need to create a group for yourself.
-
 {{< /note >}}
 
 7.  Click **Save Changes**.
@@ -221,10 +212,8 @@ Here's how to add a new service to Linode Managed:
 10. *Optional:* Select this checkbox to indicate that you have [copied Linode's public SSH key to your server](#installing-linode-s-public-ssh-key). This step is optional, but highly recommended. If you do not copy our public key to your server, we will not be able to log in and troubleshoot issues.
 11. Select a credential from the **Link a Credential** menu. See [these instructions to learn how to add a credential for a service](#adding-service-credentials).
 
- {{< note >}}
-
+{{< note >}}
 You can select and save more than one credential for a service.
-
 {{< /note >}}
 
 12. Click **Save Changes** to start monitoring the service.

@@ -83,7 +83,7 @@ Create a Basic Application with Web.py
 There are a number of examples of basic applications developed using the web.py framework. The "main" application file is typically called "code.py". Consider the following, "Hello World" application:
 
 {{< file "code.py" python >}}
-import web
+    import web
 
     urls = (
         '/(.*)', 'hello'
@@ -119,7 +119,7 @@ Issue the following command to ensure that the required modules are enabled with
 WSGI requires a slight modification to your web.py application. Add the following lines to the end of the `code.py` file:
 
 {{< file-excerpt "code.py" python >}}
-app = web.application(urls, globals(), autoreload=False)
+    app = web.application(urls, globals(), autoreload=False)
     application = app.wsgifunc()
 {{< /file-excerpt >}}
 
@@ -127,7 +127,7 @@ app = web.application(urls, globals(), autoreload=False)
 Consider the following Apache VirtualHost configuration for a `mod_wsgi` powered Web.py application:
 
 {{< file-excerpt "Apache VirtualHost Configuration" apache >}}
-<VirtualHost example.com:80> 
+    <VirtualHost example.com:80> 
         ServerAdmin username@example.com     
         ServerName example.com
            ServerAlias www.example.com
@@ -168,7 +168,7 @@ Build a Database Driven Application with Web.py
 The "Hello World" application above is functional, but isn't able to store or access persistent data in a database system. The following example is simple but inserts and retrieves data from a database system. Consider the following code:
 
 {{< file "code.py" python >}}
-import web
+    import web
 
     urls = (
         '/(.*)', 'hello'

@@ -33,10 +33,8 @@ GitLab provides a [.deb package](https://www.gitlab.com/downloads/) which contai
 
 This guide will help you install and configure GitLab on your Ubuntu 14.04 (Trusty Tahr) Linode. We will be using the latest Ruby and GitLab as of this writing, so check for the latest version. We will assume that you want to install GitLab on `git.example.com` and you have configured the DNS properly. If you are new to Linux system administration, you might want to consider the [Introduction to Linux Concepts guide](/docs/tools-reference/introduction-to-linux-concepts) and [Linux Administration Basics guide](/docs/tools-reference/linux-system-administration-basics) guides. Hosting your own software projects could benefit from large amounts of disk space, so consider using our [Block Storage](/docs/platform/how-to-use-block-storage-with-your-linode) service with this setup.
 
- {{< note >}}
-
+{{< note >}}
 This guide is written for non-root users. Commands that require elevated privileges are prefixed with sudo. If you are not familiar with the sudo command, you can check out our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ## System Requirements
@@ -148,8 +146,8 @@ In this section you will install GitLab and make some configuration changes.
    
    You need to change the value of host to the fully-qualified domain of your server. Also set the email_from and support_email to the email addresses intended for GitLab.
 
-   {{< file-excerpt "/home/git/gitlab/config/gitlab.yml" >}}
-production: &base
+{{< file-excerpt "/home/git/gitlab/config/gitlab.yml" >}}
+        production: &base
           gitlab:
             host: git.example.com 
             port: 80
@@ -161,9 +159,8 @@ production: &base
 {{< /file-excerpt >}}
 
 
-     {{< note >}}
+{{< note >}}
 If you specified a database name other than `gitlabhq_production` when creating the PostgreSQL database in the previous section, edit the `config/database.yml` file to match with your database name.
-
 {{< /note >}}
 
 4. Save and exit the file.
@@ -204,8 +201,8 @@ If you specified a database name other than `gitlabhq_production` when creating 
 
 12. Check if the value of `gitlab_url` matches with the URL of your server.
 
-    {{< file-excerpt "/home/git/gitlab-shell/config.yml" >}}
-user: git
+{{< file-excerpt "/home/git/gitlab-shell/config.yml" >}}
+        user: git
         gitlab_url: http://git.example.com/
         http_settings:
           self_signed_cert: false
@@ -288,10 +285,8 @@ user: git
         sudo -u git -H git config --global core.autocrlf input
 
 
-     {{< note >}}
-
+{{< note >}}
 Set the value for user.email according to what is set in config/gitlab.yml
-
 {{< /note >}}
 
 19. Start GitLab:
@@ -316,8 +311,8 @@ Nginx is the only supported web server for GitLab. In this section, you will cre
 
 4. Modify the value for `server_name` to the fully-qualified domain name of your server:
 
-   {{< file-excerpt "/etc/nginx/sites-available/gitlab" >}}
-listen 80;
+{{< file-excerpt "/etc/nginx/sites-available/gitlab" >}}
+        listen 80;
         server_name git.example.com;
         server_tokens off; 
         root /home/git/gitlab/public;

@@ -66,7 +66,7 @@ Issue the following commands to create virtual hosting directories:
 Add the following lines to your `/etc/nginx/nginx.conf` file, immediately after the line for `include /etc/nginx/conf.d/*.conf`:
 
 {{< file-excerpt "/etc/nginx/nginx.conf" >}}
-# Load virtual host configuration files.
+    # Load virtual host configuration files.
     include /etc/nginx/sites-enabled/*;
 {{< /file-excerpt >}}
 
@@ -74,7 +74,7 @@ Add the following lines to your `/etc/nginx/nginx.conf` file, immediately after 
 Next, you'll need to define the site's virtual host file:
 
 {{< file "/etc/nginx/sites-available/www.example.com" nginx >}}
-server {
+    server {
         listen   80;
         server_name www.example.com example.com;
         access_log /srv/www/www.example.com/logs/access.log;
@@ -109,7 +109,7 @@ You may wish to create a test HTML page under `/srv/www/www.example.com/public_h
 First create the FastCGI wrapper script (credit: [Denis S. Filimonov](http://www.ruby-forum.com/topic/145858)) at `/usr/bin/fastcgi-wrapper.pl` with the following contents:
 
 {{< file-excerpt "/usr/bin/fastcgi-wrapper.pl" perl >}}
-#!/usr/bin/perl
+    #!/usr/bin/perl
 
     use FCGI;
     use Socket;
@@ -214,7 +214,7 @@ First create the FastCGI wrapper script (credit: [Denis S. Filimonov](http://www
 Then create an init script to control the FastCGI process that matches the one shown below:
 
 {{< file-excerpt "/etc/rc.d/init.d/perl-fastcgi" bash >}}
-#!/bin/sh
+    #!/bin/sh
     #
     # nginx – this script starts and stops the nginx daemon
     #
@@ -326,7 +326,7 @@ Next issue the following commands to make the scripts executable and set the per
 Create a file called "test.pl" in your site's "public\_html" directory with the following contents:
 
 {{< file "/srv/www/www.example.com/public\\_html/test.pl" perl >}}
-#!/usr/bin/perl
+    #!/usr/bin/perl
 
     print "Content-type:text/html\n\n";
     print <<EndOfHTML;

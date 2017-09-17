@@ -92,14 +92,14 @@ Issue the following command to install Apache:
 Edit the `/etc/httpd/conf/httpd.conf` file to uncomment or add the following line:
 
 {{< file-excerpt "/etc/httpd/conf/extra/httpd-vhosts.conf" apache >}}
-Include conf/extra/httpd-vhosts.conf
+    Include conf/extra/httpd-vhosts.conf
 {{< /file-excerpt >}}
 
 
 Replace the existing example `VirtualHost` configuration examples with one that resembles the following. Modify this example as needed to suit the needs of your deployment:
 
 {{< file-excerpt "/etc/httpd/conf/extra/httpd-vhosts.conf" apache >}}
-<VirtualHost *:80>
+    <VirtualHost *:80>
             ServerAdmin username@example.com
             ServerName example.com
             ServerAlias www.example.com
@@ -141,7 +141,7 @@ You will want to add the `fcgiwrap` daemon to the `DAEMONS=()` array at the end 
 Add an `include` directive to the `/etc/nginx/conf/nginx.conf` file so that nginx will read configuration files in the `/etc/nginx/conf.d/` directory. Use the following form:
 
 {{< file-excerpt "/etc/nginx/conf/nginx.conf" nginx >}}
-http {
+    http {
         include       /etc/nginx/conf.d/*.conf; 
         include       mime.types;
         default_type  application/octet-stream;
@@ -155,7 +155,7 @@ Issue the following command to create a `conf.d/` directory:
 Create a virtual host by inserting a version of the following excerpt into your nginx configuration. Modify this example for the needs of your deployment:
 
 {{< file-excerpt "/etc/nginx/conf.d/vhost.conf" nginx >}}
-server {
+    server {
         listen   80;
         server_name www.example.com example.com;
         access_log /srv/http/example.com/logs/access.log;
@@ -203,7 +203,7 @@ Issue the following commands to create a `~/wiki/` directory as a git repository
 Add the following excerpt to `~/wiki/.git/config`:
 
 {{< file-excerpt "~/wiki/.git/config" >}}
-[remote "origin"]
+    [remote "origin"]
         fetch = +refs/heads/*:refs/remotes/origin/*
         url = /srv/git/wiki.git
 
@@ -236,7 +236,7 @@ Edit the `~/wiki/ikiwiki.yaml` file to suit the needs of your deployment, paying
 Create content in the `~/wiki/source/index.mdwn` file, for example:
 
 {{< file "~/wiki/source/index.mdwn" >}}
-# Welcome to $wiki
+    # Welcome to $wiki
     
     Hello World. What should we call [[this site]]?
 {{< /file >}}

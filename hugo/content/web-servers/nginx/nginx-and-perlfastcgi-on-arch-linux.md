@@ -40,7 +40,7 @@ Issue the following command to install the required packages from the Arch Linux
 Edit the `/etc/rc.conf` file, adding "nginx" and "fcgiwrap" to the "DEAMONS=" line as shown in the following excerpt:
 
 {{< file-excerpt "/etc/rc.conf" >}}
-DAEMONS=(syslog-ng network netfs crond sshd ntpd nginx fcgiwrap)
+    DAEMONS=(syslog-ng network netfs crond sshd ntpd nginx fcgiwrap)
 {{< /file-excerpt >}}
 
 
@@ -50,7 +50,7 @@ Configure the FastCGI Wrapper
 Now, edit the `/etc/conf.d/fcgiwrap` file to resemble the following example:
 
 {{< file "/etc/conf.d/fcgiwrap" >}}
-SPAWNER='/usr/bin/spawn-fcgi'
+    SPAWNER='/usr/bin/spawn-fcgi'
     FCGI_ADDRESS='127.0.0.1'
     FCGI_PORT='9001'
     FCGI_USER='http'
@@ -80,7 +80,7 @@ Issue the following commands to create nginx virtual host directories:
 Create a virtual host configuration file for your site. Be sure to replace "example.com" with your domain name in the following example configuration.
 
 {{< file "/etc/nginx/conf/sites-available/www.example.com" nginx >}}
-server {
+    server {
         listen   80;
         server_name example.com www.example.com;
         access_log /srv/http/example.com/logs/access.log;
@@ -112,7 +112,7 @@ Issue the following commands to enable your new virtual host:
 Edit the file `/etc/nginx/conf/nginx.conf`, inserting the line `include /etc/nginx/conf/sites-enabled/*;` at the start of the `http {` block, as shown in the following file excerpt:
 
 {{< file-excerpt "/etc/nginx/conf/nginx.conf" nginx >}}
-http {
+    http {
 
         include /etc/nginx/conf/sites-enabled/*;
 {{< /file-excerpt >}}
@@ -128,7 +128,7 @@ Test Perl with FastCGI
 Create a file called "test.cgi" in your site's "public\_html" directory with the following contents:
 
 {{< file "/srv/http/example.com/public\\_html/test.cgi" perl >}}
-#!/usr/bin/perl
+    #!/usr/bin/perl
 
     print "Content-type:text/html\n\n";
     print <<EndOfHTML;

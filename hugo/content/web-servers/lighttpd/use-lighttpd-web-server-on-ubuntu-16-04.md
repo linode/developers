@@ -37,9 +37,7 @@ This guide explains how to install and configure the lighttpd ("lighty") web ser
         apt-get update && apt-get upgrade
 
 {{< note >}}
-
 The steps required in this guide require root privileges. Be sure to run the steps below as **root** or with the `sudo` prefix. For more information on privileges see our [Users and Groups guide](/docs/tools-reference/linux-users-and-groups).
-
 {{< /note >}}
 
 ## Install Lighttpd
@@ -107,8 +105,8 @@ This section covers configuration for simple virtual hosting. The `simple-vhost`
 
 3.  Modify the following settings in your `/etc/lighttpd/conf-available/10-simple-vhost.conf` file:
 
-    {{< file-excerpt "/etc/lighttpd/conf-available/10-simple-vhost.conf" lighty >}}
-simple-vhost.server-root = "/var/www/html"
+{{< file-excerpt "/etc/lighttpd/conf-available/10-simple-vhost.conf" lighty >}}
+        simple-vhost.server-root = "/var/www/html"
         simple-vhost.document-root = "htdocs"
         simple-vhost.default-host = "example.com"
 {{< /file-excerpt >}}
@@ -148,23 +146,22 @@ Enhanced virtual hosting works slightly differently than Simple by building the 
 
 3.  To accomplish the same directory structure with `evhost` as with `simple-vhost` above, you need to modify the `/etc/lighttpd/conf-available/10-evhost.conf` file:
 
-    {{< file-excerpt "/etc/lighttpd/conf-available/10-evhost.conf" lighty >}}
-evhost.path-pattern = "/var/www/html/%0/htdocs/"
+{{< file-excerpt "/etc/lighttpd/conf-available/10-evhost.conf" lighty >}}
+        evhost.path-pattern = "/var/www/html/%0/htdocs/"
 {{< /file-excerpt >}}
 
 
 4.  Modify the `server.document-root` in the main lighttpd configuration file:
 
-    {{< file-excerpt "/etc/lighttpd/lighttpd.conf" lighty >}}
-server.document-root = "/var/www/html/example.com/htdocs"
+{{< file-excerpt "/etc/lighttpd/lighttpd.conf" lighty >}}
+        server.document-root = "/var/www/html/example.com/htdocs"
 {{< /file-excerpt >}}
 
 
     With the configuration you set in Steps 3 and 4, if `example.com` is requested, and `/var/www/html/example.com/htdocs/` is found, that directory becomes the document root when serving requests. The `0%` in the path pattern specifies that a request will be checked against host files named in the format of domain and Top Level Domain (TLD). The `server.document-root` directive specifies a default host that is used when a matching directory does not exist.
 
-    {{< caution >}}
+{{< caution >}}
 These steps configure `server.document-root` to `/var/www/html`. According to lighttpd documentation, this [may expose your server to a vulnerability](https://redmine.lighttpd.net/projects/lighttpd/wiki/Docs_ModEVhost#A-Bad-Example) in which authentication can be bypassed in certain situations. If improperly configured, this may also redirect unmatched requests to the lighttpd index page rather than the default host of your choosing.
-
 {{< /caution >}}
 
 5.  Restart lighttpd to load the configuration changes:
@@ -238,7 +235,7 @@ Lighttpd will send CGI requests to CGI handlers on the basis of file extensions,
 For example, if you install the `php7.0-cgi` package and enable FastCGI with `lighty-enable-mod fastcgi-php` then a default FastCGI handler will be configured in the file `/etc/lighttpd/conf-enabled/15-fastcgi-php.conf`. Though the handler will likely require specific customization, the default settings offer an effective example:
 
 {{< file-excerpt "/etc/lighttpd/conf-enabled/15-fastcgi-php.conf" lighty >}}
-fastcgi.server   += ( ".php" =>
+    fastcgi.server   += ( ".php" =>
             ((
                     "bin-path" => "/usr/bin/php-cgi",
                     "socket" => "/var/run/lighttpd/php.socket",
@@ -259,7 +256,7 @@ fastcgi.server   += ( ".php" =>
 To map more than one file extension to a single FastCGI handler, add the following entry to your configuration file:
 
 {{< file-excerpt "/etc/lighttpd/conf-enabled/15-fastcgi-php.conf" lighty >}}
-fastcgi.map-extensions = ( ".[ALT-EXTENSION]" => ".[EXTENSION]" )
+    fastcgi.map-extensions = ( ".[ALT-EXTENSION]" => ".[EXTENSION]" )
 {{< /file-excerpt >}}
 
 

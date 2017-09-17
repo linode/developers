@@ -52,7 +52,7 @@ In this guide, we'll be using the domain "example.com" as our example site. You 
 Next, define your site's virtual host file:
 
 {{< file "/etc/nginx/sites-available/www.example.com" nginx >}}
-server {
+    server {
         server_name www.example.com example.com;
         access_log /srv/www/www.example.com/logs/access.log;
         error_log /srv/www/www.example.com/logs/error.log;
@@ -138,7 +138,7 @@ Test PHP with FastCGI
 Create a file called "test.php" in your site's "public\_html" directory with the following contents:
 
 {{< file "/srv/www/www.example.com/public\\_html/test.php" php >}}
-<?php echo phpinfo(); ?>
+    <?php echo phpinfo(); ?>
 {{< /file >}}
 
 

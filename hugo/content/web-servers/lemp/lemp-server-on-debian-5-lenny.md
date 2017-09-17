@@ -60,7 +60,7 @@ This will install version 0.6.33 of the nginx server.
 Apart from the difference in the following procedure, installing from stable and backported packages are identical. Edit the `/etc/apt/sources.list` file to add the following line:
 
 {{< file-excerpt "/etc/apt/sources.list" nginx >}}
-server {
+    server {
         listen   80;
         server_name www.example.com example.com;
         access_log /srv/www/example.com/logs/access.log;
@@ -94,7 +94,7 @@ The source file is saved, and the site can be re-enabled at any time.
 If you installed the web server after compiling it from source you have a number of options. You may insert the server directives directly into the `http` section of the `/opt/nginx/conf/nginx.conf` or `/etc/nginx/nginx.conf` file, although this may be difficult to manage. You may also replicate the management system created for the Debian project by creating `sites-available/` and `sites-enabled/` directories and inserting the following line into your `nginx.conf` file:
 
 {{< file-excerpt "/etc/nginx/nginx.conf" nginx >}}
-http {
+    http {
     # [...]
 
     include /opt/etc/nginx/sites-enabled/*;
@@ -107,7 +107,7 @@ http {
 Modify the include statement to point to the path of your `sites-enabled` directory. In some circumstances, it may make more sense to create and include a file named `/opt/nginx-sites.conf` that is included in the `nginx.conf` file as follows:
 
 {{< file-excerpt "/opt/nginx/conf/nginx.conf" nginx >}}
-http {
+    http {
     # [...]
 
     include /opt/nginx-sites.conf;
@@ -158,7 +158,7 @@ Issue the following sequence of commands to download a small wrapper script for 
 Consider the following nginx virtual host configuration. Modify your configuration to resemble the one below, and ensure that the `location ~ \.php$ { }` resembles the one in this example:
 
 {{< file "nginx virtual host configuration" nginx >}}
-server {
+    server {
         server_name www.example.com example.com;
         access_log /srv/www/example.com/logs/access.log;
         error_log /srv/www/example.com/logs/error.log;

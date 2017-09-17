@@ -49,7 +49,6 @@ There's a good chance you've been using SSH (Secure Shell) to access your Linode
 
 {{< note >}}
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ## Use a Stronger Diffie-Hellman Algorithm
@@ -70,7 +69,6 @@ The `/etc/ssh/moduli` file ships with OpenSSH, so assuming two servers have the 
 
 {{< caution >}}
 Before running these commands on a production server, be aware that depending on the size of the keys you're generating, this will use significant CPU power and may take anywhere from a minute to several hours.
-
 {{< /caution >}}
 
 This sequence of commands generates a new file containing thousands of candidate primes for the Diffie-Hellman algorithm. Next, it tests the candidates and adds suitable primes to your `moduli` file. Note that these keys append to your existing ones; they do not overwrite the file, so it is still possible that your SSH connection will use a precomputed prime in its key exchange. As stated above, however, this is not a vulnerability.
@@ -107,7 +105,7 @@ The default behavior of SSH is to allow *any* user to log in to the server, but 
 ### Custom Rules Example
 
 {{< file-excerpt "/etc/ssh/sshd_config" aconf >}}
-DenyUsers adam ben clark@198.51.100.0/24
+    DenyUsers adam ben clark@198.51.100.0/24
 
     AllowUsers clark dan@192.168.5.200 eva
 {{< /file-excerpt >}}
@@ -190,8 +188,8 @@ However, this strategy involves a time-consuming process to configure the jailed
 
 10. Finally, edit your `/etc/ssh/sshd_config` file to configure your new user:
 
-    {{< file "/etc/ssh/sshd_config" aconf >}}
-Match User restricted-user
+{{< file "/etc/ssh/sshd_config" aconf >}}
+        Match User restricted-user
         ChrootDirectory /home/chroot/restricted-user
 {{< /file >}}
 
@@ -207,7 +205,7 @@ Keep in mind that our restricted user can't use any command or binary that is no
 There are cases where you want to revoke specific public keys to prevent attempts to log in with them. For example, if you rotate your SSH keys every few months, you may want to disable them from being used in the future. OpenSSH has a directive to do just that: `RevokedKeys`. Simply edit your `/etc/ssh/sshd_config` and add the desired location for revoked keys list:
 
 {{< file "/etc/ssh/sshd_config" aconf >}}
-RevokedKeys /etc/ssh/revoked_keys
+    RevokedKeys /etc/ssh/revoked_keys
 {{< /file >}}
 
 
@@ -239,7 +237,7 @@ To apply any combination that suits your needs just edit your server's `/etc/ssh
 This step will not harden your server security, but your legal-conscientious-parameters. In some locations, the simple fact of warning unauthorized users of the consequences of their actions is determinant for taking legal action. To display a warning banner each time a user logs to your server, add the following line to the `/etc/ssh/sshd_config` configuration:
 
 {{< file "/etc/ssh/sshd_config" aconf >}}
-Banner /location/of/WarningMessage
+    Banner /location/of/WarningMessage
 {{< /file >}}
 
 

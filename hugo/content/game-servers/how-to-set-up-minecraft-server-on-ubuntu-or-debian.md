@@ -35,10 +35,9 @@ This guide shows you how to set up a personal [Minecraft](https://minecraft.net/
 
 3.  Install *OpenJDK*, an open-source implementation of Java, and the GNU Screen package.
 
-	{{< note >}}
+{{< note >}}
 Minecraft version 1.12 is only compatible with OpenJDK 8. If you are using OpenJDK 7 you must remove it using this command
-	> `sudo apt remove openjdk-7-\*` before continuing with this guide.
-
+`sudo apt remove openjdk-7-\*` before continuing with this guide.
 {{< /note >}}
 
     - In Ubuntu 16.04:
@@ -59,7 +58,6 @@ Minecraft version 1.12 is only compatible with OpenJDK 8. If you are using OpenJ
 If you have a firewall configured according to our [Securing Your Server](/docs/security/securing-your-server) guide, add the following line to your `iptables.firewall.rules` file to add an exception for port 25565:
 
 -A INPUT -p tcp --dport 25565 -j ACCEPT
-
 {{< /note >}}
 
 ## Install Minecraft
@@ -74,8 +72,8 @@ If you have a firewall configured according to our [Securing Your Server](/docs/
 
 3.  Create a script to run the Minecraft server:
 
-    {{< file "/home/minecraft/run.sh" sh >}}
-#!/bin/sh
+{{< file "/home/minecraft/run.sh" sh >}}
+        #!/bin/sh
         BINDIR=$(dirname "$(readlink -fn "$0")")
         cd "$BINDIR"
 
@@ -83,9 +81,8 @@ If you have a firewall configured according to our [Securing Your Server](/docs/
 {{< /file >}}
 
 
-    {{< note >}}
+{{< note >}}
 The `Xms` and `Xmx` flags define the minimum and maximum amount of RAM the Minecraft server will use. The settings above are recommended for a Linode 2GB used solely for this purpose. Adjust these values to fit your needs.
-
 {{< /note >}}
 
 4.  Make `run.sh` executable:
@@ -107,8 +104,8 @@ The `Xms` and `Xmx` flags define the minimum and maximum amount of RAM the Minec
 
 2.  Open the `eula.txt` file and change the value of `eula` to true:
 
-    {{< file "/home/minecraft/eula.txt" sh >}}
-#By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).
+{{< file "/home/minecraft/eula.txt" sh >}}
+        #By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).
         #Tue Jan 27 21:40:00 UTC 2015
         eula=true
 {{< /file >}}
@@ -138,9 +135,8 @@ The `Xms` and `Xmx` flags define the minimum and maximum amount of RAM the Minec
         [22:00:21] [Server thread/INFO]: Preparing spawn area: 96%
         [22:00:22] [Server thread/INFO]: Done (14.737s)! For help, type "help" or "?"
 
-    {{< note >}}
+{{< note >}}
 To disconnect from the screen session without stopping the game server, press **CTRL+a** and then **d**. To resume the running screen session, use the command `screen -r`.
-
 {{< /note >}}
 
 4.  Optionally, you can take this opportunity to disconnect from the screen session and customize your game settings. When the `run.sh` script is executed, a world is created with the default variables. If you would like to create a new world with updated variables (like [world seeds](http://minecraft.gamepedia.com/Seed_(level_generation))), change the `level-name` directive in the `server.properties` file and modify other settings accordingly. 

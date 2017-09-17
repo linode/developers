@@ -34,7 +34,6 @@ In this guide, you'll install Docker and pull down images that can be deployed a
 
 {{< note >}}
 The steps in this guide require root privileges. Be sure to run the steps below as `root` or with the `sudo` prefix. For more information on privileges, see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ## Getting Started
@@ -46,9 +45,7 @@ Install Docker:
 You will be presented with all necessary dependencies and asked to accept the installation. Type `y` to accept and complete the installation.
 
 {{< note >}}
-
 If you are using CentOS 7, use `sudo yum check-update && curl-fsSL https://get.docker.com/ | sh`
-
 {{< /note >}}
 
 Docker installation adds the group `docker` to your Linode. Create the user `exampleuser`, give it `sudo` privileges, and add it to the Docker group:

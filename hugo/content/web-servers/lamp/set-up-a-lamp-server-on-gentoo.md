@@ -37,7 +37,7 @@ The first command should show your short hostname, and the second should show yo
 Next, edit your `/etc/hosts` file to resemble the following example, replacing "titan" with your chosen hostname, "example.com" with your system's domain name, and "12.34.56.78" with your Linode's IP address.
 
 {{< file "/etc/hosts" apache >}}
-NameVirtualHost 12.34.56.78:80
+    NameVirtualHost 12.34.56.78:80
 {{< /file >}}
 
 
@@ -48,7 +48,7 @@ There are numerous ways to configure virtual hosts, but we recommend that you do
 Now we will create virtual host entries for each site that we need to host with this server. We'll want to replace the existing `VirtualHost` blocks with ones that resemble the following.
 
 {{< file "/etc/apache2/vhosts.d/example.conf" apache >}}
-<VirtualHost 12.34.56.78:80>
+    <VirtualHost 12.34.56.78:80>
          ServerAdmin username@example.com
          ServerName example.com
          ServerAlias www.example.com

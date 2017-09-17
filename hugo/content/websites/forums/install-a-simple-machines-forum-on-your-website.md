@@ -25,7 +25,6 @@ Before you begin, be sure you have followed the steps outlined in the [Getting S
 
 {{< note >}}
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with ``sudo``. If you're not familiar with the ``sudo`` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ##Prerequisites
@@ -48,7 +47,6 @@ The following instructions will download the latest stable release, which is 2.0
 
 {{< note >}}
 If you're using a web server other than Apache, or otherwise have an alternate system user for your web server, be sure to replace `www-data` in the commands below with the appropriate system user.
-
 {{< /note >}}
 
 1.  Navigate to the document root (typically similar to `/var/www/example.com/public_html`) and create a directory for the forums:
@@ -57,10 +55,8 @@ If you're using a web server other than Apache, or otherwise have an alternate s
         sudo -u www-data mkdir forums
         cd forums/
 
-    {{< note >}}
-
+{{< note >}}
 If you would like to install SMF to your website's homepage, install it in the document root. If you would like the URL to be something other than `/forums` amend the above instructions as necessary.
-
 {{< /note >}}
 
 2.  Download and extract the package:

@@ -127,7 +127,7 @@ In some cases, certificate authorities will sign certificates using a chained au
 Then, specify the `/srv/ssl/example.com.combined.crt` file in the `ssl_certificate` configuration directive within your nginx configuration, as follows:
 
 {{< file-excerpt "nginx.conf" >}}
-ssl_certificate /srv/ssl/example.com.combined.crt;
+    ssl_certificate /srv/ssl/example.com.combined.crt;
 {{< /file-excerpt >}}
 
 
@@ -140,20 +140,20 @@ Compared to conventional HTTP, HTTPS (or HTTP with SSL) requires additional over
 Begin optimization by setting the number of worker processes. Ensure that the number of worker processes equals the number of accessible processor cores. This allows nginx to use the full processing capability of the server. This configuration directive is placed at the beginning, or "root" level, of the configuration:
 
 {{< file-excerpt "nginx.conf" >}}
-worker_processes 4;
+    worker_processes 4;
 {{< /file-excerpt >}}
 
 Within the `http {}` block, add the following directives to control and limit the default SSL session settings:
 
 {{< file-excerpt "nginx.conf" >}}
-ssl_session_cache shared:SSL:10m;
+    ssl_session_cache shared:SSL:10m;
     ssl_session_timeout 10m;
 {{< /file-excerpt >}}
 
 Inside of the `server {}` configuration blocks for virtual hosts that serve HTTPS, set the `keepalive_timeout` to 70 seconds. This prevents stale sessions from consuming resources and additional overhead on reconnections.
 
 {{< file-excerpt "nginx.conf" >}}
-keepalive_timeout 70;
+    keepalive_timeout 70;
 {{< /file-excerpt >}}
 
 
@@ -168,7 +168,7 @@ HTTPS operates on port 443 instead of port 80. Take note of the version of nginx
 In addition to basic [nginx virtual host configuration](/docs/websites/nginx/basic-nginx-configuration), using SSL with nginx requires a modification to the `listen` directive and three ssl-related directives as shown in the following examples:
 
 {{< file-excerpt "nginx.conf" nginx >}}
-server {
+    server {
 
           # [...]
 
@@ -191,7 +191,7 @@ Be sure to add other required configuration directives to control the functional
 Using SNI it's possible to host multiple SSL-encrypted sites from the same IP address, but some older web browsers may not be compatible with SNI. If you need to host more than one site with SSL for end users on these older systems, you will need to have separate IP addresses for each site. The following example illustrates how each site can listen on its own IP address:
 
 {{< file-excerpt "nginx.conf" nginx >}}
-server {
+    server {
           listen 12.34.56.78:443;
           server_name example.com;
 
@@ -220,7 +220,7 @@ server {
 Following version 0.7.14 of nginx, you may omit the `ssl` directive and include these declarations as arguments to the `listen` directive. This modification is optional, but is the preferred syntax. The following example illustrates the preferred usage of SSL declarations:
 
 {{< file-excerpt "nginx.conf" nginx >}}
-server {
+    server {
 
           # [...]
 
@@ -242,7 +242,7 @@ Be sure to add other required configuration directives to control the functional
 There is no consistent way to host more than one site using SSL on a single IP. If you need to host more than one site with SSL, you will need to have separate IP addresses for each site. The following example illustrates how each site can listen on its own IP address:
 
 {{< file-excerpt "nginx.conf" nginx >}}
-server {
+    server {
           listen 12.34.56.78:443 ssl;
           server_name example.com;
 
@@ -269,7 +269,7 @@ server {
 If you have access to a certificate that is valid for multiple host names, such as a wild card certificate or a certificate with "subject alternate names", configure nginx in the following manner:
 
 {{< file-excerpt "nginx.conf" nginx >}}
-http {
+    http {
         ssl_certificate   /srv/ssl/example.com.crt;
         ssl_certificate_key  /srv/ssl/example.com.key;
 
@@ -305,14 +305,14 @@ If you are running a version of nginx newer than 0.7.14, omit the `ssl on;` dire
 If you want to redirect all HTTP traffic for a domain to HTTPS, insert the following `rewrite` directive in a `location / {}` configuration block:
 
 {{< file-excerpt "nginx.conf" nginx >}}
-rewrite ^ https://example.com$request_uri permanent;
+    rewrite ^ https://example.com$request_uri permanent;
 {{< /file-excerpt >}}
 
 
 Once you have added this line, your config should resemble the following:
 
 {{< file-excerpt "nginx.conf" nginx >}}
-server {
+    server {
           listen 12.34.56.78:80;
           server_name example.com;
 

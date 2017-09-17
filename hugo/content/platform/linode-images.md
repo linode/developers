@@ -16,18 +16,15 @@ title: Linode Images
 *Linode Images* allows you to take snapshots of your disks, and then deploy them to any Linode under your account. This can be useful for bootstrapping a master image for a large deployment, or retaining a disk for a configuration that you may not need running, but wish to return to in the future. Linode Images will be retained whether or not you have an active Linode on your account, which also makes them useful for long term storage of a private template that you may need in the future. There is no additional charge to store images for Linode users, with a limit of 2GB per Image, with a total of 10GB total Image storage and 3 Images per account.
 
 {{< note >}}
-
 When saving a Linode image it is the aspects of the Linode that are on the **disk** that are saved, not any additional aspects such as IP addresses, fully qualified domain names, and MAC addresses.
-
 {{< /note >}}
 
 ## Capturing Your Image
 
 Linode Images captures an exact copy of your disk at the moment when the process is kicked off. Here's how to capture your first image.
 
- {{< note >}}
+{{< note >}}
 While an image can be captured while your Linode is running, we would recommend shutting your Linode down first if you are running any active databases. Capturing an image that includes a running database can cause corruption or data loss in the imaged copy of the database.
-
 {{< /note >}}
 
 1.  Navigate to your Linode Dashboard and select the disk that you wish to freeze from the **Disks** list.
@@ -44,9 +41,8 @@ While an image can be captured while your Linode is running, we would recommend 
 
 	[![Host Job Queue](/docs/assets/host-job-queue.png)](/docs/assets/host-job-queue.png)
 
- {{< note >}}
+{{< note >}}
 Linode Images are limited to 2048MB of data per disk.  You will need to ensure that data within your disk does not exceed this size limit.
-
 {{< /note >}}
 
 Once the job in the host queue has completed, your Linode's disk has been captured and stored.
@@ -75,9 +71,8 @@ Deploying one of your saved images to any Linode under your account is a simple 
 
 2.  Click the **Deploy an Image** link and select your image from the drop-down list, under the **Dashboard** heading.
 
-    {{< note >}}
+{{< note >}}
 If you are deploying a recently deleted Linode's disks (which are automatically saved) then the image will be at   the bottom of the drop down list.
-
 {{< /note >}}
 
     [![Deploy an Image Link](/docs/assets/deploy-an-image2.png)](/docs/assets/deploy-an-image2.png)

@@ -21,7 +21,6 @@ This guide is written for Debian 7 or Ubuntu 14.04. To complete this guide, ensu
 
 {{< note >}}
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with ``sudo``. If you're not familiar with the ``sudo`` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ##Install Required Software Packages
@@ -38,8 +37,8 @@ Use the following commands to install Apache, PHP, and MySQL on each of the Lino
 
     **Server 1:**
 
-    {{< file-excerpt "/etc/mysql/my.cnf" aconf >}}
-server_id           = 1
+{{< file-excerpt "/etc/mysql/my.cnf" aconf >}}
+    server_id           = 1
     log_bin             = /var/log/mysql/mysql-bin.log
     log_bin_index       = /var/log/mysql/mysql-bin.log.index
     relay_log           = /var/log/mysql/mysql-relay-bin
@@ -54,8 +53,8 @@ server_id           = 1
 
     **Server 2:**
 
-    {{< file-excerpt "/etc/mysql/my.cnf" aconf >}}
-server_id           = 2
+{{< file-excerpt "/etc/mysql/my.cnf" aconf >}}
+    server_id           = 2
     log_bin             = /var/log/mysql/mysql-bin.log
     log_bin_index       = /var/log/mysql/mysql-bin.log.index
     relay_log           = /var/log/mysql/mysql-relay-bin
@@ -70,8 +69,8 @@ server_id           = 2
 
 2.  For each of the Linodes, edit the `bind-address` configuration in order to use the private IP addresses:
 
-    {{< file-excerpt "/etc/mysql/my.cnf" >}}
-bind-address    = x.x.x.x
+{{< file-excerpt "/etc/mysql/my.cnf" >}}
+    bind-address    = x.x.x.x
 {{< /file-excerpt >}}
 
 
@@ -138,7 +137,6 @@ The steps in this section will need to be performed on **both** of your Linodes.
 
 {{< note >}}
 For the following sections of this guide, replace "example.com" with your domain name.
-
 {{< /note >}}
 
 1.  Disable the default Apache virtual host by entering the following command:
@@ -162,8 +160,8 @@ For the following sections of this guide, replace "example.com" with your domain
 
 
 
-    {{< file-excerpt "/etc/apache2/sites-available/example.com.conf" apache >}}
-# domain: example.com
+{{< file-excerpt "/etc/apache2/sites-available/example.com.conf" apache >}}
+        # domain: example.com
         # public: /var/www/example.com/public_html/
 
         <VirtualHost *:80>
@@ -183,9 +181,8 @@ For the following sections of this guide, replace "example.com" with your domain
 {{< /file-excerpt >}}
 
 
-    {{< caution >}}
+{{< caution >}}
 The file name *must* end with `.conf` in Apache versions 2.4 and later, which Ubuntu 14.04 uses. The `.conf` extension is backwards-compatible with earlier versions.
-
 {{< /caution >}}
 
 6.  Enable the new website by entering the following command:
@@ -219,22 +216,19 @@ The file name *must* end with `.conf` in Apache versions 2.4 and later, which Ub
 
 4.  Connect to your Linode's IP address using your web browser, and walk through the configuration steps to fully install WordPress.
 
-    {{< caution >}}
+{{< caution >}}
 In order to ensure that each of your WordPress instances addresses the local database, you will need to ensure that the Database Host value in this step is set to `localhost`.  This should be filled in by default.
-
 {{< /caution >}}
 
 5.  Configure your WordPress URL and Site Address via the General Settings in the WordPress admin interface. Ensure that your domain is configured in both fields.
 
     [![WordPressURL](/docs/assets/WP-site-address-rs.png)](/docs/assets/WP-site-address.png)
 
-    {{< note >}}
-
+{{< note >}}
 After completing your WordPress installation steps and logging in for the first time, you should reset permissions on your Document Root directory to ensure additional security. You can do so with the following command:
 
 
 chmod 755 /var/www/example.com/public_html/
-
 {{< /note >}}
 
 6.  Once the WordPress installation steps have been completed, copy the configurations to your second Linode. Replace `x.x.x.x` with the second Linode's IP address:
@@ -255,8 +249,8 @@ chmod 755 /var/www/example.com/public_html/
 
 2.  Create a configuration file in order to perform sync actions.  Replace `x.x.x.x` with the Private IP address of the second Linode in your cluster.
  
-    {{< file-excerpt "/etc/lsyncd/lsyncd.conf.lua" lua >}}
-settings = {
+{{< file-excerpt "/etc/lsyncd/lsyncd.conf.lua" lua >}}
+        settings = {
         logfile = "/var/log/lsyncd.log",
         statusFile = "/var/log/lsyncd-status.log"
         }

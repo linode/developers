@@ -81,7 +81,7 @@ Elgg has an automated installation process; however, before you begin, several v
 To configure the database connections, you'll need to edit the file in your preferred text editor and configure the following section. An example of the "standard configuration" follows:
 
 {{< file-excerpt "/srv/www/example.com/public\\_html/engine/settings.php" php >}}
-// Database username
+    // Database username
           $CONFIG->dbuser = 'elggdbaccess';
 
     // Database password

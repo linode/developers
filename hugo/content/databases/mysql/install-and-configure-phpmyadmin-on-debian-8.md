@@ -18,9 +18,7 @@ phpMyAdmin is a web application that provides a GUI to aid in MySQL database adm
 ![Install and Configure phpMyAdmin on Debian 8](/docs/assets/how-to-install-and-configure-phpmyadmin-on-debian-8.png)
 
 {{< note >}}
-
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ## Before You Begin
@@ -40,10 +38,8 @@ This guide is written for a non-root user. Commands that require elevated privil
 
 3.  Set up a working LAMP stack. Please see the [LAMP on Debian 8](/docs/websites/lamp/lamp-server-debian-8) guide if needed.
 
-    {{< note >}}
-
+{{< note >}}
 If you have installed the `php-suhosin` package, there are some known issues when using phpMyAdmin. Please visit the [Suhosin phpMyAdmin Compatibility Issues page](http://www.hardened-php.net/hphp/troubleshooting.html) for more information about tuning and workarounds.
-
 {{< /note >}}
 
 4.  Set up Apache with SSL, so your passwords will not be sent over plain text. To do so, go through the [SSL Certificates with Apache on Debian & Ubuntu](/docs/security/ssl/ssl-apache2-debian-ubuntu) guide.
@@ -81,7 +77,7 @@ Secure your phpMyAdmin directory using an `.htaccess file` that only allows spec
 
 
 {{< file-excerpt "/var/www/html/example.org/public_html/phpmyadmin/.htaccess" apache >}}
-order allow,deny
+    order allow,deny
     allow from 12.34.56.78
 {{< /file-excerpt >}}
 
@@ -92,7 +88,7 @@ order allow,deny
 You can force phpMyAdmin to use SSL in the phpMyAdmin configuration file `/etc/phpmyadmin/config.inc.php` by adding the following lines under the `Server(s) configuration` section:
 
 {{< file-excerpt "/etc/phpmyadmin/config.inc.php" php >}}
-$cfg['ForceSSL'] = 'true';
+    $cfg['ForceSSL'] = 'true';
 {{< /file-excerpt >}}
 
 

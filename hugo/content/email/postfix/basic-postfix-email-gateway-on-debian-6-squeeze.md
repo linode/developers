@@ -56,14 +56,14 @@ Fundamental Postfix Configuration
 Begin by editing the `/etc/postfix/main.cf` file. Most of the default values should be correct. Modify the `myhostname` value to correspond to the fully qualified domain name (FQDN) for your server, in this case `lollipop.example.com`:
 
 {{< file-excerpt "/etc/postfix/main.cf" >}}
-myhostname = lollipop.example.com
+    myhostname = lollipop.example.com
 {{< /file-excerpt >}}
 
 
 Add the following lines to your configuration file. This configures postfix for virtual hosting:
 
 {{< file-excerpt "/etc/postfix/main.cf" >}}
-virtual_alias_maps = hash:/etc/postfix/virtual
+    virtual_alias_maps = hash:/etc/postfix/virtual
     home_mailbox = mail/
 {{< /file-excerpt >}}
 
@@ -86,7 +86,7 @@ Email Virtual Hosting
 Once Postfix is properly configured, edit the `/etc/postfix/virtual` file to configure virtual hosting for your mail gateway. This provides instructions for the mail agent with regards to processing email that it receives. Prior to beginning, ensure that you have properly configured DNS to direct email to your mail gateway. Create an "A Record" for the machine specific domain name that corresponds to your `myhostname` FQDN (e.g. `lollipop.example.com`). Then, ensure that there are MX records for *all* domains that you want to process with this mail gateway pointed to that FQDN. Consider the following example `/etc/postfix/virtual` file:
 
 {{< file-excerpt "/etc/postfix/virtual" >}}
-admin@example.org example
+    admin@example.org example
     foreman@example.org example
 
     username@example.com username
@@ -134,7 +134,7 @@ Typically, authentication for sending email is handled by the daemon that's conf
 Save the following script in the `/opt` directory on the system you wish to send email *from*:
 
 {{< file "/opt/smtp-tunnel" perl >}}
-#!/usr/bin/perl
+    #!/usr/bin/perl
 
     # A SMTP-over-SSH Port Forwarding Script
     # Copyright (c) 2010 Linode, LLC
@@ -215,7 +215,7 @@ You may want to consider issuing the command to start the tunnel (`/opt/smtp-tun
 When the tunnel is active, you will be able to configure your local mail sending agent to send using the SMTP server "localhost" and port 25, or the alternate `$local_port` you configured. To configure the `msmtp` mail sending agent on an Mac OS X or Linux-based system consider the following configuration file:
 
 {{< file-excerpt "~/.msmtprc" >}}
-account default
+    account default
     host localhost
     from username@example.com
     port 25

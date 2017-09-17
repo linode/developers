@@ -51,7 +51,6 @@ SNMPD binds to all addresses by default. If you only plan on using Cacti to moni
 
 {{< file >}}
 /etc/default/snmpd
-
 {{< /file >}}
 
 > SNMPDOPTS='-Lsd -Lf /dev/null -u snmp -g snmp -I -smux -p /var/run/snmpd.pid 127.0.0.1'
@@ -62,7 +61,6 @@ We'll create an SNMP "community" to help identify our group of devices for Cacti
 
 {{< file >}}
 /etc/snmp/snmpd.conf
-
 {{< /file >}}
 
 > \#com2sec paranoid default public com2sec readonly localhost example \#com2sec readwrite default private
@@ -109,7 +107,6 @@ Note that the format is "rocommunity community\_name", where `community_name` is
 
 {{< file >}}
 /etc/default/snmpd
-
 {{< /file >}}
 
 > SNMPDOPTS='-Lsd -Lf /dev/null -u snmp -I -smux -p /var/run/snmpd.pid'

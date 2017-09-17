@@ -26,7 +26,7 @@ Enabling the Proxy Module
 The Fedora package of the Apache HTTP server includes the proxy module. To enable this module, create the `/etc/httpd/conf.d/proxy.conf` file with the following content:
 
 {{< file-excerpt "/etc/httpd/conf.d/proxy.conf" apache >}}
-<IfModule mod_proxy.c>
+    <IfModule mod_proxy.c>
             #turning ProxyRequests on and allowing proxying from all may allow
             #spammers to use your proxy to send email.
 
@@ -59,7 +59,7 @@ Proxying a Domain to Lighttpd
 We already have a site called "www.firstsite.org" running under Apache as a normal virtual host. We'll use Apache to send requests for the site "www.secondsite.org" to a lighttpd instance, which we've configured to run on port 8080 on localhost. You can proxy to any local and non-local HTTP servers as required by your deployment. Here are the configuration directives for "www.secondsite.org":
 
 {{< file-excerpt "/etc/httpd/conf.d/vhost.conf" apache >}}
-<VirtualHost 74.207.231.112:80>
+    <VirtualHost 74.207.231.112:80>
          ServerAdmin support@secondsite.org
          ServerName secondsite.org
          ServerAlias www.secondsite.org
@@ -90,7 +90,7 @@ Proxying a Specific URL to Lighttpd
 If we wanted to have `http://www.firstsite.org/myapp/` served by a web application running under lighttpd, we'd simply modify its configuration file to look like this:
 
 {{< file-excerpt "/etc/httpd/conf.d/vhost.conf" apache >}}
-<VirtualHost 74.207.231.112:80>
+    <VirtualHost 74.207.231.112:80>
          ServerAdmin support@firstsite.org
          ServerName firstsite.org
          ServerAlias www.firstsite.org

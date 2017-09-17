@@ -20,9 +20,7 @@ external_resources:
 In instances where running the `mod_php` module to run PHP scripts on Apache is not sufficient, PHP can be run as a CGI binary. Combined with the `itk` multi-processing module (MPM), PHP scripts can be run as user processes in a per-virtual host setup. This guide will walk users through the proccess of setting up Apache and PHP CGI.
 
 {{< note >}}
-
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ## Before You Begin
@@ -64,7 +62,7 @@ This guide is written for a non-root user. Commands that require elevated privil
 The directives required to enable PHP CGI may be set anywhere in Apache's [configuration tree](/docs/web-servers/apache/configuration/configuration-basics). We recommend creating the `php-cgi.conf` file in Apache's `conf.d/` directory and setting these variables there. For CentOS systems, this is located at `/etc/httpd/conf.d/`. Regardless of their location, the relevant settings are:
 
 {{< file-excerpt "Apache Configuration Block" apache >}}
-ScriptAlias /local-bin /usr/bin
+    ScriptAlias /local-bin /usr/bin
     AddHandler application/x-httpd-php5 php
     Action application/x-httpd-php5 /local-bin/php-cgi
 {{< /file-excerpt >}}
@@ -77,7 +75,7 @@ You may also choose to put these configuration directives within a virtual hosti
 The configuration file for PHP is located at `/etc/php.ini`. You can modify this file to suit the needs of your deployment.
 
 {{< file-excerpt "/etc/php.ini" ini >}}
-error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
+    error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
     display_errors = Off
     log_errors = On
     error_log = /var/log/php.log

@@ -38,19 +38,15 @@ If hosting multiple websites with commercial SSL certificates on the same IP add
          sudo dnf upgrade
 
 {{< note >}}
-
 The steps in this guide require root privileges. Be sure to run the steps below as **root** or with the `sudo` prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
 
 Replace each instance of `example.com` in this guide with your site's domain name.
-
 {{< /note >}}
 
 ## Create a Certificate Signing Request
 
 {{< note >}}
-
 While some Certificate Authorities (CA) will automatically include the "www" subdomain when issuing certificates for a root domain such as example.com, others do not. If you wish to secure multiple subdomains using the same certificate, you will need to create a [wildcard certificate](https://en.wikipedia.org/wiki/Wildcard_certificate).
-
 {{< /note >}}
 
 Issue the following commands to navigate to the `/etc/ssl` directory, and create a certificate signing request (CSR) for the site that will be using SSL. Change `example.com` to reflect the fully qualified domain name (FQDN) of the site you intend to use with SSL. Leave the challenge password blank:

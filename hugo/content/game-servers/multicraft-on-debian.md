@@ -19,7 +19,6 @@ alias: ['applications/game-servers/multicraft-on-debian/']
 
 {{< note >}}
 The steps required in this guide require root privileges. Be sure to run the steps below as `root` or with the **sudo** prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ##Prerequisites
@@ -36,8 +35,8 @@ Multicraft for Linux depends on several software packages in order to run.
 
 3.  In Apache's default virtual host file under the `<Directory /var/www/>` section, change the `AllowOverride` value to `all`.
 
-    {{< file-excerpt "/etc/apache2/sites-enabled/000-default" apache >}}
-<Directory /var/www/>
+{{< file-excerpt "/etc/apache2/sites-enabled/000-default" apache >}}
+        <Directory /var/www/>
                 Options Indexes FollowSymLinks MultiViews
                 AllowOverride all
                 Order allow,deny
@@ -46,9 +45,8 @@ Multicraft for Linux depends on several software packages in order to run.
 {{< /file-excerpt >}}
 
 
-        {{< note >}}
+{{< note >}}
 If you want a dedicated Apache virtual host for Multicraft, follow the instructions [here](/docs/websites/hosting-a-website#configuring-name-based-virtual-hosts). Be sure to configure the `AllowOverride` option on your custom virtual host.
-
 {{< /note >}}
 
 4.  Reload the Apache configuration:
@@ -75,9 +73,8 @@ If you want a dedicated Apache virtual host for Multicraft, follow the instructi
 
     This will launch an interactive script that will prompt you to configure several options. If you've purchased a license for Multicraft, enter it when prompted. If you're unsure which option to choose, press `return` to select the default option.
 
-    {{< caution >}}
+{{< caution >}}
 Because of the insecure nature of FTP, we strongly recommend that you **not** enable the built-in FTP server when prompted.
-
 {{< /caution >}}
 
 ##Configuring the Control Panel
@@ -145,8 +142,8 @@ Because of the insecure nature of FTP, we strongly recommend that you **not** en
 
 5.  After reading the End User License Agreement, open the file `eula.txt` in your terminal, and change the value of `eula` to `true`:
 
-    {{< file "/home/minecraft/multicraft/servers/server1/eula.txt" aconf >}}
-#By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).
+{{< file "/home/minecraft/multicraft/servers/server1/eula.txt" aconf >}}
+        #By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).
         #Wed Feb 04 22:24:38 UTC 2015
         eula=true
 {{< /file >}}

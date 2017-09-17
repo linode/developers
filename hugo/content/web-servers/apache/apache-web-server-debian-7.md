@@ -22,9 +22,7 @@ The *Apache HTTP Web Sever* (Apache) is an open source web application for deplo
 Note that if you're looking to install a full LAMP (Linux, Apache, MySQL and PHP) stack, you may want to consider using our [LAMP guide for Debian 7](/docs/websites/lamp/lamp-server-on-debian-7-wheezy).
 
 {{< note >}}
-
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ## Before You Begin
@@ -51,8 +49,8 @@ This guide is written for a non-root user. Commands that require elevated privil
 
 3.  Edit the main Apache configuration file to adjust the resource use settings. The settings shown below are a good starting point for a **Linode 2GB**:
 
-    {{< file "/etc/apache2/apache2.conf" apache >}}
-KeepAlive Off
+{{< file "/etc/apache2/apache2.conf" apache >}}
+        KeepAlive Off
 
         ...
 
@@ -77,8 +75,8 @@ Apache supports *name-based virtual hosting*, which allows you to host multiple 
 
 2.  Each virtual host needs its own configuration file in the `/etc/apache2/sites-available/` directory. Create the file for **example.com**, called `/etc/apache2/sites-available/example.com.conf`, with the following content. Be sure to replace **example.com** with your own domain name.
 
-    {{< file "/etc/apache2/sites-available/example.com.conf" apache >}}
-<VirtualHost *:80>
+{{< file "/etc/apache2/sites-available/example.com.conf" apache >}}
+        <VirtualHost *:80>
              ServerAdmin webmaster@example.com
              ServerName example.com
              ServerAlias www.example.com
@@ -89,8 +87,7 @@ Apache supports *name-based virtual hosting*, which allows you to host multiple 
 {{< /file >}}
 
 
-    {{< note >}}
-
+{{< note >}}
 If you would like to enable Perl support, add the following lines to the `VirtualHost` entry, right above the closing `</VirtualHost>` tag:
 
 {{< file-excerpt "> /etc/apache2/sites-available/example.com.conf" apache >}}
@@ -98,7 +95,6 @@ Options ExecCGI
 AddHandler cgi-script .pl
 
 {{< /file-excerpt >}}
-
 {{< /note >}}
 
     >

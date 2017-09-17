@@ -86,7 +86,7 @@ Each additional virtual host needs its own file in the `/etc/apache2/sites-avail
 First create example.com (`/etc/apache2/sites-available/example.net`) so that it resembles the following.
 
 {{< file "/etc/apache2/sites-available/example.net" apache >}}
-<VirtualHost *:80>
+    <VirtualHost *:80>
          ServerAdmin webmaster@example.net     
          ServerName example.net
          ServerAlias www.example.net
@@ -100,7 +100,7 @@ First create example.com (`/etc/apache2/sites-available/example.net`) so that it
 If you would like to enable Perl, add the following lines to the `VirtualHost` entry above.
 
 {{< file-excerpt "/etc/apache2/sites-available/example.net" apache >}}
-Options ExecCGI
+    Options ExecCGI
     AddHandler cgi-script .pl
 {{< /file-excerpt >}}
 
@@ -108,7 +108,7 @@ Options ExecCGI
 Next, create example.com (`/etc/apache2/sites-available/example.org`) so that it resembles this:
 
 {{< file "/etc/apache2/sites-available/example.org" apache >}}
-<VirtualHost *:80>
+    <VirtualHost *:80>
          ServerAdmin admin@example.org
          ServerName example.org
          ServerAlias www.example.org
@@ -204,7 +204,7 @@ Begin by installing the mpm-itk module:
 Now, in the `<VirtualHost >` entries for your sites (the site-specific files in `/etc/apache2/sites-available/`) add the following sub-block:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-<IfModule mpm_itk_module>
+    <IfModule mpm_itk_module>
        AssignUserId webeditor webgroup
     </IfModule>
 {{< /file-excerpt >}}

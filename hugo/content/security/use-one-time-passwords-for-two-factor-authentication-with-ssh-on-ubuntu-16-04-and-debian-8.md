@@ -38,9 +38,7 @@ This guide will explain how to install the necessary software, configure your sy
         sudo apt-get update && sudo apt-get upgrade
 
 {{< note >}}
-
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ## Install Google Authenticator
@@ -64,7 +62,6 @@ The following instructions will generate a password for the user running the com
 
 {{< note >}}
 Be sure to have your phone or mobile device ready, since this is where you'll add the password to your authenticator app. If you haven't downloaded an authenticator app, do so before proceeding.
-
 {{< /note >}}
 
 1.  Run the `google-authenticator` program:
@@ -120,13 +117,12 @@ The TOTP authentication methods in this guide use *PAM*, or Pluggable Authentica
 
 {{< caution >}}
 It is strongly recommended that you have another terminal session open while configuring your authentication settings. This way, if you disconnect to test authentication and something is not properly configured, you won't be locked out of your Linode. You can also use [Lish](/docs/networking/using-the-linode-shell-lish) to regain access.
-
 {{< /caution >}}
 
 1.  Open `/etc/pam.d/sshd` with sudo privileges, and add the following lines to the end of the file:
 
-    {{< file-excerpt "/etc/pam.d/sshd" >}}
-auth    required      pam_unix.so     no_warn try_first_pass
+{{< file-excerpt "/etc/pam.d/sshd" >}}
+        auth    required      pam_unix.so     no_warn try_first_pass
         auth    required      pam_google_authenticator.so
 {{< /file-excerpt >}}
 
@@ -135,8 +131,8 @@ auth    required      pam_unix.so     no_warn try_first_pass
 
 2.  Edit `/etc/ssh/sshd_config` to include the following lines, replacing `example-user` with any system user for which you'd like to enable two-factor authentication. Comments (preceded by #) are included here, but should not be added to your actual configuration file:
 
-    {{< file-excerpt "/etc/ssh/sshd_config" >}}
-# This line already exists in the file, and should be changed from 'no' to 'yes'
+{{< file-excerpt "/etc/ssh/sshd_config" >}}
+        # This line already exists in the file, and should be changed from 'no' to 'yes'
         ChallengeResponseAuthentication yes
 
         ...
@@ -149,9 +145,8 @@ auth    required      pam_unix.so     no_warn try_first_pass
 
     If you created TOTPs for multiple users, and you'd like to have them all use two-factor authentication, create additional `Match User` blocks for each  user, duplicating the command format shown above.
 
-    {{< note >}}
+{{< note >}}
 If you want to enforce two-factor authentication globally, you can use the `AuthenticationMethods` directive by itself, outside of a `Match User` block. However, this should not be done until two-factor credentials have been provided to all users.
-
 {{< /note >}}
 
 3.  Restart the SSH daemon to apply these changes:
@@ -164,7 +159,6 @@ Congratulations! Two-factor authentication is now enabled. When you connect to y
 
 {{< note >}}
 If your SSH client disconnects before you can enter your two-factor token, check if PAM is enabled for SSH. You can do this by editing `/etc/ssh/sshd_config`: look for `UsePAM` and set it to `yes`. Don't forget to restart the SSH daemon.
-
 {{< /note >}}
 
 ## Combine Two-Factor and Public Key Authentication
@@ -173,13 +167,12 @@ This section is optional. If you'd like to use [public key authentication](/docs
 
 {{< note >}}
 Confirm that your public key has been copied to your Linode before completing this section. View installed SSH keys by entering `ssh-add -l` in your terminal.
-
 {{< /note >}}
 
 1.  Set `PasswordAuthentication` to `no` and modify the `AuthenticationMethods` line in `/etc/ssh/sshd_config`:
 
-    {{< file-excerpt "/etc/ssh/sshd_config" >}}
-PasswordAuthentication no
+{{< file-excerpt "/etc/ssh/sshd_config" >}}
+        PasswordAuthentication no
         ...
         Match User example-user
             AuthenticationMethods publickey,keyboard-interactive
@@ -190,8 +183,8 @@ PasswordAuthentication no
 
 2.  Next, you'll need to make changes to your PAM configuration. Comment out or omit the following lines in your `/etc/pam.d/sshd` file:
 
-    {{< file-excerpt "/etc/pam.d/sshd" >}}
-# @include common-auth
+{{< file-excerpt "/etc/pam.d/sshd" >}}
+        # @include common-auth
         ...
         # auth    required      pam_unix.so     no_warn try_first_pass
 {{< /file-excerpt >}}
@@ -201,7 +194,6 @@ That's it! You should now be able to log in using your SSH key as the first meth
 
 {{< caution >}}
 If you or a user on your system use this method, be sure that the SSH key and authenticator app are on different devices. This way, if one device is lost or compromised, your credentials will still be separate and the security of two-factor authentication will remain intact.
-
 {{< /caution >}}
 
 ## Next Steps

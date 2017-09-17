@@ -58,7 +58,7 @@ TCP wrappers rely on two files in order to work: `/etc/hosts.allow` and `/etc/ho
 You can edit hosts.allow and hosts.deny with any text editor you like. Open the `hosts.deny` file in your preferred text editor. If you've never opened *hosts.deny* before it will look something like this:
 
 {{< file "/etc/hosts.deny" >}}
-#
+    #
     # hosts.deny	This file contains access rules which are used to
 	#		deny connections to network services that either use
 	#		the tcp_wrappers library or that have been

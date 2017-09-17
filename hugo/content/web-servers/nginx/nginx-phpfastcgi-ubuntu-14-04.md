@@ -56,7 +56,7 @@ In this guide, the domain `example.com` is used as an example site. You should s
 Next, you'll need to define the site's virtual host file. This example uses a UNIX socket to connect to fcgiwrap. Be sure to change all instances of `example.com` to your domain name.
 
 {{< file "/etc/nginx/sites-available/example.com" nginx >}}
-server {
+    server {
         server_name www.example.com example.com;
         access_log /var/www/example.com/logs/access.log;
         error_log /var/www/example.com/logs/error.log;
@@ -79,7 +79,7 @@ server {
 Create a file named `/usr/bin/php-fastcgi` with the following contents:
 
 {{< file "/usr/bin/php-fastcgi" bash >}}
-#!/bin/bash
+    #!/bin/bash
 
     FASTCGI_USER=www-data
     FASTCGI_GROUP=www-data
@@ -101,7 +101,7 @@ Make it executable by issuing the following command:
 Alternately, you may wish to use TCP sockets instead. If so, modify your nginx virtual host configuration file to resemble the following example. Again, make sure to replace all instances of "example.com" with your domain name.
 
 {{< file "/etc/nginx/sites-available/example.com" nginx >}}
-server {
+    server {
         server_name www.example.com example.com;
         access_log /var/www/example.com/logs/access.log;
         error_log /var/www/example.com/logs/error.log;
@@ -124,7 +124,7 @@ server {
 Create a file named `/usr/bin/php-fastcgi` with the following contents:
 
 {{< file "/usr/bin/php-fastcgi" bash >}}
-#!/bin/bash
+    #!/bin/bash
 
     FASTCGI_USER=www-data
     FASTCGI_GROUP=www-data
@@ -149,7 +149,7 @@ If you're planning to run applications that support file uploads (images, for ex
 To mitigate this issue, you may wish to modify your configuration to include a `try_files` directive. Please note that this fix requires nginx and the php-fcgi workers to reside on the same server.
 
 {{< file "/etc/nginx/sites-available/example.com" nginx >}}
-location ~ \.php$ {
+    location ~ \.php$ {
         try_files $uri =404;
         include /etc/nginx/fastcgi_params;
         fastcgi_pass unix:/var/run/php-fastcgi/php-fastcgi.socket;
@@ -162,7 +162,7 @@ location ~ \.php$ {
 Additionally, it's a good idea to secure any upload directories your applications may use. The following configuration excerpt demonstrates securing an "/images" directory.
 
 {{< file "/etc/nginx/sites-available/example.com" nginx >}}
-location ~ \.php$ {
+    location ~ \.php$ {
         include /etc/nginx/fastcgi_params;
         if ($uri !~ "^/images/") {
             fastcgi_pass unix:/var/run/php-fastcgi/php-fastcgi.socket;
@@ -183,7 +183,7 @@ Issue the following commands to enable the site:
 Create a file named `/etc/init.d/php-fastcgi` with the following contents:
 
 {{< file "/etc/init.d/php-fastcgi" bash >}}
-#!/bin/bash
+    #!/bin/bash
 
     PHP_SCRIPT=/usr/bin/php-fastcgi
     FASTCGI_USER=www-data
@@ -263,7 +263,7 @@ Start php-fastcgi and nginx by issuing the following commands:
 Create a file called `test.php` in your site's `public_html` directory with the following contents:
 
 {{< file "/var/www/example.com/public_html/test.php" php >}}
-<?php phpinfo(); ?>
+    <?php phpinfo(); ?>
 {{< /file >}}
 
 

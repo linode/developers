@@ -18,9 +18,7 @@ This guide will show you how to install and use the distribution-supplied kernel
 Before you get started, make sure you follow the steps outlined in our [Getting Started](/docs/getting-started) guide. Your Linode needs to be in a functional state. These steps should be performed as `root` on your Linode, via an SSH session.
 
 {{< note >}}
-
 This guide is intended for Linodes running on our KVM hypervisor. For older Xen Linodes, see [this](/docs/tools-reference/custom-kernels-distros/run-a-distributionsupplied-kernel-with-pvgrub) guide.
-
 {{< /note >}}
 
 ## Install the Kernel and Configure Grub
@@ -53,12 +51,13 @@ This guide is intended for Linodes running on our KVM hypervisor. For older Xen 
 
 4.  Create a file named `/boot/grub/menu.lst` with the following contents. Adjust the `kernel`, and `initrd` lines to reflect the actual file names found in the `/boot/` directory.
 
-    {{< file "/boot/grub/menu.lst" >}}
+{{< file "/boot/grub/menu.lst" >}}
 timeout 5
 title CentOS 6
 	root (hd0)
 	kernel /boot/vmlinuz-2.6.32-431.23.3.el6.x86_64 root=/dev/sda console=ttyS0,19200n8
 	initrd /boot/initramfs-2.6.32-431.23.3.el6.x86_64.img
+	
 {{< /file >}}
 
 

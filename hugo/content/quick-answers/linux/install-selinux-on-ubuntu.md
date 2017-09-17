@@ -24,10 +24,8 @@ Linode does not support SELinux by default. To boot a distribution-specific kern
 ### Remove AppArmor
 
 {{< caution >}}
-
 At this point in the tutorial AppArmor is your default security module. Removing but not replacing AppArmor can put your system at risk.
 Do not purge AppArmor if you believe you may reuse it in the future.
-
 {{< /caution >}}
 
 1. Stop the AppArmor script in `/etc/init.d/`: 
@@ -58,16 +56,14 @@ Do not purge AppArmor if you believe you may reuse it in the future.
 		root@ubuntu:~# getenforce
 		Enforcing
 
-    {{< note >}}
-
+{{< note >}}
 If you receive the error message, `setenforce: SELinux is disabled`, check if you are still using the Linode custom kernel. If not, ensure the selected kernel is GRUB2 and try installing SELinux again.
-
 {{< /note >}}
 
 3. To maintain `enforcing` mode after reboot, modify the SELinux configuration file in `/etc/selinux/config` from the default `SELINUX=permissive` to `SELINUX=enforcing`:
 
-    {{< file-excerpt "/etc/selinx/config" >}}
-# This file controls the state of SELinux on the system.
+{{< file-excerpt "/etc/selinx/config" >}}
+        # This file controls the state of SELinux on the system.
         # SELINUX= can take one of these three values:
         # enforcing - SELinux security policy is enforced.
         # permissive - SELinux prints warnings instead of enforcing.

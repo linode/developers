@@ -79,10 +79,8 @@ After creating a new Linode, select it to open the Linode Manager Dashboard.
 
     [![Configuration Profile](/docs/assets/linode-manager-configuration-profile_small.png)](/docs/assets/linode-manager-configuration-profile.png)
 
-    {{< note >}}
-
+{{< note >}}
 Use a [StackScript](http://www.linode.com/stackscripts) to quickly deploy a customized Linux distribution. Some of the most popular StackScripts do things like install the Apache web server, configure a firewall, and set up the WordPress content management system. They're easy to use. Just find a StackScript, complete the form, and deploy.
-
 {{< /note >}}
 
 ## Booting Your Linode
@@ -112,10 +110,8 @@ Communicating with your Linode is usually done using the secure shell (SSH) prot
 
     <iframe width="560" height="315" src="https://www.youtube.com/embed/eEsCD7n17mk" frameborder="0" allowfullscreen></iframe>
 
-    {{< note >}}
-
+{{< note >}}
 These videos were created by [Treehouse](http://www.teamtreehouse.com), which is offering Linode customers a free one month trial. [Click here](http://teamtreehouse.com/join/free-month?utm_source=linode&utm_medium=partnership&utm_campaign=linode-2013&cid=1124) to start your free trial and start learning web design, web development, and more.
-
 {{< /note >}}
 
 ### Find the IP Address of Your Linode
@@ -159,8 +155,7 @@ Once you have the IP address and an SSH client, you can log in via SSH. The foll
 
         root@li123-456:~#
 
- {{< note >}}
-
+{{< note >}}
 If you recently rebuilt an existing Linode, you might receive an error message when you try to
 reconnect via SSH. SSH clients try to match the remote host with the known keys on your desktop computer, so when you rebuild your Linode, the remote host key changes.
 
@@ -175,7 +170,6 @@ ssh-keygen -R 123.456.789
 For Windows, PuTTY users must remove the old host IP addresses manually. PuTTY's known hosts are in the registry entry:
 
 HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\SshHostKeys
-
 {{< /note >}}
 
 ## Installing Software Updates
@@ -189,10 +183,8 @@ Installing software updates should be performed *regularly*. If you need help re
     apt-get update && apt-get upgrade
 
 {{< note >}}
-
 Ubuntu may prompt you when the Grub package is updated.
 If prompted, select `keep the local version currently installed`.
-
 {{< /note >}}
 
 ### CentOS
@@ -213,7 +205,6 @@ If prompted, select `keep the local version currently installed`.
 
 {{< note >}}
 emaint is a [plugin](https://gentoo.org/support/news-items/2015-02-04-portage-sync-changes.html) for emerge, so `emerge --sync` is no longer used and that command now just calls `emaint sync`. The sync command uses the `auto` option by default. See [here](https://wiki.gentoo.org/wiki/Project:Portage/Sync#Operation) for more info on what that means and when you may want to change it. For more information on how to use `emaint`, refer to its [man page](https://dev.gentoo.org/~zmedico/portage/doc/man/emaint.1.html).
-
 {{< /note >}}
 
 After running a sync, it may end with a message that you should upgrade Portage using a *--oneshot* emerge comand. If so, run the Portage update. Then update the rest of the system:
@@ -234,13 +225,11 @@ You'll need to set your system's hostname and fully qualified domain name (FQDN)
 Once you're done, you can verify by running the command `hostname`.
 
 {{< note >}}
-
 If you're unfamiliar with Linux, one of the first things you'll need to learn is how to use [nano](/docs/linux-tools/text-editors/nano), a text editor included with most distributions. To open a file for editing, type `nano file.txt` where "file.txt" is the name of the file you want to create or edit. If the file is not in your current working directory, specify the entire file path. For example, open the `hosts` file with:
 
 nano /etc/hosts
 
 When you're finished editing, press `Control-X`, then `Y` to save the changes and `Enter` to confirm.
-
 {{< /note >}}
 
 For a walkthrough of setting system's hostname and timezone, see the following video:
@@ -248,9 +237,7 @@ For a walkthrough of setting system's hostname and timezone, see the following v
 <iframe width="560" height="315" src="https://www.youtube.com/embed/KFd66g4k4i8" frameborder="0" allowfullscreen></iframe>
 
 {{< note >}}
-
 This video was created by [Treehouse](http://www.teamtreehouse.com), which is offering Linode customers a free one month trial. [Click here](http://teamtreehouse.com/join/free-month?utm_source=linode&utm_medium=partnership&utm_campaign=linode-2013&cid=1124) to start your free trial and start learning web design, web development, and more.
-
 {{< /note >}}
 
 ### Arch / CentOS 7 / Debian 8 / Fedora version 18 and above / Ubuntu 15.04 and above
@@ -273,7 +260,7 @@ Check if the file `/etc/default/dhcpcd` exists, and it's contents.
 If the returned value is `SET_HOSTNAME='yes'`, edit `/etc/default/dhcpcd` and comment out the `SET_HOSTNAME` directive:
 
 {{< file-excerpt "/etc/default/dhcpcd" >}}
-#SET_HOSTNAME='yes'
+  #SET_HOSTNAME='yes'
 {{< /file-excerpt >}}
 
 
@@ -304,7 +291,7 @@ Update the `/etc/hosts` file. This file creates static associations between IP a
 As with the hostname, the domain name part of your FQDN does not necessarily need to have any relationship to websites or other services hosted on the server (although it may if you wish). As an example, you might host "www.something.com" on your server, but the system's FQDN might be "mars.somethingelse.com."
 
 {{< file "/etc/hosts" >}}
-127.0.0.1 localhost.localdomain localhost
+  127.0.0.1 localhost.localdomain localhost
   203.0.113.10 hostname.example.com hostname
 {{< /file >}}
 
@@ -312,7 +299,7 @@ As with the hostname, the domain name part of your FQDN does not necessarily nee
 If you have IPv6 enabled on your Linode, you may also want to add an entry for your IPv6 address, as shown in this example:
 
 {{< file "/etc/hosts" >}}
-127.0.0.1 localhost.localdomain localhost
+  127.0.0.1 localhost.localdomain localhost
   203.0.113.10 hostname.example.com hostname
   2600:3c01::a123:b456:c789:d012 hostname.example.com hostname
 {{< /file >}}

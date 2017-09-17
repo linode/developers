@@ -29,7 +29,7 @@ This document addresses a number of ways to configure the behavior of your web s
 The `<Directory>` block refers to a directory in the filesystem and specifies how Apache will behave with regards to that directory. This block is enclosed in angle braces and begins with the word "Directory" and a path to a directory in the file system. Options set in a directory block apply to the directory and its sub directories as specified. The following is an example of a directory block:
 
 {{< file-excerpt "Virtual Host Entry in an Apache Configuration file" apache >}}
-<Directory /srv/www/example.com/public_html/images>
+    <Directory /srv/www/example.com/public_html/images>
         Order Allow,Deny
         Allow from all
         Deny 55.1
@@ -52,7 +52,7 @@ Additional notes about the `<Directory>` block:
 If you need further control over specific files within a directory on your server, you can use the `<Files>` directive. This controls the behavior of the web server with regards to a single file. `<Files>` directives will apply to any file with the specified name. For instance, the following example directive will match any file named `roster.htm` in the filesystem:
 
 {{< file-excerpt "Files Directive in an Apache Configuration file" apache >}}
-<Files roster.htm>
+    <Files roster.htm>
          Order Allow,Deny
          Deny from all
     </Files>
@@ -66,7 +66,7 @@ If enclosed in a `<VirtualHost>` block, this will apply to all files named `rost
 While `<Directory>` and `<Files>` blocks control Apache's behavior with regards to locations in the *filesystem*, the `<Location>` directive controls Apache's behavior with regard to a particular path requested by the client. If a user makes a request for `http://www.example.com/webmail/inbox/`, the web server would look in the `webmail/inbox/` directory beneath the `DocumentRoot` such as `/srv/www/example.com/public_html/webmail/inbox/`. One common use for this functionality might be to allow a script to handle requests made to a given path. For example, the following block directs all requests for the specified path to a `mod_python` script:
 
 {{< file-excerpt "Location Directive in an Apache Configuration file" apache >}}
-<Location /webmail/inbox>
+    <Location /webmail/inbox>
         SetHandler python-program
         PythonHandler modpython
         PythonPath "['/srv/www/example.com/application/inbox'] + sys.path"
@@ -81,7 +81,7 @@ Note that the options specified in `<Location>` directives are processed after t
 In addition to the configuration methods discussed above, default configurations of Apache will read configuration options for a directory from a file located in that directory. This file is typically called `.htaccess`. Look for the following configuration options in your `httpd.conf` and connected files:
 
 {{< file-excerpt "/etc/httpd/httpd.conf or /etc/apache2/apache2.conf" apache >}}
-AccessFileName .htaccess
+    AccessFileName .htaccess
 
     <Files ~ "^\.ht">
         Order allow,deny
@@ -107,7 +107,7 @@ Despite the power and flexibility provided by `.htaccess` files, there are disad
 If you want to disable `.htaccess` files for a directory or tree of directories, specify the following option in any *directory* block.
 
 {{< file-excerpt "Apache `<Directory >` block" apache >}}
-AllowOverride None
+    AllowOverride None
 {{< /file-excerpt >}}
 
 
@@ -118,7 +118,7 @@ Note that you can specify `AllowOverride All` for a directory that falls within 
 In addition to the basic directives described above, Apache also allows server administrators some additional flexibility in how directories, files, and locations are specified. These "Match" blocks and regular expression-defined directive blocks allow administrators to define a single set of configuration options for a class of directories, files, and locations. Here is an example:
 
 {{< file-excerpt "DirectoryMatch Block in an Apache Configuration file" apache >}}
-<DirectoryMatch "^.+/images">
+    <DirectoryMatch "^.+/images">
         Order Allow,Deny
         Allow from all
         Deny 55.1
@@ -133,7 +133,7 @@ Apache also allows an alternate syntax for regular expression-defined directory 
 Though `DirectoryMatch` is preferred, the following block is equivalent to the previous block in all respects:
 
 {{< file-excerpt "Directory Regular Expression Block in an Apache Configuration file" apache >}}
-<Directory ~ "^.+/images">
+    <Directory ~ "^.+/images">
         Order Allow,Deny
         Allow from all
         Deny 55.1
@@ -144,7 +144,7 @@ Though `DirectoryMatch` is preferred, the following block is equivalent to the p
 Apache provides similar functionality for using regular expressions to match a class of locations or files to a single set of configuration directives. As a result, the following options all specify valid configurations:
 
 {{< file-excerpt "File and Location Match Directives" apache >}}
-<Files ~ "^\..+">
+    <Files ~ "^\..+">
         Order allow,deny
         Deny from all
     </Files>

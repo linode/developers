@@ -23,9 +23,7 @@ earn $250 per published guide.*
 Pritunl is an open source VPN server and management panel. It gives the user the power of the OpenVPN protocol while using an intuitive web interface. This tutorial will show you how to install, configure, and connect to Pritunl VPN.
 
 {{< note >}}
-
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the sudo command, reference the [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ## Before You Begin
@@ -56,10 +54,8 @@ This guide is written for a non-root user. Commands that require elevated privil
         sudo iptables -A INPUT -p tcp -m tcp --sport 9700 --dport 1025:65355 -j ACCEPT
         sudo iptables -A INPUT -p `your protocol here` -m `your protocol here` --sport `your_port_here` --dport 1025:65355 -j ACCEPT
 
-    {{< note >}}
-
+{{< note >}}
 If you've configured the firewall according to the [Securing Your Server](/docs/security/securing-your-server) guide, be sure to add these port ranges to the `/etc/iptables.firewall.rules` file.
-
 {{< /note >}}
 
 ## Install Pritunl
@@ -93,12 +89,10 @@ If you've configured the firewall according to the [Securing Your Server](/docs/
 
     Fill out the form, and press **Save**.
 
-    {{< note >}}
-
+{{< note >}}
 The SMTP settings are not required and will not do anything without a license.
 
 If you have a license, Click on the **Upgrade to Premium** button on the upper right, and use the form to enter your license.
-
 {{< /note >}}
 
 3.  Go to the **Users** tab. Here, you will create your organizations and users. Begin by clicking **Add Organization** and entering a name. Next, click **Add User** and add a user to the organization you just created.

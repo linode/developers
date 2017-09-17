@@ -99,8 +99,8 @@ Follow these instructions:
 
         nano /etc/apache2/sites-available/example.net
 
-    {{< file "/etc/apache2/sites-available/example.net" apache >}}
-<VirtualHost *:80>
+{{< file "/etc/apache2/sites-available/example.net" apache >}}
+        <VirtualHost *:80>
              ServerAdmin webmaster@example.net     
              ServerName example.net
              ServerAlias www.example.net
@@ -111,8 +111,7 @@ Follow these instructions:
 {{< /file >}}
 
 
-    {{< note >}}
-
+{{< note >}}
 If you would like to enable Perl support, add the following lines to the `VirtualHost` entry, right above the closing `</VirtualHost>` tag:
 
 {{< file-excerpt "/etc/apache2/sites-available/example.net" apache >}}
@@ -120,7 +119,6 @@ Options ExecCGI
 AddHandler cgi-script .pl
 
 {{< /file-excerpt >}}
-
 {{< /note >}}
 
     >
@@ -128,8 +126,8 @@ AddHandler cgi-script .pl
 
         nano /etc/apache2/sites-available/example.org
 
-    {{< file "/etc/apache2/sites-available/example.org" apache >}}
-<VirtualHost *:80>
+{{< file "/etc/apache2/sites-available/example.org" apache >}}
+        <VirtualHost *:80>
              ServerAdmin admin@example.org
              ServerName example.org
              ServerAlias www.example.org
@@ -140,10 +138,8 @@ AddHandler cgi-script .pl
 {{< /file >}}
 
 
-    {{< note >}}
-
+{{< note >}}
 Some basic options are specified for both **example.net** and **example.org**, including the location for the website files: under `/srv/www/`. You can add (or remove) additional configuration options, such as the Perl support shown in Step 2, on a site-by-site basis.
-
 {{< /note >}}
 
 4.  Create the directories for **example.net's** website files and logs by executing the following commands:
@@ -194,10 +190,8 @@ To enable an installed module, run the following command:
 
     a2enmod [module-name]
 
- {{< note >}}
-
+{{< note >}}
 In the `/etc/apache2/mods-available/` directory, files have `.load` and `.conf` extensions. Module names do not include the extensions.
-
 {{< /note >}}
 
 To disable a module that is currently enabled, run this command:
@@ -250,8 +244,8 @@ For more complex setups, however, we recommend that you consider using an altern
 
     Add the following lines to the file's `<VirtualHost >` block:
 
-    {{< file-excerpt "/etc/apache2/sites-available/example.net" apache >}}
-<IfModule mpm_itk_module>
+{{< file-excerpt "/etc/apache2/sites-available/example.net" apache >}}
+        <IfModule mpm_itk_module>
            AssignUserId webeditor webgroup
         </IfModule>
 {{< /file-excerpt >}}

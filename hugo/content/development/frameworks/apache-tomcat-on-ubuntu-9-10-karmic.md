@@ -37,7 +37,7 @@ If you would like to run the Sun Microsystems implementation of Java, you must f
 Ensure that your `sources.list` list resembles the following:
 
 {{< file "/etc/apt/sources.list" >}}
-## main & restricted repositories
+    ## main & restricted repositories
     deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
     deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
 
@@ -100,7 +100,7 @@ Test and Use Tomcat
 You can test your Tomcat installation by pointing your browser at `http://[yourdomain-or-ip-address]:8080/`. By default, files are located in the `/usr/share/tomcat6` directory. To configure the admin area, you'll need to add the following lines to the end of your `tomcat-users.xml` file, substituting your own username and password. Make sure you keep the "manager" role.
 
 {{< file "/etc/tomcat6/tomcat-users.xml" xml >}}
-<role rolename="manager"/>
+    <role rolename="manager"/>
     <user username="tomcat" password="s3cret" roles="manager"/>
 {{< /file >}}
 

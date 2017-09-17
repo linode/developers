@@ -41,9 +41,7 @@ Preconfigured software stacks sometimes bring a series of challenges to those wh
         sudo apt-get update && sudo apt-get upgrade
 
 {{< note >}}
-
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, visit our [Users and Groups guide](/docs/tools-reference/linux-users-and-groups) for more information.
-
 {{< /note >}}
 
 ## Install Omnibus GitLab
@@ -69,8 +67,8 @@ Note that nginx cannot be disabled in older versions of GitLab Community Edition
 
 1.  To unbundle nginx from GitLab, we'll need to disable the version included in the Omnibus package. Add the following lines to `/etc/gitlab/gitlab.rb`:
 
-    {{< file-excerpt "/etc/gitlab/gitlab.rb" >}}
-# Unbundle nginx from Omnibus GitLab
+{{< file-excerpt "/etc/gitlab/gitlab.rb" >}}
+        # Unbundle nginx from Omnibus GitLab
         nginx['enable'] = false
         # Set your Nginx's username
         web_server['external_users'] = ['www-data']
@@ -99,14 +97,13 @@ Now that GitLab's bundled nginx has been disabled, the next step is to install a
 
 3.  Add Passenger's APT repository by adding the following lines to `/etc/apt/sources.list.d/passenger.list`:
 
-    {{< file "/etc/apt/sources.list.d/passenger.list" >}}
-deb https://oss-binaries.phusionpassenger.com/apt/passenger trusty main
+{{< file "/etc/apt/sources.list.d/passenger.list" >}}
+        deb https://oss-binaries.phusionpassenger.com/apt/passenger trusty main
 {{< /file >}}
 
 
-    {{< note >}}
+{{< note >}}
 If you're using Ubuntu 16.04, replace `trusty` with `xenial` in the above command.
-
 {{< /note >}}
 
 4.  Update your package repositories:
@@ -119,8 +116,8 @@ If you're using Ubuntu 16.04, replace `trusty` with `xenial` in the above comman
 
 6.  Enable the new Passenger module by uncommenting the `include /etc/nginx/passenger.conf;` line from the `/etc/nginx/nginx.conf` file:
 
-    {{< file-excerpt "/etc/nginx/nginx.conf" aconf >}}
-include /etc/nginx/passenger.conf;
+{{< file-excerpt "/etc/nginx/nginx.conf" aconf >}}
+        include /etc/nginx/passenger.conf;
 {{< /file-excerpt >}}
 
 
@@ -144,8 +141,8 @@ In this section, we'll create a new virtual host to serve GitLab. Since we've un
 
 2.  Edit your new virtual host file to match the following, replacing `example.com` with your own hostname:
 
-    {{< file "/etc/nginx/sites-available/example.com" >}}
-upstream gitlab {
+{{< file "/etc/nginx/sites-available/example.com" >}}
+        upstream gitlab {
        	    server unix:/var/opt/gitlab/gitlab-rails/sockets/gitlab.socket;
         }
 

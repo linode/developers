@@ -38,7 +38,6 @@ Issue the following command to install sshfs:
 
 {{< note >}}
 The `sshfs` package is available on every package manager, use the commands specific to your distribution.
-
 {{< /note >}}
 
 ### Setting up your Linux Client
@@ -47,7 +46,6 @@ If you wish to use a normal user account to mount file systems using SSHFS, you'
 
 {{< note >}}
 If you are unfamiliar with users, groups and file permissions, be sure to visit [Users and Groups](/docs/tools-reference/linux-users-and-groups) for a brief introduction.
-
 {{< /note >}}
 
 To check if the `fuse` group exists run: 
@@ -96,7 +94,6 @@ Make sure you can access the remote server without entering a password, by modif
 
 {{< note >}}
 If your system is older, this file may be named `authorized_keys2`. Consult `/etc/ssh/sshd_config` if you are unsure.
-
 {{< /note >}}
 
 Substitute values appropriate for your server in commands that include a hostname or user account name:
@@ -118,7 +115,7 @@ At this point, you should be able to log into the remote server as "user" withou
 You can force the mounted filesystem to remain persistent between reboots. This is done by including a mount directive for the remote user directory in `/etc/fstab`.  
 
 {{< file-excerpt "/etc/fstab" >}}
-<sshfs#user@usersLinode.example.com>:/home/users /root/sshfsExample fuse defaults 0 0
+    <sshfs#user@usersLinode.example.com>:/home/users /root/sshfsExample fuse defaults 0 0
 {{< /file-excerpt >}}
 
 

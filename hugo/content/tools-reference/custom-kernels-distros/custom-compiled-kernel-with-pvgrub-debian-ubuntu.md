@@ -86,8 +86,8 @@ Once your configuration options are set, exit the configuration interface and an
 
 3.  Create a `menu.lst` file with the following contents. Adjust the "title" and "kernel" lines to reflect the actual filenames found in the `/boot` directory.
 
-    {{< file-excerpt "/boot/grub/menu.lst" >}}
-timeout 5
+{{< file-excerpt "/boot/grub/menu.lst" >}}
+    	timeout 5
 	
     	title Custom Compiled, kernel 3.19.3-custom 
     	root (hd0) 

@@ -42,7 +42,7 @@ System Files Prerequisites
 Before proceeding, make sure your `/etc/hosts` file has valid entries. For reference, your file should resemble the following:
 
 {{< file "/etc/hosts" >}}
-127.0.0.1 localhost.localdomain localhost
+    127.0.0.1 localhost.localdomain localhost
     12.34.56.78 hostname.example.com hostname
 {{< /file >}}
 

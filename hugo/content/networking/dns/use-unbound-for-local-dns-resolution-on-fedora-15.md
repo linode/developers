@@ -55,7 +55,6 @@ In the default configuration, Unbound will only listen for requests on the local
 
 {{< file-excerpt >}}
 /etc/unbound/unbound.conf
-
 {{< /file-excerpt >}}
 
 > server:
@@ -69,7 +68,6 @@ By default, Unbound will only listen for and respond to requests for DNS queries
 
 {{< file-excerpt >}}
 /etc/unbound/unbound.conf
-
 {{< /file-excerpt >}}
 
 > server:
@@ -109,7 +107,6 @@ If you're accessing your Unbound instance over the local interface, make sure yo
 
 {{< file >}}
 /etc/resolve.conf
-
 {{< /file >}}
 
 > nameserver 127.0.0.1

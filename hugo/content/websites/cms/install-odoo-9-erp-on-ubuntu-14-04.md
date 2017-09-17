@@ -62,9 +62,7 @@ Now we're going to install the PostgreSQL database and other necessary server li
         sudo mkdir /var/log/odoo
 
 {{< note >}}
-
 In the scenario of running multiple Odoo versions on the same Linode you may want to use different users and directories for each instance.
-
 {{< /note >}}
 
 ###Install Odoo Server Files from Source
@@ -78,9 +76,7 @@ In the scenario of running multiple Odoo versions on the same Linode you may wan
         sudo git clone https://www.github.com/odoo/odoo --depth 1 --branch 9.0 --single-branch .
 
 {{< note >}}
-
 Using Git allows great flexibility because any time a new upgrade ,is available you only need to pull that branch, You can even install a different one alongside the production version; just change the destination directory and the  `--branch X.x` flag. Before performing any operation, remember to make a full backup of your database and custom files.
-
 {{< /note >}}
 
 ###Create PostgreSQL User
@@ -95,18 +91,14 @@ Using Git allows great flexibility because any time a new upgrade ,is available 
 
 3.  You'll be prompted for a password, **save it**, we'll need it shortly.
 
-    {{< note >}}
-
+{{< note >}}
 In the scenario of a testing or development environment you could create a user with no password using `createuser odoo -U postgres -dRS`.
-
 {{< /note >}}
 
 4.  Press **CTRL+D** to exit from `postgres` user session.
 
 {{< note >}}
-
 If you want to run multiple Odoo instances on the same Linode remember to check pg_hba.conf and change it according your needs.
-
 {{< /note >}}
 
 ##Specific Dependencies for Odoo Applications
@@ -161,8 +153,8 @@ Install Python libraries using the following commands:
 
 2.  Next we need to modify the configuration file. The finished file should look similar to this depending on your deploying needs:
 
-    {{< file "/etc/odoo-server.conf" aconf >}}
-[options]
+{{< file "/etc/odoo-server.conf" aconf >}}
+        [options]
         admin_passwd = admin
         db_host = False 
         db_port = False
@@ -188,7 +180,7 @@ Install Python libraries using the following commands:
 Next step is creating a boot script called `odoo-server` to gain control over Odoo's behavior and use it at server startup and shutdown.
 
 {{< file "/etc/init.d/odoo-server" shell >}}
-#!/bin/sh
+    #!/bin/sh
     ### BEGIN INIT INFO
     # Provides: odoo-server
     # Required-Start: $remote_fs $syslog

@@ -64,7 +64,7 @@ var (
 	calloutFilesFixer = func(path, s string) (string, error) {
 		// Handle file and file-excerpt shortcodes
 		// Replace callouts with shortcodes
-		calloutsFiles := regexp.MustCompile(`(?s){:\s?\.(file[\w|-]*)\s?}\n(.*?)\n.*?~~~\s?(\w*)\n(.*?)~~~`)
+		calloutsFiles := regexp.MustCompile(`(?s)[\t ]*{:\s?\.(file[\w|-]*)\s?}\n(.*?)\n.*?~~~\s?(\w*)\s*\n(.*?)~~~`)
 
 		s = calloutsFiles.ReplaceAllStringFunc(s, func(s string) string {
 			m := calloutsFiles.FindAllStringSubmatch(s, -1)
@@ -75,7 +75,7 @@ var (
 				shortcode := strings.TrimSpace(first[1])
 				filename := strings.TrimSpace(first[2])
 				style := strings.TrimSpace(first[3])
-				code := strings.TrimSpace(first[4])
+				code := strings.TrimRight(first[4], " \n\r")
 
 				// Misspelled
 				if shortcode == "file-exceprt" || shortcode == "file-exerpt" {
@@ -121,33 +121,52 @@ var (
 	}
 
 	calloutsToShortCodes = func(path, s string) (string, error) {
-		calloutsRe := regexp.MustCompile(`(?s){:\s?\.([\w|-]*)\s?}(.*?)\n\n`)
 
-		s = calloutsRe.ReplaceAllStringFunc(s, func(s string) string {
-			m := calloutsRe.FindAllStringSubmatch(s, -1)
-			if len(m) > 0 {
-				first := m[0]
-				name, content := first[1], first[2]
-				content = strings.TrimSpace(content)
-				name = strings.TrimSpace(name)
+		// Apply these in order
+		// (?s)\s*{:\s?\.([\w|-]*)\s?}(.*?)\s*\n\s*\n
+		regexps := []string{`(?s)[\t ]*{:\s?\.([\w|-]*)\s?}(.*?)\s*\n\s*\n`, `(?s)[\t ]*{:\s?\.([\w|-]*)\s?}(.*?)\z`}
 
-				// Block level markdown is superflous.
-				lines := strings.Split(content, "\n")
-				newContent := ""
-				for _, line := range lines {
-					newContent += strings.TrimLeft(line, "> ") + "\n"
-				}
+		for i, re := range regexps {
+			calloutsRe := regexp.MustCompile(re)
 
-				return fmt.Sprintf(`{{< %s >}}
+			s = calloutsRe.ReplaceAllStringFunc(s, func(s string) string {
+				m := calloutsRe.FindAllStringSubmatch(s, -1)
+				if len(m) > 0 {
+					first := m[0]
+					name, content := first[1], first[2]
+					name = strings.TrimSpace(name)
+					content = strings.TrimSpace(content)
+
+					// Block level markdown is superflous.
+					lines := strings.Split(content, "\n")
+					newContent := ""
+					for _, line := range lines {
+						l := strings.TrimSpace(line)
+						if strings.HasPrefix(l, ">") {
+							l = strings.TrimSpace(strings.TrimPrefix(l, ">"))
+							line = l
+						}
+
+						newContent += line + "\n"
+					}
+
+					newContent = strings.TrimSpace(newContent)
+
+					s = fmt.Sprintf(`{{< %s >}}
 %s
 {{< /%s >}}
-
 `, name, newContent, name)
 
-			}
+					if i == 0 {
+						s += "\n"
+					}
 
-			return s
-		})
+				}
+
+				return s
+			})
+
+		}
 
 		return s, nil
 	}

@@ -25,7 +25,6 @@ In order to use OpenCart, you will need to ensure that PHP is configured properl
 
 {{< file >}}
 /etc/php.ini
-
 {{< /file >}}
 
 > register\_globals = Off magic\_quotes\_gpc = Off file\_uploads = 1 session\_auto\_start = 0

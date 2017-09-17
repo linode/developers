@@ -118,8 +118,8 @@ In the next few steps we'll configure VNC to launch the full Gnome desktop.
 
 2.  In your preferred text editor, open the xstartup file in your home folder under the `.vnc` directory:
 
-    {{< file-excerpt "~/.vnc/xstartup" >}}
-#!/bin/sh
+{{< file-excerpt "~/.vnc/xstartup" >}}
+        #!/bin/sh
 
         # Uncomment the following two lines for normal desktop:
         # unset SESSION_MANAGER
@@ -166,8 +166,8 @@ Below we've outlined optional steps to ensure that the VNC server starts automat
 
 2.  Add `@reboot         /usr/bin/vncserver :1` to the bottom of the file. Your crontab should look like this:
 
-    {{< file-excerpt "crontab" >}}
-# Edit this file to introduce tasks to be run by cron.
+{{< file-excerpt "crontab" >}}
+        # Edit this file to introduce tasks to be run by cron.
         #
         # Each task to run has to be defined through a single line
         # indicating with different fields when the task will be run

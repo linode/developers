@@ -50,7 +50,7 @@ Configure Software
 Create a virtual host specification that resembles the following. Modify the references to `example.com` and `/srv/www/example.com/` to reflect the domain name and file paths for you deployment.
 
 {{< file-excerpt "/etc/httpd/conf.d/twiki.conf" apache >}}
-<VirtualHost *:80>
+    <VirtualHost *:80>
            ServerName example.com
            ServerAlias www.example.com
 
@@ -98,7 +98,7 @@ Create a virtual host specification that resembles the following. Modify the ref
 In this configuration your wiki will be located at the root level of the `example.com` domain. Modify the following lines if you wish to deploy TWiki at a different location on your domain.
 
 {{< file-excerpt "/etc/httpd/conf.d/twiki.conf" apache >}}
-ScriptAlias /wiki/bin "/srv/www/example.com/twiki/bin"
+    ScriptAlias /wiki/bin "/srv/www/example.com/twiki/bin"
     Alias /wiki/pub "/srv/www/example.com/twiki/pub"
     Alias /wiki/ "/srv/www/example.com/twiki/bin/view/"
     </VirtualHost>
@@ -115,14 +115,14 @@ In this example, TWiki will be accessible by at the `http://example.com/wiki` lo
 Edit the `$twikiLibPath` value in the `/srv/www/example.com/twiki/bin/LocalLib.cfg` file to reflect the location of the `lib` files in the TWiki directory on your system, as in the following example:
 
 {{< file-excerpt "/srv/www/example.com/twiki/bin/LocalLib.cfg" perl >}}
-$twikiLibPath = "/srv/www/example.com/twiki/lib";
+    $twikiLibPath = "/srv/www/example.com/twiki/lib";
 {{< /file-excerpt >}}
 
 
 Before you can proceed with the installation process, you will need to configure the access control settings in the Apache Configuration (as above) so that you will be able to access your TWiki instance. Consider the following configuration directives:
 
 {{< file-excerpt "/etc/httpd/conf.d/twiki.conf" apache >}}
-<FilesMatch "^configure.*">
+    <FilesMatch "^configure.*">
            SetHandler cgi-script
            Order Deny,Allow
            Deny from all
@@ -146,7 +146,7 @@ If your wiki is accessible at `http://example.com`, visit `http://example.com/bi
 Add the following line to the `/srv/www/example.com/twiki/lib/LocalSite.cfg`" file. Make sure that you do not append this line to the very end of the file.
 
 {{< file-excerpt "/srv/www/example.com/twiki/lib/LocalSite.cfg" perl >}}
-$TWiki::cfg{ScriptUrlPaths}{view} = '';
+    $TWiki::cfg{ScriptUrlPaths}{view} = '';
 {{< /file-excerpt >}}
 
 

@@ -23,11 +23,8 @@ The *Apache HTTP Web Sever* (Apache) is an open source web application for deplo
 If instead you would like to install a full LAMP (Linux, Apache, MySQL and PHP) stack, please see the [LAMP on Debian 8](/docs/websites/lamp/lamp-server-debian-8) guide.
 
 {{< note >}}
-
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
-
 
 ## Before You Begin
 
@@ -52,8 +49,8 @@ This guide is written for a non-root user. Commands that require elevated privil
 
 2.  Edit the main Apache configuration file and turn off the `KeepAlive` setting:
 
-    {{< file-excerpt "/etc/apache2/apache2.conf" aconf >}}
-KeepAlive Off
+{{< file-excerpt "/etc/apache2/apache2.conf" aconf >}}
+        KeepAlive Off
 {{< /file-excerpt >}}
 
 
@@ -65,8 +62,8 @@ Apache 2.4 offers various multi-processing modules (MPMs) to handle connections.
 
 1.  Open `/etc/apache2/mods-available/mpm_prefork.conf` in your text editor and edit the values as needed. The following is optimized for a 2GB Linode:
 
-    {{< file "/etc/apache2/mods-available/mpm_prefork.conf" aconf >}}
-# prefork MPM
+{{< file "/etc/apache2/mods-available/mpm_prefork.conf" aconf >}}
+        # prefork MPM
         # StartServers: number of server processes to start
         # MinSpareServers: minimum number of server processes which are kept spare
         # MaxSpareServers: maximum number of server processes which are kept spare
@@ -99,8 +96,8 @@ If you choose to keep the *event module* enabled, these settings are suggested f
 
 1.  Open `/etc/apache2/mods-available/mpm_event.conf` in your text editor and edit the values as needed:
 
-    {{< file "/etc/apache2/mods-available/mpm_event.conf" aconf >}}
-# event MPM
+{{< file "/etc/apache2/mods-available/mpm_event.conf" aconf >}}
+        # event MPM
         # StartServers: initial number of server processes to start
         # MinSpareThreads: minimum number of worker threads which are kept spare
         # MaxSpareThreads: maximum number of worker threads which are kept spare
@@ -134,8 +131,8 @@ Apache supports *name-based virtual hosting*, which allows you to host multiple 
 
 2.  Create an `example.com.conf` file in `/etc/apache2/sites-available` with your text editor, replacing instances of `example.com` with your own domain URL in both the configuration file and in the file name:
 
-    {{< file "/etc/apache2/sites-available/example.com.conf" aconf >}}
-<VirtualHost *:80>
+{{< file "/etc/apache2/sites-available/example.com.conf" aconf >}}
+        <VirtualHost *:80>
              ServerAdmin webmaster@example.com
              ServerName example.com
              ServerAlias www.example.com
@@ -148,8 +145,7 @@ Apache supports *name-based virtual hosting*, which allows you to host multiple 
 
     Repeat this process for any other domains you host.
 
-    {{< note >}}
-
+{{< note >}}
 If you would like to enable Perl support, add the following lines above the closing `</VirtualHost>` tag:
 
 {{< file-excerpt "/etc/apache2/sites-available/example.com.conf" aconf >}}
@@ -157,9 +153,7 @@ Options ExecCGI
 AddHandler cgi-script .pl
 
 {{< /file-excerpt >}}
-
 {{< /note >}}
-
 
 3.  Create directories for your websites and websites' logs, replacing `example.com` with your own domain information:
 

@@ -31,7 +31,7 @@ Issue the following commands to set your system hostname, substituting a unique 
 Edit your `/etc/hosts` file to resemble the following, substituting your Linode's public IP address for 12.34.56.78, your hostname for "hostname," and your primary domain name for "example.com." :
 
 {{< file "/etc/hosts" >}}
-127.0.0.1 localhost.localdomain localhost
+    127.0.0.1 localhost.localdomain localhost
     12.34.56.78 hostname.example.com hostname
 {{< /file >}}
 
@@ -64,14 +64,14 @@ Visit the download page for [Zimbra Open Source Edition](http://www.zimbra.com/d
 Edit the file `util/utilfunc.sh`. Search for the first instance of the following line:
 
 {{< file-excerpt "util/utilfunc.sh" >}}
-PREREQ_PACKAGES="sudo libidn11 libgmp3 libstdc++6"
+    PREREQ_PACKAGES="sudo libidn11 libgmp3 libstdc++6"
 {{< /file-excerpt >}}
 
 
 Change it to match the following excerpt:
 
 {{< file-excerpt "util/utilfunc.sh" >}}
-PREREQ_PACKAGES="sudo libidn11 libgmp3c2 libstdc++6"
+    PREREQ_PACKAGES="sudo libidn11 libgmp3c2 libstdc++6"
 {{< /file-excerpt >}}
 
 

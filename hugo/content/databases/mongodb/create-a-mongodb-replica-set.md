@@ -41,9 +41,7 @@ This guide has been tested with Ubuntu 16.04 and CentOS 7. Because most of the c
         sudo yum update
 
 {{< note >}}
-
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ## Configure Networking
@@ -65,7 +63,7 @@ Whether you're using public or private IP addresses to send data, you'll need to
 Each member of your replica set should have a hostname that identifies it as a member of the set. This way, you'll be able to keep your infrastructure organized at scale (for example, if you add more replica sets). In order to simplify the configuration of your replica set, add the following lines to the `/etc/hosts` file on each member of the replica set:
 
 {{< file-excerpt "/etc/hosts" aconf >}}
-192.0.2.1    mongo-repl-1
+    192.0.2.1    mongo-repl-1
     192.0.2.2    mongo-repl-2
     192.0.2.3    mongo-repl-3
 {{< /file-excerpt >}}
@@ -75,7 +73,6 @@ If you're using more than three Linodes, add all of your hosts at this stage. Re
 
 {{< note >}}
 These hostnames are only given as examples, but we'll use these names throughout this guide to refer to members of the replica set. When you see one of these names in a command or configuration file, substitute your own hostname if applicable.
-
 {{< /note >}}
 
 ## Set Up MongoDB Authentication
@@ -128,7 +125,7 @@ In this section you'll create a key file that will be used to secure authenticat
 On each of your Linodes, make the following changes to your `/etc/mongod.conf` file:
 
 {{< file-excerpt "/etc/mongod.conf" aconf >}}
-net:
+    net:
       port: 27017
       bindIp: 127.0.0.1,192.0.2.1
 
@@ -156,9 +153,8 @@ Once you've made these changes, restart the `mongod` service:
 
         mongo -u mongo-admin -p --authenticationDatabase admin
 
-    {{< note >}}
+{{< note >}}
 If your connection is refused, be sure that the address for localhost (`127.0.0.1`) is included in your configuration's `bindIp` value.
-
 {{< /note >}}
 
 2.  From the `mongo` shell, initiate the replica set:

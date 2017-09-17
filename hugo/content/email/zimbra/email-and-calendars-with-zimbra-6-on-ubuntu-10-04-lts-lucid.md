@@ -42,7 +42,7 @@ System Files Prerequisites
 Before proceeding, make sure your `/etc/hosts` file has valid entries. For reference, your file should resemble the following:
 
 {{< file "/etc/hosts" >}}
-127.0.0.1 localhost.localdomain localhost
+    127.0.0.1 localhost.localdomain localhost
     12.34.56.78 hostname.example.com hostname
 {{< /file >}}
 
@@ -71,7 +71,7 @@ Visit the download page for [Zimbra Open Source Edition](http://www.zimbra.com/c
 You'll need to edit the file `util/utilfunc.sh` to work around a package requirement. Look for the block containing the following lines:
 
 {{< file-excerpt "util/utilfunc.sh" >}}
-checkUbuntuRelease
+    checkUbuntuRelease
     PACKAGEINST='dpkg -i'
     PACKAGERM='dpkg --purge'
     PACKAGEQUERY='dpkg -s'
@@ -84,7 +84,7 @@ checkUbuntuRelease
 Change the last line to read as follows:
 
 {{< file-excerpt "util/utilfunc.sh" >}}
-PREREQ_PACKAGES="sudo libidn11 libgmp3c2 libstdc++6"
+    PREREQ_PACKAGES="sudo libidn11 libgmp3c2 libstdc++6"
 {{< /file-excerpt >}}
 
 

@@ -25,12 +25,9 @@ The noninteractive nature of Wget makes it perfect for use in automatic scripts.
 
 
 {{< note >}}
-
-Depending on your operating system or distribution, you may need to download wget. Wget exists in every package manager and on every operating system. At the end of this guide 
+Depending on your operating system or distribution, you may need to download wget. Wget exists in every package manager and on every operating system. At the end of this guide
 you will find resources for getting wget on your machine.
-
 {{< /note >}}
-
 
 ## Use Wget to Download Speedtest Files
 
@@ -67,8 +64,8 @@ Picking the right location for your Linode is important, you have to decide what
 	Wget will then make a file and log the download information inside of it: 
 	
 	
-	{{< file "newarkTest" >}}
-02350K .......... .......... .......... .......... ..........100%  457M 0s
+{{< file "newarkTest" >}}
+	  02350K .......... .......... .......... .......... ..........100%  457M 0s
 	  102400K                                                       100% 0.00 =0.6s
 
 	  2017-06-23 13:31:54 (179 MB/s) - ‘100MB-newark.bin.2’ saved [104857600/104857600]

@@ -49,7 +49,7 @@ The master configuration file for Munin is `/etc/munin/munin.conf`. This file is
 The first section of the file contains the paths to the directories used by Munin. When configuring your web server with Munin, make sure to point the root folder to the path of `htmldir`.
 
 {{< file-excerpt "/etc/munin/munin.conf" apache >}}
-<VirtualHost 123.45.67.89:80>
+    <VirtualHost 123.45.67.89:80>
        ServerAdmin webmaster@stats.example.com
        ServerName stats.example.com
        DocumentRoot /var/www/html/munin

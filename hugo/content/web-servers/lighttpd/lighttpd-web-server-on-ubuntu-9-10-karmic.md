@@ -38,7 +38,7 @@ Installing lighthttpd
 Edit your `/etc/apt/sources.list` file to enable the "universe" repositories by removing the hash symbol in front of the universe lines. The file should resemble the following example:
 
 {{< file "/etc/apt/sources.list" >}}
-## main & restricted repositories
+    ## main & restricted repositories
     deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted         
     deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
 
@@ -125,7 +125,7 @@ and continue by reloading lighttpd:
 Modify the following settings in your `/etc/lighttpd/conf-enabled/10-simple-vhost.conf` file:
 
 {{< file-excerpt "/etc/lighttpd/conf-enabled/10-simple-vhost.conf" lighty >}}
-simple-vhost.server-root = "/srv/www"
+    simple-vhost.server-root = "/srv/www"
     simple-vhost.document-root = "/public/"
     # simple-vhost.default-host = "brackley.org"
 {{< /file-excerpt >}}
@@ -168,7 +168,7 @@ Remove the hash (`#`) from the front of the line that reads "mod\_evhost" in the
 Now, let's examine the following section of the default config file:
 
 {{< file-excerpt "lighttpd.conf" lighty >}}
-# define a pattern for the host url finding
+    # define a pattern for the host url finding
     # %% => % sign
     # %0 => domain name + tld
     # %1 => tld
@@ -183,7 +183,7 @@ Now, let's examine the following section of the default config file:
 To accomplish the same directory structure with evhost as with the simple-vhost, we would need to insert the following statement into `lighttpd.conf`:
 
 {{< file-excerpt "lighttpd.conf" lighty >}}
-evhost.path-pattern = "/srv/www/%0/public/"
+    evhost.path-pattern = "/srv/www/%0/public/"
 {{< /file-excerpt >}}
 
 
@@ -229,7 +229,7 @@ Lighttpd will send CGI requests to CGI handlers on the basis of file extensions,
 If you install the php5-cgi package and enable mod\_fastcgi with `lighty-enable-mod fastcgi` then a default FastCGI handler will be configured in the file `/etc/lighttpd/conf-enabled/10-fastcgi.conf`. Though the handler will likely require specific customization for your use cases, it serves as an effective example:
 
 {{< file-excerpt "/etc/lighttpd/conf-enabled/10-fastcgi.conf" lighty >}}
-fastcgi.server    = ( ".php" =>
+    fastcgi.server    = ( ".php" =>
             ((
                     "bin-path" => "/usr/bin/php-cgi",
                     "socket" => "/tmp/php.socket",
@@ -251,7 +251,7 @@ fastcgi.server    = ( ".php" =>
 You can map more than one file extensions to a single FastCGI handler by adding the following entry to your config file:
 
 {{< file-excerpt "/etc/lighttpd/conf-enabled/10-fastcgi.conf" lighty >}}
-fastcgi.map-extensions = ( ".[ALT-EXTENSION]" => ".[EXTENSION]" )
+    fastcgi.map-extensions = ( ".[ALT-EXTENSION]" => ".[EXTENSION]" )
 {{< /file-excerpt >}}
 
 

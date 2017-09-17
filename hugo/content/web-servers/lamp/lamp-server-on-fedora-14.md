@@ -62,7 +62,7 @@ There are different ways to set up Virtual Hosts, however we recommend the metho
 Now we will create virtual host entries for each site that we need to host with this server. Here are two examples for sites at "example.com" and "example.org".
 
 {{< file-excerpt "/etc/httpd/conf.d/vhost.conf" apache >}}
-<VirtualHost *:80>
+    <VirtualHost *:80>
          ServerAdmin webmaster@example.com
          ServerName example.com
          ServerAlias www.example.com
@@ -165,7 +165,7 @@ Once PHP5 is installed, we'll need to tune the configuration file located in `/e
 Make sure that the following values are set, and relevant lines are uncommented (comments are lines beginning with a semi-colon (`;` character)):
 
 {{< file-excerpt "/etc/php.ini" ini >}}
-error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
+    error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
     display_errors = Off
     log_errors = On
     error_log = /var/log/php.log
@@ -182,7 +182,7 @@ If you need support for MySQL in PHP, then you must install the php5-mysql packa
 You can test PHP by creating a file with the following contents under your "public\_html" directory:
 
 {{< file "/srv/www/example.com/public\\_html/test.php" php >}}
-<?php phpinfo(); ?>
+    <?php phpinfo(); ?>
 {{< /file >}}
 
 

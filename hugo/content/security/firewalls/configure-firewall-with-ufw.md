@@ -68,7 +68,6 @@ The `ufw default` command also allows for the use of the `reject` parameter.
 
 {{< caution >}}
 Configuring a default reject or deny rule can lock you out of your Linode unless explicit allow rules are in place.  Ensure that you have configured allow rules for SSH and other critical services as per the section below before applying default deny or reject rules.
-
 {{< /caution >}}
 
 ### Add Rules
@@ -156,9 +155,7 @@ Similarly, to disable UFW's rules:
     sudo ufw disable
 
 {{< note >}}
-
 This still leaves the UFW service running and enabled on reboots.
-
 {{< /note >}}
 
 ## Logging

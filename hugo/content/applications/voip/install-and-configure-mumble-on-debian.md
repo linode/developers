@@ -32,10 +32,8 @@ external_resources:
 
         sudo apt-get update && sudo apt-get upgrade
 
- {{< note >}}
-
+{{< note >}}
 This guide is written for non-root users. Commands that require elevated privileges are prefixed with sudo. If you are not familiar with the sudo command, you can check out our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ## Mumble Server
@@ -54,8 +52,7 @@ This guide is written for non-root users. Commands that require elevated privile
 
     [![Image description](/docs/assets/murmur-debian-auto-start-resized.png)](/docs/assets/murmur-debian-auto-start.png)
 
-    {{< note >}}
-
+{{< note >}}
 If you wish to disable the server starting at boot, you can use your init system to disable it.
 
 For Debian 8:
@@ -65,7 +62,6 @@ sudo systemctl disable mumble-server
 For Debian 7 or earlier:
 
 sudo service mumble-server disable
-
 {{< /note >}}
 
 4.  Mumble will then ask if you want to reduce latency by setting a higher CPU and network priority.

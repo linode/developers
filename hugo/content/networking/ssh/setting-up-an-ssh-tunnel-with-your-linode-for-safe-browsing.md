@@ -30,10 +30,8 @@ It works by launching a SOCKS proxy server on your computer using SSH. It will l
 -   A Linode running your favorite GNU/Linux flavor.
 -   The SSH service running in your Linode, with the forwarding option enabled (it is enabled by default).
 
-    {{< note >}}
-
+{{< note >}}
 If it is disabled, look for the parameter `AllowTcpForwarding no` in your server's **/etc/ssh/sshd\_config file**, and change it to **yes** before restarting the service.
-
 {{< /note >}}
 
 -   The ability to remotely access your server using SSH (by its host name or IP address).
@@ -51,11 +49,10 @@ The first step is to launch the SOCKS server and establish a connection to your 
     ssh -D 12345 user@host.domain
     ~~~
 
-    {{< note >}}
+{{< note >}}
 **-D 12345** tells SSH to run the SOCKS server on port 12345.
 
 You can choose any port number greater than 1024. Lower numbers could be used but you will need to log in as root, and make sure the port is not in use by another service.
-
 {{< /note >}}
 
 2.  You will be prompted for your password. After entering it, you will be logged in to your Linode. Minimize the terminal because you will not need it until you are finished with your browsing session.

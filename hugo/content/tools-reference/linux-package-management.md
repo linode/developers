@@ -145,7 +145,7 @@ The file located at `/etc/yum.conf` provides system-wide configuration options f
 The options in the `[main]` stanza don't need modification, though you may set alternate logging and cache locations for the database by adding the following lines:
 
 {{< file-excerpt "/etc/yum.conf" aconf >}}
-logfile=/var/log/yum.log
+  logfile=/var/log/yum.log
   cachedir=/var/cache/yum
 {{< /file-excerpt >}}
 
@@ -193,7 +193,7 @@ Note that RPM does not automatically check for dependencies, so you must install
 You can use the following template to define a new stanza for a new repository, replacing the capitalized strings with your own values:
 
 {{< file-excerpt "/etc/yum.repos.d/example.repo" aconf >}}
-[REPO-NAME]
+  [REPO-NAME]
   name=REPOSITORY-NAME
   mirrorlist=HTTP-ACCESSIBLE-MIRROR-LIST
   #baseurl=BASE-URL-FOR-REPOSITORY
@@ -205,7 +205,7 @@ You can use the following template to define a new stanza for a new repository, 
 The following example is the default configuration for the "Base" repository in CentOS 7:
 
 {{< file-excerpt "/etc/yum.repos.d/CentOS-Base.repo" aconf >}}
-[base]
+  [base]
   name=CentOS-$releasever - Base
   mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os
   #baseurl=http://mirror.centos.org/centos/$releasever/os/$basearch/
@@ -308,7 +308,7 @@ While it is unlikely that you will need to modify the default `pacman.conf` for 
 If you need to add an additional third-party repository, add a repository stanza:
 
 {{< file-excerpt "/etc/pacman.conf" aconf >}}
-[REPOSITORY-NAME]
+  [REPOSITORY-NAME]
   Server = SERVER-LOCATION
   Include = REPOSITORY-LIST
 {{< /file-excerpt >}}
@@ -322,7 +322,6 @@ The Arch Build System allows users to compile and install software not included 
 
 {{< note >}}
 All commands explained here should be run as root unless otherwise specified.
-
 {{< /note >}}
 
 Begin by installing the `abs` framework and the `base-devel` packages:
@@ -348,7 +347,7 @@ Change to the package's directory:
 You have the option of modifying the `PKGBUILD` file. There's a build shell function that you can use to add additional patches to the files if you have modifications to the software or the build process. That shell function generally looks like:
 
 {{< file-excerpt "~/abs/PACKAGE/PKGBUILD" >}}
-build() {
+  build() {
     cd $startdir/src/$pkgname-$pkgver.orig
 
     patch -Np1 -i

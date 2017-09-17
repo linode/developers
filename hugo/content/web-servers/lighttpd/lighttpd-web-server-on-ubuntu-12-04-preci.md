@@ -104,7 +104,7 @@ and continue by reloading lighttpd:
 Modify the following settings in your `/etc/lighttpd/conf-enabled/10-simple-vhost.conf` file:
 
 {{< file-excerpt "/etc/lighttpd/conf-enabled/10-simple-vhost.conf" lighty >}}
-simple-vhost.server-root = "/var/www"
+    simple-vhost.server-root = "/var/www"
     simple-vhost.document-root = "/htdocs/"
     # simple-vhost.default-host = "brackley.org"
 {{< /file-excerpt >}}
@@ -146,7 +146,7 @@ Begin by adding the "mod\_evhost" module in the server.modules block of the `/et
 To accomplish the same directory structure with evhost as with the simple-vhost, we would need to insert the following statement into `lighttpd.conf`:
 
 {{< file-excerpt "lighttpd.conf" lighty >}}
-evhost.path-pattern = "/var/www/%0/htdocs/"
+    evhost.path-pattern = "/var/www/%0/htdocs/"
 {{< /file-excerpt >}}
 
 
@@ -155,7 +155,7 @@ You have maximum flexibility to create virtual hosts in this manner. The naming 
 You can modify the url format lighttpd recognizes by defining the pattern that gets passed through to the directory from which the content lives.
 
 {{< file-excerpt "lighttpd.conf" lighty >}}
-# define a pattern for the host url finding
+    # define a pattern for the host url finding
     # %% => % sign
     # %0 => domain name + tld
     # %1 => tld
@@ -205,7 +205,7 @@ Lighttpd will send CGI requests to CGI handlers on the basis of file extensions,
 If you install the php5-cgi package and enable mod\_fastcgi with `lighty-enable-mod fastcgi` then a default FastCGI handler will be configured in the file `/etc/lighttpd/conf-enabled/10-fastcgi.conf`. Though the handler will likely require specific customization for your use cases, it serves as an effective example:
 
 {{< file-excerpt "/etc/lighttpd/conf-enabled/10-fastcgi.conf" lighty >}}
-fastcgi.server    = ( ".php" =>
+    fastcgi.server    = ( ".php" =>
             ((
                     "bin-path" => "/usr/bin/php-cgi",
                     "socket" => "/tmp/php.socket",
@@ -227,7 +227,7 @@ fastcgi.server    = ( ".php" =>
 You can map more than one file extensions to a single FastCGI handler by adding the following entry to your config file:
 
 {{< file-excerpt "/etc/lighttpd/conf-enabled/10-fastcgi.conf" lighty >}}
-fastcgi.map-extensions = ( ".[ALT-EXTENSION]" => ".[EXTENSION]" )
+    fastcgi.map-extensions = ( ".[ALT-EXTENSION]" => ".[EXTENSION]" )
 {{< /file-excerpt >}}
 
 

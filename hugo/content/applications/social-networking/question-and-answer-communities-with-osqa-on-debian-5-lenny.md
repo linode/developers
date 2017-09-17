@@ -111,7 +111,7 @@ To configure OSQA, copy the `settings_local.py.dist` file inside of the `/srv/ww
 Edit the newly created `/srv/www/example.com/osqa/settings_local.py` and set the following values to correspond to the database and database credentials that you have created.
 
 {{< file-excerpt "settings\\_local.py" python >}}
-DATABASE_NAME = 'osqa'                  # Or path to database file if using sqlite3.
+    DATABASE_NAME = 'osqa'                  # Or path to database file if using sqlite3.
     DATABASE_USER = 'username'                # Not used with sqlite3.
     DATABASE_PASSWORD = '5t1ck'             # Not used with sqlite3.
     DATABASE_ENGINE = 'mysql'               # mysql, ext.
@@ -121,7 +121,7 @@ DATABASE_NAME = 'osqa'                  # Or path to database file if using sqli
 The majority of OSQA's features can be controlled from within the application itself. However, there are some options that can only be controlled from within the `setings_local.py` file. Consider the following settings, which you may need to modify to suit the needs of your application:
 
 {{< file-excerpt "settings\\_local.py" python >}}
-DEBUG=False                             # set to True to enable debug mode
+    DEBUG=False                             # set to True to enable debug mode
 
     SERVER_EMAIL = ''
     DEFAULT_FROM_EMAIL = ''
@@ -158,7 +158,7 @@ DEBUG=False                             # set to True to enable debug mode
 We'll deploy OSQA using the Apache web server using the `mod_wsgi` method of executing Python code. Include the following directives in your Apache virtual hosting configuration, presumably located at `/etc/apache2/sites-available/example.com`:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-WSGIScriptAlias / /srv/www/example.com/osqa/django.wsgi
+    WSGIScriptAlias / /srv/www/example.com/osqa/django.wsgi
     <Directory /srv/www/example.com/osqa>
        Order allow,deny
        Allow from all
@@ -169,7 +169,7 @@ WSGIScriptAlias / /srv/www/example.com/osqa/django.wsgi
 This directive tells Apache that all requests for the top level of your virtual host should be directed to the WSGI application specified in the `/srv/www/example.com/osqa/django.wsgi` file, which we'll create below. In order to allow Apache to continue to serve some static files, insert `Alias` directives in the following form:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-Alias /robots.txt /srv/www/example.com/public_html/robots.txt
+    Alias /robots.txt /srv/www/example.com/public_html/robots.txt
     Alias /favicon.ico /srv/www/example.com/public_html/favicon.ico
     Alias /images /srv/www/example.com/public_html/images 
     Alias /static /srv/www/example.com/public_html/static
@@ -179,7 +179,7 @@ Alias /robots.txt /srv/www/example.com/public_html/robots.txt
 Now create the required `django.wsgi` file, as specified:
 
 {{< file "/srv/www/example.com/osqa/django.wsgi" python >}}
-import os
+    import os
     import sys
 
     sys.path.append('/srv/www/example.com/osqa')

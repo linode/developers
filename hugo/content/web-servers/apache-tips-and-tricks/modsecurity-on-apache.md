@@ -67,10 +67,8 @@ There are five rules directories:
 - optional\_rules
 - slr\_rules
 
- {{< note >}}
-
+{{< note >}}
 The activated\_rules directory will be empty in case you wanted to symlink the configuration files for the rules you wish to use into that directory.
-
 {{< /note >}}
 
 There are two ways to configure ModSecurity: use a basic ruleset, or use symbolic links. The following sections explain how to use both methods.
@@ -81,34 +79,33 @@ If you want to get started with a basic ruleset and would rather not bother with
 
 1.  Modify your httpd.conf file as shown below:
 
-    > {{< file >}}
+    >{{< file >}}
 /etc/apache2/httpd.conf (Debian / Ubuntu)
 
-\<IfModule security2\_module\>
-:   Include modsecurity-crs/*.conf Include modsecurity-crs/base\_rules/*.conf
+> \<IfModule security2\_module\>
+> :   Include modsecurity-crs/*.conf Include modsecurity-crs/base\_rules/*.conf
+>
+> \</IfModule\>
 
-\</IfModule\>
-
-{: .file }
+{{< file >}}
 /etc/httpd/conf/httpd.conf (CentOS / Fedora)
 
 \<IfModule security2\_module\>
 :   Include modsecurity-crs/*.conf Include modsecurity-crs/base\_rules/*.conf
 
 \</IfModule\>
-
 {{< /file >}}
 
 2.  In the *modsecurity\_crs\_20\_protocol\_violations.conf* file, rename the `REQBODY_ERROR` variable to `REQBODY_PROCESSOR_ERROR`.
 3.  Restart Apache for the updates to take effect:
 
-    > Debian / Ubuntu:
-    >
-    >     /etc/init.d/apache2 restart
-    >
-    > CentOS / Fedora:
-    >
-    >     /etc/init.d/httpd restart
+Debian / Ubuntu:
+
+/etc/init.d/apache2 restart
+
+CentOS / Fedora:
+
+/etc/init.d/httpd restart
 
 You have successfully configured ModSecurity.
 
@@ -118,7 +115,7 @@ If you would rather symbolically link those configuration files to the activated
 
 1.  Edit the Apache configuration file so `IfModule` looks like this:
 
-    > {{< file >}}
+{{< file >}}
 /etc/apache2/httpd.conf (Debian / Ubuntu)
 
 \<IfModule security2\_module\>
@@ -133,27 +130,27 @@ Include modsecurity-crs/activated\_rules/\*.conf
 :   Include modsecurity-crs/modsecurity\_crs\_10\_config.conf
 Include modsecurity-crs/activated\_rules/\*.conf
 \</IfModule\>
-
 {{< /file >}}
 
 2.  Create the symbolic links before restarting Apache. A few examples are shown below.
 
     - To copy all the base\_rules over to activated\_rules:
-    >
-    >         for f in `ls base_rules/` ; do ln -s /usr/local/apache/conf/crs/base_rules/$f activated_rules/$f ; done
-    >
+
+for f in `ls base_rules/` ; do ln -s /usr/local/apache/conf/crs/base_rules/$f activated_rules/$f ; done
+
     - To copy the comment spam rules from the optional\_rules directory to the activated\_rules directory:
-    >
-    >         for f in `ls optional_rules/ | grep comment_spam` ; do sudo ln -s /usr/local/apache/conf/crs/optional_rules/$f activated_rules/$f ; done
-    >
+
+for f in `ls optional_rules/ | grep comment_spam` ; do sudo ln -s /usr/local/apache/conf/crs/optional_rules/$f activated_rules/$f ; done
+
 3.  Restart Apache for the updates to take effect:
 
-    > Debian / Ubuntu:
-    >
-    >     /etc/init.d/apache2 restart
-    >
-    > CentOS / Fedora:
-    >
-    >     /etc/init.d/httpd restart
+Debian / Ubuntu:
+
+/etc/init.d/apache2 restart
+
+CentOS / Fedora:
+
+/etc/init.d/httpd restart
 
 You have successfully configured ModSecurity.
+{{< /file >}}

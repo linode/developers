@@ -19,10 +19,8 @@ Maintaining your accounts, passwords, and contact information in the Linode Mana
 
 You can grant other users access to the Linode Manager by creating *accounts* and assigning *permissions* to restrict access to certain areas of the control panel. Adding users and configuring permissions is useful for groups that need to grant all team members access to the Linode Manager, or organizations that just want their billing department to have a separate account to receive invoices and billing information.
 
- {{< note >}}
-
+{{< note >}}
 Your account was automatically created when you signed up for Linode. If you will be the only person accessing the Linode Manager, you won't need to create any other user accounts.
-
 {{< /note >}}
 
 ### Adding a User
@@ -64,10 +62,8 @@ Here's how to set a user's access permissions:
 
 5.  Select checkboxes in the **Global Grants** section to allow the user to add Linodes, Domains, and NodeBalancers to the account, create StackScripts, access all billing information, and cancel the entire account.
 
- {{< note >}}
-
+{{< note >}}
 Granting access to settings denoted with a dollar sign (\$) will allow the user perform actions that incur billing costs, such as adding or resizing a Linode.
-
 {{< /note >}}
 
 6.  Select checkboxes in the other sections to allow the user to access certain features and sections of the Linode Manager.
@@ -153,10 +149,8 @@ Did you forget your Linode Manager password? Reset it with the *Forgot Password*
 1.  Visit the [Forgot Password](https://manager.linode.com/session/forgot/password) webpage.
 2.  Enter your username in the **Username** field.
 
- {{< note >}}
-
+{{< note >}}
 If you've forgotten your Linode Manager username, see [Recovering a Lost Username](#recovering-a-lost-username).
-
 {{< /note >}}
 
 3.  Check your email for a message containing further instructions.

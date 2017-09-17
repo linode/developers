@@ -23,10 +23,8 @@ Network File System (**NFS**) is a file system that allows computer users to acc
 
 This guide walks you through the setup of two Linodes; one acting as the NFS server, and the other acting as the NFS client. In this example, both Linodes are in the same data center and will communicate using their private IP addresses, so your data will never leave Linode's network. Other NFS setups can potentially send traffic over the public Internet.
 
- {{< note >}}
-
+{{< note >}}
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ## Prerequisites
@@ -53,8 +51,9 @@ Choose one Linode to be your NFS server. Follow the instructions below to config
 
 4.  Use your favorite editor to add the following line to the `/etc/exports` file:
 
-    {{< file-excerpt "/etc/exports" >}}
-/var/nfsroot	 <client linode private ip>/32(rw,root_squash,subtree_check)
+{{< file-excerpt "/etc/exports" >}}
+		/var/nfsroot	 <client linode private ip>/32(rw,root_squash,subtree_check)
+	
 {{< /file-excerpt >}}
 
 	
@@ -88,8 +87,9 @@ The other Linode will be your NFS client. Follow the instructions below to confi
 
 4.  Use your favorite editor to add the following line to the `/etc/fstab` file:
 
-    {{< file-excerpt "/etc/fstab" >}}
-<server linode private ip>:/var/nfsroot /mnt/remotenfs nfs rw,async,hard,intr 0 0
+{{< file-excerpt "/etc/fstab" >}}
+		<server linode private ip>:/var/nfsroot /mnt/remotenfs nfs rw,async,hard,intr 0 0
+	
 {{< /file-excerpt >}}
 
 

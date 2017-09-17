@@ -75,7 +75,7 @@ Here's how to upgrade from Debian 6 to Debian 7:
 1.  Edit your `/etc/apt/sources.list` file and change all instances of `squeeze` to `wheezy`. Once you have finished, your `/etc/apt/sources.list` should resemble the following:
 
 {{< file-excerpt "/etc/apt/sources.list" >}}
-deb http://ftp.us.debian.org/debian/ wheezy main
+    deb http://ftp.us.debian.org/debian/ wheezy main
     deb-src http://ftp.us.debian.org/debian/ wheezy main
 
     deb http://security.debian.org/ wheezy/updates main
@@ -99,10 +99,8 @@ deb http://ftp.us.debian.org/debian/ wheezy main
 
         sudo apt-get dist-upgrade
 
- {{< note >}}
-
+{{< note >}}
 Services using "NSS" (Network Security Services) and "PAM" (Pluggable Authentication Modules) will need to be restarted. In most cases the default list of services to be restarted is fine. If you have additional services that you run that use NSS or PAM, please add them to the list.
-
 {{< /note >}}
 
 5.  Once the system is updated, reboot your system using the [Linode Manager](https://manager.linode.com) to make sure that there were no problems during the upgrade. While your system reboots, you can watch your Linode's console for errors using the AJAX terminal or [Lish](/docs/troubleshooting/using-lish-the-linode-shell).

@@ -82,7 +82,7 @@ An an example, if you wanted to back up the "/home" directory on a remote host n
 Add a line to your `/etc/fstab` file that resembles the following example. Change the value for `user@remotehost` to match your remote host's configuration. Change the values for `remotehost` and `remotepath` to the ones you used in the last step for your mount point directory.
 
 {{< file "/etc/fstab" >}}
-<sshfs#user@remotehost>:/remotepath /home/rdiffbackup/mnt/remotehost/remotepath fuse user,noauto,ro 0 0
+	 <sshfs#user@remotehost>:/remotepath /home/rdiffbackup/mnt/remotehost/remotepath fuse user,noauto,ro 0 0
 {{< /file >}}
 
 
@@ -99,7 +99,7 @@ Examine the contents of your backup directory after the initial backup completes
 Create a shell script named `/home/rdiffbackup/backup.sh` with the following contents. Adjust the values for directories to match those used in the previous step.
 
 {{< file "/home/rdiffbackup/backup.sh" >}}
-#!/bin/sh
+	#!/bin/sh
 	mount /home/rdiffbackup/mnt/remotehost/remotepath
 	rdiff-backup /home/rdiffbackup/mnt/remotehost/remotepath /home/rdiffbackup/backup/remotehost/remotepath
 	umount /home/rdiffbackup/mnt/remotehost/remotepath

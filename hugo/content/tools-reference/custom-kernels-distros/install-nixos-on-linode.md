@@ -22,9 +22,7 @@ external_resources:
 While Nix can be installed on any Linux system, NixOS takes these ideas a step further by extending them to the entire system, allowing configuration files and active state to be managed as well. This unique approach to system management has many advantages that can make deploying software and application updates easier.
 
 {{< caution >}}
-
 NixOS is not officially supported by Linode at the time of publishing this guide. Any issues with NixOS on your Linode are outside the scope of Linode Support. In addition, certain Linode tools, such as Network- and Boot-Helpers, will not work with NixOS.
-
 {{< /caution >}}
 
 ## Before You Begin
@@ -107,7 +105,7 @@ Since you can modify these later, it is better to use the `/dev/sdX` identifiers
 Replace the contents of the `filesystems` and `swapDevices` sections with the following:
 
 {{< file-excerpt "/mnt/etc/nixos/hardware-configuration.nix" aconf >}}
-filesystems."/" =
+    filesystems."/" =
       { device = "/dev/sda";
         fsType = "ext4";
       };
@@ -150,7 +148,7 @@ Most of these changes bring the NixOS defaults in line with how Linode's standar
 Root logins via SSH are disabled by default. To access your Linode, enable root login during installation:
 
 {{< file-excerpt "/mnt/etc/nixos/configuration.nix" aconf >}}
-services.openssh = {
+    services.openssh = {
       enable = true;
       permitRootLogin = "yes";
     };

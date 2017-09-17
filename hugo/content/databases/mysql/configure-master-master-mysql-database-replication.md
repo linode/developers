@@ -21,7 +21,6 @@ MySQL Master-Master replication adds speed and redundancy for active websites. W
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with ``sudo``. If you're not familiar with the ``sudo`` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
 
 This guide is written for Debian 7 or Ubuntu 14.04.
-
 {{< /note >}}
 
 ##Install MySQL
@@ -38,8 +37,8 @@ Use the following commands to install MySQL on each of the Linodes:
 
     **Server 1:**
 
-    {{< file-excerpt "/etc/mysql/my.cnf" aconf >}}
-server_id           = 1
+{{< file-excerpt "/etc/mysql/my.cnf" aconf >}}
+    server_id           = 1
     log_bin             = /var/log/mysql/mysql-bin.log
     log_bin_index       = /var/log/mysql/mysql-bin.log.index
     relay_log           = /var/log/mysql/mysql-relay-bin
@@ -54,8 +53,8 @@ server_id           = 1
 
     **Server 2:**
 
-    {{< file-excerpt "/etc/mysql/my.cnf" aconf >}}
-server_id           = 2
+{{< file-excerpt "/etc/mysql/my.cnf" aconf >}}
+    server_id           = 2
     log_bin             = /var/log/mysql/mysql-bin.log
     log_bin_index       = /var/log/mysql/mysql-bin.log.index
     relay_log           = /var/log/mysql/mysql-relay-bin
@@ -70,8 +69,8 @@ server_id           = 2
 
 2.  For each of the Linodes, edit the `bind-address` configuration in order to use the private IP addresses:
 
-    {{< file-excerpt "/etc/mysql/my.cnf" >}}
-bind-address    = x.x.x.x
+{{< file-excerpt "/etc/mysql/my.cnf" >}}
+    bind-address    = x.x.x.x
 {{< /file-excerpt >}}
 
 

@@ -36,14 +36,14 @@ Since CentOS does not include the latest version of PHP 5.2 (which is required f
 Edit the file `/etc/yum.repos.d/webtatic.repo`. Under `[webtatic]` add the following line:
 
 {{< file-excerpt "/etc/yum.repos.d/webtatic.repo" ini >}}
-short_open_tag = On
+    short_open_tag = On
 {{< /file-excerpt >}}
 
 
 Replace it with this line:
 
 {{< file-excerpt "/etc/php.ini" ini >}}
-short_open_tag = Off
+    short_open_tag = Off
 {{< /file-excerpt >}}
 
 
@@ -104,7 +104,7 @@ Now, we need to configure the web server to serve our new project.
 Edit `/etc/httpd/conf/httpd.conf` and add at the end:
 
 {{< file-excerpt "/etc/httpd/conf/httpd.conf" apache >}}
-NameVirtualHost *:80
+    NameVirtualHost *:80
     <VirtualHost *:80>
       DocumentRoot "/home/sfproject/web"
       DirectoryIndex index.php

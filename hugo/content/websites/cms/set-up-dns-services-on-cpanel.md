@@ -60,7 +60,7 @@ To get your cPanel Linode ready as your master DNS server, you'll need to make a
 The transfer of DNS records from your Master DNS server to the Linode DNS servers is done through AXFR queries. By default these are not allowed. Add these sections to `options`:
 
 {{< file-excerpt "/etc/named.conf" >}}
-allow-transfer {
+    allow-transfer {
          104.237.137.10;
          65.19.178.10;
          75.127.96.10;
@@ -112,5 +112,6 @@ You'll then want to begin adding your domains to the Linode DNS Manager as slave
 
 5.  Click the "Add a Slave Zone" button.
 
-    {: .note }
-    > Once you save your slave zone, you'll see a new text field titled "Domain Transfers". You can leave this empty.
+{{< note >}}
+Once you save your slave zone, you'll see a new text field titled "Domain Transfers". You can leave this empty.
+{{< /note >}}

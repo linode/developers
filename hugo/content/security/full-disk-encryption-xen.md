@@ -65,16 +65,12 @@ Now you're ready to enable full disk encryption on your Linode running Debian 7 
 
         cryptsetup luksFormat /dev/xvdc
 
-	{{< caution >}}
-
-	> If you lose this passphrase your data will be irretrievable!
-
+{{< caution >}}
+If you lose this passphrase your data will be irretrievable!
 {{< /caution >}}
 
-	{{< note >}}
-
-	> You may receive a FATAL notice about loading a kernel module used for hardware crypto acceleration. This message can be safely ignored.
-
+{{< note >}}
+You may receive a FATAL notice about loading a kernel module used for hardware crypto acceleration. This message can be safely ignored.
 {{< /note >}}
 
 4.  Open this encrypted device for access by entering the following command. Enter your passphrase when prompted.
@@ -92,10 +88,8 @@ Now you're ready to enable full disk encryption on your Linode running Debian 7 
         mkswap /dev/mapper/crypt-swap
         swapon /dev/mapper/crypt-swap
 
-	{{< note >}}
-
-	> Swap will not persist through reboots, so a random key will be used to encrypt swap data.
-
+{{< note >}}
+Swap will not persist through reboots, so a random key will be used to encrypt swap data.
 {{< /note >}}
 
 7.  Mount the encrypted volume to make it writable by entering the following commands, one by one:

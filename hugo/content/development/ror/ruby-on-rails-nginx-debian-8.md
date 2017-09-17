@@ -24,9 +24,7 @@ Ruby on Rails is a rapid development web framework that allows web designers and
 ![Ruby on Rails with nginx on Debian 8](/docs/assets/ruby_on_rails_with_nginx_debian_8_smg.png "Ruby on Rails with nginx on Debian 8")
 
 {{< note >}}
-
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ## Before You Begin
@@ -63,8 +61,8 @@ This guide is written for a non-root user. Commands that require elevated privil
 
 3.  With `sudo` or as the root user, create the file `/etc/apt/sources.list.d/passenger.list` with the following contents:
 
-    {{< file "/etc/apt/sources.list.d/passenger.list" aconf >}}
-deb https://oss-binaries.phusionpassenger.com/apt/passenger jessie main
+{{< file "/etc/apt/sources.list.d/passenger.list" aconf >}}
+        deb https://oss-binaries.phusionpassenger.com/apt/passenger jessie main
 {{< /file >}}
 
 
@@ -90,8 +88,8 @@ deb https://oss-binaries.phusionpassenger.com/apt/passenger jessie main
 
 1.  Nginx is now installed on the system, but support for Phusion Passenger is not enabled. As root, or with the `sudo ` command, edit the file `/etc/nginx/nginx.conf` and uncomment these lines:
 
-    {{< file-excerpt "/etc/nginx/nginx.conf" aconf >}}
-passenger_root /usr/lib/ruby/vendor_ruby/phusion_passenger/locations.ini;
+{{< file-excerpt "/etc/nginx/nginx.conf" aconf >}}
+        passenger_root /usr/lib/ruby/vendor_ruby/phusion_passenger/locations.ini;
         passenger_ruby /usr/bin/passenger_free_ruby;
 {{< /file-excerpt >}}
 

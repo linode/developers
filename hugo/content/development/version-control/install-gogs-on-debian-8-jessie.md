@@ -31,9 +31,7 @@ external_resources:
 This tutorial shows you how to install and configure Gogs, using PostgreSQL for the database server and Nginx for the reverse proxy server. We will use `example.com` as the domain name for the site. Hosting your own software projects could benefit from large amounts of disk space, so consider using our [Block Storage](/docs/platform/how-to-use-block-storage-with-your-linode) service with this setup.
 
 {{< note >}}
-
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ## Before Installing Gogs
@@ -73,10 +71,8 @@ In this section we will download the latest version of Go (version 1.7 at the ti
         echo 'export PATH=$PATH:$GOROOT/bin:$GOPATH/bin' >> $HOME/.bashrc
         source $HOME/.bashrc
 
-    {{< note >}}
-
+{{< note >}}
 We need to specify the `GOROOT` environment variable since we are installing Go to a custom location.
-
 {{< /note >}}
 
 4.  Check that Go is properly installed:
@@ -173,8 +169,8 @@ We will use Nginx as the reverse proxy for Gogs, so we can access Gogs using our
 
 3.  Set Nginx as the reverse proxy for Gogs. Using `sudo`, create a new file named `/etc/nginx/sites-available/gogs`, and set the content as shown below:
 
-    {{< file "/etc/nginx/sites-available/gogs" aconf >}}
-server {
+{{< file "/etc/nginx/sites-available/gogs" aconf >}}
+        server {
             listen 80;
             server_name example.com;
             return 302 https://$server_name$request_uri;
@@ -210,8 +206,8 @@ In this section we will setup Gogs to run automatically on boot by creating a sy
 
 1.  Using `sudo`, create `/etc/systemd/system/gogs.service`:
 
-    {{< file "/etc/systemd/system/gogs.service" ini >}}
-[Unit]
+{{< file "/etc/systemd/system/gogs.service" ini >}}
+        [Unit]
         Description=Gogs (Go Git Service)
         After=syslog.target
         After=network.target
@@ -298,8 +294,8 @@ If you notice, the Gogs site is still accessible using the plain HTTP via `http:
 
 2.  Open the generated configuration file `custom/conf/app.ini`. Add a new configuration value `HTTP_ADDR` under the `[server]` section. The section should look like this:
 
-    {{< file-excerpt "/home/git/go/src/github.com/gogits/gogs/custom/conf/app.ini" ini >}}
-[server]
+{{< file-excerpt "/home/git/go/src/github.com/gogits/gogs/custom/conf/app.ini" ini >}}
+        [server]
         DOMAIN = example.com
         HTTP_ADDR = 127.0.0.1
         HTTP_PORT = 3000

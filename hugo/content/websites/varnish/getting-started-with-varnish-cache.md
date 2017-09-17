@@ -46,9 +46,7 @@ If your web server is nginx and you plan to use Varnish cache to serve WordPress
         sudo apt update && sudo apt upgrade
 
 {{< note >}}
-
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ## Install and Configure Varnish Cache
@@ -74,8 +72,8 @@ Recent versions of Debian (8 and newer) and Ubuntu (15.04 and newer) require Var
 
 1.  Open the `varnish.service` file, set the port, configuration file, and *memory allocation* on the `ExecStart` line. In the following example, these values are: `-a :80`, `/etc/varnish/user.vcl`, and `malloc,1G`.
 
-    {{< file-excerpt "/lib/systemd/system/varnish.service" bash >}}
-ExecStart=/usr/sbin/varnishd -j unix,user=vcache -F -a :80 -T localhost:6082 -f /etc/varnish/user.vcl -S /etc/varnish/secret -s malloc,1G
+{{< file-excerpt "/lib/systemd/system/varnish.service" bash >}}
+      ExecStart=/usr/sbin/varnishd -j unix,user=vcache -F -a :80 -T localhost:6082 -f /etc/varnish/user.vcl -S /etc/varnish/secret -s malloc,1G
 {{< /file-excerpt >}}
 
 
@@ -92,7 +90,7 @@ ExecStart=/usr/sbin/varnishd -j unix,user=vcache -F -a :80 -T localhost:6082 -f 
 Now that you've pointed the Varnish start script to `user.vcl`, you need to configure that file to serve the content Varnish gets from the web server. Edit the `backend default {` section of `/etc/varnish/user.vcl` to tell Varnish where to get the server (backend) content. The example below  uses port `8080`, a web server setting you  will configure later:
 
 {{< file-excerpt "/etc/varnish/user.vcl" >}}
-backend default {
+  backend default {
       .host = "127.0.0.1";
       .port = "8080";
   }
@@ -104,7 +102,7 @@ backend default {
 By default, Varnish will cache requests for two minutes. To adjust this time, open your VCL file and override the `vcl_backend_response` subroutine by updating  your backend declaration:
 
 {{< file-excerpt "/etc/varnish/user.vcl" >}}
-sub vcl_backend_response {
+  sub vcl_backend_response {
     set beresp.ttl = 5m;
   }
 {{< /file-excerpt >}}
@@ -128,15 +126,15 @@ To allow Varnish to communicate with your web server, you'll need to modify a fe
 
     **Apache**:
 
-    {{< file-excerpt "/etc/apache2/sites-available/example.com.conf" aconf >}}
-<VirtualHost *:8080>
+{{< file-excerpt "/etc/apache2/sites-available/example.com.conf" aconf >}}
+        <VirtualHost *:8080>
 {{< /file-excerpt >}}
 
 
     **nginx**:
     
-    {{< file-excerpt "/etc/nginx/sites-available/example.com" aconf >}}
-listen 8080;
+{{< file-excerpt "/etc/nginx/sites-available/example.com" aconf >}}
+        listen 8080;
         listen [::]:8080;
 {{< /file-excerpt >}}
 
@@ -172,7 +170,7 @@ You may want to exclude specific parts of your website from Varnish caching, par
 You'll need to override the `vcl_recv` subroutine in our VCL file, which is run each time Varnish receives a request, then add a conditional:
 
 {{< file-excerpt "/etc/varnish/user.vcl" >}}
-sub vcl_recv
+  sub vcl_recv
   {
       if (req.http.host == "example.com" &&
           req.url ~ "^/admin")
@@ -192,7 +190,7 @@ As mentioned earlier, if Varnish detects your website is setting cookies, it ass
 Add this line to the bottom of the `vcl_recv` section:
 
 {{< file-excerpt "/etc/varnish/user.vcl" >}}
-unset req.http.Cookie;
+  unset req.http.Cookie;
 {{< /file-excerpt >}}
 
 
@@ -201,7 +199,7 @@ You may find that a particular cookie is important for displaying content or det
 For this case, you'll check `req.http.Cookie` for a cookie called "logged_in", and if its found, the request will be passed on to the backend with no caching. Here's our entire `vcl_recv` subroutine thus far:
 
 {{< file-excerpt "/etc/varnish/user.vcl" >}}
-sub vcl_recv
+  sub vcl_recv
   {
       if ((req.http.host ~ "example.com" &&
           req.url ~ "^/admin") ||
@@ -222,7 +220,7 @@ It's likely you don't want to cache [POST](https://en.wikipedia.org/wiki/POST_(H
 To accomplish this, add the following condition to the existing `return (pass)` block inside of `vcl_recv`:
 
 {{< file-excerpt "/etc/varnish/user.vcl" >}}
-if ((req.http.host == "example.com" &&
+  if ((req.http.host == "example.com" &&
       req.url ~ "^/admin") ||
       req.http.Cookie == "logged_in" ||
       req.method == "POST")
@@ -239,7 +237,7 @@ Varnish can use a built-in tool called *backend polling* to check on the backend
 To set up polling, add a probe section to the backend declaration in `/etc/varnish/user.vcl`:
 
 {{< file-excerpt "/etc/varnish/user.vcl" >}}
-backend default {
+  backend default {
       .host = '127.0.0.1';
       .port = '8080';
       .probe = {
@@ -258,7 +256,7 @@ These settings are just a starting point, and you may want to tweak them for you
 If the backend fails the test, it's considered unhealthy and objects are served out of the cache in accordance to their grace time setting. To set the grace time, include the following line in `vcl_backend_response`:
 
 {{< file-excerpt "/etc/varnish/user.vcl" >}}
-set beresp.grace = 1h;
+  set beresp.grace = 1h;
 {{< /file-excerpt >}}
 
 

@@ -49,7 +49,7 @@ In order for `mod_wsgi` to be able to provide access to your application, you wi
 In this example, the application is stored in `/srv/www/example.com/application` directory. Modify this example and all following examples to conform to the actual files and locations used in your deployment.
 
 {{< file "/srv/www/example.com/application/application.wsgi" python >}}
-import os
+    import os
     import sys
 
     sys.path.append('/srv/www/example.com/application')
@@ -75,7 +75,7 @@ You must append the path of your application to the system path as above. The de
 Consider the following example Web.py *application* which is embedded in a `application.wsgi` file. The [Web.py Framework](/docs/websites/frameworks/webpy-on-ubuntu-12-04-precise-pangolin/) must be installed in order for the following application to run successfully.
 
 {{< file-excerpt "/srv/www/example.com/application/application.wsgi" python >}}
-import web
+    import web
 
     urls = (
         '/(.*)', 'hello'
@@ -100,7 +100,7 @@ import web
 Consider the following example `application.wsgi` file for Django applications:
 
 {{< file-excerpt "/srv/www/example.com/application/application.wsgi" python >}}
-import os
+    import os
     import sys
 
     sys.path.append('/srv/www/example.com/application')
@@ -122,7 +122,7 @@ Configure Apache
 Deploy the following `VirtualHost` configuration and modify the paths and domains to reflect the requirements of your application:
 
 {{< file-excerpt "Apache `VirtualHost` Configuration" apache >}}
-<VirtualHost *:80>
+    <VirtualHost *:80>
        ServerName example.com
        ServerAlias www.example.com
        ServerAdmin username@example.com

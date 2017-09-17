@@ -32,7 +32,6 @@ Configure your `/etc/hosts` file to include your Linode's fully qualified domain
 
 {{< file >}}
 /etc/hosts
-
 {{< /file >}}
 
 > 127.0.0.1 localhost.localdomain localhost 12.34.56.78 hostname.example.com hostname

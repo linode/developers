@@ -59,7 +59,7 @@ A Dockerfile uses the following commands for building the images:
 Not every command must be used. Below is a working Dockerfile example, using only the `MAINTAINER`, `FROM`, and `RUN` commands:
 
 {{< file "dockerfile" docker >}}
-MAINTAINER NAME EMAIL
+    MAINTAINER NAME EMAIL
     FROM ubuntu:latest
     RUN apt-get -y update && apt-get -y upgrade && apt-get install -y build-essential
 {{< /file >}}

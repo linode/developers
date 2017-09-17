@@ -22,9 +22,7 @@ alias: ['applications/game-servers/team-fortress2-on-debian-and-ubuntu/']
 2.  Complete our guide: [Install SteamCMD for a Steam Game Server](/docs/game-servers/install-steamcmd-for-a-steam-game-server). This will get SteamCMD installed and running on your Linode and this guide will pick up where the SteamCMD page leaves off.
 
 {{< note >}}
-
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ## Prerequisites for Team Fortress 2
@@ -72,10 +70,8 @@ From the SteamCMD guide, two additional steps are needed specifically for TF2.
 
 		quit
 
-	{{< note >}}
-
-	>To update TF2, run the above 4 commands again.
-
+{{< note >}}
+To update TF2, run the above 4 commands again.
 {{< /note >}}
 
 ##Configure Team Fortress 2
@@ -110,17 +106,15 @@ The `motd_default.txt` file can contain HTML and is displayed as a website upon 
 The file `~/Steam/tf2/tf/cfg/server.cfg` is what contains all of the settings you need to customize the loadout of your game. A `server.cfg` file is not needed to run the game but we have a sample config file [here](/docs/assets/team_fortress_2_server_config) which you can edit for your own use.
 
 {{< note >}}
-
 For the configuration of this file, `0` means *off* and `1` means *on*.
-
 {{< /note >}}
 
 ### Startup Script
 
 1.  Create a startup script for TF2 with the following contents:
 
-    {{< file "~/starttf2.sh" >}}
-#!/bin/sh
+{{< file "~/starttf2.sh" >}}
+        #!/bin/sh
 
         cd ./Steam/tf2
         screen -S "Team Fortress 2 Server" ./srcds_run -game tf +map ctf_2fort.bsp
@@ -141,9 +135,8 @@ For the configuration of this file, `0` means *off* and `1` means *on*.
 
         cd ~/ && ./starttf2.sh
 
-    {{< caution >}}
+{{< caution >}}
 From this point, do not press the **Control+C** keys while in the console unless you want to stop TF2.
-
 {{< /caution >}}
 
 2.  To detach from the screen session running the server console, press these two key combinations in succession:

@@ -86,7 +86,7 @@ With all of the dependencies installed, we must configure Apache for virtual hos
 You will want to insert a `Location` block inside the virtual hosting block for the domain where you want the Django application to run. The location block looks like this:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-<Location "/">
+    <Location "/">
         SetHandler python-program
         PythonHandler django.core.handlers.modpython
         SetEnv DJANGO_SETTINGS_MODULE mysite.settings
@@ -98,7 +98,7 @@ You will want to insert a `Location` block inside the virtual hosting block for 
 You will need to change the `mysite.settings` to correspond to the settings file for your Django application in the Python path. The pPython path is specific to the instance and version of Python that you're using and can be modified in your Python settings. If you want to store your Django application in another location, you'll need to specify a `PythonPath` variable in the `Location` block above by adding the following line:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-PythonPath "['/srv/www/brackley.net/application'] + sys.path"
+    PythonPath "['/srv/www/brackley.net/application'] + sys.path"
 {{< /file-excerpt >}}
 
 
@@ -107,7 +107,7 @@ This line will allow `mod_python` to look for your settings file in the `/srv/ww
 The `Location` block tells Apache what to do when a request comes in for a given URL location. For instance, if the above block is located in the `VirtualHost` entry for the `example.com` domain, then all requests for the URL `http://example.com/` would be directed to the Django application. Consider the following complete virtual host configuration:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-<VirtualHost example.com:80>
+    <VirtualHost example.com:80>
         ServerName example.com
         ServerAdmin username@example.com
         DocumentRoot /srv/www/example.com/public_html
@@ -136,7 +136,7 @@ If you wanted to have a static page located at the root of the domain and only u
 Typically, Django applications use a secondary "media" web server to more efficiently serve static content like images, video, audio, and even static text resources. This permits more effective scaling possibilities. If you need to turn off Django and `mod_python` for a particular URL, add a second location block like so:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-<Location "/files/">
+    <Location "/files/">
         SetHandler None
     </Location>
 {{< /file-excerpt >}}
@@ -150,7 +150,7 @@ Hosting Multiple Django Applications
 The easiest way to host multiple Django applications with one instance of Apache is to place each application in its own virtual host. However, if you need to host more than one application within a single `VirtualHost` entry, you'll need to specify different locations in `Location` blocks *within* that `VirtualHost` entry. Here are two example location blocks that would be inserted in your `VirtualHost` entry:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-<Location "/lollipop">
+    <Location "/lollipop">
         SetHandler python-program
         PythonHandler django.core.handlers.modpython
         SetEnv DJANGO_SETTINGS_MODULE lollipop.site.settings

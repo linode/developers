@@ -122,7 +122,6 @@ For more information about Postfix's `smtpd_tls_mandatory_protocols` setting, pl
 
 {{< note >}}
 The Postfix documentation has not yet been adjusted to disallow SSLv3.
-
 {{< /note >}}
 
 ### Dovecot

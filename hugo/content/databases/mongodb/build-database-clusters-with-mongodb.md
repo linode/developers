@@ -41,7 +41,6 @@ The commands and filepaths in this guide are based on those used in Ubuntu 16.04
 
 {{< note >}}
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-
 {{< /note >}}
 
 ## Cluster Architecture
@@ -63,7 +62,7 @@ If your Linodes are all located in the same datacenter, we recommend [adding a p
 On each Linode in your cluster, add the following to the `/etc/hosts` file:
 
 {{< file-excerpt "/etc/hosts" >}}
-192.0.2.1    mongo-config-1
+    192.0.2.1    mongo-config-1
     192.0.2.2    mongo-config-2
     192.0.2.3    mongo-config-3
     192.0.2.4    mongo-query-router
@@ -76,7 +75,6 @@ Replace the IP addresses above with the IP addresses for each Linode. Also subst
 
 {{< note >}}
 You may also configure DNS records for each host rather than using hosts file entries. However, be aware that public DNS servers, such as the ones used when configuring records in the [DNS Manager](/docs/networking/dns/dns-manager-overview), only support public IP addresses.
-
 {{< /note >}}
 
 ## Set Up MongoDB Authentication
@@ -145,8 +143,8 @@ The steps below should be performed on each config server individually, unless o
 
 1.  On each config server, modify the following values in `/etc/mongod.conf`:
 
-    {{< file-excerpt "/etc/mongod.conf" >}}
-port: 27019
+{{< file-excerpt "/etc/mongod.conf" >}}
+        port: 27019
         bindIp: 192.0.2.1
 {{< /file-excerpt >}}
 
@@ -155,8 +153,8 @@ port: 27019
 
 2.  Uncomment the `replication` section and add the `replSetName` directive below it to create a replica set for your config servers:
 
-    {{< file-excerpt "/etc/mongod.conf" >}}
-replication:
+{{< file-excerpt "/etc/mongod.conf" >}}
+        replication:
           replSetName: configReplSet
 {{< /file-excerpt >}}
 
@@ -165,8 +163,8 @@ replication:
 
 3.  Uncomment the `sharding` section and configure the host's role in the cluster as a config server:
 
-    {{< file-excerpt "/etc/mongod.conf" >}}
-sharding:
+{{< file-excerpt "/etc/mongod.conf" >}}
+        sharding:
           clusterRole: "configsvr"
 {{< /file-excerpt >}}
 
@@ -270,8 +268,8 @@ All steps here should be performed from your query router Linode (this will be t
 
 1.  Create a new configuration file called `/etc/mongos.conf`, and supply the following values:
 
-    {{< file-excerpt "/etc/mongos.conf" >}}
-# where to write logging data.
+{{< file-excerpt "/etc/mongos.conf" >}}
+        # where to write logging data.
         systemLog:
         destination: file
         logAppend: true
@@ -294,8 +292,8 @@ All steps here should be performed from your query router Linode (this will be t
 
 2.  Create a new systemd unit file for `mongos` called `/lib/systemd/system/mongos.service`, with the following information:
 
-    {{< file-excerpt "/lib/systemd/system/mongos.service" >}}
-[Unit]
+{{< file-excerpt "/lib/systemd/system/mongos.service" >}}
+        [Unit]
         Description=Mongo Cluster Router
         After=network.target
 
@@ -355,8 +353,8 @@ Now that the query router is able to communicate with the config servers, we mus
 
 1.  Log into *each* of your shard servers and change the following line in the MongoDB configuration file:
 
-    {{< file-excerpt "/etc/mongod.conf" >}}
-bindIp: 192.0.2.5
+{{< file-excerpt "/etc/mongod.conf" >}}
+        bindIp: 192.0.2.5
 {{< /file-excerpt >}}
 
 
@@ -381,9 +379,8 @@ bindIp: 192.0.2.5
 
     In this format, `rs0` is the name of the replica set for the first shard, `mongo-repl-1` is the name of the first host in the shard (using port `27017`), and so on. You'll need to run the above command separately for each individual replica set.
 
-    {{< note >}}
+{{< note >}}
 Before adding replica sets as shards, you must first configure the replica sets themselves.
-
 {{< /note >}}
 
 ## Configure Sharding
@@ -440,7 +437,6 @@ Now that the database is available for sharding and we've chosen a strategy, we 
 
 {{< note >}}
 It's not always necessary to shard every collection in a database. Depending on what data each collection contains, it may be more efficient to store certain collections in one location since database queries to a single shard are faster. Before sharding a collection, carefully analyze its anticipated contents and the ways it will be used by your application.
-
 {{< /note >}}
 
 1.  Connect to the `mongo` shell on your query router if you're not already there:

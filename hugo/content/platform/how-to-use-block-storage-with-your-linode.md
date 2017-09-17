@@ -16,10 +16,8 @@ Linode's block storage service allows you to attach additional storage volumes t
 
 
 {{< caution >}}
-
-Linode's backup services do NOT cover block storage volumes. 
+Linode's backup services do NOT cover block storage volumes.
 You MUST execute your own backups for this data.
-
 {{< /caution >}}
 
 Block Storage is currently in a free public beta for Linodes in our Newark datacenter. Any feedback you can give on the service would also be helpful and is appreciated.
@@ -40,10 +38,8 @@ This guide assumes a Linode with the root disk mounted as `/dev/sda` and swap sp
 
     [![Linode Manager add a volume](/docs/assets/bs-add-a-volume.png)](/docs/assets/bs-add-a-volume.png)
 
-    {{< note >}}
-
+{{< note >}}
 Block storage is currently only available to Linodes in our Newark datacenter. Contact [Linode Support](https://manager.linode.com/support/ticket/new?summary=Block%20Storage%20Beta) if you would like to migrate your Linode to Newark from another location.
-
 {{< /note >}}
 
      If you receive the message, "Block Storage service is not yet enabled for this Linode's host. Please contact support if you would like a migration," reply to the ticket opened earlier and quote the error's text.
@@ -70,10 +66,8 @@ Block storage is currently only available to Linodes in our Newark datacenter. C
 
     [![Linode Manager add volume](/docs/assets/bs-volume-attach-small.png)](/docs/assets/bs-volume-attach.png)
 
-    {{< note >}}
-
+{{< note >}}
 Block storage is currently only available to Linodes in our Newark datacenter. Contact [Linode Support](https://manager.linode.com/support/ticket/new?summary=Block%20Storage%20Beta) if you would like to migrate your Linode to Newark from another location.
-
 {{< /note >}}
 
      If you receive the message, "Block Storage service is not yet enabled for this Linode's host. Please contact support if you would like a migration," reply to the ticket opened earlier and quote the error's text.
@@ -109,9 +103,7 @@ Block storage is currently only available to Linodes in our Newark datacenter. C
 ## How to Delete a Block Storage Volume
 
 {{< alert-danger >}}
-
 The removal process is irreversible, and the data will be permanently deleted.
-
 {{< /alert-danger >}}
 
 1.  Shut down the Linode.
