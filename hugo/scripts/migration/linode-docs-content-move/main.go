@@ -252,7 +252,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	root := filepath.Join(pwd, "../../..") // TODO(bep) this works as a script.
+	root := filepath.Join(pwd, "../../..")
 	fromDir := filepath.Join(root, "content_old", "docs")
 	toDir := filepath.Join(root, "content")
 
