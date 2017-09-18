@@ -11,6 +11,10 @@ modified_by:
   name: Linode
 published: 2015-02-12
 title: Getting Started with NodeBalancers
+# This file has symlinks pointing to it.
+path: "uptime/getting-started-with-nodebalancers.md"
+# This file has symlinks pointing to it.
+path: "uptime/loadbalancing/getting-started-with-nodebalancers.md"
 ---
 
 Nearly all applications that are built using Linodes can benefit from load balancing, and load balancing itself is the key to expanding an application to larger numbers of users. Linode now provides NodeBalancers, which can ease the deployment and administration of a load balancer.

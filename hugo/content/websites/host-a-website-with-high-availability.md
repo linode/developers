@@ -16,6 +16,8 @@ external_resources:
 - '[Apache Web Server](https://httpd.apache.org/)'
 - '[Keepalived](http://www.keepalived.org/)'
 - '[XtraBackup](https://www.percona.com/doc/percona-xtrabackup/2.4/index.html)'
+# This file has symlinks pointing to it.
+path: "uptime/loadbalancing/host-a-website-with-high-availability.md"
 ---
 
 When deploying a website or application, one of the most important elements to consider is availability, or the period of time for which your content is accessible to users. High availability is a term used to describe server setups that eliminate single points of failure by offering redundancy, monitoring, and failover. This ensures that even if one component of your web stack goes down, the content will still be accessible. 

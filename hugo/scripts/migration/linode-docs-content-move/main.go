@@ -16,7 +16,19 @@ import (
 
 type contentFixer func(path, s string) (string, error)
 
-func fixContent(path, s string) (string, error) {
+func (m *mover) relOldContentPath(s string) string {
+	return s[strings.Index(s, "content_old")+17:]
+}
+
+func (m *mover) relNewContentPath(s string) string {
+	return s[strings.Index(s, "content")+8:]
+}
+
+func (m *mover) fromToPath(from string) string {
+	return strings.Replace(from, "content_old/docs", "content", 1)
+}
+
+func (m *mover) fixContent(path, s string) (string, error) {
 
 	// TODO(bep) fix markdown titles: ##Configure Apache
 	// TODO(bep) check aliases
@@ -49,7 +61,7 @@ func fixContent(path, s string) (string, error) {
 		}
 	}
 
-	relPath := path[strings.Index(path, "content_old")+17:]
+	relPath := m.relOldContentPath(path)
 
 	// Add front matter to get them listen on the front page tiles.
 	if addon, ok := fundamentalPages[relPath]; ok {
@@ -261,24 +273,39 @@ func (m *mover) move() error {
 
 	counter := 0
 
-	return filepath.Walk(m.fromDir, func(path string, info os.FileInfo, err error) error {
-		// TODO(bep) symbolic links
+	// Need to walk it twice to map out the symlinks.
 
-		if skipFiles[info.Name()] {
-			fmt.Println("Skip", info.Name())
-			if info.IsDir() {
+	err := filepath.Walk(m.fromDir, func(path string, fi os.FileInfo, err error) error {
+
+		if skipFiles[fi.Name()] {
+			fmt.Println("Skip", fi.Name())
+			if fi.IsDir() {
 				return filepath.SkipDir
 			}
 			return nil
 		}
 
-		if info.Mode().IsRegular() {
+		if fi.Mode().IsRegular() {
 			counter++
 			if try && counter > 5 {
 				return filepath.SkipDir
 			}
-			return m.handleFile(path, info)
+			return m.handleFile(path, fi)
 
+		}
+
+		return nil
+	})
+
+	if err != nil {
+		return err
+	}
+
+	return filepath.Walk(m.fromDir, func(path string, fi os.FileInfo, err error) error {
+
+		// Create symbolic link and add the orignal path to front matter.
+		if fi.Mode()&os.ModeSymlink != 0 {
+			return m.createSymlink(path, fi)
 		}
 
 		return nil
@@ -292,21 +319,105 @@ func (m *mover) targetFilename(sourceFilename string) string {
 	// Rules:
 	// * We remove the "/docs" prefix
 	// * Rename index.md to _index.md
-	filename := filepath.Join(m.toDir, strings.TrimPrefix(sourceFilename, m.fromDir))
+	filename := strings.TrimPrefix(sourceFilename, m.fromDir)
+	if !strings.HasPrefix(filename, m.toDir) {
+		filename = filepath.Join(m.toDir, filename)
+	}
 	filename = strings.Replace(filename, "index.md", "_index.md", 1)
 
 	return filename
 }
 
-func (m *mover) handleFile(path string, info os.FileInfo) error {
-	sourceFilename := path
+func (m *mover) createSymlink(path string, info os.FileInfo) error {
+
+	fi, err := os.Stat(path)
+	if err != nil {
+		fmt.Printf("%s\t%s:%s\n", path, "Failed to read symlink:", err)
+	}
+
+	if fi.IsDir() {
+		fmt.Println(path, "is a dir, skip")
+		return nil
+	}
+
+	link, err := filepath.EvalSymlinks(path)
+	if err != nil {
+		fmt.Printf("%s\t%s:%s\n", path, "Failed to read symlink:", err)
+		return nil
+	}
+
+	// Recreate the symlink in new folder
+	old := m.fromToPath(link)
+	new := m.fromToPath(path)
+
+	err = os.Symlink(old, new)
+	if err != nil && !os.IsExist(err) {
+		fmt.Printf("%s\t%s:%s\n", path, "Failed to create symlink:", err)
+		return nil
+	}
+
+	// Add path to front matter
+	out, err := m.openTargetFile(old, info)
+	if err != nil {
+		fmt.Printf("%s\t%s:%s\n", path, "Failed set front matter for symlink:", err)
+		return nil
+	}
+	if out != nil {
+		defer out.Close()
+		in, err := os.Open(old)
+		if err != nil {
+			fmt.Printf("%s\t%s:%s\n", path, "Failed set front matter for symlink:", err)
+			return nil
+		}
+		defer in.Close()
+		relTarget := m.relNewContentPath(new)
+		replacer := func(path string, content string) (string, error) {
+			return appendToFrontMatter(content, fmt.Sprintf(`# This file has symlinks pointing to it.
+path: %q`, relTarget)), nil
+		}
+
+		return m.replaceInContent(link, in, out, replacer)
+
+	}
+
+	return nil
+}
+
+func (m *mover) openTargetFile(sourceFilename string, info os.FileInfo) (io.ReadWriteCloser, error) {
+	targetFilename := m.targetFilename(sourceFilename)
+
+	fi, err := os.Stat(targetFilename)
+	if err != nil {
+		return nil, err
+	}
+
+	if fi.IsDir() {
+		fmt.Println(sourceFilename, "is a dir, skip")
+		return nil, nil
+	}
+
+	return os.OpenFile(targetFilename, os.O_RDWR, fi.Mode())
+}
+
+func (m *mover) openOrCreateTargetFile(sourceFilename string, info os.FileInfo) (io.ReadWriteCloser, error) {
 	targetFilename := m.targetFilename(sourceFilename)
 	targetDir := filepath.Dir(targetFilename)
 
 	err := os.MkdirAll(targetDir, os.FileMode(0755))
 	if err != nil {
+		return nil, err
+	}
+
+	return os.OpenFile(targetFilename, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, info.Mode())
+}
+
+func (m *mover) handleFile(path string, info os.FileInfo) error {
+	sourceFilename := path
+	out, err := m.openOrCreateTargetFile(sourceFilename, info)
+	if err != nil {
 		return err
 	}
+	defer out.Close()
 
 	in, err := os.Open(sourceFilename)
 	if err != nil {
@@ -314,20 +425,18 @@ func (m *mover) handleFile(path string, info os.FileInfo) error {
 	}
 	defer in.Close()
 
-	out, err := os.OpenFile(targetFilename, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, info.Mode())
-	if err != nil {
-		return err
-	}
-	defer out.Close()
+	return m.replaceInContent(path, in, out, m.fixContent)
+}
 
+func (m *mover) replaceInContent(path string, in io.Reader, out io.Writer, replacer func(path string, content string) (string, error)) error {
 	var buff bytes.Buffer
-	if _, err = io.Copy(&buff, in); err != nil {
+	if _, err := io.Copy(&buff, in); err != nil {
 		return err
 	}
 
 	var r io.Reader
 
-	fixed, err := fixContent(path, buff.String())
+	fixed, err := replacer(path, buff.String())
 	if err != nil {
 		fmt.Printf("%s\t%s\n", path, err)
 		r = &buff
@@ -338,7 +447,6 @@ func (m *mover) handleFile(path string, info os.FileInfo) error {
 	if _, err = io.Copy(out, r); err != nil {
 		return err
 	}
-
 	return nil
 }
 
@@ -361,7 +469,7 @@ var (
 
 	frontmatterRe = regexp.MustCompile(`(?s)---
 (.*)
----\n?(.*)\n?`)
+---(\n?)`)
 
 	// We will add the "essential" category and some other metadata needed for the front page.
 	fundamentalPages = map[string]frontmatterAddon{
@@ -389,14 +497,15 @@ title_short: %q
 weight: %d
 icon: %q`, addon.short_title, addon.weight, addon.icon)
 
-	replaced := frontmatterRe.ReplaceAllString(src, fmt.Sprintf(`---
+	return appendToFrontMatter(src, addition)
+}
+
+func appendToFrontMatter(src, addition string) string {
+	return frontmatterRe.ReplaceAllString(src, fmt.Sprintf(`---
 $1
 %s
----
-$2
-`, addition))
+---$2`, addition))
 
-	return replaced
 }
 
 func dateCleaner(s string) string {

@@ -14,6 +14,8 @@ published: 2009-11-16
 title: Obtaining a Commercial SSL Certificate
 external_resources:
  - '[OpenSSL Documentation](http://www.openssl.org/docs/)'
+# This file has symlinks pointing to it.
+path: "websites/ssl/obtaining-a-commercial-ssl-certificate.md"
 ---
 
 {{< caution >}}

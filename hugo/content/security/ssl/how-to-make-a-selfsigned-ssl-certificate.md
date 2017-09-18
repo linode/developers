@@ -14,6 +14,8 @@ published: 2009-11-16
 title: 'How to Make a Self-Signed SSL Certificate'
 external_resources:
  - '[OpenSSL documentation](http://openssl.org/docs/)'
+# This file has symlinks pointing to it.
+path: "websites/ssl/how-to-make-a-selfsigned-ssl-certificate.md"
 ---
 
 {{< caution >}}

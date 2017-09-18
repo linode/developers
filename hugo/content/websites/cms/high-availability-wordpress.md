@@ -10,6 +10,8 @@ modified_by:
   name: James Stewart
 published: 2015-01-09
 title: High Availability WordPress Hosting
+# This file has symlinks pointing to it.
+path: "uptime/loadbalancing/high-availability-wordpress.md"
 ---
 
 This guide configures a high availability WordPress site with a two-Linode cluster, using MySQL Master-Master replication and a Linode NodeBalancer front-end.

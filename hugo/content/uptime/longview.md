@@ -1,0 +1,1 @@
+/Users/bep/private/jobb/linode/docsmith/hugo/content/platform/longview/longview.md

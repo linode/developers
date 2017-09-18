@@ -22,4 +22,3 @@ title_short: "Applications"
 weight: 110
 icon: "cogs"
 ---
-

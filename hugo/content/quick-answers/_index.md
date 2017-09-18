@@ -15,4 +15,3 @@ title_short: "Quick Answers"
 weight: 20
 icon: "bolt"
 ---
-

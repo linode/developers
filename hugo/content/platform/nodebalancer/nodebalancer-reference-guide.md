@@ -11,6 +11,8 @@ modified_by:
   name: Linode
 published: 2011-07-08
 title: NodeBalancer Reference Guide
+# This file has symlinks pointing to it.
+path: "uptime/nodebalancer-reference-guide.md"
 ---
 
 This is the NodeBalancer reference guide. Please see the [NodeBalancer Getting Started Guide](/docs/platform/nodebalancer/getting-started-with-nodebalancers) for practical examples.

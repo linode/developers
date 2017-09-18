@@ -11,6 +11,8 @@ modified_by:
   name: Zack Buhman
 published: 2013-02-12
 title: Linode Managed
+# This file has symlinks pointing to it.
+path: "uptime/linode-managed.md"
 ---
 
 [Linode Managed](https://www.linode.com/managed/) is a 24/7 incident response service. This robust, multi-homed monitoring system distributes monitoring checks to ensure that your servers remain online and available at all times. Linode Managed can monitor any service or software stack reachable over TCP or HTTP. Once you add a service to Linode Managed, we'll monitor it for connectivity, response, and total request time. This guide shows you how to start monitoring your services with Linode Managed.
