@@ -2,6 +2,8 @@ var gulp = require('gulp'),
     gutil = require('gulp-util'),
     merge = require('merge-stream'),
     clean = require('gulp-clean'),
+    rename = require('gulp-rename'),
+    order = require("gulp-order"),
     plugins = require('gulp-load-plugins')({
         rename: {
             'gulp-live-server': 'serve'
@@ -32,24 +34,28 @@ gulp.task('vendors', ['clean-vendors'], function() {
 
 gulp.task('js-libs', function () {
     return gulp.src('assets/js/libs/**/*.js')
-        .pipe(plugins.uglify({
-            output: {
-                'ascii_only': true
-            }
-        }))
-        .pipe(plugins.concat('libs.min.js'))
-        .pipe(gulp.dest('static/js'));
+        .pipe(order([
+            "handlebars*.js",
+            "underscore*.js",
+            "handlebars*.js",
+            "**/*.js"
+        ]))
+        .pipe(plugins.concat('libs.js'))
+        .pipe(gulp.dest('static/build/js'))
+        .pipe(plugins.uglify())
+        .pipe(rename('libs.min.js')
+        .pipe(gulp.dest('static/build/js'))
+        .on('error', gutil.log))
 });
 
 gulp.task('js', function () {
     return gulp.src('assets/js/*.js')
-        .pipe(plugins.uglify({
-            output: {
-                'ascii_only': true
-            }
-        }))
-        .pipe(plugins.concat('scripts.min.js'))
-        .pipe(gulp.dest('static/js'));
+        .pipe(plugins.concat('main.js'))
+        .pipe(gulp.dest('static/build/js'))
+        .pipe(plugins.uglify())
+        .pipe(rename('main.min.js')
+        .pipe(gulp.dest('static/build/js'))
+        .on('error', gutil.log))
 });
 
 gulp.task('css', function () {
@@ -75,7 +81,7 @@ gulp.task('css', function () {
             cascade: false
         }))
         .pipe(plugins.cssmin())
-        .pipe(gulp.dest('static/stylesheets')).on('error', gutil.log);
+        .pipe(gulp.dest('static/build/stylesheets')).on('error', gutil.log);
 });
 
 // Default task

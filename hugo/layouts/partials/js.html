@@ -10,8 +10,13 @@ TODO(bep) check what's in use vs js folder + non-min versions.
 <script src="{{ relURL "assets/js/backbone.min.js" }}" type="text/javascript"></script>
 <script src="{{ relURL "assets/js/main.js" }}" type="text/javascript"></script>
 <script src="{{ relURL "assets/js/search.js" }}" type="text/javascript"></script>-->
-<script src="{{ relURL "js/libs.min.js" }}" type="text/javascript"></script>
-<script src="{{ relURL "js/scripts.min.js" }}" type="text/javascript"></script>
+{{ if eq (getenv "HUGO_ENV") "prod" }}
+<script src="{{ relURL "build/js/libs.min.js" }}" type="text/javascript"></script>
+<script src="{{ relURL "build/js/main.min.js" }}" type="text/javascript"></script>
+{{ else }}
+<script src="{{ relURL "build/js/libs.js" }}" type="text/javascript"></script>
+<script src="{{ relURL "build/js/main.js" }}" type="text/javascript"></script>
+{{ end }}
 
 <script type="text/javascript">
 $( "img[src^='\/docs\/assets']" ).each(function () {
