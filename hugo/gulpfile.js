@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
     gutil = require('gulp-util'),
     merge = require('merge-stream'),
+    clean = require('gulp-clean'),
     plugins = require('gulp-load-plugins')({
         rename: {
             'gulp-live-server': 'serve'
@@ -15,12 +16,17 @@ gulp.task('server', ['serve', 'watch']);
 
 gulp.task('build', ['js-libs', 'js', 'css']);
 
-var vendors = ['jquery/dist', 'bootstrap/dist'];
+var vendors = ['bootstrap'];
 
-gulp.task('vendors', function() {
+gulp.task('clean-vendors', function () {
+  return gulp.src('assets/vendors/', {read: false})
+    .pipe(clean());
+});
+
+gulp.task('vendors', ['clean-vendors'], function() {
   return merge(vendors.map(function(vendor) {
     return gulp.src('node_modules/' + vendor + '/**/*')
-      .pipe(gulp.dest('assets/vendors/' + vendor.replace(/\/.*/, '')));
+        .pipe(gulp.dest('assets/vendors/' + vendor.replace(/\/.*/, '')));
   }));
 });
 
