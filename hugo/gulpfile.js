@@ -16,7 +16,7 @@ gulp.task('server', ['serve', 'watch']);
 
 gulp.task('build', ['js-libs', 'js', 'css']);
 
-var vendors = ['bootstrap'];
+var vendors = ['bootstrap', 'font-awesome/less'];
 
 gulp.task('clean-vendors', function () {
   return gulp.src('assets/vendors/', {read: false})
