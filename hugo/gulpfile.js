@@ -33,7 +33,7 @@ gulp.task('vendors', ['clean-vendors'], function() {
 });
 
 gulp.task('js-libs', function () {
-    return gulp.src('assets/js/libs/**/*.js')
+    return gulp.src(['assets/js/libs/**/*.js', 'assets/vendors/bootstrap/dist/js/bootstrap.js'])
         .pipe(order([
             "handlebars*.js",
             "underscore*.js",
