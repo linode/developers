@@ -1,3 +1,5 @@
 public/
 .fuse_hidden*
 nohup.out
+node_modules/
+npm-debug.log
