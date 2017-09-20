@@ -5,8 +5,8 @@ author:
 description: 'Security-Enhanced Linux works to filter system access. On occasion, recently installed apps run poorly on SELinux. This Quick Answer will show you how to disable SELinux when you need to.'
 keywords: ["terminal", " selinux", " disable selinux"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 'Thursday, June 22, 2017'
-modified: 'Tuesday, Jul 17, 2017'
+published: 2017-06-22
+modified: 2017-07-17
 modified_by: 
   name: Linode
 title: 'Disable SELinux' 

@@ -14,6 +14,8 @@ featured:
  - use-one-time-passwords-for-two-factor-authentication-with-ssh-on-ubuntu-16-04-and-debian-8.md
  - use-one-time-passwords-for-two-factor-authentication-with-ssh-on-centos-7.md
  - install-openvas-on-ubuntu-16-04.md
+ - use-luks-for-full-disk-encryption.md
+ - how-to-use-yubikey-for-two-factor-ssh-authentication.md
 show_on_frontpage: true
 title_short: "Security, Upgrades & Backups"
 weight: 70

@@ -6,10 +6,10 @@ description: 'Instructions for configuring your Debian or Ubuntu Linode to run a
 alias: ['custom-kernels-distros/custom-compiled-kernel-with-pvgrub-debian-7-ubuntu']
 keywords: ["compile kernel", "kernel compiling", "pv-grub", "pvgrub", "custom linux kernel", "custom linode", " debian", "ubuntu"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: 'Friday, April 3, 2015'
+modified: 2015-04-03
 modified_by:
   name: Linode
-published: 'Friday. April 3, 2015'
+published: 2015-04-03
 title: 'Custom Compiled Kernel with PV-GRUB on Debian & Ubuntu'
 ---
 

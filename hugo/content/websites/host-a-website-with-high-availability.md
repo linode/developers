@@ -195,7 +195,7 @@ You will need an additional private IP address for one of your database nodes, a
 2.  Install the following packages on each database node:
 
         yum install epel-release 
-        yum install https://www.percona.com/redir/downloads/percona-release/redhat/latest/percona-release-0.1-3.noarch.rpm
+        yum install https://www.percona.com/redir/downloads/percona-release/redhat/0.1-4/percona-release-0.1-4.noarch.rpm
         yum install Percona-XtraDB-Cluster-56 Percona-XtraDB-Cluster-shared-56
 
 {{< note >}}
