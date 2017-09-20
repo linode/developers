@@ -8,7 +8,7 @@
 {{ end }}
 {{ if gt (len .Params ) 1 }}
 {{ $style := (.Get 1) }}
-{{ $whiteList := "puppet,aconf" }}
+{{ $whiteList := "puppet,aconf,apache" }}
 {{ if strings.Contains $whiteList  $style }}
 {{ .Scratch.Set "style" $style }}
 {{ end }}
