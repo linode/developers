@@ -29,7 +29,11 @@
         <meta name="twitter:site" content="@linode">
         <link rel="alternate" type="application/rss+xml" title="RSS" href="https://www.linode.com/docs/rss" />
         {{/* TODO(bep) versioning of CSS and JS */}}
-        <link href="{{ relURL "build/stylesheets/home.css?5" }}" rel='stylesheet' type='text/css'>
+          {{ if not (getenv "HUGO_ENV") }}
+            {{ partial "includes_head_dev" . }}
+        {{ else }}
+             {{ partial "includes_head" . }}
+        {{ end }}
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
         <link rel="canonical" href="{{ .Permalink | safeURL }}">
@@ -63,9 +67,9 @@
             {{ partial "footer" . }}
         </footer>
         {{ if not (getenv "HUGO_ENV") }}
-            {{ partial "body_end_includes_dev" . }}
+            {{ partial "includes_body_end_dev" . }}
         {{ else }}
-             {{ partial "body_end_includes" . }}
+             {{ partial "includes_body_end" . }}
         {{ end }}
         {{ partial "js" . }}
     </body>

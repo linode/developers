@@ -82,20 +82,11 @@ gulp.task('css', function() {
             this.emit('end');
         })
         .pipe(plugins.autoprefixer({
-            browsers: [
-                '> 1%',
-                'last 2 versions',
-                'firefox >= 4',
-                'safari 7',
-                'safari 8',
-                'IE 8',
-                'IE 9',
-                'IE 10',
-                'IE 11'
-            ],
-            cascade: false
+            browsers:  ["last 2 versions"]
         }))
+        .pipe(gulp.dest('static/build/stylesheets'))
         .pipe(plugins.cssmin())
+        .pipe(rename('home.min.css'))
         .pipe(gulp.dest('static/build/stylesheets')).on('error', gutil.log);
 });
 
