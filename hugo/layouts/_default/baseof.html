@@ -62,6 +62,11 @@
             {{ partial "contribute_footer" . }}
             {{ partial "footer" . }}
         </footer>
+        {{ if not (getenv "HUGO_ENV") }}
+            {{ partial "body_end_includes_dev" . }}
+        {{ else }}
+             {{ partial "body_end_includes" . }}
+        {{ end }}
         {{ partial "js" . }}
     </body>
 </html>
