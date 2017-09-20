@@ -211,36 +211,54 @@ div.library-tile {
 }
 
 .sidebar-library {
-
-	padding: 0;
-
-	ul {
+	> ul {
 		border: 0;
-		padding-left: 0;
+		margin: 0;
+		padding: 0;
 
 		> li {
-			padding-left: 0;
+			margin-left: 0;
+
+			> ul {
+				border: 0;
+				padding-left: 0;
+
+				> li {
+					padding-left: 0;
+					display: block;
+
+					> a {
+						font-weight: @font-weight-heavy;
+					}
+
+					margin-top: 20px;
+					margin-bottom: 20px;
+
+					ul > li {
+						> a {
+							font-weight: @font-weight-base;
+						}
+
+						margin-top: 2px;
+						margin-bottom: 2px;
+						padding-left: 10px;
+					}
+
+				}
+
+			}
+
+			ul > li > ul {
+				> li > a {
+					font-size: @font-size-small;
+				}
+
+			}
+
 		}
+
 	}
 
-	li {
-		display: block;
-
-		> a { font-weight: @font-weight-heavy; }
-		margin-top: 20px;
-		margin-bottom: 20px;
-	}
-
-	ul > li {
-		> a { font-weight: @font-weight-base; }
-		margin-top: 2px;
-		margin-bottom: 2px;
-		padding-left: 10px;
-	}
-
-	ul > li > ul {
-		> li > a { font-size: @font-size-small; }
-	}
 }
 
 .library-sidebar-extra {
