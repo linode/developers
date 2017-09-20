@@ -145,7 +145,7 @@ gulp.task('hugo:server', function(cb) {
 });
 
 // Convenient task for development.
-gulp.task('dev', ['watch', 'hugo-server']);
+gulp.task('dev', ['watch', 'hugo:server']);
 
 // Default task
 gulp.task('watch', function() {
