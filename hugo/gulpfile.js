@@ -4,32 +4,47 @@ var gulp = require('gulp'),
     clean = require('gulp-clean'),
     rename = require('gulp-rename'),
     order = require("gulp-order"),
-    plugins = require('gulp-load-plugins')({
-        rename: {
-            'gulp-live-server': 'serve'
-        }
-    });
+    runSequence = require('run-sequence'),
+    plugins = require('gulp-load-plugins')();
 
 gulp.task('default', ['watch']);
 
 // Hugo server with asset watching
 // TODO(bep) add the hugo task
-gulp.task('server', ['serve', 'watch']);
+gulp.task('server', ['watch']);
 
-gulp.task('build', ['js-libs', 'js', 'css']);
 
-var vendors = ['bootstrap', 'font-awesome/less'];
+gulp.task('build', [ 'js', 'css']);
+gulp.task('build-all', function(cb) {
+  runSequence('clean-build', 'vendors', 'fonts',
+              'js-libs', 'build',
+              cb);
+});
+
+
+var vendors = ['bootstrap', 'font-awesome/less', 'font-awesome/fonts'];
 
 gulp.task('clean-vendors', function () {
   return gulp.src('assets/vendors/', {read: false})
     .pipe(clean());
 });
 
+gulp.task('clean-build', function () {
+  return gulp.src('static/build/', {read: false})
+    .pipe(clean());
+});
+
 gulp.task('vendors', ['clean-vendors'], function() {
   return merge(vendors.map(function(vendor) {
     return gulp.src('node_modules/' + vendor + '/**/*')
-        .pipe(gulp.dest('assets/vendors/' + vendor.replace(/\/.*/, '')));
+        .pipe(gulp.dest('assets/vendors/' + vendor));
   }));
+});
+
+gulp.task('fonts', function () {
+    return gulp.src(['assets/vendors/bootstrap/dist/fonts/*', 'assets/vendors/font-awesome/fonts/*'])
+        .pipe(gulp.dest('static/build/fonts'))
+        .on('error', gutil.log);
 });
 
 gulp.task('js-libs', function () {
