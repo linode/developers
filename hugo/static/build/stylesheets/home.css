@@ -20904,6 +20904,9 @@ h1.contribute {
   margin: 0 auto;
 }
 /* Styling of Table of Contents. */
+#doc-sidebar-toc li.active > a {
+  color: #005170;
+}
 .highlight table td {
   padding: 5px;
 }
