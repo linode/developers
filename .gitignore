@@ -29,3 +29,7 @@ vendor
 publish.config.json
 
 .vagrant
+build/stylesheets/home.min.css
+build/rev-manifest.json
+build/js/main.min.js
+build/js/libs.min.js
