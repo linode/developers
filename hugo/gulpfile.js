@@ -4,9 +4,17 @@ var gulp = require('gulp'),
     clean = require('gulp-clean'),
     rename = require('gulp-rename'),
     order = require("gulp-order"),
+    rev = require('gulp-rev'),
+    revReplace = require('gulp-rev-replace'),
+    path = require('path'),
     runSequence = require('run-sequence'),
     cp = require('child_process'),
     plugins = require('gulp-load-plugins')();
+
+{}
+var opt = {
+    distFolder: 'static/build',
+}
 
 gulp.task('default', ['watch']);
 
@@ -47,6 +55,26 @@ gulp.task('fonts', function() {
         .on('error', gutil.log);
 });
 
+
+gulp.task('revision', [], function() {
+    return gulp.src(['**/home.min.css', '**/main.min.js', '**/libs.min.js'], {
+            base: path.join(process.cwd(), opt.distFolder)
+        })
+        .pipe(rev())
+        .pipe(gulp.dest(opt.distFolder))
+        .pipe(rev.manifest())
+        .pipe(gulp.dest(opt.distFolder))
+});
+
+gulp.task("revreplace", ["revision"], function(){
+  var manifest = gulp.src("./" + opt.distFolder + "/rev-manifest.json");
+
+  return gulp.src([ "layouts/partials/includes_body_end.html", "layouts/partials/includes_head.html"])
+    .pipe(revReplace({manifest: manifest}))
+    .pipe(gulp.dest("layouts/partials"));
+});
+
+
 gulp.task('js-libs', function() {
     return gulp.src(['assets/js/libs/**/*.js', 'assets/vendors/bootstrap/dist/js/bootstrap.js'])
         .pipe(order([
@@ -58,8 +86,8 @@ gulp.task('js-libs', function() {
         .pipe(plugins.concat('libs.js'))
         .pipe(gulp.dest('static/build/js'))
         .pipe(plugins.uglify())
-        .pipe(rename('libs.min.js')
-            .pipe(gulp.dest('static/build/js'))
+        .pipe(rename('libs.min.js'))
+        .pipe(gulp.dest('static/build/js')
             .on('error', gutil.log))
 });
 
@@ -68,8 +96,8 @@ gulp.task('js', function() {
         .pipe(plugins.concat('main.js'))
         .pipe(gulp.dest('static/build/js'))
         .pipe(plugins.uglify())
-        .pipe(rename('main.min.js')
-            .pipe(gulp.dest('static/build/js'))
+        .pipe(rename('main.min.js'))
+        .pipe(gulp.dest('static/build/js')
             .on('error', gutil.log))
 });
 
@@ -82,7 +110,7 @@ gulp.task('css', function() {
             this.emit('end');
         })
         .pipe(plugins.autoprefixer({
-            browsers:  ["last 2 versions"]
+            browsers: ["last 2 versions"]
         }))
         .pipe(gulp.dest('static/build/stylesheets'))
         .pipe(plugins.cssmin())
