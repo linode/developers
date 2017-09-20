@@ -31,10 +31,7 @@ func (m *mover) fromToPath(from string) string {
 func (m *mover) fixContent(path, s string) (string, error) {
 
 	// TODO(bep) fix markdown titles: ##Configure Apache
-	// TODO(bep) check aliases
-	// TODO(bep) {: .table .table-striped .table-bordered}
-	// TODO(bep) {: .file-excerpt}  {:.file }
-	// TODO(bep) the rest {: -- maybe just create a "manual issue"
+	// TODO(bep) copy assets folder
 
 	fixers := []contentFixer{
 		// TODO(bep) for now we just remove the callout styling for
