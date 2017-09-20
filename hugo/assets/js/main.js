@@ -128,4 +128,50 @@
     });
   }
 
+    TocScroll = {
+        init: function() {
+            $('#doc-sidebar-toc').affix({
+                offset: {
+                    top: 235,
+                }
+            });
+
+
+            var resizeFn = function() {
+                $('#doc-sidebar-toc').css('width', $('#doc-sidebar').width() );
+            };
+
+            resizeFn();
+            $(window).resize(resizeFn);
+
+            /* activate scrollspy menu */
+            var $body = $(document.body);
+            var navHeight = $('#doc-sidebar-toc').outerHeight(true) + 10;
+
+            $body.scrollspy({
+                target: '#doc-sidebar-toc',
+                offset: navHeight
+            });
+
+            /*  scrollspy Table of contents, adapted from https://www.bootply.com/100983 
+                license: MIT
+                author: bootply.com
+             */
+            /* smooth scrolling sections */
+            $('a[href*=#]:not([href=#])').click(function() {
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html,body').animate({
+                            scrollTop: target.offset().top - 50
+                        }, 1000);
+                        return false;
+                    }
+                }
+            });
+        }
+
+    }
+
 })(jQuery);

@@ -21,7 +21,7 @@
           </div>
           <div id="doc-sidebar" class="col-sm-3 col-sm-pull-9 hidden-xs">
             {{ partial "sidebar_search" . }}
-            <div class="doc-sidebar-inner">
+            <div class="doc-sidebar-inner" id="doc-sidebar-toc">
               <h3 id="doc-sidebar-title">In This Guide:</h3>
               <div class="sidebar sidebar-library" id="markdown-toc">
                   {{ .TableOfContents }}
@@ -50,4 +50,10 @@
     </div>
   </div>
 </div>
+{{ end }}
+
+{{ define "body-end" }}
+<script type="text/javascript">
+ TocScroll.init()
+</script>
 {{ end }}

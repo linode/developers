@@ -20035,6 +20035,9 @@ div.library-tile .tile-title + .lead {
   }
 }
 @media screen and (min-width: 1200px) {
+  .first-section .container {
+    max-width: 1170px;
+  }
 }
 #article-body {
   font-smoothing: antialiased;
@@ -20595,36 +20598,36 @@ div.library-tile .tile-title + .lead {
 #doc-sidebar-title + .lead {
   padding-top: 10px;
 }
-.sidebar-library > ul {
+.sidebar-library nav > ul {
   border: 0;
   margin: 0;
   padding: 0;
 }
-.sidebar-library > ul > li {
+.sidebar-library nav > ul > li {
   margin-left: 0;
 }
-.sidebar-library > ul > li > ul {
+.sidebar-library nav > ul > li > ul {
   border: 0;
   padding-left: 0;
 }
-.sidebar-library > ul > li > ul > li {
+.sidebar-library nav > ul > li > ul > li {
   padding-left: 0;
   display: block;
   margin-top: 20px;
   margin-bottom: 20px;
 }
-.sidebar-library > ul > li > ul > li > a {
+.sidebar-library nav > ul > li > ul > li > a {
   font-weight: 800;
 }
-.sidebar-library > ul > li > ul > li ul > li {
+.sidebar-library nav > ul > li > ul > li ul > li {
   margin-top: 2px;
   margin-bottom: 2px;
   padding-left: 10px;
 }
-.sidebar-library > ul > li > ul > li ul > li > a {
+.sidebar-library nav > ul > li > ul > li ul > li > a {
   font-weight: 400;
 }
-.sidebar-library > ul > li ul > li > ul > li > a {
+.sidebar-library nav > ul > li ul > li > ul > li > a {
   font-size: 14px;
 }
 .library-sidebar-extra {
@@ -20901,38 +20904,6 @@ h1.contribute {
   margin: 0 auto;
 }
 /* Styling of Table of Contents. */
-#TableOfContents > ul {
-  border: 0;
-  margin: 0;
-  padding: 0;
-}
-#TableOfContents > ul > li {
-  margin-left: 0;
-}
-#TableOfContents > ul > li > ul {
-  border: 0;
-  padding-left: 0;
-}
-#TableOfContents > ul > li > ul > li {
-  padding-left: 0;
-  display: block;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-#TableOfContents > ul > li > ul > li > a {
-  font-weight: 800;
-}
-#TableOfContents > ul > li > ul > li ul > li {
-  margin-top: 2px;
-  margin-bottom: 2px;
-  padding-left: 10px;
-}
-#TableOfContents > ul > li > ul > li ul > li > a {
-  font-weight: 400;
-}
-#TableOfContents > ul > li ul > li > ul > li > a {
-  font-size: 14px;
-}
 .highlight table td {
   padding: 5px;
 }
