@@ -10,11 +10,6 @@ var gulp = require('gulp'),
 
 gulp.task('default', ['watch']);
 
-// Hugo server with asset watching
-// TODO(bep) add the hugo task
-gulp.task('server', ['watch']);
-
-
 gulp.task('build', ['js', 'css']);
 gulp.task('build-all', function(cb) {
     runSequence('clean-build', 'vendors', 'fonts',
@@ -127,9 +122,12 @@ gulp.task('hugo-server', function(cb) {
 
 });
 
+// Convenient task for development.
+gulp.task('dev', ['watch', 'hugo-server']);
+
 // Default task
 gulp.task('watch', function() {
     gulp.watch('assets/js/libs/**/*.js', ['js-libs']);
     gulp.watch('assets/js/*.js', ['js']);
-    gulp.watch('assets/less/**/*.less', ['css']);
+    gulp.watch('assets/stylesheets/**/*.less', ['css']);
 });
