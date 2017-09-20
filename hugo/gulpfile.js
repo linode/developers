@@ -11,38 +11,41 @@ var gulp = require('gulp'),
     cp = require('child_process'),
     plugins = require('gulp-load-plugins')();
 
-{}
 var opt = {
     distFolder: 'static/build',
 }
 
-gulp.task('default', ['watch']);
+gulp.task('default', ['build']);
 
-gulp.task('build', ['js', 'css']);
-gulp.task('build-all', function(cb) {
-    runSequence('clean-build', 'vendors', 'fonts',
-        'js-libs', 'build',
+gulp.task('build', function(cb) {
+    runSequence('build:clean', ['fonts',
+        'js-libs', 'js', 'css'], 'revreplace',
+        cb);
+});
+
+gulp.task('build:all', function(cb) {
+    runSequence('vendors', 'build',
         cb);
 });
 
 
 var vendors = ['bootstrap', 'font-awesome/less', 'font-awesome/fonts'];
 
-gulp.task('clean-vendors', function() {
+gulp.task('build:clean-vendors', function() {
     return gulp.src('assets/vendors/', {
             read: false
         })
         .pipe(clean());
 });
 
-gulp.task('clean-build', function() {
+gulp.task('build:clean', function() {
     return gulp.src('static/build/', {
             read: false
         })
         .pipe(clean());
 });
 
-gulp.task('vendors', ['clean-vendors'], function() {
+gulp.task('vendors', ['build:clean-vendors'], function() {
     return merge(vendors.map(function(vendor) {
         return gulp.src('node_modules/' + vendor + '/**/*')
             .pipe(gulp.dest('assets/vendors/' + vendor));
@@ -118,7 +121,7 @@ gulp.task('css', function() {
         .pipe(gulp.dest('static/build/stylesheets')).on('error', gutil.log);
 });
 
-gulp.task('hugo-server', function(cb) {
+gulp.task('hugo:server', function(cb) {
     const hugo = cp.spawn("hugo", ["server"], {
         stdio: "pipe"
     });
