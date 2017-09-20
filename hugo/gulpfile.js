@@ -5,6 +5,7 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     order = require("gulp-order"),
     runSequence = require('run-sequence'),
+    cp = require('child_process'),
     plugins = require('gulp-load-plugins')();
 
 gulp.task('default', ['watch']);
@@ -97,6 +98,29 @@ gulp.task('css', function () {
         }))
         .pipe(plugins.cssmin())
         .pipe(gulp.dest('static/build/stylesheets')).on('error', gutil.log);
+});
+
+gulp.task('hugo-server', function(cb) {
+    const hugo = cp.spawn("hugo", ["server"], {
+        stdio: "pipe"
+    });
+
+    hugo.on("close", function(code) {
+        if (code === 0) {
+            cb();
+        } else {
+            cb("hugo server failed");
+        }
+    });
+
+    hugo.stdout.on('data', function(data) {
+        console.log(data.toString());
+    });
+
+    hugo.stderr.on('data', function(data) {
+        console.log("error:" + data.toString());
+    });
+
 });
 
 // Default task
