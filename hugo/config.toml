@@ -5,11 +5,16 @@ title = "Linode Guides & Tutorials"
 
 # Highlighting config (Pygments)
 
+# Styles created with pygmentize -S perldoc -f html -a .highlight > syntax.css
 # TODO(bep)
 pygmentsUseClasses =  false
 pygmentsCodeFences = false
 
+# Use the new and fast Chroma highlighter (Pygments port) in Hugo 0.28.
+pygmentsUseClassic = false
+
 # See https://help.farbox.com/pygments.html
+# Also see pygmentsUseClasses above.
 pygmentsStyle = "perldoc"
 
 disableKinds = ["taxonomy", "taxonomyTerm"]

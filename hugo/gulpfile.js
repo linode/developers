@@ -78,6 +78,7 @@ gulp.task("revreplace", ["revision"], function(){
 });
 
 
+/* TODO(bep) consistent ordering */
 gulp.task('js-libs', function() {
     return gulp.src(['assets/js/libs/**/*.js', 'assets/vendors/bootstrap/dist/js/bootstrap.js'])
         .pipe(order([
