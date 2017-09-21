@@ -36,11 +36,12 @@ Multicraft for Linux depends on several software packages in order to run.
 3.  In Apache's configuration file, under the `<Directory /var/www/>` section, change the `AllowOverride` value to `all`.
 
 {{< file-excerpt "/etc/apache2/apache2.conf" apache >}}
-        <Directory /var/www/>
-                Options Indexes FollowSymLinks
-                AllowOverride All
-                Require all granted
-        </Directory>
+<Directory /var/www/>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+</Directory>
+
 {{< /file-excerpt >}}
 
 
@@ -144,9 +145,10 @@ Multicraft for Linux depends on several software packages in order to run.
 5.  After reading the End User License Agreement, open the file `eula.txt` in your terminal and change the value of `eula` to `true`:
 
 {{< file "/home/minecraft/multicraft/servers/server1/eula.txt" aconf >}}
-        #By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).
-        #Wed Feb 04 22:24:38 UTC 2015
-        eula=true
+#By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).
+#Wed Feb 04 22:24:38 UTC 2015
+eula=true
+
 {{< /file >}}
 
 

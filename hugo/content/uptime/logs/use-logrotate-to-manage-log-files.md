@@ -34,8 +34,9 @@ Running `logrotate` as a [cronjob](/docs/tools-reference/tools/schedule-tasks-wi
 For most daemon processes, logs should be rotated by the root user. In most cases, `logrotate` is invoked from a script in the `/etc/cron.daily/` directory. If one does not exist, create a script that resembles the following in the `/etc/cron.daily/` folder:
 
 {{< file "/etc/cron.daily/logrotate" bash >}}
-    #!/bin/sh
-    logrotate /etc/logrotate.conf
+#!/bin/sh
+logrotate /etc/logrotate.conf
+
 {{< /file >}}
 
 
@@ -46,20 +47,22 @@ You may also use an entry in the root user's `crontab`.
 The configuration file for log rotation begins with a number of global directives that control how log rotation is applied globally. Most configuration of log rotation does not occur in the `/etc/logrotate.conf` file, but rather in files located in the `/etc/logrotate.d` directory. Every daemon process or log file will have its own file for configuration in this directory. The `/etc/logrotate.d` configurations are loaded with the following directive in `logrotate.conf`
 
 {{< file-excerpt "logrotate.conf" >}}
-    include /etc/logrotate.d
+include /etc/logrotate.d
+
 {{< /file-excerpt >}}
 
 
 Configuration settings for rotation of specific logs is instantiated in a block structure:
 
 {{< file-excerpt "logrotate.conf" >}}
-    /var/log/mail.log {
-      weekly
-      rotate 5
-      compress
-      compresscmd xz
-      create 0644 postfix postfix
-    }
+/var/log/mail.log {
+  weekly
+  rotate 5
+  compress
+  compresscmd xz
+  create 0644 postfix postfix
+}
+
 {{< /file-excerpt >}}
 
 
@@ -68,14 +71,16 @@ The size and rotation of `/var/log/mail.log` is managed according to the directi
 ## Configure Log Rotation
 
 {{< file-excerpt "logrotate.conf" >}}
-    rotate 4
+rotate 4
+
 {{< /file-excerpt >}}
 
 
 The `rotate` directive controls how many times a log is rotated before old logs are removed. If you specify a rotation number of `0`, logs will be removed immediately after they are rotated. If you specify an email address using the `mail` directive as file, logs are emailed and removed.
 
 {{< file-excerpt "logrotate.conf" >}}
-    mail <username@example.com>
+mail <username@example.com>
+
 {{< /file-excerpt >}}
 
 
@@ -86,7 +91,8 @@ Your system will need a functioning [Mail Transfer Agent](/docs/email/) to be ab
 To rotate logs every week, set the following configuration directive:
 
 {{< file-excerpt "logrotate.conf" >}}
-    weekly
+weekly
+
 {{< /file-excerpt >}}
 
 
@@ -95,7 +101,8 @@ When `weekly` is set, logs are rotated if the current week day is lower than the
 To configure monthly log rotation, use the following directive:
 
 {{< file-excerpt "logrotate.conf" >}}
-    monthly
+monthly
+
 {{< /file-excerpt >}}
 
 
@@ -104,7 +111,8 @@ Logs with this value will rotate every month that `logrotate` runs.
 For annual rotation:
 
 {{< file-excerpt "logrotate.conf" >}}
-    yearly
+yearly
+
 {{< /file-excerpt >}}
 
 
@@ -113,7 +121,8 @@ Logs are rotated when the current year differs from the date of the last rotatio
 To rotate based on size, use the following directive:
 
 {{< file-excerpt "logrotate.conf" >}}
-    size [value]
+size [value]
+
 {{< /file-excerpt >}}
 
 
@@ -122,14 +131,16 @@ The `size` directive forces log rotation when a log file grows bigger than the s
 ## Configure Log Compression
 
 {{< file-excerpt "logrotate.conf" >}}
-    compress
+compress
+
 {{< /file-excerpt >}}
 
 
 The `compress` directive compresses all logs after they have been rotated. If this directive is placed in the global configuration, all logs will be compressed. If you want to disable a globally enabled compression directive for a specific log, use the `nocompress` directive.
 
 {{< file-excerpt "logrotate.conf" >}}
-    compresscmd xz
+compresscmd xz
+
 {{< /file-excerpt >}}
 
 
@@ -138,7 +149,8 @@ By default, `logrotate` compresses files using the `gzip` command. You can repla
 ## Delay Log File Compression
 
 {{< file-excerpt "logrotate.conf" >}}
-    delaycompress
+delaycompress
+
 {{< /file-excerpt >}}
 
 
@@ -149,7 +161,8 @@ In some situations it is not ideal to compress a log file immediately after rota
 `Logrotate` will append a number to a file name so the `access.log` file will be rotated to `access.log.1`. To ensure that an extension is maintained, use the following directive:
 
 {{< file-excerpt "logrotate.conf" >}}
-    extension log
+extension log
+
 {{< /file-excerpt >}}
 
 
@@ -160,7 +173,8 @@ If you enable compression, the compressed log will be named `access.1.log.gz`.
 If your daemon process requires that a log file exist to function properly, `logrotate` may interfere when it rotates logs. As a result, it is possible to have `logrotate` create new, empty log files after rotation. Consider the following example:
 
 {{< file-excerpt "logrotate.conf" >}}
-    create 640 www-data users
+create 640 www-data users
+
 {{< /file-excerpt >}}
 
 
@@ -171,18 +185,20 @@ In this example, a blank file is created with the permissions `640` (owner read/
 `Logrotate` can run commands before and after rotation to ensure that routine tasks associated with log ration, such as restarting or reloading daemons and passing other kinds of signals, are run. To run a command before rotation begins, use a directive similar to the following:
 
 {{< file-excerpt "logrotate.conf" >}}
-    prerotate
-        touch /srv/www/example.com/application/tmp/stop
-    endscript
+prerotate
+    touch /srv/www/example.com/application/tmp/stop
+endscript
+
 {{< /file-excerpt >}}
 
 
 The command `touch /srv/www/example.com/application/tmp/stop` runs before rotating the logs. Ensure that there are no errant directives or commands on the lines that contain `prerotate` and `endscript`. Also, be aware that all lines *between* these directives will be executed. To run a command or set of commands after log rotation, consider the following example:
 
 {{< file-excerpt "logrotate.conf" >}}
-    postrotate
-        touch /srv/www/example.com/application/tmp/start
-    endscript
+postrotate
+    touch /srv/www/example.com/application/tmp/start
+endscript
+
 {{< /file-excerpt >}}
 
 

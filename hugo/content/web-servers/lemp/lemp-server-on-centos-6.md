@@ -103,112 +103,113 @@ Create a dedicated system user to run the nginx process under by issuing the fol
 Now create the init script to make it possible to start and stop the web server more easily. Create `/etc/rc.d/init.d/nginx` with the following content:
 
 {{< file-excerpt "/etc/rc.d/init.d/nginx" bash >}}
-    #!/bin/sh
-    #
-    # nginx – this script starts and stops the nginx daemon
-    #
-    # chkconfig: - 85 15
-    # description: Nginx is an HTTP(S) server, HTTP(S) reverse \
-    # proxy and IMAP/POP3 proxy server
-    # processname: nginx
-    # config: /opt/nginx/conf/nginx.conf
-    # pidfile: /opt/nginx/logs/nginx.pid
+#!/bin/sh
+#
+# nginx – this script starts and stops the nginx daemon
+#
+# chkconfig: - 85 15
+# description: Nginx is an HTTP(S) server, HTTP(S) reverse \
+# proxy and IMAP/POP3 proxy server
+# processname: nginx
+# config: /opt/nginx/conf/nginx.conf
+# pidfile: /opt/nginx/logs/nginx.pid
 
-    # Source function library.
-    . /etc/rc.d/init.d/functions
+# Source function library.
+. /etc/rc.d/init.d/functions
 
-    # Source networking configuration.
-    . /etc/sysconfig/network
+# Source networking configuration.
+. /etc/sysconfig/network
 
-    # Check that networking is up.
-    [ "$NETWORKING" = "no" ] && exit 0
+# Check that networking is up.
+[ "$NETWORKING" = "no" ] && exit 0
 
-    nginx="/opt/nginx/sbin/nginx"
-    prog=$(basename $nginx)
+nginx="/opt/nginx/sbin/nginx"
+prog=$(basename $nginx)
 
-    NGINX_CONF_FILE="/opt/nginx/conf/nginx.conf"
+NGINX_CONF_FILE="/opt/nginx/conf/nginx.conf"
 
-    lockfile=/var/lock/subsys/nginx
+lockfile=/var/lock/subsys/nginx
 
-    start() {
-        [ -x $nginx ] || exit 5
-        [ -f $NGINX_CONF_FILE ] || exit 6
-        echo -n $"Starting $prog: "
-        daemon $nginx -c $NGINX_CONF_FILE
-        retval=$?
-        echo
-        [ $retval -eq 0 ] && touch $lockfile
-        return $retval
-    }
+start() {
+    [ -x $nginx ] || exit 5
+    [ -f $NGINX_CONF_FILE ] || exit 6
+    echo -n $"Starting $prog: "
+    daemon $nginx -c $NGINX_CONF_FILE
+    retval=$?
+    echo
+    [ $retval -eq 0 ] && touch $lockfile
+    return $retval
+}
 
-    stop() {
-        echo -n $"Stopping $prog: "
-        killproc $prog -QUIT
-        retval=$?
-        echo
-        [ $retval -eq 0 ] && rm -f $lockfile
-        return $retval
-    }
+stop() {
+    echo -n $"Stopping $prog: "
+    killproc $prog -QUIT
+    retval=$?
+    echo
+    [ $retval -eq 0 ] && rm -f $lockfile
+    return $retval
+}
 
-    restart() {
-        configtest || return $?
-        stop
-        start
-    }
+restart() {
+    configtest || return $?
+    stop
+    start
+}
 
-    reload() {
-        configtest || return $?
-        echo -n $”Reloading $prog: ”
-        killproc $nginx -HUP
-        RETVAL=$?
-        echo
-    }
+reload() {
+    configtest || return $?
+    echo -n $”Reloading $prog: ”
+    killproc $nginx -HUP
+    RETVAL=$?
+    echo
+}
 
-    force_reload() {
-        restart
-    }
+force_reload() {
+    restart
+}
 
-    configtest() {
-        $nginx -t -c $NGINX_CONF_FILE
-    }
+configtest() {
+    $nginx -t -c $NGINX_CONF_FILE
+}
 
-    rh_status() {
-        status $prog
-    }
+rh_status() {
+    status $prog
+}
 
-    rh_status_q() {
-        rh_status >/dev/null 2>&1
-    }
+rh_status_q() {
+    rh_status >/dev/null 2>&1
+}
 
-    case "$1" in
-        start)
-            rh_status_q && exit 0
-            $1
-            ;;
-        stop)
-            rh_status_q || exit 0
-            $1
-            ;;
-        restart|configtest)
-            $1
-            ;;
-        reload)
-            rh_status_q || exit 7
-            $1
-            ;;
-        force-reload)
-            force_reload
-            ;;
-        status)
-            rh_status
-            ;;
-        condrestart|try-restart)
-            rh_status_q || exit 0
-            ;;
-        *)
-            echo $"Usage: $0 {start|stop|status|restart|condrestart|try-restart|reload|force-reload|configtest}"
-            exit 2
-        esac
+case "$1" in
+    start)
+        rh_status_q && exit 0
+        $1
+        ;;
+    stop)
+        rh_status_q || exit 0
+        $1
+        ;;
+    restart|configtest)
+        $1
+        ;;
+    reload)
+        rh_status_q || exit 7
+        $1
+        ;;
+    force-reload)
+        force_reload
+        ;;
+    status)
+        rh_status
+        ;;
+    condrestart|try-restart)
+        rh_status_q || exit 0
+        ;;
+    *)
+        echo $"Usage: $0 {start|stop|status|restart|condrestart|try-restart|reload|force-reload|configtest}"
+        exit 2
+    esac
+
 {{< /file-excerpt >}}
 
 
@@ -224,17 +225,18 @@ Next issue the following commands to make the script executable, set nginx to st
 Regardless of the method you use to install nginx, you will need to configure `server` declarations to specify name-based virtual hosts. There are a number of approaches to organizing configuration files with nginx. Regardless of the organizational strategy, all virtual host configurations are contained within `server` configuration blocks that are in turn contained within the `http` block in the `nginx.conf` file. Consider the following nginx virtual host configuration:
 
 {{< file-excerpt "nginx server configuration" nginx >}}
-    server {
-           listen   80;
-           server_name www.example.com example.com;
-           access_log /srv/www/example.com/logs/access.log;
-           error_log /srv/www/example.com/logs/error.log;
+server {
+       listen   80;
+       server_name www.example.com example.com;
+       access_log /srv/www/example.com/logs/access.log;
+       error_log /srv/www/example.com/logs/error.log;
 
-           location / {
-               root   /srv/www/example.com/public_html;
-               index  index.html index.htm;
-           }
-    }
+       location / {
+           root   /srv/www/example.com/public_html;
+           index  index.html index.htm;
+       }
+}
+
 {{< /file-excerpt >}}
 
 
@@ -246,26 +248,28 @@ Create the directories referenced in this configuration by issuing the following
 You may insert the server directives directly into the `http` section of the `/opt/nginx/conf/nginx.conf` or `/etc/nginx/nginx.con` file, although this may be difficult to manage. You may also replicate the management system created by the Debian/Ubuntu operating systems by creating `sites-available/` and `sites-enabled/` directories and inserting the following line into your `nginx.conf` file:
 
 {{< file-excerpt "nginx.conf" nginx >}}
-    http {
-    # [...]
+http {
+# [...]
 
-    include /opt/etc/nginx/sites-enabled/*;
+include /opt/etc/nginx/sites-enabled/*;
 
-    # [...]      
-    }
+# [...]      
+}
+
 {{< /file-excerpt >}}
 
 
 Modify the include statement to point to the path of your `sites-enabled` directory. Create site configurations in the `sites-available` directory and then create symbolic links to these files in the `sites-enabled` directory. In other circumstances, it may make more sense to create and include a file named `/opt/nginx-sites.conf` that is included in the `nginx.conf` file as follows:
 
 {{< file-excerpt "nginx.conf" nginx >}}
-    http {
-    # [...]
+http {
+# [...]
 
-    include /opt/nginx-sites.conf;
+include /opt/nginx-sites.conf;
 
-    # [...]      
-    }
+# [...]      
+}
+
 {{< /file-excerpt >}}
 
 
@@ -288,89 +292,91 @@ If your application includes PHP code you will need to implement the following "
 Next you will need to create the scripts that start and control the php-cgi process. First create `/usr/bin/php-fastcgi` with the following contents:
 
 {{< file-excerpt "/usr/bin/php-fastcgi" bash >}}
-    #!/bin/sh
+#!/bin/sh
 
-    if [ `grep -c "nginx" /etc/passwd` = "1" ]; then
-       FASTCGI_USER=nginx
-    elif [ `grep -c "www-data" /etc/passwd` = "1" ]; then
-       FASTCGI_USER=www-data
-    elif [ `grep -c "http" /etc/passwd` = "1" ]; then
-       FASTCGI_USER=http
-    else
-    # Set the FASTCGI_USER variable below to the user that
-    # you want to run the php-fastcgi processes as
+if [ `grep -c "nginx" /etc/passwd` = "1" ]; then
+   FASTCGI_USER=nginx
+elif [ `grep -c "www-data" /etc/passwd` = "1" ]; then
+   FASTCGI_USER=www-data
+elif [ `grep -c "http" /etc/passwd` = "1" ]; then
+   FASTCGI_USER=http
+else
+# Set the FASTCGI_USER variable below to the user that
+# you want to run the php-fastcgi processes as
 
-    FASTCGI_USER=
-    fi
+FASTCGI_USER=
+fi
 
-    /usr/bin/spawn-fcgi -a 127.0.0.1 -p 9000 -C 6 -u $FASTCGI_USER -f /usr/bin/php-cgi
+/usr/bin/spawn-fcgi -a 127.0.0.1 -p 9000 -C 6 -u $FASTCGI_USER -f /usr/bin/php-cgi
+
 {{< /file-excerpt >}}
 
 
 Then create the init script to automatically start and the php-cgi process. To do so create a file at `/etc/init.d/php-fastcgi` with the following content:
 
 {{< file-excerpt "/etc/init.d/php-fastcgi" bash >}}
-    #!/bin/sh
+#!/bin/sh
 
-    # php-fastcgi - Use php-fastcgi to run php applications
-    #
-    # chkconfig: - 85 15
-    # description: Use php-fastcgi to run php applications
-    # processname: php-fastcgi
+# php-fastcgi - Use php-fastcgi to run php applications
+#
+# chkconfig: - 85 15
+# description: Use php-fastcgi to run php applications
+# processname: php-fastcgi
 
-    if [ `grep -c "nginx" /etc/passwd` = "1" ]; then
-       OWNER=nginx
-    elif [ `grep -c "www-data" /etc/passwd` = "1" ]; then
-       OWNER=www-data
-    elif [ `grep -c "http" /etc/passwd` = "1" ]; then
-       OWNER=http
-    else
-    # Set the OWNER variable below to the user that
-    # you want to run the php-fastcgi processes as
+if [ `grep -c "nginx" /etc/passwd` = "1" ]; then
+   OWNER=nginx
+elif [ `grep -c "www-data" /etc/passwd` = "1" ]; then
+   OWNER=www-data
+elif [ `grep -c "http" /etc/passwd` = "1" ]; then
+   OWNER=http
+else
+# Set the OWNER variable below to the user that
+# you want to run the php-fastcgi processes as
 
-    OWNER=
-    fi
+OWNER=
+fi
 
-    PATH=/sbin:/bin:/usr/sbin:/usr/bin
-    DAEMON=/usr/bin/php-fastcgi
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+DAEMON=/usr/bin/php-fastcgi
 
-    NAME=php-fastcgi
-    DESC=php-fastcgi
+NAME=php-fastcgi
+DESC=php-fastcgi
 
-    test -x $DAEMON || exit 0
+test -x $DAEMON || exit 0
 
-    # Include php-fastcgi defaults if available
-    if [ -f /etc/default/php-fastcgi ] ; then
-        . /etc/default/php-fastcgi
-    fi
+# Include php-fastcgi defaults if available
+if [ -f /etc/default/php-fastcgi ] ; then
+    . /etc/default/php-fastcgi
+fi
 
-    set -e
+set -e
 
-    case "$1" in
-      start)
-        echo -n "Starting $DESC: "
-        sudo -u $OWNER $DAEMON
-        echo "$NAME."
+case "$1" in
+  start)
+    echo -n "Starting $DESC: "
+    sudo -u $OWNER $DAEMON
+    echo "$NAME."
+    ;;
+  stop)
+    echo -n "Stopping $DESC: "
+    killall -9 php-cgi
+    echo "$NAME."
+    ;;
+  restart)
+    echo -n "Restarting $DESC: "
+    killall -9 php-cgi
+    sleep 1
+    sudo -u $OWNER $DAEMON
+    echo "$NAME."
+    ;;
+      *)
+        N=/etc/init.d/$NAME
+        echo "Usage: $N {start|stop|restart}" >&2
+        exit 1
         ;;
-      stop)
-        echo -n "Stopping $DESC: "
-        killall -9 php-cgi
-        echo "$NAME."
-        ;;
-      restart)
-        echo -n "Restarting $DESC: "
-        killall -9 php-cgi
-        sleep 1
-        sudo -u $OWNER $DAEMON
-        echo "$NAME."
-        ;;
-          *)
-            N=/etc/init.d/$NAME
-            echo "Usage: $N {start|stop|restart}" >&2
-            exit 1
-            ;;
-        esac
-        exit 0
+    esac
+    exit 0
+
 {{< /file-excerpt >}}
 
 
@@ -385,30 +391,32 @@ Issue the following sequence of commands to make the scripts executable, start t
 Edit the `/etc/sudoers` file to comment the `Defaults    requiretty` line and ensure that the init script will start on boot. Create a comment by prepending a hash (e.g. `#`) to the beginning of the line, so that it resembles the following:
 
 {{< file-excerpt "/etc/sudoers" >}}
-    # Defaults requiretty
+# Defaults requiretty
+
 {{< /file-excerpt >}}
 
 
 Consider the following nginx virtual host configuration. Modify your configuration to resemble the one below, and ensure that the `location ~ \.php$ { }` resembles the one in this example:
 
 {{< file "nginx virtual host configuration" nginx >}}
-    server {
-        server_name www.example.com example.com;
-        access_log /srv/www/example.com/logs/access.log;
-        error_log /srv/www/example.com/logs/error.log;
-        root /srv/www/example.com/public_html;
+server {
+    server_name www.example.com example.com;
+    access_log /srv/www/example.com/logs/access.log;
+    error_log /srv/www/example.com/logs/error.log;
+    root /srv/www/example.com/public_html;
 
-        location / {
-            index index.html index.htm index.php;
-        }
-
-        location ~ \.php$ {
-            include /etc/nginx/fastcgi_params;
-            fastcgi_pass  127.0.0.1:9000;
-            fastcgi_index index.php;
-            fastcgi_param SCRIPT_FILENAME /srv/www/example.com/public_html$fastcgi_script_name;
-        }
+    location / {
+        index index.html index.htm index.php;
     }
+
+    location ~ \.php$ {
+        include /etc/nginx/fastcgi_params;
+        fastcgi_pass  127.0.0.1:9000;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME /srv/www/example.com/public_html$fastcgi_script_name;
+    }
+}
+
 {{< /file >}}
 
 

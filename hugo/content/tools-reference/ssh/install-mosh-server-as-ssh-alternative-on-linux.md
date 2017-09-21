@@ -34,7 +34,8 @@ Ready to get started? Let's go!
 Before installing Mosh, you should verify that your Linode's firewall will allow the Mosh client and server to communicate. If you [followed our instructions](/docs/securing-your-server#sph_creating-a-firewall) to create a firewall with `iptables`, you'll need to edit `/etc/iptables.firewall.rules` and add another rule to allow the Mosh client to connect to your Linode over UDP ports 60000–61000.
 
 {{< file-excerpt "/etc/iptables.firewall.rules" >}}
-	-A INPUT -p udp --dport 60000:61000 -j ACCEPT
+-A INPUT -p udp --dport 60000:61000 -j ACCEPT
+
 {{< /file-excerpt >}}
 
 
@@ -66,7 +67,8 @@ Mosh is available in Debian's backports repositories. You'll need to add squeeze
 1.  Edit `/etc/apt/sources.list` and add the following line:
 
 {{< file-excerpt "/etc/apt/sources.list" >}}
-        deb <http://backports.debian.org/debian-backports> squeeze-backports main
+deb <http://backports.debian.org/debian-backports> squeeze-backports main
+
 {{< /file-excerpt >}}
 
 

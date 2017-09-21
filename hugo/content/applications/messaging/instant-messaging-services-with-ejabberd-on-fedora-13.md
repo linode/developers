@@ -45,14 +45,16 @@ Run the following commands the set the hostname of your Linode:
 In this case, the hostname will be set to "example". Along with this, you will need to open the `/etc/sysconfig/network` file and change the `HOSTNAME` line to reflect your newly set hostname:
 
 {{< file-excerpt "/etc/sysconfig/network" >}}
-    NETWORKING=yes NETWORKING\_IPV6=no HOSTNAME=example
+NETWORKING=yes NETWORKING\_IPV6=no HOSTNAME=example
+
 {{< /file-excerpt >}}
 
 
 Finally, open `/etc/hosts` and put in your IP address, fully qualified domain name (FQDN), and hostname. See the example below:
 
 {{< file-excerpt "/etc/hosts" >}}
-    123.123.123.123 example.com example
+123.123.123.123 example.com example
+
 {{< /file-excerpt >}}
 
 
@@ -74,15 +76,17 @@ Ejabberd's configuration files are written in Erlang syntax, which might be diff
 Some users will need the ability to administer the XMPP server remotely. By default, this block of the config file looks like this:
 
 {{< file-excerpt "/etc/ejabberd/ejabberd.cfg" >}}
-    {acl, admin, {user, "admin", "example.com"}}.
+{acl, admin, {user, "admin", "example.com"}}.
+
 {{< /file-excerpt >}}
 
 
 In Erlang, comments begin with the `%` character, and the access control list segment contains information in the following form: `{user, "USERNAME", "HOSTNAME"}`. The following examples correspond to the users with the JIDs of `admin@example.com` and `username@example.com`. You only need to specify one administrator, but you can add more than one administrator simply by adding more lines, as shown below:
 
 {{< file-excerpt "/etc/ejabberd/ejabberd.cfg" >}}
-    {acl, admin, {user, "admin", "example.com"}}.
-    {acl, admin, {user, "username", "example.com"}}.
+{acl, admin, {user, "admin", "example.com"}}.
+{acl, admin, {user, "username", "example.com"}}.
+
 {{< /file-excerpt >}}
 
 
@@ -93,14 +97,16 @@ All users specified in this manner have full administrative access to the server
 A single ejabberd instance can provide XMPP services for multiple domains at once as long as those domains (or subdomains) are hosted by the server. To add a hostname for virtual hosting in ejabberd, modify the `hosts` option. By default, ejabberd is only configured to host the domain set during the installation process. You should also append a host item for "localhost." Here are a couple of examples:
 
 {{< file-excerpt "/etc/ejabberd/ejabberd.cfg" >}}
-    {hosts, ["example.com", "localhost"]}.
+{hosts, ["example.com", "localhost"]}.
+
 {{< /file-excerpt >}}
 
 
 In the following example, ejabberd has been configured to host a number of additional domains. In this case, these domains are "username.example.com," "example.com," and "bampton.com"
 
 {{< file-excerpt "/etc/ejabberd/ejabberd.cfg" >}}
-    {hosts, ["username.example.com", "example.com", example.com", "localhost"]}.
+{hosts, ["username.example.com", "example.com", example.com", "localhost"]}.
+
 {{< /file-excerpt >}}
 
 
@@ -111,19 +117,21 @@ You can specify any number of hostnames in the host list, but you should be care
 TCP port number 5222 is the conventional "XMPP" port. If you want to change the port, this is the section of the configuration that needs to be modified. Furthermore, if you wish to use SSL/TLS encryption for the connections between clients and the server, you'll need to adjust the path to the certificate file, in the following line:
 
 {{< file-excerpt "/etc/ejabberd/ejabberd.cfg" >}}
-    {certfile, "/etc/ejabberd/ejabberd.pem"}, starttls,
+{certfile, "/etc/ejabberd/ejabberd.pem"}, starttls,
+
 {{< /file-excerpt >}}
 
 
 Additionally, you may want to enable SSL access for client-to-server (c2s) SSL/TLS connections if you or other system users are using a client that requires the "old-style" SSL connection on port 5223. To enable this functionality, uncomment the following stanza.
 
 {{< file-excerpt "/etc/ejabberd/ejabberd.cfg" >}}
-    {5223, ejabberd_c2s, [
-        {access, c2s},
-        {shaper, c2s_shaper},
-        {max_stanza_size, 65536},
-        tls, {certfile, "/etc/ejabberd/server.pem"}
-    ]},
+{5223, ejabberd_c2s, [
+    {access, c2s},
+    {shaper, c2s_shaper},
+    {max_stanza_size, 65536},
+    tls, {certfile, "/etc/ejabberd/server.pem"}
+]},
+
 {{< /file-excerpt >}}
 
 

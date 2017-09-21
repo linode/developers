@@ -89,7 +89,8 @@ While the entirety of a Puppet *manifest* can contain the desired configuration 
 To apply the `mysql::server` class to all hosts by default, create the following Puppet manifest:
 
 {{< file "/etc/puppetlabs/code/environments/production/manifests/site.pp" puppet >}}
-   include ::mysql::server
+include ::mysql::server
+
 {{< /file >}}
 
 
@@ -100,12 +101,13 @@ Note that `site.pp` is the default manifest file. Without a qualifying `node { .
 To understand how Hiera works, consider this excerpt from the default `hiera.yaml` file:
 
 {{< file-excerpt "/etc/puppetlabs/puppet/hiera.yaml" yaml >}}
-   ---
-   :backends:
-     - yaml
-   :hierarchy:
-     - "nodes/%{::trusted.certname}"
-     - common
+---
+:backends:
+  - yaml
+:hierarchy:
+  - "nodes/%{::trusted.certname}"
+  - common
+
 {{< /file-excerpt >}}
 
 
@@ -124,10 +126,11 @@ We can also define the root password with the following Hiera configuration file
 /etc/puppetlabs/code/environments/production/hieradata/common.yaml
 :
 {{< /file >}}
+
+{{< /file >}}
  yaml
     mysql::server::root_password: examplepassword
     ~~~
-{{< /file >}}
 
 Replace `examplepassword` with the secure password of your choice. Run Puppet to set up MySQL with default settings and the chosen root password:
 
@@ -157,20 +160,21 @@ Using Hiera, we can define the rest of the MySQL configuration entirely in yaml.
 2.  With the MySQL password hash ready, we can define Hiera values. The following yaml defines parameters to create a database called `wordpress` and a user named `wpuser` that has permission to connect from `localhost`. The yaml also defines a `GRANT` allowing `wpuser` to operate on the `wordpress` database with `ALL` permissions:
 
 {{< file "/etc/puppetlabs/code/environments/production/hieradata/common.yaml" yaml >}}
-        mysql::server::root_password: examplepassword
-        mysql::server::databases:
-          wordpress:
-            ensure: present
-        mysql::server::users:
-          wpuser@localhost:
-            ensure: present
-            password_hash: '*E62D3F829F44A91CC231C76347712772B3B9DABC'
-        mysql::server::grants:
-          wpuser@localhost/wordpress.*:
-            ensure: present
-            privileges: ALL
-            table: wordpress.*
-            user: wpuser@localhost
+mysql::server::root_password: examplepassword
+mysql::server::databases:
+  wordpress:
+    ensure: present
+mysql::server::users:
+  wpuser@localhost:
+    ensure: present
+    password_hash: '*E62D3F829F44A91CC231C76347712772B3B9DABC'
+mysql::server::grants:
+  wpuser@localhost/wordpress.*:
+    ensure: present
+    privileges: ALL
+    table: wordpress.*
+    user: wpuser@localhost
+
 {{< /file >}}
 
 
@@ -195,12 +199,13 @@ In the following example, Puppet will configure the MySQL server with one additi
 1.  Modify `hiera.yaml` to contain the following:
 
 {{< file "/etc/puppetlabs/puppet/hiera.yaml" yaml >}}
-        ---
-        :backends:
-          - yaml
-          :hierarchy:
-          - "%{facts.os.family}"
-          - common
+---
+:backends:
+  - yaml
+  :hierarchy:
+  - "%{facts.os.family}"
+  - common
+
 {{< /file >}}
 
 
@@ -209,13 +214,14 @@ In the following example, Puppet will configure the MySQL server with one additi
 2.  Create the following yaml file:
 
 {{< file "/etc/puppetlabs/code/environments/production/hieradata/Debian.yaml" yaml >}}
-        lookup_options:
-          mysql::server::databases:
-            merge: deep
+lookup_options:
+  mysql::server::databases:
+    merge: deep
 
-          mysql::server::databases:
-            ubuntu-backup:
-              ensure: present
+  mysql::server::databases:
+    ubuntu-backup:
+      ensure: present
+
 {{< /file >}}
 
 

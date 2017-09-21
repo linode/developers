@@ -35,7 +35,8 @@ This guide is written for a non-root user. Commands that require elevated privil
 3.  Edit `/etc/selinux/config` to ensure SELinux is disabled:
 
 {{< file-excerpt "/etc/selinux/config" aconf >}}
-        SELINUX=disabled
+SELINUX=disabled
+
 {{< /file-excerpt >}}
 
         
@@ -71,56 +72,57 @@ iptables will be used to secure the Linode against unwanted traffic. The Linode 
 2.  Create `/etc/iptables.firewall.rules` using your preferred text editor. This file will be used to activate the firewall with the desired rules every time the Linode boots.
 
 {{< file "/etc/iptables.firewall.rules" aconf >}}
-        *filter
+*filter
 
-        #  Allow all loopback (lo0) traffic and drop all traffic to 127/8 that doesn't use lo0
-        -A INPUT -i lo -j ACCEPT
-        -A INPUT -d 127.0.0.0/8 -j REJECT
+#  Allow all loopback (lo0) traffic and drop all traffic to 127/8 that doesn't use lo0
+-A INPUT -i lo -j ACCEPT
+-A INPUT -d 127.0.0.0/8 -j REJECT
 
-        #  Accept all established inbound connections
-        -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+#  Accept all established inbound connections
+-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 
-        #  Allow all outbound traffic - you can modify this to only allow certain traffic
-        -A OUTPUT -j ACCEPT
+#  Allow all outbound traffic - you can modify this to only allow certain traffic
+-A OUTPUT -j ACCEPT
 
-        #  Allow SSH connections
-        #
-        #  The -dport number should be the same port number you set in sshd_config, ie 8050
-        #
-        -A INPUT -p tcp -m state --state NEW --dport 22 -j ACCEPT
+#  Allow SSH connections
+#
+#  The -dport number should be the same port number you set in sshd_config, ie 8050
+#
+-A INPUT -p tcp -m state --state NEW --dport 22 -j ACCEPT
 
-        # SIP on UDP port 5060, 5061 for secure signaling. Used for signals such as "hang up"
-        -A INPUT -p udp -m udp --dport 5060 -j ACCEPT
-        -A INPUT -p udp -m udp --dport 5061 -j ACCEPT
+# SIP on UDP port 5060, 5061 for secure signaling. Used for signals such as "hang up"
+-A INPUT -p udp -m udp --dport 5060 -j ACCEPT
+-A INPUT -p udp -m udp --dport 5061 -j ACCEPT
 
-        # IAX2- the IAX protocol - comment out if you don't plan to use IAX
-        # -A INPUT -p udp -m udp --dport 4569 -j ACCEPT
+# IAX2- the IAX protocol - comment out if you don't plan to use IAX
+# -A INPUT -p udp -m udp --dport 4569 -j ACCEPT
 
-        # IAX - old IAX protocol, uncomment if needed for legacy systems.
-        # -A INPUT -p udp -m udp --dport 5036 -j ACCEPT
+# IAX - old IAX protocol, uncomment if needed for legacy systems.
+# -A INPUT -p udp -m udp --dport 5036 -j ACCEPT
 
-        # RTP - the media stream - you can change this in /etc/asterisk/rtp.conf
-        -A INPUT -p udp -m udp --dport 10000:20000 -j ACCEPT
+# RTP - the media stream - you can change this in /etc/asterisk/rtp.conf
+-A INPUT -p udp -m udp --dport 10000:20000 -j ACCEPT
 
-        # MGCP - if you use media gateway control protocol in your configuration
-        -A INPUT -p udp -m udp --dport 2727 -j ACCEPT
+# MGCP - if you use media gateway control protocol in your configuration
+-A INPUT -p udp -m udp --dport 2727 -j ACCEPT
 
 
-        # Uncomment these lines if you plan to use FreePBX to manage Asterisk
-        # -A INPUT -p tcp --dport 80 -j ACCEPT
-        # -A INPUT -p tcp --dport 443 -j ACCEPT
+# Uncomment these lines if you plan to use FreePBX to manage Asterisk
+# -A INPUT -p tcp --dport 80 -j ACCEPT
+# -A INPUT -p tcp --dport 443 -j ACCEPT
 
-        #  Allow ping
-        -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
+#  Allow ping
+-A INPUT -p icmp --icmp-type echo-request -j ACCEPT
 
-        #  Log iptables denied calls
-        -A INPUT -m limit --limit 5/min -j LOG --log-prefix "iptables denied: " --log-level 7
+#  Log iptables denied calls
+-A INPUT -m limit --limit 5/min -j LOG --log-prefix "iptables denied: " --log-level 7
 
-        #  Drop all other inbound - default deny unless explicitly allowed policy
-        -A INPUT -j DROP
-        -A FORWARD -j DROP
+#  Drop all other inbound - default deny unless explicitly allowed policy
+-A INPUT -j DROP
+-A FORWARD -j DROP
 
-        COMMIT
+COMMIT
+
 {{< /file >}}
 
 

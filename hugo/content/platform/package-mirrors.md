@@ -79,7 +79,8 @@ For a CentOS system follow the instructions below:
 2.  Change the `enabled=` variable to **0**:
 
 {{< file-excerpt "/etc/yum/pluginconf.d/fastestmirror.conf" >}}
-        enabled=0
+enabled=0
+
 {{< /file-excerpt >}}
 
 3.  Save and exit the `fastestmirror.conf` file.

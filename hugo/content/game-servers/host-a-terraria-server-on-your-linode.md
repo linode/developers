@@ -61,12 +61,13 @@ Firewalld is the default iptables controller in CentOS 7+ and Fedora. See our [g
 2.  Create a firewalld service file for Terraria:
 
 {{< file "/etc/firewalld/services/terraria.xml" aconf >}}
-        <?xml version="1.0" encoding="utf-8"?>
-        <service>
-          <short>Terraria</short>
-          <description>Open TCP port 7777 for incoming Terraria client connections.</description>
-          <port protocol="tcp" port="7777"/>
-        </service>
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+  <short>Terraria</short>
+  <description>Open TCP port 7777 for incoming Terraria client connections.</description>
+  <port protocol="tcp" port="7777"/>
+</service>
+
 {{< /file >}}
 
 
@@ -154,10 +155,11 @@ Before you install Terraria, be sure the version you download is the same as the
     Create a new server configuration file for yourself. The options below will automatically create and serve `MyWorld` when the game server starts up. Note that you should change `MyWorld` to a world name of your choice.
 
 {{< file "/opt/terraria/serverconfig.txt" ini >}}
-        world=/srv/terraria/Worlds/MyWorld.wld
-        autocreate=1
-        worldname=MyWorld
-        worldpath=/srv/terraria/Worlds
+world=/srv/terraria/Worlds/MyWorld.wld
+autocreate=1
+worldname=MyWorld
+worldpath=/srv/terraria/Worlds
+
 {{< /file >}}
 
 
@@ -184,18 +186,19 @@ It's useful to have an automated way to start, stop, and bring up Terraria on bo
 Create the following file to define the `terraria` systemd service:
 
 {{< file "/etc/systemd/system/terraria.service" ini >}}
-    [Unit]
-    Description=server daemon for terraria
+[Unit]
+Description=server daemon for terraria
 
-    [Service]
-    Type=forking
-    User=terraria
-    KillMode=none
-    ExecStart=/usr/bin/screen -dmS terraria /bin/bash -c "/opt/terraria/TerrariaServer.bin.x86_64 -config /opt/terraria/serverconfig.txt"
-    ExecStop=/usr/local/bin/terrariad exit
+[Service]
+Type=forking
+User=terraria
+KillMode=none
+ExecStart=/usr/bin/screen -dmS terraria /bin/bash -c "/opt/terraria/TerrariaServer.bin.x86_64 -config /opt/terraria/serverconfig.txt"
+ExecStop=/usr/local/bin/terrariad exit
 
-    [Install]
-    WantedBy=multi-user.target
+[Install]
+WantedBy=multi-user.target
+
 {{< /file >}}
 
 
@@ -217,20 +220,21 @@ The Terraria administration script needs two primary functions:
 1.  Create a `terrariad` file, enter the following script, then save and close:
 
 {{< file "/usr/local/bin/terrariad" >}}
-        #!/usr/bin/env bash
+#!/usr/bin/env bash
 
-        send="`printf \"$*\r\"`"
-        attach='script /dev/null -qc "screen -r terraria"'
-        inject="screen -S terraria -X stuff $send"
+send="`printf \"$*\r\"`"
+attach='script /dev/null -qc "screen -r terraria"'
+inject="screen -S terraria -X stuff $send"
 
-        if [ "$1" = "attach" ] ; then cmd="$attach" ; else cmd="$inject" ; fi
+if [ "$1" = "attach" ] ; then cmd="$attach" ; else cmd="$inject" ; fi
 
-        if [ "`stat -c '%u' /var/run/screen/S-terraria/`" = "$UID" ]
-        then
-            $cmd
-        else
-            su - terraria -c "$cmd"
-        fi
+if [ "`stat -c '%u' /var/run/screen/S-terraria/`" = "$UID" ]
+then
+    $cmd
+else
+    su - terraria -c "$cmd"
+fi
+
 {{< /file >}}
 
 

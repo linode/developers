@@ -56,21 +56,22 @@ This guide assumes you are using Apache 2.4. Some path names will be slightly di
         sudo nano /etc/apache2/ports.conf
 
 {{< file-excerpt "/etc/apache2/ports.conf" aconf >}}
-        NameVirtualHost *:8000
-        Listen 8000
+NameVirtualHost *:8000
+Listen 8000
          
-        <IfModule mod_ssl.c>
-          # If you add NameVirtualHost *:443 here, you will also have to change
-          # the VirtualHost statement in /etc/apache2/sites-available/default-ssl
-          # to <VirtualHost*:443>
-          # Server Name Indication for SSL named virtual hosts is currently not
-          # supported by MSIE on Windows XP.
-          Listen 443
-        </IfModule>
+<IfModule mod_ssl.c>
+  # If you add NameVirtualHost *:443 here, you will also have to change
+  # the VirtualHost statement in /etc/apache2/sites-available/default-ssl
+  # to <VirtualHost*:443>
+  # Server Name Indication for SSL named virtual hosts is currently not
+  # supported by MSIE on Windows XP.
+  Listen 443
+</IfModule>
  
-        <IfModule mod_gnutls.c>
-          Listen 443
-        </IfModule>
+<IfModule mod_gnutls.c>
+  Listen 443
+</IfModule>
+
 {{< /file-excerpt >}}
 
 
@@ -79,23 +80,24 @@ This guide assumes you are using Apache 2.4. Some path names will be slightly di
         sudo nano /etc/apache2/sites-available/example.com.conf
 
 {{< file-excerpt "/etc/apache2/sites-available/example.com.conf" aconf >}}
-         <VirtualHost *:8000>
-          ServerAdmin webmaster@example.com
-          ServerName  www.example.com
-          DocumentRoot /var/www/html/example.com
+<VirtualHost *:8000>
+ ServerAdmin webmaster@example.com
+ ServerName  www.example.com
+ DocumentRoot /var/www/html/example.com
  
-          <Directory />
-            Options FollowSymLink
-            AllowOverride None
-          </Directory>
+ <Directory />
+   Options FollowSymLink
+   AllowOverride None
+ </Directory>
  
-          <Directory /var/www/html/example.com>
-            Options Indexes FollowSymLinks MultiViews
-            AllowOverride None
-            Order allow,deny
-            allow from all
-          </Directory>
-         </VirtualHost>
+ <Directory /var/www/html/example.com>
+   Options Indexes FollowSymLinks MultiViews
+   AllowOverride None
+   Order allow,deny
+   allow from all
+ </Directory>
+</VirtualHost>
+
 {{< /file-excerpt >}}
 
 
@@ -104,8 +106,9 @@ This guide assumes you are using Apache 2.4. Some path names will be slightly di
         sudo nano /etc/apache2/apache2.conf
 
 {{< file-excerpt "/etc/apache2/apache2.conf" aconf >}}
-        #LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
-        LogFormat "%{X-Forwarded-For}i %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
+#LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
+LogFormat "%{X-Forwarded-For}i %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
+
 {{< /file-excerpt >}}
 
 
@@ -122,20 +125,21 @@ This guide assumes you are using Apache 2.4. Some path names will be slightly di
         sudo nano /etc/nginx/proxy_params
 
 {{< file "/etc/nginx/sites-available/example.com" nginx >}}
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+proxy_set_header Host $host;
+proxy_set_header X-Real-IP $remote_addr;
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 
-        client_max_body_size 100M;
-        client_body_buffer_size 1m;
-        proxy_intercept_errors on;
-        proxy_buffering on;
-        proxy_buffer_size 128k;
-        proxy_buffers 256 16k;
-        proxy_busy_buffers_size 256k;
-        proxy_temp_file_write_size 256k;
-        proxy_max_temp_file_size 0;
-        proxy_read_timeout 300;
+client_max_body_size 100M;
+client_body_buffer_size 1m;
+proxy_intercept_errors on;
+proxy_buffering on;
+proxy_buffer_size 128k;
+proxy_buffers 256 16k;
+proxy_busy_buffers_size 256k;
+proxy_temp_file_write_size 256k;
+proxy_max_temp_file_size 0;
+proxy_read_timeout 300;
+
 {{< /file >}}
 
 
@@ -144,26 +148,27 @@ This guide assumes you are using Apache 2.4. Some path names will be slightly di
         sudo nano /etc/nginx/sites-available/example.com
 
 {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
-        server {
-            listen 80;
-            server_name www.example.com example.com;
-            root /var/www/html/example.com;
+server {
+    listen 80;
+    server_name www.example.com example.com;
+    root /var/www/html/example.com;
 
-            if ($http_host != "www.example.com") {
-                rewrite ^ www.example.com$request_uri permanent;
-            }
+    if ($http_host != "www.example.com") {
+        rewrite ^ www.example.com$request_uri permanent;
+    }
 
-            index index.php index.html;
+    index index.php index.html;
 
-            location / {
-                proxy_pass http://localhost:8000;
-                include /etc/nginx/proxy_params;
-            }
+    location / {
+        proxy_pass http://localhost:8000;
+        include /etc/nginx/proxy_params;
+    }
 
-            location ~* \.(js|css|jpg|jpeg|gif|png|svg|ico|pdf|html|htm)$ {
-            }
+    location ~* \.(js|css|jpg|jpeg|gif|png|svg|ico|pdf|html|htm)$ {
+    }
 
-        }
+}
+
 {{< /file-excerpt >}}
 
 
@@ -172,19 +177,21 @@ This guide assumes you are using Apache 2.4. Some path names will be slightly di
 8.  Add a `location` directive to make nginx refuse all requests for files beginning with the characters `.ht`. There's a similar directive in nearly every default Apache configuration. This directive is useful if your Apache deployment relies on settings from `.htaccess` and `.htpasswd`.
     
 {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
-        location ~ /\.ht {
-            deny  all;
-        }
+location ~ /\.ht {
+    deny  all;
+}
+
 {{< /file-excerpt >}}
 
 
 9.  If you need to proxy requests for a specific location to a specific resource, use a rewrite rule to capture the path to the resource and pass that along to the proxied server. For example, if you want all requests for `http://example.com/` to be handed to a server running on `192.168.3.105` with a path of `/teams/~example/`, you would write the following `location` block:
 
 {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
-        location / {
-          rewrite ^(.*)$ /teams/~example/$1 break;
-          proxy_pass   http://192.168.3.105;
-        }
+location / {
+  rewrite ^(.*)$ /teams/~example/$1 break;
+  proxy_pass   http://192.168.3.105;
+}
+
 {{< /file-excerpt >}}
 
 
@@ -201,10 +208,11 @@ This guide assumes you are using Apache 2.4. Some path names will be slightly di
 10. For most conventional proxy setups, you will also want to add a `proxy_redirect` specification to your `location` directive blocks. This directive rewrites the HTTP headers that nginx receives from the proxy server to make them appear as if they were generated by the nginx server.
 
 {{< file-excerpt "example.com.vhost proxy location directive" nginx >}}
-        location /pictures/ {
-          proxy_pass       http://192.168.3.106:8080;
-          proxy_redirect   http://192.168.3.106:8080 http://example.com/pictures/;
-        }
+location /pictures/ {
+  proxy_pass       http://192.168.3.106:8080;
+  proxy_redirect   http://192.168.3.106:8080 http://example.com/pictures/;
+}
+
 {{< /file-excerpt >}}
 
 
@@ -219,30 +227,31 @@ In addition to using nginx as a front-end proxy to pass requests to other web se
 In this example, we'll show you how to build a cluster named `appcluster` with a simple round-robin load balancer. Here are the appropriate excerpts from the `/etc/nginx/sites-available/example.com` file:
 
 {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
-    server {
+server {
 
-      listen 80;
-      server_name example.com www.example.com;
+  listen 80;
+  server_name example.com www.example.com;
 
-      location / {
-         proxy_pass  http://appcluster;
-         include /etc/nginx/proxy_params;
-      }
+  location / {
+     proxy_pass  http://appcluster;
+     include /etc/nginx/proxy_params;
+  }
 
-    }
+}
     
-    upstream appcluster {
-       server linode.example.com:8801;
-       server linode.example.com:8802;
-       server linode.example.com:8803 down;
-       server linode.example.com:8804;
-       server galloway.example.com:8801;
-       server galloway.example.com:8802;
-       server galloway.example.com:8803;
-       server galloway.example.com:8804;
-    }
+upstream appcluster {
+   server linode.example.com:8801;
+   server linode.example.com:8802;
+   server linode.example.com:8803 down;
+   server linode.example.com:8804;
+   server galloway.example.com:8801;
+   server galloway.example.com:8802;
+   server galloway.example.com:8803;
+   server galloway.example.com:8804;
+}
     
-    # [...]
+# [...]
+
 {{< /file-excerpt >}}
 
 
@@ -259,13 +268,14 @@ The `upstream` directive establishes the round-robin load balancer. Within this 
 nginx also allows you to control the behavior of the `upstream` resource cluster beyond a simple round-robin setup. The simplest modification is to add the `ip_hash` directive to the configuration block. This causes requests from the same IP address to be routed to the same back-end server. Consider the following example excerpt:
 
 {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
-    upstream appcluster {
-       ip_hash; 
-       server linode.example.com:8801;
-       server linode.example.com:8802;
-       server galloway.example.com:8801 down;
-       server galloway.example.com:8802;
-    }
+upstream appcluster {
+   ip_hash; 
+   server linode.example.com:8801;
+   server linode.example.com:8802;
+   server galloway.example.com:8801 down;
+   server galloway.example.com:8802;
+}
+
 {{< /file-excerpt >}}
 
 
@@ -278,15 +288,16 @@ If a server needs to be taken offline for an extended period of time, append the
 Here is a more advanced configuration, where seven server components running on unique ports on the server `linode.example.com` comprise the `appcluster` upstream:
 
 {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
-    upstream appcluster {
-       server linode.example.com:8801;
-       server linode.example.com:8802 weight=1;
-       server linode.example.com:8803 weight=2 max_fails=2;
-       server linode.example.com:8804 weight=2 max_fails=2 fail_timeout=20;
-       server linode.example.com:8805 weight=4;
-       server linode.example.com:8806 weight=4 fail_timeout=4;
-       server linode.example.com:8807 weight=2 fail_timeout=20;
-    }
+upstream appcluster {
+   server linode.example.com:8801;
+   server linode.example.com:8802 weight=1;
+   server linode.example.com:8803 weight=2 max_fails=2;
+   server linode.example.com:8804 weight=2 max_fails=2 fail_timeout=20;
+   server linode.example.com:8805 weight=4;
+   server linode.example.com:8806 weight=4 fail_timeout=4;
+   server linode.example.com:8807 weight=2 fail_timeout=20;
+}
+
 {{< /file-excerpt >}}
 
 

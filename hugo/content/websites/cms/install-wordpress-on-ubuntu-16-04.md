@@ -109,8 +109,9 @@ If Wordpress doesn't display when you visit your domain, try adding `/wp-admin` 
 3.  By default, WordPress will prompt you for FTP credentials when you install new themes or plugins. To bypass this, modify your `wp-config.php` file by adding the following lines:
 
 {{< file-excerpt "/var/www/html/example.com/public_html/wp-config.php" php >}}
-        /** Bypass FTP */
-        define('FS_METHOD', 'direct');
+/** Bypass FTP */
+define('FS_METHOD', 'direct');
+
 {{< /file-excerpt >}}
 
 
@@ -146,11 +147,12 @@ To configure permalink settings:
 Instruct Apache to allow individual sites to update the `.htaccess` file, by adding the following options to the *Directory* section in your virtual host configuration:
 
 {{< file-excerpt "/etc/apache2/sites-available/example.com.conf" apache >}}
-    <Directory /var/www/html/example.com/public_html>
-        Options Indexes FollowSymLinks
-        AllowOverride All
-        Require all granted
-    </Directory>
+<Directory /var/www/html/example.com/public_html>
+    Options Indexes FollowSymLinks
+    AllowOverride All
+    Require all granted
+</Directory>
+
 {{< /file-excerpt >}}
 
 
@@ -163,9 +165,10 @@ Restart Apache to enable the changes:
 Direct nginx to check whether each permalink refers to an existing page. By default, nginx assumes that it doesn't, and returns a server-side 404. Update the following lines in the `location / {` block in your virtual host configuration:
 
 {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
-    location / {
-        index index.php index.html index.htm;
-        try_files $uri $uri/ /index.php?$args;
+location / {
+    index index.php index.html index.htm;
+    try_files $uri $uri/ /index.php?$args;
+
 {{< /file-excerpt >}}
 
 

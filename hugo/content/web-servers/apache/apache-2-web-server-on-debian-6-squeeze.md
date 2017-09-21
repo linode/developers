@@ -100,14 +100,15 @@ Follow these instructions:
         nano /etc/apache2/sites-available/example.net
 
 {{< file "/etc/apache2/sites-available/example.net" apache >}}
-        <VirtualHost *:80>
-             ServerAdmin webmaster@example.net     
-             ServerName example.net
-             ServerAlias www.example.net
-             DocumentRoot /srv/www/example.net/public_html/
-             ErrorLog /srv/www/example.net/logs/error.log
-             CustomLog /srv/www/example.net/logs/access.log combined
-        </VirtualHost>
+<VirtualHost *:80>
+     ServerAdmin webmaster@example.net     
+     ServerName example.net
+     ServerAlias www.example.net
+     DocumentRoot /srv/www/example.net/public_html/
+     ErrorLog /srv/www/example.net/logs/error.log
+     CustomLog /srv/www/example.net/logs/access.log combined
+</VirtualHost>
+
 {{< /file >}}
 
 
@@ -117,9 +118,9 @@ If you would like to enable Perl support, add the following lines to the `Virtua
 {{< file-excerpt "/etc/apache2/sites-available/example.net" apache >}}
 Options ExecCGI
 AddHandler cgi-script .pl
+{{< /note >}}
 
 {{< /file-excerpt >}}
-{{< /note >}}
 
     >
 3.  Now you'll make the configuration file for the second domain. Create the file for **example.org**, called `/etc/apache2/sites-available/example.org`, with the following content. Be sure to replace **example.org** with your own domain name.
@@ -127,14 +128,15 @@ AddHandler cgi-script .pl
         nano /etc/apache2/sites-available/example.org
 
 {{< file "/etc/apache2/sites-available/example.org" apache >}}
-        <VirtualHost *:80>
-             ServerAdmin admin@example.org
-             ServerName example.org
-             ServerAlias www.example.org
-             DocumentRoot /srv/www/example.org/public_html/
-             ErrorLog /srv/www/example.org/logs/error.log
-             CustomLog /srv/www/example.org/logs/access.log combined
-        </VirtualHost>
+<VirtualHost *:80>
+     ServerAdmin admin@example.org
+     ServerName example.org
+     ServerAlias www.example.org
+     DocumentRoot /srv/www/example.org/public_html/
+     ErrorLog /srv/www/example.org/logs/error.log
+     CustomLog /srv/www/example.org/logs/access.log combined
+</VirtualHost>
+
 {{< /file >}}
 
 
@@ -245,9 +247,10 @@ For more complex setups, however, we recommend that you consider using an altern
     Add the following lines to the file's `<VirtualHost >` block:
 
 {{< file-excerpt "/etc/apache2/sites-available/example.net" apache >}}
-        <IfModule mpm_itk_module>
-           AssignUserId webeditor webgroup
-        </IfModule>
+<IfModule mpm_itk_module>
+   AssignUserId webeditor webgroup
+</IfModule>
+
 {{< /file-excerpt >}}
 
 

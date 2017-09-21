@@ -45,7 +45,8 @@ You can test your Tomcat installation by pointing your browser to `http://[yourd
 At this point, you may want to create a user to access the "Tomcat Manager" web application. This will give you some information concerning your Tomcat instance, as well as some demo applications for testing. To add a user, edit the `/etc/tomcat6/tomcat-users.xml` file to include the following line, substituting your own username and password. Make sure you keep the "manager" role.
 
 {{< file-excerpt "/etc/tomcat6/tomcat-users.xml" xml >}}
-    <user name="username" password="examplemorris" roles="manager" />
+<user name="username" password="examplemorris" roles="manager" />
+
 {{< /file-excerpt >}}
 
 

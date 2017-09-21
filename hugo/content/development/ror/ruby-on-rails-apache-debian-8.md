@@ -98,7 +98,8 @@ If your Apache virtual hosts file(s) mimics the ones create in the [Apache Web S
 1.  Open the file in a text editor, and edit the `DocumentRoot` to reflect the public directory of your application:
 
 {{< file-excerpt "/etc/apache2/sites-available/example.com.conf" aconf >}}
-        DocumentRoot /var/www/html/example.com/application/public
+DocumentRoot /var/www/html/example.com/application/public
+
 {{< /file-excerpt >}}
 
 
@@ -114,10 +115,11 @@ There are a number of strategies for deploying more than one Rails application u
 1.  Add `RailsBaseURI` directives that specify the path to your Rails application within the VirtualHost configuration as in the following example:
 
 {{< file-excerpt "/etc/apache2/sites-available/example.com.conf" aconf >}}
-        DocumentRoot /var/www/html/example.com/public_html/
-        RailsBaseURI /app1
-        RailsBaseURI /app2 
-        RailsBaseURI /app3
+DocumentRoot /var/www/html/example.com/public_html/
+RailsBaseURI /app1
+RailsBaseURI /app2 
+RailsBaseURI /app3
+
 {{< /file-excerpt >}}
 
 

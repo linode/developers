@@ -52,25 +52,26 @@ In this guide, the domain "example.com" is used as an example site. You should s
 Next, you'll need to define the site's virtual host file:
 
 {{< file "/etc/nginx/sites-available/www.example.com" nginx >}}
-    server {
-        listen   80;
-        server_name www.example.com example.com;
-        access_log /srv/www/www.example.com/logs/access.log;
-        error_log /srv/www/www.example.com/logs/error.log;
+server {
+    listen   80;
+    server_name www.example.com example.com;
+    access_log /srv/www/www.example.com/logs/access.log;
+    error_log /srv/www/www.example.com/logs/error.log;
 
-        location / {
-            root   /srv/www/www.example.com/public_html;
-            index  index.html index.htm;
-        }
-
-        location ~ \.pl$ {
-            gzip off;
-            include /etc/nginx/fastcgi_params;
-            fastcgi_pass  127.0.0.1:8999;
-            fastcgi_index index.pl;
-            fastcgi_param  SCRIPT_FILENAME  /srv/www/www.example.com/public_html$fastcgi_script_name;
-        }
+    location / {
+        root   /srv/www/www.example.com/public_html;
+        index  index.html index.htm;
     }
+
+    location ~ \.pl$ {
+        gzip off;
+        include /etc/nginx/fastcgi_params;
+        fastcgi_pass  127.0.0.1:8999;
+        fastcgi_index index.pl;
+        fastcgi_param  SCRIPT_FILENAME  /srv/www/www.example.com/public_html$fastcgi_script_name;
+    }
+}
+
 {{< /file >}}
 
 
@@ -103,20 +104,21 @@ Test Perl with FastCGI
 Create a file called "test.pl" in your site's "public\_html" directory with the following contents:
 
 {{< file "/srv/www/www.example.com/public\\_html/test.pl" perl >}}
-    #!/usr/bin/perl
+#!/usr/bin/perl
 
-    print "Content-type:text/html\n\n";
-    print <<EndOfHTML;
-    <html><head><title>Perl Environment Variables</title></head>
-    <body>
-    <h1>Perl Environment Variables</h1>
-    EndOfHTML
+print "Content-type:text/html\n\n";
+print <<EndOfHTML;
+<html><head><title>Perl Environment Variables</title></head>
+<body>
+<h1>Perl Environment Variables</h1>
+EndOfHTML
 
-    foreach $key (sort(keys %ENV)) {
-        print "$key = $ENV{$key}<br>\n";
-    }
+foreach $key (sort(keys %ENV)) {
+    print "$key = $ENV{$key}<br>\n";
+}
 
-    print "</body></html>";
+print "</body></html>";
+
 {{< /file >}}
 
 

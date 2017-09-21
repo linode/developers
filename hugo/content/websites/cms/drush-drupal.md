@@ -222,7 +222,8 @@ You may want to install Drush for only certain users, for example, the **site ow
        nano ~/.bashrc
 
 {{< file-excerpt "~/.bashrc" >}}
-        export PATH="$HOME/.composer/vendor/bin:$PATH"
+export PATH="$HOME/.composer/vendor/bin:$PATH"
+
 {{< /file-excerpt >}}
 
 

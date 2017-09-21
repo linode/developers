@@ -48,7 +48,8 @@ Issue the following commands to update your system and install the nginx web ser
 Edit the `/etc/rc.conf` file, adding "nginx" and "spawn-fcgi-php" to the "DEAMONS=" line as shown in the following excerpt:
 
 {{< file-excerpt "/etc/rc.conf" >}}
-    DAEMONS=(syslog-ng network netfs crond sshd ntpd nginx spawn-fcgi-php)
+DAEMONS=(syslog-ng network netfs crond sshd ntpd nginx spawn-fcgi-php)
+
 {{< /file-excerpt >}}
 
 
@@ -76,23 +77,24 @@ Issue the following commands to create nginx virtual host directories:
 Next, define your site's virtual host file:
 
 {{< file "/etc/nginx/sites-available/www.example.com" nginx >}}
-    server {
-        server_name www.example.com example.com;
-        access_log /srv/http/example.com/logs/access.log;
-        error_log /srv/http/example.com/logs/error.log;
-        root /srv/http/example.com/public_html;
+server {
+    server_name www.example.com example.com;
+    access_log /srv/http/example.com/logs/access.log;
+    error_log /srv/http/example.com/logs/error.log;
+    root /srv/http/example.com/public_html;
 
-        location / {
-            index index.html index.htm index.php;
-        }
-
-        location ~ \.php$ {
-            include /etc/nginx/fastcgi_params;
-            fastcgi_pass  127.0.0.1:9000;
-            fastcgi_index index.php;
-            fastcgi_param SCRIPT_FILENAME /srv/http/example.com/public_html$fastcgi_script_name;
-        }
+    location / {
+        index index.html index.htm index.php;
     }
+
+    location ~ \.php$ {
+        include /etc/nginx/fastcgi_params;
+        fastcgi_pass  127.0.0.1:9000;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME /srv/http/example.com/public_html$fastcgi_script_name;
+    }
+}
+
 {{< /file >}}
 
 
@@ -131,9 +133,10 @@ After reviewing your configuration for potential security issues, issue the foll
 Edit the file `/etc/nginx/conf/nginx.conf`, inserting the line `include /etc/nginx/conf/sites-enabled/*;` at the start of the `http {` block, as shown in the following file excerpt:
 
 {{< file-excerpt "/etc/nginx/conf/nginx.conf" nginx >}}
-    http {
+http {
 
-        include /etc/nginx/conf/sites-enabled/*;
+    include /etc/nginx/conf/sites-enabled/*;
+
 {{< /file-excerpt >}}
 
 
@@ -147,7 +150,8 @@ Test PHP with FastCGI
 Create a file called "test.php" in your site's "public\_html" directory with the following contents:
 
 {{< file "/srv/http/example.com/public\\_html/test.php" php >}}
-    <?php phpinfo(); ?>
+<?php phpinfo(); ?>
+
 {{< /file >}}
 
 

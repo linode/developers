@@ -50,17 +50,18 @@ This guide is written for a non-root user. Commands that require elevated privil
 3.  Edit the main Apache configuration file to adjust the resource use settings. The settings shown below are a good starting point for a **Linode 2GB**:
 
 {{< file "/etc/apache2/apache2.conf" apache >}}
-        KeepAlive Off
+KeepAlive Off
 
-        ...
+...
 
-        <IfModule mpm_prefork_module>
-        StartServers 4
-        MinSpareServers 20
-        MaxSpareServers 40
-        MaxClients 200
-        MaxRequestsPerChild 4500
-        </IfModule>
+<IfModule mpm_prefork_module>
+StartServers 4
+MinSpareServers 20
+MaxSpareServers 40
+MaxClients 200
+MaxRequestsPerChild 4500
+</IfModule>
+
 {{< /file >}}
 
 
@@ -76,14 +77,15 @@ Apache supports *name-based virtual hosting*, which allows you to host multiple 
 2.  Each virtual host needs its own configuration file in the `/etc/apache2/sites-available/` directory. Create the file for **example.com**, called `/etc/apache2/sites-available/example.com.conf`, with the following content. Be sure to replace **example.com** with your own domain name.
 
 {{< file "/etc/apache2/sites-available/example.com.conf" apache >}}
-        <VirtualHost *:80>
-             ServerAdmin webmaster@example.com
-             ServerName example.com
-             ServerAlias www.example.com
-             DocumentRoot /var/www/example.com/public_html/
-             ErrorLog /var/www/example.com/logs/error.log
-             CustomLog /var/www/example.com/logs/access.log combined
-        </VirtualHost>
+<VirtualHost *:80>
+     ServerAdmin webmaster@example.com
+     ServerName example.com
+     ServerAlias www.example.com
+     DocumentRoot /var/www/example.com/public_html/
+     ErrorLog /var/www/example.com/logs/error.log
+     CustomLog /var/www/example.com/logs/access.log combined
+</VirtualHost>
+
 {{< /file >}}
 
 
@@ -93,9 +95,9 @@ If you would like to enable Perl support, add the following lines to the `Virtua
 {{< file-excerpt "> /etc/apache2/sites-available/example.com.conf" apache >}}
 Options ExecCGI
 AddHandler cgi-script .pl
+{{< /note >}}
 
 {{< /file-excerpt >}}
-{{< /note >}}
 
     >
 

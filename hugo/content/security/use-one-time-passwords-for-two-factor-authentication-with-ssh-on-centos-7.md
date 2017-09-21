@@ -104,10 +104,11 @@ It is strongly recommended that you have another terminal session open while con
 1.  Open `/etc/pam.d/sshd` with sudo privileges, and add the line from those below that references `pam_oath.so` (it has been marked by a comment here for clarity, but you can omit everything following the `#`). The surrounding lines are included for context, but they should not be modified. The line **must** be added between the lines specified here:
 
 {{< file-excerpt "/etc/pam.d/sshd" >}}
-        auth   	required    pam_sepermit.so
-        auth    substack    password-auth
-        auth    required    pam_oath.so usersfile=/etc/liboath/users.oath window=10 digits=6 #Add this line
-        auth    include     postlogin
+auth   	required    pam_sepermit.so
+auth    substack    password-auth
+auth    required    pam_oath.so usersfile=/etc/liboath/users.oath window=10 digits=6 #Add this line
+auth    include     postlogin
+
 {{< /file-excerpt >}}
 
 
@@ -118,21 +119,23 @@ If you follow the rest of the instructions and find that you are still unable to
 
 {{< file-excerpt "> /etc/pam.d/sshd" >}}
 auth    required    password-auth debug=1
+{{< /note >}}
 
 {{< /file-excerpt >}}
-{{< /note >}}
+
 
 2.  Edit `/etc/ssh/sshd_config` to include the following lines, replacing `example-user` with any system user for which you'd like to enable two-factor authentication. Comments (preceded by #) are included here, but should not be added to your actual configuration file:
 
 {{< file-excerpt "/etc/ssh/sshd_config" >}}
-        # This line already exists in the file and should be changed from 'no' to 'yes'
-        ChallengeResponseAuthentication yes
+# This line already exists in the file and should be changed from 'no' to 'yes'
+ChallengeResponseAuthentication yes
 
-        ...
+...
 
-        # These lines should be added to the end of the file
-        Match User example-user
-            AuthenticationMethods keyboard-interactive
+# These lines should be added to the end of the file
+Match User example-user
+    AuthenticationMethods keyboard-interactive
+
 {{< /file-excerpt >}}
 
 
@@ -165,10 +168,11 @@ Confirm that your public key has been copied to your Linode before completing th
 1.  Set `PasswordAuthentication` to `no` and modify the `AuthenticationMethods` line in `/etc/ssh/sshd_config`:
 
 {{< file-excerpt "/etc/ssh/sshd_config" >}}
-        PasswordAuthentication no
-        ...
-        Match User example-user
-            AuthenticationMethods publickey,keyboard-interactive
+PasswordAuthentication no
+...
+Match User example-user
+    AuthenticationMethods publickey,keyboard-interactive
+
 {{< /file-excerpt >}}
 
 
@@ -177,7 +181,8 @@ Confirm that your public key has been copied to your Linode before completing th
 2.  Next, you'll need to make changes to your PAM configuration. Comment out or omit the following line in your `/etc/pam.d/sshd` file:
 
 {{< file-excerpt "/etc/pam.d/sshd" >}}
-        # auth       substack     password-auth
+# auth       substack     password-auth
+
 {{< /file-excerpt >}}
 
 

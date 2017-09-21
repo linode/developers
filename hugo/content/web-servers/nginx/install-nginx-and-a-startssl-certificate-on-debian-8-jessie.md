@@ -92,22 +92,23 @@ Please understand that when using this method, you will be responsible for updat
 10. Create a systemd service script to run nginx:
 
 {{< file "/lib/systemd/system/nginx.service" shell >}}
-        [Unit]
-        Description=A high performance web server and a reverse proxy server
-        After=network.target
+[Unit]
+Description=A high performance web server and a reverse proxy server
+After=network.target
 
-        [Service]
-        Type=forking
-        PIDFile=/opt/nginx/logs/nginx.pid
-        ExecStartPre=/opt/nginx/sbin/nginx -t -q -g 'daemon on; master_process on;'
-        ExecStart=/opt/nginx/sbin/nginx -g 'daemon on; master_process on;'
-        ExecReload=/opt/nginx/sbin/nginx -g 'daemon on; master_process on;' -s reload
-        ExecStop=-/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /opt/nginx/logs/nginx.pid
-        TimeoutStopSec=5
-        KillMode=mixed
+[Service]
+Type=forking
+PIDFile=/opt/nginx/logs/nginx.pid
+ExecStartPre=/opt/nginx/sbin/nginx -t -q -g 'daemon on; master_process on;'
+ExecStart=/opt/nginx/sbin/nginx -g 'daemon on; master_process on;'
+ExecReload=/opt/nginx/sbin/nginx -g 'daemon on; master_process on;' -s reload
+ExecStop=-/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /opt/nginx/logs/nginx.pid
+TimeoutStopSec=5
+KillMode=mixed
 
-        [Install]
-        WantedBy=multi-user.target
+[Install]
+WantedBy=multi-user.target
+
 {{< /file >}}
 
 
@@ -246,28 +247,29 @@ The text of the `.crt` file will appear to have two certificates in it. It is im
 1.  By default, nginx is configured to only serve HTTP requests on TCP port 80. To make use of SSL, you will need to configure nginx to serve HTTPS requests on TCP port 443. Open the sample nginx SSL server block configuration file and adjust your configuration so that it matches the example below.
 
 {{< file "/etc/nginx/conf.d/example_ssl.conf" aconf >}}
-        # HTTPS server
-        #
-        server {
-            listen       443 ssl;
-            server_name  example.com;
+# HTTPS server
+#
+server {
+    listen       443 ssl;
+    server_name  example.com;
 
-            ssl_certificate      /etc/ssl/nginx/nginx.crt;
-            ssl_certificate_key  /etc/ssl/nginx/server.key;
+    ssl_certificate      /etc/ssl/nginx/nginx.crt;
+    ssl_certificate_key  /etc/ssl/nginx/server.key;
 
-            ssl_session_cache shared:SSL:10m;
-            ssl_session_timeout  5m;
+    ssl_session_cache shared:SSL:10m;
+    ssl_session_timeout  5m;
 
-            ssl_ciphers  "EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH !RC4";
-            ssl_prefer_server_ciphers   on;
+    ssl_ciphers  "EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH !RC4";
+    ssl_prefer_server_ciphers   on;
 
-            ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
 
-            location / {
-                root   /opt/nginx/html;
-                index  index.html index.htm;
-            }
-        }
+    location / {
+        root   /opt/nginx/html;
+        index  index.html index.htm;
+    }
+}
+
 {{< /file >}}
 
 
@@ -276,7 +278,8 @@ The text of the `.crt` file will appear to have two certificates in it. It is im
     Depending on how you installed nginx, this file may not have been created by default. For example, if you compiled nginx from source, you will need to create the `example_ssl.conf` file and copy this configuration into it. If that is the case, you will also need to add the following line to the `http` block in your main nginx configuration file:
 
 {{< file-excerpt "/etc/nginx/nginx.conf" aconf >}}
-            include     /etc/nginx/conf.d/*.conf;
+include     /etc/nginx/conf.d/*.conf;
+
 {{< /file-excerpt >}}
 
 

@@ -47,27 +47,28 @@ All Redis configuration options can be specified in the `redis.conf` file locate
 Consider the following configuration:
 
 {{< file "redis.conf" >}}
-    daemonize yes
-    pidfile /var/run/redis.pid
-    logfile /var/log/redis.log
+daemonize yes
+pidfile /var/run/redis.pid
+logfile /var/log/redis.log
 
-    port 6379
-    bind 127.0.0.1
-    timeout 300
+port 6379
+bind 127.0.0.1
+timeout 300
 
-    loglevel notice
+loglevel notice
 
-    ## Default configuration options
-    databases 16
+## Default configuration options
+databases 16
 
-    save 900 1
-    save 300 10
-    save 60 10000
+save 900 1
+save 300 10
+save 60 10000
 
-    rdbcompression yes
-    dbfilename dump.rdb
+rdbcompression yes
+dbfilename dump.rdb
 
-    appendonly no
+appendonly no
+
 {{< /file >}}
 
 
@@ -96,8 +97,9 @@ If persistence is a major issue for your application, it is possible to use Redi
 To use this mode, ensure that the following values are set in `redis.conf`:
 
 {{< file-excerpt "redis.conf" >}}
-    appendonly yes
-    appendfsync everysec
+appendonly yes
+appendfsync everysec
+
 {{< /file-excerpt >}}
 
 
@@ -122,7 +124,8 @@ Redis contains limited support for master-slave replication which allows you to 
 To configure master-slave operation, ensure that the following configuration options are applied to the *slave* instance:
 
 {{< file-excerpt "redis.conf" >}}
-    slaveof 192.168.10.101 6379
+slaveof 192.168.10.101 6379
+
 {{< /file-excerpt >}}
 
 

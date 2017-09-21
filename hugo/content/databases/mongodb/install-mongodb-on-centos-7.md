@@ -47,12 +47,13 @@ The most current stable version of MongoDB is 3.2 and, as of this writing, the d
 Create a new file, `/etc/yum.repos.d/mongodb-org-3.2.repo`, so that you can install the latest release using `yum`. Add the following contents to the file:
 
 {{< file "/etc/yum.repos.d/mongodb-org-3.2.repo" >}}
-    [mongodb-org-3.2]
-    name=MongoDB Repository
-    baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.2/x86_64/
-    gpgcheck=1
-    enabled=1
-    gpgkey=https://www.mongodb.org/static/pgp/server-3.2.asc
+[mongodb-org-3.2]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.2/x86_64/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.mongodb.org/static/pgp/server-3.2.asc
+
 {{< /file >}}
 
 
@@ -93,8 +94,9 @@ These are only a few basic configuration options that are set by default.
 We **strongly** recommend uncommenting the `security` section and adding the following:
 
 {{< file-excerpt "/etc/mongod.conf" aconf >}}
-    security:
-      authorization: enabled
+security:
+  authorization: enabled
+
 {{< /file-excerpt >}}
 
 

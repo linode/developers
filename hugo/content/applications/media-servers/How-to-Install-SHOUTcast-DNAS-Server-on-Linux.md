@@ -69,56 +69,57 @@ Now, you'll want to modify the configuration. This is necessary to specify passw
 2.  This will bring up the configuration file for editing, as shown below.
 
 {{< file "/home/shoutcast/sc/sc_serv_basic.conf" >}}
-      ; NOTE: for any relative paths specified are relative to
-      ; sc_serv and not to where the conf file is being stored
+; NOTE: for any relative paths specified are relative to
+; sc_serv and not to where the conf file is being stored
 
-      ; here we will setup where the log and other related files
-      ; will be stored. make sure that these folders exist else
-      ; sc_serv will throw an error and will close itself down.
-      ; we will make the logs save to the sc_serv2 directory
-      logfile=logs/sc_serv.log
-      w3clog=logs/sc_w3c.log
-      banfile=control/sc_serv.ban
-      ripfile=control/sc_serv.rip
-
-
-      ; for testing we will make the server only work locally
-      ; (i.e. localhost / 127.0.0.1) though if this is left out
-      ; or set to publicserver=always then we attempt to make a
-      ; connection to the YP for listing - do not forget to add
-      ; in a 'streamauthhash' value for any public streams made
-      ;publicserver=never
+; here we will setup where the log and other related files
+; will be stored. make sure that these folders exist else
+; sc_serv will throw an error and will close itself down.
+; we will make the logs save to the sc_serv2 directory
+logfile=logs/sc_serv.log
+w3clog=logs/sc_w3c.log
+banfile=control/sc_serv.ban
+ripfile=control/sc_serv.rip
 
 
-      ; if you're wanting to use a different port to use for any
-      ; connections then you can use this option e.g. to use 80
-      ; otherwise port 8000 is used as the default to listen on.
-      ;portbase=80
+; for testing we will make the server only work locally
+; (i.e. localhost / 127.0.0.1) though if this is left out
+; or set to publicserver=always then we attempt to make a
+; connection to the YP for listing - do not forget to add
+; in a 'streamauthhash' value for any public streams made
+;publicserver=never
 
 
-      ; password used by sc_trans or the Winamp dsp plug-in
-      ; NOTE: remember to change this to something else
-      password=testing
+; if you're wanting to use a different port to use for any
+; connections then you can use this option e.g. to use 80
+; otherwise port 8000 is used as the default to listen on.
+;portbase=80
 
 
-      ; password used for accessing the administation pages
-      ; NOTE: remember to change this to something else
-      adminpassword=changeme
+; password used by sc_trans or the Winamp dsp plug-in
+; NOTE: remember to change this to something else
+password=testing
 
 
-      ; now we will specify the details of the stream we're going
-      ; to serve which can be done as follows
-      streamid=1
-      streampath=/test.aac
+; password used for accessing the administation pages
+; NOTE: remember to change this to something else
+adminpassword=changeme
 
-      ; or
 
-      ; it can be done like this which is how it needs to be done
-      ; if you are going to provide multiple streams from sc_serv
-      ;streamid_1=1
-      ;streampath_1=/test.aac
-      ;streamid_2=2
-      ;streampath_2=/test2.aac
+; now we will specify the details of the stream we're going
+; to serve which can be done as follows
+streamid=1
+streampath=/test.aac
+
+; or
+
+; it can be done like this which is how it needs to be done
+; if you are going to provide multiple streams from sc_serv
+;streamid_1=1
+;streampath_1=/test.aac
+;streamid_2=2
+;streampath_2=/test2.aac
+
 {{< /file >}}
 
 
@@ -210,74 +211,79 @@ This example will walk you through a basic configuration.
 2.  You can modify the bitrate to change the sound quality of the music and limit the amount of bandwidth consumed. If you purchase MP3 licensing, you can modify the encoder section to add the MP3 encoding and your unlock data:
 
 {{< file-excerpt "/home/shoutcast/sct/sc_trans_basic.conf" >}}
-      ; for testing we will only setup a single encoder though it
-      ; is easy to add in additional encoder configurations and
-      ; we are using an aac plus encoder as the default due to
-      ; the licensing requirements for mp3 encoding as detailed
-      ; in sc_trans.txt - section 2.5).
-      encoder_1=aacp
-      encoder_2=mp3
-      bitrate_1=56000
-      bitrate_2=56000
+; for testing we will only setup a single encoder though it
+; is easy to add in additional encoder configurations and
+; we are using an aac plus encoder as the default due to
+; the licensing requirements for mp3 encoding as detailed
+; in sc_trans.txt - section 2.5).
+encoder_1=aacp
+encoder_2=mp3
+bitrate_1=56000
+bitrate_2=56000
 
-      unlockkeyname=YourUnlockName
-      unlockkeycode=YourUnlockCode
+unlockkeyname=YourUnlockName
+unlockkeycode=YourUnlockCode
+
 {{< /file-excerpt >}}
 
 
 3.  Next, modify the sc\_trans to sc\_serv connection details:
 
 {{< file-excerpt "/home/shoutcast/sct/sc\\_trans\\_basic.conf" >}}
-    ; this is where we define the details required for sc_trans
-    ; to connect to the sc_serv instance being used where the
-    ; details must match those specified in sc_serv_basic.conf
-    outprotocol_1=3
-    serverip_1=127.0.0.1
-    ; default is 8000, if not change to sc_serv's 'portbase'
-    serverport_1=8000
-    ; this is the same as 'password' in sc_serv_basic.conf
-    password_1=testing
-    ; this is the same as 'streamid' in sc_serv_basic.conf for
-    ; the stream we are acting as the source for
-    streamid_1=1
-    ; this is a name for the source we're creating and is used
-    ; with the AJAX control api or can be left blank to get a
-    ; generic name created in the form of 'endpointX' where 'X'
-    ; is the index of the created source from sc_trans lists.
-    endpointname_1=/Bob
+; this is where we define the details required for sc_trans
+; to connect to the sc_serv instance being used where the
+; details must match those specified in sc_serv_basic.conf
+outprotocol_1=3
+serverip_1=127.0.0.1
+; default is 8000, if not change to sc_serv's 'portbase'
+serverport_1=8000
+; this is the same as 'password' in sc_serv_basic.conf
+password_1=testing
+; this is the same as 'streamid' in sc_serv_basic.conf for
+; the stream we are acting as the source for
+streamid_1=1
+; this is a name for the source we're creating and is used
+; with the AJAX control api or can be left blank to get a
+; generic name created in the form of 'endpointX' where 'X'
+; is the index of the created source from sc_trans lists.
+endpointname_1=/Bob
+
 {{< /file-excerpt >}}
 
 
 4.  This step is optional, but you can also update your stream information:
 
 {{< file-excerpt "/home/shoutcast/sct/sc\\_trans\\_basic.conf" >}}
-    ; here you would provide any information to fill in details
-    ; provided to clients about the stream. it us up to you what
-    ; is entered though do not do anything which will annoy, etc
-    streamtitle=My Test Server
-    streamurl=http://www.shoutcast.com
-    genre=Misc
+; here you would provide any information to fill in details
+; provided to clients about the stream. it us up to you what
+; is entered though do not do anything which will annoy, etc
+streamtitle=My Test Server
+streamurl=http://www.shoutcast.com
+genre=Misc
+
 {{< /file-excerpt >}}
 
 
 5.  Set your playlist file for an automated stream:
 
 {{< file-excerpt "/home/shoutcast/sct/sc\\_trans\\_basic.conf" >}}
-    ; here we specify a playlist to use as the master list from
-    ; which to play files from.
-    playlistfile=playlists/main.lst
+; here we specify a playlist to use as the master list from
+; which to play files from.
+playlistfile=playlists/main.lst
+
 {{< /file-excerpt >}}
 
 
 6.  Now set the port, username, and password for the transcoder admin panel access:
 
 {{< file-excerpt "/home/shoutcast/sct/sc\\_trans\\_basic.conf" >}}
-    ; these options will allow you access the admin interfaces
-    ; of sc_trans though also allows the 'testui' example to be
-    ; accessed. remember to change the password, etc as needed
-    adminport=7999
-    adminuser=admin
-    adminpassword=goaway
+; these options will allow you access the admin interfaces
+; of sc_trans though also allows the 'testui' example to be
+; accessed. remember to change the password, etc as needed
+adminport=7999
+adminuser=admin
+adminpassword=goaway
+
 {{< /file-excerpt >}}
 
 
@@ -286,21 +292,22 @@ This example will walk you through a basic configuration.
 9.  If you are using an automated playlist, you'll also need to create a playlist file. Here is an example:
 
 {{< file "/home/shoutcast/sct/playlists/playlist.lst" >}}
-      # This example playlist is used as the main playlist sc_trans will use to pick
-      # out the files it will use to create its output for the source we generate.
-      #
-      # Also remember to use the correct path format for the OS you are using and to
-      # ensure that the files you want to play are present in the location you choose
-      # e.g.
-      ../music/shoutcast.mp3
-      #
-      # In this example we will just assume that all of the files associated to the
-      # playlist are in one folder and all have an mp3 extension though there is no
-      # reason why you cannot explicitly specify files to use or to reference a tool.
-      # See sc_trans.txt - section 7.1 for more information on how playlists work.
+# This example playlist is used as the main playlist sc_trans will use to pick
+# out the files it will use to create its output for the source we generate.
+#
+# Also remember to use the correct path format for the OS you are using and to
+# ensure that the files you want to play are present in the location you choose
+# e.g.
+../music/shoutcast.mp3
+#
+# In this example we will just assume that all of the files associated to the
+# playlist are in one folder and all have an mp3 extension though there is no
+# reason why you cannot explicitly specify files to use or to reference a tool.
+# See sc_trans.txt - section 7.1 for more information on how playlists work.
  
-      # Remember to change this to reference the files you want to use when trying
-      # the sc_trans_playlist.conf example which is best tried with full length files
+# Remember to change this to reference the files you want to use when trying
+# the sc_trans_playlist.conf example which is best tried with full length files
+
 {{< /file >}}
 
 

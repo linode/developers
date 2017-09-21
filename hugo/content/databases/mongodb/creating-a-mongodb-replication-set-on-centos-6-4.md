@@ -34,7 +34,8 @@ This guide is written for a non-root user. Commands that require elevated privil
     Replace the name in brackets <> with your own hostname. This example uses the Nano text editor. However, you can use the text editor you prefer.
 
 {{< file-excerpt "/etc/hostname" >}}
-        europa
+europa
+
 {{< /file-excerpt >}}
 
 
@@ -79,9 +80,10 @@ Before you begin, you will need to obtain all the private IP addresses for each 
 Once you have all your private IPs, you can add them to the `hosts` file. Use your favorite text editor and add the addresses.
 
 {{< file-excerpt "/etc/hosts" >}}
-    192.168.160.1 mongo1
-    192.168.170.1 mongo2
-    192.168.180.1 mongo3
+192.168.160.1 mongo1
+192.168.170.1 mongo2
+192.168.180.1 mongo3
+
 {{< /file-excerpt >}}
 
 
@@ -96,19 +98,20 @@ Replication set member names and the actual server name are different. In this i
 1.  Edit your `ifcfg-eth0` file to include the public IP address information.
 
 {{< file-excerpt "/etc/sysconfig/network-scripts/ifcfg-eth0" >}}
-        DEVICE=eth0
-        BOOTPROTO=none
-        ONBOOT=yes
-        TYPE=Ethernet
+DEVICE=eth0
+BOOTPROTO=none
+ONBOOT=yes
+TYPE=Ethernet
 
-        # This line ensures that the interface will be brought up during boot.
-        ONBOOT=yes
+# This line ensures that the interface will be brought up during boot.
+ONBOOT=yes
 
-        # eth0 - This is the main IP address that will be used for most outbound connections.
-        # The address, netmask and gateway are all necessary.
-        IPADDR=xxx.xx.xxx.xx
-        NETMASK=xxx.xxx.xxx.x
-        GATEWAY=xxx.xx.xx.x
+# eth0 - This is the main IP address that will be used for most outbound connections.
+# The address, netmask and gateway are all necessary.
+IPADDR=xxx.xx.xxx.xx
+NETMASK=xxx.xxx.xxx.x
+GATEWAY=xxx.xx.xx.x
+
 {{< /file-excerpt >}}
 
 
@@ -121,17 +124,18 @@ Replication set member names and the actual server name are different. In this i
 3.  Now edit your newly created `eth0:1` file to reflect your private IP information:
 
 {{< file-excerpt "/etc/sysconfig/network-scripts/ifcfg-eth0:1" >}}
-        # Configuration for eth0:1
-        DEVICE=eth0:1
-        BOOTPROTO=none
+# Configuration for eth0:1
+DEVICE=eth0:1
+BOOTPROTO=none
 
-        # This line ensures that the interface will be brought up during boot.
-        ONBOOT=yes
+# This line ensures that the interface will be brought up during boot.
+ONBOOT=yes
 
-        # eth0:1 - Private IPs have no gateway (they are not publicly routable)
-        # specify the address and netmask.
-        IPADDR=xxx.xxx.xxx.xxx
-        NETMASK=xxx.xxx.xxx.x
+# eth0:1 - Private IPs have no gateway (they are not publicly routable)
+# specify the address and netmask.
+IPADDR=xxx.xxx.xxx.xxx
+NETMASK=xxx.xxx.xxx.x
+
 {{< /file-excerpt >}}
 
 
@@ -146,11 +150,12 @@ Replication set member names and the actual server name are different. In this i
 1.  Edit the `mongod.conf` file to add the IP address and port number.
 
 {{< file-excerpt "/etc/mongod.conf" >}}
-        # fork and run in background
-        fork = true
+# fork and run in background
+fork = true
 
-        bind_ip = 192.168.135.24
-        port = 27017
+bind_ip = 192.168.135.24
+port = 27017
+
 {{< /file-excerpt >}}
 
 
@@ -159,7 +164,8 @@ Replication set member names and the actual server name are different. In this i
 2.  While still in the `mongodb.conf` file scroll to the bottom and add the replica set information:
 
 {{< file-excerpt "/etc/mongod.conf" >}}
-        replSet = rs1
+replSet = rs1
+
 {{< /file-excerpt >}}
 
 

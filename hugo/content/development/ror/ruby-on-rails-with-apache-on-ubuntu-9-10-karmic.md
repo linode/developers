@@ -28,25 +28,26 @@ Ruby on Rails is a popular rapid development web framework that allows web desig
 Before updating your system and installing the required software, edit the `/etc/apt/sources.list` file to enable the Ubuntu's "universe" repository, so that it resembles the following:
 
 {{< file-excerpt "/etc/apt/sources.list" >}}
-    ## main & restricted repositories
-    deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
-    deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
+## main & restricted repositories
+deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
+deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
 
-    deb http://security.ubuntu.com/ubuntu karmic-updates main restricted
-    deb-src http://security.ubuntu.com/ubuntu karmic-updates main restricted
+deb http://security.ubuntu.com/ubuntu karmic-updates main restricted
+deb-src http://security.ubuntu.com/ubuntu karmic-updates main restricted
 
-    deb http://security.ubuntu.com/ubuntu karmic-security main restricted
-    deb-src http://security.ubuntu.com/ubuntu karmic-security main restricted
+deb http://security.ubuntu.com/ubuntu karmic-security main restricted
+deb-src http://security.ubuntu.com/ubuntu karmic-security main restricted
 
-    ## universe repositories - uncomment to enable
-    deb http://us.archive.ubuntu.com/ubuntu/ karmic universe
-    deb-src http://us.archive.ubuntu.com/ubuntu/ karmic universe
+## universe repositories - uncomment to enable
+deb http://us.archive.ubuntu.com/ubuntu/ karmic universe
+deb-src http://us.archive.ubuntu.com/ubuntu/ karmic universe
 
-    deb http://us.archive.ubuntu.com/ubuntu/ karmic-updates universe
-    deb-src http://us.archive.ubuntu.com/ubuntu/ karmic-updates universe
+deb http://us.archive.ubuntu.com/ubuntu/ karmic-updates universe
+deb-src http://us.archive.ubuntu.com/ubuntu/ karmic-updates universe
 
-    deb http://security.ubuntu.com/ubuntu karmic-security universe
-    deb-src http://security.ubuntu.com/ubuntu karmic-security universe
+deb http://security.ubuntu.com/ubuntu karmic-security universe
+deb-src http://security.ubuntu.com/ubuntu karmic-security universe
+
 {{< /file-excerpt >}}
 
 
@@ -86,7 +87,8 @@ Additionally, the application you deploy will likely have additional dependencie
 If you configured Apache virtual hosting as outlined in the [Ubuntu 9.10 (Karmic) Apache guide](/docs/web-servers/apache/installation/ubuntu-9.10-karmic), the public directory for your domain (e.g. `example.com`) is located in `/srv/www/example.com/public_html/`, and your `<VirtualHost >` configuration block contains a line that reads:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-    DocumentRoot /srv/www/example.com/public_html/
+DocumentRoot /srv/www/example.com/public_html/
+
 {{< /file-excerpt >}}
 
 
@@ -116,10 +118,11 @@ If your application requires additional configuration including database migrati
 There are a number of strategies for deploying more than one Rails application using Passenger. The most simple approach requires running multiple distinct virtual hosts configured as above to host a single Rails app each. Alternatively you may host multiple Rails apps within a single virtual host. Add `RailsBaseURI` directives that specify the path to your Rails application within the VirtualHost configuration, as in the following example:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-    DocumentRoot /srv/www/example.com/public_html/
-    RailsBaseURI /my-app
-    RailsBaseURI /frogs
-    RailsBaseURI /simon
+DocumentRoot /srv/www/example.com/public_html/
+RailsBaseURI /my-app
+RailsBaseURI /frogs
+RailsBaseURI /simon
+
 {{< /file-excerpt >}}
 
 

@@ -54,17 +54,18 @@ Install Nginx:
 1.  In Nginx `server blocks` are the equivalent of Apache's virtual hosts. Create the server block file `/etc/nginx/sites-available/example.com`. In this and all following steps, replace `example.com` with your domain:
 
 {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
-    server {
-        listen   80;
-        server_name www.example.com example.com;
-        access_log /var/www/html/example.com/logs/access.log;
-        error_log /var/www/html/example.com/logs/error.log;
+server {
+    listen   80;
+    server_name www.example.com example.com;
+    access_log /var/www/html/example.com/logs/access.log;
+    error_log /var/www/html/example.com/logs/error.log;
 
-        location / {
-            root   /var/www/html/example.com/public_html;
-            index  index.html index.htm;
-        }
+    location / {
+        root   /var/www/html/example.com/public_html;
+        index  index.html index.htm;
     }
+}
+
 {{< /file-excerpt >}}
 
 
@@ -113,12 +114,13 @@ For more information regarding Nginx configuration options, check out our [Overv
 3.  In your server block file, add a `location` directive to pass PHP files through to FastCGI:
 
 {{< file "/etc/nginx/sites-available/example.com" nginx >}}
-        location ~ \.php$ {
-            include /etc/nginx/fastcgi_params;
-            fastcgi_pass  127.0.0.1:9000;
-            fastcgi_index index.php;
-            fastcgi_param SCRIPT_FILENAME /var/www/html/example.com/public_html$fastcgi_script_name;
-        }
+location ~ \.php$ {
+    include /etc/nginx/fastcgi_params;
+    fastcgi_pass  127.0.0.1:9000;
+    fastcgi_index index.php;
+    fastcgi_param SCRIPT_FILENAME /var/www/html/example.com/public_html$fastcgi_script_name;
+}
+
 {{< /file >}}
 
 

@@ -101,9 +101,10 @@ and continue by reloading lighttpd:
 Modify the following settings in your `/etc/lighttpd/conf-enabled/10-simple-vhost.conf` file:
 
 {{< file-excerpt "/etc/lighttpd/conf-enabled/10-simple-vhost.conf" lighty >}}
-    simple-vhost.server-root = "/var/www"
-    simple-vhost.default-host = "brackley.org"
-    simple-vhost.document-root = "/pages/"
+simple-vhost.server-root = "/var/www"
+simple-vhost.default-host = "brackley.org"
+simple-vhost.document-root = "/pages/"
+
 {{< /file-excerpt >}}
 
 
@@ -180,29 +181,31 @@ Lighttpd will send CGI requests to CGI handlers on the basis of file extensions,
 If you install the php5-cgi package and enable mod\_fastcgi with `lighty-enable-mod fastcgi` then a default FastCGI handler will be configured in the file `/etc/lighttpd/conf-enabled/10-fastcgi.conf`. Though the handler will likely require specific customization for your use cases, it serves as an effective example:
 
 {{< file-excerpt "/etc/lighttpd/conf-enabled/10-fastcgi.conf" lighty >}}
-    fastcgi.server    = ( ".php" =>
-            ((
-                    "bin-path" => "/usr/bin/php-cgi",
-                      "socket" => "/tmp/php.socket",
-              "max-procs" => 2,
-                     "idle-timeout" => 20,
-                     "bin-environment" => (
-                            "PHP_FCGI_CHILDREN" => "4",
-                            "PHP_FCGI_MAX_REQUESTS" => "10000"
-                    ),
-                    "bin-copy-environment" => (
-                            "PATH", "SHELL", "USER"
-                    ),
-                    "broken-scriptfilename" => "enable"
-            ))
-    )
+fastcgi.server    = ( ".php" =>
+        ((
+                "bin-path" => "/usr/bin/php-cgi",
+                  "socket" => "/tmp/php.socket",
+          "max-procs" => 2,
+                 "idle-timeout" => 20,
+                 "bin-environment" => (
+                        "PHP_FCGI_CHILDREN" => "4",
+                        "PHP_FCGI_MAX_REQUESTS" => "10000"
+                ),
+                "bin-copy-environment" => (
+                        "PATH", "SHELL", "USER"
+                ),
+                "broken-scriptfilename" => "enable"
+        ))
+)
+
 {{< /file-excerpt >}}
 
 
 You can map more than one file extensions to a single FastCGI handler by adding the following entry to your config file:
 
 {{< file-excerpt "/etc/lighttpd/conf-enabled/10-fastcgi.conf" lighty >}}
-    fastcgi.map-extensions = ( ".[ALT-EXTENSION]" => ".[EXTENSION]" )
+fastcgi.map-extensions = ( ".[ALT-EXTENSION]" => ".[EXTENSION]" )
+
 {{< /file-excerpt >}}
 
 

@@ -59,17 +59,18 @@ cp /etc/httpd/conf/httpd.conf ~/httpd.conf.backup
 {{< /note >}}
 
 {{< file-excerpt "/etc/httpd/conf/httpd.conf" aconf >}}
-        DocumentRoot "/var/www/html/example.com/public_html"
+DocumentRoot "/var/www/html/example.com/public_html"
 
-        ...
+...
 
-        <IfModule prefork.c>
-            StartServers        5
-            MinSpareServers     20
-            MaxSpareServers     40
-            MaxRequestWorkers   256
-            MaxConnectionsPerChild 5500
-        </IfModule>
+<IfModule prefork.c>
+    StartServers        5
+    MinSpareServers     20
+    MaxSpareServers     40
+    MaxRequestWorkers   256
+    MaxConnectionsPerChild 5500
+</IfModule>
+
 {{< /file-excerpt >}}
 
 
@@ -82,16 +83,17 @@ You can choose many ways to set up a virtual host. In this section we recommend 
 1.  Within the `conf.d` directory create `vhost.conf` to store your virtual host configurations. The example below is a template for website `example.com`; change the necessary values for your domain:
 
 {{< file-excerpt "/etc/httpd/conf.d/vhost.conf" aconf >}}
-        NameVirtualHost *:80
+NameVirtualHost *:80
 
-        <VirtualHost *:80>
-            ServerAdmin webmaster@example.com
-            ServerName example.com
-            ServerAlias www.example.com
-            DocumentRoot /var/www/html/example.com/public_html/
-            ErrorLog /var/www/html/example.com/logs/error.log
-            CustomLog /var/www/html/example.com/logs/access.log combined
-        </VirtualHost>
+<VirtualHost *:80>
+    ServerAdmin webmaster@example.com
+    ServerName example.com
+    ServerAlias www.example.com
+    DocumentRoot /var/www/html/example.com/public_html/
+    ErrorLog /var/www/html/example.com/logs/error.log
+    CustomLog /var/www/html/example.com/logs/access.log combined
+</VirtualHost>
+
 {{< /file-excerpt >}}
 
 

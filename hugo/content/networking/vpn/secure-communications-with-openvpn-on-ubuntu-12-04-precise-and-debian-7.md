@@ -187,26 +187,28 @@ In this section, you'll create two important configuration files. One is for the
         nano ~/client.conf
 
 {{< file "~/client.conf" >}}
-        # The hostname/IP and port of the server.
-        # You can have multiple remote entries
-        # to load balance between the servers.
+# The hostname/IP and port of the server.
+# You can have multiple remote entries
+# to load balance between the servers.
 
-        remote example.com 1194
+remote example.com 1194
+
 {{< /file >}}
 
 
 5.  In the same file, `client.conf`, edit the `cert` and `key` lines to reflect the name of your key. In this example we use `client1` for the file name.
 
 {{< file "~/client.conf" >}}
-        # SSL/TLS parms.
-        # See the server config file for more
-        # description.  It's best to use
-        # a separate .crt/.key file pair
-        # for each client.  A single ca
-        # file can be used for all clients.
-        ca ca.crt
-        cert client1.crt
-        key client1.key
+# SSL/TLS parms.
+# See the server config file for more
+# description.  It's best to use
+# a separate .crt/.key file pair
+# for each client.  A single ca
+# file can be used for all clients.
+ca ca.crt
+cert client1.crt
+key client1.key
+
 {{< /file >}}
 
 
@@ -266,7 +268,8 @@ By deploying the following configuration, you will be able to forward *all* traf
         nano /etc/openvpn/server.conf
 
 {{< file-excerpt "/etc/openvpn/server.conf" >}}
-      push "redirect-gateway def1 bypass-dhcp"
+push "redirect-gateway def1 bypass-dhcp"
+
 {{< /file-excerpt >}}
 
 	
@@ -275,7 +278,8 @@ By deploying the following configuration, you will be able to forward *all* traf
         nano /etc/sysctl.conf
 
 {{< file-excerpt "/etc/sysctl.conf" >}}
-      net.ipv4.ip_forward=1
+net.ipv4.ip_forward=1
+
 {{< /file-excerpt >}}
 
 
@@ -299,21 +303,22 @@ By deploying the following configuration, you will be able to forward *all* traf
         nano /etc/rc.local
 
 {{< file-excerpt "/etc/rc.local" >}}
-        #!/bin/sh -e
-        #
-        # [...]
-        #
+#!/bin/sh -e
+#
+# [...]
+#
 
-        iptables -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
-        iptables -A FORWARD -s 10.8.0.0/24 -j ACCEPT
-        iptables -A FORWARD -j REJECT
-        iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o eth0 -j MASQUERADE
-        iptables -A INPUT -i tun+ -j ACCEPT
-        iptables -A FORWARD -i tun+ -j ACCEPT
-        iptables -A INPUT -i tap+ -j ACCEPT
-        iptables -A FORWARD -i tap+ -j ACCEPT
+iptables -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -A FORWARD -s 10.8.0.0/24 -j ACCEPT
+iptables -A FORWARD -j REJECT
+iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o eth0 -j MASQUERADE
+iptables -A INPUT -i tun+ -j ACCEPT
+iptables -A FORWARD -i tun+ -j ACCEPT
+iptables -A INPUT -i tap+ -j ACCEPT
+iptables -A FORWARD -i tap+ -j ACCEPT
 
-        exit 0
+exit 0
+
 {{< /file-excerpt >}}
 
 
@@ -344,9 +349,10 @@ If you are using Debian 7, replace this command with `apt-get install dnsmasq re
         nano /etc/dnsmasq.conf
 
 {{< file-excerpt "/etc/dnsmasq.conf" >}}
-        listen-address=10.8.0.1
+listen-address=10.8.0.1
 
-        bind-interfaces
+bind-interfaces
+
 {{< /file-excerpt >}}
 
 
@@ -359,12 +365,13 @@ If you are using Debian 7, replace this command with `apt-get install dnsmasq re
         nano /etc/network/interfaces
 
 {{< file-excerpt "/etc/network/interfaces" >}}
-        # The primary network interface
-        auto eth0
-        iface eth0 inet dhcp
+# The primary network interface
+auto eth0
+iface eth0 inet dhcp
 
-        dns-search members.linode.com
-        dns-nameservers 97.107.133.4 207.192.69.4 207.192.69.5
+dns-search members.linode.com
+dns-nameservers 97.107.133.4 207.192.69.4 207.192.69.5
+
 {{< /file-excerpt >}}
 ~
 
@@ -377,9 +384,10 @@ If you're not utilizing IPv6, you can omit the addresses starting with 2600:
         nano /etc/rc.local
 
 {{< file-excerpt "/etc/rc.local" >}}
-        /etc/init.d/dnsmasq restart
+/etc/init.d/dnsmasq restart
 
-        exit 0
+exit 0
+
 {{< /file-excerpt >}}
 
 	
@@ -388,7 +396,8 @@ If you're not utilizing IPv6, you can omit the addresses starting with 2600:
         nano /etc/openvpn/server.conf
 
 {{< file-excerpt "/etc/openvpn/server.conf" >}}
-        push "dhcp-option DNS 10.8.0.1"
+push "dhcp-option DNS 10.8.0.1"
+
 {{< /file-excerpt >}}
 
 

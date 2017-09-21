@@ -153,21 +153,23 @@ Fail2ban reads `.conf` configuration files first, then `.local` files override a
 2.  **If using CentOS or Fedora** you will need to change the `backend` option in `jail.local` from *auto* to *systemd*. This is not necessary on Debian 8 or Ubuntu 16.04, even though both use systemd as well.
 
 {{< file-excerpt "/etc/fail2ban/jail.local" aconf >}}
-        # "backend" specifies the backend used to get files modification.
-        # Available options are "pyinotify", "gamin", "polling", "systemd" and "auto".
-        # This option can be overridden in each jail as well.
+# "backend" specifies the backend used to get files modification.
+# Available options are "pyinotify", "gamin", "polling", "systemd" and "auto".
+# This option can be overridden in each jail as well.
 
-        . . .
+. . .
         
-        backend = systemd
+backend = systemd
+
 {{< /file-excerpt >}}
 
 
     No jails are enabled by default in CentOS 7. For example, to enable the SSH daemon jail, uncomment the following lines in `jail.local`:
 
 {{< file-excerpt "/etc/fail2ban/jail.local" aconf >}}
-        [sshd]
-        enabled = true
+[sshd]
+enabled = true
+
 {{< /file-excerpt >}}
 
 
@@ -176,12 +178,13 @@ Fail2ban reads `.conf` configuration files first, then `.local` files override a
 To ignore specific IPs, add them to the `ignoreip` line. By default, this command will not ban the localhost. If you work from a single IP address often, it may be beneficial to add it to the ignore list:
 
 {{< file-excerpt "/etc/fail2ban/jail.local" aconf >}}
-    [DEFAULT]
+[DEFAULT]
 
-    # "ignoreip" can be an IP address, a CIDR mask or a DNS host. Fail2ban will not
-    # ban a host which matches an address in this list. Several addresses can be
-    # defined using space separator.
-    ignoreip = 127.0.0.1/8 123.45.67.89
+# "ignoreip" can be an IP address, a CIDR mask or a DNS host. Fail2ban will not
+# ban a host which matches an address in this list. Several addresses can be
+# defined using space separator.
+ignoreip = 127.0.0.1/8 123.45.67.89
+
 {{< /file-excerpt >}}
 
 
@@ -194,13 +197,14 @@ If you wish to whitelist IPs only for certain jails, this can be done with the `
 Set `bantime`, `findtime`, and `maxretry` to define the circumstances and the length of time of a ban:
 
 {{< file-excerpt "/etc/fail2ban/jail.local" aconf >}}
-    # "bantime" is the number of seconds that a host is banned.
-    bantime  = 600
+# "bantime" is the number of seconds that a host is banned.
+bantime  = 600
     
-    # A host is banned if it has generated "maxretry" during the last "findtime"
-    # seconds.
-    findtime = 600
-    maxretry = 3
+# A host is banned if it has generated "maxretry" during the last "findtime"
+# seconds.
+findtime = 600
+maxretry = 3
+
 {{< /file-excerpt >}}
 
 
@@ -233,13 +237,14 @@ Beyond the basic settings address above, `jail.local` also contains various jail
 An average jail configuration will resemble the following:
 
 {{< file-excerpt "/etc/fail2ban/jail.local" >}}
-    [ssh]
+[ssh]
     
-    enabled  = true
-    port     = ssh
-    filter   = sshd
-    logpath  = /var/log/auth.log
-    maxretry = 6
+enabled  = true
+port     = ssh
+filter   = sshd
+logpath  = /var/log/auth.log
+maxretry = 6
+
 {{< /file-excerpt >}}
 
 
@@ -265,14 +270,16 @@ The best way to understand how failregex works is to write one. Although we do n
 1.  Navigate to your website's `access.log` (generally located at `/var/www/example.com/logs/access.log`) and find a failed login attempt. It will resemble:
 
 {{< file-excerpt "/var/www/example.com/logs/access.log" resource >}}
-        123.45.67.89 - - [01/Oct/2015:12:46:34 -0400] "POST /wp-login.php HTTP/1.1" 200 1906 "http://example.com/wp-login.php" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:40.0) Gecko/20100101 Firefox/40.0"
+123.45.67.89 - - [01/Oct/2015:12:46:34 -0400] "POST /wp-login.php HTTP/1.1" 200 1906 "http://example.com/wp-login.php" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:40.0) Gecko/20100101 Firefox/40.0"
+
 {{< /file-excerpt >}}
 
         
     Note that you will only need to track up to the `200`:
 
 {{< file-excerpt "/var/www/example.com/logs/access.log" resource >}}
-        123.45.67.89 - - [01/Oct/2015:12:46:34 -0400] "POST /wp-login.php HTTP/1.1" 200
+123.45.67.89 - - [01/Oct/2015:12:46:34 -0400] "POST /wp-login.php HTTP/1.1" 200
+
 {{< /file-excerpt >}}
 
 
@@ -323,14 +330,15 @@ With the failregex created, it then needs to be added to a filter.
 2.  Create a file called `wordpress.conf`, and add your failregex:
 
 {{< file "/etc/fail2ban/filter.d/wordpress.conf" aconf >}}
-        # Fail2Ban filter for WordPress
-        #
-        #
+# Fail2Ban filter for WordPress
+#
+#
         
-        [Definition]
+[Definition]
         
-        failregex = <HOST> - - \[(\d{2})/\w{3}/\d{4}:\1:\1:\1 -\d{4}\] "POST /wp-login.php HTTP/1.1" 200
-        ignoreregex =
+failregex = <HOST> - - \[(\d{2})/\w{3}/\d{4}:\1:\1:\1 -\d{4}\] "POST /wp-login.php HTTP/1.1" 200
+ignoreregex =
+
 {{< /file >}}
 
         
@@ -339,11 +347,12 @@ With the failregex created, it then needs to be added to a filter.
 3.  Add a WordPress section to `jail.local`:
 
 {{< file-excerpt "/etc/fail2ban/jail.local" aconf >}}
-        [wordpress]
-        enabled  = true
-        filter   = wordpress
-        logpath  = /var/www/html/andromeda/logs/access.log
-        port     = 80,443
+[wordpress]
+enabled  = true
+filter   = wordpress
+logpath  = /var/www/html/andromeda/logs/access.log
+port     = 80,443
+
 {{< /file-excerpt >}}
 
         

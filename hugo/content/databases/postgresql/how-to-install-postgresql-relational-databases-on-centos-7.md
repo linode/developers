@@ -440,8 +440,9 @@ Commands in this section should be run as the `postgres` Linux user unless other
 1.  Edit the `/var/lib/pgsql/data/pg_hba.conf` file, under the `# "local" is for Unix domain socket connections only` header:
 
 {{< file-excerpt "/var/lib/pgsql/data/pg_hba.conf" >}}
-        # "local" is for Unix domain socket connections only
-        local    all        all             peer
+# "local" is for Unix domain socket connections only
+local    all        all             peer
+
 {{< /file-excerpt >}}
 
 

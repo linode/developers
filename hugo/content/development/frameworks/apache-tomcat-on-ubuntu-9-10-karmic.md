@@ -37,35 +37,36 @@ If you would like to run the Sun Microsystems implementation of Java, you must f
 Ensure that your `sources.list` list resembles the following:
 
 {{< file "/etc/apt/sources.list" >}}
-    ## main & restricted repositories
-    deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
-    deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
+## main & restricted repositories
+deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
+deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
 
-    deb http://security.ubuntu.com/ubuntu karmic-updates main restricted
-    deb-src http://security.ubuntu.com/ubuntu karmic-updates main restricted
+deb http://security.ubuntu.com/ubuntu karmic-updates main restricted
+deb-src http://security.ubuntu.com/ubuntu karmic-updates main restricted
 
-    deb http://security.ubuntu.com/ubuntu karmic-security main restricted
-    deb-src http://security.ubuntu.com/ubuntu karmic-security main restricted
+deb http://security.ubuntu.com/ubuntu karmic-security main restricted
+deb-src http://security.ubuntu.com/ubuntu karmic-security main restricted
 
-    ## universe repositories - uncomment to enable
-    deb http://us.archive.ubuntu.com/ubuntu/ karmic universe
-    deb-src http://us.archive.ubuntu.com/ubuntu/ karmic universe
+## universe repositories - uncomment to enable
+deb http://us.archive.ubuntu.com/ubuntu/ karmic universe
+deb-src http://us.archive.ubuntu.com/ubuntu/ karmic universe
 
-    deb http://us.archive.ubuntu.com/ubuntu/ karmic-updates universe
-    deb-src http://us.archive.ubuntu.com/ubuntu/ karmic-updates universe
+deb http://us.archive.ubuntu.com/ubuntu/ karmic-updates universe
+deb-src http://us.archive.ubuntu.com/ubuntu/ karmic-updates universe
 
-    deb http://security.ubuntu.com/ubuntu karmic-security universe
-    deb-src http://security.ubuntu.com/ubuntu karmic-security universe
+deb http://security.ubuntu.com/ubuntu karmic-security universe
+deb-src http://security.ubuntu.com/ubuntu karmic-security universe
 
-    ## multiverse repositories 
-    deb http://us.archive.ubuntu.com/ubuntu/ karmic multiverse
-    deb-src http://us.archive.ubuntu.com/ubuntu/ karmic multiverse
+## multiverse repositories 
+deb http://us.archive.ubuntu.com/ubuntu/ karmic multiverse
+deb-src http://us.archive.ubuntu.com/ubuntu/ karmic multiverse
 
-    deb http://us.archive.ubuntu.com/ubuntu/ karmic-updates multiverse
-    deb-src http://us.archive.ubuntu.com/ubuntu/ karmic-updates multiverse
+deb http://us.archive.ubuntu.com/ubuntu/ karmic-updates multiverse
+deb-src http://us.archive.ubuntu.com/ubuntu/ karmic-updates multiverse
 
-    deb http://security.ubuntu.com/ubuntu karmic-security multiverse
-    deb-src http://security.ubuntu.com/ubuntu karmic-security multiverse
+deb http://security.ubuntu.com/ubuntu karmic-security multiverse
+deb-src http://security.ubuntu.com/ubuntu karmic-security multiverse
+
 {{< /file >}}
 
 
@@ -100,8 +101,9 @@ Test and Use Tomcat
 You can test your Tomcat installation by pointing your browser at `http://[yourdomain-or-ip-address]:8080/`. By default, files are located in the `/usr/share/tomcat6` directory. To configure the admin area, you'll need to add the following lines to the end of your `tomcat-users.xml` file, substituting your own username and password. Make sure you keep the "manager" role.
 
 {{< file "/etc/tomcat6/tomcat-users.xml" xml >}}
-    <role rolename="manager"/>
-    <user username="tomcat" password="s3cret" roles="manager"/>
+<role rolename="manager"/>
+<user username="tomcat" password="s3cret" roles="manager"/>
+
 {{< /file >}}
 
 

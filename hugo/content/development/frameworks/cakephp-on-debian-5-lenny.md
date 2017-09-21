@@ -38,21 +38,23 @@ Production
 The transition from a development installation of CakePHP to a production installation is easy. After following the steps above, open the Apache configuration file for the website you're installing CakePHP to. In our example, this file is located at `/etc/apache2/sites-available/example.com`. You'll need to change the `DocumentRoot` to reflect the path of the application in CakePHP, which in our example is `/srv/www/example.com/public_html/cake_1_2/app/webroot/`
 
 {{< file "/etc/apache2/sites-available/example.com" apache >}}
-    <VirtualHost *:80>
-         ServerAdmin username@example.com
-         ServerName example.com
-         ServerAlias www.example.com
-         DocumentRoot /srv/www/example.com/public_html/cake_1_2/app/webroot/
-         ErrorLog /srv/www/example.com/logs/error.log
-         CustomLog /srv/www/example.com/logs/access.log combined
-    </VirtualHost>
+<VirtualHost *:80>
+     ServerAdmin username@example.com
+     ServerName example.com
+     ServerAlias www.example.com
+     DocumentRoot /srv/www/example.com/public_html/cake_1_2/app/webroot/
+     ErrorLog /srv/www/example.com/logs/error.log
+     CustomLog /srv/www/example.com/logs/access.log combined
+</VirtualHost>
+
 {{< /file >}}
 
 
 You'll also want to adjust the debug level for CakePHP. The line controlling the debug level is in the following file.
 
 {{< file "/srv/www/example.com/public\\_html/cakephp-2.4.5/app/Config/core.php" php >}}
-    Configure::write('debug', 2);
+Configure::write('debug', 2);
+
 {{< /file >}}
 
 

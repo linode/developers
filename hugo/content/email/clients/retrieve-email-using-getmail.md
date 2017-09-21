@@ -98,20 +98,21 @@ All getmail configuration occurs in the `.getmail/` folder in the user's home di
 The following file provides a basic template for a getmail configuration file:
 
 {{< file "~/.getmail/getmailrc" >}}
-    [retriever]
-    type = SimplePOP3SSLRetriever
-    server = pop.example.com
-    port = 995
-    username = foreman
-    password = s1d30fd4nc3r6
+[retriever]
+type = SimplePOP3SSLRetriever
+server = pop.example.com
+port = 995
+username = foreman
+password = s1d30fd4nc3r6
 
-    [destination]
-    type = Maildir
-    path = ~/mail/
+[destination]
+type = Maildir
+path = ~/mail/
 
-    [options]
-    delete = true
-    message_log = ~/.getmail/log-foreman-example
+[options]
+delete = true
+message_log = ~/.getmail/log-foreman-example
+
 {{< /file >}}
 
 
@@ -143,10 +144,11 @@ Getmail is capable of delivering mail in a number of different situations beyond
 If you want to use an external program to filter the email retrieved from getmail, modify the destination configuration options in the `getmailrc` file to resemble the following:
 
 {{< file-excerpt "~/.getmail/getmailrc" >}}
-    [destination]
-    type = MDA_external
-    path = /usr/bin/procmail
-    arguments = ("-f", "%(sender)")
+[destination]
+type = MDA_external
+path = /usr/bin/procmail
+arguments = ("-f", "%(sender)")
+
 {{< /file-excerpt >}}
 
 
@@ -171,7 +173,8 @@ If you would like your system to check for email regularly, you can run the `get
 Add an entry to poll getmail every five minutes by adding the following line to the crontab:
 
 {{< file-excerpt "crontab" >}}
-	*/5 * * * * getmail --quiet
+*/5 * * * * getmail --quiet
+
 {{< /file-excerpt >}}
 
 

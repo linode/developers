@@ -81,30 +81,31 @@ Alternatively, you can follow along with this video, which will show you how to 
     Here's the code used in our example script. The comment lines explain what each section does:
 
 {{< file "Initial Setup StackScript" bash >}}
-      #!/bin/bash
-      # This block defines the variables the user of the script needs to input
-      # when deploying using this script.
-      #
-      #
-      #<UDF name="hostname" label="The hostname for the new Linode.">
-      # HOSTNAME=
-      #
-      #<UDF name="fqdn" label="The new Linode's Fully Qualified Domain Name">
-      # FQDN=
+#!/bin/bash
+# This block defines the variables the user of the script needs to input
+# when deploying using this script.
+#
+#
+#<UDF name="hostname" label="The hostname for the new Linode.">
+# HOSTNAME=
+#
+#<UDF name="fqdn" label="The new Linode's Fully Qualified Domain Name">
+# FQDN=
 
-      # This sets the variable $IPADDR to the IP address the new Linode receives.
-      IPADDR=$(/sbin/ifconfig eth0 | awk '/inet / { print $2 }' | sed 's/addr://')
+# This sets the variable $IPADDR to the IP address the new Linode receives.
+IPADDR=$(/sbin/ifconfig eth0 | awk '/inet / { print $2 }' | sed 's/addr://')
 
-      # This updates the packages on the system from the distribution repositories.
-      apt-get update
-      apt-get upgrade -y
+# This updates the packages on the system from the distribution repositories.
+apt-get update
+apt-get upgrade -y
 
-      # This section sets the hostname.
-      echo $HOSTNAME > /etc/hostname
-      hostname -F /etc/hostname
+# This section sets the hostname.
+echo $HOSTNAME > /etc/hostname
+hostname -F /etc/hostname
 
-      # This section sets the Fully Qualified Domain Name (FQDN) in the hosts file.
-      echo $IPADDR $FQDN $HOSTNAME >> /etc/hosts
+# This section sets the Fully Qualified Domain Name (FQDN) in the hosts file.
+echo $IPADDR $FQDN $HOSTNAME >> /etc/hosts
+
 {{< /file >}}
 
 
@@ -161,68 +162,71 @@ You can see the [community StackScript Library](http://linode.com/stackscripts/)
 If you have an existing deployment script, you can use StackScripts to deploy instances with this script. Consider the following methods for "bootstrapping" one script with StackScripts:
 
 {{< file "StackScript" bash >}}
-    #!/bin/bash
+#!/bin/bash
 
-    wget http://example.com/ --output-document=/opt/deployment-script.pl
-    chmod +x /opt/deployment-script.pl
+wget http://example.com/ --output-document=/opt/deployment-script.pl
+chmod +x /opt/deployment-script.pl
 
-    ./opt/deployment-script.pl
+./opt/deployment-script.pl
+
 {{< /file >}}
 
 
 This approach is useful for bootstrapping scripts written in languages that are not included in the default instance template, as in the following example:
 
 {{< file "StackScript" bash >}}
-    #!/bin/bash
+#!/bin/bash
 
-    if [ -f /etc/apt/sources.list ]; then
-       apt-get upgrade
-       apt-get -y install php5
-    elif [-f /etc/yum.conf ]; then
-       yum -y install php
-    elif [-f /etc/pacman.conf ]; then
-       pacman -Sy
-       pacman -S --noconfirm pacman
-       pacman -S --noconfirm php
-    else
-       echo "Your distribution is not supported by this StackScript"
-       exit
-    fi
+if [ -f /etc/apt/sources.list ]; then
+   apt-get upgrade
+   apt-get -y install php5
+elif [-f /etc/yum.conf ]; then
+   yum -y install php
+elif [-f /etc/pacman.conf ]; then
+   pacman -Sy
+   pacman -S --noconfirm pacman
+   pacman -S --noconfirm php
+else
+   echo "Your distribution is not supported by this StackScript"
+   exit
+fi
 
-    wget http://example.com/ --output-document=/opt/deployment-script.php
-    chmod +x /opt/deployment-script.php
+wget http://example.com/ --output-document=/opt/deployment-script.php
+chmod +x /opt/deployment-script.php
 
-    ./opt/deployment-script.php
+./opt/deployment-script.php
+
 {{< /file >}}
 
 
 If you do not want to rely on an existing external server to host your scripts for download, you can embed the bootstrapped script in the StackScript. Consider the following example:
 
 {{< file "StackScript" bash >}}
-    #!/bin/bash
+#!/bin/bash
 
-    if [ -f /etc/apt/sources.list ]; then
-       apt-get upgrade
-       apt-get -y install php5
-    elif [-f /etc/yum.conf ]; then
-       yum -y install php
-    elif [-f /etc/pacman.conf ]; then
-       pacman -Sy
-       pacman -S --noconfirm pacman
-       pacman -S --noconfirm php
-    else
-       echo "Your distribution is not supported by this StackScript"
-       exit
-    fi
+if [ -f /etc/apt/sources.list ]; then
+   apt-get upgrade
+   apt-get -y install php5
+elif [-f /etc/yum.conf ]; then
+   yum -y install php
+elif [-f /etc/pacman.conf ]; then
+   pacman -Sy
+   pacman -S --noconfirm pacman
+   pacman -S --noconfirm php
+else
+   echo "Your distribution is not supported by this StackScript"
+   exit
+fi
 
-    cat >/opt/deployment-script.php <<EOF
-    #!/usr/bin/php
-    <?php print('Hello World!'); ?>
-    EOF
+cat >/opt/deployment-script.php <<EOF
+#!/usr/bin/php
+<?php print('Hello World!'); ?>
+EOF
 
-    chmod +x /opt/deployment-script.php
+chmod +x /opt/deployment-script.php
 
-    ./opt/deployment-script.php
+./opt/deployment-script.php
+
 {{< /file >}}
 
 
@@ -259,12 +263,13 @@ The UDF tags are explained in the table below:
 Below is an example implementation of the UDF variables:
 
 {{< file-excerpt "StackScript" bash >}}
-    # [...]
-    <UDF name="var1" Label="A question" default="" example="Enter something here." />
-    <UDF name="var2" Label="Pick one of" oneOf="foo,bar" example="Enter something here." />
-    <UDF name="var3" Label="A question" oneOf="foo,bar" default="foo" />
-    <UDF name="var4" Label="Pick several from" manyOf="foo,bar" default="foo,bar" />
-    # [...]
+# [...]
+<UDF name="var1" Label="A question" default="" example="Enter something here." />
+<UDF name="var2" Label="Pick one of" oneOf="foo,bar" example="Enter something here." />
+<UDF name="var3" Label="A question" oneOf="foo,bar" default="foo" />
+<UDF name="var4" Label="Pick several from" manyOf="foo,bar" default="foo,bar" />
+# [...]
+
 {{< /file-excerpt >}}
 
 
@@ -287,15 +292,16 @@ There are also a set of Linode created environmental variables that can be used 
 If you do not want to use the StackScript system to set your environment variables, you might consider hosting files with settings on a different system. This is accomplished with the following fragment:
 
 {{< file-excerpt "StackScript" bash >}}
-    # [...]
-    IPADDR=$(/sbin/ifconfig eth0 | awk '/inet / { print $2 }' | sed 's/addr://')
+# [...]
+IPADDR=$(/sbin/ifconfig eth0 | awk '/inet / { print $2 }' | sed 's/addr://')
 
-    wget http://example.com/base.env --output-document=/tmp/base.env
-    wget http://example.com/$IPADDR.env --output-document=/tmp/system.env
+wget http://example.com/base.env --output-document=/tmp/base.env
+wget http://example.com/$IPADDR.env --output-document=/tmp/system.env
 
-    source /tmp/base.env
-    source /tmp/system.env
-    # [...]
+source /tmp/base.env
+source /tmp/system.env
+# [...]
+
 {{< /file-excerpt >}}
 
 

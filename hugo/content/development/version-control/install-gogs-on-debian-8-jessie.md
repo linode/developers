@@ -170,24 +170,25 @@ We will use Nginx as the reverse proxy for Gogs, so we can access Gogs using our
 3.  Set Nginx as the reverse proxy for Gogs. Using `sudo`, create a new file named `/etc/nginx/sites-available/gogs`, and set the content as shown below:
 
 {{< file "/etc/nginx/sites-available/gogs" aconf >}}
-        server {
-            listen 80;
-            server_name example.com;
-            return 302 https://$server_name$request_uri;
-        }
+server {
+    listen 80;
+    server_name example.com;
+    return 302 https://$server_name$request_uri;
+}
 
-        server {
-            listen 443 ssl;
-            server_name example.com;
+server {
+    listen 443 ssl;
+    server_name example.com;
 
-            ssl_certificate /path/to/certificate.crt;
-            ssl_certificate_key /path/to/certificate_key.key;
+    ssl_certificate /path/to/certificate.crt;
+    ssl_certificate_key /path/to/certificate_key.key;
 
-            location / {
-                proxy_set_header X-Real-IP $remote_addr;
-                proxy_pass http://localhost:3000;
-            }
-        }
+    location / {
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_pass http://localhost:3000;
+    }
+}
+
 {{< /file >}}
 
 
@@ -207,24 +208,25 @@ In this section we will setup Gogs to run automatically on boot by creating a sy
 1.  Using `sudo`, create `/etc/systemd/system/gogs.service`:
 
 {{< file "/etc/systemd/system/gogs.service" ini >}}
-        [Unit]
-        Description=Gogs (Go Git Service)
-        After=syslog.target
-        After=network.target
-        After=postgresql.service
-        After=nginx.service
+[Unit]
+Description=Gogs (Go Git Service)
+After=syslog.target
+After=network.target
+After=postgresql.service
+After=nginx.service
 
-        [Service]
-        Type=simple
-        User=git
-        Group=git
-        WorkingDirectory=/home/git/go/src/github.com/gogits/gogs
-        ExecStart=/home/git/go/src/github.com/gogits/gogs/gogs web
-        Restart=always
-        Environment=USER=git HOME=/home/git
+[Service]
+Type=simple
+User=git
+Group=git
+WorkingDirectory=/home/git/go/src/github.com/gogits/gogs
+ExecStart=/home/git/go/src/github.com/gogits/gogs/gogs web
+Restart=always
+Environment=USER=git HOME=/home/git
 
-        [Install]
-        WantedBy=multi-user.target
+[Install]
+WantedBy=multi-user.target
+
 {{< /file >}}
 
 
@@ -295,14 +297,15 @@ If you notice, the Gogs site is still accessible using the plain HTTP via `http:
 2.  Open the generated configuration file `custom/conf/app.ini`. Add a new configuration value `HTTP_ADDR` under the `[server]` section. The section should look like this:
 
 {{< file-excerpt "/home/git/go/src/github.com/gogits/gogs/custom/conf/app.ini" ini >}}
-        [server]
-        DOMAIN = example.com
-        HTTP_ADDR = 127.0.0.1
-        HTTP_PORT = 3000
-        ROOT_URL = https://example.com/
-        DISABLE_SSH = false
-        SSH_PORT = 22
-        OFFLINE_MODE = false
+[server]
+DOMAIN = example.com
+HTTP_ADDR = 127.0.0.1
+HTTP_PORT = 3000
+ROOT_URL = https://example.com/
+DISABLE_SSH = false
+SSH_PORT = 22
+OFFLINE_MODE = false
+
 {{< /file-excerpt >}}
 
 

@@ -42,8 +42,9 @@ Before we get started there are a number of system-level dependencies that you w
 We going to add a repository to our `/etc/apt/sources.list` to install pakages of Passenger from Ubuntu's "universe" repository. Add the following lines to your `sources.list` with the text editor of your choice:
 
 {{< file "/etc/apt/sources.list" >}}
-    deb http://us.archive.ubuntu.com/ubuntu/ jaunty universe
-    deb-src http://us.archive.ubuntu.com/ubuntu/ jaunty universe
+deb http://us.archive.ubuntu.com/ubuntu/ jaunty universe
+deb-src http://us.archive.ubuntu.com/ubuntu/ jaunty universe
+
 {{< /file >}}
 
 
@@ -80,7 +81,8 @@ The output of this should look like this:
 These files load and enable the Passenger module for use in your sites. If you configured Apache virtual hosting as outlined in the [Apache guide](/docs/web-servers/apache/installation/ubuntu-9.04-jaunty), the public directory for your domain (e.g. `example.com`) is located in `/srv/www/example.com/public_html/`, and your `<VirtualHost >` configuration block contains a line that reads:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-    DocumentRoot /srv/www/example.com/public_html/
+DocumentRoot /srv/www/example.com/public_html/
+
 {{< /file-excerpt >}}
 
 
@@ -111,10 +113,11 @@ This presents a number of advantages. The Apache mpm\_itk module (described in t
 Passenger also supports deploying more than one Rails application within a single virtual host configuration. By adding `RailsBaseURI` options with the path to your Application within the virtual host, you can deploy multiple applications within one site. For example:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-    DocumentRoot /srv/www/example.com/public_html/
-    RailsBaseURI /my-app
-    RailsBaseURI /frogs
-    RailsBaseURI /simon
+DocumentRoot /srv/www/example.com/public_html/
+RailsBaseURI /my-app
+RailsBaseURI /frogs
+RailsBaseURI /simon
+
 {{< /file-excerpt >}}
 
 

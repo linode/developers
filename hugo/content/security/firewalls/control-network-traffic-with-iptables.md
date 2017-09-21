@@ -299,42 +299,43 @@ Appropriate firewall rules depend on the services being run. Below are iptables 
 **IPv4**
 
 {{< file "/tmp/v4" aconf >}}
-    *filter
+*filter
 
-    # Allow all loopback (lo0) traffic and reject traffic
-    # to localhost that does not originate from lo0.
-    -A INPUT -i lo -j ACCEPT
-    -A INPUT ! -i lo -s 127.0.0.0/8 -j REJECT
+# Allow all loopback (lo0) traffic and reject traffic
+# to localhost that does not originate from lo0.
+-A INPUT -i lo -j ACCEPT
+-A INPUT ! -i lo -s 127.0.0.0/8 -j REJECT
 
-    # Allow ping.
-    -A INPUT -p icmp -m state --state NEW --icmp-type 8 -j ACCEPT
+# Allow ping.
+-A INPUT -p icmp -m state --state NEW --icmp-type 8 -j ACCEPT
 
-    # Allow SSH connections.
-    -A INPUT -p tcp --dport 22 -m state --state NEW -j ACCEPT
+# Allow SSH connections.
+-A INPUT -p tcp --dport 22 -m state --state NEW -j ACCEPT
 
-    # Allow HTTP and HTTPS connections from anywhere
-    # (the normal ports for web servers).
-    -A INPUT -p tcp --dport 80 -m state --state NEW -j ACCEPT
-    -A INPUT -p tcp --dport 443 -m state --state NEW -j ACCEPT
+# Allow HTTP and HTTPS connections from anywhere
+# (the normal ports for web servers).
+-A INPUT -p tcp --dport 80 -m state --state NEW -j ACCEPT
+-A INPUT -p tcp --dport 443 -m state --state NEW -j ACCEPT
 
-    # Allow inbound traffic from established connections.
-    # This includes ICMP error returns.
-    -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+# Allow inbound traffic from established connections.
+# This includes ICMP error returns.
+-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 
-    # Log what was incoming but denied (optional but useful).
-    -A INPUT -m limit --limit 5/min -j LOG --log-prefix "iptables_INPUT_denied: " --log-level 7
+# Log what was incoming but denied (optional but useful).
+-A INPUT -m limit --limit 5/min -j LOG --log-prefix "iptables_INPUT_denied: " --log-level 7
 
-    # Reject all other inbound.
-    -A INPUT -j REJECT
+# Reject all other inbound.
+-A INPUT -j REJECT
 
-    # Log any traffic that was sent to you
-    # for forwarding (optional but useful).
-    -A FORWARD -m limit --limit 5/min -j LOG --log-prefix "iptables_FORWARD_denied: " --log-level 7
+# Log any traffic that was sent to you
+# for forwarding (optional but useful).
+-A FORWARD -m limit --limit 5/min -j LOG --log-prefix "iptables_FORWARD_denied: " --log-level 7
 
-    # Reject all traffic forwarding.
-    -A FORWARD -j REJECT
+# Reject all traffic forwarding.
+-A FORWARD -j REJECT
 
-    COMMIT
+COMMIT
+
 {{< /file >}}
 
 
@@ -355,38 +356,39 @@ Appropriate firewall rules depend on the services being run. Below are iptables 
 If you would like to supplement your web server's IPv4 rules with IPv6 as well, this ruleset will allow HTTP/S access and all ICMP functions.
 
 {{< file "/tmp/v6" aconf >}}
-    *filter
+*filter
 
-    # Allow all loopback (lo0) traffic and reject traffic
-    # to localhost that does not originate from lo0.
-    -A INPUT -i lo -j ACCEPT
-    -A INPUT ! -i lo -s ::1/128 -j REJECT
+# Allow all loopback (lo0) traffic and reject traffic
+# to localhost that does not originate from lo0.
+-A INPUT -i lo -j ACCEPT
+-A INPUT ! -i lo -s ::1/128 -j REJECT
 
-    # Allow ICMP
-    -A INPUT -p icmpv6 -j ACCEPT
+# Allow ICMP
+-A INPUT -p icmpv6 -j ACCEPT
 
-    # Allow HTTP and HTTPS connections from anywhere
-    # (the normal ports for web servers).
-    -A INPUT -p tcp --dport 80 -m state --state NEW -j ACCEPT
-    -A INPUT -p tcp --dport 443 -m state --state NEW -j ACCEPT
+# Allow HTTP and HTTPS connections from anywhere
+# (the normal ports for web servers).
+-A INPUT -p tcp --dport 80 -m state --state NEW -j ACCEPT
+-A INPUT -p tcp --dport 443 -m state --state NEW -j ACCEPT
 
-    # Allow inbound traffic from established connections.
-    -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+# Allow inbound traffic from established connections.
+-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 
-    # Log what was incoming but denied (optional but useful).
-    -A INPUT -m limit --limit 5/min -j LOG --log-prefix "ip6tables_INPUT_denied: " --log-level 7
+# Log what was incoming but denied (optional but useful).
+-A INPUT -m limit --limit 5/min -j LOG --log-prefix "ip6tables_INPUT_denied: " --log-level 7
 
-    # Reject all other inbound.
-    -A INPUT -j REJECT
+# Reject all other inbound.
+-A INPUT -j REJECT
 
-    # Log any traffic that was sent to you
-    # for forwarding (optional but useful).
-    -A FORWARD -m limit --limit 5/min -j LOG --log-prefix "ip6tables_FORWARD_denied: " --log-level 7
+# Log any traffic that was sent to you
+# for forwarding (optional but useful).
+-A FORWARD -m limit --limit 5/min -j LOG --log-prefix "ip6tables_FORWARD_denied: " --log-level 7
 
-    # Reject all traffic forwarding.
-    -A FORWARD -j REJECT
+# Reject all traffic forwarding.
+-A FORWARD -j REJECT
 
-    COMMIT
+COMMIT
+
 {{< /file >}}
 
 
@@ -592,23 +594,25 @@ The rules above allow anyone anywhere access to everything. If your output resem
 Use the `rules.v4` or `rules.v6` files to add, delete or edit the rules for your server. These files can be edited using a text editor to function as a proxy, NAT or firewall. The configuration depends on the requirements of your server and what functions are needed. Below is a file excerpt from both the `rules.v4` and `rules.v6` files:
 
 {{< file-excerpt "/etc/iptables/rules.v4" >}}
-    # Generated by iptables-save v1.4.14 on Wed Apr  2 13:24:27 2014
-    *security
-    :INPUT ACCEPT [18483:1240117]
-    :FORWARD ACCEPT [0:0]
-    :OUTPUT ACCEPT [17288:2887358]
-    COMMIT
+# Generated by iptables-save v1.4.14 on Wed Apr  2 13:24:27 2014
+*security
+:INPUT ACCEPT [18483:1240117]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [17288:2887358]
+COMMIT
+
 {{< /file-excerpt >}}
 
 
 {{< file-excerpt "/etc/iptables/rules.v6" >}}
-    # Generated by ip6tables-save v1.4.14 on Wed Apr  2 13:24:27 2014
-    *nat
-    :PREROUTING ACCEPT [0:0]
-    :INPUT ACCEPT [0:0]
-    :OUTPUT ACCEPT [27:2576]
-    :POSTROUTING ACCEPT [27:2576]
-    COMMIT
+# Generated by ip6tables-save v1.4.14 on Wed Apr  2 13:24:27 2014
+*nat
+:PREROUTING ACCEPT [0:0]
+:INPUT ACCEPT [0:0]
+:OUTPUT ACCEPT [27:2576]
+:POSTROUTING ACCEPT [27:2576]
+COMMIT
+
 {{< /file-excerpt >}}
 
 

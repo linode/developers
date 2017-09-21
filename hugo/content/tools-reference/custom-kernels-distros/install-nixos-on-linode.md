@@ -105,14 +105,15 @@ Since you can modify these later, it is better to use the `/dev/sdX` identifiers
 Replace the contents of the `filesystems` and `swapDevices` sections with the following:
 
 {{< file-excerpt "/mnt/etc/nixos/hardware-configuration.nix" aconf >}}
-    filesystems."/" =
-      { device = "/dev/sda";
-        fsType = "ext4";
-      };
+filesystems."/" =
+  { device = "/dev/sda";
+    fsType = "ext4";
+  };
 
-    swapDevices =
-      [ { device = "/dev/sdb"; }
-      ];
+swapDevices =
+  [ { device = "/dev/sdb"; }
+  ];
+
 {{< /file-excerpt >}}
 
 
@@ -148,10 +149,11 @@ Most of these changes bring the NixOS defaults in line with how Linode's standar
 Root logins via SSH are disabled by default. To access your Linode, enable root login during installation:
 
 {{< file-excerpt "/mnt/etc/nixos/configuration.nix" aconf >}}
-    services.openssh = {
-      enable = true;
-      permitRootLogin = "yes";
-    };
+services.openssh = {
+  enable = true;
+  permitRootLogin = "yes";
+};
+
 {{< /file-excerpt >}}
 
 

@@ -64,17 +64,18 @@ In Ubuntu 14.04, you will need to append the module section noted below to the e
 {{< /note >}}
 
 {{< file-excerpt "/etc/apache2/apache2.conf" apache >}}
-	    KeepAlive Off
+KeepAlive Off
 
-        ...
+   ...
 
-        <IfModule mpm_prefork_module>
-            StartServers 4
-            MinSpareServers 20
-            MaxSpareServers 40
-            MaxClients 200
-            MaxRequestsPerChild 4500
-        </IfModule>
+   <IfModule mpm_prefork_module>
+       StartServers 4
+       MinSpareServers 20
+       MaxSpareServers 40
+       MaxClients 200
+       MaxRequestsPerChild 4500
+   </IfModule>
+
 {{< /file-excerpt >}}
 
 
@@ -123,23 +124,24 @@ The file name *must* end with `.conf` in Apache versions 2.4 and later, which is
 6.  Now it's time to create a configuration for your virtual host. We've created some basic settings to get your started. Copy and paste the settings shown below in to the virtual host file you just created. Replace all instances of `example.com` with your domain name.
 
 {{< file-excerpt "/etc/apache2/sites-available/example.com.conf" apache >}}
-        # domain: example.com
-        # public: /var/www/html/example.com/public_html/
+# domain: example.com
+# public: /var/www/html/example.com/public_html/
 
-        <VirtualHost *:80>
-          # Admin email, Server Name (domain name), and any aliases
-          ServerAdmin webmaster@example.com
-          ServerName  example.com
-          ServerAlias www.example.com
+<VirtualHost *:80>
+  # Admin email, Server Name (domain name), and any aliases
+  ServerAdmin webmaster@example.com
+  ServerName  example.com
+  ServerAlias www.example.com
 
-          # Index file and Document Root (where the public files are located)
-          DirectoryIndex index.html index.php
-          DocumentRoot /var/www/html/example.com/public_html
-          # Log file locations
-          LogLevel warn
-          ErrorLog  /var/www/html/example.com/log/error.log
-          CustomLog /var/www/html/example.com/log/access.log combined
-        </VirtualHost>
+  # Index file and Document Root (where the public files are located)
+  DirectoryIndex index.html index.php
+  DocumentRoot /var/www/html/example.com/public_html
+  # Log file locations
+  LogLevel warn
+  ErrorLog  /var/www/html/example.com/log/error.log
+  CustomLog /var/www/html/example.com/log/access.log combined
+</VirtualHost>
+
 {{< /file-excerpt >}}
 
 
@@ -196,12 +198,13 @@ These guidelines are designed to optimize MySQL 5.5 and up for a **Linode 2GB**,
 3.  Edit following values:
 
 {{< file-excerpt "/etc/mysql/my.cnf" aconf >}}
-        max_allowed_packet = 1M
-        thread_stack = 128K
+max_allowed_packet = 1M
+thread_stack = 128K
 
-        ...
+...
 
-        max_connections = 75
+max_connections = 75
+
 {{< /file-excerpt >}}
 
 
@@ -212,8 +215,9 @@ In MySQL 5.6 and above, you may need to add these lines as one block with `[mysq
 4.  Add the following lines to the end of `my.cnf`:
 
 {{< file-excerpt "/etc/mysql/my.cnf" aconf >}}
-        table_open_cache = 32M
-        key_buffer_size = 32M
+table_open_cache = 32M
+key_buffer_size = 32M
+
 {{< /file-excerpt >}}
 
 
@@ -296,13 +300,14 @@ These guidelines are designed to optimize PHP for a Linode 2GB, but you can use 
 2.  Verify that the following values are set. All of the lines listed below should be uncommented. Be sure to remove any semicolons (`;`) at the beginning of the lines.
 
 {{< file-excerpt "/etc/php5/apache2/php.ini" ini >}}
-        max_execution_time = 30
-        memory_limit = 128M
-        error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
-        display_errors = Off
-        log_errors = On
-        error_log = /var/log/php/error.log
-        register_globals = Off
+max_execution_time = 30
+memory_limit = 128M
+error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
+display_errors = Off
+log_errors = On
+error_log = /var/log/php/error.log
+register_globals = Off
+
 {{< /file-excerpt >}}
 
 

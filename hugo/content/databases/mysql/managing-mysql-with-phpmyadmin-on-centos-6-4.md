@@ -93,7 +93,8 @@ Since you are required to enter your MySQL credentials when using phpMyAdmin, we
 1.  Force phpMyAdmin to use SSL in the phpMyAdmin configuration file `/etc/phpmyadmin/config.inc.php` by adding the following lines under the `Server(s) configuration` section:
 
 {{< file-excerpt "/etc/phpmyadmin/config.inc.php" php >}}
-        $cfg['ForceSSL'] = 'true';
+$cfg['ForceSSL'] = 'true';
+
 {{< /file-excerpt >}}
 
     

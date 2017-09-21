@@ -124,18 +124,19 @@ If you want TeamSpeak to automatically start every time your Linode boots, follo
 2.  As `root` or with `sudo`, create a new file called `/etc/init/teamspeak.conf` and insert the following code, replacing `user` with your username and `/home/user/teamspeak/teamspeak3-server_linux-amd64/` with the path noted above:
 
 {{< file "/etc/init/teamspeak.conf" aconf >}}
-        #!/bin/sh
-        chdir /home/user/teamspeak/teamspeak3-server_linux-amd64/
+#!/bin/sh
+chdir /home/user/teamspeak/teamspeak3-server_linux-amd64/
 
-        respawn
+respawn
 
-        setuid user
-        setgid user
+setuid user
+setgid user
 
-        exec /home/user/teamspeak/teamspeak3-server_linux-amd64/ts3server_minimal_runscript.sh
+exec /home/user/teamspeak/teamspeak3-server_linux-amd64/ts3server_minimal_runscript.sh
 
-        start on runlevel [2]
-        stop on runlevel [013456]
+start on runlevel [2]
+stop on runlevel [013456]
+
 {{< /file >}}
 
 

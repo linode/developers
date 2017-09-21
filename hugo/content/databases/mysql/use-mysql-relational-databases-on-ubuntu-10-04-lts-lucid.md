@@ -24,8 +24,9 @@ Basic System Configuration
 Make sure your `/etc/hosts` file contains sensible values. In the example file below, you would replace "12.34.56.78" with your Linode's IP address, and "servername.example.com" with your Linode's fully qualified domain name (FQDN). It is advisable to use something unique and memorable for "servername" in this file.
 
 {{< file "/etc/hosts" >}}
-    127.0.0.1 localhost.localdomain localhost
-    12.34.56.78 servername.example.com servername
+127.0.0.1 localhost.localdomain localhost
+12.34.56.78 servername.example.com servername
+
 {{< /file >}}
 
     
@@ -37,21 +38,22 @@ Next, make sure your Linode's hostname is set to the short value you specified i
 To make sure `universe` repositories are enabled, modify your `/etc/apt/sources.list` file to mirror the example file below.
 
 {{< file "/etc/apt/sources.list" >}}
-    ## main & restricted repositories
-    deb http://us.archive.ubuntu.com/ubuntu/ lucid main restricted         
-    deb-src http://us.archive.ubuntu.com/ubuntu/ lucid main restricted 
+## main & restricted repositories
+deb http://us.archive.ubuntu.com/ubuntu/ lucid main restricted         
+deb-src http://us.archive.ubuntu.com/ubuntu/ lucid main restricted 
 
-    deb http://security.ubuntu.com/ubuntu lucid-security main restricted
-    deb-src http://security.ubuntu.com/ubuntu lucid-security main restricted
+deb http://security.ubuntu.com/ubuntu lucid-security main restricted
+deb-src http://security.ubuntu.com/ubuntu lucid-security main restricted
 
-    ## universe repositories
-    deb http://us.archive.ubuntu.com/ubuntu/ lucid universe
-    deb-src http://us.archive.ubuntu.com/ubuntu/ lucid universe
-    deb http://us.archive.ubuntu.com/ubuntu/ lucid-updates universe
-    deb-src http://us.archive.ubuntu.com/ubuntu/ lucid-updates universe
+## universe repositories
+deb http://us.archive.ubuntu.com/ubuntu/ lucid universe
+deb-src http://us.archive.ubuntu.com/ubuntu/ lucid universe
+deb http://us.archive.ubuntu.com/ubuntu/ lucid-updates universe
+deb-src http://us.archive.ubuntu.com/ubuntu/ lucid-updates universe
 
-    deb http://security.ubuntu.com/ubuntu lucid-security universe
-    deb-src http://security.ubuntu.com/ubuntu lucid-security universe
+deb http://security.ubuntu.com/ubuntu lucid-security universe
+deb-src http://security.ubuntu.com/ubuntu lucid-security universe
+
 {{< /file >}}
 
 
@@ -83,12 +85,13 @@ Configuring MySQL
 By default, MySQL makes some assumptions about your server environment with respect to memory. To configure MySQL more conservatively, you'll need to edit some settings in its configuration file. Your file should resemble the following:
 
 {{< file-excerpt "/etc/mysql/my.cnf" ini >}}
-    key_buffer = 16M
-    max_allowed_packet = 1M
-    thread_stack = 64K
-    table_cache = 4
-    sort_buffer = 64K
-    net_buffer_length = 2K
+key_buffer = 16M
+max_allowed_packet = 1M
+thread_stack = 64K
+table_cache = 4
+sort_buffer = 64K
+net_buffer_length = 2K
+
 {{< /file-excerpt >}}
 
 

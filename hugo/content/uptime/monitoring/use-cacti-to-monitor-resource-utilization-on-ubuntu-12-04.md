@@ -37,13 +37,14 @@ Begin by setting the timezone of your server if it isn't already set. Set your s
 The `universe` repositories should be enabled on your Linode by default. You can double-check this by editing the `/etc/apt/sources.list` file, and verifying that lines resemble the following (you may have to uncomment or add the `universe` lines):
 
 {{< file "/etc/apt/sources.list" >}}
-    ## N.B. software from this repository is ENTIRELY UNSUPPORTED by the Ubuntu
-    ## team. Also, please note that software in universe WILL NOT receive any
-    ## review or updates from the Ubuntu security team.
-    deb http://us.archive.ubuntu.com/ubuntu/ precise universe
-    deb-src http://us.archive.ubuntu.com/ubuntu/ precise universe
-    deb http://us.archive.ubuntu.com/ubuntu/ precise-updates universe
-    deb-src http://us.archive.ubuntu.com/ubuntu/ precise-updates universe
+## N.B. software from this repository is ENTIRELY UNSUPPORTED by the Ubuntu
+## team. Also, please note that software in universe WILL NOT receive any
+## review or updates from the Ubuntu security team.
+deb http://us.archive.ubuntu.com/ubuntu/ precise universe
+deb-src http://us.archive.ubuntu.com/ubuntu/ precise universe
+deb http://us.archive.ubuntu.com/ubuntu/ precise-updates universe
+deb-src http://us.archive.ubuntu.com/ubuntu/ precise-updates universe
+
 {{< /file >}}
 
 

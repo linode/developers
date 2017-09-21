@@ -49,48 +49,50 @@ The steps in this guide require root privileges. Be sure to run the steps below 
 3. Open the configuration file `/etc/default/subsonic`:
 
 {{< file "/etc/default/subsonic" >}}
-        # 
-        # This is the configuration file for the Subsonic service
-        # (/etc/init.d/subsonic)
-        #
-        # To change the startup parameters of Subsonic, modify
-        # the SUBSONIC_ARGS variable below.
-        #
-        # Type "subsonic --help" on the command line to read an
-        # explanation of the  different options.
-        #
-        # For example, to specify that Subsonic should use port 80 (for http)
-        # and 443 (for https), and use a Java memory heap size of 200 MB, use
-        # the following:
-        #
-        # SUBSONIC_ARGS="--port=80 --https-port=443 --max-memory=200"
+# 
+# This is the configuration file for the Subsonic service
+# (/etc/init.d/subsonic)
+#
+# To change the startup parameters of Subsonic, modify
+# the SUBSONIC_ARGS variable below.
+#
+# Type "subsonic --help" on the command line to read an
+# explanation of the  different options.
+#
+# For example, to specify that Subsonic should use port 80 (for http)
+# and 443 (for https), and use a Java memory heap size of 200 MB, use
+# the following:
+#
+# SUBSONIC_ARGS="--port=80 --https-port=443 --max-memory=200"
         
-        SUBSONIC_ARGS="--max-memory=150"
+SUBSONIC_ARGS="--max-memory=150"
 
-        # The user which should run the Subsonic process. Default "root".
-        # Note that non-root users are by default not allowed to use ports
-        # below 1024. Also make sure to grant the user write permissions in
-        # the music directories, otherwise changing album art and tags will fail.
+# The user which should run the Subsonic process. Default "root".
+# Note that non-root users are by default not allowed to use ports
+# below 1024. Also make sure to grant the user write permissions in
+# the music directories, otherwise changing album art and tags will fail.
 
-        SUBSONIC_USER=root
+SUBSONIC_USER=root
+
 {{< /file >}}
 
 
     Here you can change the user, the port Subsonic listens on, increase the amount of memory it can use, and encrypt your streaming traffic with SSL. To use your own SSL certificate, look [here](http://www.subsonic.org/pages/getting-started.jsp#4). The following is an example of the server set up to use https on port 8080 with the default SSL certificate:
 
 {{< file-excerpt "/etc/default/subsonic" >}}
-        # Type "subsonic --help" on the command line to read an
-        # explanation of the different options.
-        #
-        # For example, to specify that Subsonic should use port 80 (for http)
-        # and 443 (for https), and use a Java memory heap size of 200 MB, use
-        # the following:
-        #
-        # SUBSONIC_ARGS="--port=80 --https-port=443 --max-memory=200"
+# Type "subsonic --help" on the command line to read an
+# explanation of the different options.
+#
+# For example, to specify that Subsonic should use port 80 (for http)
+# and 443 (for https), and use a Java memory heap size of 200 MB, use
+# the following:
+#
+# SUBSONIC_ARGS="--port=80 --https-port=443 --max-memory=200"
         
-        SUBSONIC_ARGS="--https-port=8443 --max-memory=150"
+SUBSONIC_ARGS="--https-port=8443 --max-memory=150"
         
-        SUBSONIC_USER=subsonic
+SUBSONIC_USER=subsonic
+
 {{< /file-excerpt >}}
 
 

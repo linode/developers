@@ -120,26 +120,28 @@ This downloads the latest version of BungeeCord. You can find older versions for
 3.  Edit the following block of the configuration, in order to add our existing Spigot servers:
 
 {{< file-excerpt "config.yml" yaml >}}
-        servers:
-          lobby:
-            address: localhost:25565
-            restricted: false
-            motd: 'Just another BungeeCord - Forced Host'
+servers:
+  lobby:
+    address: localhost:25565
+    restricted: false
+    motd: 'Just another BungeeCord - Forced Host'
+
 {{< /file-excerpt >}}
 
 
     For the servers that are specified as examples in the introduction, it would look like:
     
 {{< file-excerpt "config.yml" yaml >}}
-        servers:
-          lobby:
-            address: 203.0.113.112:25565
-            restricted: false
-            motd: 'Just another BungeeCord - Forced Host'
+servers:
+  lobby:
+    address: 203.0.113.112:25565
+    restricted: false
+    motd: 'Just another BungeeCord - Forced Host'
 	      games:
-	        address: 203.0.113.198:25565
-	        restricted: false
-	        motd: 'Just another BungeeCord - Forced Host'
+ address: 203.0.113.198:25565
+ restricted: false
+ motd: 'Just another BungeeCord - Forced Host'
+
 {{< /file-excerpt >}}
 
 
@@ -158,9 +160,10 @@ This downloads the latest version of BungeeCord. You can find older versions for
 1.  Create the file:
 
 {{< file "/home/bungeecord/bungeestart.sh" shell >}}
-        #!/bin/bash	
+#!/bin/bash	
     
-        screen -dmS "bungeecord" java -jar BungeeCord.jar
+screen -dmS "bungeecord" java -jar BungeeCord.jar
+
 {{< /file >}}
 
 

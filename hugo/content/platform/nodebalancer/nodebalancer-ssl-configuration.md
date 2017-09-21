@@ -99,13 +99,14 @@ Depending on your distribution, this file's location may vary. For example, it c
 2.  Edit the Apache virtual host configuration file to establish the rewrite rules necessary to redirect all incoming traffic from port 80/HTTP back to the NodeBalancer on port 443/HTTPS:
 
 {{< file-excerpt "/etc/apache2/sites-available/example.com.conf" apache >}}
-        <VirtualHost *:80>
+<VirtualHost *:80>
 
-             RewriteEngine    On
-             RewriteCond      %{HTTP:X-Forwarded-Proto} !https
-             RewriteRule      ^.*$ https://%{SERVER_NAME}%{REQUEST_URI} [L,R=301,NE]
-             LogLevel alert rewrite:trace4  # Adjust log verbosity as required. ex. 1-8
-         </VirtualHost>
+     RewriteEngine    On
+     RewriteCond      %{HTTP:X-Forwarded-Proto} !https
+     RewriteRule      ^.*$ https://%{SERVER_NAME}%{REQUEST_URI} [L,R=301,NE]
+     LogLevel alert rewrite:trace4  # Adjust log verbosity as required. ex. 1-8
+ </VirtualHost>
+
 {{< /file-excerpt >}}
 
 
@@ -116,8 +117,9 @@ Depending on your distribution, this file's location may vary. For example, it c
     If you are using Apache 2.2, then you will need to replace the `LogLevel alert rewrite:trace` directive with the following:
 
 {{< file-excerpt "/etc/apache2/sites-available/example.com.conf" aconf >}}
-          RewriteLog       /var/log/apache2/rewrite.log
-          RewriteLogLevel  5  # Adjust log verbosity as required. ex. 1-9
+RewriteLog       /var/log/apache2/rewrite.log
+RewriteLogLevel  5  # Adjust log verbosity as required. ex. 1-9
+
 {{< /file-excerpt >}}
 
 
@@ -140,20 +142,21 @@ On Red Hat-based distributions, change the `Rewritelog` path to `/var/log/httpd/
 1.  Edit the Nginx server block configuration file to establish the rewrite rules to redirect all incoming traffic from port 80/HTTP back to the NodeBalancer on port 443/HTTPS:
 
 {{< file-excerpt "/etc/nginx/sites-available/example.com.conf" nginx >}}
-        server {
-            listen   80;
-            server_name example.com;
-            access_log /var/log/nginx/access.log;
-            error_log /var/log/nginx/error.log;
-            proxy_set_header X-Forwarded-Proto $scheme;
-            location / {
-                root   /srv/www/example.com/public_html;
-                index  index.html index.htm;
-                if ($http_x_forwarded_proto = "http") {
-                    rewrite  ^/(.*)$  https://example.com/$1 permanent;
-                    }           
-                }
-            }
+server {
+    listen   80;
+    server_name example.com;
+    access_log /var/log/nginx/access.log;
+    error_log /var/log/nginx/error.log;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    location / {
+        root   /srv/www/example.com/public_html;
+        index  index.html index.htm;
+        if ($http_x_forwarded_proto = "http") {
+            rewrite  ^/(.*)$  https://example.com/$1 permanent;
+            }           
+        }
+    }
+
 {{< /file-excerpt >}}
 
 

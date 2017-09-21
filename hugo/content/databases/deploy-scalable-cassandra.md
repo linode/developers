@@ -183,11 +183,12 @@ More information on this file can be found by following the *Cassandra .yaml Con
 After editing the file restart Cassandra.
 
 {{< file "Ubuntu /etc/cassandra/cassandra.yaml" yaml >}}
-  authenticator: org.apache.cassandra.auth.PasswordAuthenticator
-  authorizer: org.apache.cassandra.auth.CassandraAuthorizer
-  role_manager: CassandraRoleManager
-  roles_validity_in_ms: 0
-  permissions_validity_in_ms: 0
+authenticator: org.apache.cassandra.auth.PasswordAuthenticator
+authorizer: org.apache.cassandra.auth.CassandraAuthorizer
+role_manager: CassandraRoleManager
+roles_validity_in_ms: 0
+permissions_validity_in_ms: 0
+
 {{< /file >}}
 
 			
@@ -231,35 +232,36 @@ CentOS 7 users can find a sample file containing all the configuration options a
 {{< /note >}}
 
 {{< file ".cassandra/cqlshrc" aconf >}}
-	;; Options that are common to both COPY TO and COPY FROM
+;; Options that are common to both COPY TO and COPY FROM
 
-	[copy]
-	;; The string placeholder for null values
-	nullval=null
-	;; For COPY TO, controls whether the first line in the CSV output file will
-	;; contain the column names.  For COPY FROM, specifies whether the first
-	;; line in the CSV file contains column names.
-	header=true
-	;; The string literal format for boolean values
-	boolstyle = True,False
-	;; Input login credentials here to automatically login to the Cassandra command line without entering them each time. When this 
-	;; is enabled, just type "cqlsh" to start Cassandra.
-	[authentication]
-	username=[superuser]
-	password=[password]
+[copy]
+;; The string placeholder for null values
+nullval=null
+;; For COPY TO, controls whether the first line in the CSV output file will
+;; contain the column names.  For COPY FROM, specifies whether the first
+;; line in the CSV file contains column names.
+header=true
+;; The string literal format for boolean values
+boolstyle = True,False
+;; Input login credentials here to automatically login to the Cassandra command line without entering them each time. When this 
+;; is enabled, just type "cqlsh" to start Cassandra.
+[authentication]
+username=[superuser]
+password=[password]
 
-	;; Uncomment to automatically use a certain keyspace on login
-	;; keyspace=[keyspace]
+;; Uncomment to automatically use a certain keyspace on login
+;; keyspace=[keyspace]
 
-	[ui]
-	color=on
-	datetimeformat=%Y-%m-%d %H:%M:%S%z
-	completekey=tab
-	;; The number of digits displayed after the decimal point
-	;; (note that increasing this to large numbers can result in unusual values)
-	float_precision = 5
-	;; The encoding used for characters
-	encoding = utf8
+[ui]
+color=on
+datetimeformat=%Y-%m-%d %H:%M:%S%z
+completekey=tab
+;; The number of digits displayed after the decimal point
+;; (note that increasing this to large numbers can result in unusual values)
+float_precision = 5
+;; The encoding used for characters
+encoding = utf8
+
 {{< /file >}}
 
 

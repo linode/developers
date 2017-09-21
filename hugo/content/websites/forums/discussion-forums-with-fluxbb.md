@@ -50,23 +50,24 @@ This document contains specific instructions for installing version 1.2.22 of Fl
 Now visit `http://example.com/install.php` in your web browser, and follow the setup procedure provided by the FluxBB web based interface. During this process you will be asked to create a `config.php` file that resembles the following:
 
 {{< file "/srv/www/example.com/public\\_html/config.php" php >}}
-    <?php
+<?php
 
-    $db_type = 'mysqli';
-    $db_host = 'localhost';
-    $db_name = 'lollipop';
-    $db_username = 'foreman';
-    $db_password = '5t1ck';
-    $db_prefix = 'new_';
-    $p_connect = false;
+$db_type = 'mysqli';
+$db_host = 'localhost';
+$db_name = 'lollipop';
+$db_username = 'foreman';
+$db_password = '5t1ck';
+$db_prefix = 'new_';
+$p_connect = false;
 
-    $cookie_name = 'forum_cookie';
-    $cookie_domain = '';
-    $cookie_path = '/';
-    $cookie_secure = 0;
-    $cookie_seed = 'a3647cd58bd28fa9';
+$cookie_name = 'forum_cookie';
+$cookie_domain = '';
+$cookie_path = '/';
+$cookie_secure = 0;
+$cookie_seed = 'a3647cd58bd28fa9';
 
-    define('PUN', 1);
+define('PUN', 1);
+
 {{< /file >}}
 
 

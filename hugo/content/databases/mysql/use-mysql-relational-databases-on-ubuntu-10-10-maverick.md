@@ -24,8 +24,9 @@ Basic System Configuration
 Modify your `/etc/hosts` file to resemble the following example. Replace "example.com" with your own domain name, and select a unique name to replace "systemname" with. This will be your system's FQDN (fully qualified domain name). Replace "12.34.56.78" with your Linode's IP address.
 
 {{< file "/etc/hosts" >}}
-    127.0.0.1 localhost.localdomain localhost
-    12.34.56.78 systemname.example.com systemname
+127.0.0.1 localhost.localdomain localhost
+12.34.56.78 systemname.example.com systemname
+
 {{< /file >}}
 
 
@@ -62,12 +63,13 @@ Configure MySQL
 By default, MySQL makes some assumptions about your server environment with respect to memory. To configure MySQL more conservatively, you'll need to edit some settings in its configuration file. Your file should resemble the following:
 
 {{< file-excerpt "/etc/mysql/my.cnf" ini >}}
-    key_buffer = 16M
-    max_allowed_packet = 1M
-    thread_stack = 64K
-    table_cache = 4
-    sort_buffer = 64K
-    net_buffer_length = 2K
+key_buffer = 16M
+max_allowed_packet = 1M
+thread_stack = 64K
+table_cache = 4
+sort_buffer = 64K
+net_buffer_length = 2K
+
 {{< /file-excerpt >}}
 
 

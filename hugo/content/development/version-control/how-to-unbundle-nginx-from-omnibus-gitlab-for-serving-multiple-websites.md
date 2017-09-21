@@ -68,10 +68,11 @@ Note that nginx cannot be disabled in older versions of GitLab Community Edition
 1.  To unbundle nginx from GitLab, we'll need to disable the version included in the Omnibus package. Add the following lines to `/etc/gitlab/gitlab.rb`:
 
 {{< file-excerpt "/etc/gitlab/gitlab.rb" >}}
-        # Unbundle nginx from Omnibus GitLab
-        nginx['enable'] = false
-        # Set your Nginx's username
-        web_server['external_users'] = ['www-data']
+# Unbundle nginx from Omnibus GitLab
+nginx['enable'] = false
+# Set your Nginx's username
+web_server['external_users'] = ['www-data']
+
 {{< /file-excerpt >}}
 
 
@@ -98,7 +99,8 @@ Now that GitLab's bundled nginx has been disabled, the next step is to install a
 3.  Add Passenger's APT repository by adding the following lines to `/etc/apt/sources.list.d/passenger.list`:
 
 {{< file "/etc/apt/sources.list.d/passenger.list" >}}
-        deb https://oss-binaries.phusionpassenger.com/apt/passenger trusty main
+deb https://oss-binaries.phusionpassenger.com/apt/passenger trusty main
+
 {{< /file >}}
 
 
@@ -117,7 +119,8 @@ If you're using Ubuntu 16.04, replace `trusty` with `xenial` in the above comman
 6.  Enable the new Passenger module by uncommenting the `include /etc/nginx/passenger.conf;` line from the `/etc/nginx/nginx.conf` file:
 
 {{< file-excerpt "/etc/nginx/nginx.conf" aconf >}}
-        include /etc/nginx/passenger.conf;
+include /etc/nginx/passenger.conf;
+
 {{< /file-excerpt >}}
 
 
@@ -142,32 +145,33 @@ In this section, we'll create a new virtual host to serve GitLab. Since we've un
 2.  Edit your new virtual host file to match the following, replacing `example.com` with your own hostname:
 
 {{< file "/etc/nginx/sites-available/example.com" >}}
-        upstream gitlab {
-       	    server unix:/var/opt/gitlab/gitlab-rails/sockets/gitlab.socket;
-        }
+upstream gitlab {
+    server unix:/var/opt/gitlab/gitlab-rails/sockets/gitlab.socket;
+}
 
 	    server {
-            listen 80;
-            server_name example.com;
-            server_tokens off; # don't show the version number, a security best practice
-            root /opt/gitlab/embedded/service/gitlab-rails/public;
+    listen 80;
+    server_name example.com;
+    server_tokens off; # don't show the version number, a security best practice
+    root /opt/gitlab/embedded/service/gitlab-rails/public;
 
-            # Increase this if you want to upload large attachments
-            # Or if you want to accept large git objects over http
-            client_max_body_size 250m;
+    # Increase this if you want to upload large attachments
+    # Or if you want to accept large git objects over http
+    client_max_body_size 250m;
 
-            # individual nginx logs for this gitlab vhost
-            access_log  /var/log/nginx/gitlab_access.log;
-            error_log   /var/log/nginx/gitlab_error.log;
+    # individual nginx logs for this gitlab vhost
+    access_log  /var/log/nginx/gitlab_access.log;
+    error_log   /var/log/nginx/gitlab_error.log;
 
-            location / {
-                proxy_redirect off;
-                proxy_set_header Host $http_host;
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-                proxy_set_header X-Real-IP $remote_addr;
-                proxy_pass http://gitlab;
-            }
-        }
+    location / {
+        proxy_redirect off;
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_pass http://gitlab;
+    }
+}
+
 {{< /file >}}
 
 

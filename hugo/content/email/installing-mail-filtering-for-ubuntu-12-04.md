@@ -63,29 +63,30 @@ Here, we'll make sure ClamAV stays updated with the latest virus definitions.
         crontab -e
 
 {{< file "crontab" >}}
-    # Edit this file to introduce tasks to be run by cron.
-    #
-    # Each task to run has to be defined through a single line
-    # indicating with different fields when the task will be run
-    # and what command to run for the task
-    #
-    # To define the time you can provide concrete values for
-    # minute (m), hour (h), day of month (dom), month (mon),
-    # and day of week (dow) or use '*' in these fields (for 'any').#
-    # Notice that tasks will be started based on the cron's system
-    # daemon's notion of time and timezones.
-    #
-    # Output of the crontab jobs (including errors) is sent through
-    # email to the user the crontab file belongs to (unless redirected).
-    #
-    # For example, you can run a backup of all your user accounts
-    # at 5 a.m every week with:
-    # 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
-    #
-    # For more information see the manual pages of crontab(5) and cron(8)
-    #
-    # m h  dom mon dow   command
-      0 1 * * * /usr/bin/freshclam --quiet
+# Edit this file to introduce tasks to be run by cron.
+#
+# Each task to run has to be defined through a single line
+# indicating with different fields when the task will be run
+# and what command to run for the task
+#
+# To define the time you can provide concrete values for
+# minute (m), hour (h), day of month (dom), month (mon),
+# and day of week (dow) or use '*' in these fields (for 'any').#
+# Notice that tasks will be started based on the cron's system
+# daemon's notion of time and timezones.
+#
+# Output of the crontab jobs (including errors) is sent through
+# email to the user the crontab file belongs to (unless redirected).
+#
+# For example, you can run a backup of all your user accounts
+# at 5 a.m every week with:
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+#
+# For more information see the manual pages of crontab(5) and cron(8)
+#
+# m h  dom mon dow   command
+  0 1 * * * /usr/bin/freshclam --quiet
+
 {{< /file >}}
 
 
@@ -96,17 +97,18 @@ Here, we'll set various options and settings for SpamAssassin.
 1.  Before you can start SpamAssassin for the first time, you need to edit the `/etc/default/spamassassin` file by changing the value of the `ENABLED` variable to **1**. Here, you can also edit the `CRON` variable to make sure that SpamAssassin updates its rules regularly:
 
 {{< file "/etc/default/spamassassin" >}}
-        ...
+...
 
-        # Change to one to enable spamd
-        ENABLED=1
+# Change to one to enable spamd
+ENABLED=1
 
-        ...
+...
 
-        # Cronjob
-        # Set to anything but 0 to enable the cron job to automatically update
-        # spamassassin's rules on a nightly basis
-        CRON=1
+# Cronjob
+# Set to anything but 0 to enable the cron job to automatically update
+# spamassassin's rules on a nightly basis
+CRON=1
+
 {{< /file >}}
 
 
@@ -117,9 +119,10 @@ Here, we'll set various options and settings for SpamAssassin.
 3.  SpamAssassin scores incoming messages and assigns a score based on its spam characteristics. A score of 0 is considered safe, while a score of 10 or higher is usually spam. You need to adjust its configuration file to determine what score threshold will be allowed through the filter. We're going to use 8, but this can be adjusted later. Locate and uncomment the line `# required_score 5.0` by removing the **\#** symbol, and adjust the value to 8:
 
 {{< file "/etc/spamassassin/local.cf" >}}
-        #   Set the threshold at which a message is considered spam (default: 5.0)
-        #
-        required_score 8
+#   Set the threshold at which a message is considered spam (default: 5.0)
+#
+required_score 8
+
 {{< /file >}}
 
 
@@ -133,33 +136,34 @@ Here, we'll set various options and settings for SpamAssassin.
 1.  On Debian-based systems like Ubuntu, Amavis splits its configuration among several files. Enable spam and antivirus filtering by opening the `/etc/amavis/conf.d/15-content_filter_mode` file and removing the comment symbols (**\#**) from the two bypass blocks, as shown below:
 
 {{< file "/etc/amavis/conf.d/15-content\\_filter\\_mode" perl >}}
-        use strict;
+use strict;
 
-        # You can modify this file to re-enable SPAM checking through spamassassin
-        # and to re-enable antivirus checking.
+# You can modify this file to re-enable SPAM checking through spamassassin
+# and to re-enable antivirus checking.
 
-        #
-        # Default antivirus checking mode
-        # Please note, that anti-virus checking is DISABLED by
-        # default.
-        # If You wish to enable it, please uncomment the following lines:
-
-
-        @bypass_virus_checks_maps = (
-           \%bypass_virus_checks, \@bypass_virus_checks_acl, \$bypass_virus_checks_re);
+#
+# Default antivirus checking mode
+# Please note, that anti-virus checking is DISABLED by
+# default.
+# If You wish to enable it, please uncomment the following lines:
 
 
-        #
-        # Default SPAM checking mode
-        # Please note, that anti-spam checking is DISABLED by
-        # default.
-        # If You wish to enable it, please uncomment the following lines:
+@bypass_virus_checks_maps = (
+   \%bypass_virus_checks, \@bypass_virus_checks_acl, \$bypass_virus_checks_re);
 
 
-        @bypass_spam_checks_maps = (
-           \%bypass_spam_checks, \@bypass_spam_checks_acl, \$bypass_spam_checks_re);
+#
+# Default SPAM checking mode
+# Please note, that anti-spam checking is DISABLED by
+# default.
+# If You wish to enable it, please uncomment the following lines:
 
-        1;  # ensure a defined return
+
+@bypass_spam_checks_maps = (
+   \%bypass_spam_checks, \@bypass_spam_checks_acl, \$bypass_spam_checks_re);
+
+1;  # ensure a defined return
+
 {{< /file >}}
 
 
@@ -176,50 +180,53 @@ Be sure to remove all four **\#** symbols, as shown above.
 4.  Open the Postfix main configuration file. If you followed our Email with Postfix Dovecot and MySQL guide, you should already have a backup. Add the following line to the bottom of the file:
 
 {{< file "/etc/postfix/main.cf" >}}
-        # Additional option for filtering
-        content_filter = smtp-amavis:[127.0.0.1]:10024
+# Additional option for filtering
+content_filter = smtp-amavis:[127.0.0.1]:10024
+
 {{< /file >}}
 
 
 5.  The next configuration file to edit is `/etc/postfix/master.cf`. On a new line below the `pickup` directive, add the following options:
 
 {{< file "/etc/postfix/master.cf" >}}
-        pickup    fifo  n       -       -       60      1       pickup
-                 -o content_filter=
-                 -o receive_override_options=no_header_body_checks
+pickup    fifo  n       -       -       60      1       pickup
+         -o content_filter=
+         -o receive_override_options=no_header_body_checks
+
 {{< /file >}}
 
 
 6.  Add the following lines to the bottom of the file, and be sure to include the indents on lines beginning with `-o`:
 
 {{< file "/etc/postfix/master.cf" >}}
-        # Options for the filter
-        smtp-amavis     unix    -       -       -       -       2       smtp
-                -o smtp_data_done_timeout=1200
-                -o smtp_send_xforward_command=yes
-                -o disable_dns_lookups=yes
-                -o max_use=20
+# Options for the filter
+smtp-amavis     unix    -       -       -       -       2       smtp
+        -o smtp_data_done_timeout=1200
+        -o smtp_send_xforward_command=yes
+        -o disable_dns_lookups=yes
+        -o max_use=20
 
-        # Listener for filtered mail
-        127.0.0.1:10025 inet    n       -       -       -       -       smtpd
-                -o content_filter=
-                -o local_recipient_maps=
-                -o relay_recipient_maps=
-                -o smtpd_restriction_classes=
-                -o smtpd_delay_reject=no
-                -o smtpd_client_restrictions=permit_mynetworks,reject
-                -o smtpd_helo_restrictions=
-                -o smtpd_sender_restrictions=
-                -o smtpd_recipient_restrictions=permit_mynetworks,reject
-                -o smtpd_data_restrictions=reject_unauth_pipelining
-                -o smtpd_end_of_data_restrictions=
-                -o mynetworks=127.0.0.0/8
-                -o smtpd_error_sleep_time=0
-                -o smtpd_soft_error_limit=1001
-                -o smtpd_hard_error_limit=1000
-                -o smtpd_client_connection_count_limit=0
-                -o smtpd_client_connection_rate_limit=0
-                -o receive_override_options=no_header_body_checks,no_unknown_recipient_checks
+# Listener for filtered mail
+127.0.0.1:10025 inet    n       -       -       -       -       smtpd
+        -o content_filter=
+        -o local_recipient_maps=
+        -o relay_recipient_maps=
+        -o smtpd_restriction_classes=
+        -o smtpd_delay_reject=no
+        -o smtpd_client_restrictions=permit_mynetworks,reject
+        -o smtpd_helo_restrictions=
+        -o smtpd_sender_restrictions=
+        -o smtpd_recipient_restrictions=permit_mynetworks,reject
+        -o smtpd_data_restrictions=reject_unauth_pipelining
+        -o smtpd_end_of_data_restrictions=
+        -o mynetworks=127.0.0.0/8
+        -o smtpd_error_sleep_time=0
+        -o smtpd_soft_error_limit=1001
+        -o smtpd_hard_error_limit=1000
+        -o smtpd_client_connection_count_limit=0
+        -o smtpd_client_connection_rate_limit=0
+        -o receive_override_options=no_header_body_checks,no_unknown_recipient_checks
+
 {{< /file >}}
 
 
@@ -256,25 +263,26 @@ You can search for the relevant logfiles with `cat /var/log/mail.log | grep SPAM
 Depending on the amount of users and activity on your mail server, you may wish to receive notifications when ClamAV identifies and removes an incoming virus, or SpamAssassin filters an email as spam. If you want to receive emails, open the file `/etc/amavis/conf.d/21-ubuntu_defaults`. Add the desired email address to the **\$virus\_admin** and **\$spam\_admin** parameters, as shown below.
 
 {{< file "/etc/amavis/conf.d/21-ubuntu\\_defaults" >}}
-    use strict;
+use strict;
 
-    #
-    # These are Ubuntu specific defaults for amavisd-new configuration
-    #
-    # DOMAIN KEYS IDENTIFIED MAIL (DKIM)
-    $enable_dkim_verification = 1;
-    # Don't be verbose about sending mail:
-    @whitelist_sender_acl = qw( .$mydomain );
-    $final_virus_destiny      = D_DISCARD; # (defaults to D_BOUNCE)
-    $final_banned_destiny     = D_DISCARD;  # (defaults to D_BOUNCE)
-    $final_spam_destiny       = D_DISCARD;  # (defaults to D_REJECT)
-    $final_bad_header_destiny = D_PASS;  # (defaults to D_PASS), D_BOUNCE suggested
+#
+# These are Ubuntu specific defaults for amavisd-new configuration
+#
+# DOMAIN KEYS IDENTIFIED MAIL (DKIM)
+$enable_dkim_verification = 1;
+# Don't be verbose about sending mail:
+@whitelist_sender_acl = qw( .$mydomain );
+$final_virus_destiny      = D_DISCARD; # (defaults to D_BOUNCE)
+$final_banned_destiny     = D_DISCARD;  # (defaults to D_BOUNCE)
+$final_spam_destiny       = D_DISCARD;  # (defaults to D_REJECT)
+$final_bad_header_destiny = D_PASS;  # (defaults to D_PASS), D_BOUNCE suggested
 
-    $virus_admin = 'admin@example.com';
-    $spam_admin = 'admin@example.com';
+$virus_admin = 'admin@example.com';
+$spam_admin = 'admin@example.com';
 
-    #------------ Do not modify anything below this line -------------
-    1;  # insure a defined return
+#------------ Do not modify anything below this line -------------
+1;  # insure a defined return
+
 {{< /file >}}
 
 

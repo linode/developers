@@ -72,11 +72,12 @@ If you have a firewall configured according to our [Securing Your Server](/docs/
 3.  Create a script to run the Minecraft server:
 
 {{< file "/home/minecraft/run.sh" sh >}}
-        #!/bin/sh
-        BINDIR=$(dirname "$(readlink -fn "$0")")
-        cd "$BINDIR"
+#!/bin/sh
+BINDIR=$(dirname "$(readlink -fn "$0")")
+cd "$BINDIR"
 
-        java -Xms1024M -Xmx1536M -jar minecraft_server.1.12.jar -o true
+java -Xms1024M -Xmx1536M -jar minecraft_server.1.12.jar -o true
+
 {{< /file >}}
 
 
@@ -104,9 +105,10 @@ The `Xms` and `Xmx` flags define the minimum and maximum amount of RAM the Minec
 2.  Open the `eula.txt` file and change the value of `eula` to true:
 
 {{< file "/home/minecraft/eula.txt" sh >}}
-        #By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).
-        #Tue Jan 27 21:40:00 UTC 2015
-        eula=true
+#By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).
+#Tue Jan 27 21:40:00 UTC 2015
+eula=true
+
 {{< /file >}}
 
 

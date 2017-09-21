@@ -61,15 +61,16 @@ This guide will walk through the steps necessary to install and configure Tiny T
 2.  Add a configuration file under `/etc/httpd/conf.d/ttrss.conf` to secure the directories that Tiny Tiny RSS will use:
 
 {{< file "/etc/httpd/conf.d/ttrss.conf" aconf >}}
-        <Directory /var/www/html/cache>
-            Require all denied
-        </Directory>
+<Directory /var/www/html/cache>
+    Require all denied
+</Directory>
 
-        <Directory /var/www/html>
-            <Files "config.php">
-                Require all denied
-            </Files>
-        </Directory>
+<Directory /var/www/html>
+    <Files "config.php">
+        Require all denied
+    </Files>
+</Directory>
+
 {{< /file >}}
 
 
@@ -127,13 +128,14 @@ If you are installing over a previous installation, perform any backups as neces
     The following snippet shows what the first few lines of the file should look like:
 
 {{< file "/var/www/html/config.php" php >}}
-          <?php
-          // *******************************************
-          // *** Database configuration (important!) ***
-          // *******************************************
+<?php
+// *******************************************
+// *** Database configuration (important!) ***
+// *******************************************
 
-          define('DB_TYPE', 'mysql');
-          ............
+define('DB_TYPE', 'mysql');
+............
+
 {{< /file >}}
 
 
@@ -154,16 +156,17 @@ If you are installing over a previous installation, perform any backups as neces
 Now that Tiny Tiny RSS is up and running, create a systemd unit to automate the updating of your RSS feed. Create a file under `/etc/systemd/system/ttrss-updater.service` and copy the following information into it:
 
 {{< file "/etc/systemd/system/ttrss-updater.service" ini >}}
-    [Unit]
-    Description=ttrss_backend
-    After=network.target mysql.service
+[Unit]
+Description=ttrss_backend
+After=network.target mysql.service
 
-    [Service]
-    User=apache
-    ExecStart=/var/www/html/update_daemon2.php
+[Service]
+User=apache
+ExecStart=/var/www/html/update_daemon2.php
 
-    [Install]
-    WantedBy=multi-user.target
+[Install]
+WantedBy=multi-user.target
+
 {{< /file >}}
 
 

@@ -113,11 +113,12 @@ This URL will change as Minecraft is updated. Please check the downloads [page](
 5.  Using your preferred text editor, create the following text file. This is a script that invokes the JRE and tells it to run Minecraft:
 
 {{< file "/home/minecraft/run.sh" >}}
-        #!/bin/sh
-        BINDIR=$(dirname "$(readlink -fn "$0")")
-        cd "$BINDIR"
+#!/bin/sh
+BINDIR=$(dirname "$(readlink -fn "$0")")
+cd "$BINDIR"
 
-        java -Xms1024M -Xmx1536M -jar minecraft_server.1.6.4.jar -o true
+java -Xms1024M -Xmx1536M -jar minecraft_server.1.6.4.jar -o true
+
 {{< /file >}}
 
         

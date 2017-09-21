@@ -77,25 +77,26 @@ Using the examples below, be sure the IP addresses you enter reflect those shown
 Add the following addressing to the interface's configuration:
 
 {{< file-excerpt "/etc/systemd/network/05-eth0.network" aconf >}}
-    [Match]
-    Name=eth0
+[Match]
+Name=eth0
 
-    [Network]
-    DHCP=no
-    DNS= 203.0.113.1 203.0.113.2 203.0.113.3
-    Domains=members.linode.com
-    IPv6PrivacyExtensions=false
+[Network]
+DHCP=no
+DNS= 203.0.113.1 203.0.113.2 203.0.113.3
+Domains=members.linode.com
+IPv6PrivacyExtensions=false
 
-    Gateway=198.51.100.1
+Gateway=198.51.100.1
 
-    # Your primary public IP address
-    Address=198.51.100.2/24
+# Your primary public IP address
+Address=198.51.100.2/24
 
-    # To add a second public IP address:
-    Address=198.51.100.3/24
+# To add a second public IP address:
+Address=198.51.100.3/24
 
-    #To add a private IP address:
-    Address=192.168.133.234/17
+#To add a private IP address:
+Address=192.168.133.234/17
+
 {{< /file-excerpt >}}
 
 
@@ -108,38 +109,39 @@ Static IP addresses can be configured in several ways in Arch. Linode's Arch dep
 The default ethernet interface file is located at `/etc/sysconfig/network-scripts/ifcfg-eth0`. You can configure a static IP address by editing the following lines, substituting your own Linode's IP addresses, gateways, and DNS resolvers:
 
 {{< file-excerpt "/etc/sysconfig/network-scripts/ifcfg-eth0" aconf >}}
-    # Edit this line from "dhcp" to "none":
-    BOOTPROTO=none
+# Edit this line from "dhcp" to "none":
+BOOTPROTO=none
 
-    # Edit from "yes" to "no":
-    PEERDNS=no
+# Edit from "yes" to "no":
+PEERDNS=no
 
-    ...
+...
 
-    # Add the following lines:
-    DOMAIN=members.linode.com
+# Add the following lines:
+DOMAIN=members.linode.com
 
-    # We specifically want GATEWAY0 here, not
-    # GATEWAY without an interger following it.
-    GATEWAY0=198.51.100.1
+# We specifically want GATEWAY0 here, not
+# GATEWAY without an interger following it.
+GATEWAY0=198.51.100.1
 
-    DNS1=203.0.113.1
-    DNS2=203.0.113.2
-    DNS3=203.0.113.3
+DNS1=203.0.113.1
+DNS2=203.0.113.2
+DNS3=203.0.113.3
 
-    # Your primary public IP address. The netmask
-    # is taken from the PREFIX (where 24 is a
-    # public IP, 17 is a private IP)
-    IPADDR0=198.51.100.5
-    PREFIX0=24
+# Your primary public IP address. The netmask
+# is taken from the PREFIX (where 24 is a
+# public IP, 17 is a private IP)
+IPADDR0=198.51.100.5
+PREFIX0=24
 
-    # To add a second public IP address:
-    IPADDR1=198.51.100.10
-    PREFIX1=24
+# To add a second public IP address:
+IPADDR1=198.51.100.10
+PREFIX1=24
 
-    # To add a private IP address:
-    IPADDR2=192.0.2.6
-    PREFIX2=17
+# To add a private IP address:
+IPADDR2=192.0.2.6
+PREFIX2=17
+
 {{< /file-excerpt >}}
 
 
@@ -156,39 +158,42 @@ CentOS 7 and recent versions of Fedora include NetworkManager, which uses tools 
 Like in CentOS 7, you can simply edit the ethernet interface file to configure a static IP address:
 
 {{< file-excerpt "/etc/sysconfig/network-scripts/ifcfg-eth0" aconf >}}
-    BOOTPROTO=none
-    PEERDNS=no
+BOOTPROTO=none
+PEERDNS=no
 
-    # Your primary static public IP address.
-    IPADDR0=198.51.100.5
-    PREFIX0=24
-    GATEWAY=198.51.100.1
-    DOMAIN=members.linode.com
-    DNS1=203.0.113.1
-    DNS2=203.0.113.2
-    DNS3=203.0.113.3
+# Your primary static public IP address.
+IPADDR0=198.51.100.5
+PREFIX0=24
+GATEWAY=198.51.100.1
+DOMAIN=members.linode.com
+DNS1=203.0.113.1
+DNS2=203.0.113.2
+DNS3=203.0.113.3
+
 {{< /file-excerpt >}}
 
 
 To add the option to rotate DNS providers, create a `dhclient` script:
 
 {{< file "/etc/dhcp/dhclient.d/rotate.sh" aconf >}}
-    rotate_config() {
-        echo "options rotate" >> /etc/resolv.conf
-    }
+rotate_config() {
+    echo "options rotate" >> /etc/resolv.conf
+}
 
-    rotate_restore() {
-        :
-    }
+rotate_restore() {
+    :
+}
+
 {{< /file >}}
 
 
 For multiple static IP addresses, additional IPs are assigned to an alias you create for *eth0*. To use this alias, an additional file must be created. For example, an `eth0:1` file must be created for the *eth0:1* interface alias, `eth0:2` for *eth0:2*, etc.
 
 {{< file "/etc/sysconfig/network-scripts/ifcfg-eth0:1" aconf >}}
-    # Add a second static public IP address.
-    DEVICE=eth0:1
-    IPADDR=198.51.100.10
+# Add a second static public IP address.
+DEVICE=eth0:1
+IPADDR=198.51.100.10
+
 {{< /file >}}
 
 
@@ -203,33 +208,35 @@ For more information on the options available to interface files, see `man ifcfg
 Add the following to the interface configuration file:
 
 {{< file-excerpt "/etc/network/interfaces" aconf >}}
-    . . .
+. . .
 
-    # Your primary public IP address.
-    auto eth0
-    iface eth0 inet static
-        address 198.51.100.5/24
-        gateway 198.51.100.1
+# Your primary public IP address.
+auto eth0
+iface eth0 inet static
+    address 198.51.100.5/24
+    gateway 198.51.100.1
 
-    # To add a second public IP address:
-    iface eth0 inet static
-        address 198.51.100.10/24
+# To add a second public IP address:
+iface eth0 inet static
+    address 198.51.100.10/24
 
-    # To add a private IP address:
-    iface eth0 inet static
-        address 192.0.2.6/17
+# To add a private IP address:
+iface eth0 inet static
+    address 192.0.2.6/17
+
 {{< /file-excerpt >}}
 
 
 To enable name resolution, populate `resolv.conf` with your DNS IP addresses and resolv.conf options ([see man 5 resolv.conf](https://linux.die.net/man/5/resolv.conf)). The `domain`, `search` and `options` lines aren't necessary, but useful to have.
 
 {{< file "/etc/resolv.conf" aconf >}}
-    nameserver 203.0.113.1
-    nameserver 203.0.113.2
-    nameserver 203.0.113.3
-    domain members.linode.com
-    search members.linode.com
-    options rotate
+nameserver 203.0.113.1
+nameserver 203.0.113.2
+nameserver 203.0.113.3
+domain members.linode.com
+search members.linode.com
+options rotate
+
 {{< /file >}}
 
 
@@ -240,9 +247,10 @@ By default, Debian doesn't include Network Manager or resolvconf to manage `/etc
 Networking in Gentoo uses the `netifrc` utility. Addresses are specified in the `config_eth0` line and separated by spaces. The gateway is defined in the `routes_eth0` line.
 
 {{< file-excerpt "/etc/conf.d/net" aconf >}}
-    config_eth0="198.51.100.5/24 198.51.100.10/24 192.0.2.6/17"
-    routes_eth0="default via 198.51.100.1"
-    . . .
+config_eth0="198.51.100.5/24 198.51.100.10/24 192.0.2.6/17"
+routes_eth0="default via 198.51.100.1"
+. . .
+
 {{< /file-excerpt >}}
 
 
@@ -251,41 +259,44 @@ Networking in Gentoo uses the `netifrc` utility. Addresses are specified in the 
 1.  Modify the interface's config file:
 
 {{< file-excerpt "/etc/sysconfig/network/ifcfg-eth0" aconf >}}
-      BOOTPROTO=static
+BOOTPROTO=static
 
-      . . .
+. . .
 
-      # Your primary public IP address.
-      IPADDR=198.51.100.5/24
-      GATEWAY=198.51.100.1
+# Your primary public IP address.
+IPADDR=198.51.100.5/24
+GATEWAY=198.51.100.1
 
-      # Add a second public IP address:
-      IPADDR1=198.51.100.10/24
-      LABEL1=1
+# Add a second public IP address:
+IPADDR1=198.51.100.10/24
+LABEL1=1
 
-      # Add a private IP address:
-      IPADDR2=192.0.2.6/17
-      LABEL2=2
+# Add a private IP address:
+IPADDR2=192.0.2.6/17
+LABEL2=2
+
 {{< /file-excerpt >}}
 
 
 2.  You will also need to add your gateway to the network routes file:
 
 {{< file "/etc/sysconfig/network/routes" >}}
-      # Destination   Gateway                 Netmask                 Device
-      default         198.51.100.1            -                       eth0
+# Destination   Gateway                 Netmask                 Device
+default         198.51.100.1            -                       eth0
+
 {{< /file >}}
 
 
 3.  Edit each line to add DNS and domain information for netconfig. Netconfig uses this info to modify `resolv.conf`:
 
 {{< file-excerpt "/etc/sysconfig/network/config" >}}
-    . . .
-    NETCONFIG_DNS_STATIC_SERVERS="203.0.113.1 203.0.113.2 203.0.113.3"
-    . . .
-    NETCONFIG_DNS_STATIC_SEARCHLIST="members.linode.com"
-    . . .
-    NETCONFIG_DNS_RESOLVER_OPTIONS="rotate"
+. . .
+NETCONFIG_DNS_STATIC_SERVERS="203.0.113.1 203.0.113.2 203.0.113.3"
+. . .
+NETCONFIG_DNS_STATIC_SEARCHLIST="members.linode.com"
+. . .
+NETCONFIG_DNS_RESOLVER_OPTIONS="rotate"
+
 {{< /file-excerpt >}}
 
 
@@ -294,24 +305,25 @@ Networking in Gentoo uses the `netifrc` utility. Addresses are specified in the 
 Add the following to the interface's configuration file:
 
 {{< file-excerpt "/etc/network/interfaces" aconf >}}
-    . . .
+. . .
 
-    # Your primary public IP address.
-    auto eth0
-    iface eth0 inet static
-        address 198.51.100.5/24
-        gateway 198.51.100.1
-        dns-nameservers 203.0.113.1 203.0.113.2 203.0.113.3
-        dns-search members.linode.com
-        dns-options rotate
+# Your primary public IP address.
+auto eth0
+iface eth0 inet static
+    address 198.51.100.5/24
+    gateway 198.51.100.1
+    dns-nameservers 203.0.113.1 203.0.113.2 203.0.113.3
+    dns-search members.linode.com
+    dns-options rotate
 
-    # To add a second public IP address:
-    iface eth0 inet static
-        address 198.51.100.10/24
+# To add a second public IP address:
+iface eth0 inet static
+    address 198.51.100.10/24
 
-    # To add a private IP address:
-    iface eth0 inet static
-        address 192.0.2.6/17
+# To add a private IP address:
+iface eth0 inet static
+    address 192.0.2.6/17
+
 {{< /file-excerpt >}}
 
 

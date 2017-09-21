@@ -62,9 +62,10 @@ In this section, you will install MariaDB and set the password for the MariaDB r
     Add your chosen repository to the bottom of the file:
 
 {{< file-excerpt "/etc/apt/sources.list" >}}
-        # MariaDB 5.5 repository list 
-        deb http://ftp.osuosl.org/pub/mariadb/repo/5.5/debian wheezy main
-        deb-src http://ftp.osuosl.org/pub/mariadb/repo/5.5/debian wheezy main
+# MariaDB 5.5 repository list 
+deb http://ftp.osuosl.org/pub/mariadb/repo/5.5/debian wheezy main
+deb-src http://ftp.osuosl.org/pub/mariadb/repo/5.5/debian wheezy main
+
 {{< /file-excerpt >}}
 
 
@@ -305,7 +306,8 @@ Opening a MariaDB server up to the internet makes it less secure. If you need to
 4.  Edit the `bind-address` variable to listen to all network interfaces:
 
 {{< file-excerpt "/etc/mysql/my.cnf" >}}
-        bind-address = 0.0.0.0
+bind-address = 0.0.0.0
+
 {{< /file-excerpt >}}
 
 5.  Restart the server:

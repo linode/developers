@@ -112,42 +112,44 @@ To update DST, run the above 4 commands again.
 4.  Create a settings file for your Don't Starve Together server in `~/.klei/DoNotStarveTogether/`. Below  is an example configuration file. You may use this and modify it as you need. Note that where several non-binary options exist, they are shown in this file delimited with a `|`, and numerical ranges are denoted with `..`. Choose a single option.
 
 {{< file "~/.klei/DoNotStarveTogether/settings.ini" >}}
-        [network]
-        default_server_name = Your unique server name
-        default_server_description = A very nice server description
-        server_port = 10999
-        server_password = password
-        max_players = 1 .. 64
-        pvp = true | false
-        game_mode = endless | survival | wilderness
-         enable_autosaver = true | false
-        tick_rate = 30
-        connection_timeout = 8000
-        server_save_slot = 1
-        enable_vote_kick = true | false
-        pause_when_empty = true | false
+[network]
+default_server_name = Your unique server name
+default_server_description = A very nice server description
+server_port = 10999
+server_password = password
+max_players = 1 .. 64
+pvp = true | false
+game_mode = endless | survival | wilderness
+ enable_autosaver = true | false
+tick_rate = 30
+connection_timeout = 8000
+server_save_slot = 1
+enable_vote_kick = true | false
+pause_when_empty = true | false
  
-        [account]
-        dedicated_lan_server = false
- 
- 
-        [STEAM]
-        DISABLECLOUD = true
+[account]
+dedicated_lan_server = false
  
  
-        [MISC]
-        CONSOLE_ENABLED = true
-        autocompiler_enabled = true
+[STEAM]
+DISABLECLOUD = true
+ 
+ 
+[MISC]
+CONSOLE_ENABLED = true
+autocompiler_enabled = true
+
 {{< /file >}}
 
 
 4.  Create a startup script for DST with the following contents:
 
 {{< file "~/startdst.sh" >}}
-        #!/bin/sh
+#!/bin/sh
 
-        cd ./Steam/dstserver/bin
-        screen -S "Don't Starve Together Server" ./dontstarve_dedicated_server_nullrenderer
+cd ./Steam/dstserver/bin
+screen -S "Don't Starve Together Server" ./dontstarve_dedicated_server_nullrenderer
+
 {{< /file >}}
 
     When run, the script will change directories to `~/Steam/dstserver/bin` and execute DST in a [Screen](/docs/networking/ssh/using-gnu-screen-to-manage-persistent-terminal-sessions) session.

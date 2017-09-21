@@ -83,21 +83,22 @@ Create a Basic Application with Web.py
 There are a number of examples of basic applications developed using the web.py framework. The "main" application file is typically called "code.py". Consider the following, "Hello World" application:
 
 {{< file "code.py" python >}}
-    import web
+import web
 
-    urls = (
-        '/(.*)', 'hello'
-    )
-    app = web.application(urls, globals())
+urls = (
+    '/(.*)', 'hello'
+)
+app = web.application(urls, globals())
 
-    class hello:        
-        def GET(self, name):
-            if not name: 
-                name = 'World'
-            return 'Hello, ' + name + '!'
+class hello:        
+    def GET(self, name):
+        if not name: 
+            name = 'World'
+        return 'Hello, ' + name + '!'
 
-    if __name__ == "__main__":
-        app.run()
+if __name__ == "__main__":
+    app.run()
+
 {{< /file >}}
 
 
@@ -119,40 +120,42 @@ Issue the following command to ensure that the required modules are enabled with
 WSGI requires a slight modification to your web.py application. Add the following lines to the end of the `code.py` file:
 
 {{< file-excerpt "code.py" python >}}
-    app = web.application(urls, globals(), autoreload=False)
-    application = app.wsgifunc()
+app = web.application(urls, globals(), autoreload=False)
+application = app.wsgifunc()
+
 {{< /file-excerpt >}}
 
 
 Consider the following Apache VirtualHost configuration for a `mod_wsgi` powered Web.py application:
 
 {{< file-excerpt "Apache VirtualHost Configuration" apache >}}
-    <VirtualHost example.com:80> 
-        ServerAdmin username@example.com     
-        ServerName example.com
-           ServerAlias www.example.com
-           DocumentRoot /srv/www/example.com/public_html/
-           ErrorLog /srv/www/example.com/logs/error.log 
-           CustomLog /srv/www/example.com/logs/access.log combined
+<VirtualHost example.com:80> 
+    ServerAdmin username@example.com     
+    ServerName example.com
+       ServerAlias www.example.com
+       DocumentRoot /srv/www/example.com/public_html/
+       ErrorLog /srv/www/example.com/logs/error.log 
+       CustomLog /srv/www/example.com/logs/access.log combined
 
-        WSGIScriptAlias / /srv/www/example.com/application
-        Alias /static /srv/www/example.com/public_html
+    WSGIScriptAlias / /srv/www/example.com/application
+    Alias /static /srv/www/example.com/public_html
 
-        <Directory /srv/www/example.com/application>
-          SetHandler wsgi-script
-          Options ExecCGI
-        </Directory>
+    <Directory /srv/www/example.com/application>
+      SetHandler wsgi-script
+      Options ExecCGI
+    </Directory>
 
-        AddType text/html .py
+    AddType text/html .py
 
-        <Location />
-          RewriteEngine on
-          RewriteBase /
-          RewriteCond %{REQUEST_URI} !^/static
-          RewriteCond %{REQUEST_URI} !^(/.*)+code.py/
-          RewriteRule ^(.*)$ code.py/$1 [PT]
-        </Location>
-    </VirtualHost>
+    <Location />
+      RewriteEngine on
+      RewriteBase /
+      RewriteCond %{REQUEST_URI} !^/static
+      RewriteCond %{REQUEST_URI} !^(/.*)+code.py/
+      RewriteRule ^(.*)$ code.py/$1 [PT]
+    </Location>
+</VirtualHost>
+
 {{< /file-excerpt >}}
 
 
@@ -168,31 +171,32 @@ Build a Database Driven Application with Web.py
 The "Hello World" application above is functional, but isn't able to store or access persistent data in a database system. The following example is simple but inserts and retrieves data from a database system. Consider the following code:
 
 {{< file "code.py" python >}}
-    import web
+import web
 
-    urls = (
-        '/(.*)', 'hello'
-    )
-    app = web.application(urls, globals())
+urls = (
+    '/(.*)', 'hello'
+)
+app = web.application(urls, globals())
 
-    db = web.database(dbn='postgres', db='webpy', user='webpy', pw='webweb')
+db = web.database(dbn='postgres', db='webpy', user='webpy', pw='webweb')
 
-    class hello:
-        def GET(self, notetext):
-            notetext = dict(notes="a note")
-            notes = db.select('notes', notetext, what='notes')
-            if notes:
-                notes = 'a note is found'
-            else:
-                notes = 'no notes are found'
-            return notes
+class hello:
+    def GET(self, notetext):
+        notetext = dict(notes="a note")
+        notes = db.select('notes', notetext, what='notes')
+        if notes:
+            notes = 'a note is found'
+        else:
+            notes = 'no notes are found'
+        return notes
 
-    if __name__ == "__main__":
-        app.run()
+if __name__ == "__main__":
+    app.run()
 
 
-    app = web.application(urls, globals(), autoreload=False)
-    application = app.wsgifunc()
+app = web.application(urls, globals(), autoreload=False)
+application = app.wsgifunc()
+
 {{< /file >}}
 
 

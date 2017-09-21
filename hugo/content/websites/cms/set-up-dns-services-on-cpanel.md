@@ -60,30 +60,31 @@ To get your cPanel Linode ready as your master DNS server, you'll need to make a
 The transfer of DNS records from your Master DNS server to the Linode DNS servers is done through AXFR queries. By default these are not allowed. Add these sections to `options`:
 
 {{< file-excerpt "/etc/named.conf" >}}
-    allow-transfer {
-         104.237.137.10;
-         65.19.178.10;
-         75.127.96.10;
-         207.192.70.10;
-         109.74.194.10;
-         2600:3c00::a;
-         2600:3c01::a;
-         2600:3c02::a;
-         2600:3c03::a;
-         2a01:7e00::a;
-     };
-     also-notify {
-         104.237.137.10;
-         65.19.178.10;
-         75.127.96.10;
-         207.192.70.10;
-         109.74.194.10;
-         2600:3c00::a;
-         2600:3c01::a;
-         2600:3c02::a;
-         2600:3c03::a;
-         2a01:7e00::a;
-     };
+allow-transfer {
+     104.237.137.10;
+     65.19.178.10;
+     75.127.96.10;
+     207.192.70.10;
+     109.74.194.10;
+     2600:3c00::a;
+     2600:3c01::a;
+     2600:3c02::a;
+     2600:3c03::a;
+     2a01:7e00::a;
+ };
+ also-notify {
+     104.237.137.10;
+     65.19.178.10;
+     75.127.96.10;
+     207.192.70.10;
+     109.74.194.10;
+     2600:3c00::a;
+     2600:3c01::a;
+     2600:3c02::a;
+     2600:3c03::a;
+     2a01:7e00::a;
+ };
+
 {{< /file-excerpt >}}
 
 

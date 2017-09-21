@@ -75,16 +75,17 @@ The instructions here must be executed on each Cassandra node to be clustered. A
 **Example**
 
 {{< file "**/etc/cassandra/conf/cassandra.yaml**" yaml >}}
-  cluster_name: '[Your Cluster Name]'
-  listen_address: [public_ip_address]
-  rpc_address: [public_ip_address]
-  num_tokens: 256
-  seed_provider:
+cluster_name: '[Your Cluster Name]'
+listen_address: [public_ip_address]
+rpc_address: [public_ip_address]
+num_tokens: 256
+seed_provider:
 	- class_name: org.apache.cassandra.locator.SimpleSeedProvider
-	  parameters:
-			- seeds: "[node1_ip_address],[node2_ip_address]"
-  endpoint_snitch: GossipingPropertyFileSnitch
-  auto_bootstrap: false
+ parameters:
+	- seeds: "[node1_ip_address],[node2_ip_address]"
+endpoint_snitch: GossipingPropertyFileSnitch
+auto_bootstrap: false
+
 {{< /file >}}
 
 
@@ -93,10 +94,11 @@ The instructions here must be executed on each Cassandra node to be clustered. A
 **Example**
 
 {{< file "**/etc/cassandra/conf/cassandra-rackdc.properties**" properties >}}
-  # These properties are used with GossipingPropertyFileSnitch and will
-  # indicate the rack and dc for this node
-  dc=DC1
-  rack=RACK1
+# These properties are used with GossipingPropertyFileSnitch and will
+# indicate the rack and dc for this node
+dc=DC1
+rack=RACK1
+
 {{< /file >}}
 
 
@@ -148,18 +150,19 @@ Setting up encryption between nodes offers additional security and protects the 
 	
 
 {{< file "**~/.keystore/rootCAcert.conf**" aconf >}}
-	[ req ]
-	distinguished_name     = req_distinguished_name
-	prompt                 = no
-	output_password        = set_strong_password_here
-	default_bits           = 4096
+[ req ]
+distinguished_name     = req_distinguished_name
+prompt                 = no
+output_password        = set_strong_password_here
+default_bits           = 4096
 
-	[ req_distinguished_name ]
-	C                      = US
-	ST                     = WA
-	L                      = Seattle
-	OU                     = Cluster_Name
-	CN                     = Cluster_Name_MasterCA
+[ req_distinguished_name ]
+C                      = US
+ST                     = WA
+L                      = Seattle
+OU                     = Cluster_Name
+CN                     = Cluster_Name_MasterCA
+
 {{< /file >}}
 
 
@@ -238,6 +241,7 @@ server_encryption_options:
     store_type: JKS
     cipher_suites: [TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA]
     require_client_auth: true
+
 {{< /file >}}
 
 

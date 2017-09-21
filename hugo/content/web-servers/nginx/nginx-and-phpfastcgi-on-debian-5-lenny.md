@@ -52,23 +52,24 @@ In this guide, we'll be using the domain "example.com" as our example site. You 
 Next, define your site's virtual host file:
 
 {{< file "/etc/nginx/sites-available/www.example.com" nginx >}}
-    server {
-        server_name www.example.com example.com;
-        access_log /srv/www/www.example.com/logs/access.log;
-        error_log /srv/www/www.example.com/logs/error.log;
-        root /srv/www/www.example.com/public_html;
+server {
+    server_name www.example.com example.com;
+    access_log /srv/www/www.example.com/logs/access.log;
+    error_log /srv/www/www.example.com/logs/error.log;
+    root /srv/www/www.example.com/public_html;
 
-        location / {
-            index index.html index.htm index.php;
-        }
-
-        location ~ \.php$ {
-            include /etc/nginx/fastcgi_params;
-            fastcgi_pass  127.0.0.1:9000;
-            fastcgi_index index.php;
-            fastcgi_param SCRIPT_FILENAME /srv/www/www.example.com/public_html$fastcgi_script_name;
-        }
+    location / {
+        index index.html index.htm index.php;
     }
+
+    location ~ \.php$ {
+        include /etc/nginx/fastcgi_params;
+        fastcgi_pass  127.0.0.1:9000;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME /srv/www/www.example.com/public_html$fastcgi_script_name;
+    }
+}
+
 {{< /file >}}
 
 
@@ -138,7 +139,8 @@ Test PHP with FastCGI
 Create a file called "test.php" in your site's "public\_html" directory with the following contents:
 
 {{< file "/srv/www/www.example.com/public\\_html/test.php" php >}}
-    <?php echo phpinfo(); ?>
+<?php echo phpinfo(); ?>
+
 {{< /file >}}
 
 

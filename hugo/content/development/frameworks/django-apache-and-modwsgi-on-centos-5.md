@@ -85,16 +85,17 @@ At the time of writing, this will install version 1.2.5 of the Django framework.
 In order for `mod_wsgi` to be able to provide access to your Django application, you will need to create a `django.wsgi` file inside of your application directory. For the purposes of this example, we assume that your application will be located *outside* of your `DocumentRoot` in the directory `/srv/www/example.com/application`. Modify this example and all following examples to conform to the actual files and locations used in your deployment.
 
 {{< file "/srv/www/example.com/application/django.wsgi" python >}}
-    import os
-    import sys
+import os
+import sys
 
-    sys.path.append('/srv/www/example.com/application')
+sys.path.append('/srv/www/example.com/application')
 
-    os.environ['PYTHON_EGG_CACHE'] = '/srv/www/example.com/.python-egg'
-    os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
+os.environ['PYTHON_EGG_CACHE'] = '/srv/www/example.com/.python-egg'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 
-    import django.core.handlers.wsgi
-    application = django.core.handlers.wsgi.WSGIHandler()
+import django.core.handlers.wsgi
+application = django.core.handlers.wsgi.WSGIHandler()
+
 {{< /file >}}
 
 
@@ -105,27 +106,28 @@ You must append the path of your application to the system path as above. Additi
 Consider the following example virtual host configuration:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-    <VirtualHost example.com:80>
-       ServerName example.com
-       ServerAlias www.example.com
-       ServerAdmin username@example.com
+<VirtualHost example.com:80>
+   ServerName example.com
+   ServerAlias www.example.com
+   ServerAdmin username@example.com
 
-       DocumentRoot /srv/www/example.com/public_html
+   DocumentRoot /srv/www/example.com/public_html
 
-       WSGIScriptAlias / /srv/www/example.com/application/django.wsgi
-       <Directory /srv/www/example.com/application>
-          Order allow,deny
-          Allow from all
-       </Directory>
+   WSGIScriptAlias / /srv/www/example.com/application/django.wsgi
+   <Directory /srv/www/example.com/application>
+      Order allow,deny
+      Allow from all
+   </Directory>
 
-       Alias /robots.txt /srv/www/example.com/public_html/robots.txt
-       Alias /favicon.ico /srv/www/example.com/public_html/favicon.ico
-       Alias /images /srv/www/example.com/public_html/images 
-       Alias /static /srv/www/example.com/public_html/static
+   Alias /robots.txt /srv/www/example.com/public_html/robots.txt
+   Alias /favicon.ico /srv/www/example.com/public_html/favicon.ico
+   Alias /images /srv/www/example.com/public_html/images 
+   Alias /static /srv/www/example.com/public_html/static
 
-       ErrorLog /srv/www/example.com/logs/error.log 
-       CustomLog /srv/www/example.com/logs/access.log combined
-    </VirtualHost>
+   ErrorLog /srv/www/example.com/logs/error.log 
+   CustomLog /srv/www/example.com/logs/access.log combined
+</VirtualHost>
+
 {{< /file-excerpt >}}
 
 
@@ -136,7 +138,8 @@ In this example, the `WSGIScriptAlias` directive tells Apache that for this virt
 Edit the `/etc/httpd/conf.d/wsgi.conf` file to enable the `mod_wsgi` by uncommenting or adding the following line:
 
 {{< file-excerpt "/etc/httpd/conf.d/wsgi.conf" >}}
-    LoadModule wsgi_module modules/mod_wsgi.so
+LoadModule wsgi_module modules/mod_wsgi.so
+
 {{< /file-excerpt >}}
 
 

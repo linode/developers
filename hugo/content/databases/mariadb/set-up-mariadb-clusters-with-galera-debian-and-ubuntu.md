@@ -49,19 +49,20 @@ This guide assumes that your Linodes are each configured with a [Private IP Addr
 1.  Create the file `/etc/mysql/conf.d/galera.cnf` on each of the Linodes with the following content.  Replace the IP addresses in the `wsrep_cluster_address` section with the private IP addresses of each of the Linodes:
 
 {{< file-excerpt "/etc/mysql/conf.d/galera.cnf" aconf >}}
-    [mysqld]
-    #mysql settings
-    binlog_format=ROW
-    default-storage-engine=innodb
-    innodb_autoinc_lock_mode=2
-    query_cache_size=0
-    query_cache_type=0
-    bind-address=0.0.0.0
-    #galera settings
-    wsrep_provider=/usr/lib/galera/libgalera_smm.so
-    wsrep_cluster_name="my_wsrep_cluster"
-    wsrep_cluster_address="gcomm://192.168.1.1,192.168.1.2,192.168.1.3"
-    wsrep_sst_method=rsync
+[mysqld]
+#mysql settings
+binlog_format=ROW
+default-storage-engine=innodb
+innodb_autoinc_lock_mode=2
+query_cache_size=0
+query_cache_type=0
+bind-address=0.0.0.0
+#galera settings
+wsrep_provider=/usr/lib/galera/libgalera_smm.so
+wsrep_cluster_name="my_wsrep_cluster"
+wsrep_cluster_address="gcomm://192.168.1.1,192.168.1.2,192.168.1.3"
+wsrep_sst_method=rsync
+
 {{< /file-excerpt >}}
 
 

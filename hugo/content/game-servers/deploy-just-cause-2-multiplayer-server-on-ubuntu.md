@@ -95,10 +95,11 @@ To update JC2, run the above 4 commands again.
 4.  Create a startup script for JC2 with the following contents:
 
 {{< file "~/startjc2.sh" >}}
-        #!/bin/sh
+#!/bin/sh
 
-        cd ./Steam/jc2mp-server
-        screen -S "Just Cause 2 Muliplayer Server" ./Jcmp-Server
+cd ./Steam/jc2mp-server
+screen -S "Just Cause 2 Muliplayer Server" ./Jcmp-Server
+
 {{< /file >}}
 
 

@@ -51,7 +51,8 @@ By default, Apache listens on all IP addresses available to it. We must configur
 Begin by modifying the `NameVirtualHost` entry in `/etc/apache2/ports.conf` as follows:
 
 {{< file-excerpt "/etc/apache2/ports.conf" apache >}}
-    NameVirtualHost 12.34.56.78:80
+NameVirtualHost 12.34.56.78:80
+
 {{< /file-excerpt >}}
 
 
@@ -60,7 +61,8 @@ Be sure to replace "12.34.56.78" with your Linode's public IP address.
 Now, modify the default site's virtual hosting in the file `/etc/apache2/sites-available/default` so that the `<VirtualHost >` entry reads:
 
 {{< file-excerpt "/etc/apache2/sites-available/default" apache >}}
-    <VirtualHost 12.34.56.78:80>
+<VirtualHost 12.34.56.78:80>
+
 {{< /file-excerpt >}}
 
 
@@ -69,26 +71,28 @@ Now, modify the default site's virtual hosting in the file `/etc/apache2/sites-a
 First, create a file in the `/etc/apache2/sites-available/` directory for each virtual host that you want to set up. Name each file with the domain for which you want to provide virtual hosting. See the following example configurations for the hypothetical "example.com" and "example.org" domains.
 
 {{< file "/etc/apache2/sites-available/example.com" apache >}}
-    <VirtualHost 12.34.56.78:80>
-         ServerAdmin webmaster@example.com
-         ServerName example.com
-         ServerAlias www.example.com
-         DocumentRoot /srv/www/example.com/public_html/
-         ErrorLog /srv/www/example.com/logs/error.log
-         CustomLog /srv/www/example.com/logs/access.log combined
-    </VirtualHost>
+<VirtualHost 12.34.56.78:80>
+     ServerAdmin webmaster@example.com
+     ServerName example.com
+     ServerAlias www.example.com
+     DocumentRoot /srv/www/example.com/public_html/
+     ErrorLog /srv/www/example.com/logs/error.log
+     CustomLog /srv/www/example.com/logs/access.log combined
+</VirtualHost>
+
 {{< /file >}}
 
 
 {{< file "/etc/apache2/sites-available/example.org" apache >}}
-    <VirtualHost 12.34.56.78:80>
-         ServerAdmin webmaster@example.org     
-         ServerName example.org
-         ServerAlias www.example.org
-         DocumentRoot /srv/www/example.org/public_html/
-         ErrorLog /srv/www/example.org/logs/error.log
-         CustomLog /srv/www/example.org/logs/access.log combined
-    </VirtualHost>
+<VirtualHost 12.34.56.78:80>
+     ServerAdmin webmaster@example.org     
+     ServerName example.org
+     ServerAlias www.example.org
+     DocumentRoot /srv/www/example.org/public_html/
+     ErrorLog /srv/www/example.org/logs/error.log
+     CustomLog /srv/www/example.org/logs/access.log combined
+</VirtualHost>
+
 {{< /file >}}
 
 
@@ -174,13 +178,14 @@ Once PHP5 is installed we'll need to tune the configuration file located in `/et
 Make sure that the following values are set, and relevant lines are uncommented (comments are lines beginning with a semi-colon (`;`)):
 
 {{< file-excerpt "/etc/php5/apache2/php.ini" ini >}}
-    max_execution_time = 30
-    memory_limit = 64M
-    error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
-    display_errors = Off
-    log_errors = On
-    error_log = /var/log/php.log
-    register_globals = Off
+max_execution_time = 30
+memory_limit = 64M
+error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
+display_errors = Off
+log_errors = On
+error_log = /var/log/php.log
+register_globals = Off
+
 {{< /file-excerpt >}}
 
 
@@ -191,13 +196,14 @@ If you need support for MySQL in PHP, then you must install the php5-mysql packa
 To install the php5-suhosin package, which provides additional security for PHP 5 applications (recommended), you must add the "universe" software repositories. Uncomment the following lines from `/etc/apt/sources.list`:
 
 {{< file-excerpt "/etc/apt/sources.list" >}}
-    deb http://us.archive.ubuntu.com/ubuntu/ karmic universe
-    deb-src http://us.archive.ubuntu.com/ubuntu/ karmic universe
-    deb http://us.archive.ubuntu.com/ubuntu/ karmic-updates universe
-    deb-src http://us.archive.ubuntu.com/ubuntu/ karmic-updates universe
+deb http://us.archive.ubuntu.com/ubuntu/ karmic universe
+deb-src http://us.archive.ubuntu.com/ubuntu/ karmic universe
+deb http://us.archive.ubuntu.com/ubuntu/ karmic-updates universe
+deb-src http://us.archive.ubuntu.com/ubuntu/ karmic-updates universe
 
-    deb http://security.ubuntu.com/ubuntu karmic-security universe
-    deb-src http://security.ubuntu.com/ubuntu karmic-security universe
+deb http://security.ubuntu.com/ubuntu karmic-security universe
+deb-src http://security.ubuntu.com/ubuntu karmic-security universe
+
 {{< /file-excerpt >}}
 
 

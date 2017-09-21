@@ -89,8 +89,9 @@ CoreOS can be installed using a self-contained [script](https://github.com/coreo
 The easiest way to copy your cloud-config file to your Linode is to simply `cat > cloud-config.yml` and paste into a text editor in your Lish shell. At minimum, you should have an [authorized key](https://coreos.com/os/docs/latest/cloud-config.html#ssh_authorized_keys) for SSH access as shown below.
 
 {{< file "/cloud-config.yml" aconf >}}
-    ssh_authorized_keys:
-      - "example_public_ssh_key"
+ssh_authorized_keys:
+  - "example_public_ssh_key"
+
 {{< /file >}}
 
 

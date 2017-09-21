@@ -28,21 +28,22 @@ Basic System Configuration
 Edit your `/etc/hosts` file to resemble the following example, replacing "12.34.56.78" with your Linode's IP address, "hostname.example.com" with your fully qualified domain name, and "hostname" with your short hostname.
 
 {{< file "/etc/hosts" >}}
-    ## main & restricted repositories
-    deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted         
-    deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted 
+## main & restricted repositories
+deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted         
+deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted 
 
-    deb http://security.ubuntu.com/ubuntu karmic-security main restricted
-    deb-src http://security.ubuntu.com/ubuntu karmic-security main restricted
+deb http://security.ubuntu.com/ubuntu karmic-security main restricted
+deb-src http://security.ubuntu.com/ubuntu karmic-security main restricted
 
-    ## universe repositories
-    deb http://us.archive.ubuntu.com/ubuntu/ karmic universe
-    deb-src http://us.archive.ubuntu.com/ubuntu/ karmic universe
-    deb http://us.archive.ubuntu.com/ubuntu/ karmic-updates universe
-    deb-src http://us.archive.ubuntu.com/ubuntu/ karmic-updates universe
+## universe repositories
+deb http://us.archive.ubuntu.com/ubuntu/ karmic universe
+deb-src http://us.archive.ubuntu.com/ubuntu/ karmic universe
+deb http://us.archive.ubuntu.com/ubuntu/ karmic-updates universe
+deb-src http://us.archive.ubuntu.com/ubuntu/ karmic-updates universe
 
-    deb http://security.ubuntu.com/ubuntu karmic-security universe
-    deb-src http://security.ubuntu.com/ubuntu karmic-security universe
+deb http://security.ubuntu.com/ubuntu karmic-security universe
+deb-src http://security.ubuntu.com/ubuntu karmic-security universe
+
 {{< /file >}}
 
 

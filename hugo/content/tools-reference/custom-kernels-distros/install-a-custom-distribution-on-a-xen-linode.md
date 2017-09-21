@@ -195,15 +195,16 @@ watch df -h
     Modify the file to match the following:
 
 {{< file "/media/xvda/etc/fstab" >}}
-        # /etc/fstab: static file system information.
-        #
-        # Use 'blkid' to print the universally unique identifier for a
-        # device; this may be used with UUID= as a more robust way to name devices
-        # that works even if disks are added and removed. See fstab(5).
-        #<file system> <mount point>   <type>  <options>       <dump>  <pass>
-        proc /proc proc defaults 0 0
-        /dev/xvda       /       ext4    noatime,errors=remount-ro 0     1
-        /dev/xvdb       none    swap    sw      0       0
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#<file system> <mount point>   <type>  <options>       <dump>  <pass>
+proc /proc proc defaults 0 0
+/dev/xvda       /       ext4    noatime,errors=remount-ro 0     1
+/dev/xvdb       none    swap    sw      0       0
+
 {{< /file >}}
 ~
 6.  Exit and save the file by pressing `Ctrl+x`, type `y` to save your changes, and press `enter` to exit.

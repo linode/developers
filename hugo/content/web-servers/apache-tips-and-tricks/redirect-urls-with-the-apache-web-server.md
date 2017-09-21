@@ -53,7 +53,8 @@ Ubuntu 16.04
 `Redirect` settings can be located in your main Apache configuration file, but we recommend you keep them in your virtual host files or directory blocks. You can also use `Redirect` statements in `.httaccess` files. Here's an example of how to use `Redirect`:
 
 {{< file-excerpt "Apache configuration option" apache >}}
-    Redirect /username http://team.example.com/~username/
+Redirect /username http://team.example.com/~username/
+
 {{< /file-excerpt >}}
 
 
@@ -64,10 +65,11 @@ No matter where they are located, `Redirect` statements must specify the full fi
 You can also provide an argument to return a specific HTTP status:
 
 {{< file-excerpt "Apache configuration option" apache >}}
-    Redirect permanent /username http://team.example.com/~username/
-    Redirect temp /username http://team.example.com/~username/
-    Redirect seeother /username http://team.example.com/~username/
-    Redirect gone /username
+Redirect permanent /username http://team.example.com/~username/
+Redirect temp /username http://team.example.com/~username/
+Redirect seeother /username http://team.example.com/~username/
+Redirect gone /username
+
 {{< /file-excerpt >}}
 
 
@@ -79,25 +81,28 @@ You can also provide an argument to return a specific HTTP status:
 You can also use the HTTP status codes as arguments. Here's an example using the status code options:
 
 {{< file-excerpt "Apache configuration option" apache >}}
-    Redirect 301 /username http://team.example.com/~username/
-    Redirect 302 /username http://team.example.com/~username/
-    Redirect 303 /username http://team.example.com/~username/
-    Redirect 410 /username
+Redirect 301 /username http://team.example.com/~username/
+Redirect 302 /username http://team.example.com/~username/
+Redirect 303 /username http://team.example.com/~username/
+Redirect 410 /username
+
 {{< /file-excerpt >}}
 
 
 Permanent and temporary redirects can also be done with `RedirectPermanent` and `RedirectTemp`, respectively:
 
 {{< file-excerpt "Apache configuration option" apache >}}
-    RedirectPermanent /username/bio.html http://team.example.com/~username/bio/
-    RedirectTemp /username/bio.html http://team.example.com/~username/bio/
+RedirectPermanent /username/bio.html http://team.example.com/~username/bio/
+RedirectTemp /username/bio.html http://team.example.com/~username/bio/
+
 {{< /file-excerpt >}}
 
 
 Redirects can be made with [regex patterns](https://en.wikipedia.org/wiki/Regular_expression) as well, using `RedirectMatch`:
 
 {{< file-excerpt "Apache configuration option" apache >}}
-    RedirectMatch (.*)\.jpg$ http://static.example.com$1.jpg
+RedirectMatch (.*)\.jpg$ http://static.example.com$1.jpg
+
 {{< /file-excerpt >}}
 
 

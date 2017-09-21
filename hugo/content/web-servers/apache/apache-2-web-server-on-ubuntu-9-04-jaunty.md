@@ -69,36 +69,39 @@ Each virtual host needs its own file in the `/etc/apache2/sites-available/` dire
 Create the virtual hosting file for example.com, located at `/etc/apache2/sites-available/example.com`, to resemble the following:
 
 {{< file-excerpt "/etc/apache2/sites-available/example.com" apache >}}
-    <VirtualHost 12.34.56.78:80>
-         ServerAdmin username@example.com     
-         ServerName example.com
-         ServerAlias www.example.com
-         DocumentRoot /srv/www/example.com/public_html/
-         ErrorLog /srv/www/example.com/logs/error.log
-         CustomLog /srv/www/example.com/logs/access.log combined
-    </VirtualHost>
+<VirtualHost 12.34.56.78:80>
+     ServerAdmin username@example.com     
+     ServerName example.com
+     ServerAlias www.example.com
+     DocumentRoot /srv/www/example.com/public_html/
+     ErrorLog /srv/www/example.com/logs/error.log
+     CustomLog /srv/www/example.com/logs/access.log combined
+</VirtualHost>
+
 {{< /file-excerpt >}}
 
 
 If you would like to enable Perl support, then add the following lines to the `VirtualHost` entry above.
 
 {{< file-excerpt "Apache Virtual Hosting File" apache >}}
-    Options ExecCGI
-    AddHandler cgi-script .pl
+Options ExecCGI
+AddHandler cgi-script .pl
+
 {{< /file-excerpt >}}
 
 
 Next, create the virtual hosting file for example.com, located in `/etc/apache2/sites-available/example.com`, to resemble the following:
 
 {{< file-excerpt "/etc/apache2/sites-available/example.com" apache >}}
-    <VirtualHost 12.34.56.78:80>
-         ServerAdmin username@example.com
-         ServerName example.com
-         ServerAlias www.example.com
-         DocumentRoot /srv/www/example.com/public_html/
-         ErrorLog /srv/www/example.com/logs/error.log
-         CustomLog /srv/www/example.com/logs/access.log combined
-    </VirtualHost>
+<VirtualHost 12.34.56.78:80>
+     ServerAdmin username@example.com
+     ServerName example.com
+     ServerAlias www.example.com
+     DocumentRoot /srv/www/example.com/public_html/
+     ErrorLog /srv/www/example.com/logs/error.log
+     CustomLog /srv/www/example.com/logs/access.log combined
+</VirtualHost>
+
 {{< /file-excerpt >}}
 
 
@@ -187,9 +190,10 @@ Begin by installing the mpm-itk module:
 Now, in the `<VirtualHost >` entries for your sites (the site-specific files in `/etc/apache2/sites-available/`) add the following sub-block:
 
 {{< file-excerpt "Apache Virtual Hosting Configuration" apache >}}
-    <IfModule mpm_itk_module>
-       AssignUserId webeditor webgroup
-    </IfModule>
+<IfModule mpm_itk_module>
+   AssignUserId webeditor webgroup
+</IfModule>
+
 {{< /file-excerpt >}}
 
 
@@ -222,14 +226,16 @@ These usernames and passwords need not (and should not) correspond to system use
 In the .htaccess file for the directory that you want to protect, add the following lines:
 
 {{< file-excerpt ".htaccess" apache >}}
-    RewriteEngine on
+RewriteEngine on
+
 {{< /file-excerpt >}}
 
 
 Now, you may create any number of separate rewrite rules. These rules provide a pattern that the server compares incoming requests against, and if a request matches a rewrite pattern, the server provides an alternate page. Here is an example rewrite rule:
 
 {{< file-excerpt "Apache Virtual Configuration or .htaccess file" apache >}}
-    RewriteRule ^post-id/([0-9]+)$ /posts/$1.html
+RewriteRule ^post-id/([0-9]+)$ /posts/$1.html
+
 {{< /file-excerpt >}}
 
 

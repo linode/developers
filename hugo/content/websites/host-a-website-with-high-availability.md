@@ -55,9 +55,10 @@ Our first step in creating a high-availability setup is to install and configure
 Edit the `/etc/hosts` file on each Linode to match the following, substituting your own private IP addresses, fully qualified domain names, and host names:
 
 {{< file-excerpt "/etc/hosts" >}}
-  192.168.1.2    gluster1.yourdomain.com    gluster1
-  192.168.3.4    gluster2.yourdomain.com    gluster2
-  192.168.5.6    gluster3.yourdomain.com    gluster3
+192.168.1.2    gluster1.yourdomain.com    gluster1
+192.168.3.4    gluster2.yourdomain.com    gluster2
+192.168.5.6    gluster3.yourdomain.com    gluster3
+
 {{< /file-excerpt >}}
 
 
@@ -176,9 +177,10 @@ Now that we have a replicated file system, we can begin to set up our database c
 We'll use three 2GB Linodes with hostnames `galera1`, `galera2`, and `galera3` as our database nodes. Create these now if you have not already, and edit the `/etc/hosts` file on each to add the following, replacing the private IP addresses, fully qualified domain names, and hostnames of your database nodes:
 
 {{< file-excerpt "/etc/hosts" >}}
-  192.168.1.2    galera1.yourdomain.com    galera1
-  192.168.3.4    galera2.yourdomain.com    galera2
-  192.168.5.6    galera3.yourdomain.com    galera3
+192.168.1.2    galera1.yourdomain.com    galera1
+192.168.3.4    galera2.yourdomain.com    galera2
+192.168.5.6    galera3.yourdomain.com    galera3
+
 {{< /file-excerpt >}}
 
 
@@ -211,25 +213,26 @@ We will configure the cluster to use XtraBackup for *state snapshot transfer* (S
 1.  Make the following changes to `/etc/my.cnf` on each of your database nodes:
 
 {{< file-excerpt "/etc/my.cnf" aconf >}}
-        [mysqld]
-        bind_address                   = 0.0.0.0
+[mysqld]
+bind_address                   = 0.0.0.0
 
-        ...
+...
 
-        wsrep_cluster_address          = gcomm://galera1,galera2,galera3 #use your hostnames here
-        wsrep_provider                 = /usr/lib64/galera3/libgalera_smm.so
-        wsrep_slave_threads            = 8
-        wsrep_cluster_name             = Cluster
-        wsrep_node_name                = galera1 
+wsrep_cluster_address          = gcomm://galera1,galera2,galera3 #use your hostnames here
+wsrep_provider                 = /usr/lib64/galera3/libgalera_smm.so
+wsrep_slave_threads            = 8
+wsrep_cluster_name             = Cluster
+wsrep_node_name                = galera1 
 
-        ...
+...
 
-        wsrep_node_address             = 192.168.x.x
+wsrep_node_address             = 192.168.x.x
 
-        ...
+...
 
-        wsrep_sst_method               = xtrabackup-v2
-        wsrep_sst_auth                 = sstuser:password
+wsrep_sst_method               = xtrabackup-v2
+wsrep_sst_auth                 = sstuser:password
+
 {{< /file-excerpt >}}
 
 
@@ -331,14 +334,15 @@ Run the following commands on each database node.
 1.  Create and edit `/etc/firewalld/services/galera.xml` to match the following:
 
 {{< file "/etc/firewalld/services/galera.xml" >}}
-        <?xml version="1.0" encoding="utf-8"?>
-        <service>
-          <short>Galera Replication</short>
-          <description>Galera Master-Master Replication and State Transfer</description>
-          <port protocol="tcp" port="4567"/>
-          <port protocol="tcp" port="4568"/>
-          <port protocol="tcp" port="4444"/>
-        </service>
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+  <short>Galera Replication</short>
+  <description>Galera Master-Master Replication and State Transfer</description>
+  <port protocol="tcp" port="4567"/>
+  <port protocol="tcp" port="4568"/>
+  <port protocol="tcp" port="4444"/>
+</service>
+
 {{< /file >}}
 
 
@@ -370,13 +374,14 @@ With file system and database clusters set up, you'll now need web servers to de
 Before you start, edit the `/etc/hosts` file on each application node to include the private IP address and hostname for each application node and for the file system nodes we set up previously:
 
 {{< file-excerpt "/etc/hosts" aconf >}}
-  192.168.0.1    app1.yourdomain.com        app1
-  192.168.2.3    app2.yourdomain.com        app2
-  192.168.4.5    app3.yourdomain.com        app3
+192.168.0.1    app1.yourdomain.com        app1
+192.168.2.3    app2.yourdomain.com        app2
+192.168.4.5    app3.yourdomain.com        app3
 
-  192.168.1.2    gluster1.yourdomain.com    gluster1
-  192.168.3.4    gluster2.yourdomain.com    gluster2
-  192.168.5.6    gluster3.yourdomain.com    gluster3
+192.168.1.2    gluster1.yourdomain.com    gluster1
+192.168.3.4    gluster2.yourdomain.com    gluster2
+192.168.5.6    gluster3.yourdomain.com    gluster3
+
 {{< /file-excerpt >}}
 
 
@@ -420,7 +425,8 @@ Next, we'll mount the Gluster volume on our application servers. The steps in th
 2.  Add the following line to `/etc/fstab`, substituting your own GlusterFS hostnames for `gluster1`, `gluster2` and `gluster3`, and your volume name for `example-volume` if appropriate:
 
 {{< file-excerpt "/etc/fstab" aconf >}}
-        gluster1:/example-volume  /srv/www  glusterfs defaults,_netdev,backup-volfile-servers=gluster2:gluster3 0 0
+gluster1:/example-volume  /srv/www  glusterfs defaults,_netdev,backup-volfile-servers=gluster2:gluster3 0 0
+
 {{< /file-excerpt >}}
 
 
@@ -432,13 +438,14 @@ Next, we'll mount the Gluster volume on our application servers. The steps in th
 4.  Set the document root to `/srv/www` so that Apache serves content from the Gluster volume. Edit your `welcome.conf` file to match the following:
 
 {{< file "/etc/httpd/conf.d/welcome.conf" aconf >}}
-        <VirtualHost *:80>
-            DocumentRoot "/srv/www"
-            <Directory /srv/www>
-                Require all granted
-                Options Indexes FollowSymLinks Multiviews 
-            </Directory>
-        </VirtualHost>
+<VirtualHost *:80>
+    DocumentRoot "/srv/www"
+    <Directory /srv/www>
+        Require all granted
+        Options Indexes FollowSymLinks Multiviews 
+    </Directory>
+</VirtualHost>
+
 {{< /file >}}
 
 
@@ -503,7 +510,8 @@ First, we'll configure IP failover on `galera2` and `galera3` to take on the flo
 1.  Edit the following line in your `/etc/sysconfig/keepalived` file on all database nodes, adding `-P` to enable virtual router redundancy protocol:
 
 {{< file-excerpt "/etc/sysconfig/keepalived" aconf >}}
-        KEEPALIVED_OPTIONS="-D -P"
+KEEPALIVED_OPTIONS="-D -P"
+
 {{< /file-excerpt >}}
 
 
@@ -514,51 +522,52 @@ First, we'll configure IP failover on `galera2` and `galera3` to take on the flo
 3.  On all database nodes, replace the original file with the following:
 
 {{< file "/etc/keepalived/keepalived.conf" aconf >}}
-        ! Configuration File for keepalived
-        global_defs {
-            notification_email {
-            }
+! Configuration File for keepalived
+global_defs {
+    notification_email {
+    }
  
-            router_id LVS_DBCLUSTER
-        }
+    router_id LVS_DBCLUSTER
+}
  
-        vrrp_script chk_pxc {
-            script "/usr/bin/clustercheck clustercheck example_password 0"
-            interval 15 
-            fall 4 
-            rise 2
-        }
+vrrp_script chk_pxc {
+    script "/usr/bin/clustercheck clustercheck example_password 0"
+    interval 15 
+    fall 4 
+    rise 2
+}
  
-        vrrp_instance VI_1 {
-            state BACKUP
-            nopreempt 
-            interface eth0
-            virtual_router_id 51
-            priority 50
-            advert_int 1
-            track_interface {
-                eth0
-            }
-            track_script {
-                chk_pxc
-            }
-            authentication {
-                auth_type PASS
-                auth_pass example_password
-            }
-            unicast_src_ip  192.168.0.1
-            unicast_peer {
-            192.168.2.3
-            192.168.4.5
-            }
+vrrp_instance VI_1 {
+    state BACKUP
+    nopreempt 
+    interface eth0
+    virtual_router_id 51
+    priority 50
+    advert_int 1
+    track_interface {
+        eth0
+    }
+    track_script {
+        chk_pxc
+    }
+    authentication {
+        auth_type PASS
+        auth_pass example_password
+    }
+    unicast_src_ip  192.168.0.1
+    unicast_peer {
+    192.168.2.3
+    192.168.4.5
+    }
  
-            virtual_ipaddress {
-            192.168.9.9/17
-            }
-            notify_master "/bin/echo 'now master' > /tmp/keepalived.state"
-            notify_backup "/bin/echo 'now backup' > /tmp/keepalived.state"
-            notify_fault "/bin/echo 'now fault' > /tmp/keepalived.state"
-        }
+    virtual_ipaddress {
+    192.168.9.9/17
+    }
+    notify_master "/bin/echo 'now master' > /tmp/keepalived.state"
+    notify_backup "/bin/echo 'now backup' > /tmp/keepalived.state"
+    notify_fault "/bin/echo 'now fault' > /tmp/keepalived.state"
+}
+
 {{< /file >}}
 
 
@@ -580,10 +589,11 @@ First, we'll configure IP failover on `galera2` and `galera3` to take on the flo
 6.  On all of your database nodes, add the following entry to your firewall configuration, within the `<zone>` block:
 
 {{< file-excerpt "/etc/firewalld/zones/internal.xml" xml >}}
-        <rule>
-            <protocol value="vrrp" />
-            <accept />
-        </rule>
+<rule>
+    <protocol value="vrrp" />
+    <accept />
+</rule>
+
 {{< /file-excerpt >}}
 
 

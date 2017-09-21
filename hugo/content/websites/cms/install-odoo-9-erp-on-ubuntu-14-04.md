@@ -154,15 +154,16 @@ Install Python libraries using the following commands:
 2.  Next we need to modify the configuration file. The finished file should look similar to this depending on your deploying needs:
 
 {{< file "/etc/odoo-server.conf" aconf >}}
-        [options]
-        admin_passwd = admin
-        db_host = False 
-        db_port = False
-        db_user = odoo
-        db_password = <PostgreSQL_user_password>
-        addons_path = /opt/odoo/addons
-        logfile = /var/log/odoo/odoo-server.log
-        xmlrpc_port = 8069
+[options]
+admin_passwd = admin
+db_host = False 
+db_port = False
+db_user = odoo
+db_password = <PostgreSQL_user_password>
+addons_path = /opt/odoo/addons
+logfile = /var/log/odoo/odoo-server.log
+xmlrpc_port = 8069
+
 {{< /file >}}
 
 
@@ -180,91 +181,92 @@ Install Python libraries using the following commands:
 Next step is creating a boot script called `odoo-server` to gain control over Odoo's behavior and use it at server startup and shutdown.
 
 {{< file "/etc/init.d/odoo-server" shell >}}
-    #!/bin/sh
-    ### BEGIN INIT INFO
-    # Provides: odoo-server
-    # Required-Start: $remote_fs $syslog
-    # Required-Stop: $remote_fs $syslog
-    # Should-Start: $network
-    # Should-Stop: $network
-    # Default-Start: 2 3 4 5
-    # Default-Stop: 0 1 6
-    # Short-Description: Odoo ERP
-    # Description: Odoo is a complete ERP business solution.
-    ### END INIT INFO
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides: odoo-server
+# Required-Start: $remote_fs $syslog
+# Required-Stop: $remote_fs $syslog
+# Should-Start: $network
+# Should-Stop: $network
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: Odoo ERP
+# Description: Odoo is a complete ERP business solution.
+### END INIT INFO
 
-    PATH=/bin:/sbin:/usr/bin
-    # Change the Odoo source files location according your needs.
-    DAEMON=/opt/odoo/openerp-server
-    # Use the name convention of your choice 
-    NAME=odoo-server
-    DESC=odoo-server
+PATH=/bin:/sbin:/usr/bin
+# Change the Odoo source files location according your needs.
+DAEMON=/opt/odoo/openerp-server
+# Use the name convention of your choice 
+NAME=odoo-server
+DESC=odoo-server
 
-    # Specify the user name (Default: odoo).
-    USER=odoo
+# Specify the user name (Default: odoo).
+USER=odoo
 
-    # Specify an alternate config file (Default: /etc/odoo-server.conf).
-    CONFIGFILE="/etc/odoo-server.conf"
+# Specify an alternate config file (Default: /etc/odoo-server.conf).
+CONFIGFILE="/etc/odoo-server.conf"
 
-    # pidfile
-    PIDFILE=/var/run/$NAME.pid
+# pidfile
+PIDFILE=/var/run/$NAME.pid
 
-    # Additional options that are passed to the Daemon.
-    DAEMON_OPTS="-c $CONFIGFILE"
+# Additional options that are passed to the Daemon.
+DAEMON_OPTS="-c $CONFIGFILE"
 
-    [ -x $DAEMON ] || exit 0
-    [ -f $CONFIGFILE ] || exit 0
+[ -x $DAEMON ] || exit 0
+[ -f $CONFIGFILE ] || exit 0
 
-    checkpid() {
-    [ -f $PIDFILE ] || return 1
-    pid=`cat $PIDFILE`
-    [ -d /proc/$pid ] && return 0
-    return 1
-    }
+checkpid() {
+[ -f $PIDFILE ] || return 1
+pid=`cat $PIDFILE`
+[ -d /proc/$pid ] && return 0
+return 1
+}
 
-    case "${1}" in
-    start)
-    echo -n "Starting ${DESC}: "
+case "${1}" in
+start)
+echo -n "Starting ${DESC}: "
 
-    start-stop-daemon --start --quiet --pidfile ${PIDFILE} \
-    --chuid ${USER} --background --make-pidfile \
-    --exec ${DAEMON} -- ${DAEMON_OPTS}
+start-stop-daemon --start --quiet --pidfile ${PIDFILE} \
+--chuid ${USER} --background --make-pidfile \
+--exec ${DAEMON} -- ${DAEMON_OPTS}
 
-    echo "${NAME}."
-    ;;
+echo "${NAME}."
+;;
 
-    stop)
-    echo -n "Stopping ${DESC}: "
+stop)
+echo -n "Stopping ${DESC}: "
 
-    start-stop-daemon --stop --quiet --pidfile ${PIDFILE} \
-    --oknodo
+start-stop-daemon --stop --quiet --pidfile ${PIDFILE} \
+--oknodo
 
-    echo "${NAME}."
-    ;;
+echo "${NAME}."
+;;
 
-    restart|force-reload)
-    echo -n "Restarting ${DESC}: "
+restart|force-reload)
+echo -n "Restarting ${DESC}: "
 
-    start-stop-daemon --stop --quiet --pidfile ${PIDFILE} \
-    --oknodo
+start-stop-daemon --stop --quiet --pidfile ${PIDFILE} \
+--oknodo
 
-    sleep 1
+sleep 1
 
-    start-stop-daemon --start --quiet --pidfile ${PIDFILE} \
-    --chuid ${USER} --background --make-pidfile \
-    --exec ${DAEMON} -- ${DAEMON_OPTS}
+start-stop-daemon --start --quiet --pidfile ${PIDFILE} \
+--chuid ${USER} --background --make-pidfile \
+--exec ${DAEMON} -- ${DAEMON_OPTS}
 
-    echo "${NAME}."
-    ;;
+echo "${NAME}."
+;;
 
-    *)
-    N=/etc/init.d/${NAME}
-    echo "Usage: ${NAME} {start|stop|restart|force-reload}" >&2
-    exit 1
-    ;;
-    esac
+*)
+N=/etc/init.d/${NAME}
+echo "Usage: ${NAME} {start|stop|restart|force-reload}" >&2
+exit 1
+;;
+esac
 
-    exit 0
+exit 0
+
 {{< /file >}}
 
 

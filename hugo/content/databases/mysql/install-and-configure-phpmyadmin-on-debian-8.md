@@ -77,8 +77,9 @@ Secure your phpMyAdmin directory using an `.htaccess file` that only allows spec
 
 
 {{< file-excerpt "/var/www/html/example.org/public_html/phpmyadmin/.htaccess" apache >}}
-    order allow,deny
-    allow from 12.34.56.78
+order allow,deny
+allow from 12.34.56.78
+
 {{< /file-excerpt >}}
 
 
@@ -88,7 +89,8 @@ Secure your phpMyAdmin directory using an `.htaccess file` that only allows spec
 You can force phpMyAdmin to use SSL in the phpMyAdmin configuration file `/etc/phpmyadmin/config.inc.php` by adding the following lines under the `Server(s) configuration` section:
 
 {{< file-excerpt "/etc/phpmyadmin/config.inc.php" php >}}
-    $cfg['ForceSSL'] = 'true';
+$cfg['ForceSSL'] = 'true';
+
 {{< /file-excerpt >}}
 
 

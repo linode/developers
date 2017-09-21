@@ -160,17 +160,19 @@ If you've already created an RSA key-pair, this command will overwrite it, poten
 
 
 {{< file-excerpt "/etc/ssh/sshd_config" aconf >}}
-        # Authentication:
-        ...
-        PermitRootLogin no
+# Authentication:
+...
+PermitRootLogin no
+
 {{< /file-excerpt >}}
 
 
 2.  **Disable SSH password authentication.** This requires all users connecting via SSH to use key authentication. Depending on the Linux distribution, the line `PasswordAuthentication` may need to be added, or uncommented by removing the leading `#`.
 
 {{< file-excerpt "/etc/ssh/sshd_config" aconf >}}
-        # Change to no to disable tunnelled clear text passwords
-        PasswordAuthentication no
+# Change to no to disable tunnelled clear text passwords
+PasswordAuthentication no
+
 {{< /file-excerpt >}}
 
 

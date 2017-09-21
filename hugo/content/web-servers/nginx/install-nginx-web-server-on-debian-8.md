@@ -64,8 +64,9 @@ This method differs from the one above in that it installs from the official ngi
 2.  Add the following lines to the file:
 
 {{< file "/etc/apt/sources.list.d/nginx.list" >}}
-        deb http://nginx.org/packages/debian/ jessie nginx
-        deb-src http://nginx.org/packages/debian/ jessie nginx
+deb http://nginx.org/packages/debian/ jessie nginx
+deb-src http://nginx.org/packages/debian/ jessie nginx
+
 {{< /file >}}
 
 
@@ -135,22 +136,23 @@ The Debian project does not track the latest development of the nginx server. Co
 8.  Create a systemd service script to run nginx:
 
 {{< file "/lib/systemd/system/nginx.service" shell >}}
-        [Unit]
-        Description=A high performance web server and a reverse proxy server
-        After=network.target
+[Unit]
+Description=A high performance web server and a reverse proxy server
+After=network.target
 
-        [Service]
-        Type=forking
-        PIDFile=/opt/nginx/logs/nginx.pid
-        ExecStartPre=/opt/nginx/sbin/nginx -t -q -g 'daemon on; master_process on;'
-        ExecStart=/opt/nginx/sbin/nginx -g 'daemon on; master_process on;'
-        ExecReload=/opt/nginx/sbin/nginx -g 'daemon on; master_process on;' -s reload
-        ExecStop=-/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /opt/nginx/logs/nginx.pid
-        TimeoutStopSec=5
-        KillMode=mixed
+[Service]
+Type=forking
+PIDFile=/opt/nginx/logs/nginx.pid
+ExecStartPre=/opt/nginx/sbin/nginx -t -q -g 'daemon on; master_process on;'
+ExecStart=/opt/nginx/sbin/nginx -g 'daemon on; master_process on;'
+ExecReload=/opt/nginx/sbin/nginx -g 'daemon on; master_process on;' -s reload
+ExecStop=-/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /opt/nginx/logs/nginx.pid
+TimeoutStopSec=5
+KillMode=mixed
 
-        [Install]
-        WantedBy=multi-user.target
+[Install]
+WantedBy=multi-user.target
+
 {{< /file >}}
 
 

@@ -37,10 +37,11 @@ You will have to make changes to your Apache 2.2 virtual hosts settings to make 
 -   Virtual host configuration files must have the `Require all granted` line in an appropriate `Directory` block:
 
 {{< file-excerpt "virtual host configuration file" >}}
-        <Directory /path/to/public/website/>
-           Require all granted
-        </Directory>
+<Directory /path/to/public/website/>
+   Require all granted
+</Directory>
 	
+
 {{< /file-excerpt >}}
 
 
@@ -87,13 +88,14 @@ If you are utilizing access control rules within your virtual host files, you wi
 2.  Within the `VirtualHost` block for this website, locate or create the `Directory` block for your website's public directory. Add the line `Require all granted`. (If the line `Require all denied` is already there, update it to `Require all granted`). View a sample file below (replace **/path/to/public/website/** with your website's public directory):
 
 {{< file-excerpt "/etc/apache2/sites-available/example.com.conf or /etc/httpd/conf.d/vhost.conf" >}}
-        <VirtualHost *:80>
-          ...
-          <Directory /path/to/public/website/>
-             Require all granted
-          </Directory>
-          ...
-        </VirtualHost>
+<VirtualHost *:80>
+  ...
+  <Directory /path/to/public/website/>
+     Require all granted
+  </Directory>
+  ...
+</VirtualHost>
+
 {{< /file-excerpt >}}
 
 

@@ -36,7 +36,8 @@ The MongoDB repository provides the latest stable release (currently mongodb-10g
     Replace the name in brackets <> with your own hostname. This example uses the Nano text editor. However, you may use the text editor you prefer.
 
 {{< file-excerpt "/etc/hostname" bash >}}
-        hana
+hana
+
 {{< /file-excerpt >}}
 
 
@@ -71,9 +72,10 @@ Before you begin, you will need to obtain all the private IP addresses for each 
 Once you have all your private IPs, add them to the `hosts` file. Use your favorite text editor and add the addresses.
 
 {{< file-excerpt "/etc/hosts" >}}
-    192.168.160.1 mongo1
-    192.168.170.1 mongo2
-    192.168.180.1 mongo3
+192.168.160.1 mongo1
+192.168.170.1 mongo2
+192.168.180.1 mongo3
+
 {{< /file-excerpt >}}
 
 
@@ -88,18 +90,19 @@ Replication set member names and the actual server name are different. In this i
 1.  Edit your `interfaces` file to reflect both the public and private IP address information. Do not omit the `auto eth0 eth0:1` declaration.
 
 {{< file-excerpt "/etc/network/interfaces" >}}
-        auto eth0 eth0:1
+auto eth0 eth0:1
 
-        # eth0 - Public IP
-        iface eth0 inet static
-        address xx.xxx.xx.xx
-        netmask 255.xxx.xxx.x
-        gateway xxx.xx.xx.x
+# eth0 - Public IP
+iface eth0 inet static
+address xx.xxx.xx.xx
+netmask 255.xxx.xxx.x
+gateway xxx.xx.xx.x
 
-        # eth0:1 - Private IP
-        iface eth0:1 inet static
-        address 192.168.160.1
-        netmask 255.xxx.xxx.xxx
+# eth0:1 - Private IP
+iface eth0:1 inet static
+address 192.168.160.1
+netmask 255.xxx.xxx.xxx
+
 {{< /file-excerpt >}}
 
 
@@ -114,8 +117,9 @@ Replication set member names and the actual server name are different. In this i
 1.  Edit the `mongodb.conf` file to add the IP address and port number.
 
 {{< file-excerpt "/etc/mongodb.conf" >}}
-        bind_ip = 192.168.160.1
-        port = 27017
+bind_ip = 192.168.160.1
+port = 27017
+
 {{< /file-excerpt >}}
 
 
@@ -124,8 +128,9 @@ Replication set member names and the actual server name are different. In this i
 2.  While still in the `mongodb.conf` file, scroll to the bottom and add the following information:
 
 {{< file-excerpt "/etc/mongodb.conf" >}}
-        fork = true
-        replSet = rs1
+fork = true
+replSet = rs1
+
 {{< /file-excerpt >}}
 
 

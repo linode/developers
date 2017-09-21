@@ -115,7 +115,8 @@ At this point, you should be able to log into the remote server as "user" withou
 You can force the mounted filesystem to remain persistent between reboots. This is done by including a mount directive for the remote user directory in `/etc/fstab`.  
 
 {{< file-excerpt "/etc/fstab" >}}
-    <sshfs#user@usersLinode.example.com>:/home/users /root/sshfsExample fuse defaults 0 0
+<sshfs#user@usersLinode.example.com>:/home/users /root/sshfsExample fuse defaults 0 0
+
 {{< /file-excerpt >}}
 
 

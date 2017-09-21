@@ -112,19 +112,21 @@ Open `~/.ansible.cfg` file and add the following lines:
 {{< file-excerpt "> ~/.ansible.cfg" ini >}}
 [defaults]
 inventory = ~/Path/To/ansible/hosts
+{{< /note >}}
 
 {{< /file-excerpt >}}
-{{< /note >}}
+
 
 2.  Add an entry to your hosts file, pointing to a server that you connected to in the previous section.  You can include multiple servers in this file, using either domains or IP addresses, and can even group them:
 
 {{< file-excerpt "~/Path/To/ansible/hosts" ini >}}
-        mainserver.com
-        myserver.net:2222
+mainserver.com
+myserver.net:2222
 
-        [mailservers]
-        mail1.mainserver.com
-        mail2.mainserver.com
+[mailservers]
+mail1.mainserver.com
+mail2.mainserver.com
+
 {{< /file-excerpt >}}
 
 
@@ -146,37 +148,40 @@ You can write playbooks to perform initial server configurations, add users and 
 A playbook is a YAML file, and typically follows this structure:
 
 {{< file-excerpt "Sample Playbook YAML file" yaml >}}
-    ---
-    - hosts: [target hosts]
-      remote_user: [yourname]
-      tasks:
-        - [task 1]
-        - [task 2]
+---
+- hosts: [target hosts]
+  remote_user: [yourname]
+  tasks:
+    - [task 1]
+    - [task 2]
+
 {{< /file-excerpt >}}
 
 
 For example, the following playbook would log in to all servers in the `marketingservers` group and ensure Apache was started.
 
 {{< file-excerpt "Sample service check playbook" yaml >}}
-    ---
-    - hosts: [marketingservers]
-      remote_user: webadmin
-      tasks:
-        - name: Ensure the Apache daemon has started
-          service: name=httpd state=started
-          become: yes
-          become_method: sudo
+---
+- hosts: [marketingservers]
+  remote_user: webadmin
+  tasks:
+    - name: Ensure the Apache daemon has started
+      service: name=httpd state=started
+      become: yes
+      become_method: sudo
+
 {{< /file-excerpt >}}
       
 
 In the playbook above is an example of a task:
 
 {{< file-excerpt "Playbook task" yaml >}}
-      tasks:
-        - name: Ensure the Apache daemon has started
-          service: name=httpd state=started
-          become: yes
-          become_method: sudo
+tasks:
+  - name: Ensure the Apache daemon has started
+    service: name=httpd state=started
+    become: yes
+    become_method: sudo
+
 {{< /file-excerpt >}}
 
 
@@ -242,8 +247,9 @@ The following playbooks are for learning purposes only, and will NOT result in a
 2.  Add your new server's IP address to your Ansible `hosts` file so that we can address it. Remove any previous entries you may have added in the test sections above. Give the new server a group name to make it easier to refer to later. In our example the group name is `linode`.
 
 {{< file "/etc/ansible/hosts" ini >}}
-        [linode]
-        123.123.123.123
+[linode]
+123.123.123.123
+
 {{< /file >}}
 
 
@@ -252,23 +258,24 @@ The following playbooks are for learning purposes only, and will NOT result in a
     We're introducing a new aspect of Ansible here: *variables*. Note the `vars:` entry and the `NORMAL_USER_NAME` line. You'll notice that it is reused twice in the file so that we only have to change it once. Replace `yourusername` with your choosen username, `localusername` in the path for the `authorized_key`, and the password hash.
 
 {{< file "initialize_basic_user.yml" yaml >}}
-        ---
-        - hosts: linode
-          remote_user: root
-          vars:
-            NORMAL_USER_NAME: 'yourusername'
-          tasks:
-            - name: "Create a secondary, non-root user"
-              user: name={{ NORMAL_USER_NAME }} 
-                    password='$6$rounds=656000$W.dSlhtSxE2HdSc1$4WbCFM6zQV1hTQYTCqmcddnKrSXIZ9LfWRAjJBervBFG.rH953lTa7rMeZNrN65zPzEONntMtYt9Bw74PvAei0' 
-                    shell=/bin/bash
-            - name: Add remote authorized key to allow future passwordless logins
-              authorized_key: user={{ NORMAL_USER_NAME }} key="{{ lookup('file', '/Users/localusername/.ssh/id_rsa.pub') }}"
-            - name: Add normal user to sudoers
-              lineinfile: dest=/etc/sudoers
-                          regexp="{{ NORMAL_USER_NAME }} ALL"
-                          line="{{ NORMAL_USER_NAME }} ALL=(ALL) ALL"
-                          state=present
+---
+- hosts: linode
+  remote_user: root
+  vars:
+    NORMAL_USER_NAME: 'yourusername'
+  tasks:
+    - name: "Create a secondary, non-root user"
+      user: name={{ NORMAL_USER_NAME }} 
+            password='$6$rounds=656000$W.dSlhtSxE2HdSc1$4WbCFM6zQV1hTQYTCqmcddnKrSXIZ9LfWRAjJBervBFG.rH953lTa7rMeZNrN65zPzEONntMtYt9Bw74PvAei0' 
+            shell=/bin/bash
+    - name: Add remote authorized key to allow future passwordless logins
+      authorized_key: user={{ NORMAL_USER_NAME }} key="{{ lookup('file', '/Users/localusername/.ssh/id_rsa.pub') }}"
+    - name: Add normal user to sudoers
+      lineinfile: dest=/etc/sudoers
+                  regexp="{{ NORMAL_USER_NAME }} ALL"
+                  line="{{ NORMAL_USER_NAME }} ALL=(ALL) ALL"
+                  state=present
+
 {{< /file >}}
 
 
@@ -283,28 +290,29 @@ You should see output from Ansible that reports that the three tasks all complet
 Let's take care of some common server setup tasks, such as setting the timezone, updating the hosts file, and updating packages. Here's a playbook covering those steps:
 
 {{< file "common_server_setup.yml" yaml >}}
-    ---
-    - hosts: linode
-      remote_user: yourusername
-      become: yes
-      become_method: sudo
-      vars: 
-        LOCAL_HOSTNAME: 'web01'
-        LOCAL_FQDN_NAME: 'www.example.com'
-      tasks:
-        - name: Set the timezone for the server to be UTC
-          command: ln -sf /usr/share/zoneinfo/UTC /etc/localtime
-        - name: Set up a unique hostname
-          hostname: name={{ LOCAL_HOSTNAME }}
-        - name: Add the server's domain to the hosts file
-          lineinfile: dest=/etc/hosts 
-                      regexp='.*{{ item }}$' 
-                      line="{{ hostvars[item].ansible_default_ipv4.address }} {{ LOCAL_FQDN_NAME }} {{ LOCAL_HOSTNAME }}" 
-                      state=present
-          when: hostvars[item].ansible_default_ipv4.address is defined
-          with_items: "{{ groups['linode'] }}"
-        - name: Update packages
-          apt: update_cache=yes upgrade=dist
+---
+- hosts: linode
+  remote_user: yourusername
+  become: yes
+  become_method: sudo
+  vars: 
+    LOCAL_HOSTNAME: 'web01'
+    LOCAL_FQDN_NAME: 'www.example.com'
+  tasks:
+    - name: Set the timezone for the server to be UTC
+      command: ln -sf /usr/share/zoneinfo/UTC /etc/localtime
+    - name: Set up a unique hostname
+      hostname: name={{ LOCAL_HOSTNAME }}
+    - name: Add the server's domain to the hosts file
+      lineinfile: dest=/etc/hosts 
+                  regexp='.*{{ item }}$' 
+                  line="{{ hostvars[item].ansible_default_ipv4.address }} {{ LOCAL_FQDN_NAME }} {{ LOCAL_HOSTNAME }}" 
+                  state=present
+      when: hostvars[item].ansible_default_ipv4.address is defined
+      with_items: "{{ groups['linode'] }}"
+    - name: Update packages
+      apt: update_cache=yes upgrade=dist
+
 {{< /file >}}
 
 
@@ -321,36 +329,37 @@ Finally, let's get a very basic server set up with Apache and PHP, and a test My
 1.  The following playbook downloads the appropriate packages, turns on the Apache and MySQL services, and creates a basic database and user.
 
 {{< file "setup_webserver.yml" yaml >}}
-        ---
-        - hosts: linode
-          remote_user: yourusername
-          become: yes
-          become_method: sudo
-          tasks:
-            - name: "Install Apache, MySQL, and PHP5"
-              apt: name={{ item }} state=present
-              with_items:
-                - apache2
-                - mysql-server
-                - python-mysqldb
-                - php5
-                - php-pear
-                - php5-mysql
+---
+- hosts: linode
+  remote_user: yourusername
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: "Install Apache, MySQL, and PHP5"
+      apt: name={{ item }} state=present
+      with_items:
+        - apache2
+        - mysql-server
+        - python-mysqldb
+        - php5
+        - php-pear
+        - php5-mysql
 
-            - name: "Turn on Apache and MySQL and set them to run on boot"
-              service: name={{ item }} state=started enabled=yes
-              with_items:
-                - apache2
-                - mysql
+    - name: "Turn on Apache and MySQL and set them to run on boot"
+      service: name={{ item }} state=started enabled=yes
+      with_items:
+        - apache2
+        - mysql
 
-            - name: Create a test database
-              mysql_db: name=testDb
-                        state=present
+    - name: Create a test database
+      mysql_db: name=testDb
+                state=present
 
-            - name: Create a new user for connections
-              mysql_user: name=webapp 
-                          password=mypassword 
-                          priv=*.*:ALL state=present
+    - name: Create a new user for connections
+      mysql_user: name=webapp 
+                  password=mypassword 
+                  priv=*.*:ALL state=present
+
 {{< /file >}}
 
 

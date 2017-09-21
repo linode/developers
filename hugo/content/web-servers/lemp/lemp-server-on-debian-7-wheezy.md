@@ -58,17 +58,18 @@ This will install version 1.2.1-22 of the Nginx server.
 You will need to configure `server` declarations to specify name-based virtual hosts. Since you are using the packages from the Debian project, create the virtual hosting configuration in the as `/etc/nginx/sites-available/example.com`. Consider the following Nginx virtual host configuration:
 
 {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
-    server {
-        listen   80;
-        server_name www.example.com example.com;
-        access_log /srv/www/example.com/logs/access.log;
-        error_log /srv/www/example.com/logs/error.log;
+server {
+    listen   80;
+    server_name www.example.com example.com;
+    access_log /srv/www/example.com/logs/access.log;
+    error_log /srv/www/example.com/logs/error.log;
 
-        location / {
-            root   /srv/www/example.com/public_html;
-            index  index.html index.htm;
-        }
+    location / {
+        root   /srv/www/example.com/public_html;
+        index  index.html index.htm;
     }
+}
+
 {{< /file-excerpt >}}
 
 
@@ -111,27 +112,29 @@ Issue the following sequence of commands to download a small wrapper script for 
 Below is a sample Nginx virtual host configuration file. Modify your configuration to be similar to the one below. Remember to replace example.com with your domain.
 
 {{< file "/etc/nginx/sites-available/example.com" nginx >}}
-    server {
-        server_name www.example.com example.com;
-        access_log /srv/www/example.com/logs/access.log;
-        error_log /srv/www/example.com/logs/error.log;
-        root /srv/www/example.com/public_html;
+server {
+    server_name www.example.com example.com;
+    access_log /srv/www/example.com/logs/access.log;
+    error_log /srv/www/example.com/logs/error.log;
+    root /srv/www/example.com/public_html;
 
-        location / {
-            index index.html index.htm index.php;
-        }
+    location / {
+        index index.html index.htm index.php;
+    }
+
 {{< /file >}}
 
 
 In addition, with in the Nginx virtual host file, ensure the `location ~ \.php$ { }` block resembles the one in this example:
 
 {{< file "/etc/nginx/sites-available/example.com" nginx >}}
-    location ~ \.php$ {
-        include /etc/nginx/fastcgi_params;
-        fastcgi_pass  127.0.0.1:9000;
-        fastcgi_index index.php;
-        fastcgi_param SCRIPT_FILENAME /srv/www/example.com/public_html$fastcgi_script_name;
-    }
+location ~ \.php$ {
+    include /etc/nginx/fastcgi_params;
+    fastcgi_pass  127.0.0.1:9000;
+    fastcgi_index index.php;
+    fastcgi_param SCRIPT_FILENAME /srv/www/example.com/public_html$fastcgi_script_name;
+}
+
 {{< /file >}}
 
 

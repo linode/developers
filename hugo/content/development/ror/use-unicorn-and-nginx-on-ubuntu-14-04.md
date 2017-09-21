@@ -95,25 +95,26 @@ This guide is written for a non-root user. Commands that require elevated privil
 2.  Create the file `config/unicorn.rb` which contains the unicorn configuration and paste the following configuration in the file.
 
 {{< file "/home/username/example/config/unicorn.rb" aconf >}}
-        # set path to the application
-        app_dir git File.expand_path("../..", __FILE__)
-        shared_dir = "#{app_dir}/shared"
-        working_directory app_dir
+# set path to the application
+app_dir git File.expand_path("../..", __FILE__)
+shared_dir = "#{app_dir}/shared"
+working_directory app_dir
 
-        # Set unicorn options
-        worker_processes 2
-        preload_app true
-        timeout 30
+# Set unicorn options
+worker_processes 2
+preload_app true
+timeout 30
 
-        # Path for the Unicorn socket
-        listen "#{shared_dir}/sockets/unicorn.sock", :backlog => 64
+# Path for the Unicorn socket
+listen "#{shared_dir}/sockets/unicorn.sock", :backlog => 64
 
-        # Set path for logging
-        stderr_path "#{shared_dir}/log/unicorn.stderr.log"
-        stdout_path "#{shared_dir}/log/unicorn.stdout.log"
+# Set path for logging
+stderr_path "#{shared_dir}/log/unicorn.stderr.log"
+stdout_path "#{shared_dir}/log/unicorn.stdout.log"
 
-        # Set proccess id path
-        pid "#{shared_dir}/pids/unicorn.pid"
+# Set proccess id path
+pid "#{shared_dir}/pids/unicorn.pid"
+
 {{< /file >}}
 
 
@@ -134,10 +135,11 @@ Please note that we are still in the Rails application directory.
 2.  We need to configure nginx to work as the reverse proxy. Edit the config file `/etc/nginx/nginx.conf` and paste the following configuration in the HTTP block:
 
 {{< file-excerpt "/etc/nginx/nginx.conf" nginx >}}
-        upstream rails {
-        # Path to Unicorn socket file
-        server unix:/home/username/example/shared/sockets/unicorn.sock fail_timeout=0;
-        }
+upstream rails {
+# Path to Unicorn socket file
+server unix:/home/username/example/shared/sockets/unicorn.sock fail_timeout=0;
+}
+
 {{< /file-excerpt >}}
 
 
@@ -152,25 +154,26 @@ Edit `username` and `example` with appropriate values.
 4.  Create new nginx site configuration file for the Rails application:
 
 {{< file "/etc/nginx/sites-available/example" nginx >}}
-        server {
-        listen 80;
-        server_name localhost;
+server {
+listen 80;
+server_name localhost;
 
-        root /home/username/example;
+root /home/username/example;
 
-        try_files $uri/index.html $uri @rails;
+try_files $uri/index.html $uri @rails;
 
-        location @rails {
-           proxy_pass http://rails;
-           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            proxy_set_header Host $http_host;
-           proxy_redirect off;
-        }
+location @rails {
+   proxy_pass http://rails;
+   proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+   proxy_redirect off;
+}
 
-        error_page 500 502 503 504 /500.html;
-        client_max_body_size 4G;
-        keepalive_timeout 10;
-        }
+error_page 500 502 503 504 /500.html;
+client_max_body_size 4G;
+keepalive_timeout 10;
+}
+
 {{< /file >}}
 
 

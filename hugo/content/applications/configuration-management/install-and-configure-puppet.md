@@ -81,8 +81,9 @@ Any Ubuntu-specific commands will then have to be amended for the proper distrib
 1.  Update `/etc/puppet/puppet.conf` and add the `dns_alt_names` line to the section `[main]`, replacing `puppet.example.com` with your own FQDN:
 
 {{< file-excerpt "/etc/puppet/puppet.conf" aconf >}}
-        [main]
-        dns_alt_names=puppet,puppet.example.com
+[main]
+dns_alt_names=puppet,puppet.example.com
+
 {{< /file-excerpt >}}
 
 
@@ -121,15 +122,17 @@ If you're on a Red Hat system other than CentOS 7, skip this step.
 1.  Modify your Puppet Agent's host file to resolve the Puppet master IP as `puppet`:
 
 {{< file-excerpt "/etc/hosts" aconf >}}
-        198.51.100.0    puppet
+198.51.100.0    puppet
+
 {{< /file-excerpt >}}
 
 
 2.  Add the `server` value to the `[main]` section of the node's `puppet.conf` file, replacing `puppet.example.com` with the FQDN of your Puppet master:
 
 {{< file-excerpt "/etc/puppet/puppet.conf" aconf >}}
-        [main]
-        server=puppet.example.com
+[main]
+server=puppet.example.com
+
 {{< /file-excerpt >}}
 
 
@@ -187,17 +190,18 @@ This is not meant to provide a basis for a fully-hardened server, and is intende
 4.  Within the `init.pp` file, define a limited user to use instead of `root`, replacing all instances of `username` with your chosen username:
 
 {{< file "/etc/puppet/modules/accounts/manifests/init.pp" puppet >}}
-        class accounts {
+class accounts {
 
-          user { 'username':
-            ensure      => present,
-            home        => '/home/username',
-            shell       => '/bin/bash',
-            managehome  => true,
-            gid         => 'username',
-            }
+  user { 'username':
+    ensure      => present,
+    home        => '/home/username',
+    shell       => '/bin/bash',
+    managehome  => true,
+    gid         => 'username',
+    }
 
-        }
+}
+
 {{< /file >}}
 
 
@@ -206,42 +210,45 @@ This is not meant to provide a basis for a fully-hardened server, and is intende
 5.  Although the primary group is set to share the username, the group itself has not been created. Save and exit `init.pp`. Then, create a new file called `groups.pp` and add the following contents. This file will be used to create the user's group. Again, replace `username` with your chosen username:
 
 {{< file "/etc/puppet/modules/accounts/manifests/groups.pp" puppet >}}
-        class accounts::groups {
+class accounts::groups {
         
-          group { 'username':
-            ensure  => present,
-          }
+  group { 'username':
+    ensure  => present,
+  }
           
-        }
+}
+
 {{< /file >}}
 
         
      Include this file by adding `include groups` to the `init.pp` file, within the `accounts` class:
      
 {{< file-excerpt "/etc/puppet/modules/accounts/manifests/init.pp" puppet >}}
-        class accounts {
+class accounts {
         
-          include groups
-          ... 
-        }
+  include groups
+  ... 
+}
+
 {{< /file-excerpt >}}
 
     
 6.  This user should have privileges so that administrative tasks can be performed. Because we have agent nodes on both Debian- and Red Hat-based systems, the new user needs to be in the `sudo` group on Debian systems, and the `wheel` group on Red Hat systems. This value can be set dynamically through the use of a selector and *facter*, a program included in Puppet that keeps track of information, or *facts*, about every server. Add a selector statement to the top of the `init.pp` file within the accounts class brackets, defining the two options:
 
 {{< file-excerpt "/etc/puppet/modules/accounts/manifests/init.pp" puppet >}}
-        class accounts {
+class accounts {
         
-          $rootgroup = $osfamily ? {
-            'Debian'  => 'sudo',
-            'RedHat'  => 'wheel',
-            default   => warning('This distribution is not supported by the Accounts module'),
-          }
+  $rootgroup = $osfamily ? {
+    'Debian'  => 'sudo',
+    'RedHat'  => 'wheel',
+    default   => warning('This distribution is not supported by the Accounts module'),
+  }
           
-          user { 'username':
-          ...
+  user { 'username':
+  ...
           
-        }
+}
+
 {{< /file-excerpt >}}
 
         
@@ -254,14 +261,15 @@ The `user` definition will include the `$rootgroup`, and the Puppet Configuratio
 7.  Add the `groups` value to the user resource, calling to the `$rootgroup` variable defined in the previous step:
 
 {{< file-excerpt "/etc/puppet/modules/accounts/manifests/init.pp" puppet >}}
-          user { 'username':
-            ensure      => present,
-            home        => '/home/username',
-            shell       => '/bin/bash',
-            managehome  => true,
-            gid         => 'username',
-            groups      => "$rootgroup",
-          }
+user { 'username':
+  ensure      => present,
+  home        => '/home/username',
+  shell       => '/bin/bash',
+  managehome  => true,
+  gid         => 'username',
+  groups      => "$rootgroup",
+}
+
 {{< /file-excerpt >}}
 
 
@@ -274,19 +282,20 @@ The `user` definition will include the `$rootgroup`, and the Puppet Configuratio
     You will be prompted to enter your password and confirm. A hashed password will be output. This should then be copied and added to the `user` resource:
 
 {{< file "/etc/puppet/modules/accounts/manifests/init.pp" puppet >}}
-        class accounts {
+class accounts {
 
-          user { 'username':
-            ensure      => present,
-            home        => '/home/username',
-            shell       => '/bin/bash',
-            managehome  => true,
-            gid         => 'username',
-            groups      => "$rootgroup",
-            password    => '$1$07JUIM1HJKDSWm8.NJOqsP.blweQ..3L0',
-            }
+  user { 'username':
+    ensure      => present,
+    home        => '/home/username',
+    shell       => '/bin/bash',
+    managehome  => true,
+    gid         => 'username',
+    groups      => "$rootgroup",
+    password    => '$1$07JUIM1HJKDSWm8.NJOqsP.blweQ..3L0',
+    }
 
-        }
+}
+
 {{< /file >}}
 
 
@@ -305,7 +314,8 @@ The hashed password **must** be included in single quotes (').
         cd ../examples
 
 {{< file "/etc/puppet/modules/accounts/examples/init.pp" puppet >}}
-        include accounts
+include accounts
+
 {{< /file >}}
 
 
@@ -350,7 +360,8 @@ Although a new user has successfully been added to the Puppet master, the accoun
 3.  Open the file with `sudo`, and set the `PermitRootLogin` value to `no`:
 
 {{< file-excerpt "/etc/puppet/modules/accounts/files/sshd_config" aconf >}}
-        PermitRootLogin no
+PermitRootLogin no
+
 {{< /file-excerpt >}}
 
         
@@ -359,14 +370,15 @@ Although a new user has successfully been added to the Puppet master, the accoun
         cd ../manifests
 
 {{< file "/etc/puppet/modules/accounts/manifests/ssh.pp" puppet >}}
-        class accounts::ssh {
+class accounts::ssh {
         
-          file { '/etc/ssh/sshd_config':
-            ensure  => present,
-            source  => 'puppet:///modules/accounts/sshd_config',
-          }
+  file { '/etc/ssh/sshd_config':
+    ensure  => present,
+    source  => 'puppet:///modules/accounts/sshd_config',
+  }
         
-        }
+}
+
 {{< /file >}}
 
 
@@ -377,62 +389,65 @@ The `file` directory is omitted from the `source` line because the `files` folde
 5.  Create a second resource to restart the SSH service and set it to run whenever `sshd_config` is changed. This will also require a selector statement because the SSH service is called `ssh` on Debian systems and `sshd` on Red Hat:
 
 {{< file "/etc/puppet/modules/accounts/manifests/ssh.pp" puppet >}}
-        class accounts::ssh {
+class accounts::ssh {
 
-        $sshname = $osfamily ? {
-            'Debian'  => 'ssh',
-            'RedHat'  => 'sshd',
-            default   => warning('This distribution is not supported by the Accounts module'),
-          }
+$sshname = $osfamily ? {
+    'Debian'  => 'ssh',
+    'RedHat'  => 'sshd',
+    default   => warning('This distribution is not supported by the Accounts module'),
+  }
 
-          file { '/etc/ssh/sshd_config':
-            ensure  => present,
-            source  => 'puppet:///modules/accounts/sshd_config',
-            notify  => Service["$sshname"],
-          }
+  file { '/etc/ssh/sshd_config':
+    ensure  => present,
+    source  => 'puppet:///modules/accounts/sshd_config',
+    notify  => Service["$sshname"],
+  }
         
-          service { "$sshname":
-            hasrestart  => true,
-          }
-        }
+  service { "$sshname":
+    hasrestart  => true,
+  }
+}
+
 {{< /file >}}
 
 
 6.  Include the `ssh` class within `init.pp`:
 
 {{< file-excerpt "/etc/puppet/modules/accounts/manifests/init.pp" puppet >}}
-        class accounts {
-          include groups
-          include ssh
+class accounts {
+  include groups
+  include ssh
         
-        ...
+...
+
 {{< /file-excerpt >}}
 
     
     Your complete `init.pp` will look similar to this:
     
 {{< file "/etc/puppet/modules/accounts/manifests/init.pp" puppet >}}
-        class accounts {
-            include groups
-            include ssh
+class accounts {
+    include groups
+    include ssh
 
-            $rootgroup = $osfamily ? {
-                'Debian' => 'sudo',
-                'RedHat' => 'wheel',
-                default => warning('This distro not supported by Accounts module'),
-            }
-            user { 'example':
+    $rootgroup = $osfamily ? {
+        'Debian' => 'sudo',
+        'RedHat' => 'wheel',
+        default => warning('This distro not supported by Accounts module'),
+    }
+    user { 'example':
 
-                ensure  => present,
-                home    => '/home/username',
-                shell   => '/bin/bash',
-                managehome  => true,
-                gid     => 'username',
-                groups  => "$rootgroup",
-                password => '$1$07JUIM1HJKDSWm8.NJOqsP.blweQ..3L0'
-            }
+        ensure  => present,
+        home    => '/home/username',
+        shell   => '/bin/bash',
+        managehome  => true,
+        gid     => 'username',
+        groups  => "$rootgroup",
+        password => '$1$07JUIM1HJKDSWm8.NJOqsP.blweQ..3L0'
+    }
 
-        }
+}
+
 {{< /file >}}
 
 
@@ -483,61 +498,62 @@ CentOS 7 uses firewalld by default as a controller for iptables. Be sure firewal
 3.  Create a file titled `pre.pp`, which will contain all basic networking rules that should be run first:
 
 {{< file "/etc/puppet/modules/firewall/manifests/pre.pp" puppet >}}
-        class firewall::pre {
+class firewall::pre {
 
-          Firewall {
-            require => undef,
-          }
+  Firewall {
+    require => undef,
+  }
 
-           # Accept all loopback traffic
-          firewall { '000 lo traffic':
-            proto       => 'all',
-            iniface     => 'lo',
-            action      => 'accept',
-          }->
+   # Accept all loopback traffic
+  firewall { '000 lo traffic':
+    proto       => 'all',
+    iniface     => 'lo',
+    action      => 'accept',
+  }->
 
-           #Drop non-loopback traffic
-          firewall { '001 reject non-lo':
-            proto       => 'all',
-            iniface     => '! lo',
-            destination => '127.0.0.0/8',
-            action      => 'reject',
-          }->
+   #Drop non-loopback traffic
+  firewall { '001 reject non-lo':
+    proto       => 'all',
+    iniface     => '! lo',
+    destination => '127.0.0.0/8',
+    action      => 'reject',
+  }->
 
-           #Accept established inbound connections
-          firewall { '002 accept established':
-            proto       => 'all',
-            state       => ['RELATED', 'ESTABLISHED'],
-            action      => 'accept',
-          }->
+   #Accept established inbound connections
+  firewall { '002 accept established':
+    proto       => 'all',
+    state       => ['RELATED', 'ESTABLISHED'],
+    action      => 'accept',
+  }->
 
-           #Allow all outbound traffic
-          firewall { '003 allow outbound':
-            chain       => 'OUTPUT',
-            action      => 'accept',
-          }->
+   #Allow all outbound traffic
+  firewall { '003 allow outbound':
+    chain       => 'OUTPUT',
+    action      => 'accept',
+  }->
 
-           #Allow ICMP/ping
-          firewall { '004 allow icmp':
-            proto       => 'icmp',
-            action      => 'accept',
-          }
+   #Allow ICMP/ping
+  firewall { '004 allow icmp':
+    proto       => 'icmp',
+    action      => 'accept',
+  }
 
-           #Allow SSH connections
-          firewall { '005 Allow SSH':
-            dport    => '22',
-            proto   => 'tcp',
-            action  => 'accept',
-          }->
+   #Allow SSH connections
+  firewall { '005 Allow SSH':
+    dport    => '22',
+    proto   => 'tcp',
+    action  => 'accept',
+  }->
 
-           #Allow HTTP/HTTPS connections
-          firewall { '006 HTTP/HTTPS connections':
-            dport    => ['80', '443'],
-            proto   => 'tcp',
-            action  => 'accept',
-          }
+   #Allow HTTP/HTTPS connections
+  firewall { '006 HTTP/HTTPS connections':
+    dport    => ['80', '443'],
+    proto   => 'tcp',
+    action  => 'accept',
+  }
 
-        }
+}
+
 {{< /file >}}
 
 
@@ -546,15 +562,16 @@ CentOS 7 uses firewalld by default as a controller for iptables. Be sure firewal
 4.  In the same directory create `post.pp`, which will run any firewall rules that need to be input last:
 
 {{< file "/etc/puppet/modules/firewall/manifests/post.pp" puppet >}}
-        class firewall::post {
+class firewall::post {
 
-          firewall { '999 drop all':
-            proto  => 'all',
-            action => 'drop',
-            before => undef,
-          }
+  firewall { '999 drop all':
+    proto  => 'all',
+    action => 'drop',
+    before => undef,
+  }
 
-        }
+}
+
 {{< /file >}}
 
 
@@ -574,22 +591,23 @@ CentOS 7 uses firewalld by default as a controller for iptables. Be sure firewal
 7.  Within `examples`, create an `init.pp` file to test the firewall on the Puppet master:
 
 {{< file "/etc/puppet/modules/firewall/examples/init.pp" puppet >}}
-        resources { 'firewall':
-          purge => true,
-        }
+resources { 'firewall':
+  purge => true,
+}
 
-        Firewall {
-          before        => Class['firewall::post'],
-          require       => Class['firewall::pre'],
-        }
+Firewall {
+  before        => Class['firewall::post'],
+  require       => Class['firewall::pre'],
+}
 
-        class { ['firewall::pre', 'firewall::post']: }
+class { ['firewall::pre', 'firewall::post']: }
 
-        firewall { '200 Allow Puppet Master':
-          dport          => '8140',
-          proto         => 'tcp',
-          action        => 'accept',
-        }
+firewall { '200 Allow Puppet Master':
+  dport          => '8140',
+  proto         => 'tcp',
+  action        => 'accept',
+}
+
 {{< /file >}}
 
 
@@ -644,37 +662,38 @@ Now that the `accounts` and `firewall` modules have been created, tested, and ru
 3.  Create the file `site.pp` to define which nodes will take what modules. Replace `ubuntuagent.example.com` and `centosagent.example.com` with the FQDNs of your agent nodes:
 
 {{< file "/etc/puppet/manifests/site.pp" puppet >}}
-        node 'ubuntuagent.example.com' {
-          include accounts
+node 'ubuntuagent.example.com' {
+  include accounts
 
-          resources { 'firewall':
-            purge => true,
-          }
+  resources { 'firewall':
+    purge => true,
+  }
 
-          Firewall {
-            before        => Class['firewall::post'],
-            require       => Class['firewall::pre'],
-          }
+  Firewall {
+    before        => Class['firewall::post'],
+    require       => Class['firewall::pre'],
+  }
 
-          class { ['firewall::pre', 'firewall::post']: }
+  class { ['firewall::pre', 'firewall::post']: }
 
-        }
+}
         
-        node 'centosagent.example.com' {
-          include accounts
+node 'centosagent.example.com' {
+  include accounts
 
-          resources { 'firewall':
-            purge => true,
-          }
+  resources { 'firewall':
+    purge => true,
+  }
 
-          Firewall {
-            before        => Class['firewall::post'],
-            require       => Class['firewall::pre'],
-          }
+  Firewall {
+    before        => Class['firewall::post'],
+    require       => Class['firewall::pre'],
+  }
 
-          class { ['firewall::pre', 'firewall::post']: }
+  class { ['firewall::pre', 'firewall::post']: }
 
-        }
+}
+
 {{< /file >}}
 
 

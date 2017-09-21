@@ -59,33 +59,36 @@ Nginx uses `server` directives to specify name-based virtual hosts. Nginx calls 
 2.  You should now have the following server block in the nginx virtual host configuration:
 
 {{< file "/etc/nginx/sites-available/example.com" nginx >}}
-        server {
-            listen 80;
-            listen [::]:80;
+server {
+    listen 80;
+    listen [::]:80;
 
-            server_name example.com;
+    server_name example.com;
 
-            root   /var/www/example.com;
-            index  index.html;
+    root   /var/www/example.com;
+    index  index.html;
 
-            location / {
-                try_files $uri $uri/ =404;
-            }
-        }
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+
 {{< /file >}}
 
 
     Replace `example.com` with your domain name. If your index page uses PHP, add `index.php` to the `index` line:
 
 {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
-            index index.html index.php;
+index index.html index.php;
+
 {{< /file-excerpt >}}
 
 
 3.  The nginx example configuration uses `/var/www/` as a document root, but Ubuntu uses `/var/www/html` as a standard. Additionally, Linode guides encourage the standard practice of using a subdirectory called `public_html` to exclude web files that shouldn't be publicly accesible. Update the `root` directive to match these conventions:
 
 {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
-            root   /var/www/html/example.com/public_html;
+root   /var/www/html/example.com/public_html;
+
 {{< /file-excerpt >}}
 
 
@@ -125,25 +128,26 @@ In order to deploy PHP applications, implement the following *PHP-FastCGI* solut
 2.  Modify your virtual host configuration to include the location directive as shown below:
 
 {{< file "/etc/nginx/sites-available/example.com" nginx >}}
-        server {
-                listen 80;
-                listen [::]:80;
+server {
+        listen 80;
+        listen [::]:80;
 
-                server_name example.com;
+        server_name example.com;
 
-                root /var/www/html/example.com/public_html;
-                index index.html;
+        root /var/www/html/example.com/public_html;
+        index index.html;
 
-                location / {
-                        try_files $uri $uri/ =404;
-                }
-                location ~ \.php$ {
-                        include snippets/fastcgi-php.conf;
-                        include fastcgi_params;
-                        fastcgi_pass unix:/run/php/php7.0-fpm.sock;
-                        fastcgi_param SCRIPT_FILENAME /var/www/html/example.com/public_html$fastcgi_script_name;
-                }
+        location / {
+                try_files $uri $uri/ =404;
         }
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include fastcgi_params;
+                fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+                fastcgi_param SCRIPT_FILENAME /var/www/html/example.com/public_html$fastcgi_script_name;
+        }
+}
+
 {{< /file >}}
 
 
@@ -191,29 +195,30 @@ In this section, you'll create a test page that shows whether nginx can render P
 1.  Paste the following code into a new file, `phptest.php`, in the `public_html` directory. Modify `webuser` and `password` to match the information entered in the **Install the MySQL Database Server** section above:
 
 {{< file "/var/www/html/example.com/public_html/phptest.php" php >}}
-        <html>
-        <head>
-            <title>PHP Test</title>
-        </head>
-            <body>
-            <?php echo '<p>Hello World</p>';
+<html>
+<head>
+    <title>PHP Test</title>
+</head>
+    <body>
+    <?php echo '<p>Hello World</p>';
 
-            // In the variables section below, replace user and password with your own MySQL credentials as created on your server
-            $servername = "localhost";
-            $username = "webuser";
-            $password = "password";
+    // In the variables section below, replace user and password with your own MySQL credentials as created on your server
+    $servername = "localhost";
+    $username = "webuser";
+    $password = "password";
 
-            // Create MySQL connection
-            $conn = mysqli_connect($servername, $username, $password);
+    // Create MySQL connection
+    $conn = mysqli_connect($servername, $username, $password);
 
-            // Check connection - if it fails, output will include the error message
-            if (!$conn) {
-                exit('<p>Connection failed: <p>' . mysqli_connect_error());
-            }
-            echo '<p>Connected successfully</p>';
-            ?>
-        </body>
-        </html>
+    // Check connection - if it fails, output will include the error message
+    if (!$conn) {
+        exit('<p>Connection failed: <p>' . mysqli_connect_error());
+    }
+    echo '<p>Connected successfully</p>';
+    ?>
+</body>
+</html>
+
 {{< /file >}}
 
 

@@ -26,21 +26,22 @@ Install Dependencies
 Before we can proceed with the installation and deployment of Django, we mus enable the `universe` repositories for Ubuntu 9.10 Karmic. To enable `universe`, first modify your `/etc/apt/sources.list` file to mirror the example file below. You'll need to uncomment the universe lines:
 
 {{< file "/etc/apt/sources.list" >}}
-    ## main & restricted repositories
-    deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted         
-    deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted 
+## main & restricted repositories
+deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted         
+deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted 
 
-    deb http://security.ubuntu.com/ubuntu karmic-security main restricted
-    deb-src http://security.ubuntu.com/ubuntu karmic-security main restricted
+deb http://security.ubuntu.com/ubuntu karmic-security main restricted
+deb-src http://security.ubuntu.com/ubuntu karmic-security main restricted
 
-    ## universe repositories
-    deb http://us.archive.ubuntu.com/ubuntu/ karmic universe
-    deb-src http://us.archive.ubuntu.com/ubuntu/ karmic universe
-    deb http://us.archive.ubuntu.com/ubuntu/ karmic-updates universe
-    deb-src http://us.archive.ubuntu.com/ubuntu/ karmic-updates universe
+## universe repositories
+deb http://us.archive.ubuntu.com/ubuntu/ karmic universe
+deb-src http://us.archive.ubuntu.com/ubuntu/ karmic universe
+deb http://us.archive.ubuntu.com/ubuntu/ karmic-updates universe
+deb-src http://us.archive.ubuntu.com/ubuntu/ karmic-updates universe
 
-    deb http://security.ubuntu.com/ubuntu karmic-security universe
-    deb-src http://security.ubuntu.com/ubuntu karmic-security universe
+deb http://security.ubuntu.com/ubuntu karmic-security universe
+deb-src http://security.ubuntu.com/ubuntu karmic-security universe
+
 {{< /file >}}
 
 
@@ -83,16 +84,17 @@ Configure Django Applications for WSGI
 In order for `mod_wsgi` to be able to provide access to your Django application, you will need to create a `django.wsgi` file inside of your application directory. For the purposes of this example, we assume that your application will be located *outside* of your `DocumentRoot` in the directory `/srv/www/example.com/application`. Modify this example and all following examples to conform to the actual files and locations used in your deployment.
 
 {{< file "/srv/www/example.com/application/django.wsgi" python >}}
-    import os
-    import sys
+import os
+import sys
 
-    sys.path.append('/srv/www/example.com/application')
+sys.path.append('/srv/www/example.com/application')
 
-    os.environ['PYTHON_EGG_CACHE'] = '/srv/www/example.com/.python-egg'
-    os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
+os.environ['PYTHON_EGG_CACHE'] = '/srv/www/example.com/.python-egg'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 
-    import django.core.handlers.wsgi
-    application = django.core.handlers.wsgi.WSGIHandler()
+import django.core.handlers.wsgi
+application = django.core.handlers.wsgi.WSGIHandler()
+
 {{< /file >}}
 
 
@@ -104,27 +106,28 @@ Configure Apache
 Consider the following example virtual host configuration:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-    <VirtualHost 12.34.56.78:80>
-       ServerName example.com
-       ServerAlias www.example.com
-       ServerAdmin webmaster@example.com
+<VirtualHost 12.34.56.78:80>
+   ServerName example.com
+   ServerAlias www.example.com
+   ServerAdmin webmaster@example.com
 
-       DocumentRoot /srv/www/example.com/public_html
+   DocumentRoot /srv/www/example.com/public_html
 
-       WSGIScriptAlias / /srv/www/example.com/application/django.wsgi
-       <Directory /srv/www/example.com/application>
-          Order allow,deny
-          Allow from all
-       </Directory>
+   WSGIScriptAlias / /srv/www/example.com/application/django.wsgi
+   <Directory /srv/www/example.com/application>
+      Order allow,deny
+      Allow from all
+   </Directory>
 
-       Alias /robots.txt /srv/www/example.com/public_html/robots.txt
-       Alias /favicon.ico /srv/www/example.com/public_html/favicon.ico
-       Alias /images /srv/www/example.com/public_html/images 
-       Alias /static /srv/www/example.com/public_html/static
+   Alias /robots.txt /srv/www/example.com/public_html/robots.txt
+   Alias /favicon.ico /srv/www/example.com/public_html/favicon.ico
+   Alias /images /srv/www/example.com/public_html/images 
+   Alias /static /srv/www/example.com/public_html/static
 
-       ErrorLog /srv/www/example.com/logs/error.log 
-       CustomLog /srv/www/example.com/logs/access.log combined
-    </VirtualHost>
+   ErrorLog /srv/www/example.com/logs/error.log 
+   CustomLog /srv/www/example.com/logs/access.log combined
+</VirtualHost>
+
 {{< /file-excerpt >}}
 
 

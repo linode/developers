@@ -37,14 +37,16 @@ In this guide, you'll learn how to rewrite URLs with mod_rewrite and Apache. Rew
 In a `<Directory>` block (usually found a virtual host file) or `.htaccess` file, enable mod_rewrite:
 
 {{< file-excerpt "Apache Configuration Option" apache >}}
-    RewriteEngine on
+RewriteEngine on
+
 {{< /file-excerpt >}}
 
 
 You may create multiple separate rewrite rules. These rules provide a pattern that the server compares against incoming requests. If a request matches a rewrite pattern, the server modifies the request as described by the rule and processes that request. Here is an example of a rewrite rule:
 
 {{< file-excerpt "Apache Configuration Option" apache >}}
-    RewriteRule ^post-id/([0-9]+)$ /posts/$1.html
+RewriteRule ^post-id/([0-9]+)$ /posts/$1.html
+
 {{< /file-excerpt >}}
 
 
@@ -62,10 +64,11 @@ Optionally, you can insert a `RewriteBase` directive to modify the behavior of t
 -   The files are located on the filesystem at `/srv/www/example.com/public_html/objects/` and match requested object in name, but have an `.html` extension.
 
 {{< file-excerpt "Apache Configuration Options" apache >}}
-    RewriteEngine on
-    RewriteBase /objects
-    RewriteRule ^post-id/([0-9]+)$ $1.html
-    RewriteRule ^page/([^/]+)$ $1.html
+RewriteEngine on
+RewriteBase /objects
+RewriteRule ^post-id/([0-9]+)$ $1.html
+RewriteRule ^page/([^/]+)$ $1.html
+
 {{< /file-excerpt >}}
 
 
@@ -81,11 +84,12 @@ This is useful when the locations of files on the file system do not correspond 
 With the `RewriteCond` parameter, you can set conditions under which a `RewriteRule` will be used. Let's take the following example from the default rewrite rules for the [WordPress](/docs/web-applications/cms-guides/wordpress/) application:
 
 {{< file-excerpt "Apache Configuration Option for WordPress" apache >}}
-    RewriteEngine On
-    RewriteBase /
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule . /index.php [L]
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+
 {{< /file-excerpt >}}
 
 

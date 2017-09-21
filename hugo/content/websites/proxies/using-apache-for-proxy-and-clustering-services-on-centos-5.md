@@ -28,13 +28,14 @@ In this configuration, Apache provides two or more virtual hosts which perform d
 To accomplish this, insert the following configuration directives into your Virtual Hosting configuration:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-    <VirtualHost static.example.com:80> 
-        ServerAdmin admin@example.com
-        ServerName static.example.com
-        DocumentRoot /srv/www/static.example.com/public_html/
-        ErrorLog /srv/www/static.example.com/logs/error.log 
-        CustomLog /srv/www/static.example.com/logs/access.log combined
-    </VirtualHost>
+<VirtualHost static.example.com:80> 
+    ServerAdmin admin@example.com
+    ServerName static.example.com
+    DocumentRoot /srv/www/static.example.com/public_html/
+    ErrorLog /srv/www/static.example.com/logs/error.log 
+    CustomLog /srv/www/static.example.com/logs/access.log combined
+</VirtualHost>
+
 {{< /file-excerpt >}}
 
 
@@ -56,10 +57,11 @@ In our guide to using [multiple web servers with ProxyPass](/docs/web-servers/ap
 Once `mod_proxy` is enabled and configured, you can insert the following directives into your virtual hosting configuration:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-    ProxyPass /static/ http://static.example.com/
-    ProxyPass /media http://media.example.com
-    ProxyPass /wiki/static/ !
-    ProxyPass /wiki/ http://application.example.com/
+ProxyPass /static/ http://static.example.com/
+ProxyPass /media http://media.example.com
+ProxyPass /wiki/static/ !
+ProxyPass /wiki/ http://application.example.com/
+
 {{< /file-excerpt >}}
 
 
@@ -81,17 +83,18 @@ Before continuing, ensure that you've completed the ProxyPass guide, particularl
 Once `mod_proxy` is enabled and properly configured, ensure that it is configured properly. You can insert the following directives into your virtual hosting configuration. Consider the following example Virtual Hosting configuration:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-    <VirtualHost example.com:80>
-        ServerName example.com
-        ServerAlias www.example.com
-        DocumentRoot /srv/www/example.com/public_html/
+<VirtualHost example.com:80>
+    ServerName example.com
+    ServerAlias www.example.com
+    DocumentRoot /srv/www/example.com/public_html/
 
-        ErrorLog /srv/www/example.com/logs/error.log 
-        CustomLog /srv/www/example.com/logs/access.log combined
+    ErrorLog /srv/www/example.com/logs/error.log 
+    CustomLog /srv/www/example.com/logs/access.log combined
 
-        RewriteEngine On
-        RewriteRule ^/blog/(.*)\.php$ http://app.example.com/blog/$1.php [proxy]
-    </VirtualHost>
+    RewriteEngine On
+    RewriteRule ^/blog/(.*)\.php$ http://app.example.com/blog/$1.php [proxy]
+</VirtualHost>
+
 {{< /file-excerpt >}}
 
 
@@ -100,12 +103,13 @@ In this example all requests for resources that end with `.php` are proxied to `
 While this method of specifying resources for proxying is much more limited in some respects, it does allow you to very specifically control and distribute HTTP requests among a group of servers. Use the above example and the others that follow as inspiration when constructing the rewrite rules for your deployment:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-    RewriteRule ^/(.*)\.js$ http://static.example.com/javascript/$1.js [proxy]
-    RewriteRule ^/(.*)\.css$ http://static.example.com/styles/$1.css [proxy]
-    RewriteRule ^/(.*)\.jpg$ http://static.example.com/images/$1.jpg [proxy]
+RewriteRule ^/(.*)\.js$ http://static.example.com/javascript/$1.js [proxy]
+RewriteRule ^/(.*)\.css$ http://static.example.com/styles/$1.css [proxy]
+RewriteRule ^/(.*)\.jpg$ http://static.example.com/images/$1.jpg [proxy]
 
-    RewriteRule ^/blog/(.*)\.php$ http://app.example.com/wordpress/$1.php [proxy]
-    RewriteRule ^/wiki/(.*)$ http://app.example.com/mediawiki/$1 [proxy]
+RewriteRule ^/blog/(.*)\.php$ http://app.example.com/wordpress/$1.php [proxy]
+RewriteRule ^/wiki/(.*)$ http://app.example.com/mediawiki/$1 [proxy]
+
 {{< /file-excerpt >}}
 
 
@@ -125,18 +129,19 @@ Using `mod_rewrite` to direct requests to proxied resources gives administrators
 The following case presents a more streamlined and simple proxy and rewrite example. Consider the following configuration directives:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-    <VirtualHost example.com:80>
-        ServerName example.com
-        ServerAlias www.example.com
-        DocumentRoot /srv/www/example.com/public_html/
+<VirtualHost example.com:80>
+    ServerName example.com
+    ServerAlias www.example.com
+    DocumentRoot /srv/www/example.com/public_html/
 
-        ErrorLog /srv/www/example.com/logs/error.log 
-        CustomLog /srv/www/example.com/logs/access.log combined
+    ErrorLog /srv/www/example.com/logs/error.log 
+    CustomLog /srv/www/example.com/logs/access.log combined
 
-        RewriteEngine On
-        RewriteCond /srv/www/example.com/public_html%{REQUEST_FILENAME} !-f
-        RewriteRule ^/(.*)$ http://app.example.com/$1 [proxy]
-    </VirtualHost>
+    RewriteEngine On
+    RewriteCond /srv/www/example.com/public_html%{REQUEST_FILENAME} !-f
+    RewriteRule ^/(.*)$ http://app.example.com/$1 [proxy]
+</VirtualHost>
+
 {{< /file-excerpt >}}
 
 
@@ -149,27 +154,28 @@ All of the previous cases presented in this document outline configurations for 
 Ensure that you have a `/etc/httpd/conf.d/proxy.conf` file as described in the [mod\_proxy](/docs/web-servers/apache/proxy-configuration/multiple-webservers-proxypass-centos-5#enabling_the_proxy_module) documentation. Do not forget to reload the Apache configuration again once you have fully configured your virtual host and cluster. Consider the following Apache configuration directives:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-    <VirtualHost example.com:80>
-        ServerName example.com
-        ServerAlias www.example.com
+<VirtualHost example.com:80>
+    ServerName example.com
+    ServerAlias www.example.com
 
-        ErrorLog /srv/www/example.com/logs/error.log 
-        CustomLog /srv/www/example.com/logs/access.log combined
+    ErrorLog /srv/www/example.com/logs/error.log 
+    CustomLog /srv/www/example.com/logs/access.log combined
 
-        <Proxy balancer://cluster>
-            BalancerMember http://app1.example.com
-            BalancerMember http://app2.example.com
-            BalancerMember http://app3.example.com
-            BalancerMember http://app4.example.com
-            BalancerMember http://app5.example.com
-        </Proxy>
+    <Proxy balancer://cluster>
+        BalancerMember http://app1.example.com
+        BalancerMember http://app2.example.com
+        BalancerMember http://app3.example.com
+        BalancerMember http://app4.example.com
+        BalancerMember http://app5.example.com
+    </Proxy>
 
-        ProxyPass / balancer://cluster/
+    ProxyPass / balancer://cluster/
 
-        # ProxyPass / balancer://cluster/ lbmethod=byrequests
-        # ProxyPass / balancer://cluster/ lbmethod=bytraffic
-        # ProxyPass / balancer://cluster/ lbmethod=bybusyness
-    </VirtualHost>
+    # ProxyPass / balancer://cluster/ lbmethod=byrequests
+    # ProxyPass / balancer://cluster/ lbmethod=bytraffic
+    # ProxyPass / balancer://cluster/ lbmethod=bybusyness
+</VirtualHost>
+
 {{< /file-excerpt >}}
 
 
@@ -180,12 +186,13 @@ The `lbmethod=` argument to the `ProxyPass` directive controls the method by whi
 Apache also contains a "Balancer Manager" interface that you can use to monitor the status of the cluster. Begin by including the following location directive in the virtual host where your cluster is configured:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-    <Location /balancer-manager>
-        SetHandler balancer-manager
-        Order Deny,Allow
-        Deny from all
-        Allow from 192.168.1.233
-    </Location>
+<Location /balancer-manager>
+    SetHandler balancer-manager
+    Order Deny,Allow
+    Deny from all
+    Allow from 192.168.1.233
+</Location>
+
 {{< /file-excerpt >}}
 
 

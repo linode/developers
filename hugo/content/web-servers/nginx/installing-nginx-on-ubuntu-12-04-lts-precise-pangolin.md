@@ -68,8 +68,9 @@ The binary packages from Nginx's repo will update you to new versions of the web
 1.  Add the Nginx repository to Ubuntu's `sources.list` file:
 
 {{< file-excerpt "/etc/apt/sources.list" >}}
-        deb http://nginx.org/packages/ubuntu/ trusty nginx
-        deb-src http://nginx.org/packages/ubuntu/ trusty nginx
+deb http://nginx.org/packages/ubuntu/ trusty nginx
+deb-src http://nginx.org/packages/ubuntu/ trusty nginx
+
 {{< /file-excerpt >}}
 
 
@@ -172,68 +173,69 @@ Compiling from source gives you the most flexibility and choice for optimization
 8.  Installing from source doesn't include an init file to control when Nginx starts and stops during boot and shutdown. You can either extract that file from the *[nginx-common](http://packages.ubuntu.com/trusty/nginx-common)* package at packages.ubuntu.com, or create an SysV script to manage NGINX as shown below:
 
 {{< file "/etc/init.d/nginx" >}}
-        #! /bin/sh
+#! /bin/sh
 
-        ### BEGIN INIT INFO
-        # Provides:          nginx
-        # Required-Start:    $all
-        # Required-Stop:     $all
-        # Default-Start:     2 3 4 5
-        # Default-Stop:      0 1 6
-        # Short-Description: starts the nginx web server
-        # Description:       starts nginx using start-stop-daemon
-        ### END INIT INFO
+### BEGIN INIT INFO
+# Provides:          nginx
+# Required-Start:    $all
+# Required-Stop:     $all
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: starts the nginx web server
+# Description:       starts nginx using start-stop-daemon
+### END INIT INFO
 
-        PATH=/opt/nginx/sbin:/sbin:/bin:/usr/sbin:/usr/bin
-        DAEMON=/opt/nginx/sbin/nginx
-        NAME=nginx
-        DESC=nginx
+PATH=/opt/nginx/sbin:/sbin:/bin:/usr/sbin:/usr/bin
+DAEMON=/opt/nginx/sbin/nginx
+NAME=nginx
+DESC=nginx
 
-        test -x $DAEMON || exit 0
+test -x $DAEMON || exit 0
 
-        # Include nginx defaults if available
-        if [ -f /etc/default/nginx ] ; then
-                . /etc/default/nginx
-        fi
+# Include nginx defaults if available
+if [ -f /etc/default/nginx ] ; then
+        . /etc/default/nginx
+fi
 
-        set -e
+set -e
 
-        case "$1" in
-          start)
-                echo -n "Starting $DESC: "
-                start-stop-daemon --start --quiet --pidfile /opt/nginx/logs/$NAME.pid \
-                        --exec $DAEMON -- $DAEMON_OPTS
-                echo "$NAME."
-                ;;
-          stop)
-                echo -n "Stopping $DESC: "
-                start-stop-daemon --stop --quiet --pidfile /opt/nginx/logs/$NAME.pid \
-                        --exec $DAEMON
-                echo "$NAME."
-                ;;
-          restart|force-reload)
-                echo -n "Restarting $DESC: "
-                start-stop-daemon --stop --quiet --pidfile \
-                        /opt/nginx/logs/$NAME.pid --exec $DAEMON
-                sleep 1
-                start-stop-daemon --start --quiet --pidfile \
-                        /opt/nginx/logs/$NAME.pid --exec $DAEMON -- $DAEMON_OPTS
-                echo "$NAME."
-                ;;
-          reload)
-                  echo -n "Reloading $DESC configuration: "
-                  start-stop-daemon --stop --signal HUP --quiet --pidfile     /opt/nginx/logs/$NAME.pid \
-                      --exec $DAEMON
-                  echo "$NAME."
-                  ;;
-              *)
-                    N=/etc/init.d/$NAME
-                    echo "Usage: $N {start|stop|restart|reload|force-reload}" >&2
-                    exit 1
-                    ;;
-            esac
+case "$1" in
+  start)
+        echo -n "Starting $DESC: "
+        start-stop-daemon --start --quiet --pidfile /opt/nginx/logs/$NAME.pid \
+                --exec $DAEMON -- $DAEMON_OPTS
+        echo "$NAME."
+        ;;
+  stop)
+        echo -n "Stopping $DESC: "
+        start-stop-daemon --stop --quiet --pidfile /opt/nginx/logs/$NAME.pid \
+                --exec $DAEMON
+        echo "$NAME."
+        ;;
+  restart|force-reload)
+        echo -n "Restarting $DESC: "
+        start-stop-daemon --stop --quiet --pidfile \
+                /opt/nginx/logs/$NAME.pid --exec $DAEMON
+        sleep 1
+        start-stop-daemon --start --quiet --pidfile \
+                /opt/nginx/logs/$NAME.pid --exec $DAEMON -- $DAEMON_OPTS
+        echo "$NAME."
+        ;;
+  reload)
+          echo -n "Reloading $DESC configuration: "
+          start-stop-daemon --stop --signal HUP --quiet --pidfile     /opt/nginx/logs/$NAME.pid \
+              --exec $DAEMON
+          echo "$NAME."
+          ;;
+      *)
+            N=/etc/init.d/$NAME
+            echo "Usage: $N {start|stop|restart|reload|force-reload}" >&2
+            exit 1
+            ;;
+    esac
 
-            exit 0
+    exit 0
+
 {{< /file >}}
 
 

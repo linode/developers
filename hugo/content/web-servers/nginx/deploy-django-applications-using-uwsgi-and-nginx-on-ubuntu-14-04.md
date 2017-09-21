@@ -114,35 +114,37 @@ If your application uses another database, skip installing `python-sqlite` and `
 2.  Create configuration file `sample.ini` with the following contents:
 
 {{< file "/etc/uwsgi/sites/sample.ini" ini >}}
-        [uwsgi]
-        project = sample
-        base = /home/django
+[uwsgi]
+project = sample
+base = /home/django
 
-        chdir = %(base)/%(project)
-        home = %(base)/Env/%(project)
-        module = %(project).wsgi:application
+chdir = %(base)/%(project)
+home = %(base)/Env/%(project)
+module = %(project).wsgi:application
 
-        master = true
-        processes = 2
+master = true
+processes = 2
 
-        socket = %(base)/%(project)/%(project).sock
-        chmod-socket = 664
-        vacuum = true
+socket = %(base)/%(project)/%(project).sock
+chmod-socket = 664
+vacuum = true
+
 {{< /file >}}
 
 
 3.  Create an Upstart job for uWSGI:
 
 {{< file "/etc/init/uwsgi.conf" aconf >}}
-        description "uWSGI"
-        start on runlevel [2345]
-        stop on runlevel [06]
-        respawn
+description "uWSGI"
+start on runlevel [2345]
+stop on runlevel [06]
+respawn
 
-        env UWSGI=/usr/local/bin/uwsgi
-        env LOGTO=/var/log/uwsgi.log
+env UWSGI=/usr/local/bin/uwsgi
+env LOGTO=/var/log/uwsgi.log
 
-        exec $UWSGI --master --emperor /etc/uwsgi/sites --die-on-term --uid django --gid www-data --logto $LOGTO
+exec $UWSGI --master --emperor /etc/uwsgi/sites --die-on-term --uid django --gid www-data --logto $LOGTO
+
 {{< /file >}}
 
 
@@ -161,20 +163,21 @@ If your application uses another database, skip installing `python-sqlite` and `
 2.  Create an nginx site configuration file for your Django application:
 
 {{< file "/etc/nginx/sites-available/sample" aconf >}}
-        server {
-            listen 80;
-            server_name example.com;
+server {
+    listen 80;
+    server_name example.com;
 
-            location = /favicon.ico { access_log off; log_not_found off; }
-            location /static/ {
-                root /home/django/sample;
-            }
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location /static/ {
+        root /home/django/sample;
+    }
 
-            location / {
-                include         uwsgi_params;
-                uwsgi_pass      unix:/home/django/sample/sample.sock;
-            }
-        }
+    location / {
+        include         uwsgi_params;
+        uwsgi_pass      unix:/home/django/sample/sample.sock;
+    }
+}
+
 {{< /file >}}
 
 

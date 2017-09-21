@@ -33,28 +33,29 @@ Linode Guides & Tutorials are written in [PHP Markdown Extra](https://michelf.ca
 Linode Guides & Tutorials store metadata and other information in a [YAML](http://yaml.org/) header at the top of every page. Use the template below for your own guide.
 
 {{< file-excerpt "Author Submission" >}}
-    ---
-    author:
-      name: Linode Community
-      email: docs@linode.com
-    description: 'Two to three sentences describing your guide.'
-    keywords: ["list", "of", "keywords", "and key phrases"]
+---
+author:
+  name: Linode Community
+  email: docs@linode.com
+description: 'Two to three sentences describing your guide.'
+keywords: ["list", "of", "keywords", "and key phrases"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-    published: 'Weekday, Month 00st, 2015'
-    modified: Weekday, Month 00th, 2015
-    modified_by:
-      name: Linode
-    title: 'Guide Title'
-    contributor:
-      name: Your Name
-      link: Github/Twitter Link
-      external_resources:
-    - '[Link Title 1](http://www.example.com)'
-    - '[Link Title 2](http://www.example.net)'
-    ---
+published: 'Weekday, Month 00st, 2015'
+modified: Weekday, Month 00th, 2015
+modified_by:
+  name: Linode
+title: 'Guide Title'
+contributor:
+  name: Your Name
+  link: Github/Twitter Link
+  external_resources:
+- '[Link Title 1](http://www.example.com)'
+- '[Link Title 2](http://www.example.net)'
+---
 
-    *This is a Linode Community guide. If you're an expert on something for which we need a guide, you too can [get paid to write for us](/docs/contribute).*
-    ----
+*This is a Linode Community guide. If you're an expert on something for which we need a guide, you too can [get paid to write for us](/docs/contribute).*
+----
+
 {{< /file-excerpt >}}
 
 
@@ -69,15 +70,16 @@ Introductions should be concise; explain what the goal of the guide is and why. 
 The *Before You Begin* section is an area for basic prerequisites a reader should know or have completed before proceeding further in your guide. Use the example below and edit as needed:
 
 {{< file-excerpt "Author Submission" >}}
-    ## Before You Begin
+## Before You Begin
 
-    1.  Familiarize yourself with our [Getting Started](/docs/getting-started) guide and complete the steps for setting your Linode's hostname and timezone.
+1.  Familiarize yourself with our [Getting Started](/docs/getting-started) guide and complete the steps for setting your Linode's hostname and timezone.
 
-    2.  This guide will use `sudo` wherever possible. Complete the sections of our [Securing Your Server](/docs/security/securing-your-server) to create a standard user account, harden SSH access and remove unnecessary network services. Do **not** follow the Configure a Firewall section yet--this guide includes firewall rules specifically for an OpenVPN server.
+2.  This guide will use `sudo` wherever possible. Complete the sections of our [Securing Your Server](/docs/security/securing-your-server) to create a standard user account, harden SSH access and remove unnecessary network services. Do **not** follow the Configure a Firewall section yet--this guide includes firewall rules specifically for an OpenVPN server.
 
-    3.  Update your system:
+3.  Update your system:
 
-            sudo apt-get update && sudo apt-get upgrade
+        sudo apt-get update && sudo apt-get upgrade
+
 {{< /file-excerpt >}}
 
 
@@ -86,14 +88,18 @@ The *Before You Begin* section is an area for basic prerequisites a reader shoul
 {{< file-excerpt "Guides Written for a Non-Root User" resource >}}
 {{< note >}}
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-{{< /file-excerpt >}}
 {{< /note >}}
+
+{{< /file-excerpt >}}
+
 
 {{< file-excerpt "Guides Written for a Root User" resource >}}
 {{< note >}}
 The steps in this guide require root privileges. Be sure to run the steps below as `root` or with the `sudo` prefix. For more information on privileges, see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-{{< /file-excerpt >}}
 {{< /note >}}
+
+{{< /file-excerpt >}}
+
 
 #### Include a Note about Example Variables
 

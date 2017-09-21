@@ -37,14 +37,15 @@ The steps in this guide require root privileges. Be sure to run the steps below 
 2.  The version of Postfix included in the main CentOS repository does not include support for MariaDB; therefore, you will need install Postfix from the CentOS Plus repository. Before doing so, add exclusions to the `[base]` and `[updates]` repositories for the Postfix package to prevent it from being overwritten with updates that do not have MariaDB support:
 
 {{< file-excerpt "/etc/yum.repos.d/CentOS-Base.repo" >}}
-        [base]
-        name=CentOS-$releasever - Base
-        exclude=postfix
+[base]
+name=CentOS-$releasever - Base
+exclude=postfix
 
-        #released updates
-        [updates]
-        name=CentOS-$releasever - Updates
-        exclude=postfix
+#released updates
+[updates]
+name=CentOS-$releasever - Updates
+exclude=postfix
+
 {{< /file-excerpt >}}
 
 
@@ -106,7 +107,8 @@ Next, set up a MariaDB database to handle virtual domains and users.
 11. Bind MariaDB to localhost (127.0.0.1) by editing `/etc/my.cnf`, and adding the following to the `[mysqld]` section of the file:
 
 {{< file-excerpt "/etc/my.cnf" >}}
-        bind-address=127.0.0.1
+bind-address=127.0.0.1
+
 {{< /file-excerpt >}}
 
 
@@ -127,44 +129,48 @@ For the next four steps, replace `mail_admin_password` with the `mail_admin` pas
 1.  Create a virtual domain configuration file for Postfix called `/etc/postfix/mysql-virtual_domains.cf`:
 
 {{< file "/etc/postfix/mysql-virtual_domains.cf" >}}
-        user = mail_admin
-        password = mail_admin_password
-        dbname = mail
-        query = SELECT domain AS virtual FROM domains WHERE domain='%s'
-        hosts = 127.0.0.1
+user = mail_admin
+password = mail_admin_password
+dbname = mail
+query = SELECT domain AS virtual FROM domains WHERE domain='%s'
+hosts = 127.0.0.1
+
 {{< /file >}}
 
 
 2.  Create a virtual forwarding file for Postfix called `/etc/postfix/mysql-virtual_forwardings.cf`:
 
 {{< file "/etc/postfix/mysql-virtual_forwardings.cf" >}}
-        user = mail_admin
-        password = mail_admin_password
-        dbname = mail
-        query = SELECT destination FROM forwardings WHERE source='%s'
-        hosts = 127.0.0.1
+user = mail_admin
+password = mail_admin_password
+dbname = mail
+query = SELECT destination FROM forwardings WHERE source='%s'
+hosts = 127.0.0.1
+
 {{< /file >}}
 
 
 3.  Create a virtual mailbox configuration file for Postfix called `/etc/postfix/mysql-virtual_mailboxes.cf`:
 
 {{< file "/etc/postfix/mysql-virtual_mailboxes.cf" >}}
-        user = mail_admin
-        password = mail_admin_password
-        dbname = mail
-        query = SELECT CONCAT(SUBSTRING_INDEX(email,'@',-1),'/',SUBSTRING_INDEX(email,'@',1),'/') FROM users WHERE email='%s'
-        hosts = 127.0.0.1
+user = mail_admin
+password = mail_admin_password
+dbname = mail
+query = SELECT CONCAT(SUBSTRING_INDEX(email,'@',-1),'/',SUBSTRING_INDEX(email,'@',1),'/') FROM users WHERE email='%s'
+hosts = 127.0.0.1
+
 {{< /file >}}
 
 
 4.  Create a virtual email mapping file for Postfix called `/etc/postfix/mysql-virtual_email2email.cf`:
 
 {{< file "/etc/postfix/mysql-virtual_email2email.cf" >}}
-        user = mail_admin
-        password = mail_admin_password
-        dbname = mail
-        query = SELECT email FROM users WHERE email='%s'
-        hosts = 127.0.0.1
+user = mail_admin
+password = mail_admin_password
+dbname = mail
+query = SELECT email FROM users WHERE email='%s'
+hosts = 127.0.0.1
+
 {{< /file >}}
 
 
@@ -210,41 +216,43 @@ For the next four steps, replace `mail_admin_password` with the `mail_admin` pas
 8.  Edit the file `/etc/postfix/master.cf` and add the Dovecot service to the bottom of the file:
 
 {{< file-excerpt "/etc/postfix/master.cf" >}}
-        dovecot   unix  -       n       n       -       -       pipe
-            flags=DRhu user=vmail:vmail argv=/usr/libexec/dovecot/deliver -f ${sender} -d ${recipient}
+dovecot   unix  -       n       n       -       -       pipe
+    flags=DRhu user=vmail:vmail argv=/usr/libexec/dovecot/deliver -f ${sender} -d ${recipient}
+
 {{< /file-excerpt >}}
 
 
 9.  Uncomment the two lines starting with `submission` and `smtps` and the block of lines starting with `-o` after each. The first section of the `/etc/postfix/master.cf` file should resemble the following:
 
 {{< file-excerpt "/etc/postfix/master.cf" >}}
-        #
-        # Postfix master process configuration file.  For details on the format
-        # of the file, see the master(5) manual page (command: "man 5 master").
-        #
-        # Do not forget to execute "postfix reload" after editing this file.
-        #
-        # ==========================================================================
-        # service type  private unpriv  chroot  wakeup  maxproc command + args
-        #               (yes)   (yes)   (yes)   (never) (100)
-        # ==========================================================================
-        smtp      inet  n       -       -       -       -       smtpd
-        #smtp      inet  n       -       -       -       1       postscreen
-        #smtpd     pass  -       -       -       -       -       smtpd
-        #dnsblog   unix  -       -       -       -       0       dnsblog
-        #tlsproxy  unix  -       -       -       -       0       tlsproxy
-        submission inet n       -       -       -       -       smtpd
-          -o syslog_name=postfix/submission
-          -o smtpd_tls_security_level=encrypt
-          -o smtpd_sasl_auth_enable=yes
-          -o smtpd_client_restrictions=permit_sasl_authenticated,reject
-          -o milter_macro_daemon_name=ORIGINATING
-        smtps     inet  n       -       -       -       -       smtpd
-          -o syslog_name=postfix/smtps
-          -o smtpd_tls_wrappermode=yes
-          -o smtpd_sasl_auth_enable=yes
-          -o smtpd_client_restrictions=permit_sasl_authenticated,reject
-          -o milter_macro_daemon_name=ORIGINATING
+#
+# Postfix master process configuration file.  For details on the format
+# of the file, see the master(5) manual page (command: "man 5 master").
+#
+# Do not forget to execute "postfix reload" after editing this file.
+#
+# ==========================================================================
+# service type  private unpriv  chroot  wakeup  maxproc command + args
+#               (yes)   (yes)   (yes)   (never) (100)
+# ==========================================================================
+smtp      inet  n       -       -       -       -       smtpd
+#smtp      inet  n       -       -       -       1       postscreen
+#smtpd     pass  -       -       -       -       -       smtpd
+#dnsblog   unix  -       -       -       -       0       dnsblog
+#tlsproxy  unix  -       -       -       -       0       tlsproxy
+submission inet n       -       -       -       -       smtpd
+  -o syslog_name=postfix/submission
+  -o smtpd_tls_security_level=encrypt
+  -o smtpd_sasl_auth_enable=yes
+  -o smtpd_client_restrictions=permit_sasl_authenticated,reject
+  -o milter_macro_daemon_name=ORIGINATING
+smtps     inet  n       -       -       -       -       smtpd
+  -o syslog_name=postfix/smtps
+  -o smtpd_tls_wrappermode=yes
+  -o smtpd_sasl_auth_enable=yes
+  -o smtpd_client_restrictions=permit_sasl_authenticated,reject
+  -o milter_macro_daemon_name=ORIGINATING
+
 {{< /file-excerpt >}}
 
 
@@ -264,68 +272,70 @@ This completes the configuration for Postfix.
 2.  Copy the following into the now-empty `dovecot.conf` file. Substitute your system's domain name for `example.com` in line 37, and your ssl key and certificate, if any, on lines 5 and 6:
 
 {{< file "/etc/dovecot/dovecot.conf" >}}
-        protocols = imap pop3
-        log_timestamp = "%Y-%m-%d %H:%M:%S "
-        mail_location = maildir:/home/vmail/%d/%n/Maildir
+protocols = imap pop3
+log_timestamp = "%Y-%m-%d %H:%M:%S "
+mail_location = maildir:/home/vmail/%d/%n/Maildir
 
-        ssl_cert = </etc/pki/dovecot/certs/dovecot.pem
-        ssl_key = </etc/pki/dovecot/private/dovecot.pem
+ssl_cert = </etc/pki/dovecot/certs/dovecot.pem
+ssl_key = </etc/pki/dovecot/private/dovecot.pem
 
-        namespace {
-            type = private
-            separator = .
-            prefix = INBOX.
-            inbox = yes
-        }
+namespace {
+    type = private
+    separator = .
+    prefix = INBOX.
+    inbox = yes
+}
 
-        service auth {
-            unix_listener auth-master {
-                mode = 0600
-                user = vmail
-            }
+service auth {
+    unix_listener auth-master {
+        mode = 0600
+        user = vmail
+    }
 
-            unix_listener /var/spool/postfix/private/auth {
-                mode = 0666
-                user = postfix
-                group = postfix
-            }
+    unix_listener /var/spool/postfix/private/auth {
+        mode = 0666
+        user = postfix
+        group = postfix
+    }
 
-        user = root
-        }
+user = root
+}
 
-        service auth-worker {
-            user = root
-        }
+service auth-worker {
+    user = root
+}
 
-        protocol lda {
-            log_path = /home/vmail/dovecot-deliver.log
-            auth_socket_path = /var/run/dovecot/auth-master
-            postmaster_address = postmaster@example.com
-        }
+protocol lda {
+    log_path = /home/vmail/dovecot-deliver.log
+    auth_socket_path = /var/run/dovecot/auth-master
+    postmaster_address = postmaster@example.com
+}
 
-        protocol pop3 {
-            pop3_uidl_format = %08Xu%08Xv
-        }
+protocol pop3 {
+    pop3_uidl_format = %08Xu%08Xv
+}
 
-        passdb {
-            driver = sql
-            args = /etc/dovecot/dovecot-sql.conf.ext
-        }
+passdb {
+    driver = sql
+    args = /etc/dovecot/dovecot-sql.conf.ext
+}
 
-        userdb {
-            driver = static
-            args = uid=5000 gid=5000 home=/home/vmail/%d/%n allow_all_users=yes
-        }
+userdb {
+    driver = static
+    args = uid=5000 gid=5000 home=/home/vmail/%d/%n allow_all_users=yes
+}
+
 {{< /file >}}
 
 
 3.  MariaDB will be used to store password information, so `/etc/dovecot/dovecot-sql.conf.ext` must be created. Insert the following contents into the file, making sure to replace `mail_admin_password` with your mail password:
 
 {{< file "/etc/dovecot/dovecot-sql.conf.ext" >}}
-        driver = mysql
-        connect = host=127.0.0.1 dbname=mail user=mail_admin password=mail_admin_password
-        default_pass_scheme = CRYPT
-        password_query = SELECT email as user, password FROM users WHERE email='%u';
+driver = mysql
+connect = host=127.0.0.1 dbname=mail user=mail_admin password=mail_admin_password
+default_pass_scheme = CRYPT
+password_query = SELECT email as user, password FROM users WHERE email='%u';
+
 {{< /file >}}
 
 
@@ -342,9 +352,10 @@ This completes the configuration for Postfix.
 6.  Now check `/var/log/maillog` to make sure Dovecot started without errors. Your log should have lines similar to the following:
 
 {{< file-excerpt "/var/log/maillog" >}}
-        Mar 18 17:10:26 localhost postfix/postfix-script[3274]: starting the Postfix mail system
-        Mar 18 17:10:26 localhost postfix/master[3276]: daemon started -- version 2.10.1, configuration /etc/postfix
-        Mar 18 17:12:28 localhost dovecot: master: Dovecot v2.2.10 starting up for imap, pop3 (core dumps disabled)
+Mar 18 17:10:26 localhost postfix/postfix-script[3274]: starting the Postfix mail system
+Mar 18 17:10:26 localhost postfix/master[3276]: daemon started -- version 2.10.1, configuration /etc/postfix
+Mar 18 17:12:28 localhost dovecot: master: Dovecot v2.2.10 starting up for imap, pop3 (core dumps disabled)
+
 {{< /file-excerpt >}}
 
 
@@ -367,8 +378,9 @@ This completes the configuration for Postfix.
 1.  Edit the file `/etc/aliases`, making sure the `postmaster` and `root` directives are set properly for your organization:
 
 {{< file "/etc/aliases" >}}
-        postmaster: root
-        root: postmaster@example.com
+postmaster: root
+root: postmaster@example.com
+
 {{< /file >}}
 
 
@@ -444,17 +456,19 @@ After the test mail is sent, check the mail logs to make sure the mail was deliv
 1.  Check the `maillog` located in `/var/log/maillog`. You should see something similar to the following:
 
 {{< file-excerpt "/var/log/maillog" >}}
-        Mar 18 17:18:47 localhost postfix/cleanup[3427]: B624062FA: message-id=<20150318171847.B624062FA@example.com>
-        Mar 18 17:18:47 localhost postfix/qmgr[3410]: B624062FA: from=<root@example.com>, size=515, nrcpt=1 (queue active)
-        Mar 18 17:18:47 localhost postfix/pipe[3435]: B624062FA: to=<sales@example.com>, relay=dovecot, delay=0.14, delays=0.04/0.01/0/0.09, dsn=2.0.0, $
-        Mar 18 17:18:47 localhost postfix/qmgr[3410]: B624062FA: removed
+Mar 18 17:18:47 localhost postfix/cleanup[3427]: B624062FA: message-id=<20150318171847.B624062FA@example.com>
+Mar 18 17:18:47 localhost postfix/qmgr[3410]: B624062FA: from=<root@example.com>, size=515, nrcpt=1 (queue active)
+Mar 18 17:18:47 localhost postfix/pipe[3435]: B624062FA: to=<sales@example.com>, relay=dovecot, delay=0.14, delays=0.04/0.01/0/0.09, dsn=2.0.0, $
+Mar 18 17:18:47 localhost postfix/qmgr[3410]: B624062FA: removed
+
 {{< /file-excerpt >}}
 
 
 2.  Check the Dovecot delivery log located in `/home/vmail/dovecot-deliver.log`. The contents should look similar to the following:
 
 {{< file-excerpt "/home/vmail/dovecot-deliver.log" >}}
-        deliver(<sales@example.com>): 2011-01-21 20:03:19 Info: msgid=<<20110121200319.E1D148908@hostname.example.com>>: saved mail to INBOX
+deliver(<sales@example.com>): 2011-01-21 20:03:19 Info: msgid=<<20110121200319.E1D148908@hostname.example.com>>: saved mail to INBOX
+
 {{< /file-excerpt >}}
 
 

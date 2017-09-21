@@ -70,14 +70,15 @@ To completely stop or start the service, replace `reload` with `start` or `stop`
 This section showcases an excerpt from the beginning of the default configuration file, `/etc/nginx/nginx.conf`:
 
 {{< file-excerpt "/etc/nginx/nginx.conf" >}}
-    user www-data;
-    worker_processes 4;
-    pid /run/nginx.pid;
+user www-data;
+worker_processes 4;
+pid /run/nginx.pid;
 
-    events {
-            worker_connections 768;
-            # multi_accept on;
-    }
+events {
+        worker_connections 768;
+        # multi_accept on;
+}
+
 {{< /file-excerpt >}}
 
 Normally, you will not need to change anything in this first section. Instead, we'll use this as an opportunity to explain the syntax of the configuration file.
@@ -125,38 +126,39 @@ pid
 The next section of the `nginx.conf` file covers the universal directives for nginx as it handles HTTP web traffic. The first part of the HTTP block is shown below:
 
 {{< file-excerpt "/etc/nginx/nginx.conf" nginx >}}
-    http {
+http {
 
-        ##
-        # Basic Settings
-        ##
+    ##
+    # Basic Settings
+    ##
 
-        sendfile on;
-        tcp_nopush on;
-        tcp_nodelay on;
-        keepalive_timeout 65;
-        types_hash_max_size 2048;
-        # server_tokens off;
+    sendfile on;
+    tcp_nopush on;
+    tcp_nodelay on;
+    keepalive_timeout 65;
+    types_hash_max_size 2048;
+    # server_tokens off;
 
-        # server_names_hash_bucket_size 64;
-        # server_name_in_redirect off;
+    # server_names_hash_bucket_size 64;
+    # server_name_in_redirect off;
 
-        include /etc/nginx/mime.types;
-        default_type application/octet-stream;
+    include /etc/nginx/mime.types;
+    default_type application/octet-stream;
 
-        ##
-        # Logging Settings
-        ##
+    ##
+    # Logging Settings
+    ##
 
-        access_log /var/log/nginx/access.log;
-        error_log /var/log/nginx/error.log;
+    access_log /var/log/nginx/access.log;
+    error_log /var/log/nginx/error.log;
 
-        ##
-        # Gzip Settings
-        ##
+    ##
+    # Gzip Settings
+    ##
 
-        gzip on;
-        gzip_disable "msie6";
+    gzip on;
+    gzip_disable "msie6";
+
 {{< /file-excerpt >}}
 
 
@@ -176,12 +178,13 @@ gzip
 :   The `gzip` directive tells the server to use on-the-fly gzip compression to limit the amount of bandwidth used and speed up some transfers. This is equivalent to Apache's `mod_deflate`. Additional settings can be uncommented in this section of the http block to modify the gzip behavior:
 
 {{< file-excerpt "/etc/nginx/nginx.conf" nginx >}}
-        # gzip_vary on;
-        # gzip_proxied any;
-        # gzip_comp_level 6;
-        # gzip_buffers 16 8k;
-        # gzip_http_version 1.1;
-        # gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+# gzip_vary on;
+# gzip_proxied any;
+# gzip_comp_level 6;
+# gzip_buffers 16 8k;
+# gzip_http_version 1.1;
+# gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+
 {{< /file-excerpt >}}
 
 
@@ -202,24 +205,25 @@ The HTTP block of the `nginx.conf` file contains the statement `include /etc/ngi
 Now let's go over the directives and settings that make up the `server` block:
 
 {{< file-excerpt "/etc/nginx/sites-available/default" nginx >}}
-    server {
-            listen 80 default_server;
-            listen [::]:80 default_server ipv6only=on;
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server ipv6only=on;
 
-            root /usr/share/nginx/html;
-            index index.html index.htm;
+        root /usr/share/nginx/html;
+        index index.html index.htm;
 
-            # Make site accessible from http://localhost/
-            server_name localhost;
+        # Make site accessible from http://localhost/
+        server_name localhost;
 
-            location / {
-                    # First attempt to serve request as file, then
-                    # as directory, then fall back to displaying a 404.
-                    try_files $uri $uri/ /index.html;
-                    # Uncomment to enable naxsi on this location
-                    # include /etc/nginx/naxsi.rules
-            }
-    }
+        location / {
+                # First attempt to serve request as file, then
+                # as directory, then fall back to displaying a 404.
+                try_files $uri $uri/ /index.html;
+                # Uncomment to enable naxsi on this location
+                # include /etc/nginx/naxsi.rules
+        }
+}
+
 {{< /file-excerpt >}}
 
 
@@ -236,51 +240,57 @@ You can use more than one `listen` directive, if needed.
 {{< /note >}}
 
 {{< file-excerpt "/etc/nginx/sites-available/default" nginx >}}
-    listen 80 default_server;
-    listen [::]:80 default_server ipv6only=on;
+listen 80 default_server;
+listen [::]:80 default_server ipv6only=on;
+
 {{< /file-excerpt >}}
 
 
 These are the default listen statements in the default virtual host file. The argument `default_server` means this virtual host will answer requests on port 80 that don't specifically match another virtual host's listen statement. The second statement listens over IPv6 and behaves in the same way.
 
 {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
-    listen     127.0.0.1:80;
-    listen     localhost:80;
+listen     127.0.0.1:80;
+listen     localhost:80;
+
 {{< /file-excerpt >}}
 
 
 These two examples direct nginx to listen on `127.0.0.1`; that is, the local loopback interface. `localhost` is conventionally set as the hostname for `127.0.0.1` in `/etc/hosts`.
 
 {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
-    listen     127.0.0.1:8080;
-    listen     localhost:8080;
+listen     127.0.0.1:8080;
+listen     localhost:8080;
+
 {{< /file-excerpt >}}
 
 
 The third pair of examples also listen on localhost, but they listen for responses on port `8080` instead of port `80`.
 
 {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
-    listen     192.168.3.105:80;
-    listen     192.168.3.105:8080;
+listen     192.168.3.105:80;
+listen     192.168.3.105:8080;
+
 {{< /file-excerpt >}}
 
 
 The fourth pair of examples specify a server listening for requests on the IP address `192.168.3.105`. The first listens on port `80` and the second on port `8080`.
 
 {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
-    listen     80;
-    listen     *:80;
-    listen     8080;
-    listen     *:8080;
+listen     80;
+listen     *:80;
+listen     8080;
+listen     *:8080;
+
 {{< /file-excerpt >}}
 
 
 The fifth set of examples tell nginx to listen on *all* domains and IP addresses on a specific port. `listen 80;` is equivalent to `listen *:80;`, and `listen 8080;` is equivalent to `listen *:8080;`.
 
 {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
-    listen     12.34.56.77:80;
-    listen     12.34.56.78:80;
-    listen     12.34.56.79:80;
+listen     12.34.56.77:80;
+listen     12.34.56.78:80;
+listen     12.34.56.79:80;
+
 {{< /file-excerpt >}}
 
 
@@ -295,43 +305,49 @@ Typically, you will want to create one file per domain you want to host on your 
 Next we'll present a few common examples for the `server_name` directive:
 
 {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
-    server_name   example.com;
+server_name   example.com;
+
 {{< /file-excerpt >}}
 
 
 The example above directs nginx to process requests for `example.com`. This is the most basic configuration.
 
 {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
-    server_name   example.com www.example.com;
+server_name   example.com www.example.com;
+
 {{< /file-excerpt >}}
 
 
 The second example instructs the server to process requests for both `example.com` and `www.example.com`.
 
 {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
-    server_name   *.example.com;
-    server_name   .example.com;
+server_name   *.example.com;
+server_name   .example.com;
+
 {{< /file-excerpt >}}
 
 
 These two examples are equivalent. `*.example.com` and `.example.com` both instruct the server to process requests for all subdomains of `example.com`, including `www.example.com`, `foo.example.com`, etc.
 
 {{< file-excerpt "/etc/nginx/sites-available/example" nginx >}}
-    server_name   example.*;
+server_name   example.*;
+
 {{< /file-excerpt >}}
 
 
 The fourth example instructs the server to process requests for all domain names beginning with `example.`, including `example.com`, `example.org`, `example.net`, `example.foo.com`, etc.
 
 {{< file-excerpt "/etc/nginx/sites-available/multi-list" nginx >}}
-    server_name   example.com linode.com icann.org;
+server_name   example.com linode.com icann.org;
+
 {{< /file-excerpt >}}
 
 
 The fifth example instructs the server to process requests for three different domain names. Note that any combination of domain names can be listed in a single `server_name` directive.
 
 {{< file-excerpt "/etc/nginx/sites-available/local" nginx >}}
-    server_name   localhost linode galloway;
+server_name   localhost linode galloway;
+
 {{< /file-excerpt >}}
 
 
@@ -340,7 +356,8 @@ nginx allows you to specify names for virtual hosts that are not valid domain na
 Using non-domain hostnames may be useful if your nginx server is deployed on a LAN, or if you already know all of the clients that will be making requests of the server. This includes front-end proxy servers that preconfigured `/etc/hosts` entries for the IP address on which nginx is listening.
 
 {{< file-excerpt "/etc/nginx/sites-available/catchall" nginx >}}
-    server_name   "";
+server_name   "";
+
 {{< /file-excerpt >}}
 
 
@@ -357,21 +374,24 @@ The `access_log` directive can be set in the `http` block in `nginx.conf` or in 
 You can use a path relative to the current directory:
 
 {{< file-excerpt "/etc/nginx/nginx.conf" nginx >}}
-    access_log logs/example.access.log;
+access_log logs/example.access.log;
+
 {{< /file-excerpt >}}
 
 
 Or, you can use a full path:
 
 {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
-    access_log /srv/www/example.com/logs/access.log;
+access_log /srv/www/example.com/logs/access.log;
+
 {{< /file-excerpt >}}
 
 
 You can also disable the access log, although this is not recommended:
 
 {{< file-excerpt "/etc/nginx/nginx.conf" nginx >}}
-    access_log off;
+access_log off;
+
 {{< /file-excerpt >}}
 
 
@@ -388,11 +408,12 @@ You can have more than one location directive.
 Here are a few examples:
 
 {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
-    location / { }
-    location /images/ { }
-    location /blog/ { }
-    location /planet/ { }
-    location /planet/blog/ { }
+location / { }
+location /images/ { }
+location /blog/ { }
+location /planet/ { }
+location /planet/blog/ { }
+
 {{< /file-excerpt >}}
 
 
@@ -409,30 +430,34 @@ nginx always fulfills request using the most specific match. So, for example:
 **Returns:** This is fulfilled by the `location /planet/blog/` setting because it is more specific, even though `location /planet/` also matches this request.
 
 {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
-    location ~ IndexPage\.php$ { }
-    location ~ ^/BlogPlanet(/|/index\.php)$ { }
+location ~ IndexPage\.php$ { }
+location ~ ^/BlogPlanet(/|/index\.php)$ { }
+
 {{< /file-excerpt >}}
 
 
 When a `location` directive is followed by a tilde (**~**), nginx performs a *regular expression* match. These matches are always case-sensitive. So, `IndexPage.php` would match the first example above, but `indexpage.php` would not. In the second example, the regular expression `^/BlogPlanet(/|index\.php)$` will match requests for `/BlogPlanet/` and `/BlogPlanet/index.php`, but **not** `/BlogPlanet`, `/blogplanet/`, or `/blogplanet/index.php`. nginx uses [Perl Compatible Regular Expressions](http://perldoc.perl.org/perlre.html) (PCRE).
 
 {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
-    location ~* \.(pl|cgi|perl|prl)$ { }
-    location ~* \.(md|mdwn|txt|mkdn)$ { }
+location ~* \.(pl|cgi|perl|prl)$ { }
+location ~* \.(md|mdwn|txt|mkdn)$ { }
+
 {{< /file-excerpt >}}
 
 
 If you want matches to be case-*insensitive*, use a tilde with an asterisk (**~***). The examples above all specify how nginx should process requests that end in a particular file extension. In the first example, any file ending in: `.pl`, `.PL`, `.cgi`, `.CGI`, `.perl`, `.Perl`, `.prl`, and `.PrL` (among others) will match the request.
 
 {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
-    location ^~ /images/IndexPage/ { }
-    location ^~ /blog/BlogPlanet/ { }
+location ^~ /images/IndexPage/ { }
+location ^~ /blog/BlogPlanet/ { }
+
 {{< /file-excerpt >}}
 
 Adding a caret and tilde (**^~**) to your `location` directives tells nginx, if it makes a match for a particular string, to stop searching for more specific matches and use the directives here instead. Other than that, these directives work like the literal string matches in the first group. So, even if there's a more specific match later, if a request matches one of these directives, the settings here will be used. See below for more information about the order and priority of `location` directive processing.
 
 {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
-    location = / { }
+location = / { }
+
 {{< /file-excerpt >}}
 
 
@@ -458,10 +483,11 @@ The `location` setting is another variable that has its own block of arguments.
 Once nginx has determined which `location` directive best matches a given request, the response to this request is determined by the contents of the associated `location` directive block. Here's an example:
 
 {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
-    location / {
-        root html;
-        index index.html index.htm;
-    }
+location / {
+    root html;
+    index index.html index.htm;
+}
+
 {{< /file-excerpt >}}
 
 
@@ -486,18 +512,19 @@ If multiple files are specified for the `index` directive, nginx will process th
 Here's a more complex example, showcasing a set of `location` directives taken approximately from the [nginx and Perl-FastCGI Guide](/docs/web-servers/nginx/perl-fastcgi/debian-6-squeeze) for a server responding for the domain `example.com`:
 
 {{< file-excerpt "/etc/nginx/sites-available/example.com location directive" nginx >}}
-    location / {
-        root   /srv/www/example.com/public_html;
-        index  index.html index.htm;
-    }
+location / {
+    root   /srv/www/example.com/public_html;
+    index  index.html index.htm;
+}
 
-    location ~ \.pl$ {
-        gzip off;
-        include /etc/nginx/fastcgi_params;
-        fastcgi_pass unix:/var/run/fcgiwrap.socket;
-        fastcgi_index index.pl;
-        fastcgi_param SCRIPT_FILENAME /srv/www/www.example.com/public_html$fastcgi_script_name;
-    }
+location ~ \.pl$ {
+    gzip off;
+    include /etc/nginx/fastcgi_params;
+    fastcgi_pass unix:/var/run/fcgiwrap.socket;
+    fastcgi_index index.pl;
+    fastcgi_param SCRIPT_FILENAME /srv/www/www.example.com/public_html$fastcgi_script_name;
+}
+
 {{< /file-excerpt >}}
 
 
@@ -530,13 +557,14 @@ The examples and explanations in the previous sections should help you learn to 
 -   Use `include` statements in the main `nginx.conf` configuration to include each server configuration file. These include statements go in the `http { }` block of the main configuration file:
 
 {{< file-excerpt "/etc/nginx/nginx.conf" nginx >}}
-    http {
-          # [...]
+http {
+      # [...]
 
-          include /srv/www/example.com/nginx.conf;
+      include /srv/www/example.com/nginx.conf;
 
-          # [...]
-    }
+      # [...]
+}
+
 {{< /file-excerpt >}}
 
 

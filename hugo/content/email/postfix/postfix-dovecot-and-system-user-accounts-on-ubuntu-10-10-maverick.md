@@ -52,17 +52,19 @@ SASL Authentication
 Edit the `/etc/default/saslauthd` file to allow the SASL authentication daemon to start. Uncomment or add the following line:
 
 {{< file-excerpt "/etc/default/saslauthd" ini >}}
-    START=yes
+START=yes
+
 {{< /file-excerpt >}}
 
 
 Create the `/etc/postfix/sasl/smtpd.conf` file, and insert the following line:
 
 {{< file "/etc/postfix/sasl/smtpd.conf" ini >}}
-    smtpd_tls_cert_file=/etc/ssl/postfix.pem
-    smtpd_tls_key_file=/etc/ssl/postfix.key
+smtpd_tls_cert_file=/etc/ssl/postfix.pem
+smtpd_tls_key_file=/etc/ssl/postfix.key
 
-    smtpd_sasl_application_name = smtpd
+smtpd_sasl_application_name = smtpd
+
 {{< /file >}}
 
 
@@ -81,9 +83,10 @@ Consider the [basic email gateway guide](/docs/email/postfix/gateway-ubuntu-10.1
 The above Postfix configuration makes it possible to *send* mail using Postfix. If your server receives email, Postfix requires additional configuration to deliver mail locally. Edit the `main.cf` file to insert or modify the following configuration directives:
 
 {{< file-excerpt "/etc/postfix/main.cf" ini >}}
-    myhostname = lollipop.example.com
-    virtual_alias_maps = hash:/etc/postfix/virtual
-    home_mailbox = mail/
+myhostname = lollipop.example.com
+virtual_alias_maps = hash:/etc/postfix/virtual
+home_mailbox = mail/
+
 {{< /file-excerpt >}}
 
 
@@ -98,7 +101,8 @@ Every existing user that receives email will also need to make their own `Maildi
 Create a `/etc/postfix/virtual` file to map incoming email addresses to their destinations. Consider the following example:
 
 {{< file "/etc/postfix/virtual" ini >}}
-    protocols = imap imaps pop3 pop3s mangesieve
+protocols = imap imaps pop3 pop3s mangesieve
+
 {{< /file >}}
 
 
@@ -107,15 +111,17 @@ The `protocols` directive enables `imap` and `pop3` services within Dovecot alon
 Edit and modify the following lines in the `/etc/dovecot/conf.d/01-dovecot-postfix.conf` file to configure Dovecot to use the SSL certificates you generated earlier:
 
 {{< file-excerpt "/etc/dovecot/conf.d/01-dovecot-postfix.conf" ini >}}
-    ssl_cert_file = /etc/ssl/postfix.pem
-    ssl_key_file = /etc/ssl/postfix.key
+ssl_cert_file = /etc/ssl/postfix.pem
+ssl_key_file = /etc/ssl/postfix.key
+
 {{< /file-excerpt >}}
 
 
 You may replace the files specified with another `.pem` and `.key` file generated for another service, if needed. Modify the `mail_location` directive as follows so that Dovecot can interact properly with your Maildirs:
 
 {{< file-excerpt "dovecot.conf" ini >}}
-    mail_location = maildir:~/mail:LAYOUT=fs
+mail_location = maildir:~/mail:LAYOUT=fs
+
 {{< /file-excerpt >}}
 
 

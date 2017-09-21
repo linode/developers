@@ -64,9 +64,10 @@ Instead of installing Apache, MySQL, and PHP separately, tasksel offers a conven
     The state of `KeepAlive` depends on the type of site you plan to run. Please read more about your specific use-case [here](https://httpd.apache.org/docs/2.4/mod/core.html#keepalive) open the Apache config file, `apache2.conf`, and adjust the `KeepAlive` setting:
 
 {{< file "/etc/apache2/apache2.conf" aconf >}}
-        KeepAlive On
-        MaxKeepAliveRequests 50
-        KeepAliveTimeout 5
+KeepAlive On
+MaxKeepAliveRequests 50
+KeepAliveTimeout 5
+
 {{< /file >}}
 
 
@@ -77,13 +78,14 @@ The `MaxKeepAliveRequests` setting controls the maximum number of requests durin
 3.  The default *multi-processing module* (MPM) is the **prefork** module. `Mpm_prefork` is the module that is compatible with most systems. Since the LAMP stack requires PHP, it may be best to stick with the default. Open the `mpm_prefork.conf` file located in `/etc/apache2/mods-available` and edit the configuration. Below are the suggested values for a **2GB Linode**:
 
 {{< file "/etc/apache2/mods-available/mpm_prefork.conf" aconf >}}
-        <IfModule mpm_prefork_module>
-                StartServers            4
-                MinSpareServers         3
-                MaxSpareServers         40
-                MaxRequestWorkers       200
-                MaxConnectionsPerChild  10000
-        </IfModule>
+<IfModule mpm_prefork_module>
+        StartServers            4
+        MinSpareServers         3
+        MaxSpareServers         40
+        MaxRequestWorkers       200
+        MaxConnectionsPerChild  10000
+</IfModule>
+
 {{< /file >}}
 
 
@@ -107,19 +109,20 @@ You can set up virtual hosts several ways; however, below is the recommended met
 2.  Edit the new `example.com.conf` configuration file by uncommenting `ServerName` and replacing `example.com` with your site's IP or Fully Qualified Domain Name (FQDN). Enter the document root path and log directories as shown below, and add a `Directory` block before `</VirtualHost>`:
 
 {{< file "/etc/apache2/sites-available/example.com.conf" apache >}}
-        <Directory /var/www/html/example.com/public_html>
-                Require all granted
-        </Directory>
-        <VirtualHost *:80>
-                ServerName example.com
-                ServerAlias www.example.com
-                ServerAdmin webmaster@localhost
-                DocumentRoot /var/www/html/example.com/public_html
+<Directory /var/www/html/example.com/public_html>
+        Require all granted
+</Directory>
+<VirtualHost *:80>
+        ServerName example.com
+        ServerAlias www.example.com
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/html/example.com/public_html
 
-                ErrorLog /var/www/html/example.com/logs/error.log
-                CustomLog /var/www/html/example.com/logs/access.log combined
+        ErrorLog /var/www/html/example.com/logs/error.log
+        CustomLog /var/www/html/example.com/logs/access.log combined
 
-        </VirtualHost>
+</VirtualHost>
+
 {{< /file >}}
 
 
@@ -197,9 +200,10 @@ Install the `mysql-server` package and choose a secure password when prompted:
 2.  Once PHP7.0 is installed, edit the configuration file located in `/etc/php/7.0/apache2/php.ini` to enable more descriptive errors, logging, and better performance. The following modifications provide a good starting point:
 
 {{< file-excerpt "/etc/php/7.0/apache2/php.ini" ini >}}
-        max_input_time = 30
-        error_reporting = E_COMPILE_ERROR | E_RECOVERABLE_ERROR | E_ERROR | E_CORE_ERROR
-        error_log = /var/log/php/error.log
+max_input_time = 30
+error_reporting = E_COMPILE_ERROR | E_RECOVERABLE_ERROR | E_ERROR | E_CORE_ERROR
+error_log = /var/log/php/error.log
+
 {{< /file-excerpt >}}
 
 
@@ -228,29 +232,30 @@ In this section, you'll create a test page that shows whether Apache can render 
 1.  Paste the following code into a new file, `phptest.php`, in the `public_html` directory. Modify `webuser` and `password` to match the information entered in the **Create a MySQL Database** section above:
 
 {{< file-excerpt "/var/www/html/example.com/public_html/phptest.php" php >}}
-        <html>
-        <head>
-            <title>PHP Test</title>
-        </head>
-            <body>
-            <?php echo '<p>Hello World</p>';
+<html>
+<head>
+    <title>PHP Test</title>
+</head>
+    <body>
+    <?php echo '<p>Hello World</p>';
 
-            // In the variables section below, replace user and password with your own MySQL credentials as created on your server
-            $servername = "localhost";
-            $username = "webuser";
-            $password = "password";
+    // In the variables section below, replace user and password with your own MySQL credentials as created on your server
+    $servername = "localhost";
+    $username = "webuser";
+    $password = "password";
 
-            // Create MySQL connection
-            $conn = mysqli_connect($servername, $username, $password);
+    // Create MySQL connection
+    $conn = mysqli_connect($servername, $username, $password);
 
-            // Check connection - if it fails, output will include the error message
-            if (!$conn) {
-                die('<p>Connection failed: <p>' . mysqli_connect_error());
-            }
-            echo '<p>Connected successfully</p>';
-            ?>
-        </body>
-        </html>
+    // Check connection - if it fails, output will include the error message
+    if (!$conn) {
+        die('<p>Connection failed: <p>' . mysqli_connect_error());
+    }
+    echo '<p>Connected successfully</p>';
+    ?>
+</body>
+</html>
+
 {{< /file-excerpt >}}
 
 

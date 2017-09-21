@@ -33,15 +33,16 @@ OpenVPN's server-side configuration file is `/etc/openvpn/server.conf`, and it r
 1.  Set OpenVPN to push a gateway configuration so all clients send internet traffic through it.
 
 {{< file-excerpt "/etc/openvpn/server.conf" aconf >}}
-        # If enabled, this directive will configure
-        # all clients to redirect their default
-        # network gateway through the VPN, causing
-        # all IP traffic such as web browsing and
-        # and DNS lookups to go through the VPN
-        # (The OpenVPN server machine may need to NAT
-        # or bridge the TUN/TAP interface to the internet
-        # in order for this to work properly).
-        push "redirect-gateway def1 bypass-dhcp"
+# If enabled, this directive will configure
+# all clients to redirect their default
+# network gateway through the VPN, causing
+# all IP traffic such as web browsing and
+# and DNS lookups to go through the VPN
+# (The OpenVPN server machine may need to NAT
+# or bridge the TUN/TAP interface to the internet
+# in order for this to work properly).
+push "redirect-gateway def1 bypass-dhcp"
+
 {{< /file-excerpt >}}
 
 
@@ -52,14 +53,15 @@ OpenVPN's server-side configuration file is `/etc/openvpn/server.conf`, and it r
     If using the options below to push DNS resolvers to VPN clients, you can disable the Google DNS fallback on your clients (or leave it enabled as the fallback it was intended to be). [OpenDNS](https://www.opendns.com/) is provided by default but you can change this to your preference.
 
 {{< file-excerpt "/etc/openvpn/server.conf" aconf >}}
-        # Certain Windows-specific network settings
-        # can be pushed to clients, such as DNS
-        # or WINS server addresses.  CAVEAT:
-        # http://openvpn.net/faq.html#dhcpcaveats
-        # The addresses below refer to the public
-        # DNS servers provided by opendns.com.
-        push "dhcp-option DNS 208.67.222.222"
-        push "dhcp-option DNS 208.67.220.220"
+# Certain Windows-specific network settings
+# can be pushed to clients, such as DNS
+# or WINS server addresses.  CAVEAT:
+# http://openvpn.net/faq.html#dhcpcaveats
+# The addresses below refer to the public
+# DNS servers provided by opendns.com.
+push "dhcp-option DNS 208.67.222.222"
+push "dhcp-option DNS 208.67.220.220"
+
 {{< /file-excerpt >}}
 
 
@@ -84,60 +86,61 @@ The steps below will overwrite any custom IPv4 firewall rules you may have.
 2.  Create a new IPv4 rule file using the ruleset below. The path `/etc/iptables/rules.v4` assumes Debian or Ubuntu with `iptables-persistent` installed.
 
 {{< file "/etc/iptables/rules.v4" aconf >}}
-        *filter
+*filter
 
-        # Allow all loopback (lo) traffic and reject traffic
-        # to localhost that does not originate from lo.
-        -A INPUT -i lo -j ACCEPT
-        -A INPUT ! -i lo -s 127.0.0.0/8 -j REJECT
-        -A OUTPUT -o lo -j ACCEPT
+# Allow all loopback (lo) traffic and reject traffic
+# to localhost that does not originate from lo.
+-A INPUT -i lo -j ACCEPT
+-A INPUT ! -i lo -s 127.0.0.0/8 -j REJECT
+-A OUTPUT -o lo -j ACCEPT
 
-        # Allow ping and ICMP error returns.
-        -A INPUT -p icmp -m state --state NEW --icmp-type 8 -j ACCEPT
-        -A INPUT -p icmp -m state --state ESTABLISHED,RELATED -j ACCEPT
-        -A OUTPUT -p icmp -j ACCEPT
+# Allow ping and ICMP error returns.
+-A INPUT -p icmp -m state --state NEW --icmp-type 8 -j ACCEPT
+-A INPUT -p icmp -m state --state ESTABLISHED,RELATED -j ACCEPT
+-A OUTPUT -p icmp -j ACCEPT
 
-        # Allow SSH.
-        -A INPUT -i eth0 -p tcp -m state --state NEW,ESTABLISHED --dport 22 -j ACCEPT
-        -A OUTPUT -o eth0 -p tcp -m state --state ESTABLISHED --sport 22 -j ACCEPT
+# Allow SSH.
+-A INPUT -i eth0 -p tcp -m state --state NEW,ESTABLISHED --dport 22 -j ACCEPT
+-A OUTPUT -o eth0 -p tcp -m state --state ESTABLISHED --sport 22 -j ACCEPT
 
-        # Allow UDP traffic on port 1194.
-        -A INPUT -i eth0 -p udp -m state --state NEW,ESTABLISHED --dport 1194 -j ACCEPT
-        -A OUTPUT -o eth0 -p udp -m state --state ESTABLISHED --sport 1194 -j ACCEPT
+# Allow UDP traffic on port 1194.
+-A INPUT -i eth0 -p udp -m state --state NEW,ESTABLISHED --dport 1194 -j ACCEPT
+-A OUTPUT -o eth0 -p udp -m state --state ESTABLISHED --sport 1194 -j ACCEPT
 
-        # Allow DNS resolution and limited HTTP/S on eth0.
-        # Necessary for updating the server and keeping time.
-        -A INPUT -i eth0 -p udp -m state --state ESTABLISHED --sport 53 -j ACCEPT
-        -A OUTPUT -o eth0 -p udp -m state --state NEW,ESTABLISHED --dport 53 -j ACCEPT
-        -A INPUT -i eth0 -p tcp -m state --state ESTABLISHED --sport 53 -j ACCEPT
-        -A OUTPUT -o eth0 -p tcp -m state --state NEW,ESTABLISHED --dport 53 -j ACCEPT
+# Allow DNS resolution and limited HTTP/S on eth0.
+# Necessary for updating the server and keeping time.
+-A INPUT -i eth0 -p udp -m state --state ESTABLISHED --sport 53 -j ACCEPT
+-A OUTPUT -o eth0 -p udp -m state --state NEW,ESTABLISHED --dport 53 -j ACCEPT
+-A INPUT -i eth0 -p tcp -m state --state ESTABLISHED --sport 53 -j ACCEPT
+-A OUTPUT -o eth0 -p tcp -m state --state NEW,ESTABLISHED --dport 53 -j ACCEPT
 
-        -A INPUT -i eth0 -p tcp -m state --state ESTABLISHED --sport 80 -j ACCEPT
-        -A OUTPUT -o eth0 -p tcp -m state --state NEW,ESTABLISHED --dport 80 -j ACCEPT
-        -A INPUT -i eth0 -p tcp -m state --state ESTABLISHED --sport 443 -j ACCEPT
-        -A OUTPUT -o eth0 -p tcp -m state --state NEW,ESTABLISHED --dport 443 -j ACCEPT
+-A INPUT -i eth0 -p tcp -m state --state ESTABLISHED --sport 80 -j ACCEPT
+-A OUTPUT -o eth0 -p tcp -m state --state NEW,ESTABLISHED --dport 80 -j ACCEPT
+-A INPUT -i eth0 -p tcp -m state --state ESTABLISHED --sport 443 -j ACCEPT
+-A OUTPUT -o eth0 -p tcp -m state --state NEW,ESTABLISHED --dport 443 -j ACCEPT
 
-        # Allow traffic on the TUN interface.
-        -A INPUT -i tun0 -j ACCEPT
-        -A FORWARD -i tun0 -j ACCEPT
-        -A OUTPUT -o tun0 -j ACCEPT
+# Allow traffic on the TUN interface.
+-A INPUT -i tun0 -j ACCEPT
+-A FORWARD -i tun0 -j ACCEPT
+-A OUTPUT -o tun0 -j ACCEPT
 
-        # Allow forwarding traffic only from the VPN.
-        -A FORWARD -i tun0 -o eth0 -s 10.8.0.0/24 -j ACCEPT
-        -A FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT
+# Allow forwarding traffic only from the VPN.
+-A FORWARD -i tun0 -o eth0 -s 10.8.0.0/24 -j ACCEPT
+-A FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT
 
-        # Log any packets which don't fit the rules above...
-        # (optional but useful)
-        -A INPUT -m limit --limit 3/min -j LOG --log-prefix "iptables_INPUT_denied: " --log-level 4
-        -A FORWARD -m limit --limit 3/min -j LOG --log-prefix "iptables_FORWARD_denied: " --log-level 4
-        -A OUTPUT -m limit --limit 3/min -j LOG --log-prefix "iptables_OUTPUT_denied: " --log-level 4
+# Log any packets which don't fit the rules above...
+# (optional but useful)
+-A INPUT -m limit --limit 3/min -j LOG --log-prefix "iptables_INPUT_denied: " --log-level 4
+-A FORWARD -m limit --limit 3/min -j LOG --log-prefix "iptables_FORWARD_denied: " --log-level 4
+-A OUTPUT -m limit --limit 3/min -j LOG --log-prefix "iptables_OUTPUT_denied: " --log-level 4
 
-        # then reject them.
-        -A INPUT -j REJECT
-        -A FORWARD -j REJECT
-        -A OUTPUT -j REJECT
+# then reject them.
+-A INPUT -j REJECT
+-A FORWARD -j REJECT
+-A OUTPUT -j REJECT
 
-        COMMIT
+COMMIT
+
 {{< /file >}}
 
 

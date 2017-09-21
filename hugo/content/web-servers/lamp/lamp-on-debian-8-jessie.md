@@ -53,29 +53,31 @@ Prior to installing your LAMP stack ensure that:
 2.  Edit the main Apache configuration file and turn off the `KeepAlive` setting:
 
 {{< file "/etc/apache2/apache2.conf" aconf >}}
-        KeepAlive Off
+KeepAlive Off
+
 {{< /file >}}
 
 
 3.  Open `/etc/apache2/mods-available/mpm_prefork.conf` in your text editor and edit the values as needed. The following is optimized for a 2GB Linode:
 
 {{< file "/etc/apache2/mods-available/mpm_prefork.conf" aconf >}}
-        # prefork MPM
-        # StartServers: number of server processes to start
-        # MinSpareServers: minimum number of server processes which are kept spare
-        # MaxSpareServers: maximum number of server processes which are kept spare
-        # MaxRequestWorkers: maximum number of server processes allowed to start
-        # MaxConnectionsPerChild: maximum number of requests a server process serves
+# prefork MPM
+# StartServers: number of server processes to start
+# MinSpareServers: minimum number of server processes which are kept spare
+# MaxSpareServers: maximum number of server processes which are kept spare
+# MaxRequestWorkers: maximum number of server processes allowed to start
+# MaxConnectionsPerChild: maximum number of requests a server process serves
 
-        <IfModule mpm_prefork_module>
-                StartServers              4
-                MinSpareServers           20
-                MaxSpareServers           40
-                MaxRequestWorkers         200
-                MaxConnectionsPerChild    4500
-        </IfModule>
+<IfModule mpm_prefork_module>
+        StartServers              4
+        MinSpareServers           20
+        MaxSpareServers           40
+        MaxRequestWorkers         200
+        MaxConnectionsPerChild    4500
+</IfModule>
 
-        # vim: syntax=apache ts=4 sw=4 sts=4 sr noet
+# vim: syntax=apache ts=4 sw=4 sts=4 sr noet
+
 {{< /file >}}
 
 
@@ -107,28 +109,30 @@ There can be as many virtual hosts files as needed to support the amount of doma
 2.  Create an `example.com.conf` file in `/etc/apache2/sites-available` with your text editor, replacing instances of `example.com` with your own domain URL in both the configuration file and in the file name:
 
 {{< file "/etc/apache2/sites-available/example.com.conf" aconf >}}
-        <VirtualHost *:80>
-             ServerAdmin webmaster@example.com
-             ServerName example.com
-             ServerAlias www.example.com
-             DocumentRoot /var/www/html/example.com/public_html/
-             ErrorLog /var/www/html/example.com/logs/error.log
-             CustomLog /var/www/html/example.com/logs/access.log combined
-        </VirtualHost>
+<VirtualHost *:80>
+     ServerAdmin webmaster@example.com
+     ServerName example.com
+     ServerAlias www.example.com
+     DocumentRoot /var/www/html/example.com/public_html/
+     ErrorLog /var/www/html/example.com/logs/error.log
+     CustomLog /var/www/html/example.com/logs/access.log combined
+</VirtualHost>
+
 {{< /file >}}
 
 
     Repeat this process for any other domains you host:
 
 {{< file "/etc/apache2/sites-available/example.org.conf" aconf >}}
-        <VirtualHost *:80>
-             ServerAdmin webmaster@example.org     
-             ServerName example.org
-             ServerAlias www.example.org
-             DocumentRoot /var/www/html/example.org/public_html/
-             ErrorLog /var/www/html/example.org/logs/error.log
-             CustomLog /var/www/html/example.org/logs/access.log combined
-        </VirtualHost>
+<VirtualHost *:80>
+     ServerAdmin webmaster@example.org     
+     ServerName example.org
+     ServerAlias www.example.org
+     DocumentRoot /var/www/html/example.org/public_html/
+     ErrorLog /var/www/html/example.org/logs/error.log
+     CustomLog /var/www/html/example.org/logs/access.log combined
+</VirtualHost>
+
 {{< /file >}}
 
 
@@ -194,9 +198,10 @@ PHP makes it possible to produce dynamic and interactive pages using your own sc
 2.  Open `/etc/php5/apache2/php.ini` in your text editor, and edit the following values. These settings are optimized for the 2GB Linode:
 
 {{< file-excerpt "/etc/php5/apache2/php.ini" ini >}}
-        error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
-        error_log = /var/log/php/error.log  
-        max_input_time = 30
+error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
+error_log = /var/log/php/error.log  
+max_input_time = 30
+
 {{< /file-excerpt >}}
 
 

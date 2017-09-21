@@ -44,46 +44,47 @@ To access SquirrelMails's web interface, create and configure a copy of its defa
 2.  Edit the configuration file to uncomment the `<VirtualHost 1.2.3.4:80>` block by removing the pound symbol (`#`), as shown below. Edit the IP and ServerName to match your Linode and domain settings:
 
 {{< file "/etc/apache2/sites-available/squirrelmail" apache >}}
-        Alias /squirrelmail /usr/share/squirrelmail
+Alias /squirrelmail /usr/share/squirrelmail
 
-        <Directory /usr/share/squirrelmail>
-          Options FollowSymLinks
-          <IfModule mod_php5.c>
-            php_flag register_globals off
-          </IfModule>
-          <IfModule mod_dir.c>
-            DirectoryIndex index.php
-          </IfModule>
+<Directory /usr/share/squirrelmail>
+  Options FollowSymLinks
+  <IfModule mod_php5.c>
+    php_flag register_globals off
+  </IfModule>
+  <IfModule mod_dir.c>
+    DirectoryIndex index.php
+  </IfModule>
 
-          # access to configtest is limited by default to prevent information leak
-          <Files configtest.php>
-            order deny,allow
-            deny from all
-            allow from 127.0.0.1
-          </Files>
-        </Directory>
+  # access to configtest is limited by default to prevent information leak
+  <Files configtest.php>
+    order deny,allow
+    deny from all
+    allow from 127.0.0.1
+  </Files>
+</Directory>
 
-        # users will prefer a simple URL like http://webmail.example.com
-        <VirtualHost *:80>
-          DocumentRoot /usr/share/squirrelmail
-          ServerName squirrelmail.example.com
-        </VirtualHost>
+# users will prefer a simple URL like http://webmail.example.com
+<VirtualHost *:80>
+  DocumentRoot /usr/share/squirrelmail
+  ServerName squirrelmail.example.com
+</VirtualHost>
 
-        # redirect to https when available (thanks omen@descolada.dartmouth.edu)
-        #
-        #  Note: There are multiple ways to do this, and which one is suitable for
-        #  your site's configuration depends. Consult the apache documentation if
-        #  you're unsure, as this example might not work everywhere.
-        #
-        #<IfModule mod_rewrite.c>
-        #  <IfModule mod_ssl.c>
-        #    <Location /squirrelmail>
-        #      RewriteEngine on
-        #      RewriteCond %{HTTPS} !^on$ [NC]
-        #      RewriteRule . https://%{HTTP_HOST}%{REQUEST_URI}  [L]
-        #    </Location>
-        #  </IfModule>
-        #</IfModule>
+# redirect to https when available (thanks omen@descolada.dartmouth.edu)
+#
+#  Note: There are multiple ways to do this, and which one is suitable for
+#  your site's configuration depends. Consult the apache documentation if
+#  you're unsure, as this example might not work everywhere.
+#
+#<IfModule mod_rewrite.c>
+#  <IfModule mod_ssl.c>
+#    <Location /squirrelmail>
+#      RewriteEngine on
+#      RewriteCond %{HTTPS} !^on$ [NC]
+#      RewriteRule . https://%{HTTP_HOST}%{REQUEST_URI}  [L]
+#    </Location>
+#  </IfModule>
+#</IfModule>
+
 {{< /file >}}
 
 

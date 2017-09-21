@@ -58,16 +58,17 @@ Originally the `chef-repo` had to be pulled from GitHub using git commands, but 
 The `knife` command communicates between the `chef-repo` located on a workstation and the Chef server. `knife` is configured with the `knife.rb` file, and is used from the workstation:
 
 {{< file "~/chef-repo/.chef/knife.rb" ruby >}}
-	log_level                :info
-	log_location             STDOUT
-	node_name                'username'
-	client_key               '~/chef-repo/.chef/username.pem'
-	validation_client_name   'shortname-validator'
-	validation_key           '~/chef-repo/.chef/shortname.pem'
-	chef_server_url          'https://123.45.67.89/organizations/shortname'
-	syntax_check_cache_path  '~/chef-repo/.chef/syntax_check_cache'
-	cookbook_path [ '~/chef-repo/cookbooks' ]
+log_level                :info
+log_location             STDOUT
+node_name                'username'
+client_key               '~/chef-repo/.chef/username.pem'
+validation_client_name   'shortname-validator'
+validation_key           '~/chef-repo/.chef/shortname.pem'
+chef_server_url          'https://123.45.67.89/organizations/shortname'
+syntax_check_cache_path  '~/chef-repo/.chef/syntax_check_cache'
+cookbook_path [ '~/chef-repo/cookbooks' ]
 	
+
 {{< /file >}}
 
 
@@ -118,33 +119,35 @@ Environments are defined in `chef-repo/environments` and saved as Ruby or JSON f
 As a Ruby file:
 
 {{< file "chef-repo/environments/environame.rb" ruby >}}
-	name "environmentname"
-	description "environment_description"
-	cookbook_versions  "cookbook" => "cookbook_version"
-	default_attributes "node" => { "attribute" => [ "value", "value", "etc." ] }
-	override_attributes "node" => { "attribute" => [ "value", "value", "etc." ] }
+name "environmentname"
+description "environment_description"
+cookbook_versions  "cookbook" => "cookbook_version"
+default_attributes "node" => { "attribute" => [ "value", "value", "etc." ] }
+override_attributes "node" => { "attribute" => [ "value", "value", "etc." ] }
 	
+
 {{< /file >}}
 
 	
 As a JSON:
 
 {{< file "chef-repo/environments/environame.json" json >}}
-	{
-	  "name": "environmentname",
-	  "description": "a description of the environment",
-	  "cookbook_versions": {
+{
+  "name": "environmentname",
+  "description": "a description of the environment",
+  "cookbook_versions": {
 
-	  },
-	  "json_class": "Chef::Environment",
-	  "chef_type": "environment",
-	  "default_attributes": {
+  },
+  "json_class": "Chef::Environment",
+  "chef_type": "environment",
+  "default_attributes": {
 
-	  },
-	  "override_attributes": {
+  },
+  "override_attributes": {
 
-	  }
+  }
 	
+
 {{< /file >}}
   
 

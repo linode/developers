@@ -163,30 +163,31 @@ Make sure port 3000 is open in firewall for this to work.
 2.  Create file `/etc/nginx/sites-available/wildfly` with the following content:
 
 {{< file "/etc/nginx/sites-available/wildfly" aconf >}}
-        upstream http_backend {
-            server 127.0.0.1:8080;
-        }
+upstream http_backend {
+    server 127.0.0.1:8080;
+}
 
-        server {
-            listen 80;
-            server_name example.com;
+server {
+    listen 80;
+    server_name example.com;
 
-            location = /favicon.ico { access_log off; log_not_found off; }
+    location = /favicon.ico { access_log off; log_not_found off; }
 
 
-            location / {
-                proxy_pass http://http_backend;
+    location / {
+        proxy_pass http://http_backend;
 
-                proxy_http_version 1.1;
-                proxy_set_header Connection "";
+        proxy_http_version 1.1;
+        proxy_set_header Connection "";
 
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-                proxy_set_header Host $http_host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
 
-                access_log /var/log/nginx/wildfly.access.log;
-                error_log /var/log/nginx/wildfly.error.log;
-            }
-        }
+        access_log /var/log/nginx/wildfly.access.log;
+        error_log /var/log/nginx/wildfly.error.log;
+    }
+}
+
 {{< /file >}}
 
 
@@ -208,21 +209,23 @@ To deploy Clojure application with WildFly you will need to install the Immutant
 1.  Open `project.clj` file in `clj-app` directory and add `[lein-immutant "2.1.0"]` to the `:plugins` section of configuration:
 
 {{< file-excerpt "/home/linode-user/clj-app/project.clj" clj >}}
-        :plugins [[lein-environ "1.0.1"]
-                  [lein-immutant "2.1.0"]]
+:plugins [[lein-environ "1.0.1"]
+          [lein-immutant "2.1.0"]]
+
 {{< /file-excerpt >}}
 
 
 2.  In `project.clj` and after `:plugins`, add a new `:immutant` section with the following content :
 
 {{< file-excerpt "/home/linode-user/clj-app/project.clj" clj >}}
-        :immutant {
-            :war {
-                :name "ROOT"
-                :destination "/opt/wildfly/standalone/deployments"
-                :context-path "/"
-            }
-        }
+:immutant {
+    :war {
+        :name "ROOT"
+        :destination "/opt/wildfly/standalone/deployments"
+        :context-path "/"
+    }
+}
+
 {{< /file-excerpt >}}
 
 

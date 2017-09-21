@@ -39,7 +39,8 @@ Piwik requires a few additional dependencies beyond LAMP fundamentals. Most impo
 By default, PHP's `memory_limit` value is set to 64 megabytes. For "medium to high traffic" sites, Piwik's creators recommend setting this value to 128 megabytes. If you choose to follow this recommendation edit the `php.ini` file so `memory_limit` setting is as follows:
 
 {{< file-excerpt "/etc/php5/apache2/php.ini" ini >}}
-    memory_limit = 128M
+memory_limit = 128M
+
 {{< /file-excerpt >}}
 
 
@@ -59,14 +60,15 @@ To create a virtual host we need to add an "[A Record](/docs/dns-guides/introduc
 We'll create the following host file, located at `/etc/apache2/sites-available/stats.example.com`:
 
 {{< file "/etc/apache2/sites-available/stats.example.com" apache >}}
-    <VirtualHost 12.34.56.78:80>
-        ServerAdmin admin@stats.example.com
-        ServerName stats.example.com
-        ServerAlias stats.example.com
-        DocumentRoot /srv/www/stats.example.com/public_html/
-        ErrorLog /srv/www/stats.example.com/logs/error.log
-        CustomLog /srv/www/stats.example.com/logs/access.log combined
-    </VirtualHost>
+<VirtualHost 12.34.56.78:80>
+    ServerAdmin admin@stats.example.com
+    ServerName stats.example.com
+    ServerAlias stats.example.com
+    DocumentRoot /srv/www/stats.example.com/public_html/
+    ErrorLog /srv/www/stats.example.com/logs/error.log
+    CustomLog /srv/www/stats.example.com/logs/access.log combined
+</VirtualHost>
+
 {{< /file >}}
 
 

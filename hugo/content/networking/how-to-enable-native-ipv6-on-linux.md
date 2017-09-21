@@ -93,31 +93,32 @@ Be sure that [Network Helper](/docs/platform/network-helper) is disabled when ad
 1.  On Debian and Ubuntu, edit `/etc/network/interfaces` to set up statically configured IPv6:
 
 {{< file "/etc/network/interfaces" >}}
-      # This file describes the network interfaces available on your system
-      # and how to activate them. For more information, see interfaces(5).
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
 
-      # The loopback network interface
-      auto lo
-      iface lo inet loopback
+# The loopback network interface
+auto lo
+iface lo inet loopback
 
-      # The primary network interface (eth0)
-      auto eth0
-      iface eth0 inet dhcp
+# The primary network interface (eth0)
+auto eth0
+iface eth0 inet dhcp
 
-      # IPv6 Address Blocks
-      # Add a static block for your default public IPv6 address, and include a directive for its gateway.
+# IPv6 Address Blocks
+# Add a static block for your default public IPv6 address, and include a directive for its gateway.
 
-      iface eth0 inet6 static
-        address 2001:db8:a0b:12f0::1/64
-        gateway fe80::1
+iface eth0 inet6 static
+  address 2001:db8:a0b:12f0::1/64
+  gateway fe80::1
 
-      # Add an additional block for each IPv6 address you need to configure.
+# Add an additional block for each IPv6 address you need to configure.
       
-      iface eth0 inet6 static
-        address 2001:db8:2000:aff0::1/64
+iface eth0 inet6 static
+  address 2001:db8:2000:aff0::1/64
 
-      iface eth0 inet6 static
-        address 2001:db8:2000:aff0::2/64
+iface eth0 inet6 static
+  address 2001:db8:2000:aff0::2/64
+
 {{< /file >}}
 
 
@@ -128,10 +129,11 @@ On Debian Jessie, your default IPv6 address provided by SLAAC will no longer be 
 2.  For /56 and /64 pools, addresses within your pool will be routed to your Linode's default IP address, or another Linode on your account in the same datacenter. You will see where the pool is routed under "Public IP Pools" within the Linode Manager's Remote Access tab. You must enable packet forwarding on that Linode to allow it to act as a router and enable external traffic from addresses within your IPv6 pool:
 
 {{< file "/etc/sysctl.conf" aconf >}}
-      # Uncomment the next line to enable packet forwarding for IPv6
-      #  Enabling this option disables Stateless Address Autoconfiguration
-      #  based on Router Advertisements for this host
-      net.ipv6.conf.all.forwarding=1
+# Uncomment the next line to enable packet forwarding for IPv6
+#  Enabling this option disables Stateless Address Autoconfiguration
+#  based on Router Advertisements for this host
+net.ipv6.conf.all.forwarding=1
+
 {{< /file >}}
 
 
@@ -146,30 +148,31 @@ On Debian Jessie, your default IPv6 address provided by SLAAC will no longer be 
 On CentOS or Fedora, edit `/etc/sysconfig/network-scripts/ifcfg-eth0` to set up statically configured IPv6 addresses. You should configure [Static IP Networking](/docs/networking/linux-static-ip-configuration) for IPv4 as well.
 
 {{< file "/etc/sysconfig/network-scripts/ifcfg-eth0" >}}
-  # Configuration for eth0
-  DEVICE=eth0
-  BOOTPROTO=none
-  ONBOOT=yes
+# Configuration for eth0
+DEVICE=eth0
+BOOTPROTO=none
+ONBOOT=yes
 
-  # Adding a public IP address.
-  # The netmask is taken from the PREFIX (where 24 is Public IP, 17 is Private IP)
-  IPADDR0=198.51.100.5
-  PREFIX0=24
+# Adding a public IP address.
+# The netmask is taken from the PREFIX (where 24 is Public IP, 17 is Private IP)
+IPADDR0=198.51.100.5
+PREFIX0=24
 
-  # Specifying the gateway
-  GATEWAY0=198.51.100.1
+# Specifying the gateway
+GATEWAY0=198.51.100.1
 
-  # Adding a second public IP address.
-  IPADDR1=198.51.100.6
-  PREFIX1=24
+# Adding a second public IP address.
+IPADDR1=198.51.100.6
+PREFIX1=24
 
-  # Adding a private IP address.
-  IPADDR2=192.168.133.234
-  PREFIX2=17
+# Adding a private IP address.
+IPADDR2=192.168.133.234
+PREFIX2=17
 
-  IPV6INIT=yes
-  # Adding IPv6 addresses from pool.
-  IPV6ADDR_SECONDARIES="2001:db8:2000:aff0::1/64 2001:db8:2000:aff0::2/64 2001:db8:2000:aff0::3/64"
+IPV6INIT=yes
+# Adding IPv6 addresses from pool.
+IPV6ADDR_SECONDARIES="2001:db8:2000:aff0::1/64 2001:db8:2000:aff0::2/64 2001:db8:2000:aff0::3/64"
+
 {{< /file >}}
 
 
@@ -190,16 +193,17 @@ If you are using `systemd-networkd` on Arch Linux, you can statically configure 
 2.  Edit your current static IP networking configuration to allow for your IPv6 addresses. You will need to include your default IPv6 address as well.
 
 {{< file "/etc/systemd/network/05-eth0.network" >}}
-        [Match]
-        Name=eth0
+[Match]
+Name=eth0
 
-        [Network]
-        Address=198.51.100.2/24
-        Address=192.168.133.234/17
-        Gateway=198.51.100.1
-        Address=2001:db8:2000:aff0::/32
-        Address=2001:db8:2000:aff0::1/32
-        Address=2001:db8:2000:aff0::2/32
+[Network]
+Address=198.51.100.2/24
+Address=192.168.133.234/17
+Gateway=198.51.100.1
+Address=2001:db8:2000:aff0::/32
+Address=2001:db8:2000:aff0::1/32
+Address=2001:db8:2000:aff0::2/32
+
 {{< /file >}}
 
 
@@ -218,25 +222,26 @@ If you are still using `netctl` in Arch Linux, you can statically configure your
 2.  Edit your newly copied file, entering your IPv6 networking information (e.g. IP address, gateway, etc.).
 
 {{< file "/etc/netctl/ethernet-static" >}}
-        Description='A basic static ethernet connection'
-            Interface=eth0
-            Connection=ethernet
+Description='A basic static ethernet connection'
+    Interface=eth0
+    Connection=ethernet
 
-            ## IPv4 Static Configuration
-            IP=static
-            Address=('198.51.100.2/24' '192.168.133.234/17')
-            Gateway='198.51.100.1'
+    ## IPv4 Static Configuration
+    IP=static
+    Address=('198.51.100.2/24' '192.168.133.234/17')
+    Gateway='198.51.100.1'
 
-            ## For IPv6 autoconfiguration
-            #IP6=stateless
+    ## For IPv6 autoconfiguration
+    #IP6=stateless
 
-            ## For IPv6 static address configuration
-            IP6=static
-            Address6=('2001:db8:2000:aff0::1/32')
-            Gateway6='fe80::1'
+    ## For IPv6 static address configuration
+    IP6=static
+    Address6=('2001:db8:2000:aff0::1/32')
+    Gateway6='fe80::1'
 
-            ## DNS resolvers
-            DNS=('198.51.100.6' '198.51.100.7' '198.51.100.8')
+    ## DNS resolvers
+    DNS=('198.51.100.6' '198.51.100.7' '198.51.100.8')
+
 {{< /file >}}
 
 
@@ -249,11 +254,12 @@ If you are still using `netctl` in Arch Linux, you can statically configure your
 The configuration of additional IPv6 addresses in Gentoo is simple. Append the IPv6 addresses and netmask you want to the `config_eth0` line in `/etc/conf.d/net`. The list itself is a space separated list.
 
 {{< file "/etc/conf.d/net" >}}
-    # This blank configuration will automatically use DHCP for any net.*
-    # scripts in /etc/init.d.  To create a more complete configuration,
-    # please review /usr/share/doc/openrc*/net.example* and save your configuration
-    # in /etc/conf.d/net (this file :]!).
-    config_eth0="dhcp 2001:db8:2000:aff0::1/32 2001:db8:2000:aff0::2/32 2001:db8:2000:aff0::3/32"
+# This blank configuration will automatically use DHCP for any net.*
+# scripts in /etc/init.d.  To create a more complete configuration,
+# please review /usr/share/doc/openrc*/net.example* and save your configuration
+# in /etc/conf.d/net (this file :]!).
+config_eth0="dhcp 2001:db8:2000:aff0::1/32 2001:db8:2000:aff0::2/32 2001:db8:2000:aff0::3/32"
+
 {{< /file >}}
    
 

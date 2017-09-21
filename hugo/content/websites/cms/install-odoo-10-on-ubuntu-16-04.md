@@ -161,16 +161,17 @@ While wkhtmltopdf version 0.12.2.4 is available in the official Ubuntu 16.04 rep
 2.  Next, modify the configuration file. The complete file should look similar to this, depending on your deployment needs:
 
 {{< file "/etc/odoo-server.conf" aconf >}}
-          [options]
-          admin_passwd = admin
-          db_host = False 
-          db_port = False
-          db_user = odoo
-          db_password = FALSE
-          addons_path = /opt/odoo/addons
-          ;Uncomment the following line to enable a custom log
-          ;logfile = /var/log/odoo/odoo-server.log
-          xmlrpc_port = 8069
+[options]
+admin_passwd = admin
+db_host = False 
+db_port = False
+db_user = odoo
+db_password = FALSE
+addons_path = /opt/odoo/addons
+;Uncomment the following line to enable a custom log
+;logfile = /var/log/odoo/odoo-server.log
+xmlrpc_port = 8069
+
 {{< /file >}}
 
 
@@ -192,23 +193,24 @@ As explained in the [Configure Logs](#configure-logs) section, you have many opt
 Create a systemd unit called `odoo-server` to allow your application to behave as a service. Create a new file at `/lib/systemd/system/odoo-server.service` and add the following contents:
 
 {{< file "/lib/systemd/system/odoo-server.service" shell >}}
-    [Unit]
-    Description=Odoo Open Source ERP and CRM
-    Requires=postgresql.service
-    After=network.target postgresql.service
+[Unit]
+Description=Odoo Open Source ERP and CRM
+Requires=postgresql.service
+After=network.target postgresql.service
     
-    [Service]
-    Type=simple
-    PermissionsStartOnly=true
-    SyslogIdentifier=odoo-server
-    User=odoo
-    Group=odoo
-    ExecStart=/opt/odoo/odoo-bin --config=/etc/odoo-server.conf --addons-path=/opt/odoo/addons/
-    WorkingDirectory=/opt/odoo/
-    StandardOutput=journal+console
+[Service]
+Type=simple
+PermissionsStartOnly=true
+SyslogIdentifier=odoo-server
+User=odoo
+Group=odoo
+ExecStart=/opt/odoo/odoo-bin --config=/etc/odoo-server.conf --addons-path=/opt/odoo/addons/
+WorkingDirectory=/opt/odoo/
+StandardOutput=journal+console
     
-    [Install]
-    WantedBy=multi-user.target
+[Install]
+WantedBy=multi-user.target
+
 {{< /file >}}
 
 
@@ -340,37 +342,39 @@ The advantage of using the same server is that all dependencies are already meet
 2.  Modify the configuration file, paying attention to changes from previous installation especially the inclusion of `logfile` and the communication port:
 
 {{< file "/etc/odoo-server.conf" aconf >}}
-        [options]
-        admin_passwd = admin
-        db_host = False 
-        db_port = False
-        db_user = odoo-te
-        db_password = FALSE
-        addons_path = /opt/odoo-te/addons
-        logfile = /var/log/odoo-te/odoo-server-te.log
-        xmlrpc_port = 8080
+[options]
+admin_passwd = admin
+db_host = False 
+db_port = False
+db_user = odoo-te
+db_password = FALSE
+addons_path = /opt/odoo-te/addons
+logfile = /var/log/odoo-te/odoo-server-te.log
+xmlrpc_port = 8080
+
 {{< /file >}}
 
 
 3.  Create a systemd unit for the Odoo testing environment. This allows you to run it as an independent service:
 
 {{< file "/lib/systemd/system/odoo-server-te.service" shell >}}
-        [Unit]
-        Description=Odoo Open Source ERP and CRM (Test Env)
-        Requires=postgresql.service
-        After=network.target postgresql.service
+[Unit]
+Description=Odoo Open Source ERP and CRM (Test Env)
+Requires=postgresql.service
+After=network.target postgresql.service
 
-        [Service]
-        Type=simple
-        PermissionsStartOnly=true
-        SyslogIdentifier=odoo-server-te
-        User=odoo-te
-        Group=odoo-te
-        ExecStart=/opt/odoo-te/odoo-bin --config=/etc/odoo-server-te.conf --addons-path=/opt/odoo-te/addons/
-        WorkingDirectory=/opt/odoo-te/
+[Service]
+Type=simple
+PermissionsStartOnly=true
+SyslogIdentifier=odoo-server-te
+User=odoo-te
+Group=odoo-te
+ExecStart=/opt/odoo-te/odoo-bin --config=/etc/odoo-server-te.conf --addons-path=/opt/odoo-te/addons/
+WorkingDirectory=/opt/odoo-te/
 
-        [Install]
-        WantedBy=multi-user.target
+[Install]
+WantedBy=multi-user.target
+
 {{< /file >}}
 
 

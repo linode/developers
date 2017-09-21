@@ -146,20 +146,21 @@ If you want to construct another site, just go back to ``$HOME`` folder, and iss
 Before testing the scaffold of your site, you need to create a user and several databases in MySQL. The "yesod" command has generated a configuration file for MySQL, which is located at ``$HOME/myblog/config/mysql.yml``. Take a look. 
 
 {{< file-excerpt "$HOME/myblog/config/mysql.yml" >}}
-     Default: &defaults
-       user: myblog
-       password: myblog
-       host: localhost
-       port: 3306
-       database: myblog
-       poolsize: 10
+Default: &defaults
+  user: myblog
+  password: myblog
+  host: localhost
+  port: 3306
+  database: myblog
+  poolsize: 10
 
-     ...
+...
 
-     Production:
-       database: myblog_production
-       poolsize: 100
-       <<: *defaults
+Production:
+  database: myblog_production
+  poolsize: 100
+  <<: *defaults
+
 {{< /file-excerpt >}}
 
 
@@ -240,9 +241,10 @@ Warp is a fast http server, but it lacks some advanced features like virtual hos
 3.  Before starting your site, you need to modify the file ``/var/myblog/config/settings.yml``. This file has the same structure as ``mysql.yml``. There is a ``Default`` section and four other sections for various environments. We will only run ``/var/myblog`` in the ``Production`` environment, so we only need to modify the last three lines of this settings file:
 
 {{< file-excerpt "/var/myblog/config/settings.yml" >}}
-        Production:
-          approot: "http://www.yoursite.com"
-          <<: *defaults
+Production:
+  approot: "http://www.yoursite.com"
+  <<: *defaults
+
 {{< /file-excerpt >}}
 
 
@@ -258,72 +260,73 @@ Warp is a fast http server, but it lacks some advanced features like virtual hos
 5.  If you want your site running as a daemon, which means in a constant state of running, you can create an init.d script. We have created a simple one, here, for your reference:
 
 {{< file-excerpt "/etc/init.d/myblog" bash >}}
-        #! /bin/sh
-        ### BEGIN INIT INFO
-        # Provides:          myblog
-        # Required-Start:    $network $syslog mysql nginx
-        # Required-Stop:     $network $syslog mysql nginx
-        # Default-Start:     2 3 4 5
-        # Default-Stop:      0 1 6
-        # Short-Description: MyBlog
-        # Description:       MyBlog: My First Yesod Application
-        ### END INIT INFO
+#! /bin/sh
+### BEGIN INIT INFO
+# Provides:          myblog
+# Required-Start:    $network $syslog mysql nginx
+# Required-Stop:     $network $syslog mysql nginx
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: MyBlog
+# Description:       MyBlog: My First Yesod Application
+### END INIT INFO
 
-        PATH=/sbin:/bin:/usr/sbin:/usr/bin
-        DESC="MyBlog"
-        NAME=myblog
-        MYROOT=/var/myblog
-        MYGROUP=yesod
-        MYUSER=yesod
-        PIDFILE=/var/opt/myblog/run/$NAME.pid
-        LOGFILE=/var/opt/myblog/log/$NAME.log
-        DAEMON=/var/myblog/myblog
-        DAEMON_ARGS="Production"
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+DESC="MyBlog"
+NAME=myblog
+MYROOT=/var/myblog
+MYGROUP=yesod
+MYUSER=yesod
+PIDFILE=/var/opt/myblog/run/$NAME.pid
+LOGFILE=/var/opt/myblog/log/$NAME.log
+DAEMON=/var/myblog/myblog
+DAEMON_ARGS="Production"
 
-        . /lib/lsb/init-functions
+. /lib/lsb/init-functions
 
-        case "$1" in
-        start)
-                log_daemon_msg "Starting $DESC" "$NAME"
+case "$1" in
+start)
+        log_daemon_msg "Starting $DESC" "$NAME"
 
-                mkdir -p /var/opt/myblog/run
-                mkdir -p /var/opt/myblog/log
-                chown -R ${MYUSER}:${MYGROUP} /var/opt/myblog
+        mkdir -p /var/opt/myblog/run
+        mkdir -p /var/opt/myblog/log
+        chown -R ${MYUSER}:${MYGROUP} /var/opt/myblog
 
-                start-stop-daemon --start --quiet  --background  \
-                        --make-pidfile --pidfile $PIDFILE        \
-                        --chuid $MYUSER:$MYGROUP --chdir $MYROOT \
-                        --exec /bin/bash -- -c                   \
-                        "exec $DAEMON $DAEMON_ARGS > $LOGFILE"   \
-                        || true
+        start-stop-daemon --start --quiet  --background  \
+                --make-pidfile --pidfile $PIDFILE        \
+                --chuid $MYUSER:$MYGROUP --chdir $MYROOT \
+                --exec /bin/bash -- -c                   \
+                "exec $DAEMON $DAEMON_ARGS > $LOGFILE"   \
+                || true
 
-                log_end_msg $?
-                ;;
-        stop)
-                log_daemon_msg "Stopping $DESC" "$NAME"
+        log_end_msg $?
+        ;;
+stop)
+        log_daemon_msg "Stopping $DESC" "$NAME"
 
-                start-stop-daemon --stop --quiet          \
-                        --pidfile $PIDFILE --exec $DAEMON \
-                        || true
+        start-stop-daemon --stop --quiet          \
+                --pidfile $PIDFILE --exec $DAEMON \
+                || true
 
-                rm -f $PIDFILE
+        rm -f $PIDFILE
 
-                log_end_msg $?
-                ;;
-        status)
-                status_of_proc "$DAEMON" "$NAME" && exit 0 || exit $?
-                ;;
-        restart)
-                $0 stop
-                $0 start
-                ;;
-        *)
-                echo "Usage: $SCRIPTNAME {start|stop|status|restart}" >&2
-                exit 3
-                ;;
-        esac
+        log_end_msg $?
+        ;;
+status)
+        status_of_proc "$DAEMON" "$NAME" && exit 0 || exit $?
+        ;;
+restart)
+        $0 stop
+        $0 start
+        ;;
+*)
+        echo "Usage: $SCRIPTNAME {start|stop|status|restart}" >&2
+        exit 3
+        ;;
+esac
 
-        exit 0
+exit 0
+
 {{< /file-excerpt >}}
 
 
@@ -346,22 +349,23 @@ Warp is a fast http server, but it lacks some advanced features like virtual hos
 Create the file ``/etc/nginx/sites-available/myblog``:
 
 {{< file "/etc/nginx/sites-available/myblog" nginx >}}
-    server {
+server {
 
-        listen 80;
+    listen 80;
 
-        server_name www.yoursite.com;
+    server_name www.yoursite.com;
 
-        location / {
-            proxy_pass http://127.0.0.1:3000;
-        }
-
-        location /static {
-            root /var/myblog;
-            expires max;
-        }
-
+    location / {
+        proxy_pass http://127.0.0.1:3000;
     }
+
+    location /static {
+        root /var/myblog;
+        expires max;
+    }
+
+}
+
 {{< /file >}}
 
 

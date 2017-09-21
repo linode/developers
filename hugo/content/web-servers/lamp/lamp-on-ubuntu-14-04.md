@@ -43,20 +43,22 @@ This guide is written for a non-root user. Commands that require elevated privil
 2.  Edit the main Apache configuration file, `apache2.conf`, to adjust the KeepAlive setting:
 
 {{< file "/etc/apache2/apache2.conf" aconf >}}
-        KeepAlive Off
+KeepAlive Off
+
 {{< /file >}}
 
 
 3.  The default *multi-processing module* (MPM) for Apache is the *event* module, but by default PHP uses the *prefork* module. Open the `mpm_prefork.conf` file located in `/etc/apache2/mods-available` and edit the configuration. Below is the suggested values for a **2GB Linode**:
 
 {{< file "/etc/apache2/mods-available/mpm_prefork.conf" aconf >}}
-        <IfModule mpm_prefork_module>
-                StartServers            4
-                MinSpareServers         20
-                MaxSpareServers         40
-                MaxRequestWorkers       200
-                MaxConnectionsPerChild  4500
-        </IfModule>
+<IfModule mpm_prefork_module>
+        StartServers            4
+        MinSpareServers         20
+        MaxSpareServers         40
+        MaxRequestWorkers       200
+        MaxConnectionsPerChild  4500
+</IfModule>
+
 {{< /file >}}
 
 
@@ -77,17 +79,18 @@ There are several different ways to set up virtual hosts; however, below is the 
 1.  Within the `/etc/apache2/sites-available/` directory, create a configuration file for your website, `example.com.conf`, replacing `example.com` with your own domain information:
 
 {{< file "/etc/apache2/sites-available/example.com.conf" apache >}}
-        <VirtualHost *:80>
-             ServerAdmin webmaster@example.com
-             ServerName example.com
-             ServerAlias www.example.com
-             DocumentRoot /var/www/html/example.com/public_html/
-             ErrorLog /var/www/html/example.com/logs/error.log
-             CustomLog /var/www/html/example.com/logs/access.log combined
-             <Directory /path/to/public/website/>
-                Require all granted
-             </Directory>
-        </VirtualHost>
+<VirtualHost *:80>
+     ServerAdmin webmaster@example.com
+     ServerName example.com
+     ServerAlias www.example.com
+     DocumentRoot /var/www/html/example.com/public_html/
+     ErrorLog /var/www/html/example.com/logs/error.log
+     CustomLog /var/www/html/example.com/logs/access.log combined
+     <Directory /path/to/public/website/>
+        Require all granted
+     </Directory>
+</VirtualHost>
+
 {{< /file >}}
 
 
@@ -163,9 +166,10 @@ a2dissite example.com.conf
 2.  Once PHP5 is installed, tune the configuration file located in `/etc/php5/apache2/php.ini` to enable more descriptive errors, logging, and better performance. The following modifications provide a good starting point:
 
 {{< file-excerpt "/etc/php5/apache2/php.ini" ini >}}
-        error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
-        error_log = /var/log/php/error.log
-        max_input_time = 30
+error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
+error_log = /var/log/php/error.log
+max_input_time = 30
+
 {{< /file-excerpt >}}
 
 

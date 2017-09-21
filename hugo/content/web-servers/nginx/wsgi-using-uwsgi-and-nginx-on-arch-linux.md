@@ -61,8 +61,9 @@ Issue the following command to download an init script to manage the uWSGI proce
 Create an `/etc/conf.d/uwsgi` file to specify specific settings for your Python application. The `MODULE` specifies the name of the Python module that contains your `wsgi` specification. Consider the following example:
 
 {{< file-excerpt "/etc/conf.d/uwsgi" bash >}}
-    PYTHONPATH=/srv/www/example.com/application
-    MODULE=wsgi_configuration_module
+PYTHONPATH=/srv/www/example.com/application
+MODULE=wsgi_configuration_module
+
 {{< /file-excerpt >}}
 
 
@@ -84,22 +85,23 @@ Configure nginx Server
 Create an nginx server configuration that resembles the following for the site where the uWSGI app will be accessible:
 
 {{< file-excerpt "nginx virtual host configuration" nginx >}}
-    server {
-        listen   80;
-        server_name www.example.com example.com;
-        access_log /srv/www/example.com/logs/access.log;
-        error_log /srv/www/example.com/logs/error.log;
+server {
+    listen   80;
+    server_name www.example.com example.com;
+    access_log /srv/www/example.com/logs/access.log;
+    error_log /srv/www/example.com/logs/error.log;
 
-        location / {
-            include        uwsgi_params;
-            uwsgi_pass     127.0.0.1:9001;
-        }
-
-        location /static {
-            root   /srv/www/example.com/public_html/static/;
-            index  index.html index.htm;
-        }
+    location / {
+        include        uwsgi_params;
+        uwsgi_pass     127.0.0.1:9001;
     }
+
+    location /static {
+        root   /srv/www/example.com/public_html/static/;
+        index  index.html index.htm;
+    }
+}
+
 {{< /file-excerpt >}}
 
 
@@ -113,30 +115,31 @@ Additional Application Servers
 If the Python application you've deployed requires more application resources than a single Linode instance can provide, all of the methods for deploying a uWSGI application server are easily scaled to rely on multiple uSWGI instances that run on additional Linodes with the request load balanced using nginx's `upstream` capability. Consider our documentation of [proxy and software load balancing with nginx](/docs/uptime/loadbalancing/how-to-use-nginx-as-a-front-end-proxy-server-and-software-load-balancer) for more information. For a basic example configuration, consider the following example:
 
 {{< file-excerpt "nginx configuration" nginx >}}
-    upstream uwsgicluster {
-         server 127.0.0.1:9001;
-         server 192.168.100.101:9001;
-         server 192.168.100.102:9001;
-         server 192.168.100.103:9001;
-         server 192.168.100.104:9001;
+upstream uwsgicluster {
+     server 127.0.0.1:9001;
+     server 192.168.100.101:9001;
+     server 192.168.100.102:9001;
+     server 192.168.100.103:9001;
+     server 192.168.100.104:9001;
+}
+
+server {
+    listen   80;
+    server_name www.example.com example.com;
+    access_log /srv/www/example.com/logs/access.log;
+    error_log /srv/www/example.com/logs/error.log;
+
+    location / {
+        include        uwsgi_params;
+        uwsgi_pass     uwsgicluster;
     }
 
-    server {
-        listen   80;
-        server_name www.example.com example.com;
-        access_log /srv/www/example.com/logs/access.log;
-        error_log /srv/www/example.com/logs/error.log;
-
-        location / {
-            include        uwsgi_params;
-            uwsgi_pass     uwsgicluster;
-        }
-
-        location /static {
-            root   /srv/www/example.com/public_html/static/;
-            index  index.html index.htm;
-        }
+    location /static {
+        root   /srv/www/example.com/public_html/static/;
+        index  index.html index.htm;
     }
+}
+
 {{< /file-excerpt >}}
 
 

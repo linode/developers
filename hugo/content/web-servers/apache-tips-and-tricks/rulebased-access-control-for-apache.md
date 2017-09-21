@@ -42,9 +42,10 @@ In the examples given in the [Apache configuration structure](/docs/web-servers/
 Here is an example of a basic rule:
 
 {{< file-excerpt "Apache Configuration Directive" apache >}}
-    Order Deny,Allow
-    Deny from all
-    Allow from 192.168.2.101
+Order Deny,Allow
+Deny from all
+Allow from 192.168.2.101
+
 {{< /file-excerpt >}}
 
 
@@ -65,10 +66,11 @@ You can specify granular access control rules for your resources by modifying an
 If you want to control access for a range of IP addresses rather than for a single address, Apache permits this with the following syntax:
 
 {{< file-excerpt "Apache Configuration Directive" apache >}}
-    Order Deny,Allow
-    Deny from all
-    Allow from 192.168
-    Allow from 10
+Order Deny,Allow
+Deny from all
+Allow from 192.168
+Allow from 10
+
 {{< /file-excerpt >}}
 
 
@@ -77,9 +79,10 @@ The above statements allow all addresses that begin with `192.168` and `10`. The
 Here is an additional example of an access rule:
 
 {{< file-excerpt "Apache Configuration Directive" apache >}}
-    Order Allow,Deny
-    Allow from all
-    Deny from 185.201.1
+Order Allow,Deny
+Allow from all
+Deny from 185.201.1
+
 {{< /file-excerpt >}}
 
 
@@ -94,9 +97,10 @@ While IP address are by far the easiest way to control access using these access
 Firstly, Apache permits administrators to allow or deny access based on the hostname of the requester. This forces Apache to do a reverse DNS (rDNS) lookup of the hostname performing the request, and then allow or deny access based on this information. Consider this example:
 
 {{< file-excerpt "Apache Configuration File" apache >}}
-    Order Deny,Allow
-    Deny from all
-    Allow from hostname.example.com
+Order Deny,Allow
+Deny from all
+Allow from hostname.example.com
+
 {{< /file-excerpt >}}
 
 
@@ -105,10 +109,11 @@ Apache only allows requests from the machine with valid rDNS of `hostname.exampl
 Secondly, it's possible to build access rules around environment variables in the HTTP session. This allows you to allow and deny access to resources on the basis of variables such as browser (user agent) and referrer. Let us take the following example:
 
 {{< file-excerpt "Apache Configuration File" apache >}}
-    SetEnvIf Referer searchenginez.com search_traffic
-    Order Deny,Allow
-    Deny from all
-    Allow from env=search_traffic
+SetEnvIf Referer searchenginez.com search_traffic
+Order Deny,Allow
+Deny from all
+Allow from env=search_traffic
+
 {{< /file-excerpt >}}
 
 

@@ -47,9 +47,10 @@ This section covers the easiest way to use Squid as an HTTP proxy, using only th
 1.  Edit the Squid configuration file and add the following lines:
 
 {{< file-excerpt "/etc/squid3/squid.conf" >}}
-		acl client src 12.34.56.78 # Home IP 
-		http_access allow client
+acl client src 12.34.56.78 # Home IP 
+http_access allow client
 	
+
 {{< /file-excerpt >}}
 
 	
@@ -90,10 +91,11 @@ The following configuration allows for authenticated access to the Squid proxy s
 4.  Edit the Squid configuration file and add the following lines:
 
 {{< file-excerpt "/etc/squid3/squid.conf" >}}
-		auth_param basic program /usr/lib/squid3/basic_ncsa_auth /etc/squid3/squid_passwd
-		acl ncsa_users proxy_auth REQUIRED
-		http_access allow ncsa_users
+auth_param basic program /usr/lib/squid3/basic_ncsa_auth /etc/squid3/squid_passwd
+acl ncsa_users proxy_auth REQUIRED
+http_access allow ncsa_users
 	
+
 {{< /file-excerpt >}}
 
 
@@ -105,8 +107,9 @@ The following configuration allows for authenticated access to the Squid proxy s
 7.  To remove a user's access to the proxy, you must delete the entry in the `squid_passwd` file. Each user is represented in the file on a single line in the format of `user:passwordhash`:
 
 {{< file "/etc/squid3/squid_passwd" >}}
-		user1:\$p948w3nvq3489v6npq396g user2:\$q3cn478554387cq34n57vn
+user1:\$p948w3nvq3489v6npq396g user2:\$q3cn478554387cq34n57vn
 	
+
 {{< /file >}}
 
 
@@ -119,36 +122,37 @@ The following configuration allows for authenticated access to the Squid proxy s
 In order to mask your IP address from servers you connect to, you will need to add the following lines to the Squid configuration file.
 
 {{< file-excerpt "/etc/squid3/squid.conf" >}}
-	forwarded_for off
-	request_header_access Allow allow all
-	request_header_access Authorization allow all
-	request_header_access WWW-Authenticate allow all
-	request_header_access Proxy-Authorization allow all
-	request_header_access Proxy-Authenticate allow all
-	request_header_access Cache-Control allow all
-	request_header_access Content-Encoding allow all
-	request_header_access Content-Length allow all
-	request_header_access Content-Type allow all
-	request_header_access Date allow all
-	request_header_access Expires allow all
-	request_header_access Host allow all
-	request_header_access If-Modified-Since allow all
-	request_header_access Last-Modified allow all
-	request_header_access Location allow all
-	request_header_access Pragma allow all
-	request_header_access Accept allow all
-	request_header_access Accept-Charset allow all
-	request_header_access Accept-Encoding allow all
-	request_header_access Accept-Language allow all
-	request_header_access Content-Language allow all
-	request_header_access Mime-Version allow all
-	request_header_access Retry-After allow all
-	request_header_access Title allow all
-	request_header_access Connection allow all
-	request_header_access Proxy-Connection allow all
-	request_header_access User-Agent allow all
-	request_header_access Cookie allow all
-	request_header_access All deny all
+forwarded_for off
+request_header_access Allow allow all
+request_header_access Authorization allow all
+request_header_access WWW-Authenticate allow all
+request_header_access Proxy-Authorization allow all
+request_header_access Proxy-Authenticate allow all
+request_header_access Cache-Control allow all
+request_header_access Content-Encoding allow all
+request_header_access Content-Length allow all
+request_header_access Content-Type allow all
+request_header_access Date allow all
+request_header_access Expires allow all
+request_header_access Host allow all
+request_header_access If-Modified-Since allow all
+request_header_access Last-Modified allow all
+request_header_access Location allow all
+request_header_access Pragma allow all
+request_header_access Accept allow all
+request_header_access Accept-Charset allow all
+request_header_access Accept-Encoding allow all
+request_header_access Accept-Language allow all
+request_header_access Content-Language allow all
+request_header_access Mime-Version allow all
+request_header_access Retry-After allow all
+request_header_access Title allow all
+request_header_access Connection allow all
+request_header_access Proxy-Connection allow all
+request_header_access User-Agent allow all
+request_header_access Cookie allow all
+request_header_access All deny all
+
 {{< /file-excerpt >}}
 
 

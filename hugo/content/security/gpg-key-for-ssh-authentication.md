@@ -426,28 +426,30 @@ Return to your local machine, import all of the appropriate GPG keys and insert 
     **Linux:**
 
 {{< file-excerpt "~/.bash_profile" >}}
-        if [ -f "${HOME}/.gpg-agent-info" ]; then
-             source "${HOME}/.gpg-agent-info"
-               export GPG_AGENT_INFO
-               export SSH_AUTH_SOCK
-               export SSH_AGENT_PID
-        else
-            eval $( gpg-agent --daemon --write-env-file ~/.gpg-agent-info )
-        fi
+if [ -f "${HOME}/.gpg-agent-info" ]; then
+     source "${HOME}/.gpg-agent-info"
+       export GPG_AGENT_INFO
+       export SSH_AUTH_SOCK
+       export SSH_AGENT_PID
+else
+    eval $( gpg-agent --daemon --write-env-file ~/.gpg-agent-info )
+fi
+
 {{< /file-excerpt >}}
 
     
     **OS X**
     
 {{< file-excerpt "~/.bash_profile" >}}
-        [ -f ~/.gpg-agent-info ] && source ~/.gpg-agent-info
-        if [ -S "${GPG_AGENT_INFO%%:*}" ]; then
-            export GPG_AGENT_INFO
-            export SSH_AUTH_SOCK
-            export SSH_AGENT_PID
-        else
-            eval $( gpg-agent --daemon --write-env-file ~/.gpg-agent-info )
-        fi
+[ -f ~/.gpg-agent-info ] && source ~/.gpg-agent-info
+if [ -S "${GPG_AGENT_INFO%%:*}" ]; then
+    export GPG_AGENT_INFO
+    export SSH_AUTH_SOCK
+    export SSH_AGENT_PID
+else
+    eval $( gpg-agent --daemon --write-env-file ~/.gpg-agent-info )
+fi
+
 {{< /file-excerpt >}}
 
     
@@ -456,10 +458,11 @@ Return to your local machine, import all of the appropriate GPG keys and insert 
 2.  Edit or create `~/.gnupg/gpg-agent.conf`:
     
 {{< file-excerpt "~/.gnupg/gpg-agent.conf" >}}
-        default-cache-ttl 600
-        max-cache-ttl 7200
-        enable-ssh-support
-        write-env-file ~/.gpg-agent-info
+default-cache-ttl 600
+max-cache-ttl 7200
+enable-ssh-support
+write-env-file ~/.gpg-agent-info
+
 {{< /file-excerpt >}}
 
         

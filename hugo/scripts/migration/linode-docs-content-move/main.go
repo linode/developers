@@ -86,6 +86,27 @@ var (
 				style := strings.TrimSpace(first[3])
 				code := strings.TrimRight(first[4], " \n\r")
 
+				trimIdx := -1
+
+				lines := strings.Split(code, "\n")
+				if len(lines) > 0 {
+					trimIdx = firstNonWhitespace(lines[0])
+				}
+
+				if trimIdx != -1 {
+					newCode := ""
+					for _, line := range lines {
+						f := firstNonWhitespace(line)
+						if f >= trimIdx {
+							line = line[trimIdx:]
+						}
+						newCode += line + "\n"
+					}
+
+					code = newCode
+
+				}
+
 				// Misspelled
 				if shortcode == "file-exceprt" || shortcode == "file-exerpt" {
 					shortcode = "file-excerpt"
@@ -505,6 +526,11 @@ $1
 
 }
 
+func firstNonWhitespace(s string) int {
+	return strings.IndexFunc(s, func(r rune) bool {
+		return r != ' ' && r != '\t'
+	})
+}
 func dateCleaner(s string) string {
 	cleaned := ndRe.ReplaceAllString(s, "$1")
 	cleaned = strings.Trim(cleaned, "' ")

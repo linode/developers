@@ -81,16 +81,18 @@ The `/etc/hosts` file provides a list of IP addresses with corresponding hostnam
 Some applications require that the machine properly identify itself in the `/etc/hosts` file. As a result, we recommend configuring the `/etc/hosts` file shortly after deployment. Here is an example file:
 
 {{< file-excerpt "/etc/hosts" >}}
-    127.0.0.1   localhost.localdomain   localhost
-    103.0.113.12    username.example.com   username
+127.0.0.1   localhost.localdomain   localhost
+103.0.113.12    username.example.com   username
+
 {{< /file-excerpt >}}
 
 
 You can specify a number of hostnames on each line separated by spaces. Every line must begin with one and only one IP address. In the above example, replace `103.0.113.12` with your machine's IP address. Consider a few additional `/etc/hosts` entries:
 
 {{< file-excerpt "/etc/hosts" >}}
-    198.51.100.30   example.com
-    192.168.1.1     stick.example.com
+198.51.100.30   example.com
+192.168.1.1     stick.example.com
+
 {{< /file-excerpt >}}
 
 
@@ -632,7 +634,8 @@ By default, error logs are located in the `/var/log/apache2/error.log` file (on 
 In the default virtual host configurations suggested in our [Apache installation](/docs/websites/apache/) and [LAMP guides](/docs/websites/lamp), we suggest adding a custom log setting:
 
 {{< file-excerpt "Apache Virtual Host Configuration" >}}
-    ErrorLog /var/www//html/example.com/logs/error.log CustomLog /var/www/html/example.com/logs/access.log combined
+ErrorLog /var/www//html/example.com/logs/error.log CustomLog /var/www/html/example.com/logs/access.log combined
+
 {{< /file-excerpt >}}
 
 
@@ -714,7 +717,8 @@ If you want to use your server to send email through an external SMTP server, co
 Use the command `type msmtp` or `which msmtp`, to find the location of `msmtp` on your system. Typically the program is located at `/usr/bin/msmtp`. You can specify authentication credentials with command line arguments or by declaring SMTP credentials in a configuration file. Here is an example `.msmtprc` file.
 
 {{< file-excerpt ".msmtprc example" >}}
-    account default host smtp.example.com from <username@example.com> auth on user username password s3cr37 tls on tls\_certcheck off port 587
+account default host smtp.example.com from <username@example.com> auth on user username password s3cr37 tls on tls\_certcheck off port 587
+
 {{< /file-excerpt >}}
 
 

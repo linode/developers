@@ -85,14 +85,15 @@ CS:GO requires a server token unless you want to limit players to only clients c
 1.  Create a file called `server.cfg` using your prefered text editor. Choose a hostname and a unique RCON password that you don't use elsewhere.
 
 {{< file "~/Steam/csgo-ds/csgo/cfg/server.cfg" aconf >}}
-        hostname "server_hostname"
-        sv_password "server_password"
-        sv_timeout 60
-        rcon_password "rcon_password"
-        mp_autoteambalance 1
-        mp_limitteams 1
-        writeid
-        writeip
+hostname "server_hostname"
+sv_password "server_password"
+sv_timeout 60
+rcon_password "rcon_password"
+mp_autoteambalance 1
+mp_limitteams 1
+writeid
+writeip
+
 {{< /file >}}
 
 
@@ -101,10 +102,11 @@ CS:GO requires a server token unless you want to limit players to only clients c
 2.  Create a startup script for CS:GO with the contents given below. **Be sure to replace `YOUR_GSLT` in the script's command with your game server login token**.
 
 {{< file "~/startcsgo.sh" >}}
-        #!/bin/sh
+#!/bin/sh
 
-        cd ./Steam/csgo-ds
-        screen -S "Counter-Strike: Global Offensive Server" ./srcds_run -game csgo -usercon +game_type 0 +game_mode 1 +mapgroup mg_bomb +map de_dust2 +sv_setsteamaccount YOUR_GSLT -net_port_try 1
+cd ./Steam/csgo-ds
+screen -S "Counter-Strike: Global Offensive Server" ./srcds_run -game csgo -usercon +game_type 0 +game_mode 1 +mapgroup mg_bomb +map de_dust2 +sv_setsteamaccount YOUR_GSLT -net_port_try 1
+
 {{< /file >}}
 
 

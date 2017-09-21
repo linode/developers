@@ -42,31 +42,32 @@ Configure nginx Virtual Hosting
 Replace the contents of the file `/etc/nginx/nginx.conf` with the following contents.
 
 {{< file "/etc/nginx/nginx.conf" nginx >}}
-    user nginx;
-    worker_processes 1;
-    error_log /var/log/nginx/error.log;
+user nginx;
+worker_processes 1;
+error_log /var/log/nginx/error.log;
 
-    pid /var/run/nginx.pid;
+pid /var/run/nginx.pid;
 
-    events {
-        worker_connections  1024;
-    }
+events {
+    worker_connections  1024;
+}
 
-    http {
-        include /etc/nginx/mime.types;
-        default_type application/octet-stream;
+http {
+    include /etc/nginx/mime.types;
+    default_type application/octet-stream;
 
-        log_format main '$remote_addr - $remote_user [$time_local] "$request" '
-                          '$status $body_bytes_sent "$http_referer" '
-                          '"$http_user_agent" "$http_x_forwarded_for"';
+    log_format main '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
 
-        access_log  /var/log/nginx/access.log  main;
+    access_log  /var/log/nginx/access.log  main;
 
-        sendfile        on;
+    sendfile        on;
 
-        include /etc/nginx/conf.d/*.conf;
-        include /etc/nginx/sites-enabled/*;
-    }
+    include /etc/nginx/conf.d/*.conf;
+    include /etc/nginx/sites-enabled/*;
+}
+
 {{< /file >}}
 
 
@@ -83,16 +84,17 @@ Issue the following command to create directories for your nginx configuration f
 Create the file `/etc/nginx/sites-available/www.example.com`, replacing "example.com" with your domain name. It should contain the following configuration directives; again, be sure to replace "example.com" with your domain name.
 
 {{< file "/etc/nginx/sites-available/www.example.com" nginx >}}
-    server {
-        server_name www.example.com example.com;
-        access_log /srv/www/www.example.com/logs/access.log;
-        error_log /srv/www/www.example.com/logs/error.log;
-        root /srv/www/www.example.com/public_html;
+server {
+    server_name www.example.com example.com;
+    access_log /srv/www/www.example.com/logs/access.log;
+    error_log /srv/www/www.example.com/logs/error.log;
+    root /srv/www/www.example.com/public_html;
 
-        location / {
-            index index.html index.htm;
-        }
+    location / {
+        index index.html index.htm;
     }
+}
+
 {{< /file >}}
 
 
@@ -104,15 +106,16 @@ Issue the following commands to enable your site, replacing "example.com" with y
 Create a test index page for your website with the following contents.
 
 {{< file "/srv/www/www.example.com/public\\_html/index.html" html >}}
-    <html>
-    <head>
-    <title>Welcome to example.com</title>
-    </head>
-    <body>
-    <h1>Welcome to example.com</h1>
-    <p>If you can see this, nginx is configured to serve your site.</p>
-    </body>
-    </html>
+<html>
+<head>
+<title>Welcome to example.com</title>
+</head>
+<body>
+<h1>Welcome to example.com</h1>
+<p>If you can see this, nginx is configured to serve your site.</p>
+</body>
+</html>
+
 {{< /file >}}
 
 
@@ -134,15 +137,16 @@ Issue the following command to install packages required for PHP-FastCGI.
 Edit the file `/etc/sysconfig/spawn-fcgi` to match the following contents.
 
 {{< file "/etc/sysconfig/spawn-fcgi" ini >}}
-    FASTCGI_USER=nginx
-    FASTCGI_GROUP=nginx
-    SOCKET=/var/run/spawn-fcgi.sock
-    PIDFILE=/var/run/spawn-fcgi.pid
-    PHP5_SOCKET=/var/run/php-fcgi.sock
-    CHILDREN=6
-    PHP5=/usr/bin/php-cgi
-    MODE=0600
-    OPTIONS="-s $PHP5_SOCKET -S -M $MODE -P $PIDFILE -C $CHILDREN -u $FASTCGI_USER -g $FASTCGI_GROUP -f $PHP5"
+FASTCGI_USER=nginx
+FASTCGI_GROUP=nginx
+SOCKET=/var/run/spawn-fcgi.sock
+PIDFILE=/var/run/spawn-fcgi.pid
+PHP5_SOCKET=/var/run/php-fcgi.sock
+CHILDREN=6
+PHP5=/usr/bin/php-cgi
+MODE=0600
+OPTIONS="-s $PHP5_SOCKET -S -M $MODE -P $PIDFILE -C $CHILDREN -u $FASTCGI_USER -g $FASTCGI_GROUP -f $PHP5"
+
 {{< /file >}}
 
 
@@ -154,23 +158,24 @@ Issue the following command to set PHP-FastCGI to start on boot and start it now
 Edit your site's nginx configuration file to resembled the following example.
 
 {{< file "/etc/nginx/sites-available/www.example.com" nginx >}}
-    server {
-        server_name www.example.com example.com;
-        access_log /srv/www/www.example.com/logs/access.log;
-        error_log /srv/www/www.example.com/logs/error.log;
-        root /srv/www/www.example.com/public_html;
+server {
+    server_name www.example.com example.com;
+    access_log /srv/www/www.example.com/logs/access.log;
+    error_log /srv/www/www.example.com/logs/error.log;
+    root /srv/www/www.example.com/public_html;
 
-        location / {
-            index  index.html index.htm;
-        }
-
-        location ~ \.php$ {
-            include /etc/nginx/fastcgi_params;
-            fastcgi_pass unix:/var/run/php-fcgi.sock;
-            fastcgi_index index.php;
-            fastcgi_param SCRIPT_FILENAME /srv/www/www.example.com/public_html$fastcgi_script_name;
-        }
+    location / {
+        index  index.html index.htm;
     }
+
+    location ~ \.php$ {
+        include /etc/nginx/fastcgi_params;
+        fastcgi_pass unix:/var/run/php-fcgi.sock;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME /srv/www/www.example.com/public_html$fastcgi_script_name;
+    }
+}
+
 {{< /file >}}
 
 
@@ -181,7 +186,8 @@ Issue the following command to restart nginx.
 Create a PHP test page so you can verify that everything is working correctly.
 
 {{< file "/srv/www/www.example.com/public\\_html/test.php" php >}}
-    <?php phpinfo(); ?>
+<?php phpinfo(); ?>
+
 {{< /file >}}
 
 

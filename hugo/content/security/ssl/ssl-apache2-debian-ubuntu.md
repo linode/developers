@@ -37,19 +37,20 @@ This guide assumes that you are running Apache 2.4 or higher on Debian 8 or Ubun
 1.  Edit the virtual host configuration files located in `/etc/apache2/sites-available` to provide the certificate file paths. For each virtual host, replicate the configuration shown below. Replace each mention of `example.com` with your own domain. You will also need to ensure that the `SSLCACertificateFile` value is configured to point to the `ca-certificates.crt` file updated in the previous step:
 
 {{< file-excerpt "/etc/apache2/sites-available/example.com.conf" aconf >}}
-        <VirtualHost *:443>
-            SSLEngine On
-            SSLCertificateFile /etc/ssl/certs/example.com.crt
-            SSLCertificateKeyFile /etc/ssl/private/example.com.key
-            SSLCACertificateFile /etc/ssl/certs/ca-certificates.crt  #If using a self-signed certificate, omit this line
+<VirtualHost *:443>
+    SSLEngine On
+    SSLCertificateFile /etc/ssl/certs/example.com.crt
+    SSLCertificateKeyFile /etc/ssl/private/example.com.key
+    SSLCACertificateFile /etc/ssl/certs/ca-certificates.crt  #If using a self-signed certificate, omit this line
 
-            ServerAdmin info@example.com
-            ServerName www.example.com
-            ServerAlias www.example2.com #If using alternate names for a host
+    ServerAdmin info@example.com
+    ServerName www.example.com
+    ServerAlias www.example2.com #If using alternate names for a host
 			DocumentRoot /var/www/html/example.com/public_html/
-            ErrorLog /var/www/html/example.com/log/error.log
-            CustomLog /var/www/html/example.com/log/access.log combined
-        </VirtualHost>
+    ErrorLog /var/www/html/example.com/log/error.log
+    CustomLog /var/www/html/example.com/log/access.log combined
+</VirtualHost>
+
 {{< /file-excerpt >}}
 
 

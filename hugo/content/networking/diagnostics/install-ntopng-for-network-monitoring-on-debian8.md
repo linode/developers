@@ -99,14 +99,15 @@ Ntopng has a built in web server and initializer. Configuration options can be d
 4.  Create `/etc/ntopng/ntopng.conf` and match the contents to the example listed below. Replace `192.0.2.0` with your Linode’s domain or public IP address. If needed, replace `eth0` with your primary network interface. If you want to review available configuration parameters, run `man ntopng` from the terminal.
 
 {{< file "**/etc/ntopng/ntopng.conf**" aconf >}}
-      --user=ntopng
-      --interface=eth0
-      -w=192.0.2.0:3005
-      --community
-      --daemon
-      --dump-flows=logstash # optional
-      --disable-autologout # optional
-      --disable-login=1 # optional
+--user=ntopng
+--interface=eth0
+-w=192.0.2.0:3005
+--community
+--daemon
+--dump-flows=logstash # optional
+--disable-autologout # optional
+--disable-login=1 # optional
+
 {{< /file >}}
 
 

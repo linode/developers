@@ -78,7 +78,8 @@ By default, Apache listens on all IP addresses available to it. We must configur
 Begin by adding the following line to the virtual hosting configuration file:
 
 {{< file-excerpt "/etc/httpd/conf.d/vhost.conf" apache >}}
-    NameVirtualHost 12.34.56.78:80
+NameVirtualHost 12.34.56.78:80
+
 {{< /file-excerpt >}}
 
 
@@ -89,23 +90,24 @@ Be sure to replace 12.34.56.78 with your own IP address.
 Now we will create virtual host entries for each site that we need to host with this server. Here are two examples for sites at "example.com" and "example.com".
 
 {{< file-excerpt "/etc/httpd/conf.d/vhost.conf" apache >}}
-    <VirtualHost 12.34.56.78:80>
-         ServerAdmin username@example.com
-         ServerName example.com
-         ServerAlias www.example.com
-         DocumentRoot /srv/www/example.com/public_html/
-         ErrorLog /srv/www/example.com/logs/error.log
-         CustomLog /srv/www/example.com/logs/access.log combined
-    </VirtualHost>
+<VirtualHost 12.34.56.78:80>
+     ServerAdmin username@example.com
+     ServerName example.com
+     ServerAlias www.example.com
+     DocumentRoot /srv/www/example.com/public_html/
+     ErrorLog /srv/www/example.com/logs/error.log
+     CustomLog /srv/www/example.com/logs/access.log combined
+</VirtualHost>
 
-    <VirtualHost 12.34.56.78:80>
-         ServerAdmin username@example.com     
-         ServerName example.com
-         ServerAlias www.example.com
-         DocumentRoot /srv/www/example.com/public_html/
-         ErrorLog /srv/www/example.com/logs/error.log
-         CustomLog /srv/www/example.com/logs/access.log combined
-    </VirtualHost>
+<VirtualHost 12.34.56.78:80>
+     ServerAdmin username@example.com     
+     ServerName example.com
+     ServerAlias www.example.com
+     DocumentRoot /srv/www/example.com/public_html/
+     ErrorLog /srv/www/example.com/logs/error.log
+     CustomLog /srv/www/example.com/logs/access.log combined
+</VirtualHost>
+
 {{< /file-excerpt >}}
 
 
@@ -196,10 +198,11 @@ These usernames and passwords need not (and should not) correspond to system use
 In the .htaccess file for the directory that you want to protect, add the following lines:
 
 {{< file-excerpt ".htaccess" apache >}}
-    AuthUserFile /srv/www/bleddington.com/.htpasswd
-    AuthType Basic
-    AuthName "Advanced Choreographic Information"
-    Require valid-user
+AuthUserFile /srv/www/bleddington.com/.htpasswd
+AuthType Basic
+AuthName "Advanced Choreographic Information"
+Require valid-user
+
 {{< /file-excerpt >}}
 
 
@@ -213,14 +216,16 @@ The mod\_rewrite engine is very powerful, and is available for your use by defau
 In a `<Directory >` block or `.htaccess` file, enable mod\_rewrite with the following line:
 
 {{< file-excerpt "Apache Virtual Hosting Configuration File or .htaccess" apache >}}
-    RewriteEngine on
+RewriteEngine on
+
 {{< /file-excerpt >}}
 
 
 Now, you may create any number of separate rewrite rules. These rules provide a pattern that the server compares incoming requests against, and if a request matches a rewrite pattern, the server provides an alternate page. Here is an example rewrite rule:
 
 {{< file-excerpt "Apache Virtual Hosting Configuration File or .htaccess" apache >}}
-    RewriteRule ^post-id/([0-9]+)$ /posts/$1.html
+RewriteRule ^post-id/([0-9]+)$ /posts/$1.html
+
 {{< /file-excerpt >}}
 
 

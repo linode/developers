@@ -44,23 +44,25 @@ This guide assumes that you are working from an Ubuntu 14.04 LTS Puppet master a
 1.  From within the `manifests` directory, an `init.pp` class needs to be created. This class should share its name with the module name:
 
 {{< file "/etc/puppet/modules/apache/manifests/init.pp" puppet >}}
-        class apache {
+class apache {
         
-        }
+}
+
 {{< /file >}}
 
         
     This file will be used to install the Apache package. Ubuntu 14.04 and CentOS 7 have different package names for Apache, however. Because of this, a variable will be used:
     
 {{< file "/etc/puppet/modules/apache/manifests/init.pp" puppet >}}
-        class apache {
+class apache {
           
-          package { 'apache':
-            name    => $apachename,
-            ensure  => present,
-          }
+  package { 'apache':
+    name    => $apachename,
+    ensure  => present,
+  }
         
-        }
+}
+
 {{< /file >}}
 
     
@@ -71,9 +73,10 @@ This guide assumes that you are working from an Ubuntu 14.04 LTS Puppet master a
     Create and open `params.pp`:
     
 {{< file "/etc/puppet/modules/apache/manifests/params.pp" >}}
-        class apache::params {
+class apache::params {
         
-        }
+}
+
 {{< /file >}}
 
         
@@ -84,34 +87,36 @@ This guide assumes that you are working from an Ubuntu 14.04 LTS Puppet master a
     The skeleton of the `if` statement should resemble the following:
 
 {{< file "/etc/puppet/modules/apache/manifests/params.pp" puppet >}}
-        class apache::params {
+class apache::params {
         
-          if $::osfamily == 'RedHat' {
+  if $::osfamily == 'RedHat' {
         
-          } elseif $::osfamily == 'Debian' {
+  } elseif $::osfamily == 'Debian' {
         
-          } else {
-            print "This is not a supported distro."
-          }
+  } else {
+    print "This is not a supported distro."
+  }
         
-        }
+}
+
 {{< /file >}}
 ~
         
     And once we've added the variables that have already been referenced:
     
 {{< file "/etc/puppet/modules/apache/manifests/params.pp" puppet >}}
-        class apache::params {
+class apache::params {
         
-          if $::osfamily == 'RedHat' {
-            $apachename     = 'httpd'        
-          } elseif $::osfamily == 'Debian' {
-            $apachename     = 'apache2'
-          } else {
-            print "This is not a supported distro."
-          }
+  if $::osfamily == 'RedHat' {
+    $apachename     = 'httpd'        
+  } elseif $::osfamily == 'Debian' {
+    $apachename     = 'apache2'
+  } else {
+    print "This is not a supported distro."
+  }
         
-        }
+}
+
 {{< /file >}}
 ~
         
@@ -122,9 +127,10 @@ For the duration of this guide, when something needs to be added to the paramete
 4.  With the parameters finally defined, we need to call the `params.pp` file and the parameters into `init.pp`. To do this, the parameters need to be added after the class name, but before the opening curly bracket (`{`):
 
 {{< file-excerpt "/etc/puppet/modules/apache/manifests/init.pp" puppet >}}
-        class apache (
-          $apachename   = $::apache::params::apachename,
-        ) inherits ::apache::params {
+class apache (
+  $apachename   = $::apache::params::apachename,
+) inherits ::apache::params {
+
 {{< /file-excerpt >}}
 
         
@@ -140,18 +146,20 @@ Apache has two different configuration files, depending on whether you are worki
 2.  Both files need to be edited to turn `KeepAlive` settings to `Off`. This setting will need to be added to `httpd.conf`. Otherwise, a comment should to added to the top of each file:
 
 {{< file-excerpt "/etc/puppet/modules/apache/files/httpd.conf" aconf >}}
-        # This file is managed by Puppet
+# This file is managed by Puppet
+
 {{< /file-excerpt >}}
 
 
 3.  These files now need to be added to the `init.pp` file, so Puppet will know where they are located on both the master server and agent nodes. To do this, the `file` resource is used:
 
 {{< file-excerpt "/etc/puppet/modules/apache/manifests/init.pp" puppet >}}
-          file { 'configuration-file':
-            path    => $conffile,
-            ensure  => file,
-            source  => $confsource,
-          }
+file { 'configuration-file':
+  path    => $conffile,
+  ensure  => file,
+  source  => $confsource,
+}
+
 {{< /file-excerpt >}}
 
         
@@ -160,21 +168,22 @@ Apache has two different configuration files, depending on whether you are worki
 4.  Open the `params.pp` file. The `$conffile` and `$confsource` variables need to be defined within the `if` statement:
 
 {{< file-excerpt "/etc/puppet/modules/apache/manifests/params.pp" puppet >}}
-          if $::osfamily == 'RedHat' {
+if $::osfamily == 'RedHat' {
           
-          ...
+...
           
-            $conffile     = '/etc/httpd/conf/httpd.conf'
-            $confsource   = 'puppet:///modules/apache/httpd.conf'
-          } elsif $::osfamily == 'Debian' {
+  $conffile     = '/etc/httpd/conf/httpd.conf'
+  $confsource   = 'puppet:///modules/apache/httpd.conf'
+} elsif $::osfamily == 'Debian' {
           
-          ...
+...
           
-            $conffile     = '/etc/apache2/apache2.conf'
-            $confsource   = 'puppet:///modules/apache/apache2.conf'
-          } else {
+  $conffile     = '/etc/apache2/apache2.conf'
+  $confsource   = 'puppet:///modules/apache/apache2.conf'
+} else {
           
-          ...
+...
+
 {{< /file-excerpt >}}
 
         
@@ -183,17 +192,18 @@ Apache has two different configuration files, depending on whether you are worki
 5.  When the configuration file is changed, Apache needs to restart. To automate this, the `service` resource can be used in combination with the `notify` attribute, which will call the resource to run whenever the configuration file is changed:
 
 {{< file-excerpt "/etc/puppet/modules/apache/manifests/init.pp" puppet >}}
-          file { 'configuration-file':
-            path    => $conffile,
-            ensure  => file,
-            source  => $confsource,
-            notify  => Service['apache-service'],
-          }
+file { 'configuration-file':
+  path    => $conffile,
+  ensure  => file,
+  source  => $confsource,
+  notify  => Service['apache-service'],
+}
         
-          service { 'apache-service':
-            name          => $apachename,
-            hasrestart    => true,
-          }
+service { 'apache-service':
+  name          => $apachename,
+  hasrestart    => true,
+}
+
 {{< /file-excerpt >}}
 
         
@@ -209,17 +219,18 @@ The Virtual Hosts files will be managed differently, depending on whether the se
 2.  Create the skeleton of the `if` statement:
 
 {{< file "/etc/puppet/modules/apache/manifests/vhosts.pp" puppet >}}
-        class apache::vhosts {
+class apache::vhosts {
         
-          if $::osfamily == 'RedHat' {
+  if $::osfamily == 'RedHat' {
 
-          } elsif $::osfamily == 'Debian' {
+  } elsif $::osfamily == 'Debian' {
 
-          } else {
+  } else {
         
-          }
+  }
         
-        }
+}
+
 {{< /file >}}
 
 
@@ -228,31 +239,33 @@ The Virtual Hosts files will be managed differently, depending on whether the se
     For Red Hat systems:
     
 {{< file "/etc/puppet/modules/apache/templates/vhosts-rh.conf.erb" aconf >}}
-        <VirtualHost *:80>
-            ServerAdmin	<%= @adminemail %>
-            ServerName <%= @servername %>
-            ServerAlias www.<%= @servername %>
-            DocumentRoot /var/www/<%= @servername -%>/public_html/
-            ErrorLog /var/www/<%- @servername -%>/logs/error.log
-            CustomLog /var/www/<%= @servername -%>/logs/access.log combined
-        </Virtual Host>
+<VirtualHost *:80>
+    ServerAdmin	<%= @adminemail %>
+    ServerName <%= @servername %>
+    ServerAlias www.<%= @servername %>
+    DocumentRoot /var/www/<%= @servername -%>/public_html/
+    ErrorLog /var/www/<%- @servername -%>/logs/error.log
+    CustomLog /var/www/<%= @servername -%>/logs/access.log combined
+</Virtual Host>
+
 {{< /file >}}
 
         
     For Debian systems:
     
 {{< file "/etc/puppet/modules/apache/templates/vhosts-deb.conf.erb" aconf >}}
-        <VirtualHost *:80>
-            ServerAdmin	<%= @adminemail %>
-            ServerName <%= @servername %>
-            ServerAlias www.<%= @servername %>
-            DocumentRoot /var/www/html/<%= @servername -%>/public_html/
-            ErrorLog /var/www/html/<%- @servername -%>/logs/error.log
-            CustomLog /var/www/html/<%= @servername -%>/logs/access.log combined
-            <Directory /var/www/html/<%= @servername -%>/public_html>
-                Require all granted
-            </Directory>
-        </Virtual Host>
+<VirtualHost *:80>
+    ServerAdmin	<%= @adminemail %>
+    ServerName <%= @servername %>
+    ServerAlias www.<%= @servername %>
+    DocumentRoot /var/www/html/<%= @servername -%>/public_html/
+    ErrorLog /var/www/html/<%- @servername -%>/logs/error.log
+    CustomLog /var/www/html/<%= @servername -%>/logs/access.log combined
+    <Directory /var/www/html/<%= @servername -%>/public_html>
+        Require all granted
+    </Directory>
+</Virtual Host>
+
 {{< /file >}}
 
         
@@ -261,23 +274,24 @@ The Virtual Hosts files will be managed differently, depending on whether the se
 4.  Return to the `vhosts.pp` file. The templates created can now be referenced in the code:
 
 {{< file "/etc/puppet/modules/apache/manifests/vhosts.pp" puppet >}}
-        class apache::vhosts {
+class apache::vhosts {
         
-          if $::osfamily == 'RedHat' {
-            file { '/etc/httpd/conf.d/vhost.conf':
-              ensure    => file,
-              content   => template('apache/vhosts-rh.conf.erb'),
-            }
-          } elsif $::osfamily == 'Debian' {
-            file { "/etc/apache2/sites-available/$servername.conf":
-              ensure  => file,
-              content  => template('apache/vhosts-deb.conf.erb'),
-            }
-          } else {
-            print "This is not a supported distro."
-          }
+  if $::osfamily == 'RedHat' {
+    file { '/etc/httpd/conf.d/vhost.conf':
+      ensure    => file,
+      content   => template('apache/vhosts-rh.conf.erb'),
+    }
+  } elsif $::osfamily == 'Debian' {
+    file { "/etc/apache2/sites-available/$servername.conf":
+      ensure  => file,
+      content  => template('apache/vhosts-deb.conf.erb'),
+    }
+  } else {
+    print "This is not a supported distro."
+  }
         
-        }
+}
+
 {{< /file >}}
 
         
@@ -290,42 +304,43 @@ Values containing variables, such as the name of the Debian file resource above,
 5.  Both virtual hosts files reference two directories that are not on the distributions by default. These can be created through the use of the `file` resource, each located within the `if` statement. The complete `vhosts.conf` file should resemble:
 
 {{< file "/etc/puppet/modules/apache/manifests/vhosts.pp" puppet >}}
-        class apache::vhosts {
+class apache::vhosts {
         
-          if $::osfamily == 'RedHat' {
-            file { '/etc/httpd/conf.d/vhost.conf':
-              ensure    => file,
-              content   => template('apache/vhosts-rh.conf.erb'),
-            }
-            file { "/var/www/$servername":
-              ensure    => directory,
-            }
-            file { "/var/www/$servername/public_html":
-              ensure    => directory,
-            }
-            file { "/var/www/$servername/log":
-            ensure    => directory,
-            }
+  if $::osfamily == 'RedHat' {
+    file { '/etc/httpd/conf.d/vhost.conf':
+      ensure    => file,
+      content   => template('apache/vhosts-rh.conf.erb'),
+    }
+    file { "/var/www/$servername":
+      ensure    => directory,
+    }
+    file { "/var/www/$servername/public_html":
+      ensure    => directory,
+    }
+    file { "/var/www/$servername/log":
+    ensure    => directory,
+    }
         
-          } elsif $::osfamily == 'Debian' {
-            file { "/etc/apache2/sites-available/$servername.conf":
-              ensure  => file,
-              content  => template('apache/vhosts-deb.conf.erb'),
-            }
-            file { "/var/www/$servername":
-              ensure    => directory,
-            }
-            file { "/var/www/html/$servername/public_html":
-              ensure    => directory,
-            }
-            file { "/var/www/html/$servername/logs":
-              ensure    => directory,
-            }
-          } else {
-            print "This is not a supported distro."
-          }
+  } elsif $::osfamily == 'Debian' {
+    file { "/etc/apache2/sites-available/$servername.conf":
+      ensure  => file,
+      content  => template('apache/vhosts-deb.conf.erb'),
+    }
+    file { "/var/www/$servername":
+      ensure    => directory,
+    }
+    file { "/var/www/html/$servername/public_html":
+      ensure    => directory,
+    }
+    file { "/var/www/html/$servername/logs":
+      ensure    => directory,
+    }
+  } else {
+    print "This is not a supported distro."
+  }
         
-        }
+}
+
 {{< /file >}}
 
 
@@ -341,11 +356,12 @@ Values containing variables, such as the name of the Debian file resource above,
 2.  Navigate to the `examples` directory within the `apache` module. Create an `init.pp` file and include the created classes. Provide variables for `servername` and `adminemail`:
 
 {{< file "/etc/puppet/modules/apache/examples/init.pp" >}}
-        $serveremail = 'webmaster@example.com'
-        $servername = 'example.com'
+$serveremail = 'webmaster@example.com'
+$servername = 'example.com'
         
-        include apache
-        include apache::vhosts
+include apache
+include apache::vhosts
+
 {{< /file >}}
 
 
@@ -360,47 +376,48 @@ Values containing variables, such as the name of the Debian file resource above,
 5.  Open `site.pp` and include the Apache module for each agent node. Also input the variables for the `adminemail` and `servername` parameters. If you followed the [Puppet Setup](/docs/applications/puppet/set-up-puppet-master-agent) guide, a single node configuration within `site.pp` will resemble the following:
 
 {{< file-excerpt "/etc/puppet/manifests/site.pp" puppet >}}
-        node 'ubuntuhost.example.com' {
-          $adminemail = 'webmaster@example.com'
-          $servername = 'hostname.example.com'
+node 'ubuntuhost.example.com' {
+  $adminemail = 'webmaster@example.com'
+  $servername = 'hostname.example.com'
         
-          include accounts
-          include apache
-          include apache::vhosts
+  include accounts
+  include apache
+  include apache::vhosts
         
-          resources { 'firewall':
-            purge => true,
-          }
+  resources { 'firewall':
+    purge => true,
+  }
         
-          Firewall {
-            before        => Class['firewall::post'],
-            require       => Class['firewall::pre'],
-          }
+  Firewall {
+    before        => Class['firewall::post'],
+    require       => Class['firewall::pre'],
+  }
         
-          class { ['firewall::pre', 'firewall::post']: }
+  class { ['firewall::pre', 'firewall::post']: }
         
-          }
+  }
 
-        node 'centoshost.example.com' {
-          $adminemail = 'webmaster@example.com'
-          $servername = 'hostname.example.com'
+node 'centoshost.example.com' {
+  $adminemail = 'webmaster@example.com'
+  $servername = 'hostname.example.com'
         
-          include accounts
-          include apache
-          include apache::vhosts
+  include accounts
+  include apache
+  include apache::vhosts
         
-          resources { 'firewall':
-            purge => true,
-          }
+  resources { 'firewall':
+    purge => true,
+  }
         
-          Firewall {
-            before        => Class['firewall::post'],
-            require       => Class['firewall::pre'],
-          }
+  Firewall {
+    before        => Class['firewall::post'],
+    require       => Class['firewall::pre'],
+  }
         
-          class { ['firewall::pre', 'firewall::post']: }
+  class { ['firewall::pre', 'firewall::post']: }
         
-          }
+  }
+
 {{< /file-excerpt >}}
 
 
@@ -426,13 +443,14 @@ Before you begin to create the configuration files for the MySQL module, conside
 1.  Navigate to `/etc/puppet` and create Hiera's configuration file `hiera.yaml` in the main `puppet` directory:
 
 {{< file "/etc/puppet/hiera.yaml" yaml >}}
-        :backends:
-          - yaml
-        :yaml:
-          :datadir: /etc/puppet/hieradata
-        :hierarchy:
-          - "nodes/%{::fqdn}"
-          - common
+:backends:
+  - yaml
+:yaml:
+  :datadir: /etc/puppet/hieradata
+:hierarchy:
+  - "nodes/%{::fqdn}"
+  - common
+
 {{< /file >}}
 
         
@@ -454,22 +472,24 @@ Before you begin to create the configuration files for the MySQL module, conside
 5.  Open the first node's configuration file to define the first database. In this example, the database is called `webdata1`, with `username` and `password` self-defined. The `grant` value is granting the user all access to the webdata1 database:
 
 {{< file "/etc/puppet/hieradata/nodes/ubuntuhost.example.com.yaml" yaml >}}
-        databases:
-          webdata1:
-           user: 'username'
-           password: 'password'
-           grant: 'ALL'
+databases:
+  webdata1:
+   user: 'username'
+   password: 'password'
+   grant: 'ALL'
+
 {{< /file >}}
 
         
     Repeat with the second server. In this example, the database is called `webdata2`:
     
 {{< file "/etc/puppet/hieradata/nodes/centoshost.example.com.yaml" yaml >}}
-        databases:
-          webdata2:
-           user: 'username'
-           password: 'password'
-           grant: 'ALL'
+databases:
+  webdata2:
+   user: 'username'
+   password: 'password'
+   grant: 'ALL'
+
 {{< /file >}}
 
         
@@ -478,7 +498,8 @@ Before you begin to create the configuration files for the MySQL module, conside
 6.  Return to the `hieradata` directory and create the file `common.yaml`. It will be used to define the default `root` password for MySQL:
 
 {{< file "/etc/puppet/hieradata/common.yaml" >}}
-        mysql::server::root_password: 'password'
+mysql::server::root_password: 'password'
+
 {{< /file >}}
 
         
@@ -487,12 +508,13 @@ Before you begin to create the configuration files for the MySQL module, conside
 7.  Puppet now needs to know to use the information input in Hiera to create the defined database. Move to the `mysql` module directory and within the `manifests` directory create `database.pp`. Here you will define a class that will link the `mysql::db` resource to the Hiera data. It will also call the `mysql::server` class, so it will not have to be included later:
 
 {{< file "/etc/puppet/modules/mysql/manifests/database.pp" puppet >}}
-        class mysql::database {
+class mysql::database {
 
-          include mysql::server
+  include mysql::server
 
-          create_resources('mysql::db', hiera_hash('databases'))
-        }
+  create_resources('mysql::db', hiera_hash('databases'))
+}
+
 {{< /file >}}
 
 
@@ -512,72 +534,75 @@ Before you begin to create the configuration files for the MySQL module, conside
 3.  Two packages will be installed: The PHP package and the PHP Extension and Application Repository. Use the `package` resource for this:
 
 {{< file "/etc/puppet/modules/php/manifests/init.pp" puppet >}}
-        class php {
+class php {
         
-          package { 'php':
-            name: $phpname,
-            ensure: present,
-          }
+  package { 'php':
+    name: $phpname,
+    ensure: present,
+  }
           
-          package { 'php-pear':
-            ensure: present,
-          }
+  package { 'php-pear':
+    ensure: present,
+  }
         
-        }
+}
+
 {{< /file >}}
 
         
     Because the `php` package has different names on Ubuntu and CentOS, it will once again need to be defined with a parameter. However, because this is the only parameter we will be needing, it will be added directly to the `init.pp` file:
     
 {{< file "/etc/puppet/modules/php/manifests/init.pp" puppet >}}
-        class php {
+class php {
         
-          $phpname = $osfamily ? {
-            'Debian'    => 'php5',
-            'RedHat'    => 'php',
-            default     => warning('This distribution is not supported by the PHP module'),
-          }
+  $phpname = $osfamily ? {
+    'Debian'    => 'php5',
+    'RedHat'    => 'php',
+    default     => warning('This distribution is not supported by the PHP module'),
+  }
         
-          package { 'php':
-            name    => $phpname,
-            ensure  => present,
-          }
+  package { 'php':
+    name    => $phpname,
+    ensure  => present,
+  }
           
-          package { 'php-pear':
-            ensure  => present,
-          }
+  package { 'php-pear':
+    ensure  => present,
+  }
         
-        }
+}
+
 {{< /file >}}
 
 
 4.  Use the `service` resource to ensure that PHP is on and set to start at boot:
 
 {{< file "/etc/puppet/modules/php/manifests/init.pp" puppet >}}
-        class php {
+class php {
         
-          $phpname = $osfamily ? {
-            'Debian'    => 'php5',
-            'RedHat'    => 'php',
-            default     => warning('This distribution is not supported by the PHP module'),
-          }
+  $phpname = $osfamily ? {
+    'Debian'    => 'php5',
+    'RedHat'    => 'php',
+    default     => warning('This distribution is not supported by the PHP module'),
+  }
         
-          package { 'php':
-            name    => $phpname,
-            ensure  => present,
-          }
+  package { 'php':
+    name    => $phpname,
+    ensure  => present,
+  }
           
-          package { 'php-pear':
-            ensure  => present,
-          }
+  package { 'php-pear':
+    ensure  => present,
+  }
           
-          service { 'php-service':
-            name    => $phpname,
-            ensure  => running,
-            enable  => true,
-          }
+  service { 'php-service':
+    name    => $phpname,
+    ensure  => running,
+    enable  => true,
+  }
         
-        }
+}
+
 {{< /file >}}
 
 

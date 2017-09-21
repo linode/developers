@@ -113,6 +113,7 @@ mp_warmup_time 30                 --> Time before the match starts.
 // mp_fraglimit 45                --> The number of kills needed to end the match.
 // sv_logecho 1                   --> Prints logs in the console (0 = disabled|1 = enabled).
 // sv_logfile 1                   --> Saves the logs to a file (0 = disabled|1 = enabled).
+
 {{< /file-excerpt >}}
 
 
@@ -161,6 +162,7 @@ In the following example, maps that were downloaded from workshop to the list ar
    "workshop\432070352.vpk"		"1"
    "workshop\432074065.vpk"		"1"
   }
+
 {{< /file >}}
 
 
@@ -181,6 +183,7 @@ dm_stalkyard
 dm_subtransit
 dm_undertow
 dm_custom
+
 {{< /file-excerpt >}}
 
     
@@ -213,11 +216,12 @@ This script automatically starts a Black Mesa Dedicated Server into a **Screen s
 2.  Create the file to contain the script:
 
 {{< file "/home/steam/Steam/steamapps/common/Black Mesa Dedicated Server/run.sh" sh >}}
-	#!/bin/sh
-	cd "$HOME/Steam/steamapps/common/Black Mesa Dedicated Server"
-	screen -S "BMDS" -d -m
-	screen -r "BMDS" -X stuff "./srcds_run -game bms +map gasworks +maxplayers 24\n"
+#!/bin/sh
+cd "$HOME/Steam/steamapps/common/Black Mesa Dedicated Server"
+screen -S "BMDS" -d -m
+screen -r "BMDS" -X stuff "./srcds_run -game bms +map gasworks +maxplayers 24\n"
 	
+
 {{< /file >}}
 
 

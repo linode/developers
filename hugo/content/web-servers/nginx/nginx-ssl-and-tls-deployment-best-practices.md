@@ -47,7 +47,8 @@ By default, nginx will share its version number with anyone who connects to your
 1.  To disable `server_tokens`, open your `/etc/nginx/nginx.conf` file. Inside of the `http` block, append or uncomment the following line:
 
 {{< file-excerpt "/etc/nginx/nginx.conf" >}}
-        server_tokens       off;
+server_tokens       off;
+
 {{< /file-excerpt >}}
 
 
@@ -80,7 +81,8 @@ Chrome has deprecated Next Protocol Negotiation (NPN) and now requires Applicati
 1.  To enable HTTP/2, open your nginx SSL virtual host configuration file. Depending on how you installed nginx, this could be located at `/etc/nginx/sites-enabled/default` or at `/etc/nginx/conf.d/example_ssl.conf`. Look for the `listen` line within the "SSL Configuration" section. Uncomment the following line if necessary and add `http2` to the end before the semicolon.
 
 {{< file-excerpt "/etc/nginx/conf.d/example_ssl.conf" aconf >}}
-        listen       443 ssl http2;
+listen       443 ssl http2;
+
 {{< /file-excerpt >}}
 
 
@@ -101,25 +103,28 @@ Google is now ranking websites that accept encrypted HTTPS connections higher in
 1.  Open your HTTP nginx virtual host configuration file, which can be located at `/etc/nginx/conf.d/default.conf`, `/etc/nginx/nginx.conf` or `/etc/nginx/sites-enabled/default` depending on how you installed nginx. Change `example.com` to match your Linode's domain name or hostname:
 
 {{< file-excerpt "/etc/nginx/conf.d/default.conf" aconf >}}
-        server_name example.com
+server_name example.com
+
 {{< /file-excerpt >}}
 
 
 2.  Append the following line below the `server_name` line.
 
 {{< file-excerpt "/etc/nginx/conf.d/default.conf" aconf >}}
-        rewrite        ^ https://$server_name$request_uri? permanent;
+rewrite        ^ https://$server_name$request_uri? permanent;
+
 {{< /file-excerpt >}}
 
 
 3.  Comment out (place `#` in front of) all other lines so your configuration looks like this:
 
 {{< file-excerpt "/etc/nginx/conf.d/default.conf" aconf >}}
-        server {
-            listen       80;
-            server_name  example.com;
-            rewrite      ^ https://$server_name$request_uri? permanent;
-        }
+server {
+    listen       80;
+    server_name  example.com;
+    rewrite      ^ https://$server_name$request_uri? permanent;
+}
+
 {{< /file-excerpt >}}
 
 
@@ -142,9 +147,10 @@ Before enabling OCSP stapling you will need to have a file on your system that s
 1.  Open your HTTPS nginx virtual host configuration file, which can be located at `/etc/nginx/conf.d/example_ssl.conf` or `/etc/nginx/sites-enabled/default` depending on how you installed and configured nginx. Add the following lines inside the `server` block:
 
 {{< file-excerpt "/etc/nginx/conf.d/example_ssl.conf" aconf >}}
-        ssl_stapling on;
-        ssl_stapling_verify on;
-        ssl_trusted_certificate /etc/ssl/nginx/ca.pem;
+ssl_stapling on;
+ssl_stapling_verify on;
+ssl_trusted_certificate /etc/ssl/nginx/ca.pem;
+
 {{< /file-excerpt >}}
 
 
@@ -169,7 +175,8 @@ With all traffic being redirected from HTTP to HTTPS, you may want to allow user
 1.  Open up your nginx HTTPS virtual host configuration file. This may be located at `/etc/nginx/sites-enabled/default` or at `/etc/nginx/conf.d/example_ssl.conf`. Append the following line inside your `server` block:
 
 {{< file-excerpt "/etc/nginx/conf.d/example_ssl.conf" aconf >}}
-        add_header Strict-Transport-Security "max-age=31536000; includeSubdomains";
+add_header Strict-Transport-Security "max-age=31536000; includeSubdomains";
+
 {{< /file-excerpt >}}
 
 
@@ -194,7 +201,8 @@ If you've already conducted a test from one of the above sections, use the **Cle
 Content sniffing allows browsers to inspect a byte stream in order to "guess" the file format of its contents. It is generally used to help sites that do not correctly identify the MIME type of their web content, but it also presents a vulnerability to cross-site scripting and other attacks. To disable content sniffing, add the following line to your nginx SSL configuration file in the `server` block:
 
 {{< file "/etc/nginx/conf.d/example_ssl.conf" aconf >}}
-    add_header X-Content-Type-Options nosniff;
+add_header X-Content-Type-Options nosniff;
+
 {{< /file >}}
 
 
@@ -203,7 +211,8 @@ Content sniffing allows browsers to inspect a byte stream in order to "guess" th
 The HTTPS header `X-Frame-Options` can specify whether a page is able to be rendered in a frame, iframe, or object. If left unset, your site's content may be embedded into other sites' HTML code in a clickjacking attack. To disable the embedding of your content, add the following line to your SSL configuration file in the `server` block:
 
 {{< file "/etc/nginx/conf.d/example_ssl.conf" aconf >}}
-    add_header X-Frame-Options DENY;
+add_header X-Frame-Options DENY;
+
 {{< /file >}}
 
 
@@ -224,7 +233,8 @@ We're using a 4096-bit RSA private key to sign the Diffie-Hellman key exchange, 
 3.  Specify the new parameter by adding the following line to your nginx SSL configuration file in the `server` block:
 
 {{< file "/etc/nginx/conf.d/example_ssl.conf" aconf >}}
-        ssl_dhparam /etc/ssl/certs/dhparam.pem;
+ssl_dhparam /etc/ssl/certs/dhparam.pem;
+
 {{< /file >}}
 
 
@@ -237,39 +247,40 @@ We're using a 4096-bit RSA private key to sign the Diffie-Hellman key exchange, 
 If you have been following along, starting with the guide on installing the latest version of nginx for Debian Wheezy or Jessie and getting a StartSSL certificate, your `/etc/nginx/conf.d/example_ssl.conf` should now look similar to this:
 
 {{< file "/etc/nginx/conf.d/example_ssl.conf" aconf >}}
-    # HTTPS server
-    #
-    server {
-        listen       443 ssl http2;
+# HTTPS server
+#
+server {
+    listen       443 ssl http2;
 
-        add_header   Strict-Transport-Security "max-age=31536000; includeSubdomains";
-        add_header   X-Content-Type-Options nosniff;
-        add_header   X-Frame-Options DENY;
+    add_header   Strict-Transport-Security "max-age=31536000; includeSubdomains";
+    add_header   X-Content-Type-Options nosniff;
+    add_header   X-Frame-Options DENY;
 
-        server_name  example.com;
+    server_name  example.com;
 
-        ssl_certificate      /etc/ssl/nginx/nginx.crt;
-        ssl_certificate_key  /etc/ssl/nginx/server.key;
+    ssl_certificate      /etc/ssl/nginx/nginx.crt;
+    ssl_certificate_key  /etc/ssl/nginx/server.key;
 
-        ssl_session_cache shared:SSL:10m;
-        ssl_session_timeout  5m;
+    ssl_session_cache shared:SSL:10m;
+    ssl_session_timeout  5m;
 
-        ssl_ciphers  "EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH !RC4";
-        ssl_prefer_server_ciphers   on;
+    ssl_ciphers  "EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH !RC4";
+    ssl_prefer_server_ciphers   on;
 
-        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
 
-        ssl_stapling on;
-        ssl_stapling_verify on;
-        ssl_trusted_certificate /etc/nginx/ca.pem;
+    ssl_stapling on;
+    ssl_stapling_verify on;
+    ssl_trusted_certificate /etc/nginx/ca.pem;
 
-        ssl_dhparam /etc/ssl/certs/dhparam.pem;
+    ssl_dhparam /etc/ssl/certs/dhparam.pem;
 
-        location / {
-            root   /usr/share/nginx/html;
-            index  index.html index.htm;
-        }
+    location / {
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
     }
+}
+
 {{< /file >}}
 
 

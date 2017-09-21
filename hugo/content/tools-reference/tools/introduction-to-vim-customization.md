@@ -57,14 +57,15 @@ Prefixing the `sudo` command is necessary when editing files where read and/or w
 2.  Open the *vimrc* file for editing. The file may syntactically differ between Linux distributions, but the core settings remain the same. In the file below, the segment containing the bulk of the configuration options is shown. Uncomment the lines whose behavior you wish to enable. 
 
 {{< file "/etc/vimrc" vim >}}
-  set showcmd› › " Show (partial) command in status line.
-  set showmatch› › " Show matching brackets.
-  set ignorecase›› " Do case insensitive matching
-  set smartcase› › " Do smart case matching
-  set incsearch› › " Incremental search
-  set autowrite› › " Automatically save before commands like :next and :make
-  set hidden›› " Hide buffers when they are abandoned
-  set mouse=a› › " Enable mouse usage (all modes)
+set showcmd› › " Show (partial) command in status line.
+set showmatch› › " Show matching brackets.
+set ignorecase›› " Do case insensitive matching
+set smartcase› › " Do smart case matching
+set incsearch› › " Incremental search
+set autowrite› › " Automatically save before commands like :next and :make
+set hidden›› " Hide buffers when they are abandoned
+set mouse=a› › " Enable mouse usage (all modes)
+
 {{< /file >}}
 
 
@@ -79,87 +80,88 @@ The configurations in this section will apply only to the active user account.
 From your active Vim session, create a *.vimrc* file in your home directory. The contents below consist of basic configuration settings most users would find helpful when utilizing Vim in any circumstance. You may pick and choose which settings you would like to add to your personal *.vimrc* file.
 
 {{< file "~/.vimrc" vim >}}
-  " Set compatibility to Vim only.
-  set nocompatible
+" Set compatibility to Vim only.
+set nocompatible
 
-  " Helps force plug-ins to load correctly when it is turned back on below.
-  filetype off
+" Helps force plug-ins to load correctly when it is turned back on below.
+filetype off
 
-  " Turn on syntax highlighting.
-  syntax on
+" Turn on syntax highlighting.
+syntax on
   
-  " For plug-ins to load correctly. 
-  filetype plug-in indent on
+" For plug-ins to load correctly. 
+filetype plug-in indent on
 
-  " Turn off modelines
-  set modelines=0
+" Turn off modelines
+set modelines=0
 
-  " Automatically wrap text that extends beyond the screen length.
-  set wrap
-  " Vim's auto indentation feature does not work properly with text copied from outisde of Vim. Press the <F2> key to toggle paste mode on/off.
-  nnoremap <F2> :set invpaste paste?<CR>
-  imap <F2> <C-O>:set invpaste paste?<CR>
-  set pastetoggle=<F2>
+" Automatically wrap text that extends beyond the screen length.
+set wrap
+" Vim's auto indentation feature does not work properly with text copied from outisde of Vim. Press the <F2> key to toggle paste mode on/off.
+nnoremap <F2> :set invpaste paste?<CR>
+imap <F2> <C-O>:set invpaste paste?<CR>
+set pastetoggle=<F2>
   
-  " Uncomment below to set the max textwidth. Use a value corresponding to the width of your screen.
-  " set textwidth=79
-  set formatoptions=tcqrn1
-  set tabstop=2
-  set shiftwidth=2
-  set softtabstop=2
-  set expandtab
-  set noshiftround
+" Uncomment below to set the max textwidth. Use a value corresponding to the width of your screen.
+" set textwidth=79
+set formatoptions=tcqrn1
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set noshiftround
 
-  " Display 5 lines above/below the cursor when scrolling with a mouse.
-  set scrolloff=5
-  " Fixes common backspace problems
-  set backspace=indent,eol,start
+" Display 5 lines above/below the cursor when scrolling with a mouse.
+set scrolloff=5
+" Fixes common backspace problems
+set backspace=indent,eol,start
 
-  " Speed up scrolling in Vim
-  set ttyfast
+" Speed up scrolling in Vim
+set ttyfast
 
-  " Status bar
-  set laststatus=2
+" Status bar
+set laststatus=2
 
-  " Display options
-  set showmode
-  set showcmd
+" Display options
+set showmode
+set showcmd
 
-  " Highlight matching pairs of brackets. Use the '%' character to jump between them.
-  set matchpairs+=<:>
+" Highlight matching pairs of brackets. Use the '%' character to jump between them.
+set matchpairs+=<:>
 
-  " Display different types of white spaces.
-  set list
-  set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
+" Display different types of white spaces.
+set list
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
 
-  " Show line numbers
-  set number
+" Show line numbers
+set number
 
-  " Set status line display
-  set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFER=%n]\ %{strftime('%c')}
+" Set status line display
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFER=%n]\ %{strftime('%c')}
 
-  " Encoding
-  set encoding=utf-8
+" Encoding
+set encoding=utf-8
 
-  " Highlight matching search patterns
-  set hlsearch
-  " Enable incremental search
-  set incsearch
-  " Include matching uppercase words with lowercase search term
-  set ignorecase
-  " Include only uppercase words with uppercase search term
-  set smartcase
+" Highlight matching search patterns
+set hlsearch
+" Enable incremental search
+set incsearch
+" Include matching uppercase words with lowercase search term
+set ignorecase
+" Include only uppercase words with uppercase search term
+set smartcase
 
-  " Store info from no more than 100 files at a time, 9999 lines of text, 100kb of data. Useful for copying large amounts of data between files.
-  set viminfo='100,<9999,s100
+" Store info from no more than 100 files at a time, 9999 lines of text, 100kb of data. Useful for copying large amounts of data between files.
+set viminfo='100,<9999,s100
 
-  " Map the <Space> key to toggle a selected fold opened/closed.
-  nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
-  vnoremap <Space> zf
+" Map the <Space> key to toggle a selected fold opened/closed.
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
 
-  " Automatically save and load folds
-  autocmd BufWinLeave *.* mkview
-  autocmd BufWinEnter *.* silent loadview"
+" Automatically save and load folds
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview"
+
 {{< /file >}}
 
 
@@ -201,11 +203,12 @@ Using a plug-in manager automates both the installation and setup of any plug-in
 2.  Open *.vimrc* in the Vim editor and add the following text at the bottom to call the *.vimrc.plug* file.
 
 {{< file "~/.vimrc" vim >}}
-         . . .
-          " Call the .vimrc.plug file
-          if filereadable(expand("~/.vimrc.plug"))
-              source ~/.vimrc.plug
-          endif
+. . .
+ " Call the .vimrc.plug file
+ if filereadable(expand("~/.vimrc.plug"))
+     source ~/.vimrc.plug
+ endif
+
 {{< /file >}}
 
 
@@ -217,12 +220,13 @@ Any additional plug-ins to be installed need to be added between the "plug#begin
 {{< /note >}}
 
 {{< file "~/.vimrc.plug" vim >}}
-        call plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim/plugged')
 
-        "Fugitive Vim Github Wrapper
-        Plug 'tpope/vim-fugitive'
+"Fugitive Vim Github Wrapper
+Plug 'tpope/vim-fugitive'
 
-        call plug#end()
+call plug#end()
+
 {{< /file >}}
 
 

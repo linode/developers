@@ -54,14 +54,16 @@ SASL Authentication
 Edit the `/etc/default/saslauthd` file to allow the SASL authentication daemon to start. Uncommon or add the following line:
 
 {{< file-excerpt "/etc/default/saslauthd" ini >}}
-    START=yes
+START=yes
+
 {{< /file-excerpt >}}
 
 
 Create the `/etc/postfix/sasl/smtpd.conf` file, and insert the following line:
 
 {{< file "/etc/postfix/sasl/smtpd.conf" ini >}}
-    pwcheck_method: saslauthd
+pwcheck_method: saslauthd
+
 {{< /file >}}
 
 
@@ -93,25 +95,26 @@ Postfix
 Edit the `/etc/postfix/main.cf` file to edit or add the following lines:
 
 {{< file-excerpt "/etc/postfix/main.cf" ini >}}
-    smtpd_tls_cert_file=/etc/ssl/postfix.pem
-    smtpd_tls_key_file=/etc/ssl/postfix.key
+smtpd_tls_cert_file=/etc/ssl/postfix.pem
+smtpd_tls_key_file=/etc/ssl/postfix.key
 
-    smtp_use_tls = yes                                                                                               
-    smtpd_use_tls = yes                                                                                              
-    smtp_tls_note_starttls_offer = yes                                                                               
-    smtpd_tls_loglevel = 1                                                                                           
-    smtpd_tls_received_header = yes                                                                                  
+smtp_use_tls = yes                                                                                               
+smtpd_use_tls = yes                                                                                              
+smtp_tls_note_starttls_offer = yes                                                                               
+smtpd_tls_loglevel = 1                                                                                           
+smtpd_tls_received_header = yes                                                                                  
 
-    smtpd_sasl_type = dovecot
-    smtpd_sasl_path = private/auth
-    smtpd_sasl_auth_enable = yes
+smtpd_sasl_type = dovecot
+smtpd_sasl_path = private/auth
+smtpd_sasl_auth_enable = yes
 
-    smtpd_sasl_security_options = noanonymous
-    smtpd_sasl_local_domain = $myhostname
-    smtpd_sasl_application_name = smtpd
-    broken_sasl_auth_clients = yes
+smtpd_sasl_security_options = noanonymous
+smtpd_sasl_local_domain = $myhostname
+smtpd_sasl_application_name = smtpd
+broken_sasl_auth_clients = yes
 
-    smtpd_recipient_restrictions = reject_unknown_sender_domain, reject_unknown_recipient_domain, reject_unauth_pipelining, permit_mynetworks, permit_sasl_authenticated, reject_unauth_destination
+smtpd_recipient_restrictions = reject_unknown_sender_domain, reject_unknown_recipient_domain, reject_unauth_pipelining, permit_mynetworks, permit_sasl_authenticated, reject_unauth_destination
+
 {{< /file-excerpt >}}
 
 
@@ -130,9 +133,10 @@ Consider the [basic email gateway guide](/docs/email/postfix/gateway-debian-5-le
 The above Postfix configuration makes it possible to *send* mail using postfix. If your server receives email, Postfix requires additional configuration to deliver mail locally. Edit the `main.cf` file to insert or modify the following configuration directives:
 
 {{< file-excerpt "/etc/postfix/main.cf" ini >}}
-    myhostname = lollipop.example.com
-    virtual_alias_maps = hash:/etc/postfix/virtual
-    home_mailbox = mail/
+myhostname = lollipop.example.com
+virtual_alias_maps = hash:/etc/postfix/virtual
+home_mailbox = mail/
+
 {{< /file-excerpt >}}
 
 

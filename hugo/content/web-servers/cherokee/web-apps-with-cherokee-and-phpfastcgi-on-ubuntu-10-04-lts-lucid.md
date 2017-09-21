@@ -116,7 +116,8 @@ Test Your Configuration
 Restart Cherokee by clicking the "Save" button under the left page navigation list. Once Cherokee has restarted, create a test PHP script as follows:
 
 {{< file "/srv/www/mydomain.com/www/public\\_html/test.php" php >}}
-    <?php phpinfo(); ?>
+<?php phpinfo(); ?>
+
 {{< /file >}}
 
 

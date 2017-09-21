@@ -26,14 +26,15 @@ Prepare System For Deployment
 Before beginning with the installation of this web application stack, you will need to enable the `universe` repository. Open `/etc/apt/sources.list` with your favorite text editor and make sure that the following lines are present:
 
 {{< file-excerpt "/etc/apt/sources.list" >}}
-    deb http://us.archive.ubuntu.com/ubuntu/ karmic universe
-    deb-src http://us.archive.ubuntu.com/ubuntu/ karmic universe
+deb http://us.archive.ubuntu.com/ubuntu/ karmic universe
+deb-src http://us.archive.ubuntu.com/ubuntu/ karmic universe
 
-    deb http://us.archive.ubuntu.com/ubuntu/ karmic-updates universe
-    deb-src http://us.archive.ubuntu.com/ubuntu/ karmic-updates universe
+deb http://us.archive.ubuntu.com/ubuntu/ karmic-updates universe
+deb-src http://us.archive.ubuntu.com/ubuntu/ karmic-updates universe
 
-    deb http://security.ubuntu.com/ubuntu karmic-security universe
-    deb-src http://security.ubuntu.com/ubuntu karmic-security universe
+deb http://security.ubuntu.com/ubuntu karmic-security universe
+deb-src http://security.ubuntu.com/ubuntu karmic-security universe
+
 {{< /file-excerpt >}}
 
 
@@ -115,17 +116,18 @@ Configure nginx Virtual Hosting
 Regardless of the method you use to install nginx, you will need to configure `server` declarations to specify name-based virtual hosts. There are a number of approaches to organizing configuration files with nginx. Regardless of the organizational strategy, all virtual host configurations are contained within `server` configuration blocks that are in turn contained within the `http` block in the `nginx.conf` file. Consider the following nginx virtual host configuration:
 
 {{< file-excerpt "nginx server configuration" nginx >}}
-    server {
-        listen   80;
-        server_name www.example.com example.com;
-        access_log /srv/www/example.com/logs/access.log;
-        error_log /srv/www/example.com/logs/error.log;
+server {
+    listen   80;
+    server_name www.example.com example.com;
+    access_log /srv/www/example.com/logs/access.log;
+    error_log /srv/www/example.com/logs/error.log;
 
-        location / {
-            root   /srv/www/example.com/public_html;
-            index  index.html index.htm;
-        }
+    location / {
+        root   /srv/www/example.com/public_html;
+        index  index.html index.htm;
     }
+}
+
 {{< /file-excerpt >}}
 
 
@@ -149,26 +151,28 @@ The source file is saved, and the site can be re-enabled at any time.
 If you installed the web server after compiling it from source you have a number of options. You may insert the server directives directly into the `http` section of the `/opt/nginx/conf/nginx.conf` or `/etc/nginx/nginx.conf` file, although this may be difficult to manage. You may also replicate the management system created by the Ubuntu packages by creating `sites-available/` and `sites-enabled/` directories and inserting the following line into your `nginx.conf` file:
 
 {{< file-excerpt "nginx.conf" nginx >}}
-    http {
-    # [...]
+http {
+# [...]
 
-    include /opt/etc/nginx/sites-enabled/*;
+include /opt/etc/nginx/sites-enabled/*;
 
-    # [...]       
-    }
+# [...]       
+}
+
 {{< /file-excerpt >}}
 
 
 Modify the include statement to point to the path of your `sites-enabled` directory. In some circumstances, it may make more sense to create and include a file named `/opt/nginx-sites.conf` that is included in the `nginx.conf` file as follows:
 
 {{< file-excerpt "nginx.conf" nginx >}}
-    http {
-    # [...]
+http {
+# [...]
 
-    include /opt/nginx-sites.conf;
+include /opt/nginx-sites.conf;
 
-    # [...]       
-    }
+# [...]       
+}
+
 {{< /file-excerpt >}}
 
 
@@ -213,23 +217,24 @@ Issue the following sequence of commands to download a small wrapper script for 
 Consider the following nginx virtual host configuration. Modify your configuration to resemble the one below, and ensure that the `location ~ \.php$ { }` resembles the one in this example:
 
 {{< file "nginx virtual host configuration" nginx >}}
-    server {
-        server_name www.example.com example.com;
-        access_log /srv/www/example.com/logs/access.log;
-        error_log /srv/www/example.com/logs/error.log;
-        root /srv/www/example.com/public_html;
+server {
+    server_name www.example.com example.com;
+    access_log /srv/www/example.com/logs/access.log;
+    error_log /srv/www/example.com/logs/error.log;
+    root /srv/www/example.com/public_html;
 
-        location / {
-            index index.html index.htm index.php;
-        }
-
-        location ~ \.php$ {
-            include /etc/nginx/fastcgi_params;
-            fastcgi_pass  127.0.0.1:9000;
-            fastcgi_index index.php;
-            fastcgi_param SCRIPT_FILENAME /srv/www/example.com/public_html$fastcgi_script_name;
-        }
+    location / {
+        index index.html index.htm index.php;
     }
+
+    location ~ \.php$ {
+        include /etc/nginx/fastcgi_params;
+        fastcgi_pass  127.0.0.1:9000;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME /srv/www/example.com/public_html$fastcgi_script_name;
+    }
+}
+
 {{< /file >}}
 
 

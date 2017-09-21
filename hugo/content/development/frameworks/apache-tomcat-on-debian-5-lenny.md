@@ -49,7 +49,8 @@ If you chose to run OpenJDK, then you can skip the remainder of this section. If
 Add the following line to your `sources.list` file:
 
 {{< file-excerpt "/etc/apt/sources.list" >}}
-    deb http://mirror.cc.columbia.edu/pub/linux/debian/debian/  lenny non-free
+deb http://mirror.cc.columbia.edu/pub/linux/debian/debian/  lenny non-free
+
 {{< /file-excerpt >}}
 
 
@@ -94,34 +95,36 @@ Borrowing from the scripts described [here](http://www.howtogeek.com/howto/linux
 Create a `tomcat` "init" file with the following content:
 
 {{< file "/etc/init.d/tomcat" bash >}}
-    # Tomcat auto-start
-    #
-    # description: Auto-starts tomcat
-    # processname: tomcat
-    # pidfile: /var/run/tomcat.pid
+# Tomcat auto-start
+#
+# description: Auto-starts tomcat
+# processname: tomcat
+# pidfile: /var/run/tomcat.pid
 
-    export JAVA_HOME=/usr/lib/jvm/java-6-sun
+export JAVA_HOME=/usr/lib/jvm/java-6-sun
 
-    case $1 in
-    start)
-            sh /usr/local/tomcat/bin/startup.sh
-            ;;
-    stop)  
-            sh /usr/local/tomcat/bin/shutdown.sh
-            ;;
-    restart)
-            sh /usr/local/tomcat/bin/shutdown.sh
-            sh /usr/local/tomcat/bin/startup.sh
-            ;;
-    esac   
-    exit 0
+case $1 in
+start)
+        sh /usr/local/tomcat/bin/startup.sh
+        ;;
+stop)  
+        sh /usr/local/tomcat/bin/shutdown.sh
+        ;;
+restart)
+        sh /usr/local/tomcat/bin/shutdown.sh
+        sh /usr/local/tomcat/bin/startup.sh
+        ;;
+esac   
+exit 0
+
 {{< /file >}}
 
 
 Remember, if you installed open-jdk the `export JAVA_HOME` line should read:
 
 {{< file-excerpt "/etc/init.d/tomcat" bash >}}
-    export JAVA_HOME=/usr/lib/jvm/java-6-openjdk
+export JAVA_HOME=/usr/lib/jvm/java-6-openjdk
+
 {{< /file-excerpt >}}
 
 

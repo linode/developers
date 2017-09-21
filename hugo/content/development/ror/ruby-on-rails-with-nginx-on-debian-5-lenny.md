@@ -32,7 +32,8 @@ Install Required Packages
 To install a more current version of Ruby Gems, which is required for running Ruby on Rails on Debian 5 (Lenny), you must install several packages from the [Backports project](http://backports.debian.org). Insert the following line in your `/etc/apt/sources.list` file:
 
 {{< file-excerpt "/etc/apt/sources.list" >}}
-    deb http://backports.debian.org/debian-backports lenny-backports main
+deb http://backports.debian.org/debian-backports lenny-backports main
+
 {{< /file-excerpt >}}
 
 

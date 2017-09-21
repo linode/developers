@@ -174,8 +174,9 @@ For if your certificate issuer uses `.pem` files instead of `.crt`, be sure to r
 2. To replace the certificates used by Apache2, substitute the following paths in `default-ssl.conf` with the location of your certificate and key:
 
 {{< file-excerpt "/etc/apache2/sites-available/default-ssl.conf" aconf >}}
-        SSLCertificateFile /etc/ssl/certs/mail.yourdomain.com.crt
-        SSLCertificateKeyFile /etc/ssl/private/mail.yourdomain.com.key
+SSLCertificateFile /etc/ssl/certs/mail.yourdomain.com.crt
+SSLCertificateKeyFile /etc/ssl/private/mail.yourdomain.com.key
+
 {{< /file-excerpt >}}
 
 
@@ -183,16 +184,18 @@ For if your certificate issuer uses `.pem` files instead of `.crt`, be sure to r
 3. To replace the certificates used by Postfix, substitute the following paths in `main.cf` with the location of your certificate and key:
 
 {{< file-excerpt "/etc/postfix/main.cf" aconf >}}
-	    smtpd_tls_cert_file = /etc/ssl/certs/mail.yourdomain.com.crt
-        smtpd_tls_key_file = /etc/ssl/private/mail.yourdomain.com.key
+smtpd_tls_cert_file = /etc/ssl/certs/mail.yourdomain.com.crt
+   smtpd_tls_key_file = /etc/ssl/private/mail.yourdomain.com.key
+
 {{< /file-excerpt >}}
 
 
 4. To replace the certs used by Postfix, substitute the following paths in `dovecot.conf` with the location of your certificate and key:
 
 {{< file-excerpt "/etc/dovecot/dovecot.conf" aconf >}}
-	    ssl_cert = </etc/ssl/certs/mail.yourdomain.com.crt
-        ssl_key = </etc/ssl/private/mail.yourdomain.com.key
+ssl_cert = </etc/ssl/certs/mail.yourdomain.com.crt
+   ssl_key = </etc/ssl/private/mail.yourdomain.com.key
+
 {{< /file-excerpt >}}
 
 <!-- syntax highlighting fix-->
@@ -266,94 +269,97 @@ AWStats quickly analyzes and displays log files/server activity via a few web-ba
 3.  Edit `apache2.conf` by adding the text block below to the end of the file. Make sure to comment out the existing Auth_MySQL lines at the end of the file.
 
 {{< file-excerpt "/etc/apache2/conf/apache2.conf" aconf >}}
-        #MySQL auth (mod_dbd, libaprutil1-dbd-mysql)
-        <IfModule mod_dbd.c>
+#MySQL auth (mod_dbd, libaprutil1-dbd-mysql)
+<IfModule mod_dbd.c>
 	    DBDriver mysql
-        DBDParams "host=127.0.0.1 dbname=vmail user=vmail pass=(SUBSTITUTE WITH YOUR PASSWORD: see in your iRedMail.tips file)"
-	        DBDMin 1
-	        DBDKeep 8
-	        DBDMax 20
-	        DBDExptime 300
-        </IfModule>
+DBDParams "host=127.0.0.1 dbname=vmail user=vmail pass=(SUBSTITUTE WITH YOUR PASSWORD: see in your iRedMail.tips file)"
+ DBDMin 1
+ DBDKeep 8
+ DBDMax 20
+ DBDExptime 300
+</IfModule>
+
 {{< /file-excerpt >}}
 
 
 4.  Edit `awstats.conf` to mirror the example text below, by adding the `mod_authn_dbd` section and commenting out the `Auth_MySQL` section.
 
 {{< file "/etc/apache2/conf-available/awstats.conf" aconf >}}
-        <Directory /usr/lib/cgi-bin/>
-            DirectoryIndex awstats.pl
-            Options ExecCGI
-            AuthType Basic
-            AuthName "Authorization Required"
+<Directory /usr/lib/cgi-bin/>
+    DirectoryIndex awstats.pl
+    Options ExecCGI
+    AuthType Basic
+    AuthName "Authorization Required"
 
-            ##############################
-            # mod_auth_mysql (deprecated)#
-            ##############################
-            # AuthBasicAuthoritative Off
-            # AuthUserFile /dev/null
-            #
-            # # Database related.
-            # AuthMySQL_Password_Table mailbox
-            # Auth_MySQL_Username_Field username
-            # Auth_MySQL_Password_Field password
-            #
-            # # Password related.
-            # AuthMySQL_Empty_Passwords off
-            # AuthMySQL_Encryption_Types Crypt_MD5
-            # Auth_MySQL_Authoritative On
-            # #AuthMySQLUserCondition "isglobaladmin=1"
+    ##############################
+    # mod_auth_mysql (deprecated)#
+    ##############################
+    # AuthBasicAuthoritative Off
+    # AuthUserFile /dev/null
+    #
+    # # Database related.
+    # AuthMySQL_Password_Table mailbox
+    # Auth_MySQL_Username_Field username
+    # Auth_MySQL_Password_Field password
+    #
+    # # Password related.
+    # AuthMySQL_Empty_Passwords off
+    # AuthMySQL_Encryption_Types Crypt_MD5
+    # Auth_MySQL_Authoritative On
+    # #AuthMySQLUserCondition "isglobaladmin=1"
 
-            #################
-            # mod_authn_dbd #
-            #################
-            # Password related.
-            AuthBasicProvider dbd
-            AuthDBDUserPWQuery "SELECT password FROM mailbox WHERE mailbox.username=%s"
+    #################
+    # mod_authn_dbd #
+    #################
+    # Password related.
+    AuthBasicProvider dbd
+    AuthDBDUserPWQuery "SELECT password FROM mailbox WHERE mailbox.username=%s"
 
-            Order allow,deny
-            Allow from all
-            Require valid-user
-        </Directory>
+    Order allow,deny
+    Allow from all
+    Require valid-user
+</Directory>
+
 {{< /file >}}
 
 
 5.  Edit `cluebringer.conf` to mirror the example text below, by adding the `mod_authn_dbd` section and commenting out `Auth_MySQL` section).
 
 {{< file "/etc/apache2/conf-available/cluebringer.conf" aconf >}}
-         <Directory /usr/share/postfix-cluebringer-webui/webui/>
-            DirectoryIndex index.php
-            AuthType basic
-            AuthName "Authorization Required"
+<Directory /usr/share/postfix-cluebringer-webui/webui/>
+   DirectoryIndex index.php
+   AuthType basic
+   AuthName "Authorization Required"
 
-            ##############################
-            # mod_auth_mysql (deprecated)#
-            ##############################
-            # AuthMYSQL on
-            # AuthBasicAuthoritative Off
-            # AuthUserFile /dev/null
-            #
-            # # Database related.
-            # AuthMySQL_Password_Table mailbox
-            # Auth_MySQL_Username_Field username
-            # Auth_MySQL_Password_Field password
-            #
-            # # Password related.
-            # AuthMySQL_Empty_Passwords off
-            # AuthMySQL_Encryption_Types Crypt_MD5
-            # Auth_MySQL_Authoritative On
+   ##############################
+   # mod_auth_mysql (deprecated)#
+   ##############################
+   # AuthMYSQL on
+   # AuthBasicAuthoritative Off
+   # AuthUserFile /dev/null
+   #
+   # # Database related.
+   # AuthMySQL_Password_Table mailbox
+   # Auth_MySQL_Username_Field username
+   # Auth_MySQL_Password_Field password
+   #
+   # # Password related.
+   # AuthMySQL_Empty_Passwords off
+   # AuthMySQL_Encryption_Types Crypt_MD5
+   # Auth_MySQL_Authoritative On
 
 		    #################
-            # mod_authn_dbd #
-            #################
-            # Password related.
-            AuthBasicProvider dbd
-            AuthDBDUserPWQuery "SELECT password FROM mailbox WHERE mailbox.username=%s"
+   # mod_authn_dbd #
+   #################
+   # Password related.
+   AuthBasicProvider dbd
+   AuthDBDUserPWQuery "SELECT password FROM mailbox WHERE mailbox.username=%s"
 
-            Order allow,deny
-            Allow from all
-            Require valid-user
+   Order allow,deny
+   Allow from all
+   Require valid-user
         </Directory>
+
 {{< /file >}}
 
 

@@ -49,26 +49,27 @@ Copy the default configuration file to the `/srv/www/example.com` directory:
 Now edit the file, making sure to modify the following values to conform to the needs of your deployment. Consider the following example:
 
 {{< file-excerpt "planet.conf" >}}
-    # Example Planet Venus configuration file
+# Example Planet Venus configuration file
 
-    # Documentation: <file:///usr/share/doc/planet-venus>
-    # Examples: <file:///usr/share/planet-venus/example>
-    # Filters: <file:///usr/share/planet-venus/filter>
-    # Themes: <file:///usr/share/planet-venus/theme>
+# Documentation: <file:///usr/share/doc/planet-venus>
+# Examples: <file:///usr/share/planet-venus/example>
+# Filters: <file:///usr/share/planet-venus/filter>
+# Themes: <file:///usr/share/planet-venus/theme>
 
-    # Global configuration
+# Global configuration
 
-    [Planet]
+[Planet]
 
-    name = Planet example link = <http://example.com/>
-    owner_name = example Square
-    owner_email = <username@example.com>
-    output_theme = /srv/www/example.com/planet-theme
-    cache_directory = /srv/www/example.com/planet-cache
-    output_dir = /srv/www/example.com/public_html
-    feed_timeout = 20
-    items_per_page = 60
-    log_level = DEBUG
+name = Planet example link = <http://example.com/>
+owner_name = example Square
+owner_email = <username@example.com>
+output_theme = /srv/www/example.com/planet-theme
+cache_directory = /srv/www/example.com/planet-cache
+output_dir = /srv/www/example.com/public_html
+feed_timeout = 20
+items_per_page = 60
+log_level = DEBUG
+
 {{< /file-excerpt >}}
 
 
@@ -85,8 +86,9 @@ You can modify any of the files or copy different theme files from the `/usr/sha
 At the end of your `planet.conf` file, add entries that resemble the following for each feed that you would like to collect in the Planet you're building
 
 {{< file-excerpt "planet.conf" >}}
-    [<https://www.linode.com/docs/rss>]
-    name = Linode
+[<https://www.linode.com/docs/rss>]
+name = Linode
+
 {{< /file-excerpt >}}
 
 
@@ -105,7 +107,8 @@ While you can run Planet without incident using the above method, we recommend r
 Insert the following job into the crontab:
 
 {{< file-excerpt "fcrontab" >}}
-    */10* * * * planet /srv/www/example.com/planet.conf
+*/10* * * * planet /srv/www/example.com/planet.conf
+
 {{< /file-excerpt >}}
 
 

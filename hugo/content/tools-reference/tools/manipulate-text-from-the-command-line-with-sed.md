@@ -79,12 +79,13 @@ The `g` option appended to the substitution statement sets a "global" mode that 
 It's possible to use `sed` to modify streams of text in shell scripts. Consider the following bash function:
 
 {{< file "bash function" bash >}}
-    txt2text (){
-        for i in `ls -1`
-        do 
-            mv $i `echo $i | sed 's/.*\.txt$/.text/'`
-        done
-    }
+txt2text (){
+    for i in `ls -1`
+    do 
+        mv $i `echo $i | sed 's/.*\.txt$/.text/'`
+    done
+}
+
 {{< /file >}}
 
 

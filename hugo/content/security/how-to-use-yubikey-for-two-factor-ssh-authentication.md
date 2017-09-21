@@ -104,26 +104,28 @@ You may need to move `pam_yubico.so` to wherever PAM modules are stored on your 
 4. Populate this file with the usernames for which you want to enable two-factor authentication and their YubiKey IDs. You can obtain the ID by opening a text editor and touching the button on the YubiKey, and selecting *only the first 12 characters*. The first line below would be a typical configuration. The subsequent lines show a configuration where users `user2`, `user3`, and `user4` use multiple YubiKeys and plan to access the server with all of them.
 
 {{< file "/etc/ssh/authorized_yubikeys" >}}
-        user1:vvklhtiubdcu
-        user2:ccurrufnjder:ccturefjtehv:cctbhunjimko
-        user3:ccdvnvlcbdre:vvvglinuddek
-        user4:vvddhfjjasui:vvfjidkflssd
+user1:vvklhtiubdcu
+user2:ccurrufnjder:ccturefjtehv:cctbhunjimko
+user3:ccdvnvlcbdre:vvvglinuddek
+user4:vvddhfjjasui:vvfjidkflssd
+
 {{< /file >}}
 
 
 5. Add `auth required pam_yubico.so id=client id authfile=/etc/ssh/yubikeys` to the start of `/etc/pam.d/sshd`. Replace `client id` with the ID you retrieved when applying for an API key, and `secret key` with the secret key. If you only want single-factor authentication (either a YubiKey or a password), change `required` to `sufficient` to tell the system that a valid YubiKey will be enough to log in.
 
 {{< file-excerpt "/etc/pam.d/sshd" >}}
-        # PAM configuration for the Secure Shell service
+# PAM configuration for the Secure Shell service
 
-        # Add your line below this one
-        # v v v v v v
-        auth required pam_yubico.so id=client id key=secret key authfile=/etc/ssh/yubikeys
-        # ^ ^ ^ ^ ^ ^
-        # Add your line above this one
+# Add your line below this one
+# v v v v v v
+auth required pam_yubico.so id=client id key=secret key authfile=/etc/ssh/yubikeys
+# ^ ^ ^ ^ ^ ^
+# Add your line above this one
 
-        # Standard Un*x authentication.
-        @include common-auth
+# Standard Un*x authentication.
+@include common-auth
+
 {{< /file-excerpt >}}
 
 
@@ -134,8 +136,9 @@ On some systems, like Arch Linux, you will need to edit `/etc/pam.d/system-remot
 6. In `/etc/ssh/sshd_config`, add or edit the following settings:
 
 {{< file-excerpt "/etc/ssh/sshd_config" >}}
-        ChallengeResponseAuthentication yes
-        UsePAM yes
+ChallengeResponseAuthentication yes
+UsePAM yes
+
 {{< /file-excerpt >}}
 
 
@@ -158,7 +161,8 @@ If you encounter any problems, make sure you've followed all of the steps in thi
 1. Add the word `debug` to the end of the line you added in `/etc/pam.d/sshd`:
 
 {{< file-excerpt "/etc/pam.d/sshd" >}}
-        auth required pam_yubico.so id=<client id> key=<secret key> authfile=/etc/ssh/yubikeys debug
+auth required pam_yubico.so id=<client id> key=<secret key> authfile=/etc/ssh/yubikeys debug
+
 {{< /file-excerpt >}}
 
 

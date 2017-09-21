@@ -46,34 +46,36 @@ To disable SELinux on your Linode follow along with this video and the steps bel
         
 
 {{< file-excerpt "/etc/sysconfig/selinux" aconf >}}
-      # This file controls the state of SELinux on the system.
-      # SELINUX= can take one of these three values:
-      #     enforcing - SELinux security policy is enforced.
-      #     permissive - SELinux prints warnings instead of enforcing.
-      #     disabled - No SELinux policy is loaded.
-      SELINUX=enabled
-      # SELINUXTYPE= can take one of three two values:
-      #     targeted - Targeted processes are protected,
-      #     minimum - Modification of targeted policy. Only selected processes are protected.
-      #     mls - Multi Level Security protection.
-      SELINUXTYPE=targeted
+# This file controls the state of SELinux on the system.
+# SELINUX= can take one of these three values:
+#     enforcing - SELinux security policy is enforced.
+#     permissive - SELinux prints warnings instead of enforcing.
+#     disabled - No SELinux policy is loaded.
+SELINUX=enabled
+# SELINUXTYPE= can take one of three two values:
+#     targeted - Targeted processes are protected,
+#     minimum - Modification of targeted policy. Only selected processes are protected.
+#     mls - Multi Level Security protection.
+SELINUXTYPE=targeted
+
 {{< /file-excerpt >}}
 
 
 2. Change `SELINUX=enabled` to `SELINUX=disabled`:
 
 {{< file-excerpt "/etc/sysconfig/selinux" selinux >}}
-      # This file controls the state of SELinux on the system.
-      # SELINUX= can take one of these three values:
-      #     enforcing - SELinux security policy is enforced.
-      #     permissive - SELinux prints warnings instead of enforcing.
-      #     disabled - No SELinux policy is loaded.
-      SELINUX=disabled
-      # SELINUXTYPE= can take one of three two values:
-      #     targeted - Targeted processes are protected,
-      #     minimum - Modification of targeted policy. Only selected processes are protected.
-      #     mls - Multi Level Security protection.
-      SELINUXTYPE=targeted
+# This file controls the state of SELinux on the system.
+# SELINUX= can take one of these three values:
+#     enforcing - SELinux security policy is enforced.
+#     permissive - SELinux prints warnings instead of enforcing.
+#     disabled - No SELinux policy is loaded.
+SELINUX=disabled
+# SELINUXTYPE= can take one of three two values:
+#     targeted - Targeted processes are protected,
+#     minimum - Modification of targeted policy. Only selected processes are protected.
+#     mls - Multi Level Security protection.
+SELINUXTYPE=targeted
+
 {{< /file-excerpt >}}
 
 

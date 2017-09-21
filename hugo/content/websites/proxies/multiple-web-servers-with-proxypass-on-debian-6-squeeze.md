@@ -24,22 +24,23 @@ Enabling the Proxy Module
 We'll edit the file `/etc/apache2/mods-available/proxy.conf` as follows:
 
 {{< file-excerpt "/etc/apache2/mods-available/proxy.conf" apache >}}
-    <IfModule mod_proxy.c>
-            # [...]
+<IfModule mod_proxy.c>
+        # [...]
 
-            ProxyRequests Off
-            <Proxy *>
-                    AddDefaultCharset off
-                    Order deny,allow
-                    Allow from all
-            </Proxy>
+        ProxyRequests Off
+        <Proxy *>
+                AddDefaultCharset off
+                Order deny,allow
+                Allow from all
+        </Proxy>
 
-            # Enable/disable the handling of HTTP/1.1 "Via:" headers.
-            # ("Full" adds the server version; "Block" removes all outgoing Via: headers)
-            # Set to one of: Off | On | Full | Block
-            ProxyVia On
+        # Enable/disable the handling of HTTP/1.1 "Via:" headers.
+        # ("Full" adds the server version; "Block" removes all outgoing Via: headers)
+        # Set to one of: Off | On | Full | Block
+        ProxyVia On
 
-    </IfModule>
+</IfModule>
+
 {{< /file-excerpt >}}
 
 
@@ -57,16 +58,17 @@ Proxying a Domain to Lighttpd
 We already have a site called "www.firstsite.org" running under Apache as a normal virtual host. We'll use Apache to send requests for the site "www.secondsite.org" to lighttpd, which we've configured to run on port 8080 on localhost. Here's the configuration file for "www.secondsite.org":
 
 {{< file "/etc/apache2/sites-available/www.secondsite.org" apache >}}
-    <VirtualHost *:80>
-         ServerAdmin support@secondsite.org
-         ServerName secondsite.org
-         ServerAlias www.secondsite.org
+<VirtualHost *:80>
+     ServerAdmin support@secondsite.org
+     ServerName secondsite.org
+     ServerAlias www.secondsite.org
 
-         ProxyPass / http://localhost:8080/
+     ProxyPass / http://localhost:8080/
 
-         # Uncomment the line below if your site uses SSL.
-         #SSLProxyEngine On
-    </VirtualHost>
+     # Uncomment the line below if your site uses SSL.
+     #SSLProxyEngine On
+</VirtualHost>
+
 {{< /file >}}
 
 
@@ -89,16 +91,17 @@ Proxying a Specific URL to Lighttpd
 If we wanted to have `http://www.firstsite.org/myapp/` served by a web application running under lighttpd, we'd simply modify its configuration file to look like this:
 
 {{< file "/apache2/sites-available/www.firstsite.org" apache >}}
-    <VirtualHost firstsite.org:80>
-         ServerAdmin support@firstsite.org
-         ServerName firstsite.org
-         ServerAlias www.firstsite.org
-         DocumentRoot /srv/www/firstsite.org/public_html/
-         ErrorLog /srv/www/firstsite.org/logs/error.log
-         CustomLog /srv/www/firstsite.org/logs/access.log combined
+<VirtualHost firstsite.org:80>
+     ServerAdmin support@firstsite.org
+     ServerName firstsite.org
+     ServerAlias www.firstsite.org
+     DocumentRoot /srv/www/firstsite.org/public_html/
+     ErrorLog /srv/www/firstsite.org/logs/error.log
+     CustomLog /srv/www/firstsite.org/logs/access.log combined
 
-         ProxyPass /myapp http://localhost:8080/
-    </VirtualHost>
+     ProxyPass /myapp http://localhost:8080/
+</VirtualHost>
+
 {{< /file >}}
 
 

@@ -57,7 +57,7 @@ This guide is for Debian or Ubuntu systems.
 9.  The suggested Siege configuration is for 25 concurrent users over a period of 1 minute. Set a location for your log file. Be sure to uncomment the variables shown below, and any other commented settings you want to use by removing the pound sign (`#`):
 
 {{< file-excerpt "~/.siegerc" >}}
-        ...
+...
 
 		#
 		# Variable declarations. You can set variables here
@@ -69,7 +69,7 @@ This guide is for Debian or Ubuntu systems.
 		# actually declaring them, example:
 		logfile = $(HOME)/siege.log
 
-        ...
+...
 
 		#
 		# Default number of simulated  concurrent users
@@ -86,6 +86,7 @@ This guide is for Debian or Ubuntu systems.
 		#
 		time = 1M
 		
+
 {{< /file-excerpt >}}
 
 
@@ -132,26 +133,27 @@ If you want Siege to hit a number of pages on your website at random, configure 
 1.  Open the `urls.txt` file generally created at `/usr/local/etc/urls.txt`. Add a list of URLs or IP addresses to that file:
 
 {{< file "/usr/local/etc/urls.txt" >}}
-		# URLS file for siege
-		# --
-		# Format the url entries in any of the following formats:
-		# http://www.whoohoo.com/index.html
-		# http://www/index.html
-		# www/index.html
-		# http://www.whoohoo.com/cgi-bin/howto/display.cgi?1013
-		# Use the POST directive for pages that require it:
-		# http://www.whoohoo.com/cgi-bin/haha.cgi POST ha=1&ho=2
-		#      or POST content from a file:
-		# http://www.whoohoo.com/melvin.jsp POST </home/jeff/haha
-		# http://www.whoohoo.com/melvin.jsp POST <./haha
-		# You may also set and reference variables inside this file,
-		# for more information, man urls_txt
-		# -------------------------------------------------------
+# URLS file for siege
+# --
+# Format the url entries in any of the following formats:
+# http://www.whoohoo.com/index.html
+# http://www/index.html
+# www/index.html
+# http://www.whoohoo.com/cgi-bin/howto/display.cgi?1013
+# Use the POST directive for pages that require it:
+# http://www.whoohoo.com/cgi-bin/haha.cgi POST ha=1&ho=2
+#      or POST content from a file:
+# http://www.whoohoo.com/melvin.jsp POST </home/jeff/haha
+# http://www.whoohoo.com/melvin.jsp POST <./haha
+# You may also set and reference variables inside this file,
+# for more information, man urls_txt
+# -------------------------------------------------------
 
-		www.example.com
-		www.example.org
-		123.45.67.89
+www.example.com
+www.example.org
+123.45.67.89
 		
+
 {{< /file >}}
 
 

@@ -55,22 +55,23 @@ In order for `mod_wsgi` to be able to provide access to your application, you wi
 In this example, the application is stored in `/var/www/html/example.com/application` directory. Modify this example and all following examples to conform to the actual files and locations used in your deployment.
 
 {{< file "/var/www/html/example.com/application/application.wsgi" python >}}
-    import os
-    import sys
+import os
+import sys
 
-    sys.path.append('/var/www/html/example.com/application')
+sys.path.append('/var/www/html/example.com/application')
 
-    os.environ['PYTHON_EGG_CACHE'] = '/var/www/html/example.com/.python-egg'
+os.environ['PYTHON_EGG_CACHE'] = '/var/www/html/example.com/.python-egg'
 
-    def application(environ, start_response):
-        status = '200 OK'
-        output = 'Hello World!'
+def application(environ, start_response):
+    status = '200 OK'
+    output = 'Hello World!'
 
-        response_headers = [('Content-type', 'text/plain'),
-                            ('Content-Length', str(len(output)))]
-        start_response(status, response_headers)
+    response_headers = [('Content-type', 'text/plain'),
+                        ('Content-Length', str(len(output)))]
+    start_response(status, response_headers)
 
-        return [output]
+    return [output]
+
 {{< /file >}}
 
 
@@ -81,23 +82,24 @@ You must append the path of your application to the system path as above. The de
 In this example the Web.py *application* is embedded in a `application.wsgi` file. The [Web.py Framework](/docs/websites/frameworks/webpy-on-ubuntu-12-04-precise-pangolin/) must be installed in order for the following application to run successfully.
 
 {{< file-excerpt "/var/www/html/example.com/application/application.wsgi" python >}}
-    import web
+import web
 
-    urls = (
-        '/(.*)', 'hello'
-    )
+urls = (
+    '/(.*)', 'hello'
+)
 
-    class hello:        
-        def GET(self, name):
-            if not name:
-                name = 'World'
-            return 'Hello, ' + name + '!'
+class hello:        
+    def GET(self, name):
+        if not name:
+            name = 'World'
+        return 'Hello, ' + name + '!'
 
-    if __name__ == "__main__":
-        app.run()
+if __name__ == "__main__":
+    app.run()
 
-    app = web.application(urls, globals(), autoreload=False)
-    application = app.wsgifunc()
+app = web.application(urls, globals(), autoreload=False)
+application = app.wsgifunc()
+
 {{< /file-excerpt >}}
 
 
@@ -106,17 +108,18 @@ In this example the Web.py *application* is embedded in a `application.wsgi` fil
 The following example `application.wsgi` file is configured for Django applications:
 
 {{< file-excerpt "/var/www/html/example.com/application/application.wsgi" python >}}
-    import os
-    import sys
+import os
+import sys
 
-    sys.path.append('/var/www/html/example.com/application')
+sys.path.append('/var/www/html/example.com/application')
 
-    os.environ['PYTHON_EGG_CACHE'] = '/var/www/html/example.com/.python-egg'
+os.environ['PYTHON_EGG_CACHE'] = '/var/www/html/example.com/.python-egg'
 
-    os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 
-    import django.core.handlers.wsgi
-    application = django.core.handlers.wsgi.WSGIHandler()
+import django.core.handlers.wsgi
+application = django.core.handlers.wsgi.WSGIHandler()
+
 {{< /file-excerpt >}}
 
 
@@ -127,23 +130,24 @@ The following example `application.wsgi` file is configured for Django applicati
 Deploy the following `VirtualHost` configuration and modify the paths and domains to reflect the requirements of your application:
 
 {{< file-excerpt "Apache `VirtualHost` Configuration" apache >}}
-    <VirtualHost *:80>
-       ServerName example.com
-       ServerAlias www.example.com
-       ServerAdmin username@example.com
+<VirtualHost *:80>
+   ServerName example.com
+   ServerAlias www.example.com
+   ServerAdmin username@example.com
 
-       DocumentRoot /var/www/html/example.com/public_html
+   DocumentRoot /var/www/html/example.com/public_html
 
-       ErrorLog /var/www/html/example.com/logs/error.log
-       CustomLog /var/www/html/example.com/logs/access.log combined
+   ErrorLog /var/www/html/example.com/logs/error.log
+   CustomLog /var/www/html/example.com/logs/access.log combined
 
-       WSGIScriptAlias / /var/www/html/example.com/application/application.wsgi
+   WSGIScriptAlias / /var/www/html/example.com/application/application.wsgi
 
-       Alias /robots.txt /var/www/html/example.com/public_html/robots.txt
-       Alias /favicon.ico /var/www/html/example.com/public_html/favicon.ico
-       Alias /images /var/www/html/example.com/public_html/images
-       Alias /static /var/www/html/example.com/public_html/static
-    </VirtualHost>
+   Alias /robots.txt /var/www/html/example.com/public_html/robots.txt
+   Alias /favicon.ico /var/www/html/example.com/public_html/favicon.ico
+   Alias /images /var/www/html/example.com/public_html/images
+   Alias /static /var/www/html/example.com/public_html/static
+</VirtualHost>
+
 {{< /file-excerpt >}}
 
 

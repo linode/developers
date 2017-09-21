@@ -56,12 +56,13 @@ The above command will additionally install the Apache web server. Consider our 
 SNMPD binds to all local interfaces by default. If you only plan on using Cacti locally to monitor your Linode, you may want to consider modifying `/etc/sysconfig/snmpd.options` to limit the exposure of SNMP to the Internet at large. Uncomment the following line and append the addresses you would like the SNMP daemon to "listen" for data, as follows:
 
 {{< file "/etc/sysconfig/snmpd.options" php >}}
-    $database_type = "mysql";
-    $database_default = "cactidb";
-    $database_hostname = "localhost";
-    $database_username = "cactiuser";
-    $database_password = "c@t1u53r";
-    $database_port = "3306";
+$database_type = "mysql";
+$database_default = "cactidb";
+$database_hostname = "localhost";
+$database_username = "cactiuser";
+$database_password = "c@t1u53r";
+$database_port = "3306";
+
 {{< /file >}}
 
 
