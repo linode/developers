@@ -15,7 +15,7 @@
 {{ end }}
 {{ end }}
 {{ with .Scratch.Get "style" }}
-{{- highlight $.Inner  . "linenos=inline" | -}}
+{{- highlight (trim $.Inner "\n" )  . "linenos=inline" | -}}
 {{ else }}
 <pre><code class="nohighlight">{{ $.Inner }}</code></pre>
 {{ end }}
