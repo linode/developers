@@ -12,7 +12,7 @@ var gulp = require('gulp'),
     plugins = require('gulp-load-plugins')();
 
 var opt = {
-    distFolder: 'static/build',
+    distFolder: 'static/build'
 }
 
 gulp.task('default', ['build']);
@@ -60,21 +60,26 @@ gulp.task('fonts', function() {
 
 
 gulp.task('revision', [], function() {
-    return gulp.src(['**/home.min.css', '**/main.min.js', '**/libs.min.js'], {
-            base: path.join(process.cwd(), opt.distFolder)
+  return gulp.src(['**/home.min.css', '**/main.min.js', '**/libs.min.js'], {
+           base: path.join(process.cwd(), opt.distFolder)
         })
         .pipe(rev())
         .pipe(gulp.dest(opt.distFolder))
         .pipe(rev.manifest())
-        .pipe(gulp.dest(opt.distFolder))
+        .pipe(gulp.dest("assets")).on('error', gutil.log)
 });
 
-gulp.task("revreplace", ["revision"], function(){
-  var manifest = gulp.src("./" + opt.distFolder + "/rev-manifest.json");
+gulp.task("revreplace", ["revision"], function() {
+    var manifest = gulp.src("./assets/rev-manifest.json");
 
-  return gulp.src([ "layouts/partials/includes_body_end.html", "layouts/partials/includes_head.html"])
-    .pipe(revReplace({manifest: manifest}))
-    .pipe(gulp.dest("layouts/partials"));
+    return gulp.src(["layouts/partials/includes_body_end.html", "layouts/partials/includes_head.html"])
+        .pipe(rename(function(path) {
+            path.extname = "_prod.html";
+        }))
+        .pipe(revReplace({
+            manifest: manifest
+        }))
+        .pipe(gulp.dest("layouts/partials")).on('error', gutil.log);
 });
 
 
