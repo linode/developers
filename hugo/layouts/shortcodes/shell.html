@@ -1,3 +1,6 @@
-<div class="file">
-{{ .Inner | markdownify }}
-</div>
+<dl class="shell">
+	<dt>{{ if gt (len .Params ) 0 }}{{ .Get 0 }}{{ end }}</dt>
+	<dd>
+	{{- highlight (trim $.Inner "\n" )  "bash" "linenos=inline" | -}}
+	</dd>
+</dl>

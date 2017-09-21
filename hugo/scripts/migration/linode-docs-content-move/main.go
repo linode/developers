@@ -38,7 +38,7 @@ func (m *mover) fixContent(path, s string) (string, error) {
 		// striped tables.
 		tableFixer,
 
-		// Handles the callouts file and file-exerpt
+		// Handles the callouts file, shell and file-exerpt
 		calloutFilesFixer,
 
 		// Handles conversion of all the other callouts to shortcodes
@@ -73,7 +73,7 @@ var (
 	calloutFilesFixer = func(path, s string) (string, error) {
 		// Handle file and file-excerpt shortcodes
 		// Replace callouts with shortcodes
-		calloutsFiles := regexp.MustCompile(`(?s)[\t ]*{:\s?\.(file[\w|-]*)\s?}\n(.*?)\n.*?~~~\s?(\w*)\s*\n(.*?)~~~`)
+		calloutsFiles := regexp.MustCompile(`(?s)[\t ]*{:\s?\.(shell|file[\w|-]*)\s?}\n(.*?)\n.*?~~~\s?(\w*)\s*\n(.*?)~~~`)
 
 		s = calloutsFiles.ReplaceAllStringFunc(s, func(s string) string {
 			m := calloutsFiles.FindAllStringSubmatch(s, -1)
@@ -105,6 +105,12 @@ var (
 
 					code = newCode
 
+				}
+
+				if shortcode == "shell" {
+					return fmt.Sprintf(`{{< shell %q>}}
+%s
+{{< /shell >}}`, filename, code)
 				}
 
 				// Misspelled
