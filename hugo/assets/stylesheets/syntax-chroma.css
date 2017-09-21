@@ -1,0 +1,36 @@
+/* Background */ .chroma { background-color: #eeeedd }
+/* Highlight */ .chroma .ss4 { color: #a61717; background-color: #e3d2d2 }
+/* LineHighlight */ .chroma .hl { background-color: #282828; display: block; width: 100% }
+/* LineNumbers */ .chroma .ln { color: #888888; margin-right: 0.5em }
+/* Keyword */ .chroma .s3e8 { color: #8b008b; font-weight: bold }
+/* KeywordType */ .chroma .s3ee { color: #00688b; font-weight: bold }
+/* NameAttribute */ .chroma .s7d1 { color: #658b00 }
+/* NameBuiltin */ .chroma .s7d2 { color: #658b00 }
+/* NameClass */ .chroma .s7d4 { color: #008b45; font-weight: bold }
+/* NameConstant */ .chroma .s7d5 { color: #00688b }
+/* NameDecorator */ .chroma .s7d6 { color: #707a7c }
+/* NameException */ .chroma .s7d8 { color: #008b45; font-weight: bold }
+/* NameFunction */ .chroma .s7d9 { color: #008b45 }
+/* NameNamespace */ .chroma .s7dd { color: #008b45 }
+/* NameTag */ .chroma .s7e2 { color: #8b008b; font-weight: bold }
+/* NameVariable */ .chroma .s7e3 { color: #00688b }
+/* LiteralString */ .chroma .sc1c { color: #cd5555 }
+/* LiteralStringHeredoc */ .chroma .sc26 { color: #1c7e71; font-style: italic }
+/* LiteralStringOther */ .chroma .sc29 { color: #cb6c20 }
+/* LiteralStringRegex */ .chroma .sc2a { color: #1c7e71 }
+/* LiteralNumber */ .chroma .sc80 { color: #b452cd }
+/* OperatorWord */ .chroma .sfa1 { color: #8b008b }
+/* Comment */ .chroma .s1770 { color: #228b22 }
+/* CommentSpecial */ .chroma .s1774 { color: #8b008b; font-weight: bold }
+/* CommentPreproc */ .chroma .s17d4 { color: #1e889b }
+/* GenericDeleted */ .chroma .s1b59 { color: #aa0000 }
+/* GenericEmph */ .chroma .s1b5a { font-style: italic }
+/* GenericError */ .chroma .s1b5b { color: #aa0000 }
+/* GenericHeading */ .chroma .s1b5c { color: #000080; font-weight: bold }
+/* GenericInserted */ .chroma .s1b5d { color: #00aa00 }
+/* GenericOutput */ .chroma .s1b5e { color: #888888 }
+/* GenericPrompt */ .chroma .s1b5f { color: #555555 }
+/* GenericStrong */ .chroma .s1b60 { font-weight: bold }
+/* GenericSubheading */ .chroma .s1b61 { color: #800080; font-weight: bold }
+/* GenericTraceback */ .chroma .s1b62 { color: #aa0000 }
+/* TextWhitespace */ .chroma .s1f41 { color: #bbbbbb }
