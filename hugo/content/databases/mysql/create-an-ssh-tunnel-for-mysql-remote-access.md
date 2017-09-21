@@ -5,7 +5,7 @@ author:
 description: 'This guide will teach you how to gain remote access to your MySQL Database using an SSH tunnel.'
 keywords: ["MySQL tunnel", "MySQL over SSH", "SSH tunnel"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['databases/mysql/mysql-ssh-tunnel/','databases/mysql/securely-administer-mysql-with-an-ssh-tunnel']
+aliases: ['databases/mysql/mysql-ssh-tunnel/','databases/mysql/securely-administer-mysql-with-an-ssh-tunnel']
 modified: 2013-08-22
 modified_by:
   name: Linode

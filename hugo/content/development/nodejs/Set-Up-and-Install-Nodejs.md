@@ -10,7 +10,7 @@ modified_by:
   name: Linode
 published: 2014-12-18
 title: How to Set Up and Install Node.js 
-alias: ['websites/nodejs/installing-nodejs/','websites/nodejs/a-nodejs-installation-crash-course/','development/nodejs/installing-nodejs/','development/nodjs/a-nodejs-installation-crash-course/']
+aliases: ['websites/nodejs/installing-nodejs/','websites/nodejs/a-nodejs-installation-crash-course/','development/nodejs/installing-nodejs/','development/nodjs/a-nodejs-installation-crash-course/']
 external_resources:
  - '[NodeSchool](http://nodeschool.io/)'
  - '[Node Version Manager](https://github.com/creationix/nvm)'

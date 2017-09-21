@@ -6,7 +6,7 @@ author:
 description: Our guide to billing and payments
 keywords: ["prepaid", "billing", "payments", "credit", "referral", "invoice"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['prepaid-billing/']
+aliases: ['prepaid-billing/']
 modified: 2017-02-15
 modified_by:
   name: Linode

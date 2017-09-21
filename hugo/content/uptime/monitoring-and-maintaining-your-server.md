@@ -5,7 +5,7 @@ author:
 description: Our guide to monitoring and maintaining your server.
 keywords: ["monitor", "monitoring", "maintaining", "maintenance"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['monitoring-and-maintaining/']
+aliases: ['monitoring-and-maintaining/']
 modified: 2017-02-22
 modified_by:
   name: Linode

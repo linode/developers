@@ -10,7 +10,7 @@ modified_by:
   name: Linode
 published: 2015-03-23
 title: 'Node.js Web Server deployed within Docker'
-alias: ['applications/containers/nodejs-node-js-web-server-docker-container']
+aliases: ['applications/containers/nodejs-node-js-web-server-docker-container']
 ---
 
 

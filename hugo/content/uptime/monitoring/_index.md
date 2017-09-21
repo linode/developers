@@ -5,7 +5,7 @@ author:
 description: 'Watching server resources with open source tools.'
 keywords: ["server monitoring", "cacti", "monit", "munin", "nagios", "rrdtool"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['server-monitoring/']
+aliases: ['server-monitoring/']
 published: 2009-07-16
 title: Server Monitoring
 ---

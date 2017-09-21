@@ -5,7 +5,7 @@ author:
 description: 'Prepare and Submit a Request to Obtain a Commercially Signed SSL Certificate on CentOS or Fedora'
 keywords: ["ssl certificate", "ssl cert", "commercial", "csr", "centos", "fedora"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['security/ssl-certificates/commercial/']
+aliases: ['security/ssl-certificates/commercial/']
 modified: 2016-08-19
 modified_by:
   name: Nick Brewer

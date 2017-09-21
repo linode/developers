@@ -4,7 +4,7 @@ author:
   email: docs@linode.com
 keywords: ["file transfer", "file transferring", "cyberduck", "filezilla", "winscp"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['networking/file-transfer/']
+aliases: ['networking/file-transfer/']
 published: 2009-07-16
 title: File Transfer
 ---

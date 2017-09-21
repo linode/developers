@@ -6,7 +6,7 @@ author:
 description: Configure a MongoDB ReplSet
 keywords: ["mongodb", "nosql", "clusters", "replset", "databases"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['databases/mongodb/centos-6/']
+aliases: ['databases/mongodb/centos-6/']
 modified: 2014-04-09
 modified_by:
   name: Linode

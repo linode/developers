@@ -47,6 +47,9 @@ func (m *mover) fixContent(path, s string) (string, error) {
 		keywordsToArray,
 
 		fixDates,
+
+		// Plural alias => aliases
+		aliasFixer,
 	}
 
 	for _, fix := range fixers {
@@ -256,6 +259,11 @@ var (
 	tableFixer = func(path, s string) (string, error) {
 		re := regexp.MustCompile(`{: \.table.*?}\s*\n`)
 		return re.ReplaceAllString(s, ""), nil
+	}
+
+	aliasFixer = func(path, s string) (string, error) {
+		re := regexp.MustCompile(`alias: \[`)
+		return re.ReplaceAllString(s, "aliases: ["), nil
 	}
 )
 

@@ -5,7 +5,7 @@ author:
 description: 'Building dynamic websites and applications with open source frameworks.'
 keywords: ["web applications", "web frameworks", "Linode applications", "tomcat", "cakephp", "catalyst", "django", "seaside"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['frameworks/']
+aliases: ['frameworks/']
 published: 2009-07-16
 title: Web Application Frameworks
 ---

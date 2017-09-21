@@ -5,7 +5,7 @@ author:
 description: 'Practical examples for using grep to find strings in text files and streams.'
 keywords: ["grep", "search", "files", "filtering", "regular expressions"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['linux-tools/common-commands/grep/', 'tools-reference/search-and-filter-text-with-grep/']
+aliases: ['linux-tools/common-commands/grep/', 'tools-reference/search-and-filter-text-with-grep/']
 modified: 2011-05-04
 modified_by:
   name: Linode

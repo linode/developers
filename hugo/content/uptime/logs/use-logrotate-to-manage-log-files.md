@@ -5,7 +5,7 @@ author:
 description: 'This guide will show you how to use the logrotate tool to manage logfiles.'
 keywords: ["logrotate", "log files", "access logs"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['linux-tools/utilities/logrotate/']
+aliases: ['linux-tools/utilities/logrotate/']
 modified: 2017-08-22
 modified_by:
   name: Linode

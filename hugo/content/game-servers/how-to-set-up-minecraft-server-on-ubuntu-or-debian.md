@@ -4,7 +4,7 @@ author:
   email: docs@linode.com
 description: 'This tutorial will teach you basic installation and configuration of a Minecraft server on Ubuntu and Debian
 distributions'
-alias: ['applications/game-servers/minecraft-on-debian-and-ubuntu/','game-servers/minecraft-on-debian-and-ubuntu/']
+aliases: ['applications/game-servers/minecraft-on-debian-and-ubuntu/','game-servers/minecraft-on-debian-and-ubuntu/']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 modified: 2017-07-30
 modified_by:

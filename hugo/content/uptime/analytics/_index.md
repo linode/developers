@@ -5,7 +5,7 @@ author:
 description: 'Installation, configuration and usage guides for website statistics.'
 keywords: ["statistics", "analytics", "stats", "piwik"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['web-applications/analytics/']
+aliases: ['web-applications/analytics/']
 published: 2010-03-01
 title: Analytics
 ---

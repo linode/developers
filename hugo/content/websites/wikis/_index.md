@@ -4,7 +4,7 @@ author:
   email: docs@linode.com
 keywords: ["wiki", "mediawiki", "ikiwiki"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['web-applications/wikis/']
+aliases: ['web-applications/wikis/']
 published: 2010-03-01
 title: Wikis
 ---

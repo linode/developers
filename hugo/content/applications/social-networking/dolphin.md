@@ -5,7 +5,7 @@ author:
 description: Dolphin
 keywords: ["social network", " dolphin", " boonex"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['web-applications/social-networking/dolphin/']
+aliases: ['web-applications/social-networking/dolphin/']
 modified: 2013-10-04
 modified_by:
   name: Linode

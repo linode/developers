@@ -12,7 +12,7 @@ modified: 2015-02-04
 modified_by:
   name: Alex Fornuto
 title: 'Installing Multicraft on Ubuntu'
-alias: ['applications/game-servers/multicraft-on-ubuntu/']
+aliases: ['applications/game-servers/multicraft-on-ubuntu/']
 ---
 
 [Multicraft](http://www.multicraft.org/) is a control panel for single or multiple Minecraft servers, with free and paid versions available. This guide will help you install Multicraft on a Linode running Ubuntu 14.04.

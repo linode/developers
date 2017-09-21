@@ -5,7 +5,7 @@ author:
 description: 'Learn how to create Chef cookbooks by creating a LAMP stack in Chef'
 keywords: ["chef", "automation", "cookbooks", "opscode", "lamp", "lamp stack", "beginner", "server automation"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['applications/chef/creating-your-first-chef-cookbook/']
+aliases: ['applications/chef/creating-your-first-chef-cookbook/']
 modified: 2015-06-10
 modified_by:
   name: Elle Krout

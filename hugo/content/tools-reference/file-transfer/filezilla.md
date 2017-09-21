@@ -5,7 +5,7 @@ author:
 description: 'Securely copying files to and from your Linode with FileZilla, a free and open source file transfer client for Linux, OS X, and Windows systems.'
 keywords: ["filezilla", "ftp", "linux scp", "sftp", "linux sftp program", "linux ftp"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['networking/file-transfer/transfer-files-filezilla/']
+aliases: ['networking/file-transfer/transfer-files-filezilla/']
 modified: 2014-10-13
 modified_by:
   name: James Stewart

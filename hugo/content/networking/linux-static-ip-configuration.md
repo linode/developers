@@ -5,7 +5,7 @@ author:
 description: 'Computer networks frequently use DHCP to assign IP addresses, routing and DNS information to systems which join the network. Additional IPs can be assigned to virtual network interfaces for a fully static IP address configuration, including multiple static addresses.'
 keywords: ["multiple ip addresses", "linux static ip", "change ip address", "network configuration", "dns", "DHCP"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['networking/configuring-static-ip-interfaces/']
+aliases: ['networking/configuring-static-ip-interfaces/']
 modified: 2017-06-08
 modified_by:
   name: Linode

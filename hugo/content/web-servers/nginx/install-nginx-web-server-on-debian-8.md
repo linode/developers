@@ -10,7 +10,7 @@ modified: 2016-08-18
 modified_by:
     name: Phil Zona
 title: 'Install Nginx Web Server on Debian 8'
-alias: ['websites/nginx/nginx-web-server-debian-8/','websites/nginx/install-nginx-web-server-on-debian-8/']
+aliases: ['websites/nginx/nginx-web-server-debian-8/','websites/nginx/install-nginx-web-server-on-debian-8/']
 external_resources:
  - '[Linode nginx Documentation](/docs/websites/nginx/)'
  - '[Nginx Community Documentation](http://wiki.nginx.org)'

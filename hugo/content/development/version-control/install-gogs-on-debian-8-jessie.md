@@ -6,7 +6,7 @@ description: 'Install Gogs, a Self-hosted Git Service Written in Go, on Your Deb
 keywords: ["gogs", " go git service", "golang", "git", "debian 8", " nginx", " postgresql"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 published: 2015-10-09
-alias: ['applications/development/install-gogs-on-debian-jessie/','applications/development/install-gogs-on-debian-8-jessie/']
+aliases: ['applications/development/install-gogs-on-debian-jessie/','applications/development/install-gogs-on-debian-8-jessie/']
 modified: 2017-06-21
 modified_by:
     name: Linode

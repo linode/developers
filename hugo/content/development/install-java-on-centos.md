@@ -10,7 +10,7 @@ modified_by:
   name: Angel Guarisma
 published: 2017-06-01
 title: Install Java on Centos 7
-alias: ['development/INSTALLING-JAVA-ON-CENTOS/']
+aliases: ['development/INSTALLING-JAVA-ON-CENTOS/']
 external_resources:
 - '[Fedora Wiki Java Entry](https://fedoraproject.org/wiki/Java)'
 ---

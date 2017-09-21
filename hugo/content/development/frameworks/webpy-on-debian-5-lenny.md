@@ -5,7 +5,7 @@ author:
 description: 'Use the Web.py Python framework to develop powerful and innovative web applications on Debian 5 (Lenny).'
 keywords: ["web.py", "web applications", "python", "web frameworks"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['frameworks/webpy/debian-5-lenny/','websites/frameworks/webpy-on-debian-5-lenny/']
+aliases: ['frameworks/webpy/debian-5-lenny/','websites/frameworks/webpy-on-debian-5-lenny/']
 modified: 2012-10-08
 modified_by:
   name: Linode

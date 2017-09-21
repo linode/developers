@@ -5,7 +5,7 @@ author:
 description: 'Use the Mercurial version control system to manage source code in distributed environments.'
 keywords: ["scm", "vcs", "hg", "mercurial", "dcvs", "source control management", "version control", "distributed version control"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['linux-tools/version-control/mercurial/','applications/development/manage-distributed-version-control-with-mercurial/']
+aliases: ['linux-tools/version-control/mercurial/','applications/development/manage-distributed-version-control-with-mercurial/']
 modified: 2011-05-23
 modified_by:
   name: Linode

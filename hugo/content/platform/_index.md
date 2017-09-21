@@ -1,7 +1,7 @@
 ---
 title:  Linode Platform
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['linode-platform/']
+aliases: ['linode-platform/']
 description: 'Learn about everything Linode!'
 featured:
  - linode-beginners-guide.md

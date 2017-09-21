@@ -4,7 +4,7 @@ author:
   email: docs@linode.com
 keywords: ["audio", " video", " stream", " streaming", " media"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['communications/media-servers/']
+aliases: ['communications/media-servers/']
 published: 2012-06-07
 title: Media Servers
 ---

@@ -10,7 +10,7 @@ modified_by:
     name: Alex Fornuto
 published: 2015-12-01
 title: LAMP on CentOS 7
-alias: ['websites/lamp/lamp-server-on-centos-7/','websites/lamp/lamp-on-centos-7/']
+aliases: ['websites/lamp/lamp-server-on-centos-7/','websites/lamp/lamp-on-centos-7/']
 external_resources:
  - '[CentOS Linux Home Page](http://www.centos.org/)'
  - '[Apache HTTP Server Documentation](http://httpd.apache.org/docs/2.2/)'

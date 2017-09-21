@@ -5,7 +5,7 @@ author:
 description: 'Learn how to efficiently use Puppet modules to manage files and services, create templates, and store data in Hiera in this simple tutorial.'
 keywords: ["puppet", "automation", "puppet master", "puppet agent", "modules", "server automation", "configuration management"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['applications/puppet/create-puppet-module/','applications/configuration-management/create-puppet-module/']
+aliases: ['applications/puppet/create-puppet-module/','applications/configuration-management/create-puppet-module/']
 modified: 2015-11-12
 modified_by:
     name: Elle Krout

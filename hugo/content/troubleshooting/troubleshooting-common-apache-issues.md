@@ -5,7 +5,7 @@ author:
 description: 'How to identify and solve common configuration problems encountered when using Apache.'
 keywords: ["apache", "webserver", "httpd", "troubleshooting"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['web-servers/apache/troubleshooting/']
+aliases: ['web-servers/apache/troubleshooting/']
 modified: 2013-08-01
 modified_by:
   name: Linode

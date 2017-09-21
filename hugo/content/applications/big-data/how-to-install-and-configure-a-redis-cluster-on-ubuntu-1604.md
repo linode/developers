@@ -5,7 +5,7 @@ author:
 description: 'Learn to set up a Redis cluster using three Linode servers and promoting a slave to become a master node with this guide.'
 keywords: ["redis cluster installation", "data store", "cache", "sharding"]
 license: '[CC BY-ND 4.0](http://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['applications/big-data/redis-cluster']
+aliases: ['applications/big-data/redis-cluster']
 modified: 2017-08-14
 modified_by:
   name: Linode 

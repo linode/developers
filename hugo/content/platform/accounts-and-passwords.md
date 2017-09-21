@@ -5,7 +5,7 @@ author:
 description: Our guide to managing accounts and passwords.
 keywords: ["accounts", "passwords", "linode manager", "manager"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['accounts-and-passwords/']
+aliases: ['accounts-and-passwords/']
 modified: 2014-02-10
 modified_by:
   name: Linode

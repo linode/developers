@@ -1,6 +1,6 @@
 ---
 title: 'VPNs: Virtual Private Networks'
-alias: ['networking/openvpn/']
+aliases: ['networking/openvpn/']
 featured:
  - set-up-a-hardened-openvpn-server.md
  - tunnel-your-internet-traffic-through-an-openvpn-server.md

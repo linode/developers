@@ -5,7 +5,7 @@ author:
 description: Our guide to copying a disk over SSH
 keywords: ["copy", "disk", "ssh"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['migration/ssh-copy/','migrate-to-linode/disk-images/copying-a-disk-image-over-ssh/']
+aliases: ['migration/ssh-copy/','migrate-to-linode/disk-images/copying-a-disk-image-over-ssh/']
 modified: 2017-04-13
 modified_by:
   name: Linode

@@ -12,7 +12,7 @@ modified: 2015-02-04
 modified_by:
   name: Alex Fornuto
 title: 'Installing Multicraft on Debian'
-alias: ['applications/game-servers/multicraft-on-debian/']
+aliases: ['applications/game-servers/multicraft-on-debian/']
 ---
 
 [Multicraft](http://www.multicraft.org/) is a control panel for single or multiple Minecraft servers Free and paid versions are available. This guide will help you install Multicraft on a Linode running Debian 7.

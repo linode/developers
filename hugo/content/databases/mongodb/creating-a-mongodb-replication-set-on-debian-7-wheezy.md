@@ -6,7 +6,7 @@ author:
 description: 'Configure a MongoDB ReplSet (Debian)'
 keywords: ["mongodb", "nosql", "clusters", "replset", "databases"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['databases/mongodb/debian-7/']
+aliases: ['databases/mongodb/debian-7/']
 modified: 2014-08-13
 modified_by:
   name: Linode

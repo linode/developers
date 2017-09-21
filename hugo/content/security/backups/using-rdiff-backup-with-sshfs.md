@@ -5,7 +5,7 @@ author:
 description: 'Automating offsite backups with the open source Rdiff-backup package and SSHFS for remote filesystem mounting.'
 keywords: ["rdiff-backup", "sshfs", "network backup", "linux backup"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['linux-tools/rdiff-backup/']
+aliases: ['linux-tools/rdiff-backup/']
 modified: 2012-04-13
 modified_by:
   name: James Sinclair

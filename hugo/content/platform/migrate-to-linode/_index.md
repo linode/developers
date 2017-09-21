@@ -1,4 +1,4 @@
 ---
 title:  Migrate to Linode
-alias: ['migrate-to-linode/']
+aliases: ['migrate-to-linode/']
 ---

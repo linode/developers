@@ -5,7 +5,7 @@ author:
 description: 'Learn about DNS records and system structure.'
 keywords: ["dns records", "domain names", "dns record types", "dns resolution"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['dns-guides/introduction-to-dns-records/','dns-guides/introduction-to-dns/','networking/dns/introduction-to-dns-records/']
+aliases: ['dns-guides/introduction-to-dns-records/','dns-guides/introduction-to-dns/','networking/dns/introduction-to-dns-records/']
 modified: 2015-01-20
 modified_by:
   name: Elle Krout

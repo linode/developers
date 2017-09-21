@@ -4,7 +4,7 @@ author:
   email: docs@linode.com
 keywords: ["web server", "access control", "apache"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['web-servers/apache/configuration/','websites/apache-tips-and-tricks/']
+aliases: ['web-servers/apache/configuration/','websites/apache-tips-and-tricks/']
 published: 2009-07-16
 title: Apache Tips & Tricks
 ---

@@ -4,7 +4,7 @@ author:
   email: docs@linode.com
 keywords: upgrading
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['upgrading/']
+aliases: ['upgrading/']
 published: 2012-06-01
 title: Upgrading
 ---

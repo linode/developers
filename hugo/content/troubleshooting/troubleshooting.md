@@ -5,7 +5,7 @@ author:
 description: Our guide to performing basic troubleshooting.
 keywords: troubleshooting
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['quick-start-troubleshooting/']
+aliases: ['quick-start-troubleshooting/']
 modified: 2017-03-06
 modified_by:
   name: Nick Brewer

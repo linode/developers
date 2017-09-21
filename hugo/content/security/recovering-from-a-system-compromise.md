@@ -5,7 +5,7 @@ author:
 description: 'Steps to take if your Linode becomes compromised by unauthorized parties.'
 keywords: ["root compromise", "Linode troubleshooting", "Linode troubleshooting", "Linux configuration"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['troubleshooting/compromise-recovery/']
+aliases: ['troubleshooting/compromise-recovery/']
 modified: 2013-07-12
 modified_by:
   name: Linode

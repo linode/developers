@@ -5,7 +5,7 @@ author:
 description: 'Prepare and Submit a Request to Obtain a Commercially Signed SSL Certificate on Debian or Ubuntu.'
 keywords: ["ssl certificate", "ssl cert", "commercial", "csr", "debian", "ubuntu"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['security/ssl-certificates/commercial/']
+aliases: ['security/ssl-certificates/commercial/']
 modified: 2016-08-19
 modified_by:
   name: Nick Brewer

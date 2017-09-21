@@ -6,7 +6,7 @@ author:
 description: 'Use uWSGI to deploy Python application servers in conjunction with nginx.'
 keywords: ["uwsgi", "wsgi", "nginx", "python", "arch linux"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['web-servers/nginx/python-uwsgi/arch-linux/','websites/nginx/wsgi-using-uwsgi-and-nginx-on-arch-linux/']
+aliases: ['web-servers/nginx/python-uwsgi/arch-linux/','websites/nginx/wsgi-using-uwsgi-and-nginx-on-arch-linux/']
 modified: 2013-10-07
 modified_by:
   name: Linode

@@ -10,7 +10,7 @@ modified_by:
   name: Linode
 published: 2015-03-12
 title: 'Team Fortress 2 on Debian and Ubuntu'
-alias: ['applications/game-servers/team-fortress2-on-debian-and-ubuntu/']
+aliases: ['applications/game-servers/team-fortress2-on-debian-and-ubuntu/']
 ---
 
 [Team Fortress 2](http://teamfortress.com/) is a team-based, first-person shooter, where you and a team of fellow players can play a variety of game modes. From capture the flag, to a battle pitting your team against a robotic horde, there are numerous options to choose. Setting up a personal game server puts you in control of what game modes and maps you use, as well as a variety of other settings to customize your experience.

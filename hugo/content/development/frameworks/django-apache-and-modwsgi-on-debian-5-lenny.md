@@ -6,7 +6,7 @@ author:
 description: 'Installing and configuring the Django web application development framework for Apache on Debian 5.'
 keywords: ["django", "python", "apache", "mod\\_wsgi"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['frameworks/django-apache-mod-wsgi/debian-5-lenny/','websites/frameworks/django-apache-and-modwsgi-on-debian-5-lenny/']
+aliases: ['frameworks/django-apache-mod-wsgi/debian-5-lenny/','websites/frameworks/django-apache-and-modwsgi-on-debian-5-lenny/']
 modified: 2012-10-08
 modified_by:
   name: Linode

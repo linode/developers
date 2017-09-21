@@ -4,7 +4,7 @@ author:
   email: docs@linode.com
 keywords: ["LEMP", "LEMP stack", "LEMP server"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['lemp-guides/','websites/lemp/']
+aliases: ['lemp-guides/','websites/lemp/']
 published: 2010-06-29
 title: LEMP Guides
 ---

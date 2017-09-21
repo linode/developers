@@ -1,5 +1,5 @@
 ---
 title: Control Panels & Content Management Systems
-alias: ['web-applications/control-panels/']
+aliases: ['web-applications/control-panels/']
 ---
 

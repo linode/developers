@@ -6,7 +6,7 @@ author:
 description: 'Set up and maintain services on your Linode with the Kloxo control panel.'
 keywords: ["kloxo", "control panel", "cpanel", "plesk"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['web-applications/control-panels/kloxo/']
+aliases: ['web-applications/control-panels/kloxo/']
 modified: 2013-10-03
 modified_by:
   name: Linode

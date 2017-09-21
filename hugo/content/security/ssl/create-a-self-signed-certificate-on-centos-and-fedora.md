@@ -5,7 +5,7 @@ author:
 description: 'Create an SSL Certificate on a Linux Server Running Centos or Fedora.'
 keywords: ["ssl certificate", "ssl cert", "self signed", "centos", "fedora"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['security/ssl-certificates/self-signed/']
+aliases: ['security/ssl-certificates/self-signed/']
 modified: 2016-08-16
 modified_by:
   name: Nick Brewer

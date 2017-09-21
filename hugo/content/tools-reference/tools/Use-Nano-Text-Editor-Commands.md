@@ -5,7 +5,7 @@ author:
 description: This tutorial will teach you how to install and use Nano text editor to create and edit files in Linux.
 keywords: ["nano", "editor"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['linux-tools/text-editors/nano/','tools-reference/tools/using-nano/']
+aliases: ['linux-tools/text-editors/nano/','tools-reference/tools/using-nano/']
 modified: 2011-11-08
 modified_by:
   name: Linode

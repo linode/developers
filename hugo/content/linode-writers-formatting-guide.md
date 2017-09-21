@@ -5,7 +5,7 @@ author:
 description: 'The Linode Guides & Tutorials style guide for article submissions'
 keywords: ["style guide", "format", "formatting", "how to write", "write for us", "write for linode", "linode docs", "submissions"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['style-guide/','linode-writers-guide/']
+aliases: ['style-guide/','linode-writers-guide/']
 modified: Friday, June 30, 2017
 modified_by:
   name: Edward Angert

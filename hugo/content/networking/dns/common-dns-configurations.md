@@ -5,7 +5,7 @@ author:
 description: 'Configurations for common DNS records.'
 keywords: ["linode dns", "linode manager dns", "dns configuration"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['dns-manager/','dns-guides/configuring-dns-with-the-linode-manager/']
+aliases: ['dns-manager/','dns-guides/configuring-dns-with-the-linode-manager/']
 modified: 2015-01-20
 modified_by:
   name: Elle Krout

@@ -5,7 +5,7 @@ author:
 description: 'mod_evasive'
 keywords: ["mod_evasive", " modevasive", " evasive", " apache"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['web-servers/apache/mod-evasive/','websites/apache-tips-and-tricks/modevasive-on-apache/']
+aliases: ['web-servers/apache/mod-evasive/','websites/apache-tips-and-tricks/modevasive-on-apache/']
 modified: 2013-02-05
 modified_by:
   name: Linode

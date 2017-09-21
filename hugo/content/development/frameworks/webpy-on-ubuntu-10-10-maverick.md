@@ -5,7 +5,7 @@ author:
 description: 'Use the Web.py Python framework to develop powerful and innovative web applications on Ubuntu 10.10 (Maverick).'
 keywords: ["web.py", "web applications", "python", "web frameworks"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-alias: ['frameworks/webpy/ubuntu-10-10-maverick/','websites/frameworks/webpy-on-ubuntu-10-10-maverick/']
+aliases: ['frameworks/webpy/ubuntu-10-10-maverick/','websites/frameworks/webpy-on-ubuntu-10-10-maverick/']
 modified: 2012-10-08
 modified_by:
   name: Linode
