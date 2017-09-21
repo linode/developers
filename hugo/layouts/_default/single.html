@@ -17,6 +17,9 @@
             {{ .Content }}
             {{ partial "related" . }}
             {{ partial "more" . }}
+            {{ if (getenv "HUGO_ENV") }}
+            {{ template "_internal/disqus.html" . }}
+            {{ end }}
             {{ partial "license" . }}
           </div>
           <div id="doc-sidebar" class="col-sm-3 col-sm-pull-9 hidden-xs">
