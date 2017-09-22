@@ -50,19 +50,6 @@
         <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
         {{ end -}}
         <link rel="shortcut icon" href="/favicon.ico">
-
-        <style type="text/css">
-            
-            /* The Pygments highlighter comes with its own styles. */
-            /* TODO(bep) => css */
-            .highlight pre {
-              background-color: inherit;
-              color: inherit;
-              padding: 0.5em;
-             
-            }
-            
-        </style>
     </head>
     <body class="no-subnav">
          {{ if eq (getenv "HUGO_ENV") "prod" }}
