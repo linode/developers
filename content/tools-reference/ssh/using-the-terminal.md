@@ -1,1 +1,0 @@
-/Users/bep/private/jobb/linode/docsmith/hugo/content/networking/ssh/using-the-terminal.md

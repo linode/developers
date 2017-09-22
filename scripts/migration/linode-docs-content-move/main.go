@@ -337,7 +337,8 @@ func (m *mover) move() error {
 
 		// Create symbolic link and add the orignal path to front matter.
 		if fi.Mode()&os.ModeSymlink != 0 {
-			return m.createSymlink(path, fi)
+			// TODO(bep) make symlinks relative
+			//return m.createSymlink(path, fi)
 		}
 
 		return nil

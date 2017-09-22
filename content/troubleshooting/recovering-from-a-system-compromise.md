@@ -1,1 +1,0 @@
-/Users/bep/private/jobb/linode/docsmith/hugo/content/security/recovering-from-a-system-compromise.md

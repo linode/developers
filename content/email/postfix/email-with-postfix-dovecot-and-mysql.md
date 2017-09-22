@@ -10,8 +10,6 @@ modified_by:
   name: Phil Zona
 published: 2013-05-13
 title: 'Email with Postfix, Dovecot, and MySQL'
-# This file has symlinks pointing to it.
-path: "email/email-with-postfix-dovecot-and-mysql.md"
 ---
 
 In this guide, you'll learn how to set up a secure mail server with Postfix, Dovecot, and MySQL on Debian or Ubuntu. Specifically, we'll explain how to create new user mailboxes and send or receive email to and from configured domains.

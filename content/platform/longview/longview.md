@@ -11,8 +11,6 @@ modified_by:
   name: Angel Guarisma
 published: 2013-03-27
 title: Longview
-# This file has symlinks pointing to it.
-path: "uptime/longview.md"
 ---
 
 Longview is our Linux system statistics graphing service. It tracks important metrics for CPU, memory, and network use, both aggregate and per-process, and it provides real-time graphs that can help you pinpoint performance problems. This guide shows you how to start monitoring systems with Longview.

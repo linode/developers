@@ -1,1 +1,0 @@
-/Users/bep/private/jobb/linode/docsmith/hugo/content/security/ssl/multiple-ssl-sites-using-subjectaltname.md

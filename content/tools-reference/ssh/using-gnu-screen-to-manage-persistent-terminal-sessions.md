@@ -1,1 +1,0 @@
-/Users/bep/private/jobb/linode/docsmith/hugo/content/networking/ssh/using-gnu-screen-to-manage-persistent-terminal-sessions.md

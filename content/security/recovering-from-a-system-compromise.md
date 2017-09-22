@@ -11,8 +11,6 @@ modified_by:
   name: Linode
 published: 2009-08-26
 title: Recovering from a System Compromise
-# This file has symlinks pointing to it.
-path: "troubleshooting/recovering-from-a-system-compromise.md"
 ---
 
 Sometimes, your system gets compromised. Whether it was because of a weak user password, a vulnerable system package, or an unpatched web application, sometimes you've got to put the brakes on your server and see what you can salvage. Unfortunately, after a hack, it's virtually impossible to determine the full scope of an attacker's reach into a compromised system. The server should not be trusted for production use.

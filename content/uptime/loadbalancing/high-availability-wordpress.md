@@ -1,1 +1,0 @@
-/Users/bep/private/jobb/linode/docsmith/hugo/content/websites/cms/high-availability-wordpress.md
