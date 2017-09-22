@@ -20792,6 +20792,7 @@ li.library-article-item:nth-child(odd) {
   padding: 13px;
   display: inline-block;
   margin-bottom: 8px;
+  width: 100%;
 }
 .signup-top span {
   font-family: Lato, sans-serif;
@@ -20909,6 +20910,83 @@ h1.contribute {
 /* Styling of Table of Contents. */
 #doc-sidebar-toc li.active > a {
   color: #005170;
+}
+#doc-sidebar-toc .affix {
+  position: fixed;
+  top: 0px;
+}
+/* Adapted from 
+ https://bootsnipp.com/snippets/featured/share-on-social-networks
+ Author: joao12ferreira
+ MIT license. 
+ */
+.social-share > a {
+  padding: 6px 10px 6px 10px;
+}
+.social-share .btn-group {
+  display: inline-block;
+  font-size: 0;
+  position: relative;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.social-share .share-group {
+  float: left;
+  max-width: 59px;
+  margin-top: 10px !important;
+  min-width: 200px;
+}
+.social-share .share-group ul {
+  float: right;
+  list-style: none outside none;
+  margin: 0;
+  min-width: 61px;
+  padding: 0;
+}
+.social-share .share-group .share {
+  min-width: 17px;
+}
+.social-share .share-group li {
+  display: block;
+  font-size: 18px;
+  list-style: none outside none;
+  margin-bottom: 3px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+.social-share .share-group .btn-common {
+  width: 51px;
+  color: #FFFFFF !important;
+}
+.social-share .share-group .btn-twitter {
+  background-color: #3399CC !important;
+  width: 51px;
+  color: #FFFFFF !important;
+}
+.social-share .share-group .btn-facebook {
+  background-color: #3D5B96 !important;
+  width: 51px;
+  color: #FFFFFF !important;
+}
+.social-share .share-group .btn-facebook {
+  background-color: #3D5B96 !important;
+  width: 51px;
+  color: #FFFFFF !important;
+}
+.social-share .share-group .btn-hacker-news {
+  background-color: #ff6600 !important;
+  width: 51px;
+  color: #FFFFFF !important;
+}
+.social-share .share-group .caret {
+  border-left: 4px solid rgba(0, 0, 0, 0);
+  border-right: 4px solid rgba(0, 0, 0, 0);
+  border-top: 4px solid;
+  display: inline-block;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  width: 0;
 }
 /* TODO(bep) with Hugo 0.28 we need only Chroma */
 /* Background */
