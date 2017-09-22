@@ -9410,12 +9410,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .output:before {
   content: "Output";
 }
-code {
-  background-color: #edf7fe;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #bde2fb !important;
-}
 .variable {
   background-color: #cff0df;
   border-width: 1px;
