@@ -1,4 +1,4 @@
-var app = app || {};
+/*var app = app || {};
 
 (function() {
 
@@ -114,4 +114,4 @@ var app = app || {};
   });
 
 })();
-
+*/

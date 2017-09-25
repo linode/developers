@@ -1,0 +1,99 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "lunr",
+        "scope": null,
+        "escapedName": "lunr",
+        "name": "lunr",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/bep/dev/bepc/linode/docsmith"
+    ]
+  ],
+  "_from": "lunr@latest",
+  "_id": "lunr@2.1.3",
+  "_inCache": true,
+  "_location": "/lunr",
+  "_nodeVersion": "8.1.2",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/lunr-2.1.3.tgz_1504122366826_0.2491904255002737"
+  },
+  "_npmUser": {
+    "name": "olivernn",
+    "email": "oliver.nightingale1@gmail.com"
+  },
+  "_npmVersion": "5.1.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "lunr",
+    "scope": null,
+    "escapedName": "lunr",
+    "name": "lunr",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/lunr/-/lunr-2.1.3.tgz",
+  "_shasum": "e7d779a9d5bc69ee13d713dedd9024188a7aa263",
+  "_shrinkwrap": null,
+  "_spec": "lunr",
+  "_where": "/Users/bep/dev/bepc/linode/docsmith",
+  "author": {
+    "name": "Oliver Nightingale"
+  },
+  "bugs": {
+    "url": "http://github.com/olivernn/lunr.js/issues"
+  },
+  "dependencies": {},
+  "description": "Simple full-text search in your browser.",
+  "devDependencies": {
+    "benchmark": "2.1.x",
+    "chai": "3.5.x",
+    "eslint": "3.4.x",
+    "eslint-plugin-spellcheck": "0.0.8",
+    "jsdoc": "3.4.x",
+    "mocha": "3.0.x",
+    "mustache": "2.2.x",
+    "node-static": "0.7.x",
+    "uglify-js": "2.4.x",
+    "word-list": "1.0.x"
+  },
+  "directories": {},
+  "dist": {
+    "integrity": "sha512-AxH0hJWcx/IEl8i+GGJXkNFckCnjYi+WCAeamOW+VLQIyLvIjBtToyRmfg5EtZ9+l2cHzHtm7DB5D9IsVbMVpA==",
+    "shasum": "e7d779a9d5bc69ee13d713dedd9024188a7aa263",
+    "tarball": "https://registry.npmjs.org/lunr/-/lunr-2.1.3.tgz"
+  },
+  "gitHead": "81b4fd6547ce3155820406b09ae417a4c10431ed",
+  "homepage": "http://lunrjs.com",
+  "keywords": [
+    "search"
+  ],
+  "license": "MIT",
+  "main": "lunr.js",
+  "maintainers": [
+    {
+      "name": "olivernn",
+      "email": "oliver.nightingale1@gmail.com"
+    }
+  ],
+  "name": "lunr",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olivernn/lunr.js.git"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "version": "2.1.3"
+}

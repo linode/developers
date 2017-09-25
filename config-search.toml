@@ -1,0 +1,9 @@
+disableKinds = ["section", "taxonomy", "taxonomyTerm"]
+
+[outputs]
+home = [ "JSON"]
+
+[outputFormats]
+[outputFormats.JSON]
+mediaType = "application/json"
+isPlainText = true

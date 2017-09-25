@@ -10,7 +10,7 @@ gulp.task('default', ['build']);
 // Build assets, Hugo site and deploy to server.
 // Deploy to test: gulp release --test
 gulp.task('publish', function(cb) {
-    runSequence('build', 'hugo', 'deploy:remote',
+    runSequence('build', 'build:index', 'hugo', 'deploy:remote',
         cb);
 });
 

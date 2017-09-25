@@ -35,65 +35,65 @@
         }
     };
 
-    Search = {
-        numReps: 2,
-        resultsPerPage: 10,
-
-        getPageNumber: function() {
-            return Math.max(1, (parseInt(Page.param('page')) || 1));
-        },
-        getQuery: function() {
-            return Page.param('q') || Page.param('query') || '';
-        },
-        init: function() {
-            Search.repsLeft = Search.numReps;
-
-            var placeholderCallback = function() {
-                google.setOnLoadCallback(function() {
-                    $('#gsc-i-id1').attr('placeholder', 'What do you need help with?').focus();
-                });
-            };
-
-            window.__gcse = {
-                callback: placeholderCallback
-            };
-
-            (function() {
-                var cx = '006150713320016956361:5rcen_5ss4c';
-                var gcse = document.createElement('script');
-                gcse.type = 'text/javascript';
-                gcse.async = true;
-                gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-                    '//www.google.com/cse/cse.js?cx=' + cx;
-                var s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(gcse, s);
-            })();
-        },
-
-        hideNextButton: function() {
-            Search.noneLeft = true;
-            $('#pager-next').hide();
-        },
-        showNextButton: function() {
-            if (!Search.noneLeft) {
-                var nextPage = Search.getPageNumber() + 1,
-                    args = ['q=' + Search.getQuery(), 'page=' + nextPage],
-                    $pagerNext = $('#pager-next'),
-                    $pagerNextLink = $('#pager-next-link');
-
-                $pagerNext.css('display', 'inline-block');
-                $pagerNextLink.attr('href', '/docs/search?' + args.join('&'));
+    function search(query, searchStore) {
+        var result = searchStore.index.search(query);
+        var resultList = $('#ds-search-list');
+        resultList.empty();
+        for (var i = 0; i < result.length; i++) {
+            var item = result[i];
+            if (item.score < 0.4) {
+                break;
             }
-        },
-        showPrevButton: function() {
-            var previousPage = Search.getPageNumber() - 1,
-                args = ['q=' + Search.getQuery(), 'page=' + previousPage],
-                $pagerPrev = $('#pager-prev'),
-                $pagerPrevLink = $('#pager-prev-link');
 
-            $pagerPrev.css('display', 'inline-block');
-            $pagerPrevLink.attr('href', '/docs/search?' + args.join('&'));
+            // TODO(bep) store and lookup the titles ...
+            var title = searchStore.store[item.ref]
+            var url = item.ref
+            var searchitem = '<li class="list-group-item"><a href="' + url + '">' + title + '</a><span class="badge">' + item.score.toFixed(2) + '</span></li>';
+            resultList.append(searchitem);
         }
+        resultList.show();
+    }
+
+    Search = {
+
+        init: function() {
+
+            $(document).ready(function() {
+
+                var setupSearch = function(json) {
+                    var searchStore = {}
+                    searchStore.index = lunr.Index.load(json.index);
+                    searchStore.store = json.store
+                    $(document).on('keypress', '#ss_keyword', function(e) {
+                        if (e.keyCode !== 13) {
+                            return
+                        }
+                        $('#ds-search-modal').modal('toggle');
+                        var query = $(this).val()
+                        $('#ds-search').val(query);
+                        search(query, searchStore);
+
+                    });
+
+                    $(document).on('keypress', '#ds-search', function(e) {
+                        if (e.keyCode !== 13) {
+                            return
+                        }
+                        var query = $(this).val();
+
+                        search(query, searchStore);
+
+                    });
+                }
+
+                $.getJSON('/docs/lunr.json', setupSearch);
+
+
+
+            });
+
+        },
+
     };
 
     Handlebars.registerHelper('formatDate', function(object) {

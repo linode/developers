@@ -19781,6 +19781,40 @@ fieldset[disabled] .btn-subdued.active {
   border-color: #d5d5d5;
   border-width: 0px 0px 2px 0px;
 }
+#ds-search-modal {
+  margin-top: 40px;
+  z-index: 9999;
+}
+#ds-search-input {
+  padding: 3px;
+  border: solid 1px #E4E4E4;
+  border-radius: 6px;
+  background-color: #fff;
+}
+#ds-search-input input {
+  border: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+#ds-search-input button {
+  margin: 2px 0 0 0;
+  background: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: 0;
+  color: #666666;
+  padding: 0 8px 0 10px;
+  border-left: solid 1px #ccc;
+}
+#ds-search-input button:hover {
+  border: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-left: solid 1px #ccc;
+}
+#ds-search-input .glyphicon-search {
+  font-size: 23px;
+}
 .library-article-blurb {
   padding-top: 15px;
   padding-bottom: 15px;

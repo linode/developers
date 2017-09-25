@@ -10,7 +10,7 @@
         "spec": ">=3.3.7 <4.0.0",
         "type": "range"
       },
-      "/Users/bep/private/jobb/linode/docsmith/hugo"
+      "/Users/bep/dev/bepc/linode/docsmith"
     ]
   ],
   "_from": "bootstrap@>=3.3.7 <4.0.0",
@@ -44,7 +44,7 @@
   "_shasum": "5a389394549f23330875a3b150656574f8a9eb71",
   "_shrinkwrap": null,
   "_spec": "bootstrap@^3.3.7",
-  "_where": "/Users/bep/private/jobb/linode/docsmith/hugo",
+  "_where": "/Users/bep/dev/bepc/linode/docsmith",
   "author": {
     "name": "Twitter, Inc."
   },
