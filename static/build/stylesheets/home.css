@@ -20972,16 +20972,6 @@ h1.contribute {
   width: 51px;
   color: #FFFFFF !important;
 }
-.social-share .share-group .caret {
-  border-left: 4px solid rgba(0, 0, 0, 0);
-  border-right: 4px solid rgba(0, 0, 0, 0);
-  border-top: 4px solid;
-  display: inline-block;
-  height: 0;
-  margin-left: 2px;
-  vertical-align: middle;
-  width: 0;
-}
 /* TODO(bep) with Hugo 0.28 we need only Chroma */
 /* Background */
 .chroma {
