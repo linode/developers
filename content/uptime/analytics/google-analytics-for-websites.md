@@ -45,7 +45,7 @@ Prior to adding Google Analytics to your website, you need to sign up and set up
 
 You can now add this code to your website through [PHP](#add-through-php), or an [external Javascript file](#add-through-external-javascript).
 
-##Add Through PHP
+## Add Through PHP
 
 If your website is coded using PHP (your files will end in `.php`), you can add the tracking code through a PHP script. This is useful if you are not using a separate PHP file for your header, or otherwise want to keep the code itself outside of your header file. This also makes any additional changes to the tracking code far more efficient, since you will only have to edit one file.
 
@@ -110,7 +110,7 @@ If the `<body>` tag of your website contains other variables, please adjust the 
 
 You have now added Google Analytics to your website! It may take up to twenty-four hours for any data concerning your website to show up on Google Analytics.
 
-##Add Through External Javascript
+## Add Through External Javascript
 
 If your website cannot use PHP (its files end in `.html`, `.htm`, or otherwise), you can insert the Google Analytics code through your terminal, using an external Javascript file and the `sed` command.
 

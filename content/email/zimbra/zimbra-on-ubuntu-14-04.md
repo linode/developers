@@ -218,7 +218,7 @@ From the admin console you can configure default settings for new accounts (Zimb
 You can also reach the admin console if you are already logged in to your Zimbra webmail page. A drop-down menu beside your account name in the upper right of the window provides a link to the admin console.
 {{< /note >}}
 
-###Global Settings
+### Global Settings
  
 Your server was configured when you installed, and most of those settings will work as is. You may want to visit a few in particular to control who it is willing to talk to and eliminate some types of spam. 
  

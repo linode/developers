@@ -109,7 +109,7 @@ Subversion is a centralized version control system, which means that in order to
 
 Subversion also makes it possible for you to only check out portions of your repository. If you only need to work with the `trunk/` portion of the repository, you can specify the URL to only that path of the repository.
 
-##Common Subversion Commands
+## Common Subversion Commands
 
 If you have prior experience using CVS, you will already be familiar with many of the commands used for interacting with subversion repositories. From the user's perspective, Subversion aims to be compatible with CVS workflows.
 

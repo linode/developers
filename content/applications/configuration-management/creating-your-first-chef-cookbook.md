@@ -194,7 +194,7 @@ service "apache2" do
 end
 
 
-#Virtual Hosts Files
+# Virtual Hosts Files
 
 node["lamp-stack"]["sites"].each do |sitename, data|
 end

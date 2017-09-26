@@ -16,7 +16,7 @@ aliases: ['applications/containers/nodejs-node-js-web-server-docker-container']
 
 Node.js is a server-side, JavaScript package, often used for various cloud applications. Docker is a container platform. With Docker, users can download applications without the hassle of the installation and configuration process.
 
-##Install Docker
+## Install Docker
 Use the Docker-maintained install script for Debian or Ubuntu. For other operating systems, see the [Docker Installation](https://docs.docker.com/en/latest/installation/) guides.
 
 1.  Install Docker:
@@ -38,7 +38,7 @@ This message can be safely ignored, as the script will continue the installation
 
         sudo usermod -aG docker example_user
 
-##Download the Docker Node.js Server Image
+## Download the Docker Node.js Server Image
 The Docker Hub user page for Linode can be accessed [here](https://hub.docker.com/u/linode/). Select the **server-node-js** image for configuration information.
 
 {{< note >}}
@@ -53,7 +53,7 @@ Docker images made for one operating system can be used on servers running a dif
 
         sudo docker pull linode/server-node-js
 
-##Run the Docker Container, Node.js, and the Web Server
+## Run the Docker Container, Node.js, and the Web Server
 Note that when an image downloads, no image containers run. 
 
 1.  Run, create or activate a new container. Forward the Linode's port 80 to port 3000 of the container:
@@ -84,7 +84,7 @@ This command also changes the terminal prompt to the root user within the new co
 
 The [Docker Hub image page](https://registry.hub.docker.com/u/linode/server-node-js/) has information explaining what the Docker image contains.
 
-##For More Information
+## For More Information
  - [Linode Docker Hub Page](https://hub.docker.com/u/linode/)
  - [Docker Docs](http://docs.docker.com/)
  - [Docker Try it Tutorial](https://www.docker.com/tryit/)

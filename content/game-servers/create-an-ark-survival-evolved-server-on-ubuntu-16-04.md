@@ -24,7 +24,7 @@ This guide will show you how to set up a personal [ARK: Survival Evolved](http:/
 The steps in this guide require root privileges unless otherwise noted. Be sure to run the steps below as `root` or with the `sudo` prefix. For more information on privileges, see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
 {{< /note >}}
 
-##Before You Begin
+## Before You Begin
 
 1.  To connect to your ARK server, you must have a copy of the [ARK](http://www.playark.com/) game client.
 
@@ -44,7 +44,7 @@ The steps in this guide require root privileges unless otherwise noted. Be sure 
 
         adduser ark
 
-##Adjust Your System Settings
+## Adjust Your System Settings
 
 1.  Run the following command to increase the allowed number of open files:
 
@@ -59,7 +59,7 @@ The steps in this guide require root privileges unless otherwise noted. Be sure 
 
         echo "session required pam_limits.so" >> /etc/pam.d/common-session
 
-##Install Your ARK Server
+## Install Your ARK Server
 
 1.  Switch your session to that of the `ark` user, and create a `server` directory that will contain your ARK server files:
 
@@ -76,7 +76,7 @@ The steps in this guide require root privileges unless otherwise noted. Be sure 
 
     This will take several minutes to complete.
 
-##Create a systemd Unit for Your ARK Server
+## Create a systemd Unit for Your ARK Server
 
 By creating a systemd unit file for your ARK server, it can be set to start automatically after a reboot.
 
@@ -136,7 +136,7 @@ If you choose to use the `ServerPassword` option, when connecting to the server 
 
 A number of options can be configured within this file - for more information take a look at the [Server Configuration](http://ark.gamepedia.com/Server_Configuration#GameUserSettings.ini) section of the ARK wiki.
 
-##Connect the Game Client to Your ARK Server
+## Connect the Game Client to Your ARK Server
 
 You can connect to your new ARK server using two different methods. Because the game is currently in pre-release and under heavy development, some functionality may change or work intermittently. While finding your server from within the game itself is often easier, it's not always reliable (as of this guide's publication), so we'll also go over how to add it to your favorite servers in the Steam client.
 

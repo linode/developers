@@ -23,7 +23,7 @@ Reverse DNS uses a *PTR Record* or *pointer record* to match the IP address with
 For more information about [PTR records](/docs/networking/dns/introduction-to-dns-records#ptr) and DNS in general please see our [Introduction to DNS Records](/docs/networking/dns/introduction-to-dns-records) guide.
 {{< /note >}}
 
-##Setting Reverse DNS
+## Setting Reverse DNS
 
 1.  Select the Linode you wish to set up reverse DNS for from your Linodes tab.
 2.  Click the **Remote Access** tab.

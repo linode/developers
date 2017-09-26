@@ -14,7 +14,7 @@ title: High Availability WordPress Hosting
 
 This guide configures a high availability WordPress site with a two-Linode cluster, using MySQL Master-Master replication and a Linode NodeBalancer front-end.
 
-##Prerequisites
+## Prerequisites
 
 This guide is written for Debian 7 or Ubuntu 14.04. To complete this guide, ensure that there are two Linodes and a NodeBalancer present on your account.  Both Linodes need a [Private IP address](/docs/networking/remote-access#adding-private-ip-addresses). Also ensure that both of your Linodes have been configured with SSH keys, and place the opposing Linode's SSH key in the other's `/.ssh/authorized_keys` file.
 
@@ -23,7 +23,7 @@ This guide is written for Debian 7 or Ubuntu 14.04. To complete this guide, ensu
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with ``sudo``. If you're not familiar with the ``sudo`` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
 {{< /note >}}
 
-##Install Required Software Packages
+## Install Required Software Packages
 
 Use the following commands to install Apache, PHP, and MySQL on each of the Linodes:
 
@@ -31,7 +31,7 @@ Use the following commands to install Apache, PHP, and MySQL on each of the Lino
     sudo apt-get upgrade -y
     sudo apt-get install apache2 php5 php5-mysql mysql-server mysql-client
 
-##Edit MySQL's Configuration to Set Up Master-Master Replication
+## Edit MySQL's Configuration to Set Up Master-Master Replication
 
 1.  Edit the `/etc/mysql/my.cnf` file on each of the Linodes. Add or modify the following values:
 
@@ -81,7 +81,7 @@ bind-address    = x.x.x.x
 
         sudo service mysql restart
 
-##Create Replication Users
+## Create Replication Users
 
 1.  Log in to MySQL on each of the Linodes:
 
@@ -97,7 +97,7 @@ bind-address    = x.x.x.x
         
     This command should connect you to the remote server's MySQL instance.
 
-##Configure Database Replication
+## Configure Database Replication
 
 
 1.  While logged into MySQL on Server 1, query the master status:
@@ -134,7 +134,7 @@ bind-address    = x.x.x.x
 
         exit
 
-##Configure Apache
+## Configure Apache
 
 The steps in this section will need to be performed on **both** of your Linodes.
 
@@ -197,7 +197,7 @@ The file name *must* end with `.conf` in Apache versions 2.4 and later, which Ub
 
         sudo service apache2 restart
 
-##Install WordPress
+## Install WordPress
 
 1.  On the primary Linode, download and install the latest version of WordPress. Replace any paths listed with the correct path for your configuration:
 
@@ -245,7 +245,7 @@ chmod 755 /var/www/example.com/public_html/
         sudo service apache2 restart
 
 
-##Configure Folder Sync With Lsyncd
+## Configure Folder Sync With Lsyncd
 
 1.  Install Lsyncd on your primary Linode in the cluster.
  
@@ -293,7 +293,7 @@ port = 22
 
 5.  Test replication by creating a file in your primary Linode's `/var/www` folder.  You should be able to see that same file in that location on the second Linode within a few seconds.
 
-##Configure Your Nodebalancer
+## Configure Your Nodebalancer
 
 1.  Visit the NodeBalancers tab in the Linode Manager.
 

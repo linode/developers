@@ -18,7 +18,7 @@ This guide explains how to set up [Subsonic](http://subsonic.org) on a Linode ru
 The steps in this guide require root privileges. Be sure to run the steps below as `root` or with the **sudo** prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
 {{< /note >}}
 
-##Preparing Your System
+## Preparing Your System
 
 1.  Update your system:
 
@@ -33,7 +33,7 @@ The steps in this guide require root privileges. Be sure to run the steps below 
         java -version
 
 
-##Installing Subsonic
+## Installing Subsonic
 
 1.  The latest version of Subsonic (as of publication) is 5.1, and the most recent release can always be found on their [download](http://www.subsonic.org/pages/download.jsp) page. Download and install Subsonic onto your Linode:
 
@@ -104,7 +104,7 @@ If you have a firewall set up on your Linode, be sure to edit the permissions to
 
         service subsonic start
 
-##Configuration and Use
+## Configuration and Use
 
 1.  Make the directory `/var/music` and change it's ownership to the `subsonic` user. If you plan on storing media files elsewhere, adjust accordingly:
 

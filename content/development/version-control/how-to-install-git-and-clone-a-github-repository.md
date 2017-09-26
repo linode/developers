@@ -18,7 +18,7 @@ title: How to Install Git and Clone a GitHub Repository
 
 GitHub is a website that allows collaboration between developers using the Git version control system. With Git and GitHub, programmers from across the world can share ideas and code in an organized and up-to-date process.
 
-##Install and Configure Git
+## Install and Configure Git
 The directions below are for Debian or Ubuntu. For installation on Mac, Windows, or other Linux distributions, find instructions in the  [Git Source Control Management](/docs/applications/development/git-source-control-management#installing-git) guide. While that guide focuses on Git, this guide focuses more on Git with GitHub.
 
 1.  Install:
@@ -38,7 +38,7 @@ The directions below are for Debian or Ubuntu. For installation on Mac, Windows,
 
     [![Workflow for using Git with GitHub.](/docs/assets/git-github-workflow-650w.png)](/docs/assets/git-github-workflow-1000w.png)
 
-##Clone a GitHub Test Repository
+## Clone a GitHub Test Repository
 A repository, or repo, is a Git project. For tutorial purposes, there is a test repository setup on GitHub, which is listed below.
 
 1.  Go to the [GitHub homepage](https://www.github.com). At the top, search for `test-repo-789`. If you would like to contribute to Linode's guides, search for `linode docs`.
@@ -63,7 +63,7 @@ A repository, or repo, is a Git project. For tutorial purposes, there is a test 
 
         git pull https://github.com/NwayNway/test-repo-789.git master
 
-##Create a GitHub Account and Fork the Test Repo
+## Create a GitHub Account and Fork the Test Repo
 To share new files or file revisions, you'll need a GitHub account and a project fork. A fork is a copy of a repo held on your GitHub account. 
 
 1.  Create a username on [GitHub](https://www.github.com). At the "Welcome to GitHub" page, select the green, "Finish sign up" button at the bottom. 
@@ -80,7 +80,7 @@ To share new files or file revisions, you'll need a GitHub account and a project
 
 You now have a copy of the repo on your GitHub account. Next, return to the terminal of the development Linode. 
 
-##Push to the Forked Repo
+## Push to the Forked Repo
 Create files on the development Linode and push them to the forked repository on GitHub.
 
 1.  From the `~/test-repo-789` directory, create and checkout a new branch:
@@ -128,7 +128,7 @@ To add only one file, replace the period above with the full directory path and 
 If you've configure two-factor authorization (2FA) on this account, you will need to push over SSH. See GitHub's guide on [Generating SSH Keys](https://help.github.com/articles/generating-ssh-keys/).
 {{< /note >}}
 
-##Create a Pull Request Against the Original, Previously Cloned Repo
+## Create a Pull Request Against the Original, Previously Cloned Repo
 So far, Git was installed on a development Linode, a repo project was cloned to that Linode, a GitHub username was created, and a repo fork was copied to the GitHub user account. The final step is to ask the original repo project to accept the new revisions or sample files. This final process is called a pull request. 
 
 1.  From the GitHub browser window, select your username from the top right of the page, pictured below. 

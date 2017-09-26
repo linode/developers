@@ -22,7 +22,7 @@ external_resources:
 
 Node.js is a JavaScript platform which can serve dynamic, responsive content. JavaScript is usually a client-side, browser language like HTML or CSS. However, Node.js is a server-side, JavaScript platform, comparable to PHP. Node.js often works with other popular server applications like NGINX or Apache. In this guide, NGINX is configured to handle front-end, static file requests, and Node.js is configured to handle back-end file requests.
 
-##Install and Configure NGINX
+## Install and Configure NGINX
 This guide can be started immediately after terminal login on a new Linode, it's written for the `root` user. However, before installation you might want to make sure the Linode is up-to-date with our [Getting Started](/docs/getting-started) guide and secured with our [Securing Your Server](/docs/securing-your-server) guide.
 
 1.  Install NGINX as well as screen, which you'll use later:
@@ -78,7 +78,7 @@ server {
 
         service nginx reload
 
-##Create the Directories and HTML Index File
+## Create the Directories and HTML Index File
 
 NGINX is now configured. However, the `example.com` server block points to directories and files that still need to be created.
 
@@ -127,7 +127,7 @@ The button links to test.js. The test.js request is passed through NGINX and the
 
 
 
-##Install Node.js and Write a Web Server
+## Install Node.js and Write a Web Server
 NGINX is now listening on port 80 and serving content. It's also configured to pass `/test.js` requests to port 3000. The next steps are to install Node.js, then write a server with Node.js. The new server listens on port 3000.
 
 1.  Install the Node Version Manager:
@@ -180,7 +180,7 @@ console.log("Server is listening on port 3000.")      //Terminal output
 
 7.  Exit the screen by pressing `Ctrl+a` then `d`.
 
-##Create the Test.js File
+## Create the Test.js File
 NGINX is listening on port 80 and passing any `/test.js` requests to port 3000. Node.js is listening on port 3000 and serving any file requests. Next, write a `/test.js` file.
 
 1.  Create the file:

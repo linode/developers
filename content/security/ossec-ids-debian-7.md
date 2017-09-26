@@ -223,7 +223,7 @@ The `< email_to >` and `< email_from >` values can be the same. If you are runni
     If the email is received, then the settings are working and subsequent alerts will also hit your inbox.
 
 
-###Configure OSSEC to Alert on New Files
+### Configure OSSEC to Alert on New Files
 
 By default OSSEC will not send out an alert when a new file is added to the system.
 
@@ -252,7 +252,7 @@ By default OSSEC will not send out an alert when a new file is added to the syst
     Note that the `< frequency >` is the interval that OSSEC performs a system check. During testing, you may reduce that setting to a lower number, like 900. Afterwards, it can be changed back to the default.
 
 
-###Modify Directories to Monitor
+### Modify Directories to Monitor
 
 1.  Open `ossec.conf`. Below the `< frequency >` setting is a list of system directories that OSSEC has been configured to monitor:
 
@@ -277,7 +277,7 @@ By default OSSEC will not send out an alert when a new file is added to the syst
 
 3.  Another directory you may want to configure OSSEC to monitor is `/var/ossec`, OSSEC's installation directory. However, if monitored, OSSEC **must** be configured to ignore certain directories within `/var/ossec`, otherwise you risk running out of disk space.
 
-###Modify Files and Directories to Ignore
+### Modify Files and Directories to Ignore
 
 For a Linux system, the default list of files and directories to ignore are:
 
@@ -341,7 +341,7 @@ To alter the timeframe of a ban, change the  `< timeout >` setting to suit. Note
 
 After making changes, save and close the file.
 
-###Modify Rule for New Files
+### Modify Rule for New Files
 
 1.  Move to the `/var/ossec/rules` directory:
 
@@ -413,7 +413,7 @@ Otherwise, you will receive a configuration error:
 
 If this happens, check OSSEC's error log. It is advised to check the error log even if OSSEC restarts successfully, because may contain other errors that don't prevent OSSEC from restarting, but may need your attention. The error log file is `ossec.log` under the `/var/ossec/logs` directory.
 
-##What to Expect
+## What to Expect
 
 After making any final modifications and restarting OSSEC, you should receive another alert saying that OSSEC has started. If any rule is triggered after that, you will also receive similar alerts in your inbox:
 

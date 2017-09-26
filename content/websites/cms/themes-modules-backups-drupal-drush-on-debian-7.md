@@ -18,7 +18,7 @@ Drush is a command line tool, which can be used for various Drupal projects. Thi
 
 Linode has another guide for installing Drush and creating a Drupal website, [Installing & Using Drupal Drush on Debian 7](/docs/websites/cms/drush-drupal). Depending on your experience level with Drush, you may want to start with that guide.
 
-##Prerequisites
+## Prerequisites
 
 Before installing themes, modules, and a backup system with Drush, make sure that the following prerequisites have been met:
 
@@ -39,7 +39,7 @@ Before installing themes, modules, and a backup system with Drush, make sure tha
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with ``sudo``. If you're not familiar with the ``sudo`` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
 {{< /note >}}
 
-##Installing Themes with Drush
+## Installing Themes with Drush
 
 Downloading, enabling, and setting the theme is extremely easy with Drupal Drush.
 
@@ -65,7 +65,7 @@ Notice the warning that "corporateclean was not found." The `drush en` command l
 
    Check the homepage of your site and the new theme should appear.
 
-##Installing Modules with Drush
+## Installing Modules with Drush
 
 Downloading and enabling a module is similar to working with a theme. However, modules can be used for almost any purpose. From enhancing public-facing functionality to providing a better administrative UI, there are thousands of Drupal modules. Try to find modules with clear documentation. Once installed, the browser interface can still be challenging.
 
@@ -91,7 +91,7 @@ Notice that Commerce includes 21 sub-modules. Each has its own functionality and
 
 You have successfully installed and turned on a new module. The module is now running and ready to be used. In the case of the Commerce module set, notice the new "Store" menu on the Admin's homepage.
 
-##Backup a Drupal Site with Drush
+## Backup a Drupal Site with Drush
 
 It's always important to keep regular backups of a website. Backups protect you from losing data due to configuration changes, vulnerabilites, or system failures. Backups should be stored on a separate system whenever possible. Drush has built-in tools to help create backups of your site.
 
@@ -111,7 +111,7 @@ It's always important to keep regular backups of a website. Backups protect you 
 
     This will recreate the `drupal` folder, which you can then manually move into your web directory.
 
-###Automated Backups on Linode with Drush
+### Automated Backups on Linode with Drush
 
 The backup process above can be automated. You must create an SHH Pair Key, a Bash script, and use Cron automation.
 
@@ -156,6 +156,6 @@ rsync -avz /home/local-user/drush-backups/archive-dump/ remote-user@remote-ip-ad
 
    This backup system leaves saved versions of the site and database on both the local and remote Linodes. Depending on the disk size of your Linode, you may want to occasionally delete older backup versions. The deletion task could be automated within the Bash script above. Since the Cron timer is only set for once a week, disk usage is probably not a large concern. There are many configuration options to consider.
 
-##Next Steps
+## Next Steps
 
 This guide was part of a series that created a Drupal site from start to finish on Linode. Your server is complete. Now that everything is installed, master the Drupal interface, Drupal modules, and themes. Create a stunning site for the world to see.

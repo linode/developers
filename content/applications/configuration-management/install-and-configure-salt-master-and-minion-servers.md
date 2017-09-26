@@ -19,13 +19,13 @@ title: Install and Configure Salt Master and Minion Servers
 The steps required in this guide require root privileges. Be sure to run the steps below as **root** or with the `sudo` prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
 {{< /note >}}
 
-##Before You Begin
+## Before You Begin
 
 1.  You will need at least three Linodes: One Salt master, and at least two Salt minions.
 
 2.  Ensure that each Linode's [hostname](https://www.linode.com/docs/getting-started#setting-the-hostname) has been set. As the Linode's hostname will be used to identify it within Salt, we recommend using descriptive hostnames. You should also designate one Linode as your Salt master and name it appropriately. If your Linodes are located within the same datacenter, we recommend that you configure [private IP addresses](https://www.linode.com/docs/networking/remote-access#adding-private-ip-addresses) for each system.
 
-##Add the Salt Repository
+## Add the Salt Repository
 
 {{< note >}}
 The steps in this section will need to be run on *each* of your Linodes.
@@ -49,7 +49,7 @@ deb http://debian.saltstack.com/debian jessie-saltstack main
 
         apt-get update
 
-##Configure Your Salt Master
+## Configure Your Salt Master
 
 {{< note >}}
 The following steps will be run only on the Linode designated as your Salt master.
@@ -80,7 +80,7 @@ Once this setting has been modified, you will need to issue any further Salt com
 
         systemctl restart salt-master
 
-##Installing and Configuring a Salt Minion
+## Installing and Configuring a Salt Minion
 
 {{< note >}}
 The following steps will need to be run on *each* of your Salt minions.
@@ -104,7 +104,7 @@ The following steps will need to be run on *each* of your Salt minions.
 
         systemctl restart salt-minion
 
-##Configure Salt
+## Configure Salt
 
 1.  On your Salt master, issue the following command to list the known Salt Minions linked to the Salt Master:
 
@@ -140,7 +140,7 @@ The following steps will need to be run on *each* of your Salt minions.
 
     It should return the value `True` for each minion.
 
-##Installing Individual Packages with Salt
+## Installing Individual Packages with Salt
 
 Once you have completed the previous configuration steps, you can install packages using Salt on all of your minions. Packages can be targeted to individual minions, or installed to all minions via simple commands. For these examples we will use Apache.
 
@@ -161,7 +161,7 @@ Once you have completed the previous configuration steps, you can install packag
 
         salt '*' pkg.remove apache2
 
-##Deploy Your First Salt Formula
+## Deploy Your First Salt Formula
 
 Salt Formulas create a framework of software and configurations to be deployed to your minions. Multiple Salt Formulas can be deployed to your minions and this will allow you to manage package configuration and maintenance from the Salt Master. These steps will walk you through installing one of the pre-made formulas hosted on [Salt's Github](https://github.com/saltstack-formulas).
 

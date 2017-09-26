@@ -131,7 +131,7 @@ The option flags commented with `# optional` are **not mandatory.** All flags re
 
 ## Open Ports For ntopng
 
-###For UFW
+### For UFW
 
     ufw allow 3005:3006/tcp
 

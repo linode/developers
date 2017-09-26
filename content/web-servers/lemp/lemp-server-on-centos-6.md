@@ -281,7 +281,7 @@ Once you've configured and loaded the nginx configuration, restart the web serve
 
 Make sure that the directories referenced in your configuration exist on your file system before restarting.
 
-##Deploy PHP with FastCGI
+## Deploy PHP with FastCGI
 
 If your application includes PHP code you will need to implement the following "PHP-FastCGI" solution to allow nginx to properly handle and serve pages that contain PHP code. Begin the deployment process by issuing the following commands to install the required dependencies:
 

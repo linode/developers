@@ -21,7 +21,7 @@ aliases: ['applications/game-servers/multicraft-on-ubuntu/']
 The steps required in this guide require root privileges. Be sure to run the steps below as `root` or with the **sudo** prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
 {{< /note >}}
 
-##Prerequisites
+## Prerequisites
 
 Multicraft for Linux depends on several software packages in order to run.
 
@@ -49,7 +49,7 @@ Multicraft for Linux depends on several software packages in order to run.
 
         service apache2 reload
 
-##Installing Multicraft
+## Installing Multicraft
 
 1.  Download the Multicraft installer:
 
@@ -79,7 +79,7 @@ Multicraft for Linux depends on several software packages in order to run.
 
     Once this script finishes, you are ready to begin configuring your Multicraft install.
 
-##Configuring the Control Panel
+## Configuring the Control Panel
 
 1.  In your local web browser, navigate to `http://12.34.56.78/multicraft/install.php`, replacing `12.34.56.78` with your Linode's IP address or domain name. Click on `Start Installation`:
 
@@ -120,7 +120,7 @@ Multicraft for Linux depends on several software packages in order to run.
 
         rm /var/www/html/multicraft/install.php
 
-##Install Minecraft
+## Install Minecraft
 
 1.  Navigate to the directory where Multicraft stores `jar` files. If you used the default options, it will be `/home/minecraft/multicraft/jar/`:
 

@@ -18,7 +18,7 @@ Drush is a command line tool for creating, maintaining, and modifying Drupal web
 
 Both new and experienced Drupal users can benefit from learning Drush. Users that have worked with a command line interface before have an advantage, but Drush is an excellent application for beginners, too.
 
-##Prerequisites
+## Prerequisites
 
 Before installing Drush and Drupal, ensure that the following prerequisites have been met:
 
@@ -33,7 +33,7 @@ Before installing Drush and Drupal, ensure that the following prerequisites have
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with ``sudo``. If you're not familiar with the ``sudo`` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
 {{< /note >}}
 
-##Install Git & Composer
+## Install Git & Composer
 
 The developers of Drush recommend installation through Composer, a PHP dependency manager. The Drush project is hosted on GitHub and controlled with Git, another necessary app to install.
 
@@ -50,7 +50,7 @@ The developers of Drush recommend installation through Composer, a PHP dependenc
 
        sudo mv composer.phar /usr/local/bin/composer
 
-##Install Drush for All Users on the Server
+## Install Drush for All Users on the Server
 
 Composer is designed to install PHP dependencies on a per-project basis, but the steps below will install a global Drush for all projects.
 
@@ -88,7 +88,7 @@ Composer is designed to install PHP dependencies on a per-project basis, but the
        drush --version
 
 
-##Using Drush
+## Using Drush
 
 Drush has dozens of commands with hundreds of options. Drush can interface with MySQL, Drupal, Git, and more. To demonstrate using Drush, we will create a Drupal website along with a few other helpful commands.
 
@@ -104,7 +104,7 @@ Drush has dozens of commands with hundreds of options. Drush can interface with 
 
        drush status
 
-###Create a Drupal Website with Drush
+### Create a Drupal Website with Drush
 
 Drush can create a Drupal site with half the steps of a normal installation. The `drush dl drupal` command conveniently chooses the latest, stable installation of Drupal.
 
@@ -160,7 +160,7 @@ Although MySQL accepts passwords with a special character, for example an exclam
 
        sudo drush user-password admin --password=newpass
 
-###Setting the Site's Ownership and Permissions
+### Setting the Site's Ownership and Permissions
 
 In server administration, there are many options for user and group permissions. The directions below create a site owner and a site owner's group. The Apache user, named **www-data**, is added to the site owner's group. Then read, write, and execute permissions are granted to both the site owner and the site owner's group.
 
@@ -196,24 +196,24 @@ Your site is now available at **`example.com`/drupal** or **`ipaddress`/drupal**
 
 When you're ready for the Drupal site to appear as your homepage, move the site to the **/var/www/`example.com`/** directory and double-check the document root listing in the virtual host file. See Step 5 in the [Configuring Name Based Virtual Hosts](/docs/websites/lamp/lamp-server-on-debian-7-wheezy#configure-name-based-virtual-hosts) section of our *Hosting a Website* guide.
 
-##Additional Options
+## Additional Options
 
 There are many ways to set up administration for a website. Below are sections explaining some additional options. It's important to be aware of multi-site setups and additional security measures. The topics below touch on these subjects.
 
-###File Ownership, Permissions, and Security
+### File Ownership, Permissions, and Security
 
 The above setup is designed for ease of use. However, there are setups designed for tighter security and other considerations.
 
 - To design your own setup, read Linode's documentation on [Linux Users and Groups](/docs/tools-reference/linux-users-and-groups) guide
 - For an extremely secure setup, read Drupal's [Securing File Permissions and Ownership](https://www.drupal.org/node/244924) guide
 
-###Multi-site Servers
+### Multi-site Servers
 
 To start, add a virtual host file with Apache. Next, build another site including the appropriate MySQL, PHP, and CMS configurations.
 
 - To add a virtual host file, read Linode's [Configure Name-based Virtual Hosts](/docs/websites/lamp/lamp-server-on-debian-7-wheezy#configure-name-based-virtual-hosts) guide
 
-###Install Drush for the Active User Only
+### Install Drush for the Active User Only
 
 You may want to install Drush for only certain users, for example, the **site owner**, **root**, and **www-data**. This may be optimal for a shared-hosting environment. Also, individual users can install their different versions of Drush and even install versions specific to a single project. The commands below should be run as the user in question, without `sudo`.
 

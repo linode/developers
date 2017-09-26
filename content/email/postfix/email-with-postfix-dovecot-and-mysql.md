@@ -242,7 +242,7 @@ smtpd_tls_key_file=/etc/dovecot/private/dovecot.pem
 smtpd_use_tls=yes
 smtpd_tls_auth_only = yes
 
-#Enabling SMTP for authenticated users, and handing off authentication to Dovecot
+# Enabling SMTP for authenticated users, and handing off authentication to Dovecot
 smtpd_sasl_type = dovecot
 smtpd_sasl_path = private/auth
 smtpd_sasl_auth_enable = yes
@@ -267,10 +267,10 @@ mailbox_size_limit = 0
 recipient_delimiter = +
 inet_interfaces = all
 
-#Handing off local delivery to Dovecot's LMTP, and telling it where to store mail
+# Handing off local delivery to Dovecot's LMTP, and telling it where to store mail
 virtual_transport = lmtp:unix:private/dovecot-lmtp
 
-#Virtual domains, users, and aliases
+# Virtual domains, users, and aliases
 virtual_mailbox_domains = mysql:/etc/postfix/mysql-virtual-mailbox-domains.cf
 virtual_mailbox_maps = mysql:/etc/postfix/mysql-virtual-mailbox-maps.cf
 virtual_alias_maps = mysql:/etc/postfix/mysql-virtual-alias-maps.cf,

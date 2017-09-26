@@ -19,7 +19,7 @@ If you'd like to run a Linux distribution on your Linode that isn't available fr
 This guide is intended for Linodes using our older Xen hypervisor. To installl a custom distribution on a new KVM Linode, see [this guide](/docs/tools-reference/custom-kernels-distros/install-a-custom-distribution-on-a-linode).
 {{< /note >}}
 
-##Creating the Virtual Machine
+## Creating the Virtual Machine
 
 We'll use a free virtualization suite called [VirtualBox](https://www.virtualbox.org/) to install a Linux distribution locally, but you can also use another virtualization package, such as VMware or Parallels. If you already have a Linux virtual machine that you'd like to run on your Linode, skip to [Booting the Virtual Machine with Finnix](#booting-the-virtual-machine-with-finnix) .
 
@@ -100,7 +100,7 @@ You will need to ensure that your distribution's installer configures your parti
 
 You have successfully created the virtual machine.
 
-##Booting the Virtual Machine with Finnix
+## Booting the Virtual Machine with Finnix
 
 Now you need to boot the virtual machine with Finnix to transfer it to your Linode. Here's how to boot the virtual machine with Finnix:
 
@@ -116,11 +116,11 @@ Now you need to boot the virtual machine with Finnix to transfer it to your Lino
 
 The virtual machine is now ready to be transferred to your Linode.
 
-##Migrating the Virtual Machine to Your Linode
+## Migrating the Virtual Machine to Your Linode
 
 Above, you created a virtual machine and prepared it for transfer to your Linode.  The steps below will walk you through configuring a Linode for your custom image. In this how-to, we will start with a new Linode. However, the information provided can be applied to existing Linodes by adding new disks.
 
-###Setting up your Configuration Profile
+### Setting up your Configuration Profile
 
 Start from the Linode Manager by configuring a Linode to boot your custom image.
 
@@ -150,7 +150,7 @@ Start from the Linode Manager by configuring a Linode to boot your custom image.
 
 12. Once your Linode has booted into Finnix Rescue Mode, you should be able to connect to it via the [Lish Console](/docs/networking/using-the-linode-shell-lish/).
 
-##Starting SSH in Finnix
+## Starting SSH in Finnix
 
 In order to transfer the disks from the virtual machine to the Linode, you will need to start SSH on the Linode itself.
 
@@ -166,7 +166,7 @@ In order to transfer the disks from the virtual machine to the Linode, you will 
 
         mount /media/xvda
 
-###Copying the Disk from VirtualBox to your Linode
+### Copying the Disk from VirtualBox to your Linode
 
 The steps below will walk you through transferring your new disk from your local Virtual Machine to your Linode.
 

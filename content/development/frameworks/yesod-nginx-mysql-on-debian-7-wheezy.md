@@ -30,7 +30,7 @@ Yesod is a web framework based on the purely functional programming language Has
 The steps required in this guide require root privileges. Be sure to run the steps below as root or with the sudo prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
 {{< /note >}}
 
-##Prerequisites 
+## Prerequisites 
 
 Before you begin installing and configuring the components described below, please make sure you've followed our instructions in the [Getting Started](/docs/getting-started) guide for setting your hostname. Here's how to check.
 
@@ -51,7 +51,7 @@ Before you begin installing and configuring the components described below, plea
 
 4. You also need Nginx and MySQL software. Please refer to [Websites with Nginx on Debian 7 (Wheezy)](/docs/websites/nginx/websites-with-nginx-on-debian-7-wheezy) and [Using MySQL Relational Databases on Debian 7 (Wheezy)](/docs/databases/mysql/using-mysql-relational-databases-on-debian-7-wheezy) for their installation guides.
 
-##Install Required Packages
+## Install Required Packages
 
 Since Yesod is built with the Haskell programming language, the Haskell packages are a preliminary install. The web framework Yesod requires two packages from the Haskell platform. 
 
@@ -61,7 +61,7 @@ Since Yesod is built with the Haskell programming language, the Haskell packages
 
     The two `lib*-dev` packages are required by the Haskell module `mysql`. If you would like to use SQLite, then you don't need to install them.
 
-##Install Yesod
+## Install Yesod
 
 Yesod is a large framework, which depends on many of other packages. We will use *cabal* to manage all of them. Cabal is a package manager for the Haskell community's central package archive *Hackage*. Because all packages on Hackage are maintained by the community, the dependency relationships are not well protected. So you might meet the so-called <a href="http://www.haskell.org/haskellwiki/Cabal/Survival#What_is_the_difficulty_caused_by_Cabal-install.3F" target="_blank">cabal dependency hell</a> problem.
 
@@ -112,7 +112,7 @@ To avoid this problem, the maintainers of Yesod created a metapackage named *yes
 
     It takes about 20 minutes to build the ``yesod-platform`` and ``yesod-bin`` packages on a Linode 1G.
 
-##Use Yesod
+## Use Yesod
 
 To start development of your Yesod site, first construct a scaffold. In development, a scaffold is a placeholder or example set, which is constructed by the defaults of the framework or compiler chosen. The developer can then overwrite the scaffold site. 
 
@@ -141,7 +141,7 @@ To start development of your Yesod site, first construct a scaffold. In developm
 
 If you want to construct another site, just go back to ``$HOME`` folder, and issue ``yesod init`` again. Different sites won't affect each other because of the sandbox mechanism.
 
-##Working with MySQL
+## Working with MySQL
 
 Before testing the scaffold of your site, you need to create a user and several databases in MySQL. The "yesod" command has generated a configuration file for MySQL, which is located at ``$HOME/myblog/config/mysql.yml``. Take a look. 
 
@@ -207,12 +207,12 @@ You may have noticed that we haven't configure Nginx yet. In fact, Yesod applica
 
 The initial setup of your first Yesod site has been finished. To start more advanced development of your Yesod site, please read [The Yesod Book](http://www.yesodweb.com/book/) for more details. 
 
-##Deploy to Nginx
+## Deploy to Nginx
 
 
 Warp is a fast http server, but it lacks some advanced features like virtual hosts, load balancers, or SSL proxies, so we need Nginx to serve our site with more flexibility. In this section, we will introduce a method to deploy your site to Nginx.
 
-###Prepare Yesod
+### Prepare Yesod
 
 1.  Before deployment, you need to prepare the files to be deployed. Issue the following commands in the folder ``$HOME/myblog``:
 
@@ -344,7 +344,7 @@ exit 0
 
         update-rc.d myblog defaults
 
-###Configure Nginx. 
+### Configure Nginx. 
 
 Create the file ``/etc/nginx/sites-available/myblog``:
 

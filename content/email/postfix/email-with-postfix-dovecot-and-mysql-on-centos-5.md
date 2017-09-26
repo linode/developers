@@ -29,7 +29,7 @@ Prior to using this guide, be sure you have followed the [getting started guide]
 The steps in this guide require root privileges. Be sure to run the steps below as `root`, or use `su - root` to log in as root. Certain commands below cannot be run as `sudo` and must be run as root.
 {{< /note >}}
 
-##Install Required Packages
+## Install Required Packages
 
 1.  Install any outstanding package updates:
 
@@ -42,7 +42,7 @@ The steps in this guide require root privileges. Be sure to run the steps below 
 name=CentOS-$releasever - Base
 exclude=postfix
 
-#released updates
+# released updates
 [updates]
 name=CentOS-$releasever - Updates
 exclude=postfix
@@ -59,7 +59,7 @@ exclude=postfix
 
 Next, set up a MySQL database to handle virtual domains and users.
 
-##Set up MySQL for Virtual Domains and Users
+## Set up MySQL for Virtual Domains and Users
 
 1.  Configure MySQL to start on boot, then start MySQL:
 
@@ -121,7 +121,7 @@ bind-address=127.0.0.1
 
 Next, perform additional Postfix configuration to set up communication with the database.
 
-##Configure Postfix to work with MySQL
+## Configure Postfix to work with MySQL
 
 {{< note >}}
 For the next four steps, replace `mail_admin_password` with the `mail_admin` password input earlier.
@@ -232,7 +232,7 @@ dovecot   unix  -       n       n       -       -       pipe
 
 This completes the configuration for Postfix.
 
-##Configure Dovecot
+## Configure Dovecot
 
 1.  Move `/etc/dovecot.conf` to a backup file:
 
@@ -343,7 +343,7 @@ Mar 18 10:00:25 li833-84 dovecot: ssl-build-param: SSL parameters regeneration c
 
 Next, you'll make sure aliases are configured properly.
 
-##Configure Mail Aliases
+## Configure Mail Aliases
 
 1.  Edit the file `/etc/aliases`, making sure the `postmaster` and `root` directives are set properly for your organization:
 
@@ -361,7 +361,7 @@ root: postmaster@example.com
 
 This completes alias configuration. Next, test Postfix to make sure it's operating properly.
 
-##Testing Postfix
+## Testing Postfix
 
 1.  Test Postfix for SMTP-AUTH and TLS:
 
@@ -389,7 +389,7 @@ This completes alias configuration. Next, test Postfix to make sure it's operati
 
 Next, populate the MySQL database with domains and email users.
 
-##Set Up and Test Domains and Users
+## Set Up and Test Domains and Users
 
 {{< note >}}
 Before continuing, modify the DNS records for any domains that you wish to handle email by adding an MX record that points to your mail server's fully qualified domain name. If MX records already exist for a domain you would like to handle the email for, either delete them or set them to a higher priority number than your mail server. Smaller priority numbers indicate higher priority for mail delivery, with "0" being the highest priority.
@@ -418,7 +418,7 @@ In the following example, the MySQL shell is used to add support for the domain 
 Given the possibility for virtual hosting a large number of domains on a single mail system, the username portion of an email address (i.e. before the `@` sign) is not sufficient for authentication. When email users authenticate to the server, they must supply the *entire* email address created above as their username.
 {{< /note >}}
 
-###Check Your Logs
+### Check Your Logs
 
 After the test mail is sent, check the mail logs to make sure the mail was delivered.
 
@@ -445,7 +445,7 @@ deliver(<sales@example.com>): 2011-01-21 20:03:19 Info: msgid=<<20110121200319.E
 
 Now test to see what the users of your email server would see with their email clients.
 
-###Test the Mailbox
+### Test the Mailbox
 
 1.  To test the `sales@example.com` mailbox, navigate to the mailbox directory `/home/vmail/example.com/sales/Maildir` and issue the following command:
 

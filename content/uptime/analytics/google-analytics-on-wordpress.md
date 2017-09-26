@@ -42,7 +42,7 @@ Prior to adding Google Analytics to your website, you need to sign up for a Goog
 
 You are now set up with Google Analytics and can decide how to proceed with adding the code to your WordPress website: [Through your theme](#add-google-analytics-through-a-theme) or [through a plugin](#add-google-analytics-through-a-plugin).
 
-##Add Google Analytics Through a Theme
+## Add Google Analytics Through a Theme
 
 WordPress uses PHP includes, so adding a Google Analytics code is as easy as altering a single file in your WordPress theme.
 
@@ -99,13 +99,13 @@ Should you decide to disable the demographics feature at a later date, simply re
 
 Congratulations! You have added Google Analytics to your WordPress website. It may take up to twenty-four hours for any data concerning your website to show up on Google Analytics. Please note that if you change the theme you will have to redo the above steps.
 
-##Add Google Analytics Through a Plugin
+## Add Google Analytics Through a Plugin
 
 This section explores adding Google Analytics to a WordPress website through two popular plugins. These plugins both add Google Analytics dashboards to your administration interface and insert the tracking code into your theme. If you have already added Google Analytics through the above method, these plugins can complement that process by adding in-dashboard features, should you desire to view your analytics within WordPress itself.
 
 If you do not want to incorporate an added dashboard to WordPress, and would rather monitor your visitors and demographics from the Google Analytics website, consider using the method of adding your code through your chosen theme, [as shown above](#add-google-analytics-through-a-theme).
 
-###Google Analytics Dashboard for WP
+### Google Analytics Dashboard for WP
 
 The Google Analytics Dashboard for WP is a comprehensive WordPress plugin that incorporates Google Analytics to your dashboard home, allowing you to track changes in visitors from the moment you log in. It is a powerful plugin that also offers both backend and frontend features allowing you to share the Google Analytics results with everyone from visitors to blog contributors.
 
@@ -128,7 +128,7 @@ The Google Analytics Dashboard for WP is a comprehensive WordPress plugin that i
 Google Analytics Dashboard for WP has now been set up and configured. You can proceed to use WordPress as usual. It may take up to twenty-four hours for any data concerning your website to show up on Google Analytics.
 
 
-###Google Analytics by Yoast
+### Google Analytics by Yoast
 
 Google Analytics by Yoast inserts a Google Analytics section to your WordPress dashboard, and adds your tracking code to your website. Google Analytics by Yoast allows for wider customization of your analytics within your WordPress administration interface, but cannot be shared with other authors or visitors of your WordPress website.
 

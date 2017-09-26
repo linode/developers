@@ -20,7 +20,7 @@ Siege is an HTTP load testing and benchmarking utility that can be used to measu
 
 This guide is for Debian or Ubuntu systems.
 
-##Download and Configure Siege
+## Download and Configure Siege
 
 1.  Prior to installing any new programs, update your system:
 
@@ -92,7 +92,7 @@ This guide is for Debian or Ubuntu systems.
 
 You are now ready to run Siege!
 
-##Run Siege
+## Run Siege
 
 To run Siege with the default settings, input the following command, replacing `www.example.com` with your domain name or IP address:
 
@@ -124,7 +124,7 @@ Siege outputs the results:
 
 If there are no failed connections and the availability remains at 100%, there are no problems.
 
-##Further Configuring and Commands
+## Further Configuring and Commands
 
 ###Creating a URL File
 
@@ -165,7 +165,7 @@ www.example.org
 
 		siege -f your/file/path.txt
 
-###Commands
+### Commands
 
 Siege features a number of command line options to use when you want to deviate from the default configuration but do not wish to edit the file.
 

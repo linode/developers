@@ -24,14 +24,14 @@ Docker is a container platform for applications. With Docker, users can download
 
 *If you are familiar with Docker containers, also try [Linode Images](/docs/platform/linode-images) to capture and deploy larger system profiles.*
 
-##Install Prerequisites
+## Install Prerequisites
 Due to a [known issue](https://github.com/docker/docker/issues/23347) with the dependencies of the docker .deb, installing docker on a Debian/Ubuntu VM requires an additional step:
 
 1. Run:
 
         apt-get install dmsetup && dmsetup mknodes
 
-##Install Docker
+## Install Docker
 Use the Docker-maintained install script for Debian or Ubuntu. For other operating systems, see the [Docker Installation](https://docs.docker.com/en/latest/installation/) guides.
 
 1.  Run:
@@ -53,7 +53,7 @@ This message can be safely ignored, as the script will continue the installation
 
         sudo usermod -aG docker example_user
 
-##Download the Docker Lamp Image
+## Download the Docker Lamp Image
 The Docker Hub user page for Linode can be accessed [here](https://hub.docker.com/u/linode/). Select the **lamp** image for configuration information.
 
 1.  Search for **linode** user images:
@@ -64,7 +64,7 @@ The Docker Hub user page for Linode can be accessed [here](https://hub.docker.co
 
         sudo docker pull linode/lamp
 
-##Run the Docker Container, Apache, and MySQL
+## Run the Docker Container, Apache, and MySQL
 When an image downloads, there are no image containers running.
 
 1.  Run, create, or turn on a new container and forward port 80:
@@ -93,5 +93,5 @@ The website's root directory is `/var/www/example.com/public_html/`.
 
 Congratulations, you have installed a configured LAMP stack using Docker!
 
-##Where to Find Configuration Settings
+## Where to Find Configuration Settings
 The LAMP image was installed using the [Hosting a Website](/docs/websites/hosting-a-website) guide on a Ubuntu container. The configuration files and settings can be found there, or on the [Docker Hub linode/lamp](https://registry.hub.docker.com/u/linode/lamp/) page.

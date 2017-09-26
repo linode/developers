@@ -17,7 +17,7 @@ Docker is becoming increasingly popular among software developers, operators and
 Optimizing the platform's functionality begins with mastery of requisite Docker commands, especially those listed on this cheat sheet that address installation, Hub interaction, and container and image creation and use.
 
 
-##Installation
+## Installation
 
 | Docker Syntax | Description | 
 |:-------------|:---------| 
@@ -26,7 +26,7 @@ Optimizing the platform's functionality begins with mastery of requisite Docker 
 | **sudo service docker start** | For **Centos 7** and **Fedora 21** after install,<br> Docker must be started.      |
 
 
-##Docker Hub
+## Docker Hub
 
 | Docker Syntax | Description | 
 |:-------------|:---------| 
@@ -35,7 +35,7 @@ Optimizing the platform's functionality begins with mastery of requisite Docker 
 | **sudo docker push** user/image | Uploads an image to Docker Hub. <br> A Docker Hub username is necessary. |
 
 
-##Use Containers and Images
+## Use Containers and Images
 
 | Docker Syntax | Description | 
 |:-------------|:---------| 
@@ -48,7 +48,7 @@ Optimizing the platform's functionality begins with mastery of requisite Docker 
 | **sudo docker rm -f** 1aa | Delete a container.<br> Replace `1aa` with a container ID. |
 | **sudo docker commit** 1aa user/image | Save a container as an image.<br> Replace `1aa` with a container ID. |
 
-##Image Creation
+## Image Creation
 
 | Docker Syntax | Description | 
 |:-------------|:---------| 

@@ -23,7 +23,7 @@ This guide is written for a non-root user. Commands that require elevated privil
 This guide is written for Debian 7 or Ubuntu 14.04.
 {{< /note >}}
 
-##Install MySQL
+## Install MySQL
 
 Use the following commands to install MySQL on each of the Linodes:
 
@@ -31,7 +31,7 @@ Use the following commands to install MySQL on each of the Linodes:
     sudo apt-get upgrade -y
     sudo apt-get install mysql-server mysql-client
 
-##Edit MySQL's Configuration
+## Edit MySQL's Configuration
 
 1.  Edit the `/etc/mysql/my.cnf` file on each of the Linodes. Add or modify the following values:
 
@@ -81,7 +81,7 @@ bind-address    = x.x.x.x
 
         sudo service mysql restart
 
-##Create Replication Users
+## Create Replication Users
 
 1.  Log in to MySQL on each of the Linodes:
 
@@ -97,7 +97,7 @@ bind-address    = x.x.x.x
         
     This command should connect you to the remote server's MySQL instance.
 
-##Configure Database Replication
+## Configure Database Replication
 
 
 1.  While logged into MySQL on Server 1, query the master status:

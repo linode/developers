@@ -117,7 +117,7 @@ swapDevices =
 {{< /file-excerpt >}}
 
 
-###Enable LISH
+### Enable LISH
 
 The LISH console requires certain kernel and GRUB options to be configured in the hardware configuration. Place these lines anywhere within the curly braces `{ }` that contain most of the existing configuration. Order doesn't matter for Nix files, so group settings in a way that makes sense to you:
 

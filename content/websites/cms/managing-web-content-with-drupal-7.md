@@ -17,7 +17,7 @@ Drupal is an advanced and powerful content management framework, built on the PH
 
 As the system's functionality is highly modular, one might even be inclined to think about Drupal not strictly as a content management system but rather as a content management framework. In addition to the core infrastructure, there are a number of Drupal modules that allow administrators of Drupal sites to provide specific functionality to the users of their sites without needing to spend resources on custom development. Furthermore, Drupal has an advanced theming engine that allows for a great amount of flexibility for displaying content in a visually useful and productive manner.
 
-##Prerequisites
+## Prerequisites
 
 Before we begin with the Drupal installation, there are few other guides that provide instructions for installing the necessary prerequisites.
 
@@ -32,7 +32,7 @@ With these dependencies installed and running, we're ready to begin installing t
 The steps required in this guide require root privileges. Be sure to run the steps below as ``root`` or with the **sudo** prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
 {{< /note >}}
 
-##Download and Install Drupal 7
+## Download and Install Drupal 7
 
 The Drupal software is frequently updated as bugs are patched and security vulnerabilities are found and removed. Visit the [Drupal download page](http://drupal.org/project/drupal) to find the latest version of the Drupal 7 Release, and download that file rather than the file mentioned in the example below. A sample release chart is pictured below.
 
@@ -80,7 +80,7 @@ If you want Drupal to be installed in the root level of your domain, copy the fi
 
 Remember to change the commands above to reflect the latest version or version that you want to download.
 
-##Configure Drupal Settings
+## Configure Drupal Settings
 
 1.  Change directories to Drupal's `default` folder:
 
@@ -115,7 +115,7 @@ During the creation of the LAMP stack, you should have created a MySQL database.
 
 You're now ready to begin using Drupal.
 
-##Using Drupal
+## Using Drupal
 
 
 Because Drupal is such a flexible and versatile system, it is difficult to recommend any particular set of practices for effective Drupal administration. The following guidelines and suggestions may be helpful on your journey:

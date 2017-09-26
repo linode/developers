@@ -94,7 +94,7 @@ Address=198.51.100.2/24
 # To add a second public IP address:
 Address=198.51.100.3/24
 
-#To add a private IP address:
+# To add a private IP address:
 Address=192.168.133.234/17
 
 {{< /file-excerpt >}}

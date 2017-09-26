@@ -14,7 +14,7 @@ contributor:
   name: Sergey Bulavintsev
 ---
 
-#Introduction to Salt SSH
+# Introduction to Salt SSH
 
 Salt SSH allows you to execute Salt commands, or states, without installing a salt-minion package.
 
@@ -23,7 +23,7 @@ During execution, Salt SSH will copy necessary files to the target system's `/tm
 Please note: Because it uses SSH, Salt SSH is slower than standard Salt with ZeroMQ.
 
 
-#Before You Begin
+# Before You Begin
 
 1.  This guide assumes that you're using an rpm-based system (CentOS, RedHat, Oracle Enterprise Linux) .
 
@@ -40,7 +40,7 @@ For detailed instruction on how to set up SaltStack repo, please refer to the [S
 
 4.  You must have at least one master server and one minion (client).
 
-##Set Up Salt Roster File
+## Set Up Salt Roster File
 
 The Roster file contains target system information, connection details and credentials. 
 The Default location for the Roster file is: `/etc/salt/roster`.
@@ -123,7 +123,7 @@ More information on Roster files can be found in the [Roster files documentation
 If SSH keys weren't deployed, you may receive the `The host key needs to be accepted, to auto accept run salt-ssh with the -i flag:` message. In this case just run `salt-ssh` with -i flag. This key will let Salt automatically accept a minion's public key. This has to be done only once, during the initial SSH keys exchange.
 {{< /note >}}
 
-##Remote Command Execution via Salt SSH
+## Remote Command Execution via Salt SSH
 
 1.  You can execute any command on your minions via the `cmd` execution module:
 
@@ -166,7 +166,7 @@ Salt SSH executes commands concurrently, the default-maximum is 25 simultaneous 
 A full list of execution modules is available at [Execution modules documentation](https://docs.saltstack.com/en/latest/ref/modules/all/index.html).
 {{< /note >}}
 
-##Install Salt-Minion Remotely via Salt SSH
+## Install Salt-Minion Remotely via Salt SSH
 
 An interesting use case for Salt SSH is automating the installation of `salt-minion` using a simple Salt state.
 

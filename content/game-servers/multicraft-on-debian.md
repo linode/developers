@@ -21,7 +21,7 @@ aliases: ['applications/game-servers/multicraft-on-debian/']
 The steps required in this guide require root privileges. Be sure to run the steps below as `root` or with the **sudo** prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
 {{< /note >}}
 
-##Prerequisites
+## Prerequisites
 
 Multicraft for Linux depends on several software packages in order to run.
 
@@ -54,7 +54,7 @@ If you want a dedicated Apache virtual host for Multicraft, follow the instructi
 
         service apache2 reload
 
-##Installing Multicraft
+## Installing Multicraft
 
 1.  Download the Multicraft installer:
 
@@ -78,7 +78,7 @@ If you want a dedicated Apache virtual host for Multicraft, follow the instructi
 Because of the insecure nature of FTP, we strongly recommend that you **not** enable the built-in FTP server when prompted.
 {{< /caution >}}
 
-##Configuring the Control Panel
+## Configuring the Control Panel
 
 1.  In your local web browser, navigate to `http://12.34.56.78/multicraft/install.php`, replacing `12.34.56.78` with your Linode's IP address or domain name. Click on `Start Installation`:
 
@@ -119,7 +119,7 @@ Because of the insecure nature of FTP, we strongly recommend that you **not** en
 
         rm /var/www/multicraft/install.php
 
-##Install Minecraft
+## Install Minecraft
 
 1.  Navigate to the directory where Multicraft stores `jar` files. If you used the default options, it will be `/home/minecraft/multicraft/jar/`:
 

@@ -74,7 +74,7 @@ From the SteamCMD guide, two additional steps are needed specifically for TF2.
 To update TF2, run the above 4 commands again.
 {{< /note >}}
 
-##Configure Team Fortress 2
+## Configure Team Fortress 2
 
 ###Maps
 
@@ -92,7 +92,7 @@ In order to create a custom list of maps for your server, create `mapcycle.txt` 
 
 3. Open the file and add or remove maps as desired.
 
-###Message of the Day
+### Message of the Day
 
 The "Message of the Day" appears when joining a server. This can be a message to your normal group of players, a statement about the server's settings, or anything else. Configure this by editing the files:
 
@@ -101,7 +101,7 @@ The "Message of the Day" appears when joining a server. This can be a message to
 
 The `motd_default.txt` file can contain HTML and is displayed as a website upon loading the server in-game. The `modt_text_default.txt` file should be the text copy, with no additional code.
 
-###Server.cfg
+### Server.cfg
 
 The file `~/Steam/tf2/tf/cfg/server.cfg` is what contains all of the settings you need to customize the loadout of your game. A `server.cfg` file is not needed to run the game but we have a sample config file [here](/docs/assets/team_fortress_2_server_config) which you can edit for your own use.
 
@@ -130,7 +130,7 @@ screen -S "Team Fortress 2 Server" ./srcds_run -game tf +map ctf_2fort.bsp
 
         chmod +x ~/starttf2.sh
 
-##Using the Server
+## Using the Server
 
 1.  Now that your server is installed and configured, it can be launched by running the `starttf2.sh` script from your `steam` user's home directory.
 
@@ -151,7 +151,7 @@ From this point, do not press the **Control+C** keys while in the console unless
 
 4.  To stop the server, bring back the TF2 console and press **CONTROL + C**.
 
-##RCON
+## RCON
 
 RCON allows you to make changes to your server from inside of the game.
 
@@ -167,7 +167,7 @@ RCON allows you to make changes to your server from inside of the game.
 
 4.  Log in to RCON by typing in `rcon_password` followed by your password.
 
-###RCON Commands
+### RCON Commands
 
 The commands for RCON are as follows:
 

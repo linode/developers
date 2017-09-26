@@ -328,7 +328,7 @@ You could also utilize [Linode Longview](https://github.com/linode/longview) in 
 
 Several tweaks have now been made across three files to improve nginx performance on your system. Full snippets of the files are included below.
 
-###sysctl.conf
+### sysctl.conf
 
 {{< file-excerpt "/etc/sysctl.conf" aconf >}}
 net.core.somaxconn = 65536
@@ -342,7 +342,7 @@ net.ipv4.tcp_max_syn_backlog = 3240000
 {{< /file-excerpt >}}
 
 
-###limits.conf
+### limits.conf
 
 {{< file-excerpt "/etc/security/limits.conf" aconf >}}
 soft nofile 4096
@@ -352,7 +352,7 @@ soft nofile 4096
 {{< /file-excerpt >}}
 
 
-###nginx.conf
+### nginx.conf
 
 {{< file-excerpt "nginx.conf" aconf >}}
 pid /var/run/nginx.pid;

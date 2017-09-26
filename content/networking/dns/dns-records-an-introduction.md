@@ -22,7 +22,7 @@ The Domain Name System (DNS) is the Internet's address book. DNS directs web tra
 
 ![DNS Records: an Introduction](/docs/assets/dns-records-an-introduction.png "DNS Records: an Introduction")
 
-##How DNS Works
+## How DNS Works
 
 Before adding any DNS records, you should learn the basics of DNS. You'll start by dissecting a domain name, and then you'll learn about the mechanics of DNS resolution, including name servers, zone files, and individual DNS records.
 
@@ -88,7 +88,7 @@ Here's how the DNS lookup process works:
 
 The scenario described above is what happens if the ISP has no current information about the requested domain. In actuality, ISPs cache a lot of DNS information after they've looked it up the first time. This results in faster lookups and less strain on DNS servers. Usually caching is a good thing, but it can be a problem if you've recently made a change to your DNS information, like when you move to Linode from a different hosting provider. In those cases, you'll want to pay attention to your zone file's [time to live (TTL)](/docs/networking/dns/dns-manager#setting-the-time-to-live-or-ttl) so that your DNS change happens as quickly as possible.
 
-##Types of DNS Records
+## Types of DNS Records
 
 ### A and AAAA
 

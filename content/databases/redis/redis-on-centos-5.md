@@ -108,7 +108,7 @@ Please monitor the [Redis Project mailing lists](http://groups.google.com/group/
 
 When upstream sources offer new releases, repeat the instructions for installing Redis and recompile your software when needed. These practices are crucial for the ongoing security and functioning of your system.
 
-##Managing Redis Instances
+## Managing Redis Instances
 
 ### Running a Redis Datastore
 

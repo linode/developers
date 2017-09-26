@@ -38,7 +38,7 @@ This guide will show you how to set up your own [Black Mesa](https://blackmesaso
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
 {{< /note >}}
 
-##Prerequisites for Black Mesa
+## Prerequisites for Black Mesa
 
 From the SteamCMD guide, one additional step is needed specifically for Black Mesa.
 
@@ -48,7 +48,7 @@ From the SteamCMD guide, one additional step is needed specifically for Black Me
 		sudo iptables -I INPUT 7 -p udp -m udp --dport 26900:27030 -j ACCEPT
 
 
-##Install Black Mesa, Dedicated Server
+## Install Black Mesa, Dedicated Server
 
 1.  Execute SteamCMD:
 
@@ -66,7 +66,7 @@ From the SteamCMD guide, one additional step is needed specifically for Black Me
 
 		quit
 
-##Run Black Mesa, Dedicated Server
+## Run Black Mesa, Dedicated Server
 
 1.  Go into the Black Mesa Dedicated Server folder:
 
@@ -91,13 +91,13 @@ To keep the server running, execute it using [Screen](/docs/networking/ssh/using
 screen ./srcds_run -game bms +map gasworks +maxplayers 24
 {{< /note >}}
 
-##Configure a Black Mesa Dedicated Server
+## Configure a Black Mesa Dedicated Server
 
 {{< note >}}
 At the time of writing this guide, Black Mesa has yet to share with customers any official documentation regarding configurations.
 {{< /note >}}
 
-###Server.cfg
+### Server.cfg
 The **server.cfg** file contains the settings of your server. It is not needed because you can start the server every time by specifying desidered values using parameters.
 
 {{< file-excerpt "/home/steam/Steam/steamapps/common/Black Mesa Dedicated Server/bms/cfg/server.cfg" aconf >}}
@@ -121,11 +121,11 @@ mp_warmup_time 30                 --> Time before the match starts.
 The settings in **server.cfg** will override the ones that you specify (using parameters) when you start the server.
 {{< /caution >}}
 
-###Config_deathmatch.cfg
+### Config_deathmatch.cfg
 The **config_deathmatch.cfg** file contains the settings of the gamemode. You can edit almost everything in this file.
 It's located at: `/home/steam/Steam/steamapps/common/Black Mesa Dedicated Server/bms/cfg/config_deathmatch.cfg`
 
-###Maps
+### Maps
 
 Currently, there are 10 official maps in Black Mesa Dedicated Server:
 *   dm_bounce
@@ -144,7 +144,7 @@ Three additional official maps are available in the Steam Workshop:
 *   [dm_rail](http://steamcommunity.com/sharedfiles/filedetails/?id=432072942)
 *   [dm_shipping](http://steamcommunity.com/sharedfiles/filedetails/?id=432074065)
 
-###Custom Maps
+### Custom Maps
 
 *   Custom maps in **BSP** format need to be put in the same folder as the official ones: `/home/steam/Steam/steamapps/common/Black
 Mesa Dedicated Server/bms/maps/`.
@@ -170,7 +170,7 @@ In the following example, maps that were downloaded from workshop to the list ar
 You can find more maps in the [Steam Workshop](http://steamcommunity.com/workshop/browse/?appid=362890&requiredtags[]=Multiplayer).
 {{< /note >}}
 
-###Maps Rotation
+### Maps Rotation
 
 When a match ends, the server starts a new one with the next map in the rotation list.
 The map rotation list is in **mapcycle.txt**:
@@ -189,7 +189,7 @@ dm_custom
     
 To put a custom map in the rotation, simply write its name; for example: if you have the map **dm_custom.bsp**, you need to write **dm_custom** inside **mapcycle.txt**.
 
-##Connect to Your Server
+## Connect to Your Server
 
 1.  Open Black Mesa, and click on the **PLAY ONLINE** option:
 
@@ -203,7 +203,7 @@ To put a custom map in the rotation, simply write its name; for example: if you 
 
 	[![Black Mesa In-Game.](/docs/assets/black_mesa_ingame_small.png)](/docs/assets/black_mesa_ingame.png)
 
-##Extra
+## Extra
 
 ###Autostart with screen script
 
@@ -238,7 +238,7 @@ The **maxplayers** parameter specifies the maximum number of players allowed to 
 You can read the entire list of parameters on the [Valve Wiki](https://developer.valvesoftware.com/wiki/Command_Line_Options).
 {{< /note >}}
 
-###MetaMod
+### MetaMod
 
 **MetaMod** is an add-on for servers using Source Engine that works as a "base" for other plug-ins like **SourceMod**.
 
@@ -269,7 +269,7 @@ This URL costantly changes as MetaMod is updated. Please check the downloads [pa
 
 If you get the same output, it means that MetaMod is working.
 
-###SourceMod
+### SourceMod
 
 It is recommended that you install the **SourceMod** add-on. It provides useful functions, such as **votemap**, **random map cycle**, **bans**, **reserved slots**, **admin system**, and **player commands**; you can customize it as you want.
 

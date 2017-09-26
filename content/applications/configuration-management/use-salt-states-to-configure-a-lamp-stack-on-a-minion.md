@@ -15,7 +15,7 @@ title: Use Salt States to Configure a LAMP Stack on a Minion
 
 This tutorial will configure a Minion's LAMP stack with further use of Salt States. This tutorial is written for Debian 8 but can easily be adjusted for other Linux Distributions. You will need a working Salt master and minion configuration before starting this guide. If you need to set up that prerequisite, see our [Salt installation guide](/docs/applications/configuration-management/install-and-configure-salt-master-and-minion-servers) to get started.
 
-##Create the LAMP Configuration States
+## Create the LAMP Configuration States
 The steps below configure all Salt Minions for a 2GB Linode, feel free to adjust as needed.
 
 1.  Open the `/etc/salt/base/top.sls` file and add the additional line:
@@ -53,7 +53,7 @@ base:
         MaxRequestsPerChild 4500
         </IfModule>
 
-#MySQL Configuration for 2GB Linode
+# MySQL Configuration for 2GB Linode
 /etc/mysql/my.cnf-br:
   file.blockreplace:
     - name: /etc/mysql/my.cnf
@@ -75,7 +75,7 @@ base:
     - backup: '.bak'
     - show_changes: True
 
-#PHP Configuration for 2GB Linode
+# PHP Configuration for 2GB Linode
 /etc/php5/apache2/php.ini-er:
   file.replace:
     - name: /etc/php5/apache2/php.ini
@@ -98,7 +98,7 @@ base:
     - file_mode: 644
     - makedirs: True
 
-#Restart
+# Restart
 apache2-run-at-boot-restart:
   service.running:
     - name: apache2
@@ -123,7 +123,7 @@ mysql-run-at-boot-restart:
 
         salt '*' state.highstate
 
-##Create Virtual Hosts Files
+## Create Virtual Hosts Files
 Salt State Modules are used for settings across groups of Minions. To adjust a configuration on a single Minion, try using Salt Execution Modules. Note, there are many ways to use Salt. 
 
 1.  Disable the default Apache virtual host on either a single Minion or all Minions:

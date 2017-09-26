@@ -42,7 +42,7 @@ Consider the following example command:
 
 This command enables the maximum optimization level (-O3) and allows `find` to follow symbolic links (`-L`). `find` searches the entire directory tree beneath `/var/www/` for files that end with `.html`.
 
-###Basic Examples
+### Basic Examples
 
 | Command                                              | Description                                                                     |
 |------------------------------------------------------|:--------------------------------------------------------------------------------|

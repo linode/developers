@@ -53,7 +53,7 @@ After securing your server, ensure that TCP port 943 and UDP port 1194 are permi
 
 ## Configuring OpenVPN Access Server
 
-###Configuring Client Settings
+### Configuring Client Settings
 
 1.  Connect to the Admin UI address shown at the end of the install process, using the password for your OpenVPN User.
 
@@ -68,7 +68,7 @@ After securing your server, ensure that TCP port 943 and UDP port 1194 are permi
 
 	[![OpenVPN Admin Web Interface.](/docs/assets/openvpn-update-server-resize.png)](/docs/assets/openvpn-update-server.png)
 
-###User Management
+### User Management
 
 You can add additional users to your OpenVPN Access Server to enable auditing of connections to your VPN tunnel, and user level access control.
 
@@ -88,7 +88,7 @@ OpenVPN Access Server's free edition is limited to two users.  If you require ad
 
 4.  Click the **Save Settings** option at the bottom of the page to complete the creation of the new user account.
 
-###Permit Autologin Profiles
+### Permit Autologin Profiles
 
 If you wish to configure autologin profiles, you will need to modify your user settings to allow autologin profiles to be displayed on the connections page.
 
@@ -105,7 +105,7 @@ This configuration type can be useful for connecting other servers to your VPN o
 
 ## Client Software Installation
 
-###Windows
+### Windows
 
 1.  Connect to the OpenVPN Access Server Client UI.  Click the link to download the OpenVPN Connect software to your computer.
 
@@ -122,7 +122,7 @@ This configuration type can be useful for connecting other servers to your VPN o
 	[![OpenVPN Taskbar Icon.](/docs/assets/openvpn-connect-windows-4-resize.png)](/docs/assets/openvpn-connect-windows-4.png)
 
 
-###OSX
+### OSX
 
 1.  Connect to the OpenVPN Access Server Client UI, and click the link to download the OpenVPN Connect Software.
 
@@ -142,7 +142,7 @@ This configuration type can be useful for connecting other servers to your VPN o
 
 	[![DMG Finder Window.](/docs/assets/openvpn-osx-install-4-resize.png)](/docs/assets/openvpn-osx-install-4.png)
 
-###Linux installation
+### Linux installation
 
 1.  Download and install the OpenVPN client software using your distribution's package manager.
 

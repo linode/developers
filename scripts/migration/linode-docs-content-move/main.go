@@ -50,6 +50,9 @@ func (m *mover) fixContent(path, s string) (string, error) {
 
 		// Plural alias => aliases
 		aliasFixer,
+
+		// Fix "##Install Required Packages" etc. titles
+		titlesFixes,
 	}
 
 	for _, fix := range fixers {
@@ -261,9 +264,16 @@ var (
 		return re.ReplaceAllString(s, ""), nil
 	}
 
+	//
+
 	aliasFixer = func(path, s string) (string, error) {
 		re := regexp.MustCompile(`alias: \[`)
 		return re.ReplaceAllString(s, "aliases: ["), nil
+	}
+
+	titlesFixes = func(path, s string) (string, error) {
+		re := regexp.MustCompile(`(?s)\n\n(#{1,3})(\w.*?)\n`)
+		return re.ReplaceAllString(s, "\n\n$1 $2\n"), nil
 	}
 )
 

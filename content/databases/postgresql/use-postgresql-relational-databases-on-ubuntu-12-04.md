@@ -32,7 +32,7 @@ Issue the following command to install PostgreSQL, required dependencies, and so
 
 The current version of the database server will be installed, along with several supporting packages.
 
-##Configure PostgreSQL
+## Configure PostgreSQL
 
 ### Install the Adminpack
 

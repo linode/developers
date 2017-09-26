@@ -15,7 +15,7 @@ external_resources:
  - '[MariaDB Foundation: Installing MariaDB Galera Cluster on Debian/Ubuntu](https://blog.mariadb.org/installing-mariadb-galera-cluster-on-debian-ubuntu/)'
 ---
 
-#How to Configure Galera Clusters for MariaDB Replication
+# How to Configure Galera Clusters for MariaDB Replication
 
 MariaDB replication with Galera adds redundancy for a site's database. With database replication, multiple servers act as a database cluster. Database clustering is particularly useful for high availability website configurations. This guide uses three separate Linodes to configure database replication, each with private IPv4 addresses on Debian and Ubuntu.
 
@@ -23,7 +23,7 @@ MariaDB replication with Galera adds redundancy for a site's database. With data
 This guide assumes that your Linodes are each configured with a [Private IP Address](/docs/networking/remote-access#adding-private-ip-addresses).
 {{< /note >}}
 
-##Install Required Packages
+## Install Required Packages
 
 1.  To install the required packages, first add the keys for the Galera repository by running:
 
@@ -44,7 +44,7 @@ This guide assumes that your Linodes are each configured with a [Private IP Addr
 
 		sudo apt-get update && sudo apt-get install -y rsync galera mariadb-galera-server
 
-##Configuring Galera
+## Configuring Galera
 
 1.  Create the file `/etc/mysql/conf.d/galera.cnf` on each of the Linodes with the following content.  Replace the IP addresses in the `wsrep_cluster_address` section with the private IP addresses of each of the Linodes:
 
@@ -98,7 +98,7 @@ wsrep_sst_method=rsync
 
 8.  Reboot both of your secondary Linodes to apply the new `debian.cnf` settings.
 
-##Testing database replication
+## Testing database replication
 
 1.  Log in to MariaDB on each of the Linodes:
 

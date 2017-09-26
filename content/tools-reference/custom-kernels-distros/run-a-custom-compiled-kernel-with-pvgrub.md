@@ -42,7 +42,7 @@ If this is the first time you've compiled a kernel on your Linode, issue the fol
 
     rm -rf /boot/*
 
-##Compile and Install the Kernel
+## Compile and Install the Kernel
 
 ### Download Kernel Sources
 

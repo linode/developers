@@ -27,7 +27,7 @@ Before you begin, be sure you have followed the steps outlined in the [Getting S
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with ``sudo``. If you're not familiar with the ``sudo`` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
 {{< /note >}}
 
-##Prerequisites
+## Prerequisites
 
 You will need to create a MySQL user and database for SMF. 
 
@@ -41,7 +41,7 @@ You will need to create a MySQL user and database for SMF.
         grant all on forums.* to 'forumadmin' identified by 'password';
         quit
 
-##Install SMF
+## Install SMF
 
 The following instructions will download the latest stable release, which is 2.0.9 as of publication.
 

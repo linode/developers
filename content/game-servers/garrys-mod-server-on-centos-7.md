@@ -159,7 +159,7 @@ writeip
 
     For more info on Workshop Addons, see [Workshop for Dedicated Servers](http://wiki.garrysmod.com/page/Workshop_for_Dedicated_Servers) in the Garry's Mod wiki.
 
-##Using the Server
+## Using the Server
 
 1.  Now that your server is installed and configured, it can be launched by running the `startgmod.sh` script from your `steam` user's home directory.
 

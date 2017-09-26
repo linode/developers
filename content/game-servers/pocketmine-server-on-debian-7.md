@@ -22,7 +22,7 @@ PocketMine is a third party server for the MineCraft - Pocket Edition game for [
 Minecraft - Pocket Edition is non-free software that you will need to purchase in order to take advantage of a PocketMine server.
 {{< /note >}}
 
-##Prerequisites
+## Prerequisites
 
 1.  Your Linode should already be configured per our [Getting Started](/docs/getting-started) guide, and secured per our [Securing Your Server](/docs/security/securing-your-server) guide.
 
@@ -42,7 +42,7 @@ Minecraft - Pocket Edition is non-free software that you will need to purchase i
 If you've followed the steps in our [Securing Your Server](/docs/security/securing-your-server) guide, you will need to add your public key to `/home/pocketmine/.ssh/authorized_keys` in order to log in as this user later in the guide. You will also need to add an iptables exception for port `19132`
 {{< /note >}}
 
-##Installation
+## Installation
 
 1.  Log in as the `pocketmine` user and go to its home directory:
 

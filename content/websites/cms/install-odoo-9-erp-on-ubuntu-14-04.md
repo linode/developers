@@ -37,7 +37,7 @@ This guide covers how to install and configure Odoo in just 35 minutes using Git
 
         sudo apt-get update && sudo apt-get upgrade
 
-##Open Corresponding Firewall Ports
+## Open Corresponding Firewall Ports
 
 In this case we're using Odoo's default port 8069, but this could be any port you specify later in the configuration file.
 
@@ -45,13 +45,13 @@ In this case we're using Odoo's default port 8069, but this could be any port yo
     sudo ufw allow 8069/tcp
     sudo ufw enable
 
-##Install Database and Server Dependencies
+## Install Database and Server Dependencies
 
 Now we're going to install the PostgreSQL database and other necessary server libraries using `apt-get` 
 
     sudo apt-get install subversion git bzr bzrtools python-pip postgresql postgresql-server-dev-9.3 python-all-dev python-dev python-setuptools libxml2-dev libxslt1-dev libevent-dev libsasl2-dev libldap2-dev pkg-config libtiff5-dev libjpeg8-dev libjpeg-dev zlib1g-dev libfreetype6-dev liblcms2-dev liblcms2-utils libwebp-dev tcl8.6-dev tk8.6-dev python-tk libyaml-dev fontconfig
 
-###Create Odoo User and Log Directory
+### Create Odoo User and Log Directory
 
 1.  Create the Odoo system user:
 
@@ -65,7 +65,7 @@ Now we're going to install the PostgreSQL database and other necessary server li
 In the scenario of running multiple Odoo versions on the same Linode you may want to use different users and directories for each instance.
 {{< /note >}}
 
-###Install Odoo Server Files from Source
+### Install Odoo Server Files from Source
 
 1.  Change to the Odoo directory, in our case:
 
@@ -79,7 +79,7 @@ In the scenario of running multiple Odoo versions on the same Linode you may wan
 Using Git allows great flexibility because any time a new upgrade ,is available you only need to pull that branch, You can even install a different one alongside the production version; just change the destination directory and the  `--branch X.x` flag. Before performing any operation, remember to make a full backup of your database and custom files.
 {{< /note >}}
 
-###Create PostgreSQL User
+### Create PostgreSQL User
 
 1.  Switch to `postgres` user:
 
@@ -101,18 +101,18 @@ In the scenario of a testing or development environment you could create a user 
 If you want to run multiple Odoo instances on the same Linode remember to check pg_hba.conf and change it according your needs.
 {{< /note >}}
 
-##Specific Dependencies for Odoo Applications
+## Specific Dependencies for Odoo Applications
 
 Using `pip` instead of `apt-get` will guarantee that your installation has the correct versions needed. We'll also abstain of using Ubuntu's packaged versions of [Wkhtmltopdf](http://wkhtmltopdf.org/) and [node-less](http://lesscss.org/).
 
-###Install Python Dependencies
+### Install Python Dependencies
 
 Install Python libraries using the following commands:
 
     sudo pip install -r /opt/odoo/doc/requirements.txt
     sudo pip install -r /opt/odoo/requirements.txt
 
-###Install Less CSS via nodejs and npm
+### Install Less CSS via nodejs and npm
 
 1.  Download the `nodejs` installation script from [nodesource](https://nodesource.com/):
 
@@ -126,7 +126,7 @@ Install Python libraries using the following commands:
 
         sudo npm install -g less less-plugin-clean-css
 
-###Install Updated Wkhtmltopdf Version
+### Install Updated Wkhtmltopdf Version
 
 1.  Switch to the `/tmp/` directory:
 
@@ -145,7 +145,7 @@ Install Python libraries using the following commands:
         sudo cp /usr/local/bin/wkhtmltopdf /usr/bin
         sudo cp /usr/local/bin/wkhtmltoimage /usr/bin
 
-##Odoo Server Configuration
+## Odoo Server Configuration
 
 1.  Copy the included configuration file to a more convenient location, changing its name to `odoo-server.conf`:
 
@@ -176,7 +176,7 @@ xmlrpc_port = 8069
     *  We need to include the path to log files adding a new line: `logfile = /var/log/odoo/odoo-server.log`.
     *  Optionally we could include a new line specifying the Odoo Frontend port used for connection: `xmlrpc_port = 8069`. This only makes sense if you're planning to run multiple Odoo instances (or versions) on the same server. For normal installation you could skip this line and Odoo will connect by default to port 8069.
 
-###Odoo Boot Script
+### Odoo Boot Script
 
 Next step is creating a boot script called `odoo-server` to gain control over Odoo's behavior and use it at server startup and shutdown.
 
@@ -270,7 +270,7 @@ exit 0
 {{< /file >}}
 
 
-###Odoo File Ownership and Permissions
+### Odoo File Ownership and Permissions
 
 1.  Change the `odoo-server` file permissions and ownership so only **root** can write to it, while the **odoo** user will only be able to read and execute it.
 
@@ -290,7 +290,7 @@ exit 0
         sudo chown odoo: /etc/odoo-server.conf
         sudo chmod 640 /etc/odoo-server.conf
 
-##Testing the Server
+## Testing the Server
 
 1.  It's time to check that everything is working as expected; let's start the Odoo server:
 
@@ -308,7 +308,7 @@ exit 0
 
         cat /var/log/odoo/odoo-server.log
 
-##Running Boot Script at Server Startup and Shutdown
+## Running Boot Script at Server Startup and Shutdown
 
 1.  If the Odoo server log doesn't indicate any problems, we can continue and make the boot script start and stop with the server:
 
@@ -322,7 +322,7 @@ exit 0
 
         cat /var/log/odoo/odoo-server.log
 
-##Testing Odoo Frontend
+## Testing Odoo Frontend
 
 1.  Open a new browser window and enter your IP address, followed by `:8069` (to indicate port 8069) in the address bar:
 

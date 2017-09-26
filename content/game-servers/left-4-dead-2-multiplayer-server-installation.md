@@ -137,7 +137,7 @@ This guide requires additional libraries which are not included in our standard 
 
         quit
 
-##Configure Left 4 Dead 2
+## Configure Left 4 Dead 2
 
 1.  Before you configure the server, you should download an example config file:
 
@@ -175,7 +175,7 @@ The `+port 27020` parameter is not required but is recommended so that your serv
 
         chmod +x ~/Steam/L4D2-server/start_L4D2.sh
 
-##Use the Server
+## Use the Server
 
 1.  To start the server, simply input and run:
 

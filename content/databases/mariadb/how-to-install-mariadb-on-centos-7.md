@@ -71,7 +71,7 @@ You will be given the choice to change the MariaDB root password, remove anonymo
 
 The standard tool for interacting with MariaDB is the `mariadb` client, which installs with the `mariadb-server` package. The MariaDB client is used through a terminal.
 
-###Root Login
+### Root Login
 
 1.  To log in to MariaDB as the root user:
 

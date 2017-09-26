@@ -25,14 +25,14 @@ This document describes how you can install nginx (pronounced engine-x) with the
 
 Before starting this guide, make sure that  you have read through and completed our [Getting Started](/docs/getting-started#debian-7--slackware--ubuntu-1404) and [Securing Your Server](/docs/security/securing-your-server/) guides.
 
-##Set the hostname
+## Set the hostname
 
 1.  Before you install any package, ensure that your hostname is correct by completing the [Setting Your Hostname](/docs/getting-started#sph_setting-the-hostname) section of the Getting Started guide. Issue the following commands to verify that hostname:
 
         hostname
         hostname -f
 
-##System Setup
+## System Setup
 
 2.  Make sure your system is up to date using apt:
 
@@ -40,13 +40,13 @@ Before starting this guide, make sure that  you have read through and completed 
 
 This ensures that all software is up to date and running the latest version.
 
-##Installing required packages
+## Installing required packages
 
 Pagespeed requires some extra packages, which you should install for proper operation. Do so by issuing the following command in the terminal:
 
     sudo apt-get install build-essential zlib1g-dev libpcre3 libpcre3-dev unzip
 
-##Download ngx_pagespeed module
+## Download ngx_pagespeed module
 
 After installing necessary packages, you must download the module. In this guide, you will be installing the latest  ngx_pagespeed, version 1.9.32.6, at the time of writing.
 
@@ -78,7 +78,7 @@ After installing necessary packages, you must download the module. In this guide
 
         tar -xzvf ${NPS_VERSION}.tar.gz
 
-##Download and build Nginx
+## Download and build Nginx
 
 Now that we have downloaded ngx_pagespeed, we need to compile Nginx with the ngx_pagespeed module. Issue the following commands in the terminal.
 
@@ -114,7 +114,7 @@ Now that we have downloaded ngx_pagespeed, we need to compile Nginx with the ngx
 
         sudo make install
 
-##Configuring Nginx with ngx_pagespeed
+## Configuring Nginx with ngx_pagespeed
 
 1.  Pagespeed requires a new directory where it can store the cache of minified CSS and javascript:
 
@@ -144,7 +144,7 @@ location ~ "^/ngx_pagespeed_beacon$" { }
 
 Also make sure that Nginx is running as `www-data`. In the top of the `conf` file, uncomment `user` and replace `nobody` with `www-data`.
 
-##Starting Nginx
+## Starting Nginx
 Now that you have everything configured correctly, start your web server.
 
 1.  To start the web server:
@@ -155,7 +155,7 @@ Now that you have everything configured correctly, start your web server.
 
         sudo /usr/local/nginx/sbin/nginx -s stop
 
-##Check if module works or not
+## Check if module works or not
 
 You have compiled and configured the module. You may want to check if the module is working (or not) before deploying the application. Issue the following command at the terminal of your local machine (i.e., your computer):
 

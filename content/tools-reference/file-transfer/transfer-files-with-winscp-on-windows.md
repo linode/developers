@@ -20,7 +20,7 @@ You'll need to make sure your Linode is running an SSH daemon (all Linodes run a
 
 ![winscp](/docs/assets/transfer_files_with_winscp_on_windows_smg.png)
 
-##Obtaining and Installing WinSCP
+## Obtaining and Installing WinSCP
 
 
 You can obtain the software from the [WinSCP download page](http://winscp.net/eng/download.php). Click the link for "Installation package" and save the file to your desktop. After downloading the installer, double-click its icon to launch it. You will be presented with the WinSCP setup wizard; please click "Next" to continue.

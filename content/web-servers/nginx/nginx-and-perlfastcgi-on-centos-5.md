@@ -121,7 +121,7 @@ require 'syscall.ph';
 
 &daemonize;
 
-#this keeps the program alive or something after exec'ing perl scripts
+# this keeps the program alive or something after exec'ing perl scripts
 END() { } BEGIN() { }
 *CORE::GLOBAL::exit = sub { die "fakeexit\nrc=".shift()."\n"; };
 eval q{exit};

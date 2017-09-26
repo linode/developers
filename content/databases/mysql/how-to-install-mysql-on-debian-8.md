@@ -70,7 +70,7 @@ You will be given the choice to change the MySQL root password, remove anonymous
 
 The standard tool for interacting with MySQL is the `mysql` client which installs with the `mysql-server` package. The MySQL client is used through a terminal.
 
-###Root Login
+### Root Login
 
 1.  To log in to MySQL as the root user:
 

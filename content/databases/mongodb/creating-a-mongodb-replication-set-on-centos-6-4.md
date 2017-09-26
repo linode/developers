@@ -349,6 +349,6 @@ In the event you need to restart, stop or check the status of the MongoDB servic
     sudo service mongodb restart
     sudo service mongodb status
 
-##Other Considerations
+## Other Considerations
 
 A replication set can only have seven (7) voting members maximum. In order to add another member to a set with seven voting members, the eighth member will have to be added as either a non-voting member or an existing voting member will need to be removed.

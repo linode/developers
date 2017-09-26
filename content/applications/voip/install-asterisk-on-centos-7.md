@@ -410,7 +410,7 @@ Congratulations! You now have a working Asterisk phone server. Let's fire up Ast
 
     Once disconnected, Asterisk continues to run in the background.
 
-##Next Steps
+## Next Steps
 
 Now that you have an Asterisk server running on your Linode, it's time to connect some phones, add extensions, and configure the various options that are available with Asterisk. For detailed instructions, check out
 the Asterisk Project's guide to [Configuring Asterisk](https://wiki.asterisk.org/wiki/display/AST/Basic+PBX+Functionality).

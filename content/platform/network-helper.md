@@ -102,7 +102,7 @@ If you need to restore manual changes made during a previous reboot, use the fol
 
 If you'd like to know what files Network Helper modifies specifically, scroll down to your preferred distribution.
 
-###Debian & Ubuntu
+### Debian & Ubuntu
 
 Network helper configures `/etc/network/interfaces` & `/etc/resolv.conf`.
 
@@ -122,7 +122,7 @@ Network Helper configures `/etc/conf.d/net` & `/etc/resolv.conf`.
 
 Network Helper configures `/etc/sysconfig/network/ifcfg-eth0`, `/etc/sysconfig/network/routes` & `/etc/resolv.conf`.
 
-###Slackware
+### Slackware
 
 Network Helper configures `/etc/rc.d/rc.inet1.conf` & `/etc/resolv.conf`.
 
@@ -136,7 +136,7 @@ Similarly, if you boot an unsupported older distribution while Network Helper is
 
 [![Network Helper Failure Message](/docs/assets/network-helper-unsupported_small.png)](/docs/assets/network-helper-unsupported.png)
 
-##Modify Global Network Helper Settings
+## Modify Global Network Helper Settings
 
 Network helper is enabled on all new configuration profiles by default. To modify this behavior as default follow the steps below.
 

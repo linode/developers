@@ -35,7 +35,7 @@ This guide is written for a non-root user. Commands that require elevated privil
 
         sudo apt-get update && sudo apt-get upgrade
 
-##Apache
+## Apache
 
 ### Install and Configure
 
