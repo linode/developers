@@ -133,6 +133,7 @@
             $('#doc-sidebar-toc').affix({
                 offset: {
                     top: 235,
+                    bottom: 960
                 }
             });
 
