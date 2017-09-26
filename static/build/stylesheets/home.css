@@ -20291,7 +20291,7 @@ div.library-tile .tile-title + .lead {
 .doc-license {
   font-size: 87%;
   font-size: 14px;
-  margin-top: 45px;
+  padding-top: 45px;
   color: #9a9a9a;
 }
 .doc-sidebar-inner {
