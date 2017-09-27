@@ -5,10 +5,12 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     order = require("gulp-order"),
     rev = require('gulp-rev'),
+    fs = require('fs'),
     revReplace = require('gulp-rev-replace'),
     path = require('path'),
     runSequence = require('run-sequence'),
     cp = require('child_process'),
+    lunr = require('lunr'),
     plugins = require('gulp-load-plugins')();
 
 var opt = {
@@ -29,7 +31,7 @@ gulp.task('build:all', function(cb) {
 });
 
 
-var vendors = ['bootstrap', 'font-awesome/less', 'font-awesome/fonts'];
+var vendors = ['bootstrap', 'font-awesome/less', 'font-awesome/fonts', 'lunr'];
 
 gulp.task('build:clean-vendors', function() {
     return gulp.src('assets/vendors/', {
@@ -85,11 +87,11 @@ gulp.task("revreplace", ["revision"], function() {
 
 /* TODO(bep) consistent ordering */
 gulp.task('js-libs', function() {
-    return gulp.src(['assets/js/libs/**/*.js', 'assets/vendors/bootstrap/dist/js/bootstrap.js'])
+    return gulp.src(['assets/js/libs/**/*.js', 'assets/vendors/bootstrap/dist/js/bootstrap.js', 'assets/vendors/lunr/lunr.js'])
         .pipe(order([
             "handlebars*.js",
             "underscore*.js",
-            "handlebars*.js",
+            "lunr.js",
             "**/*.js"
         ]))
         .pipe(plugins.concat('libs.js'))
@@ -100,7 +102,7 @@ gulp.task('js-libs', function() {
             .on('error', gutil.log))
 });
 
-gulp.task('js', function() {
+gulp.task('js', function(cb) {
     return gulp.src('assets/js/*.js')
         .pipe(plugins.concat('main.js'))
         .pipe(gulp.dest('static/build/js'))
@@ -108,6 +110,7 @@ gulp.task('js', function() {
         .pipe(rename('main.min.js'))
         .pipe(gulp.dest('static/build/js')
             .on('error', gutil.log))
+
 });
 
 gulp.task('css', function() {
@@ -128,7 +131,36 @@ gulp.task('css', function() {
 });
 
 gulp.task('hugo:server', function(cb) {
-    const hugo = cp.spawn("hugo", ["server"], {
+   return hugo(cb, "server")
+
+});
+
+gulp.task('hugo',  ["hugo:clean"], function(cb) {
+   return hugo(cb)
+
+});
+
+gulp.task('hugo:dev',  ["hugo:clean"], function(cb) {
+   return hugo(cb, "--baseURL=http://localhost:1313/docs")
+
+});
+
+gulp.task('hugo:search-index',  ["hugo:clean"], function(cb) {
+   return hugo(cb, "--config=config.toml,config-search.toml")
+});
+
+gulp.task('hugo:clean', function() {
+    return gulp.src('public', {
+            read: false
+        })
+        .pipe(clean());
+});
+
+
+function hugo(cb, args) {
+    const hugoArgs = args ? [args] : [];
+
+    const hugo = cp.spawn("hugo", hugoArgs, {
         stdio: "pipe"
     });
 
@@ -136,7 +168,7 @@ gulp.task('hugo:server', function(cb) {
         if (code === 0) {
             cb();
         } else {
-            cb("hugo server failed");
+            cb("hugo failed");
         }
     });
 
@@ -147,8 +179,57 @@ gulp.task('hugo:server', function(cb) {
     hugo.stderr.on('data', function(data) {
         console.log("error:" + data.toString());
     });
+}
+
+gulp.task('build:index', ["hugo:search-index"], function(cb) {
+    var data = {
+        store: {}
+    };
+
+    var idx = lunr(function() {
+        this.field('title', {
+            boost: 20
+        });
+        this.field('toc', {
+            boost: 10
+        });
+        this.field('keywords', {
+            boost: 5
+        });
+        //this.field('body');
+        // TODO(bep) use toc + plainify
+        this.ref('href');
+
+        var source = JSON.parse(fs.readFileSync("public/index.json"));
+
+        var that = this;
+
+        source.forEach(function(item) {
+            var doc = {
+                'title': item.title,
+                'keywords': item.keywords,
+                'toc': item.toc,
+                // 'body': data.content,
+                'href': item.ref
+            };
+
+
+            data.store[doc.href] = item.title
+
+            that.add(doc);
+        });
+
+    });
+
+    data.index = idx
+
+    var serializedIdx = JSON.stringify(data)
+
+    // TODO(bep) add to .gitignore?
+    fs.writeFile('static/lunr.json', serializedIdx, cb);
 
 });
+
 
 // Convenient task for development.
 gulp.task('dev', ['watch', 'hugo:server']);
