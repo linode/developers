@@ -138,31 +138,31 @@ gulp.task('hugo:server', function(cb) {
 });
 
 gulp.task('hugo',  ["hugo:clean"], function(cb) {
-   return hugo(cb)
+   return hugo(cb, "--destination=dist/docs")
 
 });
 
 gulp.task('hugo:dev',  ["hugo:clean"], function(cb) {
-   return hugo(cb, "--baseURL=http://localhost:1313/docs")
+   return hugo(cb, "--destination=dist/docs", "--baseURL=http://localhost:1313/docs")
 
 });
 
 gulp.task('hugo:search-index',  ["hugo:clean"], function(cb) {
-   return hugo(cb, "--config=config.toml,config-search.toml")
+   return hugo(cb, "--destination=dist/docs", "--config=config.toml,config-search.toml")
 });
 
 gulp.task('hugo:clean', function() {
-    return gulp.src('public', {
+    return gulp.src('dist/docs', {
             read: false
         })
         .pipe(clean());
 });
 
 
-function hugo(cb, args) {
+function hugo(cb, ...args) {
 	 setHugoEnv()
 
-    const hugoArgs = args ? [args] : [];
+    const hugoArgs = args ? args : [];
 
     const hugo = cp.spawn("hugo", hugoArgs, {
         stdio: "pipe"
@@ -204,7 +204,7 @@ gulp.task('build:index', ["hugo:search-index"], function(cb) {
         // TODO(bep) use toc + plainify
         this.ref('href');
 
-        var source = JSON.parse(fs.readFileSync("public/index.json"));
+        var source = JSON.parse(fs.readFileSync("dist/docs/index.json"));
 
         var that = this;
 

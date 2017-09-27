@@ -21,14 +21,13 @@ gulp.task('deploy:prepare', function() {
         recursive: true,
         clean: true,
         exclude: [],
-        rsyncPaths: ['public'],
-        pass: '',
+        root: 'dist/',
     };
 
     if (argv.test) {
         rsyncConf.hostname = '50.116.61.198';
         rsyncConf.username = 'bjorn';
-        rsyncConf.destination = '/home/bjorn';
+        rsyncConf.destination = '/home/bjorn/www';
     } else if (argv.production) {
         rsyncConf.hostname = '';
         rsyncConf.username = '';
@@ -40,7 +39,7 @@ gulp.task('deploy:prepare', function() {
 
 
 gulp.task('deploy:remote', ['deploy:prepare', 'html-min'], function() {
-	 return gulp.src(rsyncConf.rsyncPaths)
+	 return gulp.src(rsyncConf.root)
 	 	 .pipe(htmlmin({collapseWhitespace: true, ignorePath: '/build' }))
         .pipe(gulpif(
             argv.production,
@@ -53,11 +52,11 @@ gulp.task('deploy:remote', ['deploy:prepare', 'html-min'], function() {
 });
 
 gulp.task('html-min', function() {
-    gulp.src('public/**/*.html')
+    gulp.src('dist/docs/**/*.html')
         .pipe(htmlmin({collapseWhitespace: true}).on('error', function(err) { 
         		// The HTML should be looked into, but this particular HTML page will be left unminified.
         		gutil.log(gutil.colors.yellow('HTML minify failed for file:', err.fileName) )}))
-        .pipe(gulp.dest('public/'))
+        .pipe(gulp.dest('dist/docs/'))
 });
 
 
