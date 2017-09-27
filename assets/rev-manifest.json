@@ -1,7 +1,4 @@
 {
-  "/Users/bep/dev/bepc/linode/docsmith/public/build/js/libs.min.js": "/Users/bep/dev/bepc/linode/docsmith/public/build/js/libs-4b4b7eaf2b.min.js",
-  "/Users/bep/dev/bepc/linode/docsmith/public/build/js/main.min.js": "/Users/bep/dev/bepc/linode/docsmith/public/build/js/main-b7a17540ff.min.js",
-  "/Users/bep/dev/bepc/linode/docsmith/public/build/stylesheets/home.min.css": "/Users/bep/dev/bepc/linode/docsmith/public/build/stylesheets/home-fdbcf7ddcc.min.css",
   "js/libs.min.js": "js/libs-4b4b7eaf2b.min.js",
   "js/main.min.js": "js/main-b7a17540ff.min.js",
   "stylesheets/home.min.css": "stylesheets/home-fdbcf7ddcc.min.css"

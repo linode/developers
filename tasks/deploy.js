@@ -24,7 +24,7 @@ gulp.task('deploy:prepare', function() {
         pass: '',
     };
 
-    if (argv.staging) {
+    if (argv.test) {
         rsyncConf.hostname = '50.116.61.198';
         rsyncConf.username = 'bjorn';
         rsyncConf.destination = '/home/bjorn';
@@ -48,7 +48,6 @@ gulp.task('deploy:remote', ['deploy:prepare'], function() {
             })
         ))
         .pipe(rsync(rsyncConf));
-
 });
 
 
