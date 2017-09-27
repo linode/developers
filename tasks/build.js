@@ -244,7 +244,7 @@ function setHugoEnv() {
 	if (argv.test) {
 		 process.env.HUGO_ENV="test"
 		 // TODO(bep) improve the env handling
-		 process.env.HUGO_BASEURL="http://50.116.61.198/"
+		 process.env.HUGO_BASEURL="http://50.116.61.198/docs/"
 	} else {
 		 // Development
 	 	process.env.HUGO_ENV=""
