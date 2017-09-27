@@ -2,6 +2,7 @@ var gulp = require('gulp'),
     gutil = require('gulp-util'),
     argv = require('minimist')(process.argv),
     rsync = require('gulp-rsync'),
+    htmlmin = require('gulp-htmlmin'),
     prompt = require('gulp-prompt'),
     gulpif = require('gulp-if');
 
@@ -38,8 +39,9 @@ gulp.task('deploy:prepare', function() {
 });
 
 
-gulp.task('deploy:remote', ['deploy:prepare'], function() {
+gulp.task('deploy:remote', ['deploy:prepare', 'html-min'], function() {
 	 return gulp.src(rsyncConf.rsyncPaths)
+	 	 .pipe(htmlmin({collapseWhitespace: true, ignorePath: '/build' }))
         .pipe(gulpif(
             argv.production,
             prompt.confirm({
@@ -49,6 +51,15 @@ gulp.task('deploy:remote', ['deploy:prepare'], function() {
         ))
         .pipe(rsync(rsyncConf));
 });
+
+gulp.task('html-min', function() {
+    gulp.src('public/**/*.html')
+        .pipe(htmlmin({collapseWhitespace: true}).on('error', function(err) { 
+        		// The HTML should be looked into, but this particular HTML page will be left unminified.
+        		gutil.log(gutil.colors.yellow('HTML minify failed for file:', err.fileName) )}))
+        .pipe(gulp.dest('public/'))
+});
+
 
 
 function throwError(taskName, msg) {
