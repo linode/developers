@@ -7,6 +7,13 @@ var gulp = require('gulp'),
 gulp.task('default', ['build']);
 
 
+// Build assets, Hugo site and deploy to server.
+// Deploy to test: gulp release --test
+gulp.task('publish', function(cb) {
+    runSequence('build', 'hugo', 'deploy:remote',
+        cb);
+});
+
 // Convenient task for development.
 gulp.task('dev', ['watch', 'hugo:server']);
 
