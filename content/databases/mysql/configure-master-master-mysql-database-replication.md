@@ -37,7 +37,7 @@ Use the following commands to install MySQL on each of the Linodes:
 
     **Server 1:**
 
-{{< file-excerpt "/etc/mysql/my.cnf" aconf >}}
+    {{< file-excerpt "/etc/mysql/my.cnf" aconf >}}
 server_id           = 1
 log_bin             = /var/log/mysql/mysql-bin.log
 log_bin_index       = /var/log/mysql/mysql-bin.log.index
@@ -54,7 +54,7 @@ auto-increment-offset = 1
 
     **Server 2:**
 
-{{< file-excerpt "/etc/mysql/my.cnf" aconf >}}
+    {{< file-excerpt "/etc/mysql/my.cnf" aconf >}}
 server_id           = 2
 log_bin             = /var/log/mysql/mysql-bin.log
 log_bin_index       = /var/log/mysql/mysql-bin.log.index
@@ -71,7 +71,7 @@ auto-increment-offset = 2
 
 2.  For each of the Linodes, edit the `bind-address` configuration in order to use the private IP addresses:
 
-{{< file-excerpt "/etc/mysql/my.cnf" >}}
+    {{< file-excerpt "/etc/mysql/my.cnf" >}}
 bind-address    = x.x.x.x
 
 {{< /file-excerpt >}}

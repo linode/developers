@@ -64,7 +64,7 @@ This guide assumes you have configured your LAMP server as described in our guid
 
 4.  Open `header.php` and add your Google Analytics **tracking code** underneath the `<body <?php body_class(); ?>>` tag:
 
-{{< file-excerpt "/var/www/example.com/public_html/wp-content/themes/header.php" >}}
+    {{< file-excerpt "/var/www/example.com/public_html/wp-content/themes/header.php" >}}
 /**
  * Google Analytics code block
 */
@@ -83,7 +83,7 @@ This guide assumes you have configured your LAMP server as described in our guid
 {{< /file-excerpt >}}
 
 
-{{< note >}}
+    {{< note >}}
 If you copy the above code, replace `UA-00000000-0` with your **tracking ID**.
 
 At this time you may want to consider enabling the *[demographics](https://support.google.com/analytics/answer/2819948?hl=en)* feature of Google Analytics. If you decide to do so, you will need to add an additional line of code to your JavaScript in the steps below. Insert the following between the lines containing `ga('create', 'UA-00000000-0', 'auto');` and `ga('send', 'pageview');`:

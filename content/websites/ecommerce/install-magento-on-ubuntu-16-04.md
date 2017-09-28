@@ -63,7 +63,7 @@ Since Magento will be served by Apache, some additional configuration is needed 
 
 3.  Modify the virtual host file for your Magento site to resemble the example below. If you have not previously created a virtual host file, do so now and refer to the [Configure Virtual Hosts](/docs/websites/lamp/install-lamp-on-ubuntu-16-04#configure-virtual-hosts) section of the LAMP on Ubuntu 16.04 guide for additional guidance.
 
-{{< file "/etc/apache2/sites-available/example.com.conf" aconf >}}
+    {{< file "/etc/apache2/sites-available/example.com.conf" aconf >}}
 <Directory /var/www/html/example.com/public_html>
     Require all granted
 </Directory>
@@ -126,7 +126,7 @@ Magento is a PHP application, so you'll need to make some adjustments to your sy
 
 1.  Modify the following settings in your `php.ini` files for the CLI and Apache PHP configurations. These files can be found at `/etc/php/7.0/apache2/php.ini` and `/etc/php/7.0/cli/php.ini`:
 
-{{< file-excerpt "/etc/php/7.0/apache2/php.ini & /etc/php/7.0/cli/php.ini" >}}
+    {{< file-excerpt "/etc/php/7.0/apache2/php.ini & /etc/php/7.0/cli/php.ini" >}}
 It is necessary to modify **both** files. This sets the time zone for PHP's `date()` function and imposes a 2GB limit to the amount of memory PHP can use. This value is recommended for a 4GB Linode, but could be increased for a larger server.
 
 {{< note >}}
@@ -163,7 +163,7 @@ In this section, we'll explain how to get the Magento Community Edition (CE) sof
 
     In this step, you'll also be able to download the software with optional sample data. Whether you choose this or the basic version is up to you.
 
-{{< note >}}
+    {{< note >}}
 When choosing a version, refer to Magento's [prerequisites](http://devdocs.magento.com/guides/v2.0/install-gde/prereq/prereq-overview.html) to ensure a particular version's compatibility with the components of your LAMP stack. As of the publication of this guide, Magento version 2.1.2 is compatible with all prerequisite package versions from the Ubuntu repositories.
 {{< /note >}}
 
@@ -207,7 +207,7 @@ When choosing a version, refer to Magento's [prerequisites](http://devdocs.magen
 
     This allows your `magento` user (and members of the `www-data` group) to write to the various files they need to run and serve Magento on your site.
 
-{{< note >}}
+    {{< note >}}
 The first two commands may take some time to run because they are matching various files and directories in your installation folder. It may appear that the system is inactive, but be sure to allow a couple minutes before cancelling the operations. You can always start a new SSH connection, or run these commands in a [screen](/docs/networking/ssh/using-gnu-screen-to-manage-persistent-terminal-sessions) session, and use tools like [htop & iotop](/docs/uptime/monitoring/top-htop-iotop#additional-top-like-programs) to monitor progress.
 {{< /note >}}
 
@@ -236,7 +236,7 @@ The first two commands may take some time to run because they are matching vario
     -   **db-user** - This is the MySQL database user you set up previously. In our example, we called it `magento` but if you chose a different name, use that here instead.
     -   **db-password** - This will be the password you configured for the `magento` MySQL user.
 
-{{< note >}}
+    {{< note >}}
 These are just a few of the available options to configure your Magento installation. For more information, refer to the [Magento Installation Guide](http://devdocs.magento.com/guides/v2.1/install-gde/install/cli/install-cli-install.html) and feel free to use additional options when running the script.
 {{< /note >}}
 

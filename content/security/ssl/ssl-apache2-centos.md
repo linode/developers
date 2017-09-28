@@ -37,7 +37,7 @@ This guide assumes that you are running Apache2 on CentOS or Fedora. Prior to st
 
     If you're using a commercially signed certificate and you've manually downloaded the root CA cert to `/etc/pki/tls/certs`, ensure that the `SSLCACertificateFile` value is configured to point to the root certificate directly. If the root certificate is being provided via the "ca-certificates" bundle, you can simply exclude the `SSLCACertificateFile` line.
 
-{{< file-excerpt "/etc/httpd/conf.d/ssl.conf" aconf >}}
+    {{< file-excerpt "/etc/httpd/conf.d/ssl.conf" aconf >}}
 <VirtualHost *:443>
      SSLEngine On
      SSLCertificateFile /etc/pki/tls/certs/example.com.crt

@@ -189,7 +189,7 @@ However, this strategy involves a time-consuming process to configure the jailed
 
 10. Finally, edit your `/etc/ssh/sshd_config` file to configure your new user:
 
-{{< file "/etc/ssh/sshd_config" aconf >}}
+    {{< file "/etc/ssh/sshd_config" aconf >}}
 Match User restricted-user
 ChrootDirectory /home/chroot/restricted-user
 

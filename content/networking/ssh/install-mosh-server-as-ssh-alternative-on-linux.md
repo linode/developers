@@ -15,7 +15,7 @@ title: Install a Mosh Server as SSH Alternative on Linux
 
 [Mosh](http://mosh.mit.edu/) is a free replacement for SSH that allows roaming and supports intermittent connectivity. Unlike regular SSH connections, Mosh continuously syncs your local and remote sessions to ensure that your client automatically reconnects to the server when you switch between wireless networks or wake your computer from sleep. This guide explains how to install Mosh on your Linode and your personal computer.
 
-{{< note >}}
+ {{< note >}}
 Mosh does not support port forwarding or proxying, and you cannot use mosh to copy files or mount remote directories. You'll still need to use SSH for these tasks.
 {{< /note >}}
 
@@ -66,7 +66,7 @@ Mosh is available in Debian's backports repositories. You'll need to add squeeze
 
 1.  Edit `/etc/apt/sources.list` and add the following line:
 
-{{< file-excerpt "/etc/apt/sources.list" >}}
+    {{< file-excerpt "/etc/apt/sources.list" >}}
 deb <http://backports.debian.org/debian-backports> squeeze-backports main
 
 {{< /file-excerpt >}}

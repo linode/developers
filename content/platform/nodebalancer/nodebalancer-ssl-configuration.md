@@ -88,7 +88,7 @@ This guide has been written with the assumption that you are logged in as the ro
 
         LoadModule rewrite_module modules/mod_rewrite.so
 
-{{< note >}}
+    {{< note >}}
 Depending on your distribution, this file's location may vary. For example, it can be found at the following paths on Debian and Red Hat based distributions, respectively:
 
 /etc/apache2/apache2.conf
@@ -98,7 +98,7 @@ Depending on your distribution, this file's location may vary. For example, it c
 
 2.  Edit the Apache virtual host configuration file to establish the rewrite rules necessary to redirect all incoming traffic from port 80/HTTP back to the NodeBalancer on port 443/HTTPS:
 
-{{< file-excerpt "/etc/apache2/sites-available/example.com.conf" apache >}}
+    {{< file-excerpt "/etc/apache2/sites-available/example.com.conf" apache >}}
 <VirtualHost *:80>
 
      RewriteEngine    On
@@ -116,14 +116,14 @@ Depending on your distribution, this file's location may vary. For example, it c
 
     If you are using Apache 2.2, then you will need to replace the `LogLevel alert rewrite:trace` directive with the following:
 
-{{< file-excerpt "/etc/apache2/sites-available/example.com.conf" aconf >}}
+    {{< file-excerpt "/etc/apache2/sites-available/example.com.conf" aconf >}}
 RewriteLog       /var/log/apache2/rewrite.log
 RewriteLogLevel  5  # Adjust log verbosity as required. ex. 1-9
 
 {{< /file-excerpt >}}
 
 
-{{< caution >}}
+    {{< caution >}}
 On Red Hat-based distributions, change the `Rewritelog` path to `/var/log/httpd/rewrite.log`
 {{< /caution >}}
 
@@ -141,7 +141,7 @@ On Red Hat-based distributions, change the `Rewritelog` path to `/var/log/httpd/
 
 1.  Edit the Nginx server block configuration file to establish the rewrite rules to redirect all incoming traffic from port 80/HTTP back to the NodeBalancer on port 443/HTTPS:
 
-{{< file-excerpt "/etc/nginx/sites-available/example.com.conf" nginx >}}
+    {{< file-excerpt "/etc/nginx/sites-available/example.com.conf" nginx >}}
 server {
     listen   80;
     server_name example.com;

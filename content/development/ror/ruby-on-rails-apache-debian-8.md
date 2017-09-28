@@ -57,7 +57,7 @@ This guide is written for a non-root user. Commands that require elevated privil
 
         sudo gem install rails
 
-{{< note >}}
+    {{< note >}}
 If you require a specific version of Ruby On Rails, issue one of the following commands for the version you need:
 
 gem install rails --version 2.1.2
@@ -80,7 +80,7 @@ gem install rails --version 3.0.4
         ls /var/lib/gems
         PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/var/lib/gems/VERSION/bin"
 
-{{< note >}}
+    {{< note >}}
 The step above will only add this PATH to your current session. To retain the change persistently, add the PATH to your local \~/.bashrc file:
 
 echo "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/var/lib/gems/VERSION/bin" >> ~/.bashrc
@@ -97,7 +97,7 @@ If your Apache virtual hosts file(s) mimics the ones create in the [Apache Web S
 
 1.  Open the file in a text editor, and edit the `DocumentRoot` to reflect the public directory of your application:
 
-{{< file-excerpt "/etc/apache2/sites-available/example.com.conf" aconf >}}
+    {{< file-excerpt "/etc/apache2/sites-available/example.com.conf" aconf >}}
 DocumentRoot /var/www/html/example.com/application/public
 
 {{< /file-excerpt >}}
@@ -114,7 +114,7 @@ There are a number of strategies for deploying more than one Rails application u
 
 1.  Add `RailsBaseURI` directives that specify the path to your Rails application within the VirtualHost configuration as in the following example:
 
-{{< file-excerpt "/etc/apache2/sites-available/example.com.conf" aconf >}}
+    {{< file-excerpt "/etc/apache2/sites-available/example.com.conf" aconf >}}
 DocumentRoot /var/www/html/example.com/public_html/
 RailsBaseURI /app1
 RailsBaseURI /app2 

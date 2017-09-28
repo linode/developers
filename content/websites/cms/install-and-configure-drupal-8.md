@@ -42,7 +42,7 @@ Drupal 8 is the lastest version of the popular [Drupal](https://www.drupal.org/)
         cd /var/www/html/example.com
         sudo wget http://ftp.drupal.org/files/projects/drupal-8.0.5.tar.gz
 
-{{< caution >}}
+    {{< caution >}}
 Ensure that the version number matches the Drupal 8 version you wish to download.
 {{< /caution >}}
 
@@ -62,7 +62,7 @@ Ensure that the version number matches the Drupal 8 version you wish to download
 
 5.  Enforce [trusted hostnames](https://www.drupal.org/node/2410395) with those that users will access your site by.
 
-{{< file-excerpt "/var/www/html/example.com/public_html/sites/default/settings.php" aconf >}}
+    {{< file-excerpt "/var/www/html/example.com/public_html/sites/default/settings.php" aconf >}}
 $settings['trusted_host_patterns'] = array(
   '^www\.example\.com$',
   '^example\.com$',
@@ -71,7 +71,7 @@ $settings['trusted_host_patterns'] = array(
 {{< /file-excerpt >}}
 
 
-{{< note >}}
+    {{< note >}}
 *trusted_host_patterns* also accepts IP addresses or localhost.
 {{< /note >}}
 
@@ -83,7 +83,7 @@ $settings['trusted_host_patterns'] = array(
 
 2.  Then specify the rewrite conditions for DocumentRoot in Apache's configuration file.
 
-{{< file-excerpt "/etc/apache2/apache2.conf" aconf >}}
+    {{< file-excerpt "/etc/apache2/apache2.conf" aconf >}}
 <Directory /var/www/>
 Options Indexes FollowSymLinks
 AllowOverride All
@@ -125,7 +125,7 @@ Require all granted
 
     [![Drupal 8 database configuration.](/docs/assets/drupal-database-configuration-small.png)](/docs/assets/drupal-database-configuration.png)
 
-{{< note >}}
+    {{< note >}}
 If you forgot the name of your database, log back in to MySQL with: `mysql -u root -p` and enter: `show databases;`.
 {{< /note >}}
 

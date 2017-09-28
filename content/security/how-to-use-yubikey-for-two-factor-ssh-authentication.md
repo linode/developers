@@ -71,7 +71,7 @@ The page will respond with a table containing your key information. You should k
 
 1. Register for an API key [here](https://upgrade.yubico.com/getapikey/), by entering your email address and (with the 'YubiKey one time password' field selected) touching the button on your YubiKey. Keep the Client ID and Secret Key returned by the website.
 
-{{< note >}}
+    {{< note >}}
 On Ubuntu, you may need to install `software-properties-common` and `python-software-properties` to add the repository.
 {{< /note >}}
 
@@ -93,7 +93,7 @@ On Ubuntu, you may need to install `software-properties-common` and `python-soft
 
     Yubico's documentation also has instructions on [how to build `pam_yubico` from source](https://developers.yubico.com/yubico-pam/).
 
-{{< note >}}
+    {{< note >}}
 You may need to move `pam_yubico.so` to wherever PAM modules are stored on your system (usually `lib/security`). The Ubuntu package will automatically install the module in the appropriate location, but you can check to see whether it's in the right location with `ls /lib/security`. It may also be stored in `/usr/local/lib/security`, in which case you will need to move it manually.
 {{< /note >}}
 
@@ -103,7 +103,7 @@ You may need to move `pam_yubico.so` to wherever PAM modules are stored on your 
 
 4. Populate this file with the usernames for which you want to enable two-factor authentication and their YubiKey IDs. You can obtain the ID by opening a text editor and touching the button on the YubiKey, and selecting *only the first 12 characters*. The first line below would be a typical configuration. The subsequent lines show a configuration where users `user2`, `user3`, and `user4` use multiple YubiKeys and plan to access the server with all of them.
 
-{{< file "/etc/ssh/authorized_yubikeys" >}}
+    {{< file "/etc/ssh/authorized_yubikeys" >}}
 user1:vvklhtiubdcu
 user2:ccurrufnjder:ccturefjtehv:cctbhunjimko
 user3:ccdvnvlcbdre:vvvglinuddek
@@ -114,7 +114,7 @@ user4:vvddhfjjasui:vvfjidkflssd
 
 5. Add `auth required pam_yubico.so id=client id authfile=/etc/ssh/yubikeys` to the start of `/etc/pam.d/sshd`. Replace `client id` with the ID you retrieved when applying for an API key, and `secret key` with the secret key. If you only want single-factor authentication (either a YubiKey or a password), change `required` to `sufficient` to tell the system that a valid YubiKey will be enough to log in.
 
-{{< file-excerpt "/etc/pam.d/sshd" >}}
+    {{< file-excerpt "/etc/pam.d/sshd" >}}
 # PAM configuration for the Secure Shell service
 
 # Add your line below this one
@@ -129,13 +129,13 @@ auth required pam_yubico.so id=client id key=secret key authfile=/etc/ssh/yubike
 {{< /file-excerpt >}}
 
 
-{{< note >}}
+    {{< note >}}
 On some systems, like Arch Linux, you will need to edit `/etc/pam.d/system-remote-login` instead of `/etc/pam.d/sshd`.
 {{< /note >}}
 
 6. In `/etc/ssh/sshd_config`, add or edit the following settings:
 
-{{< file-excerpt "/etc/ssh/sshd_config" >}}
+    {{< file-excerpt "/etc/ssh/sshd_config" >}}
 ChallengeResponseAuthentication yes
 UsePAM yes
 
@@ -160,7 +160,7 @@ If you encounter any problems, make sure you've followed all of the steps in thi
 
 1. Add the word `debug` to the end of the line you added in `/etc/pam.d/sshd`:
 
-{{< file-excerpt "/etc/pam.d/sshd" >}}
+    {{< file-excerpt "/etc/pam.d/sshd" >}}
 auth required pam_yubico.so id=<client id> key=<secret key> authfile=/etc/ssh/yubikeys debug
 
 {{< /file-excerpt >}}

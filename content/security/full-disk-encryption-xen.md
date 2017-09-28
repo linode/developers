@@ -65,11 +65,11 @@ Now you're ready to enable full disk encryption on your Linode running Debian 7 
 
         cryptsetup luksFormat /dev/xvdc
 
-{{< caution >}}
+	{{< caution >}}
 If you lose this passphrase your data will be irretrievable!
 {{< /caution >}}
 
-{{< note >}}
+	{{< note >}}
 You may receive a FATAL notice about loading a kernel module used for hardware crypto acceleration. This message can be safely ignored.
 {{< /note >}}
 
@@ -88,7 +88,7 @@ You may receive a FATAL notice about loading a kernel module used for hardware c
         mkswap /dev/mapper/crypt-swap
         swapon /dev/mapper/crypt-swap
 
-{{< note >}}
+	{{< note >}}
 Swap will not persist through reboots, so a random key will be used to encrypt swap data.
 {{< /note >}}
 

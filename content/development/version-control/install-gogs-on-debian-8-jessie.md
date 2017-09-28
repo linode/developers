@@ -71,7 +71,7 @@ In this section we will download the latest version of Go (version 1.7 at the ti
         echo 'export PATH=$PATH:$GOROOT/bin:$GOPATH/bin' >> $HOME/.bashrc
         source $HOME/.bashrc
 
-{{< note >}}
+    {{< note >}}
 We need to specify the `GOROOT` environment variable since we are installing Go to a custom location.
 {{< /note >}}
 
@@ -169,7 +169,7 @@ We will use Nginx as the reverse proxy for Gogs, so we can access Gogs using our
 
 3.  Set Nginx as the reverse proxy for Gogs. Using `sudo`, create a new file named `/etc/nginx/sites-available/gogs`, and set the content as shown below:
 
-{{< file "/etc/nginx/sites-available/gogs" aconf >}}
+    {{< file "/etc/nginx/sites-available/gogs" aconf >}}
 server {
     listen 80;
     server_name example.com;
@@ -207,7 +207,7 @@ In this section we will setup Gogs to run automatically on boot by creating a sy
 
 1.  Using `sudo`, create `/etc/systemd/system/gogs.service`:
 
-{{< file "/etc/systemd/system/gogs.service" ini >}}
+    {{< file "/etc/systemd/system/gogs.service" ini >}}
 [Unit]
 Description=Gogs (Go Git Service)
 After=syslog.target
@@ -296,7 +296,7 @@ If you notice, the Gogs site is still accessible using the plain HTTP via `http:
 
 2.  Open the generated configuration file `custom/conf/app.ini`. Add a new configuration value `HTTP_ADDR` under the `[server]` section. The section should look like this:
 
-{{< file-excerpt "/home/git/go/src/github.com/gogits/gogs/custom/conf/app.ini" ini >}}
+    {{< file-excerpt "/home/git/go/src/github.com/gogits/gogs/custom/conf/app.ini" ini >}}
 [server]
 DOMAIN = example.com
 HTTP_ADDR = 127.0.0.1

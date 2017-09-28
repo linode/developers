@@ -80,7 +80,7 @@ From the SteamCMD guide, two additional steps are needed specifically for DST.
 
         quit
 
-{{< note >}}
+    {{< note >}}
 To update DST, run the above 4 commands again.
 {{< /note >}}
 
@@ -111,7 +111,7 @@ To update DST, run the above 4 commands again.
 
 4.  Create a settings file for your Don't Starve Together server in `~/.klei/DoNotStarveTogether/`. Below  is an example configuration file. You may use this and modify it as you need. Note that where several non-binary options exist, they are shown in this file delimited with a `|`, and numerical ranges are denoted with `..`. Choose a single option.
 
-{{< file "~/.klei/DoNotStarveTogether/settings.ini" >}}
+    {{< file "~/.klei/DoNotStarveTogether/settings.ini" >}}
 [network]
 default_server_name = Your unique server name
 default_server_description = A very nice server description
@@ -144,7 +144,7 @@ autocompiler_enabled = true
 
 4.  Create a startup script for DST with the following contents:
 
-{{< file "~/startdst.sh" >}}
+    {{< file "~/startdst.sh" >}}
 #!/bin/sh
 
 cd ./Steam/dstserver/bin
@@ -166,7 +166,7 @@ You will need Don’t Starve Together installed on your personal computer to get
 
     [![DST Console.](/docs/assets/DSTconsole_resized.png)](/docs/assets/DSTconsole.png)
 
-{{< note >}}
+    {{< note >}}
 If you've never before played the game, you first need to click on **Play** and create an account.
 {{< /note >}}
 
@@ -203,7 +203,7 @@ If you've never before played the game, you first need to click on **Play** and 
 
         cd ~/ && ./startdst.sh
 
-{{< caution >}}
+    {{< caution >}}
 From this point, do not press the **Control+C** keys while in the console unless you want to stop DST.
 {{< /caution >}}
 

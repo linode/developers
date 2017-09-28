@@ -98,7 +98,7 @@ Ntopng has a built in web server and initializer. Configuration options can be d
 
 4.  Create `/etc/ntopng/ntopng.conf` and match the contents to the example listed below. Replace `192.0.2.0` with your Linode’s domain or public IP address. If needed, replace `eth0` with your primary network interface. If you want to review available configuration parameters, run `man ntopng` from the terminal.
 
-{{< file "**/etc/ntopng/ntopng.conf**" aconf >}}
+    {{< file "**/etc/ntopng/ntopng.conf**" aconf >}}
 --user=ntopng
 --interface=eth0
 -w=192.0.2.0:3005
@@ -111,7 +111,7 @@ Ntopng has a built in web server and initializer. Configuration options can be d
 {{< /file >}}
 
 
-{{< note >}}
+    {{< note >}}
 The option flags commented with `# optional` are **not mandatory.** All flags requiring input must be followed by an `=` and a value. Replace `eth0` with your network interface below, if you are not using `eth0`.
 {{< /note >}}
 
@@ -161,7 +161,7 @@ If you want to group devices over the same network or host a home media server, 
 
     ![Currently open connections](/docs/assets/ntopng/ntopng-currently-open-connections.png "Currently open connections")
 
-{{< note >}}
+    {{< note >}}
 If you want to see all the host connections on a single page, set the number of rows to display per page next to the filtering options above the table.
 {{< /note >}}
 

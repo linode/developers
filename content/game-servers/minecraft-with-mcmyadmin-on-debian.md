@@ -155,7 +155,7 @@ This section should be completed as your standard user, **not** as root. McMyAdm
 		Notice	: This is the first time McMyAdmin has been started.
 		Notice	: You must complete the first-start wizard via the web interface.
 
-{{< note >}}
+	{{< note >}}
 To exit McMyAdmin and return to the command line, enter `/quit`.
 {{< /note >}}
 

@@ -53,7 +53,7 @@ external_resources:
 
 	The retention times given below will save data every 5 seconds for 3 hours, and a separate set of data from that aggregated sample every 1 minute for 1 day.
 
-{{< file-excerpt "/etc/carbon/storage-schemas.conf" aconf >}}
+	{{< file-excerpt "/etc/carbon/storage-schemas.conf" aconf >}}
 [carbon]
 pattern = ^carbon\.
 retentions = 60:90d
@@ -80,7 +80,7 @@ retentions = 60s:1d
 
 3.  Enable Carbon's cache to run on boot:
 
-{{< file-excerpt "/etc/default/graphite-carbon" aconf >}}
+	{{< file-excerpt "/etc/default/graphite-carbon" aconf >}}
 CARBON_CACHE_ENABLED=true
     	
 
@@ -116,7 +116,7 @@ CARBON_CACHE_ENABLED=true
 
 1.  Update Graphite's `DATABASES` dictionary definition with the settings for the PostgreSQL database created earlier:
 
-{{< file-excerpt "/etc/graphite/local_settings.py" py >}}
+	{{< file-excerpt "/etc/graphite/local_settings.py" py >}}
 DATABASES = {
 	'default': {
 		'NAME': 'graphite',
@@ -134,7 +134,7 @@ DATABASES = {
 
 2.	Also add the following lines to the end of the file:
 
-{{< file-excerpt "/etc/graphite/local_settings.py" py >}}
+	{{< file-excerpt "/etc/graphite/local_settings.py" py >}}
 USE_REMOTE_USER_AUTHENTICATION = True
 TIME_ZONE = 'Your/Timezone'
 SECRET_KEY = 'somelonganduniquesecretstring'
@@ -162,7 +162,7 @@ SECRET_KEY = 'somelonganduniquesecretstring'
 
 2.  Change Graphite's port from 80 to 8080 (port 80 will be used for Grafana later).
 
-{{< file "/etc/apache2/sites-available/apache2-graphite.conf" aconf >}}
+	{{< file "/etc/apache2/sites-available/apache2-graphite.conf" aconf >}}
 <VirtualHost *:8080>		
     	
 
@@ -171,7 +171,7 @@ SECRET_KEY = 'somelonganduniquesecretstring'
 
 3.  Make sure Apache is listening on port 8080. Add `Listen 8080` after `Listen 80` in `ports.conf`:
 
-{{< file-excerpt "/etc/apache2/ports.conf" aconf >}}
+	{{< file-excerpt "/etc/apache2/ports.conf" aconf >}}
 Listen 80
 Listen 8080
     	
@@ -221,7 +221,7 @@ Listen 8080
 
 4.  Configure Grafana to use the PostgreSQL database created earlier:
 
-{{< file-excerpt "/etc/grafana/grafana.ini" aconf >}}
+	{{< file-excerpt "/etc/grafana/grafana.ini" aconf >}}
 [database]
   	# Either "mysql", "postgres" or "sqlite3", it's your choice
 type = postgres
@@ -236,7 +236,7 @@ password = graphiteuserpassword
 
 5.  Also in `/etc/grafana/grafana.ini`, configure the `domain` and `root_url`, and set a strong admin password and secret key:
 
-{{< file-excerpt "/etc/grafana/grafana.ini" aconf >}}
+	{{< file-excerpt "/etc/grafana/grafana.ini" aconf >}}
 [server]
   	protocol = http
 http_addr = 127.0.0.1
@@ -260,7 +260,7 @@ secret_key = somelongrandomstringkey
 
 7.  Create an Apache site configuration file to proxy requests to Grafana. Remember to change `example.com` to your own domain:
 
-{{< file "/etc/apache2/sites-available/apache2-grafana.conf" aconf >}}
+	{{< file "/etc/apache2/sites-available/apache2-grafana.conf" aconf >}}
 <VirtualHost *:80>
 	ProxyPreserveHost On
 	ProxyPass / http://127.0.0.1:3000/

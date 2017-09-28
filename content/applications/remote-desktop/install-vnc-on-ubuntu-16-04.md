@@ -41,7 +41,7 @@ This guide is written for a non-root user. Commands that require elevated privil
 
         sudo apt-get install ubuntu-desktop gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal
 
-{{< note >}}
+    {{< note >}}
 This will install the full Ubuntu desktop environment, including office and web browsing tools. To install the desktop without these packages, run:
 
 sudo apt-get install --no-install-recommends ubuntu-desktop gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal
@@ -146,7 +146,7 @@ In the next few steps, we'll configure VNC to launch the full Unity desktop when
 
 2.  Edit the end of your `~/.vnc/xstartup` file to match the following configuration. This starts the desktop dependencies as background processes upon starting the VNC server:
 
-{{< file-excerpt "~/.vnc/xstartup" >}}
+    {{< file-excerpt "~/.vnc/xstartup" >}}
 #!/bin/sh
 
 # Uncomment the following two lines for normal desktop:
@@ -195,7 +195,7 @@ Below we've outlined optional steps to ensure that the VNC server starts automat
 
 2.  Add `@reboot /usr/bin/vncserver :1` to the bottom of the file. Your crontab should look like this:
 
-{{< file-excerpt "crontab" >}}
+    {{< file-excerpt "crontab" >}}
 # Edit this file to introduce tasks to be run by cron.
 #
 # Each task to run has to be defined through a single line

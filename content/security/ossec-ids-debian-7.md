@@ -71,7 +71,7 @@ Debian 7 does not have an installation candidate for OSSEC in its repository, so
         sha1sum: WARNING: 1 line is improperly formatted
 
 
-{{< note >}}
+    {{< note >}}
 In both outputs, ignore the **WARNING** line. As long as the first line reads **OK**, the file is good.
 {{< /note >}}
 
@@ -167,7 +167,7 @@ Although you specified an email and OSSEC auto-discovered the SMTP server, there
 
 1.  Open `ossec.conf`. The email settings are at the top of the file:
 
-{{< file-excerpt "ossec.conf" >}}
+    {{< file-excerpt "ossec.conf" >}}
 <global>
   <email_notification>yes</email_notification>
   <email_to>loginName@example.com</email_to>
@@ -182,7 +182,7 @@ Although you specified an email and OSSEC auto-discovered the SMTP server, there
 
 2.  Modify the `< email_from >` line:
 
-{{< file-excerpt "ossec.conf" >}}
+    {{< file-excerpt "ossec.conf" >}}
 <global>
   <email_notification>yes</email_notification>
   <email_to>loginName@example.com</email_to>
@@ -193,7 +193,7 @@ Although you specified an email and OSSEC auto-discovered the SMTP server, there
 {{< /file-excerpt >}}
 
 
-{{< note >}}
+    {{< note >}}
 The `< email_to >` and `< email_from >` values can be the same. If you are running your own mail server and it's on the same server that OSSEC is installed, you may change the `< smtp_server >` value to `localhost`.
 {{< /note >}}
 
@@ -229,7 +229,7 @@ By default OSSEC will not send out an alert when a new file is added to the syst
 
 1.  Open `ossec.conf` and scroll  down to the following section:
 
-{{< file-excerpt "ossec.conf" >}}
+    {{< file-excerpt "ossec.conf" >}}
 <syscheck>
   <!-- Frequency that syscheck is executed - default to every 22 hours -->
   <frequency>79200</frequency>
@@ -239,7 +239,7 @@ By default OSSEC will not send out an alert when a new file is added to the syst
 
 2.  Modify the file:
 
-{{< file-excerpt "ossec.conf" >}}
+    {{< file-excerpt "ossec.conf" >}}
 <syscheck>
   <!-- Frequency that syscheck is executed - default to every 22 hours -->
   <frequency>79200</frequency>
@@ -256,7 +256,7 @@ By default OSSEC will not send out an alert when a new file is added to the syst
 
 1.  Open `ossec.conf`. Below the `< frequency >` setting is a list of system directories that OSSEC has been configured to monitor:
 
-{{< file-excerpt "ossec.conf" >}}
+    {{< file-excerpt "ossec.conf" >}}
 <!-- Directories to check  (perform all possible verifications) -->
 <directories check_all="yes">/etc,/usr/bin,/usr/sbin</directories>
 <directories check_all="yes">/bin,/sbin</directories>
@@ -266,7 +266,7 @@ By default OSSEC will not send out an alert when a new file is added to the syst
 
 2.  OSSEC can check the home directory and, if hosting a website on the server, monitor the website's data directory. For the specified directories, OSSEC can be configured to report changes in real-time:
 
-{{< file-excerpt "ossec.conf" >}}
+    {{< file-excerpt "ossec.conf" >}}
 <!-- Directories to check  (perform all possible verifications) -->
 <directories report_changes="yes" realtime="yes" check_all="yes">/etc,/usr/bin,/usr/sbin</directories>
 <directories report_changes="yes" realtime="yes" check_all="yes">/bin,/sbin</directories>
@@ -351,7 +351,7 @@ After making changes, save and close the file.
 
 2.  The rule that fires on new files is rule number **554**. The chunk of code that defines that rule in `ossec_rules.xml` is:
 
-{{< file-excerpt "ossec_rules.xml" >}}
+    {{< file-excerpt "ossec_rules.xml" >}}
 <rule id="554" level="0">
   <category>ossec</category>
   <decoded_as>syscheck_new_entry</decoded_as>
@@ -364,7 +364,7 @@ After making changes, save and close the file.
 
 3.  Since OSSEC does not alert on rules that are **level 0**, that rule has to be modified in `local_rules.xml` so that OSSEC can fire when a new file is added to the system. The rule modification should be located between the `< group > ... < /group >` tags:
 
-{{< file-excerpt "local_rules.xml" >}}
+    {{< file-excerpt "local_rules.xml" >}}
 <rule id="554" level="7" overwrite="yes">
   <category>ossec</category>
   <decoded_as>syscheck_new_entry</decoded_as>

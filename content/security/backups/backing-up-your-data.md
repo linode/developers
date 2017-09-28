@@ -195,7 +195,7 @@ Here's how to make a manual backup of your Linode:
 
         rsync -ahvz user@production_server:/path/to/source/content /path/to/local/backup/storage/
 
-{{< note >}}
+    {{< note >}}
 For a deeper explanation of the rsync command's options and arguments, and to learn how to customize the command, please see the [Understanding the Rsync Command](#understanding-the-rsync-command) section of this guide.
 {{< /note >}}
 
@@ -253,7 +253,7 @@ Here's how to set up automatic backups of your Linode to a Linux server:
 
         rsync -ahvz --delete --link-dest=~/backups/public_orig user@production_server:~/public ~/backups/public_$(date -I)
 
-{{< note >}}
+    {{< note >}}
 For an explanation of the rsync command's options and arguments, and to learn how to customize the command, please see the [Understanding the Rsync Command](#understanding-the-rsync-command) section of this guide.
 {{< /note >}}
 
@@ -262,7 +262,7 @@ For an explanation of the rsync command's options and arguments, and to learn ho
 
         crontab -e
 
-{{< note >}}
+    {{< note >}}
 If this is your first time running the command, select your favorite text editor.
 {{< /note >}}
 
@@ -270,7 +270,7 @@ If this is your first time running the command, select your favorite text editor
 
         0   3   *   *   *   rsync -ahvz --delete --link-dest=~/backups/public_orig user@production_server:~/public ~/backups/public_$(date -I)
 
-{{< note >}}
+    {{< note >}}
 For more information about cron, and to learn how to create a custom schedule for your rsync command, see [Schedule Tasks with Cron](/docs/linux-tools/utilities/cron).
 {{< /note >}}
 
@@ -301,7 +301,7 @@ Your final crontab entry in Step 9 should look like this:
 
     0      3       *       *       *       rsync -ahvz --delete --link-dest=~/backups/public_orig user@production_server:~/public ~/backups/public_$(date +\%Y-\%m-\%d)
 
-{{< note >}}
+ {{< note >}}
 If you run into a permissions error with cron but not when you run the command manually, you might have a password on your SSH key which doesn't normally pop up because you have it stored in the Mac OS X keychain. You might want to set up a new OS X user with a passwordless key for the purpose of this cron job.
 {{< /note >}}
 
@@ -377,7 +377,7 @@ You can `dir` the contents of `%HOMEPATH\backups\public_orig\` to verify that ev
 
             rsync -hrtvz --chmod u+rwx --delete --link-dest=/cygdrive/c/Users/user/backups/public_orig user@production_server:~/public /cygdrive/c/Users/user/backups/public_%DATE:~10,4%-%DATE:~4,2%-%DATE:7,2%
 
-{{< note >}}
+        {{< note >}}
 For a deeper explanation of the rsync command's options and arguments, and to learn how to customize the command, please see the [Understanding the Rsync Command](#understanding-the-rsync-command) section of this guide.
 {{< /note >}}
 

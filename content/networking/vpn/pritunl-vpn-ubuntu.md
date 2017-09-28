@@ -54,7 +54,7 @@ This guide is written for a non-root user. Commands that require elevated privil
         sudo iptables -A INPUT -p tcp -m tcp --sport 9700 --dport 1025:65355 -j ACCEPT
         sudo iptables -A INPUT -p `your protocol here` -m `your protocol here` --sport `your_port_here` --dport 1025:65355 -j ACCEPT
 
-{{< note >}}
+    {{< note >}}
 If you've configured the firewall according to the [Securing Your Server](/docs/security/securing-your-server) guide, be sure to add these port ranges to the `/etc/iptables.firewall.rules` file.
 {{< /note >}}
 
@@ -89,7 +89,7 @@ If you've configured the firewall according to the [Securing Your Server](/docs/
 
     Fill out the form, and press **Save**.
 
-{{< note >}}
+    {{< note >}}
 The SMTP settings are not required and will not do anything without a license.
 
 If you have a license, Click on the **Upgrade to Premium** button on the upper right, and use the form to enter your license.

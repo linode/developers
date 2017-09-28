@@ -40,7 +40,7 @@ Fedora and CentOS:
 
     sudo service httpd restart
 
-{{< note >}}
+ {{< note >}}
 You can use one of the following three commands instead, depending on your Linux distribution:
 
 /etc/init.d/httpd restart
@@ -94,7 +94,7 @@ Sometimes it can be helpful to see extra information from Apache. You can increa
 
 2.  Locate the `LogLevel` variable, and update it from the default `warn` to `info` or `debug`. `debug` will produce the greatest amount of output.
 
-{{< file-excerpt "/etc/apache2/apache2.conf" >}}
+    {{< file-excerpt "/etc/apache2/apache2.conf" >}}
 # LogLevel: Control the number of messages logged to the error_log.
 # Possible values include: debug, info, notice, warn, error, crit,
 # alert, emerg.
@@ -110,7 +110,7 @@ LogLevel debug
 
 4.  Perform the operation that was giving you trouble, then [check the logs](#sph-checking-the-logs) for more detailed information and errors.
 
-{{< caution >}}
+ {{< caution >}}
 Remember to set the `LogLevel` back to `warn` when you're done troubleshooting, or your server may fill up with logs.
 {{< /caution >}}
 
@@ -140,7 +140,7 @@ Fedora and CentOS:
 
 Make sure all your `<VirtualHost>` directives use IP addresses and port numbers that match the ones defined in the `NameVirtualHost` directives. For example, if you have set `NameVirtualHosts *:80`, then the virtual host configuration should begin with `<VirtualHost *:80>`. If you've set `NameVirtualHosts 123.234.123.234:80`, then the virtual host configuration should begin with `<VirtualHost 123.234.123.234:80>`. If you've set `NameVirtualHosts *`, then the virtual host configuration should begin with `<VirtualHost *>`.
 
-{{< note >}}
+ {{< note >}}
 You can have multiple `NameVirtualHost` values, which is what you'll need to do if you're running sites on multiple IPs and ports. Just make sure the `<VirtualHost>` configurations correspond to the configured `NameVirtualHost` directives.
 {{< /note >}}
 

@@ -78,7 +78,7 @@ After creating a new Linode, select it to open the Linode Manager Dashboard.
 
     [![Configuration Profile](/docs/assets/linode-manager-configuration-profile_small.png)](/docs/assets/linode-manager-configuration-profile.png)
 
-{{< note >}}
+    {{< note >}}
 Use a [StackScript](http://www.linode.com/stackscripts) to quickly deploy a customized Linux distribution. Some of the most popular StackScripts do things like install the Apache web server, configure a firewall, and set up the WordPress content management system. They're easy to use. Just find a StackScript, complete the form, and deploy.
 {{< /note >}}
 
@@ -150,7 +150,7 @@ Once you have the IP address and an SSH client, you can log in via SSH. The foll
 
         root@li123-456:~#
 
-{{< note >}}
+ {{< note >}}
 If you recently rebuilt an existing Linode, you might receive an error message when you try to
 reconnect via SSH. SSH clients try to match the remote host with the known keys on your desktop computer, so when you rebuild your Linode, the remote host key changes.
 

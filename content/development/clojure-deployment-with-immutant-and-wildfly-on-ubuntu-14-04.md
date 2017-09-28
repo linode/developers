@@ -108,7 +108,7 @@ Now, you will create a sample Clojure web application based on *Luminus* framewo
 
     ![Luminus application main page](/docs/assets/clj-luminus-main-page.png)
 
-{{< note >}}
+    {{< note >}}
 Make sure port 3000 is open in firewall for this to work.
 {{< /note >}}
 
@@ -162,7 +162,7 @@ Make sure port 3000 is open in firewall for this to work.
 
 2.  Create file `/etc/nginx/sites-available/wildfly` with the following content:
 
-{{< file "/etc/nginx/sites-available/wildfly" aconf >}}
+    {{< file "/etc/nginx/sites-available/wildfly" aconf >}}
 upstream http_backend {
     server 127.0.0.1:8080;
 }
@@ -208,7 +208,7 @@ To deploy Clojure application with WildFly you will need to install the Immutant
 
 1.  Open `project.clj` file in `clj-app` directory and add `[lein-immutant "2.1.0"]` to the `:plugins` section of configuration:
 
-{{< file-excerpt "/home/linode-user/clj-app/project.clj" clj >}}
+    {{< file-excerpt "/home/linode-user/clj-app/project.clj" clj >}}
 :plugins [[lein-environ "1.0.1"]
           [lein-immutant "2.1.0"]]
 
@@ -217,7 +217,7 @@ To deploy Clojure application with WildFly you will need to install the Immutant
 
 2.  In `project.clj` and after `:plugins`, add a new `:immutant` section with the following content :
 
-{{< file-excerpt "/home/linode-user/clj-app/project.clj" clj >}}
+    {{< file-excerpt "/home/linode-user/clj-app/project.clj" clj >}}
 :immutant {
     :war {
         :name "ROOT"

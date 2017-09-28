@@ -52,7 +52,7 @@ Follow the [Getting Started](/docs/getting-started) guide to configure your basi
         systemctl start sendmail
         systemctl enable sendmail
 
-{{< note >}}
+    {{< note >}}
 Should you encounter the error that there is "*no directory /var/run/fail2ban to contain the socket file /var/run/fail2ban/fail2ban.sock*", create the directory manually:
 
 'mkdir /var/run/fail2ban`
@@ -74,7 +74,7 @@ Should you encounter the error that there is "*no directory /var/run/fail2ban to
 
         apt-get install sendmail-bin sendmail
 
-{{< note >}}
+    {{< note >}}
 The current version of Sendmail in Debian Jessie has an [upstream bug](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=293017) which causes the following errors when installing `sendmail-bin`. The installation will hang for a minute, but then complete.
 Creating /etc/mail/sendmail.cf...
 ERROR: FEATURE() should be before MAILER() MAILER(`local') must appear after FEATURE(`always_add_domain')
@@ -152,7 +152,7 @@ Fail2ban reads `.conf` configuration files first, then `.local` files override a
 
 2.  **If using CentOS or Fedora** you will need to change the `backend` option in `jail.local` from *auto* to *systemd*. This is not necessary on Debian 8 or Ubuntu 16.04, even though both use systemd as well.
 
-{{< file-excerpt "/etc/fail2ban/jail.local" aconf >}}
+    {{< file-excerpt "/etc/fail2ban/jail.local" aconf >}}
 # "backend" specifies the backend used to get files modification.
 # Available options are "pyinotify", "gamin", "polling", "systemd" and "auto".
 # This option can be overridden in each jail as well.
@@ -166,7 +166,7 @@ backend = systemd
 
     No jails are enabled by default in CentOS 7. For example, to enable the SSH daemon jail, uncomment the following lines in `jail.local`:
 
-{{< file-excerpt "/etc/fail2ban/jail.local" aconf >}}
+    {{< file-excerpt "/etc/fail2ban/jail.local" aconf >}}
 [sshd]
 enabled = true
 
@@ -269,7 +269,7 @@ The best way to understand how failregex works is to write one. Although we do n
 
 1.  Navigate to your website's `access.log` (generally located at `/var/www/example.com/logs/access.log`) and find a failed login attempt. It will resemble:
 
-{{< file-excerpt "/var/www/example.com/logs/access.log" resource >}}
+    {{< file-excerpt "/var/www/example.com/logs/access.log" resource >}}
 123.45.67.89 - - [01/Oct/2015:12:46:34 -0400] "POST /wp-login.php HTTP/1.1" 200 1906 "http://example.com/wp-login.php" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:40.0) Gecko/20100101 Firefox/40.0"
 
 {{< /file-excerpt >}}
@@ -277,7 +277,7 @@ The best way to understand how failregex works is to write one. Although we do n
         
     Note that you will only need to track up to the `200`:
 
-{{< file-excerpt "/var/www/example.com/logs/access.log" resource >}}
+    {{< file-excerpt "/var/www/example.com/logs/access.log" resource >}}
 123.45.67.89 - - [01/Oct/2015:12:46:34 -0400] "POST /wp-login.php HTTP/1.1" 200
 
 {{< /file-excerpt >}}
@@ -329,7 +329,7 @@ With the failregex created, it then needs to be added to a filter.
 
 2.  Create a file called `wordpress.conf`, and add your failregex:
 
-{{< file "/etc/fail2ban/filter.d/wordpress.conf" aconf >}}
+    {{< file "/etc/fail2ban/filter.d/wordpress.conf" aconf >}}
 # Fail2Ban filter for WordPress
 #
 #
@@ -346,7 +346,7 @@ ignoreregex =
 
 3.  Add a WordPress section to `jail.local`:
 
-{{< file-excerpt "/etc/fail2ban/jail.local" aconf >}}
+    {{< file-excerpt "/etc/fail2ban/jail.local" aconf >}}
 [wordpress]
 enabled  = true
 filter   = wordpress

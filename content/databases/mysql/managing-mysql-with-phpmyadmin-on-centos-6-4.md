@@ -41,7 +41,7 @@ This guide is written for a non-root user. Commands that require elevated privil
         
 3.  Set up a working LAMP stack. Please see the [LAMP on CentOS 6](/docs/websites/lamp/lamp-server-on-centos-6) guide if needed.
 
-{{< note >}}
+    {{< note >}}
 If you have installed the `php-suhosin` package, there are some known issues when using phpMyAdmin. Please visit the [Suhosin phpMyAdmin Compatibility Issues page](http://www.hardened-php.net/hphp/troubleshooting.html) for more information about tuning and workarounds.
 {{< /note >}}
 
@@ -92,7 +92,7 @@ Since you are required to enter your MySQL credentials when using phpMyAdmin, we
 
 1.  Force phpMyAdmin to use SSL in the phpMyAdmin configuration file `/etc/phpmyadmin/config.inc.php` by adding the following lines under the `Server(s) configuration` section:
 
-{{< file-excerpt "/etc/phpmyadmin/config.inc.php" php >}}
+    {{< file-excerpt "/etc/phpmyadmin/config.inc.php" php >}}
 $cfg['ForceSSL'] = 'true';
 
 {{< /file-excerpt >}}

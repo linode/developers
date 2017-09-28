@@ -115,7 +115,7 @@ At the time of this writing, these steps have been tested on:
 
         apt-get install linux-image-virtual grub2
 
-{{< note >}}
+    {{< note >}}
 During the installation of `grub` you may be asked which disk image to install to. Since Linode provides the grub bootloader, the system need only provide the `grub.cfg` file, and you don't need to install `grub` to your MBR.
 {{< /note >}}
 
@@ -142,7 +142,7 @@ During the installation of `grub` you may be asked which disk image to install t
 
 2.  Then add or change the following options to match the following example. There will be other variables in this file, but we are only concerned with these lines.
 
-{{< file-excerpt "/etc/default/grub" >}}
+	{{< file-excerpt "/etc/default/grub" >}}
 GRUB_TERMINAL=serial
 GRUB_DISABLE_OS_PROBER=true
 GRUB_SERIAL_COMMAND="serial --speed=19200 --unit=0 --word=8 --parity=no --stop=1"
@@ -167,7 +167,7 @@ GRUB_GFXPAYLOAD_LINUX=text
         touch /.autorelabel
 
 
-{{< note >}}
+    {{< note >}}
 The autorelabel command is necessary to queue the SELinux filesystem relabeling process when rebooting from the Linode kernel to the CentOS or Fedora kernel.
 {{< /note >}}
 

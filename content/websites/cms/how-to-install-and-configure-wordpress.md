@@ -94,7 +94,7 @@ This guide is written for a non-root user. Commands that require elevated privil
 
 2.  As it stands, should you try to update WordPress or install new themes or plugins, you will be asked to input your FTP information. To bypass this, you must alter your `wp-config.php` file by adding the following line:
 
-{{< file-excerpt "/var/www/html/example.com/public_html/wp-config.php" php >}}
+    {{< file-excerpt "/var/www/html/example.com/public_html/wp-config.php" php >}}
 /** Bypass FTP */
 define('FS_METHOD', 'direct');
 
@@ -111,7 +111,7 @@ define('FS_METHOD', 'direct');
     
     Restart Apache.
 
-{{< note >}}
+    {{< note >}}
 If using permalinks to set your posts' URLs, Apache will need to be updated to allow individual sites to update the `.htaccess` file. To permit this, add the following to you WordPress website's *VirtualHosts* codeblock:
 
 <Directory /var/www/>

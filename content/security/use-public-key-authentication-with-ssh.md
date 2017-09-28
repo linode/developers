@@ -137,7 +137,7 @@ When PuTTYgen has finished downloading, it can be run immediately, without insta
 
     ![Copy the public key to a text file.](/docs/assets/1476-key-txt-file.png)
 
-{{< caution >}}
+    {{< caution >}}
 When saving the public key, make sure you save it in a plaintext format such as .txt. Other file formats such as .rtf and .doc may add extra characters to the key through encoding, which may prevent your keypair from matching. The public key should be a single line, with no breaks.
 {{< /caution >}}
 

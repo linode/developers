@@ -55,7 +55,7 @@ If you're using a web server other than Apache, or otherwise have an alternate s
         sudo -u www-data mkdir forums
         cd forums/
 
-{{< note >}}
+    {{< note >}}
 If you would like to install SMF to your website's homepage, install it in the document root. If you would like the URL to be something other than `/forums` amend the above instructions as necessary.
 {{< /note >}}
 

@@ -55,7 +55,7 @@ If your website is coded using PHP (your files will end in `.php`), you can add 
 
 2.  Create a file named `googleanalytics.php` and copy your tracking code:
 
-{{< file "/var/www/example.com/public_html/googleanalytics.php" >}}
+    {{< file "/var/www/example.com/public_html/googleanalytics.php" >}}
 <script>
  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -70,7 +70,7 @@ If your website is coded using PHP (your files will end in `.php`), you can add 
 {{< /file >}}
 
 
-{{< note >}}
+    {{< note >}}
 If you copy the above code, replace `UA-00000000-0` with your **tracking ID**.
 
 At this time you may want to consider enabling the *[demographics](https://support.google.com/analytics/answer/2819948?hl=en)* feature of Google Analytics. If you decide to do so, you will need to add an additional line of code to your JavaScript in the steps below. Insert the following between the lines containing `ga('create', 'UA-00000000-0', 'auto');` and `ga('send', 'pageview');`:
@@ -82,7 +82,7 @@ Should you decide to disable the demographics feature at a later date, simply re
 
 3.  If your website does not have a separate header file, and you need to insert the code in every page, skip to step 6; otherwise, open and add the following code to your header document (`header.php` here) after your `<body>` tag:
 
-{{< file-excerpt "/var/www/example.com/public_html/header.php" >}}
+    {{< file-excerpt "/var/www/example.com/public_html/header.php" >}}
 <?php include_once("googleanalytics.php") ?>
 
 {{< /file-excerpt >}}
@@ -96,13 +96,13 @@ Should you decide to disable the demographics feature at a later date, simply re
 
         sed -i 's/<body>/<body><?php include_once("googleanalytics.php") ?>/g' *.php
 
-{{< note >}}
+    {{< note >}}
 If the `<body>` tag of your website contains other variables, please adjust the two instances of `<body>` in the above code to match your current coding.
 {{< /note >}}
 
 5.  To see if the code was successfully inserted into your website's files, you can either open your website in your browser and view the source file, or open up a file in the terminal. When you view the file, you should see the code inserted immediately after the `<body>` tag:
 
-{{< file-excerpt "/var/www/example.com/public_html/index.php" >}}
+    {{< file-excerpt "/var/www/example.com/public_html/index.php" >}}
 <body><?php include_once("googleanalytics.php") ?>
 
 {{< /file-excerpt >}}
@@ -128,7 +128,7 @@ If your website cannot use PHP (its files end in `.html`, `.htm`, or otherwise),
 
 3.  Create a `ga.js` file to hold your Google Analytics code. Insert the following code, replacing `UA-00000000-0` with your **tracking ID**:
 
-{{< file-excerpt "/var/www/example.com/public_html/javascript/ga.js" >}}
+    {{< file-excerpt "/var/www/example.com/public_html/javascript/ga.js" >}}
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -140,7 +140,7 @@ ga('send', 'pageview');
 {{< /file-excerpt >}}
 
 
-{{< note >}}
+    {{< note >}}
 At this time you may want to consider enabling the *[demographics](https://support.google.com/analytics/answer/2819948?hl=en)* feature of Google Analytics. If you decide to do so, you will need to add an additional line of code to your JavaScript in the steps below. Insert the following between the lines containing `ga('create', 'UA-00000000-0', 'auto');` and `ga('send', 'pageview');`:
 
 ga('require', 'displayfeatures');
@@ -152,13 +152,13 @@ Should you decide to disable the demographics feature at a later date, simply re
 
         sed -i 's@<head>@<head><script type="text/javascript" src="javascript/ga.js"></script>@g' *.html
 
-{{< note >}}
+    {{< note >}}
 Change the `.html` ending to match the ending of your website's files.
 {{< /note >}}
 
 8.  To check that the code has been successfully inserted into your `.html` files, you can either open up your website in your browser and view the source code, or view a file in your terminal. The folllowing should appear in conjunction to your `<head>` tag:
 
-{{< file-excerpt "/var/www/example.com/public_html/index.html" >}}
+    {{< file-excerpt "/var/www/example.com/public_html/index.html" >}}
 <head><script type="text/javascript" src="javascript/ga.js"></script>
 
 {{< /file-excerpt >}}

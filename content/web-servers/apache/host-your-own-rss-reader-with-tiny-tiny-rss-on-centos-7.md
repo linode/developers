@@ -60,7 +60,7 @@ This guide will walk through the steps necessary to install and configure Tiny T
 
 2.  Add a configuration file under `/etc/httpd/conf.d/ttrss.conf` to secure the directories that Tiny Tiny RSS will use:
 
-{{< file "/etc/httpd/conf.d/ttrss.conf" aconf >}}
+    {{< file "/etc/httpd/conf.d/ttrss.conf" aconf >}}
 <Directory /var/www/html/cache>
     Require all denied
 </Directory>
@@ -90,7 +90,7 @@ The recommended installation method for Tiny Tiny RSS is to clone the repository
 
         sudo git clone https://tt-rss.org/git/tt-rss.git /var/www/html
 
-{{< note >}}
+    {{< note >}}
 This command will clone tt-rss into the `/var/www/html` directory at the root, which means you will access the application at the root URL of your webserver (for example, at http://myserver).
 If you would prefer to use Tiny Tiny RSS under a separate URL (for example, at http://myserver/tt-rss), you can change the directory indicated in the `git clone` command to `/var/www/html/tt-rss`.
 
@@ -118,7 +118,7 @@ At this point the application should be accessible under Apache. As an example, 
 
 2.  After filling in the fields, click **Test configuration** to perform a preliminary check of your setup. If everything is ready, click the **Initialize database** button.
 
-{{< note >}}
+    {{< note >}}
 Initializing the database will wipe all data in the `ttrss` database.
 If you are installing over a previous installation, perform any backups as necessary.
 {{< /note >}}
@@ -127,7 +127,7 @@ If you are installing over a previous installation, perform any backups as neces
 
     The following snippet shows what the first few lines of the file should look like:
 
-{{< file "/var/www/html/config.php" php >}}
+      {{< file "/var/www/html/config.php" php >}}
 <?php
 // *******************************************
 // *** Database configuration (important!) ***

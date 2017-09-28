@@ -91,7 +91,7 @@ Graylog uses Elasticsearch for storing the log messages and also offers a search
 
 6.  Next, you will need to edit `elasticsearch.yml`. It's located in the `/etc/elasticsearch/` directory:
 
-{{< file "/etc/elasticsearch/elasticsearch.yml" >}}
+    {{< file "/etc/elasticsearch/elasticsearch.yml" >}}
 cluster.name: graylog
 network.host: 127.0.0.1
 discovery.zen.ping.timeout: 10s
@@ -104,7 +104,7 @@ script.file: false
 {{< /file >}}
 
 
-{{< note >}}
+    {{< note >}}
 This guide uses Elasticsearch on a single server. If you are using Elasticsearch on a different server, replace the IP address 127.0.0.1 with your server IP address. Refer to the Elasticsearch documentation for security best practices.
 {{< /note >}}
 
@@ -122,7 +122,7 @@ This guide uses Elasticsearch on a single server. If you are using Elasticsearch
 
         curl -XGET 'http://localhost:9200/_cluster/health?pretty=true'
 
-{{< note >}}
+    {{< note >}}
 For a complete list of the REST API endpoints, refer to the [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-get.html)
 {{< /note >}}
 
@@ -163,13 +163,13 @@ In order to install the Graylog server, you need to download and install the Gra
 
         4c941dd2a116bf235e943771ad16c4e8877d75c597936accf168e08c5f93ce24
 
-{{< note >}}
+    {{< note >}}
 You will need this password to log in to the Graylog web interface.
 {{< /note >}}
 
 4.  Open the Graylog servers main configuration file: `server.conf`, located in the `/etc/graylog/server/` directory. Replace `root_password_sha2` and `password_sercret` with the console output from above:
 
-{{< file "/etc/graylog/server/server.conf" >}}
+    {{< file "/etc/graylog/server/server.conf" >}}
 is_master = true
 node_id_file = /etc/graylog/server/node-id
 password_secret = nNPjRmvyyyPc0YKySXhkebfwUYvW2dQz7kD1GxBq7qhJre1eIAySsUbmlYNKiYZnHquHPu8pTswvc3MFSVDrwn5AmdwOSMri
@@ -239,7 +239,7 @@ Graylog is now up and running, It's time to access the Graylog web interface.
 
     [![Graylog Login Page](/docs/assets/Screenshot-of-graylog-login-page_small.png)](/docs/assets/Screenshot-of-graylog-login-page.png)
 
-{{< note >}}
+    {{< note >}}
 Consider limiting Graylog access to a private network, if you are deploying Graylog in a production environment. In the context of this guide, instances of `192.168.0.102` can be replaced with the Linode's public IP address to access on the browser.
 {{< /note >}}
 
@@ -257,7 +257,7 @@ Consider limiting Graylog access to a private network, if you are deploying Gray
 
 5.  Your Graylog input is configured and listening on port `8514`. Now, you will need to configure rsyslog to send system logs to the newly created input. To do this, edit the `rsyslog.conf` file:
 
-{{< file-excerpt "/etc/rsyslog.conf" >}}
+    {{< file-excerpt "/etc/rsyslog.conf" >}}
 $template GRAYLOGRFC5424,"%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msg%\n"
 *.* @192.168.0.102:8514;GRAYLOGRFC5424
 

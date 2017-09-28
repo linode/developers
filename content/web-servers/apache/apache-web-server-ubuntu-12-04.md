@@ -49,7 +49,7 @@ This guide is written for a non-root user. Commands that require elevated privil
 
 2.  Edit the main Apache configuration file to adjust the resource use settings. The settings shown below are a good starting point for a **Linode 2GB**:
 
-{{< file "/etc/apache2/apache2.conf" aconf >}}
+    {{< file "/etc/apache2/apache2.conf" aconf >}}
 KeepAlive Off
 
 ...
@@ -76,7 +76,7 @@ Apache supports *name-based virtual hosting*, which allows you to host multiple 
 
 2.  Create an `example.com.conf` file in `/etc/apache2/sites-available` with your text editor, replacing instances of `example.com` with your own domain URL in both the configuration file and in the file name:
 
-{{< file "/etc/apache2/sites-available/example.com.conf" aconf >}}
+    {{< file "/etc/apache2/sites-available/example.com.conf" aconf >}}
 <VirtualHost *:80>
      ServerAdmin webmaster@example.com
      ServerName example.com
@@ -91,7 +91,7 @@ Apache supports *name-based virtual hosting*, which allows you to host multiple 
 
     Repeat this process for any other domains you host.
 
-{{< note >}}
+    {{< note >}}
 If you would like to enable Perl support, add the following lines above the closing `</VirtualHost>` tag:
 
 {{< file-excerpt "/etc/apache2/sites-available/example.com.conf" aconf >}}

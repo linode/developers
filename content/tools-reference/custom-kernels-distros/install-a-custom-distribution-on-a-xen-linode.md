@@ -15,7 +15,7 @@ title: Install a Custom Distribution on a Xen Linode
 
 If you'd like to run a Linux distribution on your Linode that isn't available from our distribution list, you can do so by following these instructions. This guide is handy for people who prefer distributions that aren't heavily used in the community, or for those interested in creating a highly customized Linux environment and porting it to their Linode.
 
-{{< note >}}
+ {{< note >}}
 This guide is intended for Linodes using our older Xen hypervisor. To installl a custom distribution on a new KVM Linode, see [this guide](/docs/tools-reference/custom-kernels-distros/install-a-custom-distribution-on-a-linode).
 {{< /note >}}
 
@@ -23,7 +23,7 @@ This guide is intended for Linodes using our older Xen hypervisor. To installl a
 
 We'll use a free virtualization suite called [VirtualBox](https://www.virtualbox.org/) to install a Linux distribution locally, but you can also use another virtualization package, such as VMware or Parallels. If you already have a Linux virtual machine that you'd like to run on your Linode, skip to [Booting the Virtual Machine with Finnix](#booting-the-virtual-machine-with-finnix) .
 
-{{< note >}}
+ {{< note >}}
 We're using Ubuntu 12.04 as the guest operating system in this guide, but you can install virtually any Linux distribution.
 {{< /note >}}
 
@@ -73,7 +73,7 @@ Here's how to get started:
 15. Click the CD icon, and then select **Choose a virtual CD/DVD disk file**.
 16. Select your Linux distribution install image, and then click **Open**.
 
-{{< note >}}
+    {{< note >}}
 If you haven't already downloaded the image of the Linux distribution to your desktop computer, do that now.
 {{< /note >}}
 
@@ -86,7 +86,7 @@ If you haven't already downloaded the image of the Linux distribution to your de
 20. You should see the *Oracle VM VirtualBox Manager* window again. Click **Start** to turn on the virtual machine.
 21. Follow the distribution's installation instructions. When prompted to partition the disk, create a single partition for `/` and a small partition for `swap`, as shown below.
 
-{{< note >}}
+    {{< note >}}
 You will need to ensure that your distribution's installer configures your partitions without LVM (Logical Volume Management), as disks created with LVM cannot be transferred to your Linode.
 {{< /note >}}
 
@@ -174,7 +174,7 @@ The steps below will walk you through transferring your new disk from your local
 
         mount /media/sda1
 
-{{< note >}}
+    {{< note >}}
 /media/sda1 is typically where the disk lives, but it may be in a different directory path or filename depending on your configuration.
 {{< /note >}}
 
@@ -182,7 +182,7 @@ The steps below will walk you through transferring your new disk from your local
 
         rsync -avz /media/sda1/ root@12.34.56.78:/media/xvda/
 
-{{< note >}}
+    {{< note >}}
 You can monitor the progress of your transfer by running the following command at the Lish prompt on your Linode.
 
 watch df -h
@@ -194,7 +194,7 @@ watch df -h
 
     Modify the file to match the following:
 
-{{< file "/media/xvda/etc/fstab" >}}
+    {{< file "/media/xvda/etc/fstab" >}}
 # /etc/fstab: static file system information.
 #
 # Use 'blkid' to print the universally unique identifier for a

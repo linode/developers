@@ -29,7 +29,7 @@ This leads to a more complex setup for certain deployments. For these and other 
 
 All nginx configuration files are located in the `/etc/nginx/` directory. The primary configuration file is `/etc/nginx/nginx.conf`.
 
-{{< note >}}
+ {{< note >}}
 This is where the files will be located if you install nginx from the package manager. Other possible locations include `/opt/nginx/conf/`.
 {{< /note >}}
 
@@ -177,7 +177,7 @@ include
 gzip
 :   The `gzip` directive tells the server to use on-the-fly gzip compression to limit the amount of bandwidth used and speed up some transfers. This is equivalent to Apache's `mod_deflate`. Additional settings can be uncommented in this section of the http block to modify the gzip behavior:
 
-{{< file-excerpt "/etc/nginx/nginx.conf" nginx >}}
+    {{< file-excerpt "/etc/nginx/nginx.conf" nginx >}}
 # gzip_vary on;
 # gzip_proxied any;
 # gzip_comp_level 6;
@@ -235,7 +235,7 @@ The `listen` directive, which is located in the `server` block, tells nginx the 
 
 Next we'll present a few common examples for the `listen` directive.
 
-{{< note >}}
+ {{< note >}}
 You can use more than one `listen` directive, if needed.
 {{< /note >}}
 
@@ -472,7 +472,7 @@ Directives are processed in the following order:
 
 Make sure each file and folder under a domain will match at least one `location` directive.
 
-{{< note >}}
+ {{< note >}}
 While nginx's configuration parser is technically capable of reading nested location blocks, this is neither recommended nor supported.
 {{< /note >}}
 
@@ -497,7 +497,7 @@ In this example, the document root is located in the `html/` directory. Given th
 
 **Returns:** nginx will attempt to serve the file located at `/etc/nginx/html/blog/includes/style.css`
 
-{{< note >}}
+ {{< note >}}
 You can use absolute paths for the `root` directive if desired.
 {{< /note >}}
 

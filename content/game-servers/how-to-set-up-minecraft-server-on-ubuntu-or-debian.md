@@ -34,7 +34,7 @@ This guide shows you how to set up a personal [Minecraft](https://minecraft.net/
 
 3.  Install *OpenJDK*, an open-source implementation of Java, and the GNU Screen package.
 
-{{< note >}}
+	{{< note >}}
 Minecraft version 1.12 is only compatible with OpenJDK 8. If you are using OpenJDK 7 you must remove it using this command
 `sudo apt remove openjdk-7-\*` before continuing with this guide.
 {{< /note >}}
@@ -71,7 +71,7 @@ If you have a firewall configured according to our [Securing Your Server](/docs/
 
 3.  Create a script to run the Minecraft server:
 
-{{< file "/home/minecraft/run.sh" sh >}}
+    {{< file "/home/minecraft/run.sh" sh >}}
 #!/bin/sh
 BINDIR=$(dirname "$(readlink -fn "$0")")
 cd "$BINDIR"
@@ -81,7 +81,7 @@ java -Xms1024M -Xmx1536M -jar minecraft_server.1.12.jar -o true
 {{< /file >}}
 
 
-{{< note >}}
+    {{< note >}}
 The `Xms` and `Xmx` flags define the minimum and maximum amount of RAM the Minecraft server will use. The settings above are recommended for a Linode 2GB used solely for this purpose. Adjust these values to fit your needs.
 {{< /note >}}
 
@@ -104,7 +104,7 @@ The `Xms` and `Xmx` flags define the minimum and maximum amount of RAM the Minec
 
 2.  Open the `eula.txt` file and change the value of `eula` to true:
 
-{{< file "/home/minecraft/eula.txt" sh >}}
+    {{< file "/home/minecraft/eula.txt" sh >}}
 #By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).
 #Tue Jan 27 21:40:00 UTC 2015
 eula=true
@@ -136,7 +136,7 @@ eula=true
         [22:00:21] [Server thread/INFO]: Preparing spawn area: 96%
         [22:00:22] [Server thread/INFO]: Done (14.737s)! For help, type "help" or "?"
 
-{{< note >}}
+    {{< note >}}
 To disconnect from the screen session without stopping the game server, press **CTRL+a** and then **d**. To resume the running screen session, use the command `screen -r`.
 {{< /note >}}
 

@@ -212,7 +212,7 @@ CN                     = Cluster_Name_MasterCA
 
 1. Copy the truststore file and keystore files into Cassandra's `conf` directory for each node. Depending on your installation, the `conf` directory could be located at `/etc/cassandra/conf`, or `/etc/cassandra`.
 
-{{< note >}}
+	{{< note >}}
 If you receive a "Permission denied" error upon executing the following command, your destination server user does not have permissions to access Cassandra's config directory.
 {{< /note >}}
 

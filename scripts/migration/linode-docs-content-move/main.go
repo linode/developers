@@ -79,7 +79,7 @@ var (
 	calloutFilesFixer = func(path, s string) (string, error) {
 		// Handle file and file-excerpt shortcodes
 		// Replace callouts with shortcodes
-		calloutsFiles := regexp.MustCompile(`(?s)[\t ]*{:\s?\.(shell|file[\w|-]*)\s?}\n(.*?)\n.*?~~~\s?(\w*)\s*\n(.*?)~~~`)
+		calloutsFiles := regexp.MustCompile(`(?s)([\t ]*){:\s?\.(shell|file[\w|-]*)\s?}\n(.*?)\n.*?~~~\s?(\w*)\s*\n(.*?)~~~`)
 
 		s = calloutsFiles.ReplaceAllStringFunc(s, func(s string) string {
 			m := calloutsFiles.FindAllStringSubmatch(s, -1)
@@ -87,10 +87,11 @@ var (
 
 				first := m[0]
 
-				shortcode := strings.TrimSpace(first[1])
-				filename := strings.TrimSpace(first[2])
-				style := strings.TrimSpace(first[3])
-				code := strings.TrimRight(first[4], " \n\r")
+				whitespace := first[1]
+				shortcode := strings.TrimSpace(first[2])
+				filename := strings.TrimSpace(first[3])
+				style := strings.TrimSpace(first[4])
+				code := strings.TrimRight(first[5], " \n\r")
 
 				trimIdx := -1
 
@@ -124,8 +125,6 @@ var (
 					shortcode = "file-excerpt"
 				}
 
-				// TODO(bep)  fix code fenced styles
-
 				// Correct to supported Pygments lexers
 				// See http://pygments.org/docs/lexers/
 				if style == "conf" || style == "config" || style == "apache2" || style == "cnf" || style == "httpd" {
@@ -148,10 +147,10 @@ var (
 					style += " "
 				}
 
-				return fmt.Sprintf(`{{< %s %q %s>}}
+				return fmt.Sprintf(`%s{{< %s %q %s>}}
 %s
 {{< /%s >}}
-`, shortcode, filename, style, code, shortcode)
+`, whitespace, shortcode, filename, style, code, shortcode)
 			}
 
 			return s
@@ -164,8 +163,7 @@ var (
 	calloutsToShortCodes = func(path, s string) (string, error) {
 
 		// Apply these in order
-		// (?s)\s*{:\s?\.([\w|-]*)\s?}(.*?)\s*\n\s*\n
-		regexps := []string{`(?s)[\t ]*{:\s?\.([\w|-]*)\s?}(.*?)\s*\n\s*\n`, `(?s)[\t ]*{:\s?\.([\w|-]*)\s?}(.*?)\z`}
+		regexps := []string{`(?s)([\t ]*){:\s?\.([\w|-]*)\s?}(.*?)\s*\n\s*\n`, `(?s)([\t ]*){:\s?\.([\w|-]*)\s?}(.*?)\z`}
 
 		for i, re := range regexps {
 			calloutsRe := regexp.MustCompile(re)
@@ -174,7 +172,8 @@ var (
 				m := calloutsRe.FindAllStringSubmatch(s, -1)
 				if len(m) > 0 {
 					first := m[0]
-					name, content := first[1], first[2]
+					whitespace := first[1]
+					name, content := first[2], first[3]
 					name = strings.TrimSpace(name)
 					content = strings.TrimSpace(content)
 
@@ -193,10 +192,10 @@ var (
 
 					newContent = strings.TrimSpace(newContent)
 
-					s = fmt.Sprintf(`{{< %s >}}
+					s = fmt.Sprintf(`%s{{< %s >}}
 %s
 {{< /%s >}}
-`, name, newContent, name)
+`, whitespace, name, newContent, name)
 
 					if i == 0 {
 						s += "\n"

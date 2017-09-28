@@ -112,7 +112,7 @@ Drush can create a Drupal site with half the steps of a normal installation. The
 
        sudo apt-get install php5-gd
 
-{{< note >}}
+	{{< note >}}
 If the install process displays a prompt concerning a modified configuration file, choose the "keep the local version currently installed" option.
 {{< /note >}}
 
@@ -133,7 +133,7 @@ If the install process displays a prompt concerning a modified configuration fil
 
        sudo drush dl drupal --drupal-project-rename=drupal
 
-{{< note >}}
+    {{< note >}}
 You can specify versions of Drupal. For example to install Drupal 8, which is in beta at the time of this publication, use **`drush dl drupal-8`**.
 {{< /note >}}
 
@@ -147,7 +147,7 @@ You can specify versions of Drupal. For example to install Drupal 8, which is in
        sudo drush si standard --db-url=mysql://username:password@localhost/databasename --site-name=example.com
 
 
-{{< note >}}
+    {{< note >}}
 Although MySQL accepts passwords with a special character, for example an exclamation point, the `drush si standard` command does not. If you have a special character in your MySQL password, you may need to change it.
 {{< /note >}}
 
@@ -188,7 +188,7 @@ To create a new user for the site owner position, review the [Securing Your Serv
 
         drush status
 
-{{< caution >}}
+    {{< caution >}}
 File permissions are a constant concern for the system owner or root user. When installing new files, like a module or theme, make sure the Apache user www-data has access rights. Use the command `ls -al` to list the file permissions within a directory.
 {{< /caution >}}
 
@@ -221,7 +221,7 @@ You may want to install Drush for only certain users, for example, the **site ow
 
        nano ~/.bashrc
 
-{{< file-excerpt "~/.bashrc" >}}
+    {{< file-excerpt "~/.bashrc" >}}
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 
 {{< /file-excerpt >}}
@@ -235,7 +235,7 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 
        composer global require drush/drush:dev-master
 
-{{< note >}}
+    {{< note >}}
 To install a different version of Drush, replace `drush/drush:dev-master` with another version. For example, to install the stable release of Drush 6.x, use `drush/drush:6.*`. For more information, check out the [Drush GitHub](https://github.com/drush-ops/drush) repository.
 {{< /note >}}
 

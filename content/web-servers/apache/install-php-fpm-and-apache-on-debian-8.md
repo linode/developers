@@ -44,7 +44,7 @@ This guide is written for a non-root user. Commands that require elevated privil
 
 1.  Due to the PHP-FPM's licensing, it's not available in Debian's main repository. Open the `sources.list` file and add `contrib` and `non-free` to each source line:
 
-{{< file "/etc/apt/sources.list" >}}
+    {{< file "/etc/apt/sources.list" >}}
 deb http://mirrors.linode.com/debian/ jessie main contrib non-free
 deb-src http://mirrors.linode.com/debian/ jessie main contrib non-free
 
@@ -81,7 +81,7 @@ deb-src http://mirrors.linode.com/debian/ jessie-updates main contrib non-free
 
 3.  Replace the contents of `fastcgi.conf` with the following:
 
-{{< file "/etc/apache2/mods-enabled/fastcgi.conf" aconf >}}
+    {{< file "/etc/apache2/mods-enabled/fastcgi.conf" aconf >}}
 <IfModule mod_fastcgi.c>
     AddType application/x-httpd-fastphp5 .php
     Action application/x-httpd-fastphp5 /php5-fcgi
@@ -107,7 +107,7 @@ deb-src http://mirrors.linode.com/debian/ jessie-updates main contrib non-free
 
 6.  To confirm that PHP is working, create an `info.php` file in one of your web directories:
 
-{{< file "/var/www/example.com/public_html/info.php" php >}}
+    {{< file "/var/www/example.com/public_html/info.php" php >}}
 <?php phpinfo(); ?>
 
 {{< /file >}}
@@ -130,7 +130,7 @@ This is particularly useful when running multiple client sites because you can g
 
 2.  For each pool, adjust the pool name, user and group, and socket name:
 
-{{< file-excerpt "/etc/php5/fpm/pool.d/site1.conf" aconf >}}
+    {{< file-excerpt "/etc/php5/fpm/pool.d/site1.conf" aconf >}}
 ; Start a new pool named 'www'.
 ; the variable $pool can we used in any directive and will be replaced by the
 ; pool name ('www' here)
@@ -163,7 +163,7 @@ listen = /var/run/php5-fpm-site1.com.sock
 {{< /file-excerpt >}}
 
 
-{{< note >}}
+    {{< note >}}
 In the file excerpt above, three sequential dots - `...`  - denote that there is more in this file than is being shown. The three sequential dots are not a literal section to be copied.
 {{< /note >}}
 
@@ -190,7 +190,7 @@ In the file excerpt above, three sequential dots - `...`  - denote that there is
 
 4.  Add the `<IfModule mod_fastcgi.c>` block to each virtual host block:
 
-{{< file-excerpt "/etc/apache2/sites-available/site1.com.conf" aconf >}}
+    {{< file-excerpt "/etc/apache2/sites-available/site1.com.conf" aconf >}}
 <VirtualHost *:80>
 
 ...

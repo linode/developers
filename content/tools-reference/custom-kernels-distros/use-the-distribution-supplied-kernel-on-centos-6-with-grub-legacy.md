@@ -51,7 +51,7 @@ This guide is intended for Linodes running on our KVM hypervisor. For older Xen 
 
 4.  Create a file named `/boot/grub/menu.lst` with the following contents. Adjust the `kernel`, and `initrd` lines to reflect the actual file names found in the `/boot/` directory.
 
-{{< file "/boot/grub/menu.lst" >}}
+    {{< file "/boot/grub/menu.lst" >}}
 timeout 5
 title CentOS 6
 	root (hd0)

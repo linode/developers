@@ -73,7 +73,7 @@ The `openvas` repository and its packages are not officially supported by Ubuntu
 
         sudo openvas-nvt-sync
 
-{{< note >}}
+    {{< note >}}
 This feed is maintained by OpenVAS and is updated about once per week. To keep your NVT feed current, we recommend running this command regularly, or setting up a [cron job](https://www.linode.com/docs/tools-reference/tools/schedule-tasks-with-cron) to automate the process.
 {{< /note >}}
 
@@ -158,7 +158,7 @@ Congratulations! OpenVAS is now ready to use. In this section, we'll provide a b
 
     [![Greenbone Security Assistant Task Wizard.](/docs/assets/openvas-gsa-task-wizard.png)](/docs/assets/openvas-gsa-task-wizard.png)
 
-{{< note >}}
+    {{< note >}}
 The Quick Start screen will not appear on login after you've scheduled 3 or more tasks. To access this screen at any time, click the "Scan Management" tab at the top of the screen, select "Tasks," and hover over the purple magic wand icon in the top bar. From there, you can select "Task Wizard" or "Advanced Task Wizard" to create a new task quickly and easily.
 {{< /note >}}
 

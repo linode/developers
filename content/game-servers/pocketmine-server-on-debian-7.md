@@ -38,7 +38,7 @@ Minecraft - Pocket Edition is non-free software that you will need to purchase i
 
         sudo adduser pocketmine
 
-{{< note >}}
+    {{< note >}}
 If you've followed the steps in our [Securing Your Server](/docs/security/securing-your-server) guide, you will need to add your public key to `/home/pocketmine/.ssh/authorized_keys` in order to log in as this user later in the guide. You will also need to add an iptables exception for port `19132`
 {{< /note >}}
 
@@ -60,13 +60,13 @@ If you've followed the steps in our [Securing Your Server](/docs/security/securi
 
         screen ./start.sh
 
-{{< note >}}
+    {{< note >}}
 If you've used `su` to switch to the pocketmine user, you will get an error message stating `Cannot open your terminal '/dev/pts/0' - please check.` when attempting to start screen. You can resolve this by first running the command:
 
 script /dev/null
 {{< /note >}}
 
-{{< caution >}}
+    {{< caution >}}
 PocketMine may not run properly on systems not running PHP7. You can manually install it, or modify `start.sh`, replacing all instances of `php7` with `php5`:
 
 sed -i -e 's/php7/php5/g' start.sh

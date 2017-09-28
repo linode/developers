@@ -74,7 +74,7 @@ GlusterFS generates a UUID upon installation. Do not clone a single Linode to re
         yum install centos-release-gluster37 
         yum install glusterfs-server
 
-{{< note >}}
+    {{< note >}}
 When installing `glusterfs-server`, you may be prompted to verify a GPG key from the CentOS Storage SIG repository. Before running the third command, you can manually import the GPG key:
 
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-Storage
@@ -133,7 +133,7 @@ Run the following commands on each Linode in your pool.
         firewall-cmd --zone=internal --add-source=192.168.3.4/32 --permanent
         firewall-cmd --zone=internal --add-source=192.168.5.6/32 --permanent 
 
-{{< note >}}
+    {{< note >}}
 In the Linode Manger, you may notice that the netmask for your private IP addresses is /17. Firewalld does not recognize this, so a /32 prefix should be used instead.
 {{< /note >}}
 
@@ -198,7 +198,7 @@ You will need an additional private IP address for one of your database nodes, a
         yum install https://www.percona.com/redir/downloads/percona-release/redhat/0.1-4/percona-release-0.1-4.noarch.rpm
         yum install Percona-XtraDB-Cluster-56 Percona-XtraDB-Cluster-shared-56
 
-{{< note >}}
+    {{< note >}}
 When installing `Percona-XtraDB-Cluster-56` and `Percona-XtraDB-Cluster-shared-56`, you will be prompted to verify a GPG key from the Percona repository. Before running the third command, you can manually import the GPG key:
 
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-Storage
@@ -210,7 +210,7 @@ We will configure the cluster to use XtraBackup for *state snapshot transfer* (S
 
 1.  Make the following changes to `/etc/my.cnf` on each of your database nodes:
 
-{{< file-excerpt "/etc/my.cnf" aconf >}}
+    {{< file-excerpt "/etc/my.cnf" aconf >}}
 [mysqld]
 bind_address                   = 0.0.0.0
 
@@ -238,7 +238,7 @@ wsrep_sst_auth                 = sstuser:password
 
     In the line beginning with `wsrep_sst_auth`, replace `password` with a secure password of your choosing and keep it in a safe place. It will be needed later. 
 
-{{< note >}}
+    {{< note >}}
 The `xtrabackup-v2` service accesses the database as `sstuser`, authenticating using `password` to log into MySQL to grab backup locks for replication.
 {{< /note >}}
 
@@ -262,7 +262,7 @@ The `xtrabackup-v2` service accesses the database as `sstuser`, authenticating u
 
         systemctl start mysql
 	
-{{< note >}}
+   {{< note >}}
 If you want to learn more about `xtrabackup` privileges their [documentation](https://www.percona.com/doc/percona-xtrabackup/2.4/using_xtrabackup/privileges.html) is a good place to start.
 {{< /note >}}
 
@@ -286,7 +286,7 @@ Now that your database nodes are configured, we can test to make sure they've al
         +--------------------------+--------------------------------------+
         4 rows in set (0.00 sec)
 
-{{< note >}}
+    {{< note >}}
 If you add or remove nodes to and from the cluster in the future, you may notice the value for `wsrep_cluster_conf_id` increases each time. This value is the number of changes the cluster's configuration has gone through, and does not directly affect functionality. The above value of `3` is only an example.
 {{< /note >}}
 
@@ -331,7 +331,7 @@ Run the following commands on each database node.
 
 1.  Create and edit `/etc/firewalld/services/galera.xml` to match the following:
 
-{{< file "/etc/firewalld/services/galera.xml" >}}
+    {{< file "/etc/firewalld/services/galera.xml" >}}
 <?xml version="1.0" encoding="utf-8"?>
 <service>
   <short>Galera Replication</short>
@@ -356,7 +356,7 @@ Run the following commands on each database node.
         firewall-cmd --zone=internal --add-source=192.168.3.4/32 --permanent
         firewall-cmd --zone=internal --add-source=192.168.5.6/32 --permanent 
 
-{{< note >}}
+    {{< note >}}
 In the Linode Manger, you may notice that the netmask for your private IP addresses is /17. Firewalld does not recognize this, so a /32 prefix should be used instead.
 {{< /note >}}
 
@@ -422,7 +422,7 @@ Next, we'll mount the Gluster volume on our application servers. The steps in th
 
 2.  Add the following line to `/etc/fstab`, substituting your own GlusterFS hostnames for `gluster1`, `gluster2` and `gluster3`, and your volume name for `example-volume` if appropriate:
 
-{{< file-excerpt "/etc/fstab" aconf >}}
+    {{< file-excerpt "/etc/fstab" aconf >}}
 gluster1:/example-volume  /srv/www  glusterfs defaults,_netdev,backup-volfile-servers=gluster2:gluster3 0 0
 
 {{< /file-excerpt >}}
@@ -435,7 +435,7 @@ gluster1:/example-volume  /srv/www  glusterfs defaults,_netdev,backup-volfile-se
 
 4.  Set the document root to `/srv/www` so that Apache serves content from the Gluster volume. Edit your `welcome.conf` file to match the following:
 
-{{< file "/etc/httpd/conf.d/welcome.conf" aconf >}}
+    {{< file "/etc/httpd/conf.d/welcome.conf" aconf >}}
 <VirtualHost *:80>
     DocumentRoot "/srv/www"
     <Directory /srv/www>
@@ -507,7 +507,7 @@ First, we'll configure IP failover on `galera2` and `galera3` to take on the flo
 
 1.  Edit the following line in your `/etc/sysconfig/keepalived` file on all database nodes, adding `-P` to enable virtual router redundancy protocol:
 
-{{< file-excerpt "/etc/sysconfig/keepalived" aconf >}}
+    {{< file-excerpt "/etc/sysconfig/keepalived" aconf >}}
 KEEPALIVED_OPTIONS="-D -P"
 
 {{< /file-excerpt >}}
@@ -519,7 +519,7 @@ KEEPALIVED_OPTIONS="-D -P"
 
 3.  On all database nodes, replace the original file with the following:
 
-{{< file "/etc/keepalived/keepalived.conf" aconf >}}
+    {{< file "/etc/keepalived/keepalived.conf" aconf >}}
 ! Configuration File for keepalived
 global_defs {
     notification_email {
@@ -586,7 +586,7 @@ vrrp_instance VI_1 {
 
 6.  On all of your database nodes, add the following entry to your firewall configuration, within the `<zone>` block:
 
-{{< file-excerpt "/etc/firewalld/zones/internal.xml" xml >}}
+    {{< file-excerpt "/etc/firewalld/zones/internal.xml" xml >}}
 <rule>
     <protocol value="vrrp" />
     <accept />

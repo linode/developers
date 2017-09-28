@@ -67,7 +67,7 @@ There are five rules directories:
 - optional\_rules
 - slr\_rules
 
-{{< note >}}
+ {{< note >}}
 The activated\_rules directory will be empty in case you wanted to symlink the configuration files for the rules you wish to use into that directory.
 {{< /note >}}
 
@@ -79,7 +79,7 @@ If you want to get started with a basic ruleset and would rather not bother with
 
 1.  Modify your httpd.conf file as shown below:
 
-    >{{< file >}}
+    > {{< file >}}
 /etc/apache2/httpd.conf (Debian / Ubuntu)
 
 > \<IfModule security2\_module\>

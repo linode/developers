@@ -118,11 +118,11 @@ Apply the following optimizations to your system kernel to provide for a smooth 
 
 1. Create the `/etc/sysctl.d/local.conf` system optimization file and paste the contents shown below into your file.
 
-{{< caution >}}
+    {{< caution >}}
 These settings provide the optimal kernel configuration for Shadowsocks. If you have previously configured your system kernel settings for any reason, make sure no conflicts exist.
 {{< /caution >}}
 
-{{< file "/etc/sysctl.d/local.conf" aconf >}}
+    {{< file "/etc/sysctl.d/local.conf" aconf >}}
 # max open files
 fs.file-max = 51200
 # max read buffer
@@ -182,7 +182,7 @@ The Shadowsocks systemd service allows the daemon to automatically start on syst
 
 1. Create a systemd file with the following content:
 
-{{< file "/etc/systemd/system/shadowsocks.service" service >}}
+    {{< file "/etc/systemd/system/shadowsocks.service" service >}}
 [Unit]
 Description=Shadowsocks proxy server
 

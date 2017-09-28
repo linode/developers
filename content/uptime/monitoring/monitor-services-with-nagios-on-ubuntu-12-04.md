@@ -38,7 +38,7 @@ Now you're ready to install Nagios. Here's how:
 
 3.  Enter an administrator password to complete the installation.
 
-{{< note >}}
+ {{< note >}}
 If you do not already have an email server installed on your Linode, Postfix will be installed automatically. The *Internet Site* configuration will be used by default. You'll also have to enter a mail name for the system.
 {{< /note >}}
 
@@ -46,7 +46,7 @@ If you do not already have an email server installed on your Linode, Postfix wil
 
 You can now access the Nagios web interface for administration and reporting by visiting `http://example.com/nagios3/`, where `example.com` refers to your Linode's default virtual host. You may also access this interface by visiting `http://12.34.56.78/nagios3/`, where `12.34.56.78` is the IP address of your Linode. You will need to authenticate with the `nagiosadmin` user you created earlier.
 
-{{< note >}}
+ {{< note >}}
 The above example does not use SSL, and your password will be sent unencrypted. If you want to use encryption, you will need to generate (or purchase) and install an SSL certificate. Steps for generating and using your own certificate can be found in our [SSL guide](/docs/security/ssl/how-to-make-a-selfsigned-ssl-certificate).
 {{< /note >}}
 
@@ -64,7 +64,7 @@ Nagios can send alerts by email, but to receive them you'll need to add your ema
 
 2.  Enter your system username and your email address by replacing `your_username` with your username, and `youremail@example.com` with your email address.
 
-{{< file "/etc/nagios3/conf.d/contacts\\_nagios2.cfg" >}}
+    {{< file "/etc/nagios3/conf.d/contacts\\_nagios2.cfg" >}}
 define contact{
     contact_name your_username
     service_notification_period 24x7
@@ -79,7 +79,7 @@ define contact{
 {{< /file >}}
 
 
-{{< note >}}
+    {{< note >}}
 To send email alerts to more than one user, duplicate the `define contact` section for as many users as you want. Or, to configure notifications to a [group](/docs/tools-reference/linux-users-and-groups), edit the `define contactgroup` section.
 {{< /note >}}
 

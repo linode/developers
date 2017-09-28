@@ -65,7 +65,7 @@ Full specs of each plan can be found on our [pricing page](https://www.linode.co
 |-----------------------------------------
 
 
-{{< note >}}
+ {{< note >}}
 A large base amount of network transfer is included with all Linode plans, but exceeding that amount can result in a [transfer overage](#transfer-overages) charge beyond the monthly cap.
 
 Due to the [impending exhaustion of the IPv4 address space](http://en.wikipedia.org/wiki/IPv4_address_exhaustion), Linode requires users to provide technical justification. To add another public IP address, please [contact support](/docs/support) with your justification.
@@ -166,7 +166,7 @@ Keep your credit card information up to date to prevent service interruptions. H
 
 Your credit card information will be updated.
 
-{{< note >}}
+ {{< note >}}
 If you have an outstanding balance, you will need to make a manual payment to bring your account up to date. See the [Making a Payment](#making-a-payment) section for more information.
 {{< /note >}}
 
@@ -193,7 +193,7 @@ You can cancel your account and receive a refund. Here's how:
 
 Your account will be canceled and all of your services will be deactivated.
 
-{{< note >}}
+ {{< note >}}
 You do not have to cancel your account to prevent recurring charges. Instead, you can remove all Linodes and services from your account via the **Linodes** tab in the Linode Manager. This will allow you to retain your Linode account. If you use Longview with non-Linode services, or want to keep your account name and history, you may find this to be a useful option. See the [Removing Services](#removing-services) section for more information.
 {{< /note >}}
 

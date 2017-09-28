@@ -47,7 +47,7 @@ Both `mod_fastcgi` and `PHP-FPM` are part of repositories for aptitude supported
 
     a) If you are using Linode's mirrors:
 
-{{< file-excerpt "/etc/apt/sources.list" >}}
+    {{< file-excerpt "/etc/apt/sources.list" >}}
 deb http://mirrors.linode.com/debian/ wheezy main contrib non-free
 deb-src http://mirrors.linode.com/debian/ wheezy main contrib non-free
 
@@ -63,7 +63,7 @@ deb-src http://mirrors.linode.com/debian/ wheezy-updates main
 
     b) If you are using Debian's mirrors:
 
-{{< file-excerpt "/etc/apt/sources.list" >}}
+    {{< file-excerpt "/etc/apt/sources.list" >}}
 deb http://ftp.es.debian.org/debian stable main contrib non-free
 deb-src http://ftp.es.debian.org/debian stable main contrib non-free
 
@@ -105,7 +105,7 @@ We will now configure Apache to pass all requests for PHP files, with the _php_ 
 
 3.  If no output is returned, you will need to edit the following file and add this line:
 
-{{< file-excerpt "etc/php5/fpm/pool.d/www.conf" >}}
+    {{< file-excerpt "etc/php5/fpm/pool.d/www.conf" >}}
 listen = /var/run/php5-fpm.sock
 
 {{< /file-excerpt >}}
@@ -113,7 +113,7 @@ listen = /var/run/php5-fpm.sock
 
 4.  Find the following line and remove it.
 
-{{< file-excerpt "/etc/php5/fpm/pool.d/www.conf" >}}
+    {{< file-excerpt "/etc/php5/fpm/pool.d/www.conf" >}}
 listen = 127.0.0.1:9000
 
 {{< /file-excerpt >}}
@@ -131,7 +131,7 @@ listen = 127.0.0.1:9000
 
     **Apache 2.2 or earlier**
 
-{{< file-excerpt "/etc/apache2/mods-enabled/fastcgi.conf" >}}
+    {{< file-excerpt "/etc/apache2/mods-enabled/fastcgi.conf" >}}
 <IfModule mod_fastcgi.c>
  AddType application/x-httpd-fastphp5 .php
  Action application/x-httpd-fastphp5 /php5-fcgi
@@ -144,7 +144,7 @@ listen = 127.0.0.1:9000
 
     **Apache 2.4 or later**
 
-{{< file-excerpt "/etc/apache2/mods-enabled/fastcgi.conf" >}}
+    {{< file-excerpt "/etc/apache2/mods-enabled/fastcgi.conf" >}}
 <IfModule mod_fastcgi.c>
  AddType application/x-httpd-fastphp5 .php
  Action application/x-httpd-fastphp5 /php5-fcgi
@@ -184,7 +184,7 @@ In this section we will create a pool for the domain example.com which is owned 
 
 2.  Edit the file to change the site name, socket name, and user/group.
 
-{{< file-excerpt "/etc/php5/fpm/pool.d/example.com.conf" >}}
+    {{< file-excerpt "/etc/php5/fpm/pool.d/example.com.conf" >}}
 ; Start a new pool named 'www'.
 ; the variable $pool can we used in any directive and will be replaced by the
 ; pool name ('www' here)
@@ -211,7 +211,7 @@ listen = /var/run/php5-fpm_example.com.sock
 
 4.  Edit the virtual host file of example.com to use this PHP-FPM pool
 
-{{< file-excerpt "/etc/apache2/sites-available/example.com.conf" >}}
+    {{< file-excerpt "/etc/apache2/sites-available/example.com.conf" >}}
 <VirtualHost *:80>
     ServerAdmin webmaster@example.com
     ServerName example.com
@@ -242,7 +242,7 @@ listen = /var/run/php5-fpm_example.com.sock
 
 7.  Create a PHP file inside the `DocumentRoot` of this domain to check the owner of this PHP-FPM pool.
 
-{{< file-excerpt "/var/www/example.com/public_html/user.php" >}}
+    {{< file-excerpt "/var/www/example.com/public_html/user.php" >}}
 <?php
 $processUser = posix_getpwuid( posix_geteuid() );
 print $processUser('name');

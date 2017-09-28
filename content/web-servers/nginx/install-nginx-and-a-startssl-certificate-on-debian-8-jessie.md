@@ -91,7 +91,7 @@ Please understand that when using this method, you will be responsible for updat
 
 10. Create a systemd service script to run nginx:
 
-{{< file "/lib/systemd/system/nginx.service" shell >}}
+    {{< file "/lib/systemd/system/nginx.service" shell >}}
 [Unit]
 Description=A high performance web server and a reverse proxy server
 After=network.target
@@ -218,7 +218,7 @@ You should now be logged into your StartSSL account.
 
 6.  Within the archive, extract the `NginxServer.zip` archive, which contains a file with the extension `.crt`. This is your SSL certificate. Open the file in a text editor on your local computer and copy the *entire* contents to your clipboard.
 
-{{< note >}}
+    {{< note >}}
 The text of the `.crt` file will appear to have two certificates in it. It is important to copy everything in this file, in the order shown. Failure to do so will prevent your SSL certificate from working properly.
 {{< /note >}}
 
@@ -246,7 +246,7 @@ The text of the `.crt` file will appear to have two certificates in it. It is im
 
 1.  By default, nginx is configured to only serve HTTP requests on TCP port 80. To make use of SSL, you will need to configure nginx to serve HTTPS requests on TCP port 443. Open the sample nginx SSL server block configuration file and adjust your configuration so that it matches the example below.
 
-{{< file "/etc/nginx/conf.d/example_ssl.conf" aconf >}}
+    {{< file "/etc/nginx/conf.d/example_ssl.conf" aconf >}}
 # HTTPS server
 #
 server {
@@ -277,7 +277,7 @@ server {
 
     Depending on how you installed nginx, this file may not have been created by default. For example, if you compiled nginx from source, you will need to create the `example_ssl.conf` file and copy this configuration into it. If that is the case, you will also need to add the following line to the `http` block in your main nginx configuration file:
 
-{{< file-excerpt "/etc/nginx/nginx.conf" aconf >}}
+    {{< file-excerpt "/etc/nginx/nginx.conf" aconf >}}
 include     /etc/nginx/conf.d/*.conf;
 
 {{< /file-excerpt >}}

@@ -211,7 +211,7 @@ Within the file formatting, a code language or syntax should be defined at the e
 
 | Formatting | Example |
 |:--------------------------|:----------------------------------------------|
-|{{< file >}}
+| {{< file >}}
 <br>/path/to/file.html<br>:&nbsp;&nbsp;&nbsp;~~~ conf<br>&nbsp;&nbsp;&nbsp;&nbsp;#Sample file text<br>&nbsp;&nbsp;&nbsp;&nbsp;Sample file syntax<br>&nbsp;&nbsp;&nbsp;&nbsp;~~~ | <img src="/docs/assets/example_file_file.png"> |
 {{< /file >}}
 
@@ -219,7 +219,7 @@ Within the file formatting, a code language or syntax should be defined at the e
 
 | Formatting | Example |
 |:--------------------------|:----------------------------------------------|
-|{{< file-excerpt >}}
+| {{< file-excerpt >}}
 <br>/path/to/file.html<br>:&nbsp;&nbsp;&nbsp;~~~ ini<br>&nbsp;&nbsp;&nbsp;&nbsp;#Sample file excerpt text<br>&nbsp;&nbsp;&nbsp;&nbsp;Sample file excerpt syntax<br>&nbsp;&nbsp;&nbsp;&nbsp;~~~ | <img src="/docs/assets/example_file_excerpt.png"> |
 {{< /file-excerpt >}}
 
@@ -281,9 +281,9 @@ Notes should be important text that does not necessarily fit the narrative of th
 
 | Formatting | Example |
 |:--------------------------|:----------------------------------------------|
-|{{< note >}}
+| {{< note >}}
 <br>><br>> This is a sample note.<br> | <img src="/docs/assets/example-note.png"> |
-|{{< caution >}}
+| {{< caution >}}
 <br>><br>> This is a sample caution.<br> | <img src="/docs/assets/example-caution.png"> |
 {{< /note >}}
 

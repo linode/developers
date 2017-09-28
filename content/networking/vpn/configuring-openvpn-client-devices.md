@@ -103,7 +103,7 @@ The following example was peformed on iOS 9.0.2 and OS X 10.10 using iTunes 12 a
 
     [![iTunes device summary](/docs/assets/itunes-device-summary-small.png)](/docs/assets/itunes-device-summary.png)
 
-{{< note >}}
+    {{< note >}}
 If this is the first time connecting your iOS device to iTunes, you'll need to click on the overflow menu (the three horizontal dots) and choose **Apps**, then click **Get Started**.
 {{< /note >}}
 
@@ -180,7 +180,7 @@ Configure VPN connections using the same method you would use to configure wirel
 
 7.  The VPN client is now configured and ready to connect. How you do this will differ by desktop environment and NetworkManager version, but after configuring the VPN, an entry for it will appear in the desktop environment's network connection menu.
 
-{{< note >}}
+    {{< note >}}
 Before first connection, it's a good idea to run `journalctl -f | grep vpn` or `tail -f /var/log/syslog | grep vpn` in a terminal on your client. This gives you a real-time output of OpenVPN's logging so if anything goes wrong or there are any errors or warning messags, they'll be visible here.
 {{< /note >}}
 
@@ -214,7 +214,7 @@ The following example was performed using OpenVPN 2.3.8-I601 on Windows 7 Servic
 
     ![OpenVPN Windows TAP Installer](/docs/assets/openvpn-windows-tap-installer.png)
 
-{{< note >}}
+    {{< note >}}
 OpenVPN provides a GPG signature file to check the installer's integrity and authenticity. [GnuPG](https://gnupg.org/) must be installed to do this and performing the check is highly recommended.
 {{< /note >}}
 
@@ -256,7 +256,7 @@ It is ideal for VPN clients to store their own DNS resolver addresses. This can 
 
 5.  Choose **Advanced**, then the **WINS** tab. Select the radio button to **Disable NetBIOS over TCP/IP**. Choose **OK**.
 
-{{< note >}}
+    {{< note >}}
 Don't do this if you need file access to your VPN through Windows for things like SMB or Active Directory.
 {{< /note >}}
 

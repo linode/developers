@@ -34,7 +34,7 @@ First, you need to configure OpenSSH.
 
 2.  Add or modify the `Subsystem sftp` line to look like the following:
 
-{{< file-excerpt "/etc/ssh/sshd\\_config" >}}
+    {{< file-excerpt "/etc/ssh/sshd\\_config" >}}
 Match Group filetransfer
     ChrootDirectory %h
     X11Forwarding no

@@ -47,7 +47,7 @@ In this section, we'll create the disk images necessary to install Alpine Linux.
 
 2.  Create your boot disk image by selecting **Create a new Disk** under the Disks section. The size should be between 128 and 256 MB, and the type should be **ext4**.
 
-{{< note >}}
+    {{< note >}}
 Boot drives (disk images) will need to store your kernel and your initramfs. Currently, Alpine will need about 21 MB for each kernel/initramfs combination, so even 128 MB is enough for several kernel versions, just remember to keep an eye on the available storage in `/boot` when you perform upgrades of the kernel.
 {{< /note >}}
 
@@ -55,7 +55,7 @@ Boot drives (disk images) will need to store your kernel and your initramfs. Cur
 
 4.  Optionally, create a swap disk image with type **swap**.
 
-{{< note >}}
+    {{< note >}}
 Between 256 and 512 MB of swap is a good estimate. Many sources recommend much more than this, but a new installation of Alpine will use less than 50 MB of RAM when fully booted.
 {{< /note >}}
 
@@ -119,7 +119,7 @@ In this section, we will modify critical system files. It is recommended that yo
 
 1.  Configure your file systems table (*fstab*), entering a single hard tab between each column. This file specifies how each disk drive is initialized or mounted into the overall filesystem:
 
-{{< file "/alpine/etc/fstab" aconf >}}
+    {{< file "/alpine/etc/fstab" aconf >}}
 /dev/sdb    /       ext4    defaults,noatime    0   0
 /dev/sda    /boot   ext4    defaults,noatime    0   1
 /dev/sdc    swap    swap    defaults    0   0
@@ -129,7 +129,7 @@ In this section, we will modify critical system files. It is recommended that yo
 
 2.  Modify the *inittab*. This file contains options to be read when the system boots or changes run states:
 
-{{< file "/alpine/etc/inittab" aconf >}}
+    {{< file "/alpine/etc/inittab" aconf >}}
 # /etc/inittab
 
 ::sysinit:/sbin/rc sysinit
@@ -154,7 +154,7 @@ ttyS0::respawn:/sbin/getty -L ttyS0 115200 vt100
 
     Create a new file, `grub.cfg` within this directory, and add the following contents. This file specifies configuration options for GRUB 2 to use during the boot process:
 
-{{< file "/alpine/boot/grub/grub.cfg" aconf >}}
+    {{< file "/alpine/boot/grub/grub.cfg" aconf >}}
 set root=(hd0)
 set default="Alpine Linux"
 set timeout=0
@@ -173,7 +173,7 @@ menuentry "Alpine Linux" {
 
     Create a new file, `mkinitfs.conf`, within this directory and add the following contents. This file specifies options for building the initial RAM file system (*initramfs*):
 
-{{< file "/alpine/etc/mkinitfs/mkinitfs.conf" aconf >}}
+    {{< file "/alpine/etc/mkinitfs/mkinitfs.conf" aconf >}}
 features="ata ide scsi virtio base ext4"
 
 {{< /file >}}
@@ -266,7 +266,7 @@ features="ata ide scsi virtio base ext4"
 
         echo "%sudo   ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
-{{< caution >}}
+    {{< caution >}}
 This configuration is less secure, and generally not recommended.
 {{< /caution >}}
 

@@ -33,7 +33,7 @@ Depending on your version of Linux, it may be possible to install Redis through 
         sudo apt-get update && sudo apt-get upgrade
         sudo apt install make gcc libc6-dev tcl
 
-{{< note >}}
+    {{< note >}}
 Alternatively, you could use `build-essential` to load the dependencies for Redis.
 {{< /note >}}
 
@@ -70,7 +70,7 @@ This setup uses three Linodes running two instances of Redis server per Linode. 
 
 2. In `a_master.conf`, comment the `bind` directive and enable cluster mode. The ports in this example will range from 6379 to 6381.
 
-{{< file "/redis-stable/a_master.conf" >}}
+   {{< file "/redis-stable/a_master.conf" >}}
 # bind 127.0.0.1
 protected-mode no
 port 6379
@@ -82,13 +82,13 @@ cluster-node-timeout 15000
 {{< /file >}}
 
 
-{{< caution >}}
+   {{< caution >}}
 A node in the Redis cluster requires a defined port and a port higher than 10000. In this instance, TCP ports 6379 and 16379 are both required to be open. Ensure iptables or ufw is configured properly.
 {{< /caution >}}
 
 3. In `c_slave.conf`, the configuration will be similar except for an update of the port number. `redis-trib.rb` will be used later to configure this into a slave for the appropriate master, rather than the `slaveof` directive.
 
-{{< file "/redis-stable/c_slave.conf" >}}
+   {{< file "/redis-stable/c_slave.conf" >}}
 # bind 127.00.1
 protected-mode no
 port 6381
@@ -118,7 +118,7 @@ Master/slave replication can be achieved across three nodes by running two insta
 
 2. Substitute `a_master.conf` and `c_slave.conf` with the appropriate configuration file for the remaining two servers. All the master nodes should be starting in cluster mode.
 
-{{< file "Server 1" >}}
+   {{< file "Server 1" >}}
 _._
                 _.-``__ ''-._
            _.-``    `.  `_.  ''-._           Redis 4.0.1 (00000000/0) 64 bit
@@ -178,7 +178,7 @@ At this point, each Linode hosts two independent master nodes. The Redis install
 
         ip.of.server1>exit
 
-{{< note >}}
+    {{< note >}}
 Redis keywords are not case sensitive. However, they are written as all capitals in this guide for clarity.
 {{< /note >}}
 

@@ -147,7 +147,7 @@ Once you've installed all the underlying software for your Linode, you can uploa
 
         scp ~/example.com example_user@server_ip_address:/var/www/html/example.com/public_html
 
-{{< note >}}
+    {{< note >}}
 `example_user` should be the user on your Linode you want to log in as, and `example.com` should be replaced by your domain name.
 {{< /note >}}
 
@@ -155,7 +155,7 @@ Once you've installed all the underlying software for your Linode, you can uploa
 
 3.  Now check your website's IP address in your browser. Your website should be displayed.
 
-{{< note >}}
+    {{< note >}}
 Your website may not yet function completely correctly if it is URL-dependent. A website created with WordPress is an example of a URL-dependent website. Because you're using the IP address instead of the URL, WordPress gets confused. It should start working correctly once you move your domain to point to Linode.
 {{< /note >}}
 
@@ -185,7 +185,7 @@ The last step in your Linode migration is to point your domain at your Linode's 
 
 6.  [Set reverse DNS](/docs/networking/dns/setting-reverse-dns) for your domain so you don't have mail problems.
 
-{{< note >}}
+    {{< note >}}
 If you're having trouble seeing your site at the new IP address, you may need to try visiting it in a different browser, or in a private browsing session. Sometimes your browser will cache old DNS data, even if it has updated everywhere else.
 {{< /note >}}
 

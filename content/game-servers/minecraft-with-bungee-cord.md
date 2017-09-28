@@ -78,7 +78,7 @@ This section assumes that you've only got a Spigot server running on each Linode
 
         sudo iptables -A INPUT -p tcp -s `203.0.113.0` --dport 25565 -j ACCEPT
 
-{{< note >}}
+    {{< note >}}
 If you're running other Spigot servers on the same Linode, then you will need to run step 2 again, but changing `25565` to the port of the other servers.
 {{< /note >}}
 
@@ -92,7 +92,7 @@ If you're running other Spigot servers on the same Linode, then you will need to
         sudo iptables -I INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
         sudo iptables -A INPUT -j DROP
 
-{{< note >}}
+    {{< note >}}
 If you've configured your `iptables` firewall by following our [Securing Your Server](/docs/security/securing-your-server/) tutorial, then you will need to append the exceptions in steps 1, 2 and 3 to `/etc/iptables.firewall.rules` to ensure that they're persistent between reboots.
 {{< /note >}}
 
@@ -119,7 +119,7 @@ This downloads the latest version of BungeeCord. You can find older versions for
 
 3.  Edit the following block of the configuration, in order to add our existing Spigot servers:
 
-{{< file-excerpt "config.yml" yaml >}}
+	{{< file-excerpt "config.yml" yaml >}}
 servers:
   lobby:
     address: localhost:25565
@@ -131,7 +131,7 @@ servers:
 
     For the servers that are specified as examples in the introduction, it would look like:
     
-{{< file-excerpt "config.yml" yaml >}}
+    {{< file-excerpt "config.yml" yaml >}}
 servers:
   lobby:
     address: 203.0.113.112:25565
@@ -159,7 +159,7 @@ servers:
 
 1.  Create the file:
 
-{{< file "/home/bungeecord/bungeestart.sh" shell >}}
+    {{< file "/home/bungeecord/bungeestart.sh" shell >}}
 #!/bin/bash	
     
 screen -dmS "bungeecord" java -jar BungeeCord.jar

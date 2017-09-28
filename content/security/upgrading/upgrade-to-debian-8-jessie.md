@@ -67,7 +67,7 @@ You are now ready to install Debian 8 on your Linode.
 
 1.  Edit your `/etc/apt/sources.list` file and change all instances of `wheezy` to `jessie`. Once you have finished, your `/etc/apt/sources.list` should resemble the following:
 
-{{< file-excerpt "/etc/apt/sources.list" >}}
+    {{< file-excerpt "/etc/apt/sources.list" >}}
 deb http://ftp.us.debian.org/debian/ jessie main
 deb-src http://ftp.us.debian.org/debian/ jessie main
 
@@ -81,7 +81,7 @@ deb-src http://ftp.us.debian.org/debian/ jessie-updates main
 {{< /file-excerpt >}}
 
 
-{{< note >}}
+    {{< note >}}
 Check your `/etc/apt/sources.list.d` for additional package repositories, and ensure that they are querying for packages from `jessie`.  You will need to check with the maintainers of each package to ensure that their own repositories have been updated.
 {{< /note >}}
 
@@ -97,7 +97,7 @@ Check your `/etc/apt/sources.list.d` for additional package repositories, and en
 
         sudo apt-get dist-upgrade
 
-{{< note >}}
+     {{< note >}}
 Services using "NSS" (Network Security Services) and "PAM" (Pluggable Authentication Modules) will need to be restarted. In most cases the default list of services to be restarted is fine. If you have additional services that you run that use NSS or PAM, please add them to the list.
 {{< /note >}}
 

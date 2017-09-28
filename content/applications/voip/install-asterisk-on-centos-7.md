@@ -34,7 +34,7 @@ This guide is written for a non-root user. Commands that require elevated privil
 
 3.  Edit `/etc/selinux/config` to ensure SELinux is disabled:
 
-{{< file-excerpt "/etc/selinux/config" aconf >}}
+    {{< file-excerpt "/etc/selinux/config" aconf >}}
 SELINUX=disabled
 
 {{< /file-excerpt >}}
@@ -71,7 +71,7 @@ iptables will be used to secure the Linode against unwanted traffic. The Linode 
 
 2.  Create `/etc/iptables.firewall.rules` using your preferred text editor. This file will be used to activate the firewall with the desired rules every time the Linode boots.
 
-{{< file "/etc/iptables.firewall.rules" aconf >}}
+    {{< file "/etc/iptables.firewall.rules" aconf >}}
 *filter
 
 #  Allow all loopback (lo0) traffic and drop all traffic to 127/8 that doesn't use lo0
@@ -126,7 +126,7 @@ COMMIT
 {{< /file >}}
 
 
-{{< note >}}
+    {{< note >}}
 Leave IAX commented out unless you know you need it. IAX is "Inter-Asterisk Exchange" and was meant to allow multiple Asterisk servers to communicate with one another. Some VOIP trunking providers use this, but most use SIP. Unless your VOIP provider requires it or you are running multiple Asterisk servers, you probably won't need IAX or IAX2.
 {{< /note >}}
 
@@ -299,7 +299,7 @@ With the new Kernel in place, you're now ready to build DAHDI.
         cd dahdi-linux-complete-2.10.2+2.10.2/
 
 
-{{< note >}}
+    {{< note >}}
 Your version may be different, so substitute `2.10.2` with the version that was extracted.
 {{< /note >}}
 

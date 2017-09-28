@@ -127,7 +127,7 @@ First, install the utility:
 
 7.  Pressing **F4** will open a file in the default editor. On Debian you will get this output if you never used an editor before:
 
-{{< output >}}
+    {{< output >}}
 ~~~
     Select an editor.  To change later, run 'select-editor'.
     1. /bin/nano        <---- easiest
@@ -143,7 +143,7 @@ First, install the utility:
 
     ![Midnight Commander's Editor mcedit with Syntax Highlighting Active](/docs/assets/midnight-commander-mcedit.png)
 
-{{< note >}}
+    {{< note >}}
 Actions can be cancelled in MC by pressing the **ESC** key twice.
 {{< /note >}}
 
@@ -167,7 +167,7 @@ Actions can be cancelled in MC by pressing the **ESC** key twice.
 
     Press **F9**, followed by **l** (L), then select the **SFTP link** menu entry. In the dialog box titled **SFTP to machine** enter `sftp://example@203.0.113.0`. Replace `example` with the username you have created on the remote machine and `203.0.113.1` with the IP address of your server. This will work only if the server at the other end accepts password logins. If you're logging in with SSH keys, then you'll first need to create and/or edit `~/.ssh/config`. It could look something like this:
 
-{{< file "~/.ssh/config" aconf >}}
+    {{< file "~/.ssh/config" aconf >}}
 Host sftp_server
     HostName 203.0.113.1
     Port 22

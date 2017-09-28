@@ -92,7 +92,7 @@ Be sure that [Network Helper](/docs/platform/network-helper) is disabled when ad
 
 1.  On Debian and Ubuntu, edit `/etc/network/interfaces` to set up statically configured IPv6:
 
-{{< file "/etc/network/interfaces" >}}
+    {{< file "/etc/network/interfaces" >}}
 # This file describes the network interfaces available on your system
 # and how to activate them. For more information, see interfaces(5).
 
@@ -122,13 +122,13 @@ iface eth0 inet6 static
 {{< /file >}}
 
 
-{{< note >}}
+        {{< note >}}
 On Debian Jessie, your default IPv6 address provided by SLAAC will no longer be automatically assigned after you request a /64 pool. You will need to manually add it as a static address or IPv6 routing will not work.
 {{< /note >}}
 
 2.  For /56 and /64 pools, addresses within your pool will be routed to your Linode's default IP address, or another Linode on your account in the same datacenter. You will see where the pool is routed under "Public IP Pools" within the Linode Manager's Remote Access tab. You must enable packet forwarding on that Linode to allow it to act as a router and enable external traffic from addresses within your IPv6 pool:
 
-{{< file "/etc/sysctl.conf" aconf >}}
+    {{< file "/etc/sysctl.conf" aconf >}}
 # Uncomment the next line to enable packet forwarding for IPv6
 #  Enabling this option disables Stateless Address Autoconfiguration
 #  based on Router Advertisements for this host
@@ -192,7 +192,7 @@ If you are using `systemd-networkd` on Arch Linux, you can statically configure 
 
 2.  Edit your current static IP networking configuration to allow for your IPv6 addresses. You will need to include your default IPv6 address as well.
 
-{{< file "/etc/systemd/network/05-eth0.network" >}}
+    {{< file "/etc/systemd/network/05-eth0.network" >}}
 [Match]
 Name=eth0
 
@@ -221,7 +221,7 @@ If you are still using `netctl` in Arch Linux, you can statically configure your
 
 2.  Edit your newly copied file, entering your IPv6 networking information (e.g. IP address, gateway, etc.).
 
-{{< file "/etc/netctl/ethernet-static" >}}
+    {{< file "/etc/netctl/ethernet-static" >}}
 Description='A basic static ethernet connection'
     Interface=eth0
     Connection=ethernet

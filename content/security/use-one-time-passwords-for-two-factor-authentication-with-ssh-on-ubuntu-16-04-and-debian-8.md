@@ -121,7 +121,7 @@ It is strongly recommended that you have another terminal session open while con
 
 1.  Open `/etc/pam.d/sshd` with sudo privileges, and add the following lines to the end of the file:
 
-{{< file-excerpt "/etc/pam.d/sshd" >}}
+    {{< file-excerpt "/etc/pam.d/sshd" >}}
 auth    required      pam_unix.so     no_warn try_first_pass
 auth    required      pam_google_authenticator.so
 
@@ -132,7 +132,7 @@ auth    required      pam_google_authenticator.so
 
 2.  Edit `/etc/ssh/sshd_config` to include the following lines, replacing `example-user` with any system user for which you'd like to enable two-factor authentication. Comments (preceded by #) are included here, but should not be added to your actual configuration file:
 
-{{< file-excerpt "/etc/ssh/sshd_config" >}}
+    {{< file-excerpt "/etc/ssh/sshd_config" >}}
 # This line already exists in the file, and should be changed from 'no' to 'yes'
 ChallengeResponseAuthentication yes
 
@@ -147,7 +147,7 @@ Match User example-user
 
     If you created TOTPs for multiple users, and you'd like to have them all use two-factor authentication, create additional `Match User` blocks for each  user, duplicating the command format shown above.
 
-{{< note >}}
+    {{< note >}}
 If you want to enforce two-factor authentication globally, you can use the `AuthenticationMethods` directive by itself, outside of a `Match User` block. However, this should not be done until two-factor credentials have been provided to all users.
 {{< /note >}}
 
@@ -173,7 +173,7 @@ Confirm that your public key has been copied to your Linode before completing th
 
 1.  Set `PasswordAuthentication` to `no` and modify the `AuthenticationMethods` line in `/etc/ssh/sshd_config`:
 
-{{< file-excerpt "/etc/ssh/sshd_config" >}}
+    {{< file-excerpt "/etc/ssh/sshd_config" >}}
 PasswordAuthentication no
 ...
 Match User example-user
@@ -186,7 +186,7 @@ Match User example-user
 
 2.  Next, you'll need to make changes to your PAM configuration. Comment out or omit the following lines in your `/etc/pam.d/sshd` file:
 
-{{< file-excerpt "/etc/pam.d/sshd" >}}
+    {{< file-excerpt "/etc/pam.d/sshd" >}}
 # @include common-auth
 ...
 # auth    required      pam_unix.so     no_warn try_first_pass

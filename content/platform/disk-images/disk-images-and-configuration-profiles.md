@@ -46,7 +46,7 @@ Just like your desktop computer has a physical hard drive that can be partitione
 
 The Linode Manager makes it easy to create a new disk with a fresh Linux distribution installed. This is a fast and easy way to try out other distributions. Here's how to create a disk with a Linux distribution installed:
 
-{{< note >}}
+ {{< note >}}
 A new configuration profile will automatically be created when you make a disk this way. After the disk is created, you can select the new configuration profile to boot your Linode from the new disk.
 {{< /note >}}
 
@@ -59,7 +59,7 @@ A new configuration profile will automatically be created when you make a disk t
 
 5.  Select a Linux distribution from the **Distribution** menu.
 
-{{< note >}}
+ {{< note >}}
 You can install a customized Linux distribution on your disk by clicking **Deploying using StackScripts**. Some of the most popular StackScripts do things like install Apache, configure a firewall, and set up the WordPress.
 {{< /note >}}
 

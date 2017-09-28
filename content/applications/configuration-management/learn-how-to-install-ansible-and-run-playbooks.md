@@ -49,7 +49,7 @@ Make sure that you have Python 2.x available on the control machine. Ansible is 
 
       sudo yum install ansible
     
-{{< note >}}
+  {{< note >}}
 The EPEL-Release repository may need to be added on certain versions of CentOS, RHEL, and Scientific Linux.
 {{< /note >}}
 
@@ -100,7 +100,7 @@ You executed an Ansible command against one client, but it would be cumbersome t
 1.  By default, the inventory file is expected to be `/etc/ansible/hosts`. Create that path and file if it does not already exist. 
 
 
-{{< note >}}
+    {{< note >}}
 If you are running OS X, you may want to create your own Ansible directory elsewhere and then set the path in an Ansible configuration file:
 
 mkdir ~/Path/To/ansible
@@ -119,7 +119,7 @@ inventory = ~/Path/To/ansible/hosts
 
 2.  Add an entry to your hosts file, pointing to a server that you connected to in the previous section.  You can include multiple servers in this file, using either domains or IP addresses, and can even group them:
 
-{{< file-excerpt "~/Path/To/ansible/hosts" ini >}}
+    {{< file-excerpt "~/Path/To/ansible/hosts" ini >}}
 mainserver.com
 myserver.net:2222
 
@@ -224,7 +224,7 @@ A few common core modules you might be interested in learning first include:
 
 As an example, we'll use Ansible to turn a freshly created Linode server into a web server, configured with Apache, MySQL, and PHP, ready to serve up dynamic sites and configured with the proper users and permissions. For brevity we won't handle all of the features and configuration that might normally be involved, but will cover enough to get you started.
 
-{{< caution >}}
+  {{< caution >}}
 The following playbooks are for learning purposes only, and will NOT result in a hardened or secure server. Use them to learn from, but do not use them for production instances!
 {{< /caution >}}
 
@@ -246,7 +246,7 @@ The following playbooks are for learning purposes only, and will NOT result in a
 
 2.  Add your new server's IP address to your Ansible `hosts` file so that we can address it. Remove any previous entries you may have added in the test sections above. Give the new server a group name to make it easier to refer to later. In our example the group name is `linode`.
 
-{{< file "/etc/ansible/hosts" ini >}}
+    {{< file "/etc/ansible/hosts" ini >}}
 [linode]
 123.123.123.123
 
@@ -257,7 +257,7 @@ The following playbooks are for learning purposes only, and will NOT result in a
 
     We're introducing a new aspect of Ansible here: *variables*. Note the `vars:` entry and the `NORMAL_USER_NAME` line. You'll notice that it is reused twice in the file so that we only have to change it once. Replace `yourusername` with your choosen username, `localusername` in the path for the `authorized_key`, and the password hash.
 
-{{< file "initialize_basic_user.yml" yaml >}}
+    {{< file "initialize_basic_user.yml" yaml >}}
 ---
 - hosts: linode
   remote_user: root
@@ -328,7 +328,7 @@ Finally, let's get a very basic server set up with Apache and PHP, and a test My
 
 1.  The following playbook downloads the appropriate packages, turns on the Apache and MySQL services, and creates a basic database and user.
 
-{{< file "setup_webserver.yml" yaml >}}
+    {{< file "setup_webserver.yml" yaml >}}
 ---
 - hosts: linode
   remote_user: yourusername

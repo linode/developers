@@ -33,7 +33,7 @@ This guide is written for a non-root user. Commands that require elevated privil
 
     Replace the name in brackets <> with your own hostname. This example uses the Nano text editor. However, you can use the text editor you prefer.
 
-{{< file-excerpt "/etc/hostname" >}}
+    {{< file-excerpt "/etc/hostname" >}}
 europa
 
 {{< /file-excerpt >}}
@@ -59,7 +59,7 @@ europa
         gpgcheck=0
         enabled=1
 
-{{< note >}}
+    {{< note >}}
 A 32-bit system is not recommended for production deployments.
 {{< /note >}}
 
@@ -97,7 +97,7 @@ Replication set member names and the actual server name are different. In this i
 
 1.  Edit your `ifcfg-eth0` file to include the public IP address information.
 
-{{< file-excerpt "/etc/sysconfig/network-scripts/ifcfg-eth0" >}}
+    {{< file-excerpt "/etc/sysconfig/network-scripts/ifcfg-eth0" >}}
 DEVICE=eth0
 BOOTPROTO=none
 ONBOOT=yes
@@ -123,7 +123,7 @@ GATEWAY=xxx.xx.xx.x
 
 3.  Now edit your newly created `eth0:1` file to reflect your private IP information:
 
-{{< file-excerpt "/etc/sysconfig/network-scripts/ifcfg-eth0:1" >}}
+    {{< file-excerpt "/etc/sysconfig/network-scripts/ifcfg-eth0:1" >}}
 # Configuration for eth0:1
 DEVICE=eth0:1
 BOOTPROTO=none
@@ -149,7 +149,7 @@ NETMASK=xxx.xxx.xxx.x
 
 1.  Edit the `mongod.conf` file to add the IP address and port number.
 
-{{< file-excerpt "/etc/mongod.conf" >}}
+    {{< file-excerpt "/etc/mongod.conf" >}}
 # fork and run in background
 fork = true
 
@@ -163,7 +163,7 @@ port = 27017
 
 2.  While still in the `mongodb.conf` file scroll to the bottom and add the replica set information:
 
-{{< file-excerpt "/etc/mongod.conf" >}}
+    {{< file-excerpt "/etc/mongod.conf" >}}
 replSet = rs1
 
 {{< /file-excerpt >}}

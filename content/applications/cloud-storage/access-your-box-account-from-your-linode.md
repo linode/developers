@@ -38,7 +38,7 @@ The following step will create an empty directory where Box will live and all of
 
         mkdir ~/box
 
-{{< note >}}
+    {{< note >}}
 If only your `example_user` needs access to the Box account contents, making the mount point in that user's `/home` directory will be fine. If multiple system users (other than root) need access to the Box account, then the mount point should be placed in a system directory such as `/mnt/box`. For more info, see [the davfs man page](http://linux.die.net/man/8/mount.davfs).
 {{< /note >}}
 
@@ -46,7 +46,7 @@ If only your `example_user` needs access to the Box account contents, making the
 
     The fstab (or file systems table) file is a system configuration file commonly found at `/etc/fstab`. It contains the necessary information to automate the process of mounting. Add an entry for your Box account:
 
-{{< file-excerpt "/etc/fstab" aconf >}}
+    {{< file-excerpt "/etc/fstab" aconf >}}
 https://dav.box.com/dav /home/example_user/box davfs rw,user,noauto 0 0
 
 {{< /file-excerpt >}}
@@ -89,7 +89,7 @@ https://dav.box.com/dav /home/example_user/box davfs rw,user,noauto 0 0
 
         echo 'https://dav.box.com/dav email password' >> ~/.davfs2/secrets
 
-{{< note >}}
+    {{< note >}}
 If your password contains quotation characters (`'` or `"`), you'll need to edit the secrets file directly in a text editor.
 {{< /note >}}
 

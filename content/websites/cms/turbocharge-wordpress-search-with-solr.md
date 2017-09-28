@@ -86,7 +86,7 @@ Since Solr is a Java web application, it requires a *Java Runtime Environment (J
 
 4.  Click on the highest available 4.x version to see the files in that release:
     
-{{< note >}}
+    {{< note >}}
 Since Solr 5.x is still in beta, its configuration procedures are different from 4.x, and WPSolr is not yet compatible with the 5.x release.
 {{< /note >}}
 
@@ -144,7 +144,7 @@ By default, Solr listens for search requests on all IP addresses at port 8983. F
 
 2.  Locate the section where listening host and port are set:
 
-{{< file-excerpt "/opt/solr-4.10.4/example/etc/jetty.xml" >}}
+    {{< file-excerpt "/opt/solr-4.10.4/example/etc/jetty.xml" >}}
 <!--
     <Call name="addConnector">
       <Arg>
@@ -213,11 +213,11 @@ Run the following commands on the server where **Solr** is installed.
 
 2.  Copy the following text into the editor, save and close it:
 
-{{< note >}}
+    {{< note >}}
 If using a different version of Solr, change the `JETTY_HOME=/opt/solr-4.10.4/example` line to match the installed version.
 {{< /note >}}
 
-{{< file "/etc/init.d/solr" >}}
+    {{< file "/etc/init.d/solr" >}}
 #!/bin/sh -e
 #
 # /etc/init.d/solr -- startup script for Apache Solr
@@ -513,7 +513,7 @@ If Solr is installed on a different server from WordPress, repeat the test from 
 
 11. Go to the **Solr Operations** tab and click the **Synchronize Wordpress with my Solr index** button. 
 
-{{< note >}}
+    {{< note >}}
 Whenever you publish a new post or page or attachment, this button must be selected for the new pages to be indexed.
 {{< /note >}}
 

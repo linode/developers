@@ -108,7 +108,7 @@ Begin by creating the Linode and making some preliminary changes.
 
 5.  At this point, the distribution files will extract and install. You'll then be asked to set a `root` user password.
 
-{{< note >}}
+    {{< note >}}
 SSH logins for `root` are disabled by default in FreeBSD but standard system users have SSH access.
 {{< /note >}}
 
@@ -136,7 +136,7 @@ SSH logins for `root` are disabled by default in FreeBSD but standard system use
 
 11.  This final step is required to enable Lish, Glish, and make a few other changes. Use your favorite text editor and insert the following at the bottem of `/boot/loader.conf`. (FreeBSD ships with `ee` and `nvi`, linked as `vi`)
 
-{{< file-excerpt "/boot/loader.conf" aconf >}}
+     {{< file-excerpt "/boot/loader.conf" aconf >}}
 boot_multicons="YES"
 boot_serial="YES"
 comconsole_speed="115200"

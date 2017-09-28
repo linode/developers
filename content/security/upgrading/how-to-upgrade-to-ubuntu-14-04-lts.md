@@ -14,7 +14,7 @@ title: 'How to Upgrade to Ubuntu 14.04 LTS'
 
 Ubuntu 14.04 is a long-term support (LTS) release that will be supported until April 2019. This guide explains how to upgrade your Linode from Ubuntu 12.04 (Precise Pangolin) to Ubuntu 14.04 (Trusty Tahr).
 
-{{< caution >}}
+ {{< caution >}}
 Distribution upgrades can yield unpredictable results, due to variations in software stacks. When possible, we recommend:
 
  - Creating a new Linode with the latest disk template

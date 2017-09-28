@@ -44,7 +44,7 @@ PuTTY is a free and open source SSH client for Windows and UNIX systems. It prov
 
         256 58:72:65:6d:3a:39:44:26:25:59:0e:bc:eb:b4:aa:f7  root@ubuntu (ED25519)
 
-{{< note >}}
+    {{< note >}}
 For the fingerprint of an RSA key instead of elliptical curve, use: `ssh-keygen -lf /etc/ssh/ssh_host_rsa_key.pub`.
 {{< /note >}}
 
@@ -77,7 +77,7 @@ PuTTY can securely run graphical applications hosted on a remote Linux server. Y
 
 1.  You wll need an X11 server for Windows. Download and install [Xming](http://sourceforge.net/projects/xming/), a free X server for Windows. Accept the defaults presented by the installer and you'll be running an X11 server when the install process completes.
 
-{{< note >}}
+    {{< note >}}
 You will need the `xauth` package installed on your remote server for X11 forwarding to work correctly. It is installed by default on Debian and ReHat based systems, but may not be for other Linux distributions.
 {{< /note >}}
 

@@ -42,7 +42,7 @@ Apache `mod_status` diplays information related to incoming server connections b
 
 2.  Add the following to the `<virtual_hosts>` block:
 
-{{< file-excerpt "/etc/apache2/sites-available/example.com.conf (Debian/Ubuntu)" >}}
+	{{< file-excerpt "/etc/apache2/sites-available/example.com.conf (Debian/Ubuntu)" >}}
 <Location /server-status>
      SetHandler server-status
      Order Deny,Allow
@@ -56,14 +56,14 @@ Apache `mod_status` diplays information related to incoming server connections b
 
 3.  Apache `mod_status` also offers an option called **ExtendedStatus**, which provides additional information about each request made to Apache. To enable **ExtendedStatus** edit your Apache configuration file:
 
-{{< file-excerpt "/etc/apache2/apache2.conf (Debian/Ubuntu)" >}}
+	{{< file-excerpt "/etc/apache2/apache2.conf (Debian/Ubuntu)" >}}
 ExtendedStatus On
 		
 
 {{< /file-excerpt >}}
 
 
-{{< note >}}
+	{{< note >}}
 Enabling ExtendedStatus consumes additional system resources.
 {{< /note >}}
 

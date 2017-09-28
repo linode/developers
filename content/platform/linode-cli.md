@@ -176,7 +176,7 @@ To start with, most users will want to run the configuration utility:
 
 Once the CLI has your Linode Manager username and password, it will generate and use a new API key automatically.
 
-{{< note >}}
+ {{< note >}}
 If you have [two-factor authentication](/docs/linode-manager-security#sph_two-factor-authentication) enabled, you will receive a prompt for the code after entering your password:
 
 Two-factor authentication code
@@ -187,7 +187,7 @@ Enter your code at the prompt, then continue with the configuration tool as desc
 
 You can run the `linode configure` command again if your settings change. New answers will overwrite the old ones in the `/Users/user1/.linodecli/config` file in your user's home directory.
 
-{{< note >}}
+ {{< note >}}
 If you don't run the configuration tool, you can add these options manually in the `.linodecli/config` file.
 {{< /note >}}
 
@@ -197,7 +197,7 @@ The Linode CLI requires your API key to function. If you need to generate an API
 
 -   In the `.linodecli/config` file:
 
-{{< file-excerpt ".linodecli/config" >}}
+    {{< file-excerpt ".linodecli/config" >}}
 api-key SampleKey123456...
 
 {{< /file-excerpt >}}
@@ -250,7 +250,7 @@ The Linode CLI has many options available. In the rest of this article, we'll go
 
 Press `q` to exit the man pages. You can also view more examples and options on the project's [README](https://github.com/linode/cli/blob/master/README.md) page on GitHub.
 
-{{< note >}}
+ {{< note >}}
 If you do something via the CLI that costs money (creating a Linode, upgrading a Linode, enrolling in a new service, etc.), the CLI *will* attempt to charge the credit card on file for your account or use any account credit available.
 {{< /note >}}
 

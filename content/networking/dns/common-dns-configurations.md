@@ -21,7 +21,7 @@ The most common DNS configuration is a single domain name on one Linode. For thi
 
 [![The SOA record is set to "ns1.linode.com". The NS records are set to "ns1.linode.com" through "ns5.linode.com", inclusive. The MX record is set to "mail.example.org". There are A records for [blank], which is the primary domain, and the "mail" and "www" subdomains. They are all set to the same IP.](/docs/assets/1121-dns9.png)](/docs/assets/1121-dns9.png)
 
-{{< note >}}
+ {{< note >}}
 The DNS Manager can automatically add all of these records when you create a domain zone. For instructions, see [Adding Domain Zones](/docs/networking/dns/dns-manager#adding) in the [DNS Manager](/docs/networking/dns/dns-manager) guide.
 {{< /note >}}
 
@@ -31,7 +31,7 @@ To configure a subdomain, such as `staging.example.org`, create an A record with
 
 [![Create a new A record, following the instructions in the "Adding" section. Add the subdomain text to the "Hostname" field. For example, you could type "staging" - NOT "staging.example.org".](/docs/assets/1125-dns13.png)](/docs/assets/1125-dns13.png)
 
-{{< note >}}
+ {{< note >}}
 You will also need to create a name-based virtual host for the subdomain. If you're using Apache, see [Configure Name-Based Virtual Hosts](/docs/websites/hosting-a-website/#configure-name-based-virtual-hosts) for more information.
 {{< /note >}}
 
@@ -41,7 +41,7 @@ To host multiple domain names on a single server, create a separate domain zone 
 
 [![This page shows the DNS Manager tab with three different domain zones listed.](/docs/assets/1126-dns15.png)](/docs/assets/1126-dns15.png)
 
-{{< note >}}
+ {{< note >}}
 You will also need to create a name-based virtual host for each domain name. If you're using Apache, see [Configure Name-Based Virtual Hosts](/docs/websites/hosting-a-website/#configure-name-based-virtual-hosts) for more information.
 {{< /note >}}
 

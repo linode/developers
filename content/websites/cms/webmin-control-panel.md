@@ -52,7 +52,7 @@ Once you have satisfied all dependencies, you will need to download the Webmin p
 
 1. Add the Webmin repository to your known repositories list by creating the file below:
 
-{{< file "/etc/apt/sources.list.d/webmin.list" >}}
+    {{< file "/etc/apt/sources.list.d/webmin.list" >}}
 deb http://download.webmin.com/download/repository sarge contrib
 deb http://webmin.mirror.somersettechsolutions.co.uk/repository sarge contrib
 

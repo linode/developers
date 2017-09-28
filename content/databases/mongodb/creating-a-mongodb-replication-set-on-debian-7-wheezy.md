@@ -35,7 +35,7 @@ The MongoDB repository provides the latest stable release (currently mongodb-10g
 
     Replace the name in brackets <> with your own hostname. This example uses the Nano text editor. However, you may use the text editor you prefer.
 
-{{< file-excerpt "/etc/hostname" >}}
+    {{< file-excerpt "/etc/hostname" >}}
 titan
 
 {{< /file-excerpt >}}
@@ -89,7 +89,7 @@ Replication set member names and the actual server name are different. In this i
 
 1.  Edit your `interfaces` file to reflect both the public and private IP address information. Do not omit the `auto eth0 eth0:1` declaration.
 
-{{< file-excerpt "/etc/network/interfaces" >}}
+    {{< file-excerpt "/etc/network/interfaces" >}}
 auto eth0 eth0:1
 
 # eth0 - Public IP
@@ -116,7 +116,7 @@ netmask 255.xxx.xxx.xxx
 
 1.  Edit the `mongodb.conf` file to add the IP address and port number.
 
-{{< file-excerpt "/etc/mongodb.conf" >}}
+    {{< file-excerpt "/etc/mongodb.conf" >}}
 bind_ip = 192.168.160.1
 port = 27017
 
@@ -126,7 +126,7 @@ port = 27017
 
 2.  While still in the `mongodb.conf` file scroll to the bottom and add the following information:
 
-{{< file-excerpt "/etc/mongodb.conf" >}}
+    {{< file-excerpt "/etc/mongodb.conf" >}}
 fork = true
 replSet = rs1
 

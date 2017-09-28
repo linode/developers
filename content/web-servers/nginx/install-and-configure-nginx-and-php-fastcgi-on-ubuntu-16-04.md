@@ -69,7 +69,7 @@ Nginx uses `server` directives to specify name-based virtual hosts. Nginx calls 
 
 2.  You should now have the following server block in the nginx virtual host configuration. Replace all instances of `example.com` with your domain, modify the **root** path as shown below, and add the `location ~ \.php$` block:
 
-{{< file "/etc/nginx/sites-available/example.com" nginx >}}
+    {{< file "/etc/nginx/sites-available/example.com" nginx >}}
 server {
     listen 80;
     listen [::]:80;

@@ -67,14 +67,14 @@ The binary packages from Nginx's repo will update you to new versions of the web
 
 1.  Add the Nginx repository to Ubuntu's `sources.list` file:
 
-{{< file-excerpt "/etc/apt/sources.list" >}}
+    {{< file-excerpt "/etc/apt/sources.list" >}}
 deb http://nginx.org/packages/ubuntu/ trusty nginx
 deb-src http://nginx.org/packages/ubuntu/ trusty nginx
 
 {{< /file-excerpt >}}
 
 
-{{< note >}}
+    {{< note >}}
 The `deb-src` line is only needed if you want repository access to Nginx's source code.
 {{< /note >}}
 
@@ -172,7 +172,7 @@ Compiling from source gives you the most flexibility and choice for optimization
 
 8.  Installing from source doesn't include an init file to control when Nginx starts and stops during boot and shutdown. You can either extract that file from the *[nginx-common](http://packages.ubuntu.com/trusty/nginx-common)* package at packages.ubuntu.com, or create an SysV script to manage NGINX as shown below:
 
-{{< file "/etc/init.d/nginx" >}}
+    {{< file "/etc/init.d/nginx" >}}
 #! /bin/sh
 
 ### BEGIN INIT INFO

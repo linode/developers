@@ -62,7 +62,7 @@ The Drupal software is frequently updated as bugs are patched and security vulne
          mv drupal-7.32/.gitignore /var/www/example.com/public_html/drupal/
 
 
-{{< note >}}
+     {{< note >}}
 If you want Drupal to be installed in the root level of your domain, copy the files into the `public_html/` directory rather than into the `public_html/drupal/` directory.
 {{< /note >}}
 
@@ -109,7 +109,7 @@ Remember to change the commands above to reflect the latest version or version t
 
         chmod 755 /var/www/example.com/public_html/drupal/sites/default/settings.php
 
-{{< note >}}
+    {{< note >}}
 During the creation of the LAMP stack, you should have created a MySQL database. If you have forgotten the name of that database, log back into MySQL with the `mysql -u root -p` command and then enter the `show databases;` command.
 {{< /note >}}
 

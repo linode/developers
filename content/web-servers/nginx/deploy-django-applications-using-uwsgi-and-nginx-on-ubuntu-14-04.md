@@ -46,7 +46,7 @@ This guide is written for a non-root user. Commands that require elevated privil
 
         sudo apt-get install build-essential nginx python-dev python-pip python-sqlite sqlite
 
-{{< note >}}
+    {{< note >}}
 If your application uses another database, skip installing `python-sqlite` and `sqlite`.
 {{< /note >}}
 
@@ -113,7 +113,7 @@ If your application uses another database, skip installing `python-sqlite` and `
 
 2.  Create configuration file `sample.ini` with the following contents:
 
-{{< file "/etc/uwsgi/sites/sample.ini" ini >}}
+    {{< file "/etc/uwsgi/sites/sample.ini" ini >}}
 [uwsgi]
 project = sample
 base = /home/django
@@ -134,7 +134,7 @@ vacuum = true
 
 3.  Create an Upstart job for uWSGI:
 
-{{< file "/etc/init/uwsgi.conf" aconf >}}
+    {{< file "/etc/init/uwsgi.conf" aconf >}}
 description "uWSGI"
 start on runlevel [2345]
 stop on runlevel [06]
@@ -162,7 +162,7 @@ exec $UWSGI --master --emperor /etc/uwsgi/sites --die-on-term --uid django --gid
 
 2.  Create an nginx site configuration file for your Django application:
 
-{{< file "/etc/nginx/sites-available/sample" aconf >}}
+    {{< file "/etc/nginx/sites-available/sample" aconf >}}
 server {
     listen 80;
     server_name example.com;

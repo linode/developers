@@ -60,7 +60,7 @@ Firewalld is the default iptables controller in CentOS 7+ and Fedora. See our [g
 
 2.  Create a firewalld service file for Terraria:
 
-{{< file "/etc/firewalld/services/terraria.xml" aconf >}}
+    {{< file "/etc/firewalld/services/terraria.xml" aconf >}}
 <?xml version="1.0" encoding="utf-8"?>
 <service>
   <short>Terraria</short>
@@ -99,7 +99,7 @@ Firewalld is the default iptables controller in CentOS 7+ and Fedora. See our [g
         sudo ufw enable
         sudo ufw delete 4
 
-{{< note >}}
+    {{< note >}}
 The second command in this step, `sudo ufw delete 4` references the fourth rule in your UFW ruleset. If you need to configure additional rules for different services, adjust this as necessary. You can see your UFW ruleset with `sudo ufw status` to make sure you're removing the correct rule.
 {{< /note >}}
 
@@ -122,7 +122,7 @@ To manually configure iptables without using a controller, see our [iptables gui
  
         cd /opt && sudo curl -O http://terraria.org/server/terraria-server-1344.zip
 
-{{< note >}}
+    {{< note >}}
 Before you install Terraria, be sure the version you download is the same as the clients that will be connecting to it.
 {{< /note >}}
 
@@ -154,7 +154,7 @@ Before you install Terraria, be sure the version you download is the same as the
 
     Create a new server configuration file for yourself. The options below will automatically create and serve `MyWorld` when the game server starts up. Note that you should change `MyWorld` to a world name of your choice.
 
-{{< file "/opt/terraria/serverconfig.txt" ini >}}
+    {{< file "/opt/terraria/serverconfig.txt" ini >}}
 world=/srv/terraria/Worlds/MyWorld.wld
 autocreate=1
 worldname=MyWorld
@@ -219,7 +219,7 @@ The Terraria administration script needs two primary functions:
 
 1.  Create a `terrariad` file, enter the following script, then save and close:
 
-{{< file "/usr/local/bin/terrariad" >}}
+    {{< file "/usr/local/bin/terrariad" >}}
 #!/usr/bin/env bash
 
 send="`printf \"$*\r\"`"

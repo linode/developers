@@ -23,7 +23,7 @@ OpenVPN, or Open Virtual Private Network, is a tool for creating networking tunn
 
 Before installing OpenVPN, we assume that you have followed our [Getting Started Guide](/docs/getting-started/). If you're new to Linux server administration you may be interested in our [Introduction to Linux Concepts Guide](/docs/tools-reference/introduction-to-linux-concepts), [Beginner's Guide](/docs/beginners-guide/) and [Administration Basics Guide](/docs/using-linux/administration-basics). If you're concerned about securing on your Linode, you might be interested in our [Security Basics](/docs/security/basics) article as well.
 
-{{< note >}}
+ {{< note >}}
 For many private networking tasks, we suggest that you consider the functions of the OpenSSH package which can provide easier VPN and VPN-like services. OpenSSH is also installed and configured by default on all Linodes. For example, see [Using SSHFS on Linux and MacOS X](/docs/networking/ssh-filesystems) or our guide on [Setting up an SSH Tunnel](/docs/networking/ssh/setting-up-an-ssh-tunnel-with-your-linode-for-safe-browsing) for more information. Nevertheless, if your deployment requires a more traditional VPN solution like OpenVPN, this document covers the installation and configuration of the OpenVPN software.
 {{< /note >}}
 
@@ -37,7 +37,7 @@ With the additional configuration we will set up at the end of this guide, all t
 
 [![Splash screen for TunnelBlick.](/docs/assets/1360-FullTunneling.jpg)](/docs/assets/1360-FullTunneling.jpg)
 
-{{< note >}}
+ {{< note >}}
 Please note that only one public IP address is required to use OpenVPN
 {{< /note >}}
 
@@ -105,7 +105,7 @@ With the certificate authority generated, you can generate the private key for t
 
         ./build-key client1
 
-{{< note >}}
+    {{< note >}}
 Anyone with access to `client1.key` will be able to access your VPN. To better protect against this scenario, you can issue `./build-key-pass client1` instead to build a client key which is encrypted with a passphrase.
 {{< /note >}}
 
@@ -138,7 +138,7 @@ Move all of the secure keys to their proper locations by following these instruc
     -   `client1.crt`
     -   `client1.key`
 
-{{< note >}}
+    {{< note >}}
 Transfer these keys with the utmost attention to security. Anyone who has the key or is able to intercept an unencrypted copy of the key will be able to gain full access to your virtual private network. Typically we recommend that you encrypt the keys for transfer, either by using a protocol like SSH, or by encrypting them with the PGP tool.
 {{< /note >}}
 
@@ -186,7 +186,7 @@ In this section, you'll create two important configuration files. One is for the
 
         nano ~/client.conf
 
-{{< file "~/client.conf" >}}
+    {{< file "~/client.conf" >}}
 # The hostname/IP and port of the server.
 # You can have multiple remote entries
 # to load balance between the servers.
@@ -198,7 +198,7 @@ remote example.com 1194
 
 5.  In the same file, `client.conf`, edit the `cert` and `key` lines to reflect the name of your key. In this example we use `client1` for the file name.
 
-{{< file "~/client.conf" >}}
+    {{< file "~/client.conf" >}}
 # SSL/TLS parms.
 # See the server config file for more
 # description.  It's best to use
@@ -267,7 +267,7 @@ By deploying the following configuration, you will be able to forward *all* traf
 
         nano /etc/openvpn/server.conf
 
-{{< file-excerpt "/etc/openvpn/server.conf" >}}
+    {{< file-excerpt "/etc/openvpn/server.conf" >}}
 push "redirect-gateway def1 bypass-dhcp"
 
 {{< /file-excerpt >}}
@@ -277,7 +277,7 @@ push "redirect-gateway def1 bypass-dhcp"
 
         nano /etc/sysctl.conf
 
-{{< file-excerpt "/etc/sysctl.conf" >}}
+    {{< file-excerpt "/etc/sysctl.conf" >}}
 net.ipv4.ip_forward=1
 
 {{< /file-excerpt >}}
@@ -302,7 +302,7 @@ net.ipv4.ip_forward=1
 
         nano /etc/rc.local
 
-{{< file-excerpt "/etc/rc.local" >}}
+    {{< file-excerpt "/etc/rc.local" >}}
 #!/bin/sh -e
 #
 # [...]
@@ -328,7 +328,7 @@ exit 0
 
         apt-get install dnsmasq && dpkg-reconfigure resolvconf
 
-{{< note >}}
+	{{< note >}}
 If you are using Debian 7, replace this command with `apt-get install dnsmasq resolvconf` and skip steps 7 through 9
 {{< /note >}}
 
@@ -348,7 +348,7 @@ If you are using Debian 7, replace this command with `apt-get install dnsmasq re
 
         nano /etc/dnsmasq.conf
 
-{{< file-excerpt "/etc/dnsmasq.conf" >}}
+    {{< file-excerpt "/etc/dnsmasq.conf" >}}
 listen-address=10.8.0.1
 
 bind-interfaces
@@ -364,7 +364,7 @@ bind-interfaces
 
         nano /etc/network/interfaces
 
-{{< file-excerpt "/etc/network/interfaces" >}}
+	{{< file-excerpt "/etc/network/interfaces" >}}
 # The primary network interface
 auto eth0
 iface eth0 inet dhcp
@@ -375,7 +375,7 @@ dns-nameservers 97.107.133.4 207.192.69.4 207.192.69.5
 {{< /file-excerpt >}}
 ~
 
-{{< note >}}
+	{{< note >}}
 If you're not utilizing IPv6, you can omit the addresses starting with 2600:
 {{< /note >}}
 
@@ -383,7 +383,7 @@ If you're not utilizing IPv6, you can omit the addresses starting with 2600:
 
         nano /etc/rc.local
 
-{{< file-excerpt "/etc/rc.local" >}}
+    {{< file-excerpt "/etc/rc.local" >}}
 /etc/init.d/dnsmasq restart
 
 exit 0
@@ -395,7 +395,7 @@ exit 0
 
         nano /etc/openvpn/server.conf
 
-{{< file-excerpt "/etc/openvpn/server.conf" >}}
+    {{< file-excerpt "/etc/openvpn/server.conf" >}}
 push "dhcp-option DNS 10.8.0.1"
 
 {{< /file-excerpt >}}

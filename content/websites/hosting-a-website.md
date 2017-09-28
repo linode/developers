@@ -59,11 +59,11 @@ These guidelines are designed to optimize Apache for a **Linode 2GB**, but you c
 
 3.  Make sure that the following values are set:
 
-{{< note >}}
+    {{< note >}}
 In Ubuntu 14.04, you will need to append the module section noted below to the end of your `apache2.conf` file:
 {{< /note >}}
 
-{{< file-excerpt "/etc/apache2/apache2.conf" apache >}}
+    {{< file-excerpt "/etc/apache2/apache2.conf" apache >}}
 KeepAlive Off
 
    ...
@@ -117,13 +117,13 @@ You should *not* be logged in as `root` while executing these commands. To learn
 
         sudo nano /etc/apache2/sites-available/example.com.conf
 
-{{< caution >}}
+    {{< caution >}}
 The file name *must* end with `.conf` in Apache versions 2.4 and later, which is the default version in Ubuntu 14.04. The `.conf` extension is backwards-compatible with earlier versions.
 {{< /caution >}}
 
 6.  Now it's time to create a configuration for your virtual host. We've created some basic settings to get your started. Copy and paste the settings shown below in to the virtual host file you just created. Replace all instances of `example.com` with your domain name.
 
-{{< file-excerpt "/etc/apache2/sites-available/example.com.conf" apache >}}
+    {{< file-excerpt "/etc/apache2/sites-available/example.com.conf" apache >}}
 # domain: example.com
 # public: /var/www/html/example.com/public_html/
 
@@ -197,7 +197,7 @@ These guidelines are designed to optimize MySQL 5.5 and up for a **Linode 2GB**,
 
 3.  Edit following values:
 
-{{< file-excerpt "/etc/mysql/my.cnf" aconf >}}
+    {{< file-excerpt "/etc/mysql/my.cnf" aconf >}}
 max_allowed_packet = 1M
 thread_stack = 128K
 
@@ -208,13 +208,13 @@ max_connections = 75
 {{< /file-excerpt >}}
 
 
-{{< note >}}
+    {{< note >}}
 In MySQL 5.6 and above, you may need to add these lines as one block with `[mysqld]` at the top. In earlier MySQL versions, there may be multiple entries for a single option so be sure to edit both lines.
 {{< /note >}}
 
 4.  Add the following lines to the end of `my.cnf`:
 
-{{< file-excerpt "/etc/mysql/my.cnf" aconf >}}
+    {{< file-excerpt "/etc/mysql/my.cnf" aconf >}}
 table_open_cache = 32M
 key_buffer_size = 32M
 
@@ -245,7 +245,7 @@ The first thing you'll need to do in MySQL is create a *database*. (If you alrea
 
         GRANT ALL ON exampleDB.* TO 'example_user' IDENTIFIED BY 'password';
 
-{{< note >}}
+    {{< note >}}
 MySQL usernames and passwords are only used by scripts connecting to the database. They do not need to represent actual user accounts on the system.
 {{< /note >}}
 
@@ -299,7 +299,7 @@ These guidelines are designed to optimize PHP for a Linode 2GB, but you can use 
 
 2.  Verify that the following values are set. All of the lines listed below should be uncommented. Be sure to remove any semicolons (`;`) at the beginning of the lines.
 
-{{< file-excerpt "/etc/php5/apache2/php.ini" ini >}}
+    {{< file-excerpt "/etc/php5/apache2/php.ini" ini >}}
 max_execution_time = 30
 memory_limit = 128M
 error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
@@ -311,7 +311,7 @@ register_globals = Off
 {{< /file-excerpt >}}
 
 
-{{< note >}}
+    {{< note >}}
 The 128M setting for `memory_limit` is a general guideline. While this value should be sufficient for most websites, larger websites and some web applications may require 256 megabytes or more.
 {{< /note >}}
 
@@ -341,7 +341,7 @@ You've successfully installed Apache, MySQL, and PHP. Now it's time to upload a 
 
 3.  Upload your website's files to the `/var/www/html/example.com/public_html` directory. Replace `example.com` with your domain name.
 
-{{< note >}}
+    {{< note >}}
 If you configured multiple name-based virtual hosts, don't forget to upload the files for the other websites to their respective directories.
 {{< /note >}}
 
@@ -357,7 +357,7 @@ It's a good idea to test your website(s) before you add the DNS records. This is
 
 3.  Test the name-based virtual hosts by entering the domain names in the address bar of the web browser on your desktop computer. Your websites should load in the web browser.
 
-{{< caution >}}
+    {{< caution >}}
 Remember to remove the entries for the name-based virtual hosts from your `hosts` file when you're ready to test the DNS records.
 {{< /caution >}}
 

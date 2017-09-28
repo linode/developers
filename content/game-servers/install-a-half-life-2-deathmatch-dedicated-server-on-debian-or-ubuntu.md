@@ -106,7 +106,7 @@ This script automatically starts your server in a Screen session.
 
 1.  Create the script:
 
-{{< file "~/.steam/SteamApps/common/Half-Life 2 Deathmatch Dedicated Server/run.sh" sh >}}
+    {{< file "~/.steam/SteamApps/common/Half-Life 2 Deathmatch Dedicated Server/run.sh" sh >}}
 #!/bin/sh
 cd "$HOME/.steam/SteamApps/common/Half-Life 2 Deathmatch Dedicated Server"
 screen -S "HL2DM" -d -m

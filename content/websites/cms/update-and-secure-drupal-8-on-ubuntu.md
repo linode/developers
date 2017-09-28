@@ -52,7 +52,7 @@ Back up existing files and move the archive into the backups directory. This pro
 
 1.  Log in to your Drupal site and navigate to the Admin Toolbar. Click **Reports**, then **Available updates**.
 
-{{< note >}}
+    {{< note >}}
 If **Available updates** is not listed, enable the Update Manager plugin under **Extend**.
 {{< /note >}}
 
@@ -94,7 +94,7 @@ If **Available updates** is not listed, enable the Update Manager plugin under *
 
 3.  From a browser on your local machine, navigate to `example.com/update.php`:
 
-{{< note >}}
+    {{< note >}}
 If `update.php` does not load or returns a 403 Forbidden error, you can try to change the ownership and permissions of the newly expanded files:
 
 ~~~
@@ -120,7 +120,7 @@ chmod 757 /var/www/html/example.com/public_html/sites/default/settings.php
 
 1.  Increase password security by adding the following to `services.yml`:
 
-{{< file-excerpt "/var/www/html/example.com/public_html/sites/default/services.yml" yaml >}}
+    {{< file-excerpt "/var/www/html/example.com/public_html/sites/default/services.yml" yaml >}}
 # Increase the number of password hash iterations. Minimum = 7; Maximum = 30; Default = 16
   services:
   password:
@@ -130,7 +130,7 @@ chmod 757 /var/www/html/example.com/public_html/sites/default/settings.php
 {{< /file-excerpt >}}
 
 
-{{< note >}}
+      {{< note >}}
 You may need to add write permission to this file before you can edit it:
 
 chmod u+w /var/www/html/example.com/public_html/sites/default/services.yml

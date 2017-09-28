@@ -48,7 +48,7 @@ The steps in this guide require root privileges. Be sure to run the steps below 
 
 3. Open the configuration file `/etc/default/subsonic`:
 
-{{< file "/etc/default/subsonic" >}}
+    {{< file "/etc/default/subsonic" >}}
 # 
 # This is the configuration file for the Subsonic service
 # (/etc/init.d/subsonic)
@@ -79,7 +79,7 @@ SUBSONIC_USER=root
 
     Here you can change the user, the port Subsonic listens on, increase the amount of memory it can use, and encrypt your streaming traffic with SSL. To use your own SSL certificate, look [here](http://www.subsonic.org/pages/getting-started.jsp#4). The following is an example of the server set up to use https on port 8080 with the default SSL certificate:
 
-{{< file-excerpt "/etc/default/subsonic" >}}
+    {{< file-excerpt "/etc/default/subsonic" >}}
 # Type "subsonic --help" on the command line to read an
 # explanation of the different options.
 #
@@ -96,7 +96,7 @@ SUBSONIC_USER=subsonic
 {{< /file-excerpt >}}
 
 
-{{< note >}}
+    {{< note >}}
 If you have a firewall set up on your Linode, be sure to edit the permissions to allow connections from the port Subsonic is listening on.
 {{< /note >}}
 
@@ -127,7 +127,7 @@ If you have a firewall set up on your Linode, be sure to edit the permissions to
 
 5. Create a password for your admin account. You can also set up any other accounts at this time. 
 
-{{< note >}}
+    {{< note >}}
 Passwords in the Subsonic database are stored in hex format, but not encrypted.
 {{< /note >}}
 

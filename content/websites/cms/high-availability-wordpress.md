@@ -37,7 +37,7 @@ Use the following commands to install Apache, PHP, and MySQL on each of the Lino
 
     **Server 1:**
 
-{{< file-excerpt "/etc/mysql/my.cnf" aconf >}}
+    {{< file-excerpt "/etc/mysql/my.cnf" aconf >}}
 server_id           = 1
 log_bin             = /var/log/mysql/mysql-bin.log
 log_bin_index       = /var/log/mysql/mysql-bin.log.index
@@ -54,7 +54,7 @@ auto-increment-offset = 1
 
     **Server 2:**
 
-{{< file-excerpt "/etc/mysql/my.cnf" aconf >}}
+    {{< file-excerpt "/etc/mysql/my.cnf" aconf >}}
 server_id           = 2
 log_bin             = /var/log/mysql/mysql-bin.log
 log_bin_index       = /var/log/mysql/mysql-bin.log.index
@@ -71,7 +71,7 @@ auto-increment-offset = 2
 
 2.  For each of the Linodes, edit the `bind-address` configuration in order to use the private IP addresses:
 
-{{< file-excerpt "/etc/mysql/my.cnf" >}}
+    {{< file-excerpt "/etc/mysql/my.cnf" >}}
 bind-address    = x.x.x.x
 
 {{< /file-excerpt >}}
@@ -163,7 +163,7 @@ For the following sections of this guide, replace "example.com" with your domain
 
 
 
-{{< file-excerpt "/etc/apache2/sites-available/example.com.conf" apache >}}
+    {{< file-excerpt "/etc/apache2/sites-available/example.com.conf" apache >}}
 # domain: example.com
 # public: /var/www/example.com/public_html/
 
@@ -185,7 +185,7 @@ For the following sections of this guide, replace "example.com" with your domain
 {{< /file-excerpt >}}
 
 
-{{< caution >}}
+    {{< caution >}}
 The file name *must* end with `.conf` in Apache versions 2.4 and later, which Ubuntu 14.04 uses. The `.conf` extension is backwards-compatible with earlier versions.
 {{< /caution >}}
 
@@ -220,7 +220,7 @@ The file name *must* end with `.conf` in Apache versions 2.4 and later, which Ub
 
 4.  Connect to your Linode's IP address using your web browser, and walk through the configuration steps to fully install WordPress.
 
-{{< caution >}}
+    {{< caution >}}
 In order to ensure that each of your WordPress instances addresses the local database, you will need to ensure that the Database Host value in this step is set to `localhost`.  This should be filled in by default.
 {{< /caution >}}
 
@@ -228,7 +228,7 @@ In order to ensure that each of your WordPress instances addresses the local dat
 
     [![WordPressURL](/docs/assets/WP-site-address-rs.png)](/docs/assets/WP-site-address.png)
 
-{{< note >}}
+    {{< note >}}
 After completing your WordPress installation steps and logging in for the first time, you should reset permissions on your Document Root directory to ensure additional security. You can do so with the following command:
 
 
@@ -253,7 +253,7 @@ chmod 755 /var/www/example.com/public_html/
 
 2.  Create a configuration file in order to perform sync actions.  Replace `x.x.x.x` with the Private IP address of the second Linode in your cluster.
  
-{{< file-excerpt "/etc/lsyncd/lsyncd.conf.lua" lua >}}
+    {{< file-excerpt "/etc/lsyncd/lsyncd.conf.lua" lua >}}
 settings = {
 logfile = "/var/log/lsyncd.log",
 statusFile = "/var/log/lsyncd-status.log"

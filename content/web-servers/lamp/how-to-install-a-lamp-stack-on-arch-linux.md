@@ -47,13 +47,13 @@ This guide is written for a non-root user. Commands that require elevated privil
 
 2.  Edit the `httpd-mpm.conf` Apache configuration file in `/etc/httpd/conf/extra/` to adjust the resource use settings. The settings shown below are a good starting point for a **Linode 2GB**:
 
-{{< note >}}
+    {{< note >}}
 Before changing any configuration files, it is advised that you make a backup of the file. To make a backup:
 
 cp /etc/httpd/conf/extra/httpd-mpm.conf ~/httpd-mpm.conf.backup
 {{< /note >}}
 
-{{< file-excerpt "/etc/httpd/conf/extra/httpd-mpm.conf" aconf >}}
+    {{< file-excerpt "/etc/httpd/conf/extra/httpd-mpm.conf" aconf >}}
 <IfModule mpm_prefork_module>
         StartServers            4
         MinSpareServers         20
@@ -67,7 +67,7 @@ cp /etc/httpd/conf/extra/httpd-mpm.conf ~/httpd-mpm.conf.backup
 
 3. Edit the `httpd-default.conf` file to turn KeepAlive off.
 
-{{< file-excerpt "/etc/httpd/conf/extra/httpd-default.conf" aconf >}}
+    {{< file-excerpt "/etc/httpd/conf/extra/httpd-default.conf" aconf >}}
 KeepAlive Off
 
 {{< /file-excerpt >}}
@@ -83,7 +83,7 @@ Virtual hosting can be configured so that multiple domains (or subdomains) can b
 
 1. Open `httpd.conf` and edit the line `DocumentRoot /srv/http` to define the default document root:
 
-{{< file-excerpt "/etc/httpd/conf/httpd.conf" >}}
+    {{< file-excerpt "/etc/httpd/conf/httpd.conf" >}}
 DocumentRoot "/srv/http/default"
 
 {{< /file-excerpt >}}
@@ -91,7 +91,7 @@ DocumentRoot "/srv/http/default"
 
 2. Uncomment the line that reads `Include  conf/extra/httpd-vhosts.conf` near the end of the `/etc/httpd/conf/httpd.conf` file:
 
-{{< file-excerpt "/etc/httpd/conf/httpd.conf" apache >}}
+    {{< file-excerpt "/etc/httpd/conf/httpd.conf" apache >}}
 Include conf/extra/httpd-vhosts.conf
 
 {{< /file-excerpt >}}
@@ -99,7 +99,7 @@ Include conf/extra/httpd-vhosts.conf
 
 2. Open `httpd-vhosts.conf`, under the `extra` folder. Edit the example virtual hosts block to resemble the ones below, replacing `example.com` with your domain.
 
-{{< file-excerpt "/etc/httpd/conf/extra/httpd-vhosts.conf" aconf >}}
+    {{< file-excerpt "/etc/httpd/conf/extra/httpd-vhosts.conf" aconf >}}
 <VirtualHost *:80>
      ServerAdmin webmaster@example.com
      ServerName example.com
@@ -118,7 +118,7 @@ Include conf/extra/httpd-vhosts.conf
 
     Remove the second example in the file, or use it configure a second website.
 
-{{< note >}}
+    {{< note >}}
 `ErrorLog` and `CustomLog` entries are suggested for more fine-grained logging, but are not required. If they are defined (as shown above), the `logs` directories must be created before you restart Apache.
 {{< /note >}}
 
@@ -134,7 +134,7 @@ Include conf/extra/httpd-vhosts.conf
 
     You should now be able to access your website. If no files are uploaded you will see an *Index of /* page.
 
-{{< note >}}
+    {{< note >}}
 Should any additional changes be made to a configuration file restart Apache:
 
 sudo systemctl restart httpd.service
@@ -194,7 +194,7 @@ PHP makes it possible to produce dynamic and interactive pages using your own sc
 
 2.  Edit `/etc/php/php.ini` for better error messages and logs, and upgraded performance. These modifications provide a good starting point for a **Linode 2GB**:
 
-{{< file-excerpt "/etc/php/php.ini" ini >}}
+    {{< file-excerpt "/etc/php/php.ini" ini >}}
 error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
 log_errors = On
 error_log = /var/log/php/error.log
@@ -204,7 +204,7 @@ extension=mysql.so
 {{< /file-excerpt >}}
 
 
-{{< note >}}
+    {{< note >}}
 Ensure that all lines noted above are uncommented. A commented line begins with a semicolon (**;**).
 {{< /note >}}
 
@@ -215,7 +215,7 @@ Ensure that all lines noted above are uncommented. A commented line begins with 
 
 4.  Enable the PHP module in the `/etc/httpd/conf/httpd.conf` file by adding the following lines in the appropriate sections:
 
-{{< file-excerpt "/etc/httpd/conf/httpd.conf" aconf >}}
+    {{< file-excerpt "/etc/httpd/conf/httpd.conf" aconf >}}
 # Dynamic Shared Object (DSO) Support
 LoadModule php7_module modules/libphp7.so
 AddHandler php7-script php
@@ -232,7 +232,7 @@ AddType application/x-httpd-php-source .phps
 
 5.  In the same file, comment out the line `LoadModule mpm_event_module modules/mod_mpm_event.so` by adding a `#` in front, and add the line `LoadModule mpm_prefork_module modules/mod_mpm_prefork.so`:
 
-{{< file-excerpt "/etc/httpd/conf/httpd.conf" apache >}}
+    {{< file-excerpt "/etc/httpd/conf/httpd.conf" apache >}}
 #LoadModule mpm_event_module modules/mod_mpm_event.so
 LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
 

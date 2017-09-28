@@ -148,7 +148,7 @@ Set up a password protected login page for the Solr admin page:
 
 1. Navigate to `/opt/solr/server/etc` and edit the `webdefault.xml` file. Add the following to the end of the file, before `</web-app>`:
 
-{{< file-excerpt "/opt/solr/server/etc/webdefault.xml" aconf >}}
+    {{< file-excerpt "/opt/solr/server/etc/webdefault.xml" aconf >}}
 <login-config>
       <auth-method>BASIC</auth-method>
       <realm-name>Solr Admin Auth</realm-name>
@@ -169,7 +169,7 @@ Set up a password protected login page for the Solr admin page:
 
 2. In the same directory, edit the `jetty.xml` file and add the following before `</Configure>` at the end:
 
-{{< file-excerpt "/opt/solr/server/etc/jetty.xml" aconf >}}
+    {{< file-excerpt "/opt/solr/server/etc/jetty.xml" aconf >}}
 <Call name="addBean">
     <Arg>
         <New class="org.eclipse.jetty.security.HashLoginService">
@@ -185,7 +185,7 @@ Set up a password protected login page for the Solr admin page:
 
 3. Create a `realm.properties` file in the current directory to add the user login information. Replace the username `admin` and `admin123` password with the user and secure password of your choice:
 
-{{< file "/opt/solr/server/etc/realm.properties" aconf >}}
+    {{< file "/opt/solr/server/etc/realm.properties" aconf >}}
 admin: admin123,user
 
 {{< /file >}}

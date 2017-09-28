@@ -46,7 +46,7 @@ To get started, you'll install uWSGI and other packages, and then configure ngin
 
 3.  Using the virtual host configuration below as a guide, create your configuration file.
 
-{{< file "/etc/nginx/sites-available/example.com" nginx >}}
+    {{< file "/etc/nginx/sites-available/example.com" nginx >}}
 server {
         listen          80;
         server_name     $hostname;
@@ -99,7 +99,7 @@ Now, we need to configure uWSGI. Here's how:
 
 2.  Using the configuration below as a guide, create your configuration file.
 
-{{< file "/etc/uwsgi/apps-available/example.com.xml" xml >}}
+    {{< file "/etc/uwsgi/apps-available/example.com.xml" xml >}}
 <uwsgi>
     <plugin>python</plugin>
     <socket>/run/uwsgi/app/example.com/example.com.socket</socket>
@@ -132,7 +132,7 @@ Now, we need to configure uWSGI. Here's how:
 
 4.  If you want to deploy a "Hello World" application, insert the following code into the `/srv/www/example.com/application/wsgi_configuration_module.py` file:
 
-{{< file "/srv/www/example.com/application/wsgi\\_configuration\\_module.py" python >}}
+    {{< file "/srv/www/example.com/application/wsgi\\_configuration\\_module.py" python >}}
 import os
 import sys
 

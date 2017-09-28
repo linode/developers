@@ -34,13 +34,13 @@ The steps required in this guide require root privileges. Be sure to run the ste
 
 	Logwatch will prompt you to select which cron provider to use. Select the default, *cronie*.
 
-{{< note >}}
+	{{< note >}}
 Other SMTP clients can also be used for delivering Logwatch messages.
 {{< /note >}}
 
 3.	Edit the `/etc/postfix/main.cf` file to add your domain information, and allow for send-only mail, replacing `hostname.example.com` with your own hostname and domain:
 
-{{< file-excerpt "/etc/postfix/main.cf" aconf >}}
+	{{< file-excerpt "/etc/postfix/main.cf" aconf >}}
 myhostname = hostname.example.com
 inet_interfaces = loopback-only
 		
@@ -48,13 +48,13 @@ inet_interfaces = loopback-only
 {{< /file-excerpt >}}
 
 
-{{< note >}}
+	{{< note >}}
 Both A/AAAA, and MX records will need to be set for your domain.
 {{< /note >}}
 
 4.	Edit `/etc/postfix/aliases` to uncomment `root` and alias it to `root@hostname.example.com`, replacing `hostname.example.com` with your own hostname and domain:
 
-{{< file-excerpt "/etc/postfix/aliases" aconf >}}
+	{{< file-excerpt "/etc/postfix/aliases" aconf >}}
 root:           root@hostname.example.com
 		
 
@@ -158,7 +158,7 @@ If using Arch, and you followed the above install instructions, Sendmail is alre
 
 2.	Change the `MailTo` address to a valid email address, or local account user. For example, to send mail to the `root` user change the line to read:
 
-{{< file-excerpt "/usr/share/logwatch/default.conf/logwatch.conf" >}}
+	{{< file-excerpt "/usr/share/logwatch/default.conf/logwatch.conf" >}}
 MailTo = root
 		
 
@@ -200,7 +200,7 @@ Logwatch often works best when configured to run daily and send or save a report
 
 2.	Add a line for Logwatch. The following code is configured to run at 00:30 each day:
 
-{{< file-excerpt "/etc/crontab" >}}
+	{{< file-excerpt "/etc/crontab" >}}
 30 0  * * *          /usr/sbin/logwatch
 		
 

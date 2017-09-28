@@ -58,7 +58,7 @@ Nginx uses `server` directives to specify name-based virtual hosts. Nginx calls 
 
 2.  You should now have the following server block in the nginx virtual host configuration:
 
-{{< file "/etc/nginx/sites-available/example.com" nginx >}}
+    {{< file "/etc/nginx/sites-available/example.com" nginx >}}
 server {
     listen 80;
     listen [::]:80;
@@ -78,7 +78,7 @@ server {
 
     Replace `example.com` with your domain name. If your index page uses PHP, add `index.php` to the `index` line:
 
-{{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
+    {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
 index index.html index.php;
 
 {{< /file-excerpt >}}
@@ -86,7 +86,7 @@ index index.html index.php;
 
 3.  The nginx example configuration uses `/var/www/` as a document root, but Ubuntu uses `/var/www/html` as a standard. Additionally, Linode guides encourage the standard practice of using a subdirectory called `public_html` to exclude web files that shouldn't be publicly accesible. Update the `root` directive to match these conventions:
 
-{{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
+    {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
 root   /var/www/html/example.com/public_html;
 
 {{< /file-excerpt >}}
@@ -127,7 +127,7 @@ In order to deploy PHP applications, implement the following *PHP-FastCGI* solut
 
 2.  Modify your virtual host configuration to include the location directive as shown below:
 
-{{< file "/etc/nginx/sites-available/example.com" nginx >}}
+    {{< file "/etc/nginx/sites-available/example.com" nginx >}}
 server {
         listen 80;
         listen [::]:80;
@@ -194,7 +194,7 @@ In this section, you'll create a test page that shows whether nginx can render P
 
 1.  Paste the following code into a new file, `phptest.php`, in the `public_html` directory. Modify `webuser` and `password` to match the information entered in the **Install the MySQL Database Server** section above:
 
-{{< file "/var/www/html/example.com/public_html/phptest.php" php >}}
+    {{< file "/var/www/html/example.com/public_html/phptest.php" php >}}
 <html>
 <head>
     <title>PHP Test</title>

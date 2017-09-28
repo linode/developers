@@ -51,7 +51,7 @@ You'll also need to make some modifications to your `php.ini` file. Here's how:
 
 2.  If necessary, change the settings in that file, as shown below:
 
-{{< file-excerpt "/etc/php5/apache2/php.ini" ini >}}
+    {{< file-excerpt "/etc/php5/apache2/php.ini" ini >}}
 memory_limit = 128M
 post_max_size = 32M
 upload_max_filesize = 16M
@@ -90,7 +90,7 @@ You have successfully installed JRE on your Linode.
 
 Now that you've installed the necessary prerequisites, we can start installing Dolphin. We'll walk you through the process of downloading Dolphin, adding a new MySQL user and database, configuring permissions, running the install script, removing the installation directory, and finally logging in to the Dolphin admin panel.
 
-{{< note >}}
+ {{< note >}}
 We assume that you followed the [Hosting a Website guide](/docs/hosting-website). If you're using a different DocumentRoot directive than `/home/example_user/public/example.com/public` for your virtual host, you'll need to update the path to correctly reflect your DocumentRoot.
 {{< /note >}}
 
@@ -98,7 +98,7 @@ We assume that you followed the [Hosting a Website guide](/docs/hosting-website)
 
 First, you need to download the latest Dolphin release. Here's how:
 
-{{< note >}}
+ {{< note >}}
 Be sure to check the [Dolphin web site](http://www.boonex.com/dolphin) to verify that you are downloading the latest release.
 {{< /note >}}
 
@@ -261,7 +261,7 @@ Now you can install any of Dolphin's modules in the **Tools** \> **Modules** sec
 
 If you have PHP running as an Apache module, you may need to update permissions to allow installation of some of these modules.
 
-{{< note >}}
+ {{< note >}}
 If you are running PHP in CGI mode, you can skip this section.
 {{< /note >}}
 
@@ -311,7 +311,7 @@ Dolphin comes with a free Media Server software (formerly Ray Media Server - RMS
 
 8.  Enter all of the domains you want to have access to your RMS installation. They should be listed one per line, as shown below. Do not include <http://> or www:
 
-    >{{< file >}}
+    > {{< file >}}
 /opt/ray\_server/access.dat
 
 > domain1.com domain2.com domain2.net domain3.com domain3.org
@@ -324,7 +324,7 @@ Dolphin comes with a free Media Server software (formerly Ray Media Server - RMS
 
 11. Set the JAVA\_HOME variable, as shown below:
 
-{{< file >}}
+    {{< file >}}
 /opt/ray\_server/red5.sh
 {{< /file >}}
 
@@ -337,7 +337,7 @@ Dolphin comes with a free Media Server software (formerly Ray Media Server - RMS
 
 14. Set the RAY\_SERVER\_PATH variable, as shown below:
 
-{{< file >}}
+    {{< file >}}
 /opt/ray\_server/run\_daemon.sh
 {{< /file >}}
 
@@ -363,7 +363,7 @@ Dolphin comes with a free Media Server software (formerly Ray Media Server - RMS
 
 20. If the start was successful, you can use the [Boonex Media Server Tester](http://www.boonex.com/rms.html) to verify that your RMS install is working properly. If you get "NetConnection.Connect.Success", everything is working.
 
-{{< note >}}
+ {{< note >}}
 If you receive "NetConnection.Connect.Failed", make sure you have ports 1935 and 1936 open in your firewall. For more information, see the [Securing Your Server guide](/docs/securing-your-server#sph_creating-a-firewall) and the [Firewall reference manuals](/docs/security/firewalls).
 {{< /note >}}
 

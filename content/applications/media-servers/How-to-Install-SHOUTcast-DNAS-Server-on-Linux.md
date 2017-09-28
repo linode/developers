@@ -20,7 +20,7 @@ external_resources:
 
 SHOUTcast is software designed for streaming media over the internet. The SHOUTcast system uses a classic client-server configuration. You can install SHOUTcast on your server and use it to broadcast a stream of music to clients connected to the server. A Shoutcast media server could benefit from large amounts of disk space, so consider using our [Block Storage](/docs/platform/how-to-use-block-storage-with-your-linode) service with this setup.
 
-{{< note >}}
+ {{< note >}}
 Be sure to [check the broadcast tools download page](http://www.shoutcast.com/broadcast-tools) for the newest version of SHOUTcast.
 {{< /note >}}
 
@@ -68,7 +68,7 @@ Now, you'll want to modify the configuration. This is necessary to specify passw
 
 2.  This will bring up the configuration file for editing, as shown below.
 
-{{< file "/home/shoutcast/sc/sc_serv_basic.conf" >}}
+    {{< file "/home/shoutcast/sc/sc_serv_basic.conf" >}}
 ; NOTE: for any relative paths specified are relative to
 ; sc_serv and not to where the conf file is being stored
 
@@ -126,7 +126,7 @@ streampath=/test.aac
 3.  Set the `password` and `adminpassword` variables to whatever you want them to be.
 4.  The `portbase` variable should be set to use a port you are not using for anything else. The default port for SHOUTcast is 8000.
 
-{{< note >}}
+    {{< note >}}
 If you set the `portbase` variable to anything besides 8000, be sure to uncomment it by deleting the semicolon in front of the variable.
 {{< /note >}}
 
@@ -162,7 +162,7 @@ Your SHOUTcast server is now running! You can now connect to it and begin your b
 
 The SHOUTcast Transcoder allows you to schedule DJ play times, broadcast an automatic playlist in a specific time slot, schedule time slots for relayed broadcasts, etc.
 
-{{< note >}}
+ {{< note >}}
 To encode your streams in MP3 format, you *must* [purchase a license key from WinAmp, which costs \$5 USD](http://wiki.winamp.com/wiki/SHOUTcast_DNAS_Transcoder_2#Registering_for_MP3_Stream_Encoding).
 {{< /note >}}
 
@@ -210,7 +210,7 @@ This example will walk you through a basic configuration.
 
 2.  You can modify the bitrate to change the sound quality of the music and limit the amount of bandwidth consumed. If you purchase MP3 licensing, you can modify the encoder section to add the MP3 encoding and your unlock data:
 
-{{< file-excerpt "/home/shoutcast/sct/sc_trans_basic.conf" >}}
+    {{< file-excerpt "/home/shoutcast/sct/sc_trans_basic.conf" >}}
 ; for testing we will only setup a single encoder though it
 ; is easy to add in additional encoder configurations and
 ; we are using an aac plus encoder as the default due to
@@ -229,7 +229,7 @@ unlockkeycode=YourUnlockCode
 
 3.  Next, modify the sc\_trans to sc\_serv connection details:
 
-{{< file-excerpt "/home/shoutcast/sct/sc\\_trans\\_basic.conf" >}}
+    {{< file-excerpt "/home/shoutcast/sct/sc\\_trans\\_basic.conf" >}}
 ; this is where we define the details required for sc_trans
 ; to connect to the sc_serv instance being used where the
 ; details must match those specified in sc_serv_basic.conf
@@ -253,7 +253,7 @@ endpointname_1=/Bob
 
 4.  This step is optional, but you can also update your stream information:
 
-{{< file-excerpt "/home/shoutcast/sct/sc\\_trans\\_basic.conf" >}}
+    {{< file-excerpt "/home/shoutcast/sct/sc\\_trans\\_basic.conf" >}}
 ; here you would provide any information to fill in details
 ; provided to clients about the stream. it us up to you what
 ; is entered though do not do anything which will annoy, etc
@@ -266,7 +266,7 @@ genre=Misc
 
 5.  Set your playlist file for an automated stream:
 
-{{< file-excerpt "/home/shoutcast/sct/sc\\_trans\\_basic.conf" >}}
+    {{< file-excerpt "/home/shoutcast/sct/sc\\_trans\\_basic.conf" >}}
 ; here we specify a playlist to use as the master list from
 ; which to play files from.
 playlistfile=playlists/main.lst
@@ -276,7 +276,7 @@ playlistfile=playlists/main.lst
 
 6.  Now set the port, username, and password for the transcoder admin panel access:
 
-{{< file-excerpt "/home/shoutcast/sct/sc\\_trans\\_basic.conf" >}}
+    {{< file-excerpt "/home/shoutcast/sct/sc\\_trans\\_basic.conf" >}}
 ; these options will allow you access the admin interfaces
 ; of sc_trans though also allows the 'testui' example to be
 ; accessed. remember to change the password, etc as needed
@@ -291,7 +291,7 @@ adminpassword=goaway
 8.  If you are using an automated playlist, upload your music files to the `/home/shoutcast/sct/music` directory.
 9.  If you are using an automated playlist, you'll also need to create a playlist file. Here is an example:
 
-{{< file "/home/shoutcast/sct/playlists/playlist.lst" >}}
+    {{< file "/home/shoutcast/sct/playlists/playlist.lst" >}}
 # This example playlist is used as the main playlist sc_trans will use to pick
 # out the files it will use to create its output for the source we generate.
 #

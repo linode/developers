@@ -98,7 +98,7 @@ By default, password authentication is used to connect to your Linode via SSH. A
 
     **Linux / OS X**
 
-{{< caution >}}
+    {{< caution >}}
 If you've already created an RSA key-pair, this command will overwrite it, potentially locking you out of other systems. If you've already created a key-pair, skip this step. To check for existing keys, run `ls ~/.ssh/id_rsa*`.
 {{< /caution >}}
 
@@ -128,7 +128,7 @@ If you've already created an RSA key-pair, this command will overwrite it, poten
 
         scp ~/.ssh/id_rsa.pub example_user@203.0.113.10:~/.ssh/authorized_keys
 
-{{< note >}}
+    {{< note >}}
 `ssh-copy-id` is available in [Homebrew](http://brew.sh/) if you prefer it over SCP. Install with `brew install ssh-copy-id`.
 {{< /note >}}
 
@@ -159,7 +159,7 @@ If you've already created an RSA key-pair, this command will overwrite it, poten
 1.  **Disallow root logins over SSH.** This requires all SSH connections be by non-root users. Once a limited user account is connected, administrative privileges are accessible either by using `sudo` or changing to a root shell using `su -`.
 
 
-{{< file-excerpt "/etc/ssh/sshd_config" aconf >}}
+    {{< file-excerpt "/etc/ssh/sshd_config" aconf >}}
 # Authentication:
 ...
 PermitRootLogin no
@@ -169,14 +169,14 @@ PermitRootLogin no
 
 2.  **Disable SSH password authentication.** This requires all users connecting via SSH to use key authentication. Depending on the Linux distribution, the line `PasswordAuthentication` may need to be added, or uncommented by removing the leading `#`.
 
-{{< file-excerpt "/etc/ssh/sshd_config" aconf >}}
+    {{< file-excerpt "/etc/ssh/sshd_config" aconf >}}
 # Change to no to disable tunnelled clear text passwords
 PasswordAuthentication no
 
 {{< /file-excerpt >}}
 
 
-{{< note >}}
+    {{< note >}}
 You may want to leave password authentication enabled if you connect to your Linode from many different computers. This will allow you to authenticate with a password instead of generating and uploading a key-pair for every device.
 {{< /note >}}
 

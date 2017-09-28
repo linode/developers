@@ -57,7 +57,7 @@ Since Magento will be served by Apache, some additional configuration is needed 
 
 2.  Modify the virtual host file for your Magento site to resemble the example below. If you have not previously created a virtual host file, do so now and refer to our [Apache on CentOS 7](/docs/websites/apache/install-and-configure-apache-on-centos-7) guide for additional guidance.
 
-{{< file "/etc/httpd/conf.d/vhost.conf" aconf >}}
+    {{< file "/etc/httpd/conf.d/vhost.conf" aconf >}}
 <Directory /var/www/html/example.com/public_html>
     Require all granted
 </Directory>
@@ -107,7 +107,7 @@ As of this guide's publication, Magento 2 is not compatible with MariaDB, which 
 
         sudo grep 'temporary password' /var/log/mysqld.log
 
-{{< note >}}
+    {{< note >}}
 If you previously installed MariaDB or MySQL and set a root password, this installation may not override your existing database credentials. If that's the case, use the root password you set previously.
 {{< /note >}}
 
@@ -127,7 +127,7 @@ If you previously installed MariaDB or MySQL and set a root password, this insta
 
     This section assumes that your database is hosted on the same server as your Magento application. If this is not the case, perform these steps and then refer to Magento's guide on using a [remote database server](http://devdocs.magento.com/guides/v2.0/install-gde/prereq/mysql_remote.html).
 
-{{< note >}}
+    {{< note >}}
 You may receive an error about the complexity of your password if it is not secure enough. By default, CentOS 7 enables the `validate-password` plugin for MySQL. For more information, refer to the official [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/validate-password-plugin.html).
 
 Don't use an exclamation point (`!`) in your password. The Magento installation script does not parse them correctly in its command options.
@@ -153,7 +153,7 @@ Magento is a PHP application, so you will need to install PHP 7 and make some ad
 
 3.  Modify the following settings in your `php.ini` file:
 
-{{< file-excerpt "/etc/php.ini" >}}
+    {{< file-excerpt "/etc/php.ini" >}}
 This sets the time zone for PHP's `date()` function and imposes a 2GB limit to the amount of memory PHP can use. This value is recommended for a 4GB Linode, but could be increased for a larger server.
 
 {{< note >}}
@@ -199,7 +199,7 @@ In this section, we'll explain how to get the Magento Community Edition (CE) sof
 
     In this step, you'll also be able to download the software with optional sample data. Whether you choose this or the basic version is up to you.
 
-{{< note >}}
+    {{< note >}}
 When choosing a version, refer to Magento's [prerequisites](http://devdocs.magento.com/guides/v2.0/install-gde/prereq/prereq-overview.html) to ensure a particular version's compatibility with the components of your LAMP stack. As of this writing, Magento version 2.1.2 is compatible with all package versions covered in this guide.
 {{< /note >}}
 
@@ -243,7 +243,7 @@ When choosing a version, refer to Magento's [prerequisites](http://devdocs.magen
 
     This allows your `magento` user (and members of the `apache` group) to write to the various files they need to run and serve Magento on your site.
 
-{{< note >}}
+    {{< note >}}
 The first two commands may take some time to run because they are matching various files and directories in your installation folder. It may appear that the system is inactive, but be sure to allow a couple minutes before cancelling the operations. You can always start a new SSH connection, or run these commands in a [screen](/docs/networking/ssh/using-gnu-screen-to-manage-persistent-terminal-sessions) session, and use tools like [htop & iotop](/docs/uptime/monitoring/top-htop-iotop#additional-top-like-programs) to monitor progress.
 {{< /note >}}
 
@@ -272,7 +272,7 @@ The first two commands may take some time to run because they are matching vario
     -   **db-user** - This is the MySQL database user you set up previously. In our example, we called it `magento` but if you chose a different name, use that here instead.
     -   **db-password** - This will be the password you configured for the `magento` MySQL user.
 
-{{< note >}}
+    {{< note >}}
 These are just a few of the available options to configure your Magento installation. For more information, refer to the [Magento Installation Guide](http://devdocs.magento.com/guides/v2.1/install-gde/install/cli/install-cli-install.html) and feel free to use additional options when running the script.
 {{< /note >}}
 

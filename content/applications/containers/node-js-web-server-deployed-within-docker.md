@@ -23,7 +23,7 @@ Use the Docker-maintained install script for Debian or Ubuntu. For other operati
 
         curl -sSL https://get.docker.com/ | sh
 
-{{< note >}}
+    {{< note >}}
 The current version of the Docker script checks for AUFS support and displays the warning below if support is not found:
 
 Warning: current kernel is not supported by the linux-image-extra-virtual
@@ -60,7 +60,7 @@ Note that when an image downloads, no image containers run.
 
         sudo docker run -p 80:3000 -t -i linode/server-node-js /bin/bash 
 
-{{< caution >}}
+     {{< caution >}}
 This command also changes the terminal prompt to the root user within the new container.
 {{< /caution >}}
 

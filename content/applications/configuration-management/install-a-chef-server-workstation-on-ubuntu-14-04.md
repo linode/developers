@@ -192,7 +192,7 @@ The workstation is used to add and edit cookbooks and other configuration files.
 
 2.	Copy the following configuration into the `knife.rb` file:
 
-{{< file "~/chef-repo/.chef/knife.rb" >}}
+	{{< file "~/chef-repo/.chef/knife.rb" >}}
 log_level                :info
 log_location             STDOUT
 node_name                'username'
@@ -261,7 +261,7 @@ This section is optional, but provides instructions on downloading a cookbook to
 
 2.	Open the `default.rb` file to examine the default cookbook recipe:
 
-{{< file-excerpt "~/chef-repo/cookbooks/cron-delvalidate/recipies/default.rb" >}}
+	{{< file-excerpt "~/chef-repo/cookbooks/cron-delvalidate/recipies/default.rb" >}}
 #
 # Cookbook Name:: cron-delvalidate
 # Recipe:: Chef-Client Cron & Delete Validation.pem

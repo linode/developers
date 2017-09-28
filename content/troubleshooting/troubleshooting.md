@@ -77,7 +77,7 @@ To verify that your Linode is operating correctly, you should try to log in with
 
 If you can log in, continue to the next section, even if there are error messages visible on the console.
 
-{{< note >}}
+ {{< note >}}
 For more information about LISH, see [this guide](/docs/networking/using-the-linode-shell-lish).
 {{< /note >}}
 
@@ -175,7 +175,7 @@ Disk input/output (I/O) bottlenecks can occur when an application or service is 
 4.  If your I/O wait percentage is above zero, verify that your server has enough free memory available. In many cases, high I/O is an indication that your server has started "swapping," or using disk space as memory.
 5.  If your server has free memory available and is not using swap space, use `iotop` or [vmstat](/docs/uptime/monitoring/use-vmstat-to-monitor-system-performance) to find the application responsible for the excessive I/O. Databases are the usual suspects. You may need to stop and/or reconfigure the application.
 
-{{< note >}}
+ {{< note >}}
 You must run `iotop` as `root` or with `sudo`.
 {{< /note >}}
 
@@ -187,7 +187,7 @@ Since `top` only reports what is currently happening, and most I/O issues are te
 
 Use the following checklist if your website is not loading when you try to connect to it.
 
-{{< note >}}
+ {{< note >}}
 You should follow all steps in the [Linode is Slow or Unresponsive](#linode-is-slow-or-unresponsive) section before using this checklist.
 {{< /note >}}
 
@@ -274,7 +274,7 @@ If you recently added a new IP address for an SSL certificate and it's not worki
 
 Use the following checklist if you cannot connect to your Linode via SSH or an FTP client application.
 
-{{< note >}}
+ {{< note >}}
 You should follow all steps in the [Linode is Slow or Unresponsive](#linode-is-slow-or-unresponsive) section before using this checklist.
 {{< /note >}}
 

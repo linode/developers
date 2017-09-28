@@ -96,7 +96,7 @@ Replace each instance of `example.com` in this guide with your site's domain nam
 
     WordPress will test the credentials and if authentication is successful, prompt you to **Run the install**.
 
-{{< note >}}
+    {{< note >}}
 If Wordpress doesn't display when you visit your domain, try adding `/wp-admin` to the end of the URL. This sometimes happens if you previously created an index file in your site's home directory.
 {{< /note >}}
 
@@ -108,7 +108,7 @@ If Wordpress doesn't display when you visit your domain, try adding `/wp-admin` 
 
 3.  By default, WordPress will prompt you for FTP credentials when you install new themes or plugins. To bypass this, modify your `wp-config.php` file by adding the following lines:
 
-{{< file-excerpt "/var/www/html/example.com/public_html/wp-config.php" php >}}
+    {{< file-excerpt "/var/www/html/example.com/public_html/wp-config.php" php >}}
 /** Bypass FTP */
 define('FS_METHOD', 'direct');
 

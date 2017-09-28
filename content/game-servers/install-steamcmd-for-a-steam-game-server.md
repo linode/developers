@@ -89,7 +89,7 @@ Game servers and clients are an especially ripe target for attack. Use our [Secu
     COMMIT
     ~~~
 
-{{< note >}}
+    {{< note >}}
 Some Steam games require a few additional rules which can be found in our [Steam game guides](/docs/applications/game-servers/). Steam can also use multiple port ranges for various purposes, but they should only be allowed if your game(s) make use of those services. See [this](https://support.steampowered.com/kb_article.php?ref=8571-GLVN-8711) Steam Support page for more information.
 {{< /note >}}
 
@@ -155,7 +155,7 @@ Installing via the package manager allows you to more easily download updates an
 
         sudo apt-get install steamcmd
 
-{{< note >}}
+    {{< note >}}
 On Debian you need to add the `non-free` area of the repository to your sources, because the package is available only there.
 {{< /note >}}
 
@@ -176,7 +176,7 @@ On Debian you need to add the `non-free` area of the repository to your sources,
 
         sudo apt-get install lib32gcc1
 
-{{< note >}}
+    {{< note >}}
 Running `dpkg --add-architecture i386` is not necessary at this point. Our Steam game guides add [multiarch support](https://wiki.debian.org/Multiarch/HOWTO) only when a game requires it.
 {{< /note >}}
 
@@ -250,11 +250,11 @@ The game server will still operate despite this error, and it should be somethin
 
         login example_user
 
-{{< caution >}}
+    {{< caution >}}
 Be aware that some versions of the Steam CLI do **not** obfuscate passwords. If you're signing in with your Steam account, be aware of your local screen's security.
 {{< /caution >}}
 
-{{< note >}}
+    {{< note >}}
 You can exit the `Steam>` prompt at any time by typing `quit`.
 {{< /note >}}
 

@@ -26,7 +26,7 @@ This guide is intended to be very beginner-friendly. It takes a Linux 101 approa
 
 ![Title graphic](/docs/assets/introduction_to_linux_concepts_smg.png)
 
-{{< note >}}
+ {{< note >}}
 Everything on a Linux system is case-sensitive. That means that `photo.jpg`, `photo.JPG`, and `Photo.jpg` are all different files. Usernames and passwords are also case-sensitive.
 {{< /note >}}
 
@@ -73,7 +73,7 @@ After you know which distribution you want to install, follow the instructions f
 
 Your Linode is physically housed in the Atlanta, Dallas, Frankfurt, Fremont, London, Newark, Singapore, or Tokyo data center, so you have to use the Internet and a terminal to connect to it and start using it. A *terminal* is a tool that runs a *shell* that lets you run text commands to interact with your server. The Secure Shell (**SSH**) protocol lets you send these commands to your Linode over a secure Internet connection from your local machine.
 
-{{< note >}}
+ {{< note >}}
 In this guide, we'll mostly be using the terms *terminal*, *shell*, and *SSH* to refer to the interface you use to send text commands to your Linux system. These are different tools that layer on top of each other to let you interact with your server. To learn more, read these simplified definitions:
 
   - **Terminal**: A device that enters data into and displays data from a computer. The terminal has the most direct access to the operating system. Technically, most terminals these days are actually *terminal emulators* that run as software on Mac OS X, Linux, or Windows computers.
@@ -98,7 +98,7 @@ What does this bit of text mean? The entire thing is the *shell prompt*. It's yo
 
 You can type any valid Linux shell command at the blinking cursor after the shell prompt. We'll go over a few practical commands in the rest of this article, but to get a really good in-depth introduction to the command-line interface, you should read the [Using the Terminal](/docs/using-linux/using-the-terminal) article as well.
 
-{{< note >}}
+ {{< note >}}
 These command line tips will make your Linux forays much more effective:
 
 - Press the `Return` or `Enter` key after you finish a command.
@@ -178,7 +178,7 @@ The output should look something like this:
 
 There are quite a few files inside this directory. The most important part is the list of directory and file names on the right, listed alphabetically. You'll notice the directories `lib` and `var`, as well as several others.
 
-{{< note >}}
+ {{< note >}}
 The **/root** directory is not the same as the **/** directory. **/** is the top-level directory of the server. Everything else is inside it. It is called the *root* directory when you're talking about it, but its name on the server is just **/**. On the other hand, the **/root** directory is the home directory for the **root** user. It's a sub-directory under the **/** directory, and it's where the **root** user starts after logging in to a new SSH session.
 {{< /note >}}
 
@@ -369,7 +369,7 @@ Update a Fedora or CentOS system:
 
     yum update
 
-{{< caution >}}
+ {{< caution >}}
 Updating your software is good for your system security. In most cases updates will go smoothly, but it's possible that some updates may break something on your server. It's always wise to make a [backup](/docs/platform/backup-service) of your system before updating it.
 {{< /caution >}}
 

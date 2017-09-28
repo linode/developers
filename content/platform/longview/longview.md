@@ -40,7 +40,7 @@ To access Longview, log in to the [Linode Manager](https://manager.linode.com) a
 
 To add a Longview system, first add a system to the Longview interface in the Linode Manager. Then install the Longview client application on your system. At that point, the Longview client application will start transferring your system statistics to Linode's servers.
 
-{{< note >}}
+ {{< note >}}
 Longview can monitor any Linux system running a supported distribution - including systems not hosted by Linode.
 {{< /note >}}
 
@@ -153,7 +153,7 @@ If you're running a Fedora or CentOS distribution, follow these steps to manuall
         enabled=1
         gpgcheck=1
 
-{{< note >}}
+ {{< note >}}
 You can find your distribution's name and version number by entering the following command: `cat /etc/redhat-release`
 {{< /note >}}
 
@@ -224,7 +224,7 @@ Follow these commands to install Longview on your Linode manually:
         Successfully installed DBI-1.630
         29 distributions installed
 
-{{< note >}}
+    {{< note >}}
 If you don't have MySQL installed, you'll receive an error about dependencies for Longview-MySQL. You can safely ignore the error if MySQL isn't installed. Here's an example of the output:
 
 ==== Installing Longview-MySQL dependencies ==== ! Configure failed for DBD-mysql-4.025. See /root/.cpanm/work/1384896259.21932/build.log for details. ==== Translating Headers ==== /usr/include/syscall.h -\> /usr/include/syscall.ph
@@ -289,7 +289,7 @@ This tab is simply designed to give you a basic idea of what's going on with you
 
 The **Network** tab allows you to monitor the inbound and outbound traffic to your system, as shown below. The graph at the top of the page shows the combined inbound and outbound data transfer. The other graphs show the data transfer over the IPv4 and IPv6 public and private networks.
 
-{{< note >}}
+ {{< note >}}
 If you are monitoring a non-Linode system, only a single graph will be shown for each network interface.
 {{< /note >}}
 
@@ -325,7 +325,7 @@ To inspect the services that are actively waiting for a connection, select the *
 
 See who's connected to your system by selecting the **active connections** link, as shown above. All users with active connections are displayed.
 
-{{< note >}}
+ {{< note >}}
 The `root` user may also appear in the list if there is an active SSH connection. That's because SSH runs as `root` before dropping privileges to the non-root account, and it never closes the file handle. This *does not* necessarily mean that the `root` user is connected via SSH.
 {{< /note >}}
 
@@ -345,7 +345,7 @@ By default, Longview displays statistics for the past twelve hours. However, if 
 
 All of the graphs will be updated to display data for the time interval you selected. To reset the time interval and reenable live updating, select **Past 30 minutes (live)** from the viewing history menu.
 
-{{< note >}}
+ {{< note >}}
 If you have selected a time interval other than **Past 30 minutes (live)**, the graphs will not be automatically updated with new data.
 {{< /note >}}
 

@@ -101,7 +101,7 @@ ssh_authorized_keys:
 
         ./coreos-install -v -d /dev/sda -c cloud-config.yml
 
-{{< note >}}
+    {{< note >}}
 You can also supply any other options (see `coreos-install -h`). If you do not want verbose output, you can leave out the `-v` flag.
 {{< /note >}}
 

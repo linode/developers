@@ -50,7 +50,7 @@ The configurations in this section will apply system-wide across all user accoun
 
 1.  A default Vim installation will feature a file containing Vim's core global settings called *vimrc*. This file will be located at either `/etc/vim/vimrc` or `etc/vimrc`, depending on your linux distribution.
 
-{{< note >}}
+    {{< note >}}
 Prefixing the `sudo` command is necessary when editing files where read and/or write permissions are not granted to your user account.
 {{< /note >}}
 
@@ -202,7 +202,7 @@ Using a plug-in manager automates both the installation and setup of any plug-in
 
 2.  Open *.vimrc* in the Vim editor and add the following text at the bottom to call the *.vimrc.plug* file.
 
-{{< file "~/.vimrc" vim >}}
+    {{< file "~/.vimrc" vim >}}
 . . .
  " Call the .vimrc.plug file
  if filereadable(expand("~/.vimrc.plug"))
@@ -215,11 +215,11 @@ Using a plug-in manager automates both the installation and setup of any plug-in
 
 3.  Now, open the *.vimrc.plug* file in Vim. Populate the file with the contents below to add the *Fugitive Vim* plug-in, a Github wrapper. With this plug-in installed, you can now run a Git terminal from within Vim!
 
-{{< note >}}
+     {{< note >}}
 Any additional plug-ins to be installed need to be added between the "plug#begin" and "plug#end" lines.
 {{< /note >}}
 
-{{< file "~/.vimrc.plug" vim >}}
+    {{< file "~/.vimrc.plug" vim >}}
 call plug#begin('~/.vim/plugged')
 
 "Fugitive Vim Github Wrapper
@@ -230,7 +230,7 @@ call plug#end()
 {{< /file >}}
 
 
-{{< note >}}
+     {{< note >}}
 If after this step you receive an error similar to `E117 Unknown Function: plug#end` check the user permissions over `~/.vim/` you may need to `chmod -R 0755
 {{< /note >}}
 

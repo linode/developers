@@ -75,7 +75,7 @@ From the SteamCMD guide, two additional steps are needed specifically for JC2.
 
         quit
 
-{{< note >}}
+    {{< note >}}
 To update JC2, run the above 4 commands again.
 {{< /note >}}
 
@@ -94,7 +94,7 @@ To update JC2, run the above 4 commands again.
 
 4.  Create a startup script for JC2 with the following contents:
 
-{{< file "~/startjc2.sh" >}}
+    {{< file "~/startjc2.sh" >}}
 #!/bin/sh
 
 cd ./Steam/jc2mp-server
@@ -115,7 +115,7 @@ screen -S "Just Cause 2 Muliplayer Server" ./Jcmp-Server
 
         cd ~/ && ./startjc2.sh
 
-{{< caution >}}
+    {{< caution >}}
 From this point, do not press the **Control+C** keys while in the console unless you want to stop JC2.
 {{< /caution >}}
 

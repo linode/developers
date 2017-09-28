@@ -47,7 +47,7 @@ The Oracle JDK, includes a development environment for building applications wit
 
         sudo add-apt-repository ppa:webupd8team/java
 
-{{< note >}}
+    {{< note >}}
 This repository is *not* maintained by Oracle. It does not contain actual Java files, but does allow us to download installers for Oracle Java software. Before using the installers, you'll be prompted to accept a license agreement, which can be found in its entirety [here](http://www.oracle.com/technetwork/java/javase/terms/license/index.html).
 {{< /note >}}
 

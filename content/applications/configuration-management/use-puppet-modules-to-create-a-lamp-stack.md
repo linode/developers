@@ -43,7 +43,7 @@ This guide assumes that you are working from an Ubuntu 14.04 LTS Puppet master a
 
 1.  From within the `manifests` directory, an `init.pp` class needs to be created. This class should share its name with the module name:
 
-{{< file "/etc/puppet/modules/apache/manifests/init.pp" puppet >}}
+    {{< file "/etc/puppet/modules/apache/manifests/init.pp" puppet >}}
 class apache {
         
 }
@@ -53,7 +53,7 @@ class apache {
         
     This file will be used to install the Apache package. Ubuntu 14.04 and CentOS 7 have different package names for Apache, however. Because of this, a variable will be used:
     
-{{< file "/etc/puppet/modules/apache/manifests/init.pp" puppet >}}
+    {{< file "/etc/puppet/modules/apache/manifests/init.pp" puppet >}}
 class apache {
           
   package { 'apache':
@@ -72,7 +72,7 @@ class apache {
 
     Create and open `params.pp`:
     
-{{< file "/etc/puppet/modules/apache/manifests/params.pp" >}}
+    {{< file "/etc/puppet/modules/apache/manifests/params.pp" >}}
 class apache::params {
         
 }
@@ -86,7 +86,7 @@ class apache::params {
 
     The skeleton of the `if` statement should resemble the following:
 
-{{< file "/etc/puppet/modules/apache/manifests/params.pp" puppet >}}
+    {{< file "/etc/puppet/modules/apache/manifests/params.pp" puppet >}}
 class apache::params {
         
   if $::osfamily == 'RedHat' {
@@ -104,7 +104,7 @@ class apache::params {
         
     And once we've added the variables that have already been referenced:
     
-{{< file "/etc/puppet/modules/apache/manifests/params.pp" puppet >}}
+    {{< file "/etc/puppet/modules/apache/manifests/params.pp" puppet >}}
 class apache::params {
         
   if $::osfamily == 'RedHat' {
@@ -120,13 +120,13 @@ class apache::params {
 {{< /file >}}
 ~
         
-{{< note >}}
+    {{< note >}}
 For the duration of this guide, when something needs to be added to the parameter list the variables needed for Red Hat and Debian will be provided, but the expanding code will not be shown. A complete copy of `params.pp` can be viewed [here](/docs/assets/params.pp).
 {{< /note >}}
 
 4.  With the parameters finally defined, we need to call the `params.pp` file and the parameters into `init.pp`. To do this, the parameters need to be added after the class name, but before the opening curly bracket (`{`):
 
-{{< file-excerpt "/etc/puppet/modules/apache/manifests/init.pp" puppet >}}
+    {{< file-excerpt "/etc/puppet/modules/apache/manifests/init.pp" puppet >}}
 class apache (
   $apachename   = $::apache::params::apachename,
 ) inherits ::apache::params {
@@ -145,7 +145,7 @@ Apache has two different configuration files, depending on whether you are worki
 
 2.  Both files need to be edited to turn `KeepAlive` settings to `Off`. This setting will need to be added to `httpd.conf`. Otherwise, a comment should to added to the top of each file:
 
-{{< file-excerpt "/etc/puppet/modules/apache/files/httpd.conf" aconf >}}
+    {{< file-excerpt "/etc/puppet/modules/apache/files/httpd.conf" aconf >}}
 # This file is managed by Puppet
 
 {{< /file-excerpt >}}
@@ -153,7 +153,7 @@ Apache has two different configuration files, depending on whether you are worki
 
 3.  These files now need to be added to the `init.pp` file, so Puppet will know where they are located on both the master server and agent nodes. To do this, the `file` resource is used:
 
-{{< file-excerpt "/etc/puppet/modules/apache/manifests/init.pp" puppet >}}
+    {{< file-excerpt "/etc/puppet/modules/apache/manifests/init.pp" puppet >}}
 file { 'configuration-file':
   path    => $conffile,
   ensure  => file,
@@ -167,7 +167,7 @@ file { 'configuration-file':
 
 4.  Open the `params.pp` file. The `$conffile` and `$confsource` variables need to be defined within the `if` statement:
 
-{{< file-excerpt "/etc/puppet/modules/apache/manifests/params.pp" puppet >}}
+    {{< file-excerpt "/etc/puppet/modules/apache/manifests/params.pp" puppet >}}
 if $::osfamily == 'RedHat' {
           
 ...
@@ -191,7 +191,7 @@ if $::osfamily == 'RedHat' {
 
 5.  When the configuration file is changed, Apache needs to restart. To automate this, the `service` resource can be used in combination with the `notify` attribute, which will call the resource to run whenever the configuration file is changed:
 
-{{< file-excerpt "/etc/puppet/modules/apache/manifests/init.pp" puppet >}}
+    {{< file-excerpt "/etc/puppet/modules/apache/manifests/init.pp" puppet >}}
 file { 'configuration-file':
   path    => $conffile,
   ensure  => file,
@@ -218,7 +218,7 @@ The Virtual Hosts files will be managed differently, depending on whether the se
 
 2.  Create the skeleton of the `if` statement:
 
-{{< file "/etc/puppet/modules/apache/manifests/vhosts.pp" puppet >}}
+    {{< file "/etc/puppet/modules/apache/manifests/vhosts.pp" puppet >}}
 class apache::vhosts {
         
   if $::osfamily == 'RedHat' {
@@ -238,7 +238,7 @@ class apache::vhosts {
 
     For Red Hat systems:
     
-{{< file "/etc/puppet/modules/apache/templates/vhosts-rh.conf.erb" aconf >}}
+    {{< file "/etc/puppet/modules/apache/templates/vhosts-rh.conf.erb" aconf >}}
 <VirtualHost *:80>
     ServerAdmin	<%= @adminemail %>
     ServerName <%= @servername %>
@@ -253,7 +253,7 @@ class apache::vhosts {
         
     For Debian systems:
     
-{{< file "/etc/puppet/modules/apache/templates/vhosts-deb.conf.erb" aconf >}}
+    {{< file "/etc/puppet/modules/apache/templates/vhosts-deb.conf.erb" aconf >}}
 <VirtualHost *:80>
     ServerAdmin	<%= @adminemail %>
     ServerName <%= @servername %>
@@ -273,7 +273,7 @@ class apache::vhosts {
 
 4.  Return to the `vhosts.pp` file. The templates created can now be referenced in the code:
 
-{{< file "/etc/puppet/modules/apache/manifests/vhosts.pp" puppet >}}
+    {{< file "/etc/puppet/modules/apache/manifests/vhosts.pp" puppet >}}
 class apache::vhosts {
         
   if $::osfamily == 'RedHat' {
@@ -297,13 +297,13 @@ class apache::vhosts {
         
         Both distribution families call to the `file` resource and take on the title of the virtual host's location on the respective distribution. For Debian, this once more means referencing the `$servername` value. The `content` attribute calls to the respective templates.
         
-{{< note >}}
+        {{< note >}}
 Values containing variables, such as the name of the Debian file resource above, need to be wrapped in double quotes (`"`). Any variables in single quotes (`'`) are parsed exactly as written and will not pull in a variable.
 {{< /note >}}
 
 5.  Both virtual hosts files reference two directories that are not on the distributions by default. These can be created through the use of the `file` resource, each located within the `if` statement. The complete `vhosts.conf` file should resemble:
 
-{{< file "/etc/puppet/modules/apache/manifests/vhosts.pp" puppet >}}
+    {{< file "/etc/puppet/modules/apache/manifests/vhosts.pp" puppet >}}
 class apache::vhosts {
         
   if $::osfamily == 'RedHat' {
@@ -355,7 +355,7 @@ class apache::vhosts {
 
 2.  Navigate to the `examples` directory within the `apache` module. Create an `init.pp` file and include the created classes. Provide variables for `servername` and `adminemail`:
 
-{{< file "/etc/puppet/modules/apache/examples/init.pp" >}}
+    {{< file "/etc/puppet/modules/apache/examples/init.pp" >}}
 $serveremail = 'webmaster@example.com'
 $servername = 'example.com'
         
@@ -375,7 +375,7 @@ include apache::vhosts
 
 5.  Open `site.pp` and include the Apache module for each agent node. Also input the variables for the `adminemail` and `servername` parameters. If you followed the [Puppet Setup](/docs/applications/puppet/set-up-puppet-master-agent) guide, a single node configuration within `site.pp` will resemble the following:
 
-{{< file-excerpt "/etc/puppet/manifests/site.pp" puppet >}}
+    {{< file-excerpt "/etc/puppet/manifests/site.pp" puppet >}}
 node 'ubuntuhost.example.com' {
   $adminemail = 'webmaster@example.com'
   $servername = 'hostname.example.com'
@@ -442,7 +442,7 @@ Before you begin to create the configuration files for the MySQL module, conside
 
 1.  Navigate to `/etc/puppet` and create Hiera's configuration file `hiera.yaml` in the main `puppet` directory:
 
-{{< file "/etc/puppet/hiera.yaml" yaml >}}
+    {{< file "/etc/puppet/hiera.yaml" yaml >}}
 :backends:
   - yaml
 :yaml:
@@ -471,7 +471,7 @@ Before you begin to create the configuration files for the MySQL module, conside
 
 5.  Open the first node's configuration file to define the first database. In this example, the database is called `webdata1`, with `username` and `password` self-defined. The `grant` value is granting the user all access to the webdata1 database:
 
-{{< file "/etc/puppet/hieradata/nodes/ubuntuhost.example.com.yaml" yaml >}}
+    {{< file "/etc/puppet/hieradata/nodes/ubuntuhost.example.com.yaml" yaml >}}
 databases:
   webdata1:
    user: 'username'
@@ -483,7 +483,7 @@ databases:
         
     Repeat with the second server. In this example, the database is called `webdata2`:
     
-{{< file "/etc/puppet/hieradata/nodes/centoshost.example.com.yaml" yaml >}}
+    {{< file "/etc/puppet/hieradata/nodes/centoshost.example.com.yaml" yaml >}}
 databases:
   webdata2:
    user: 'username'
@@ -497,7 +497,7 @@ databases:
 
 6.  Return to the `hieradata` directory and create the file `common.yaml`. It will be used to define the default `root` password for MySQL:
 
-{{< file "/etc/puppet/hieradata/common.yaml" >}}
+    {{< file "/etc/puppet/hieradata/common.yaml" >}}
 mysql::server::root_password: 'password'
 
 {{< /file >}}
@@ -507,7 +507,7 @@ mysql::server::root_password: 'password'
 
 7.  Puppet now needs to know to use the information input in Hiera to create the defined database. Move to the `mysql` module directory and within the `manifests` directory create `database.pp`. Here you will define a class that will link the `mysql::db` resource to the Hiera data. It will also call the `mysql::server` class, so it will not have to be included later:
 
-{{< file "/etc/puppet/modules/mysql/manifests/database.pp" puppet >}}
+    {{< file "/etc/puppet/modules/mysql/manifests/database.pp" puppet >}}
 class mysql::database {
 
   include mysql::server
@@ -533,7 +533,7 @@ class mysql::database {
 
 3.  Two packages will be installed: The PHP package and the PHP Extension and Application Repository. Use the `package` resource for this:
 
-{{< file "/etc/puppet/modules/php/manifests/init.pp" puppet >}}
+    {{< file "/etc/puppet/modules/php/manifests/init.pp" puppet >}}
 class php {
         
   package { 'php':
@@ -552,7 +552,7 @@ class php {
         
     Because the `php` package has different names on Ubuntu and CentOS, it will once again need to be defined with a parameter. However, because this is the only parameter we will be needing, it will be added directly to the `init.pp` file:
     
-{{< file "/etc/puppet/modules/php/manifests/init.pp" puppet >}}
+    {{< file "/etc/puppet/modules/php/manifests/init.pp" puppet >}}
 class php {
         
   $phpname = $osfamily ? {
@@ -577,7 +577,7 @@ class php {
 
 4.  Use the `service` resource to ensure that PHP is on and set to start at boot:
 
-{{< file "/etc/puppet/modules/php/manifests/init.pp" puppet >}}
+    {{< file "/etc/puppet/modules/php/manifests/init.pp" puppet >}}
 class php {
         
   $phpname = $osfamily ? {

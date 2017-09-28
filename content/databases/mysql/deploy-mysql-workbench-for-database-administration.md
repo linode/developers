@@ -83,7 +83,7 @@ The first step after running MySQL Workbench is to add your Linode as a database
 
 2.  Once you've configured everything, click **Test Connection**.  If you didn't save your passwords then Workbench will prompt for them.
 
-{{< note >}}
+    {{< note >}}
 Pay attention to the **Service** area of each dialog.  Use the appropriate password (SSH or MySQL) or the connection will fail.
 {{< /note >}}
 
@@ -143,7 +143,7 @@ MySQL Workbench is deployed in safe mode by default. This will not allow certain
 
 3. Uncheck the line beginning with **"Safe Updates".**
 
-{{< note >}}
+    {{< note >}}
 In some instances, this may instead be found under **SQL Editor**.
 {{< /note >}}
 

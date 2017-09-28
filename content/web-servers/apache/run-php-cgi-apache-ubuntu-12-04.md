@@ -106,7 +106,7 @@ This may not be ideal if you have multiple users running publicly accessible scr
 
 2.  In the `<VirtualHost >` entries for your sites (the site-specific files in `/etc/apache2/sites-avalible/`) add the following sub-block:
 
-{{< file-excerpt "Apache Virtual Hosting Configuration Block" apache >}}
+    {{< file-excerpt "Apache Virtual Hosting Configuration Block" apache >}}
 <IfModule mpm_itk_module>
 	   AssignUserId webeditor webgroup
 </IfModule>

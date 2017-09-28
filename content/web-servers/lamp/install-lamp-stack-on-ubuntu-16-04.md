@@ -63,7 +63,7 @@ Instead of installing Apache, MySQL, and PHP separately, tasksel offers a conven
 
     The state of `KeepAlive` depends on the type of site you plan to run. Please read more about your specific use-case [here](https://httpd.apache.org/docs/2.4/mod/core.html#keepalive) open the Apache config file, `apache2.conf`, and adjust the `KeepAlive` setting:
 
-{{< file "/etc/apache2/apache2.conf" aconf >}}
+    {{< file "/etc/apache2/apache2.conf" aconf >}}
 KeepAlive On
 MaxKeepAliveRequests 50
 KeepAliveTimeout 5
@@ -71,13 +71,13 @@ KeepAliveTimeout 5
 {{< /file >}}
 
 
-{{< note >}}
+    {{< note >}}
 The `MaxKeepAliveRequests` setting controls the maximum number of requests during a persistent connection. 50 is a conservative amount; you may need to set this number higher depending on your use-case. The `KeepAliveTimeout` controls how long the server waits for new requests from already connected clients, setting this option to 5 will avoid wasting RAM.
 {{< /note >}}
 
 3.  The default *multi-processing module* (MPM) is the **prefork** module. `Mpm_prefork` is the module that is compatible with most systems. Since the LAMP stack requires PHP, it may be best to stick with the default. Open the `mpm_prefork.conf` file located in `/etc/apache2/mods-available` and edit the configuration. Below are the suggested values for a **2GB Linode**:
 
-{{< file "/etc/apache2/mods-available/mpm_prefork.conf" aconf >}}
+    {{< file "/etc/apache2/mods-available/mpm_prefork.conf" aconf >}}
 <IfModule mpm_prefork_module>
         StartServers            4
         MinSpareServers         3
@@ -108,7 +108,7 @@ You can set up virtual hosts several ways; however, below is the recommended met
 
 2.  Edit the new `example.com.conf` configuration file by uncommenting `ServerName` and replacing `example.com` with your site's IP or Fully Qualified Domain Name (FQDN). Enter the document root path and log directories as shown below, and add a `Directory` block before `</VirtualHost>`:
 
-{{< file "/etc/apache2/sites-available/example.com.conf" apache >}}
+    {{< file "/etc/apache2/sites-available/example.com.conf" apache >}}
 <Directory /var/www/html/example.com/public_html>
         Require all granted
 </Directory>
@@ -126,7 +126,7 @@ You can set up virtual hosts several ways; however, below is the recommended met
 {{< /file >}}
 
 
-{{< note >}}
+    {{< note >}}
 The file example above has all comment sections removed for brevity; you may keep or remove the commented areas as you see fit.
 
 The `ServerAlias` directive allows you to include multiple domain names or subdomains for a single host. The example above allows visitors to use `example.com` or `www.example.com` to navigate to this virtual host.
@@ -140,7 +140,7 @@ The `ServerAlias` directive allows you to include multiple domain names or subdo
 
         sudo a2ensite example.com.conf
 
-{{< note >}}
+    {{< note >}}
 If you need to disable your website, run:
 
 a2dissite example.com.conf
@@ -199,7 +199,7 @@ Install the `mysql-server` package and choose a secure password when prompted:
 
 2.  Once PHP7.0 is installed, edit the configuration file located in `/etc/php/7.0/apache2/php.ini` to enable more descriptive errors, logging, and better performance. The following modifications provide a good starting point:
 
-{{< file-excerpt "/etc/php/7.0/apache2/php.ini" ini >}}
+    {{< file-excerpt "/etc/php/7.0/apache2/php.ini" ini >}}
 max_input_time = 30
 error_reporting = E_COMPILE_ERROR | E_RECOVERABLE_ERROR | E_ERROR | E_CORE_ERROR
 error_log = /var/log/php/error.log
@@ -207,7 +207,7 @@ error_log = /var/log/php/error.log
 {{< /file-excerpt >}}
 
 
-{{< note >}}
+    {{< note >}}
 The beginning of the `php.ini` file contains examples commented out with a semicolon (**;**), which disables these directives. Ensure that the lines you modify in this step follow the examples section and are uncommented.
 {{< /note >}}
 
@@ -221,7 +221,7 @@ The beginning of the `php.ini` file contains examples commented out with a semic
         sudo systemctl restart apache2
 
 
-{{< note >}}
+	{{< note >}}
 If you plan on using your LAMP stack to host a WordPress server, download these PHP modules: `apt install php-curl php-gd php-mbstring php-mcrypt php-xml php-xmlrpc`
 {{< /note >}}
 
@@ -231,7 +231,7 @@ In this section, you'll create a test page that shows whether Apache can render 
 
 1.  Paste the following code into a new file, `phptest.php`, in the `public_html` directory. Modify `webuser` and `password` to match the information entered in the **Create a MySQL Database** section above:
 
-{{< file-excerpt "/var/www/html/example.com/public_html/phptest.php" php >}}
+    {{< file-excerpt "/var/www/html/example.com/public_html/phptest.php" php >}}
 <html>
 <head>
     <title>PHP Test</title>

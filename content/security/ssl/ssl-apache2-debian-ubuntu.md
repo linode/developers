@@ -36,7 +36,7 @@ This guide assumes that you are running Apache 2.4 or higher on Debian 8 or Ubun
 
 1.  Edit the virtual host configuration files located in `/etc/apache2/sites-available` to provide the certificate file paths. For each virtual host, replicate the configuration shown below. Replace each mention of `example.com` with your own domain. You will also need to ensure that the `SSLCACertificateFile` value is configured to point to the `ca-certificates.crt` file updated in the previous step:
 
-{{< file-excerpt "/etc/apache2/sites-available/example.com.conf" aconf >}}
+    {{< file-excerpt "/etc/apache2/sites-available/example.com.conf" aconf >}}
 <VirtualHost *:443>
     SSLEngine On
     SSLCertificateFile /etc/ssl/certs/example.com.crt

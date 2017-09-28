@@ -60,7 +60,7 @@ First, you need to establish a basic connection to your Linode:
 
     [![An unknown host key warning in PuTTY on Windows.](/docs/assets/362-putty-02-host-key-warning.png)](/docs/assets/362-putty-02-host-key-warning.png)
 
-{{< note >}}
+    {{< note >}}
 This warning appears because PuTTY wants you to verify that the server you're logging in to is who it says it is. It is unlikely, but possible, that someone could be eavesdropping on your connection and posing as your Linode. To verify the server, compare the key fingerprint shown in the PuTTY warning - the string of numbers and letters starting with **ssh-rsa** in the image above - with your Linode's public key fingerprint. To get your Linode's fingerprint, log in to your Linode via the AJAX console (see the **Console** tab in the Linode Manager) and executing the following command:
 
 ssh-keygen -l -f /etc/ssh/ssh\_host\_rsa\_key.pub
@@ -80,7 +80,7 @@ This section will show you how to create an SSH tunnel to MySQL on Mac OS X or L
 
     Replace <**user@example.com*>\* with your SSH username and your server's hostname or IP address. The long string of numbers in the command lists the local IP, the local port, the remote IP, and the remote port, separated by colons (**:**).
 
-{{< note >}}
+    {{< note >}}
 If you're already running a local copy of MySQL on your workstation, use a different local port (3307 is a common choice). Your new command would look like this:
 
 ssh -L 127.0.0.1:3307:127.0.0.1:3306 user@example.com -N

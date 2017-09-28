@@ -19,7 +19,7 @@ The Linode Shell (*Lish*) provides console access to all of your Linodes. It als
 
 There are two ways to access Lish. You can use a terminal application to connect to a *Lish SSH gateway*, or you can log in to the [Linode Manager](https://manager.linode.com) and use the Ajax console in your web browser. This section explains both methods.
 
-{{< note >}}
+ {{< note >}}
 Lish used to be accessible via a direct SSH connection to your Linode's host machine, but as of May 10, 2013, all users must connect to a Lish SSH gateway to access Lish. For more information, please see [this blog post](https://blog.linode.com/2013/04/30/lish-ssh-gateway/).
 {{< /note >}}
 
@@ -46,7 +46,7 @@ You can connect to Lish with the SSH client of your choice. For example, you can
 
         ssh user@lish-newark.linode.com
 
-{{< note >}}
+	{{< note >}}
 Users who have been granted "Access" rights on a particular Linode will have access to that Linode’s Lish console via the gateway. Linodes that a user can't access in the Linode Manager won’t show up in the Lish list. For more information about creating user accounts and configuring permissions, see [Accounts and Passwords](/docs/accounts-and-passwords).
 {{< /note >}}
 
@@ -60,7 +60,7 @@ Users who have been granted "Access" rights on a particular Linode will have acc
         Linodes located in other data centers:          
         linode287497         Dallas, TX    
 
-{{< note >}}
+	{{< note >}}
 You can add a public SSH key for Lish in the Linode Manager to automatically connect to Lish without a password. See [this section](#adding-your-public-key) for more information.
 {{< /note >}}
 

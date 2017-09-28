@@ -105,7 +105,7 @@ This section covers configuration for simple virtual hosting. The `simple-vhost`
 
 3.  Modify the following settings in your `/etc/lighttpd/conf-available/10-simple-vhost.conf` file:
 
-{{< file-excerpt "/etc/lighttpd/conf-available/10-simple-vhost.conf" lighty >}}
+    {{< file-excerpt "/etc/lighttpd/conf-available/10-simple-vhost.conf" lighty >}}
 simple-vhost.server-root = "/var/www/html"
 simple-vhost.document-root = "htdocs"
 simple-vhost.default-host = "example.com"
@@ -147,7 +147,7 @@ Enhanced virtual hosting works slightly differently than Simple by building the 
 
 3.  To accomplish the same directory structure with `evhost` as with `simple-vhost` above, you need to modify the `/etc/lighttpd/conf-available/10-evhost.conf` file:
 
-{{< file-excerpt "/etc/lighttpd/conf-available/10-evhost.conf" lighty >}}
+    {{< file-excerpt "/etc/lighttpd/conf-available/10-evhost.conf" lighty >}}
 evhost.path-pattern = "/var/www/html/%0/htdocs/"
 
 {{< /file-excerpt >}}
@@ -155,7 +155,7 @@ evhost.path-pattern = "/var/www/html/%0/htdocs/"
 
 4.  Modify the `server.document-root` in the main lighttpd configuration file:
 
-{{< file-excerpt "/etc/lighttpd/lighttpd.conf" lighty >}}
+    {{< file-excerpt "/etc/lighttpd/lighttpd.conf" lighty >}}
 server.document-root = "/var/www/html/example.com/htdocs"
 
 {{< /file-excerpt >}}
@@ -163,7 +163,7 @@ server.document-root = "/var/www/html/example.com/htdocs"
 
     With the configuration you set in Steps 3 and 4, if `example.com` is requested, and `/var/www/html/example.com/htdocs/` is found, that directory becomes the document root when serving requests. The `0%` in the path pattern specifies that a request will be checked against host files named in the format of domain and Top Level Domain (TLD). The `server.document-root` directive specifies a default host that is used when a matching directory does not exist.
 
-{{< caution >}}
+    {{< caution >}}
 These steps configure `server.document-root` to `/var/www/html`. According to lighttpd documentation, this [may expose your server to a vulnerability](https://redmine.lighttpd.net/projects/lighttpd/wiki/Docs_ModEVhost#A-Bad-Example) in which authentication can be bypassed in certain situations. If improperly configured, this may also redirect unmatched requests to the lighttpd index page rather than the default host of your choosing.
 {{< /caution >}}
 

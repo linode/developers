@@ -129,7 +129,7 @@ Nagios Plugins allow you to monitor services like DHCP, FTP, HTTP and NTP. To us
 
         sudo service nagios start
 
-{{< note >}}
+    {{< note >}}
 For Ubuntu versions after 14.04, see the [Systemd section below](#systemd) before running this step.
 {{< /note >}}
 
@@ -149,7 +149,7 @@ For Ubuntu versions after 14.04, see the [Systemd section below](#systemd) befor
 
 As of this guide's publication, the Nagios build process does not create a systemd service file. In order to manage the service with systemd, create a Nagios service file for the system to load on initialization:
 
-{{< file "/etc/systemd/system/nagios.service" ini >}}
+ {{< file "/etc/systemd/system/nagios.service" ini >}}
 [Unit]
 Description=Nagios
 BindTo=network.target

@@ -114,7 +114,7 @@ Oracle is producing many updates for Java, so below steps ensures you are gettin
  
 11. The above command will work for this session only, but you will need to be added to all system users especially when server reboots, so for the Bourne shell, create a new file called `/etc/profile.d/java.sh`, replacing `jdk1.8.0_45` with the appropriate version:
 
-{{< file "/etc/profile.d/java.sh" shell >}}
+    {{< file "/etc/profile.d/java.sh" shell >}}
 if ! echo ${PATH} | grep -q /opt/jdk1.8.0_45/bin ; then
    export PATH=/opt/jdk1.8.0_45/bin:${PATH}
 fi
@@ -130,7 +130,7 @@ export CLASSPATH=.:/opt/jdk1.8.0_45/lib/tools.jar:/opt/jdk1.8.0_45/jre/lib/rt.ja
 
 12. For the C shell, create a new file called `/etc/profile.d/java.csh`, replacing `jdk1.8.0_51` with the appropriate version:
 
-{{< file "/etc/profile.d/java.csh" shell >}}
+    {{< file "/etc/profile.d/java.csh" shell >}}
 if ( "${path}" !~ */opt/jdk1.8.0_45/bin* ) then
    set path = ( /opt/jdk1.8.0_45/bin $path )
 endif
@@ -175,7 +175,7 @@ setenv CLASSPATH .:/opt/jdk1.8.0_45/lib/tools.jar:/opt/jdk1.8.0_45/jre/lib/rt.ja
 
     Create wildfly installation file, & execute using root user:
 
-{{< file "/opt/wildfly-install.sh" shell >}}
+    {{< file "/opt/wildfly-install.sh" shell >}}
 #!/bin/bash
 #Title : wildfly-install.sh
 #Description : The script to install Wildfly 8.x
@@ -322,7 +322,7 @@ Please Follow these steps to install MySQL driver as "module" in WildFly
 
 3.  Create a file defining the module to the same folder `/opt/wildfly/modules/com/mysql/main` named `module.xml` have the following information, replacing the `mysql-connector-java-5.1.34-bin.jar` with the correct version:
 
-{{< file "/opt/wildfly/modules/com/mysql/main/module.xml" xml >}}
+    {{< file "/opt/wildfly/modules/com/mysql/main/module.xml" xml >}}
 <module xmlns="urn:jboss:module:1.3" name="com.mysql">
    <resources>
        <resource-root path="mysql-connector-java-5.1.34-bin.jar"/>
@@ -342,7 +342,7 @@ Please Follow these steps to install MySQL driver as "module" in WildFly
 
 5.  We need to define MySQL driver in `/opt/wildfly/standalone/configuration/standalone.xml` by adding the following driver definition within the drivers tag, by default you will find only definition for h2:
 
-{{< file-excerpt "/opt/wildfly/standalone/configuration/standalone.xml" xml >}}
+    {{< file-excerpt "/opt/wildfly/standalone/configuration/standalone.xml" xml >}}
 <drivers>
     <driver name="h2" module="com.h2database.h2">
         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
@@ -431,7 +431,7 @@ There are multiple ways for setting Apache HTTP to direct calls to WildFly (mod_
 
 4.  We need to configure Apache HTTP server to use this module, we will create worker file for mod_jk, and add its content (Status worker is useful in debugging as well):
 
-{{< file "/etc/httpd/conf.d/workers.properties" aconf >}}
+    {{< file "/etc/httpd/conf.d/workers.properties" aconf >}}
 worker.list=jboss1,jkstatus
 worker.jkstatus.type=status
 worker.jboss1.type=ajp13
@@ -445,7 +445,7 @@ worker.jboss1.host=127.0.0.1
  
 5.  Instead of modifying Apache configuration file; better create extra Apache HTTP configuration file that will work as Apache by default has in the file `/etc/httpd/conf/httpd.conf` the directive `IncludeOptional conf.d/*.conf`:
 
-{{< file "/etc/httpd/conf.d/modjk.conf" aconf >}}
+    {{< file "/etc/httpd/conf.d/modjk.conf" aconf >}}
 # To avoid error AH00558: httpd: Could not reliably
 # determine the server's fully qualified domain name
 # replace 1.2.3.4 with your server IP

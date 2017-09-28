@@ -194,7 +194,7 @@ The first column with the ten letters and dashes shows the permissions of the fi
     ``Jan  9 10:11`` is the date/time of last access
     ``documents`` is the directory
 
-{{< note >}}
+ {{< note >}}
 Since a directory itself is a file, any directory will always show `4096` as it's size. This does not reflect the size of the contents of the directory.
 {{< /note >}}
 

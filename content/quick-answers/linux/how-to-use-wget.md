@@ -64,7 +64,7 @@ Picking the right location for your Linode is important, you have to decide what
 	Wget will then make a file and log the download information inside of it: 
 	
 	
-{{< file "newarkTest" >}}
+	{{< file "newarkTest" >}}
 02350K .......... .......... .......... .......... ..........100%  457M 0s
 102400K                                                       100% 0.00 =0.6s
 

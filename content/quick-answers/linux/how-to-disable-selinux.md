@@ -45,7 +45,7 @@ To disable SELinux on your Linode follow along with this video and the steps bel
         cd /etc/sysconfig/selinux
         
 
-{{< file-excerpt "/etc/sysconfig/selinux" aconf >}}
+    {{< file-excerpt "/etc/sysconfig/selinux" aconf >}}
 # This file controls the state of SELinux on the system.
 # SELINUX= can take one of these three values:
 #     enforcing - SELinux security policy is enforced.
@@ -63,7 +63,7 @@ SELINUXTYPE=targeted
 
 2. Change `SELINUX=enabled` to `SELINUX=disabled`:
 
-{{< file-excerpt "/etc/sysconfig/selinux" selinux >}}
+    {{< file-excerpt "/etc/sysconfig/selinux" selinux >}}
 # This file controls the state of SELinux on the system.
 # SELINUX= can take one of these three values:
 #     enforcing - SELinux security policy is enforced.

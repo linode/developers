@@ -70,7 +70,7 @@ To check that Postfix and Dovecot are running and to find startup errors, follow
 
     On a normal restart, you should see the following:
 
-{{< file-excerpt "/var/log/mail.log" >}}
+    {{< file-excerpt "/var/log/mail.log" >}}
 May 22 15:41:59 godel postfix/master[19624]: terminating on signal 15 
 May 22 15:41:59 godel postfix/master[20232]: daemon started -- version 2.9.6, configuration /etc/postfix
 
@@ -79,14 +79,14 @@ May 22 15:41:59 godel postfix/master[20232]: daemon started -- version 2.9.6, co
 
 9.  Dovecot's default startup log is also in `/var/log/mail.log`. On a normal restart, you should see the following:
 
-{{< file-excerpt "/var/log/mail.log" >}}
+    {{< file-excerpt "/var/log/mail.log" >}}
 May 22 17:46:54 master: Warning: Killed with signal 15 (by pid=1 uid=0 code=kill) 
 May 22 17:48:09 master: Info: Dovecot v2.0.19 starting up (core dumps disabled)
 
 {{< /file-excerpt >}}
 
 
-{{< note >}}
+    {{< note >}}
 If you moved the Dovecot logs, the normal Dovecot startup messages will be in `/var/log/dovecot.log` instead. If you can't find the Dovecot logs, locate them with the following command:
 
 doveadm log find
@@ -99,7 +99,7 @@ doveadm log find
 
     Here's an example where a syntax error in the `/etc/dovecot/conf.d/10-master.conf` file has been identified:
 
-{{< file-excerpt "/var/log/upstart/dovecot.log" >}}
+    {{< file-excerpt "/var/log/upstart/dovecot.log" >}}
 doveconf: Fatal: Error in configuration file /etc/dovecot/conf.d/10-master.conf line 36: Unexpected '}'
 
 {{< /file-excerpt >}}
@@ -136,7 +136,7 @@ Follow these instructions to enable verbose logging for Dovecot and change the l
 
 2.  Add this line to set the new file path for the log:
 
-{{< file-excerpt "/etc/dovecot/conf.d/10-logging.conf" >}}
+    {{< file-excerpt "/etc/dovecot/conf.d/10-logging.conf" >}}
 log_path = /var/log/dovecot.log
 
 {{< /file-excerpt >}}
@@ -144,7 +144,7 @@ log_path = /var/log/dovecot.log
 
 3.  Uncomment the `auth_verbose` and `mail_debug` lines, and then set them to `yes`:
 
-{{< file-excerpt "/etc/dovecot/conf.d/10-logging.conf" >}}
+    {{< file-excerpt "/etc/dovecot/conf.d/10-logging.conf" >}}
 auth_verbose = yes
         
 mail_debug = yes
@@ -169,7 +169,7 @@ Follow these instructions to enable verbose logging for Postfix:
 
 2.  Add a `-v` to the `smtp` line to enable verbose logging:
 
-{{< file-excerpt "/etc/postfix/master.cf" >}}
+    {{< file-excerpt "/etc/postfix/master.cf" >}}
 # ==========================================================================
 # service type  private unpriv  chroot  wakeup  maxproc command + args
 #               (yes)   (yes)   (yes)   (never) (100)
@@ -342,7 +342,7 @@ In this section, you'll install Postfix and configure it to deliver mail for you
 3.  Enter your fully-qualified domain name or any domain name that resolves to the server.
 4.  Open `/etc/postfix/main.cf` for editing, and add your domain(s) to the `mydestination` line. If your hostname and hosts files were set up correctly before installing Postfix, this list should already include your full-qualified domain name and several references to localhost, which you can leave as they are.
 
-{{< file-excerpt "/etc/postfix/main.cf" >}}
+    {{< file-excerpt "/etc/postfix/main.cf" >}}
 mydestination = example.com, localhost
 
 {{< /file-excerpt >}}
@@ -352,7 +352,7 @@ mydestination = example.com, localhost
 
         service postfix restart
 
-{{< note >}}
+    {{< note >}}
 Use that command whenever the instructions tell you to restart Postfix. Substitute `dovecot` for `postfix` when the instructions tell you to restart Dovecot.
 {{< /note >}}
 
@@ -380,7 +380,7 @@ In this section, you'll install Dovecot and set it up so you can check your emai
 
 2.  Open `/etc/dovecot/conf.d/10-mail.conf` for editing, and set the `mail_location` to the line shown below. This setting should direct Dovecot to look for mail in the same location where Postfix stores the mail, which should be `/var/mail/myuser` by default (Dovecot uses the variable `%u` so the correct username is used in the path). The mailbox format is designated as `mbox`.
 
-{{< file-excerpt "/etc/dovecot/conf.d/10-mail.conf" >}}
+    {{< file-excerpt "/etc/dovecot/conf.d/10-mail.conf" >}}
 mail_location = mbox:~/mail:INBOX=/var/mail/%u
 
 {{< /file-excerpt >}}
@@ -388,7 +388,7 @@ mail_location = mbox:~/mail:INBOX=/var/mail/%u
 
 3.  Also in `/etc/dovecot/conf.d/10-mail.conf`, set the `mail_privileged_group` to `mail`:
 
-{{< file-excerpt "/etc/dovecot/conf.d/10-mail.conf" >}}
+    {{< file-excerpt "/etc/dovecot/conf.d/10-mail.conf" >}}
 mail_privileged_group = mail
 
 {{< /file-excerpt >}}
@@ -396,7 +396,7 @@ mail_privileged_group = mail
 
 4.  In `/etc/dovecot/conf.d/10-auth.conf`, allow plain-text authentication by setting `disable_plaintext_auth` to `no`:
 
-{{< file-excerpt "/etc/dovecot/conf.d/10-auth.conf" >}}
+    {{< file-excerpt "/etc/dovecot/conf.d/10-auth.conf" >}}
 disable_plaintext_auth = no
 
 {{< /file-excerpt >}}
@@ -404,7 +404,7 @@ disable_plaintext_auth = no
 
 5.  In `/etc/pam.d/dovecot`, tell Dovecot to use standard UNIX authentication. This means that your SSH username and password will also work for mail. Edit the file so it contains only the following:
 
-{{< file-excerpt "/etc/pam.d/dovecot" >}}
+    {{< file-excerpt "/etc/pam.d/dovecot" >}}
 auth required pam_unix.so nullok account required pam_unix.so
 
 {{< /file-excerpt >}}
@@ -437,7 +437,7 @@ You may want to reference [Postfix's Virtual Readme](http://www.postfix.org/VIRT
 
 1.  Create a virtual users file for Postfix. This will list all the email addresses and their delivery locations relative to the `virtual_mailbox_base` parameter (which gets configured in `/etc/postfix/main.cf`, which we'll get to momentarily). We're calling the file `/etc/postfix/virtual_users_list`, and it should look something like this:
 
-{{< file-excerpt "/etc/postfix/virtual_users_list" >}}
+    {{< file-excerpt "/etc/postfix/virtual_users_list" >}}
 email1@example.com example.com/email1/ 
 email2@example.com example.com/email2/
 
@@ -445,7 +445,7 @@ email2@example.com example.com/email2/
 
 2.  Create a virtual users file for Dovecot. This will list all your email usernames (just use the email addresses) and their passwords in plain text (obviously this is not production-ready). It should look something like this:
 
-{{< file-excerpt "/etc/dovecot/users" >}}
+    {{< file-excerpt "/etc/dovecot/users" >}}
 email1@example.com:{Plain}firstpassword
 email2@example.com:{Plain}secondpassword
 
@@ -456,19 +456,19 @@ email2@example.com:{Plain}secondpassword
 
 3.  Edit Postfix's main configuration file, `/etc/postfix/main.cf`. Remove every domain except `localhost` from the `mydestination` parameter. Create a new parameter called `virtual_mailbox_domains` and add your domains:
 
-{{< file-excerpt "/etc/postfix/main.cf" >}}
+    {{< file-excerpt "/etc/postfix/main.cf" >}}
 virtual_mailbox_domains = example.com, hostname, hostname.example.com, localhost.example.com
 
 {{< /file-excerpt >}}
 
 
-{{< note >}}
+    {{< note >}}
 There can be no overlap between the `mydestination` and `virtual_mailbox_domains` lists.
 {{< /note >}}
 
 4.  Also in `/etc/postfix/main.cf`, add the line `virtual_mailbox_base` and set it to `/var/mail/vhosts` so mail gets delivered to the new mailboxes. The final part of the path for each user is in the `virtual_users_list` file from Step 1.
 
-{{< file-excerpt "/etc/postfix/main.cf" >}}
+    {{< file-excerpt "/etc/postfix/main.cf" >}}
 virtual_mailbox_base = /var/mail/vhosts
 
 {{< /file-excerpt >}}
@@ -476,7 +476,7 @@ virtual_mailbox_base = /var/mail/vhosts
 
 5.  Also in `/etc/postfix/main.cf`, add the line `virtual_mailbox_maps` and set it to the virtual users file you created in Step 1. It is a "hash" type file. If you're following this example exactly, it will be:
 
-{{< file-excerpt "/etc/postfix/main.cf" >}}
+    {{< file-excerpt "/etc/postfix/main.cf" >}}
 virtual_mailbox_maps = hash:/etc/postfix/virtual_users_list
 
 {{< /file-excerpt >}}
@@ -486,7 +486,7 @@ virtual_mailbox_maps = hash:/etc/postfix/virtual_users_list
 
 6.  The last change for `/etc/postfix/main.cf` in this section is to set up the new `vmail` system user. This user will own the virtual mailboxes. Add the following new lines:
 
-{{< file-excerpt "/etc/postfix/main.cf" >}}
+    {{< file-excerpt "/etc/postfix/main.cf" >}}
 virtual_minimum_uid = 100
 virtual_uid_maps = static:5000
 virtual_gid_maps = static:5000
@@ -495,7 +495,7 @@ virtual_gid_maps = static:5000
 
 7.  Let's take a moment to sum up all the changes that you just made in `/etc/postfix/main.cf`. You removed all the domains except `localhost` from the `mydestination` parameter, and added several new lines for the virtual domains and users, which should look like this (add the `#Virtual domains` comment if desired):
 
-{{< file-excerpt "/etc/postfix/main.cf" >}}
+    {{< file-excerpt "/etc/postfix/main.cf" >}}
 #Virtual domains
 virtual_mailbox_domains = example.com, host
 virtual_mailbox_base = /var/mail/vhosts
@@ -526,7 +526,7 @@ virtual_gid_maps = static:5000
 12. Restart Postfix.
 13. Try sending yourself a test message. Check `/var/log/mail.log`; you should see something like this:
 
-{{< file-excerpt "/var/log/mail.log" >}}
+    {{< file-excerpt "/var/log/mail.log" >}}
 Mar  8 18:01:27 host postfix/virtual[4418]: E2C7528420: to=<email1@example.com>, relay=virtual, delay=0.01, delays=0.01/0/0/0, dsn=2.0.0, status=sent (delivered to maildir)
 
 {{< /file-excerpt >}}
@@ -535,7 +535,7 @@ Mar  8 18:01:27 host postfix/virtual[4418]: E2C7528420: to=<email1@example.com>,
 
 14. Next up is Dovecot. First, update the `mail_location` in `/etc/dovecot/conf.d/10-mail.conf`:
 
-{{< file-excerpt "/etc/dovecot/conf.d/10-mail.conf" >}}
+    {{< file-excerpt "/etc/dovecot/conf.d/10-mail.conf" >}}
 passdb {
   driver = passwd-file
   args = username_format=%u /etc/dovecot/users
@@ -548,7 +548,7 @@ userdb {
 {{< /file-excerpt >}}
 
 
-{{< note >}}
+    {{< note >}}
 The `passdb` section details how email users can authenticate. The `driver` line tells Dovecot you're using a flat file, and the `args` line tells it where it is and what format to expect. (This is the `/etc/dovecot/users` file you made in Step 2.)
 
 The `userdb` line tells Dovecot where to find the mail on the server and which system user it should use to access the mail files. Since the format for each mailbox's location is the same, the `userdb` can be static. You're telling it to use the `vmail` user to access the mailboxes. Finally, the `home=` parameter tells Dovecot to look for mail in `var/mail/vhosts/example.com/user`. This setting MUST match the `virtual_mailbox_base` + `/etc/postfix/virtual_users_list` relative path in Postfix's settings. You have to tell Dovecot to look for mail in the same place you told Postfix to put the mail.
@@ -556,7 +556,7 @@ The `userdb` line tells Dovecot where to find the mail on the server and which s
 
 16. Now you just need to tell Dovecot to use `auth-passwdfile.conf.ext` instead of `auth-system.conf.ext`, so it uses that lovely new password file you created in Step 2. In `/etc/dovecot/conf.d/10-auth.conf`, add `#` to comment out the system user file, and remove `#` to enable the passwdfile config file:
 
-{{< file-excerpt "/etc/dovecot/conf.d/10-auth.conf" >}}
+    {{< file-excerpt "/etc/dovecot/conf.d/10-auth.conf" >}}
 #!include auth-system.conf.ext
 !include auth-passwdfile.conf.ext
 
@@ -567,7 +567,7 @@ The `userdb` line tells Dovecot where to find the mail on the server and which s
 18. Send yourself another test message.
 19. See if you can check your email with IMAP or POP3; you can use a mail client or Telnet. You should now be able to use your email address and email password to log in, rather than your system username and password.
 
-{{< note >}}
+    {{< note >}}
 Remember that these three paths have to match: the `virtual_mailbox_base` + `/etc/postfix/virtual_users_list` relative path in Postfix's settings, the `mail_location` in Dovecot, and the `home=` in Dovecot.
 {{< /note >}}
 
@@ -585,7 +585,7 @@ See [Dovecot's wiki article about LMTP](http://wiki2.dovecot.org/HowTo/PostfixDo
 
 2.  In `/etc/dovecot/dovecot.conf`, add or modify the `protocols` line to look like the following. If you need to add the line, you can add it below `!include_try /usr/share/dovecot/protocols.d/*.protocol`.
 
-{{< file-excerpt "/etc/dovecot/dovecot.conf" >}}
+    {{< file-excerpt "/etc/dovecot/dovecot.conf" >}}
 protocols = imap pop3 lmtp
 
 {{< /file-excerpt >}}
@@ -593,7 +593,7 @@ protocols = imap pop3 lmtp
 
 3.  Carefully edit the existing `service lmtp` section of `/etc/dovecot/conf.d/10-master.conf` to look like the following, which will enable the socket:
 
-{{< file-excerpt "/etc/dovecot/conf.d/10-master.conf" >}}
+    {{< file-excerpt "/etc/dovecot/conf.d/10-master.conf" >}}
 service lmtp {
  unix_listener /var/spool/postfix/private/dovecot-lmtp {
    mode = 0600
@@ -611,7 +611,7 @@ service lmtp {
 {{< /file-excerpt >}}
 
 
-{{< note >}}
+    {{< note >}}
 Make sure you count your brackets. An extra or missing bracket in this section will produce a syntax error that prevents Dovecot from starting.
 {{< /note >}}
 
@@ -622,7 +622,7 @@ Make sure you count your brackets. An extra or missing bracket in this section w
 
 6.  Now, tell Postfix to use the new socket for local delivery. In `/etc/postfix/main.cf`, set this line:
 
-{{< file-excerpt "/etc/postfix/main.cf" >}}
+    {{< file-excerpt "/etc/postfix/main.cf" >}}
 virtual_transport = lmtp:unix:private/dovecot-lmtp
 
 {{< /file-excerpt >}}
@@ -639,7 +639,7 @@ This process is very similar to the one for LMTP, because you're first creating 
 
 1.  Carefully edit `/etc/dovecot/conf.d/10-master.conf` to look like the following, which will enable the socket:
 
-{{< file-excerpt "/etc/dovecot/conf.d/10-master.conf" >}}
+    {{< file-excerpt "/etc/dovecot/conf.d/10-master.conf" >}}
 service auth {
   # auth_socket_path points to this userdb socket by default. It's typically
   # used by dovecot-lda, doveadm, possibly imap process, etc. Its default
@@ -670,13 +670,13 @@ service auth {
 {{< /file-excerpt >}}
 
 
-{{< note >}}
+    {{< note >}}
 Again, watch your brackets.
 {{< /note >}}
 
 2.  In the `service auth-worker` section, set `user` to `vmail`.
 
-{{< file-excerpt "/etc/dovecot/conf.d/10-master.conf" >}}
+    {{< file-excerpt "/etc/dovecot/conf.d/10-master.conf" >}}
 service auth-worker {
   # Auth worker process is run as root by default, so that it can access
   # /etc/shadow. If this isn't necessary, the user should be changed to
@@ -693,7 +693,7 @@ service auth-worker {
 
 5.  Now you'll configure Postfix to use Dovecot's authentication. For more information, see [Postfix's Dovecot SASL guide](http://www.postfix.org/SASL_README.html#server_dovecot) and [Postfix's guide on enabling SASL](http://www.postfix.org/SASL_README.html#server_sasl_enable). Add the following lines to `/etc/postfix/main.cf`. This tells Postfix the authentication type, the location of the socket, and that SASL authentication should be enabled:
 
-{{< file-excerpt "/etc/postfix/main.cf" >}}
+    {{< file-excerpt "/etc/postfix/main.cf" >}}
 smtpd_sasl_type = dovecot
 smtpd_sasl_path = private/auth
 smtpd_sasl_auth_enable = yes
@@ -711,7 +711,7 @@ Now that authentication is set up, let's make sure the authentication process is
 
 1.  Open `/etc/dovecot/conf.d/10-ssl.conf` for editing, and then set `ssl` to `required`:
 
-{{< file-excerpt "/etc/dovecot/conf.d/10-ssl.conf" >}}
+    {{< file-excerpt "/etc/dovecot/conf.d/10-ssl.conf" >}}
 ssl = required
 
 {{< /file-excerpt >}}
@@ -719,7 +719,7 @@ ssl = required
 
 2.  Also in `/etc/dovecot/conf.d/10-ssl.conf`, check the paths to the SSL certificate and key. They should be set to Dovecot's certificate and key by default. If that's what you're using, leave these settings be. Otherwise, update the paths to the certificate and key you want to use.
 
-{{< file-excerpt "/etc/dovecot/conf.d/10-ssl.conf" >}}
+    {{< file-excerpt "/etc/dovecot/conf.d/10-ssl.conf" >}}
 ssl_cert = </etc/ssl/certs/dovecot.pem 
 ssl_key = </etc/ssl/private/dovecot.pem
 
@@ -728,14 +728,14 @@ ssl_key = </etc/ssl/private/dovecot.pem
 3.  Verify that your SSL certificate and key are in the locations specified in the previous step.
 4.  Disable plain-text authentication. In `/etc/dovecot/conf.d/10-auth.conf`, set the following line:
 
-{{< file-excerpt "/etc/dovecot/conf.d/10-auth.conf" >}}
+    {{< file-excerpt "/etc/dovecot/conf.d/10-auth.conf" >}}
 disable\_plaintext\_auth = yes
 
 {{< /file-excerpt >}}
 
 5.  Disable the unencrypted ports for IMAP and POP3 so that the server won't accept unencrypted connections. In `/etc/dovecot/conf.d/10-master.conf`, set:
 
-{{< file-excerpt "/etc/dovecot/conf.d/10-master.conf" >}}
+    {{< file-excerpt "/etc/dovecot/conf.d/10-master.conf" >}}
 service imap-login {
    inet_listener imap {
      port = 0
@@ -765,19 +765,19 @@ Now that you've got authentication set up securely, you need to configure SMTP. 
 
 1.  Open `/etc/postfix/main.cf` for editing, and then add the `smtpd_recipient_restrictions` line as shown below:
 
-{{< file-excerpt "/etc/postfix/main.cf" >}}
+    {{< file-excerpt "/etc/postfix/main.cf" >}}
 smtpd_recipient_restrictions = permit_sasl_authenticated, permit_mynetworks, reject_unauth_destination
 
 {{< /file-excerpt >}}
 
 
-{{< note >}}
+    {{< note >}}
 The `smtpd_recipient_restrictions` line lists the criteria Postfix uses to decide which emails it can relay. `permit_sasl_authenticated` allows authenticated users to send mail. It should be listed first. Next we have `permit_mynetworks`, which allows users who are already logged into the server to send mail. Finally, `reject_unauth_destination` prevents your server from delivering mail for domains for which it is not configured. **Never remove this last setting!** Basically, this means that authenticated users and local users are always allowed to send mail anywhere. Non-authenticated and non-local users are allowed to send mail only to domains for which this server is responsible. These restrictions prevent your server from being used as an open relay that can send spam from anyone to anywhere.
 {{< /note >}}
 
 2.  You'll also want to force outgoing authentication to be encrypted. Still in `/etc/postfix/main.cf`, set the following lines:
 
-{{< file-excerpt "/etc/postfix/main.cf" >}}
+    {{< file-excerpt "/etc/postfix/main.cf" >}}
 smtpd_tls_cert_file=/etc/ssl/certs/dovecot.pem
 smtpd_tls_key_file=/etc/ssl/private/dovecot.pem
 smtpd_use_tls=yes
@@ -786,7 +786,7 @@ smtpd_tls_auth_only = yes
 {{< /file-excerpt >}}
 
 
-{{< note >}}
+    {{< note >}}
 First, you're going to tell Postfix to use Dovecot's SSL certificate and key, because some mail clients will choke if the certificates for the incoming and outgoing servers don't match. Then you're telling Postfix to use (only) TLS encryption. This means that users can connect on the standard port (25), but before they are allowed to send any authentication information, they have to establish an encrypted connection.
 {{< /note >}}
 
@@ -800,7 +800,7 @@ First, you're going to tell Postfix to use Dovecot's SSL certificate and key, be
 
 5.  Locate and uncomment the two lines starting with `submission` and `smtps`. This will allow you to send mail securely on ports 587 and 465, in addition to port 25 (which is also secure with our SSL setup). The first section of your `/etc/postfix/master.cf` file should resemble the following:
 
-{{< file-excerpt "/etc/postfix/master.cf" >}}
+    {{< file-excerpt "/etc/postfix/master.cf" >}}
 #
 # Postfix master process configuration file.  For details on the format
 # of the file, see the master(5) manual page (command: "man 5 master").
@@ -855,7 +855,7 @@ The final step in getting your mail server up to speed is to make it compatible 
 2.  Create the three MySQL tables `virtual_domains`, `virtual_users`, and `virtual_aliases` and populate them with your data, by following the entire [MySQL section](/docs/email/postfix/email-with-postfix-dovecot-and-mysql#sph_mysql) in the main setup guide. If you prefer not to use the MySQL command line, you can install phpMyAdmin and use that instead.
 3.  Open `/etc/postfix/main.cf` for editing. Comment out the existing `virtual_mailbox_domains` and `virtual_mailbox_maps` lines and add these instead:
 
-{{< file-excerpt "/etc/postfix/main.cf" >}}
+    {{< file-excerpt "/etc/postfix/main.cf" >}}
 #Virtual domains, users, and aliases
 virtual_mailbox_domains = mysql:/etc/postfix/mysql-virtual-mailbox-domains.cf
 virtual_mailbox_maps = mysql:/etc/postfix/mysql-virtual-mailbox-maps.cf
@@ -867,7 +867,7 @@ virtual_alias_maps = mysql:/etc/postfix/mysql-virtual-alias-maps.cf
 4.  Follow Steps 11-25 in the [Postfix section](/docs/email/postfix/email-with-postfix-dovecot-and-mysql#sph_postfix) of the main setup guide to create the `/etc/postfix/mysql-virtual-mailbox-domains.cf`, `/etc/postfix/mysql-virtual-mailbox-maps.cf`, and `/etc/postfix/mysql-virtual-alias-maps.cf` files. You will also test that Postfix can find all of this information, using the `postmap` commands.
 5.  Now for Dovecot. Create the file `/etc/dovecot/conf.d/auth-sql.conf.ext`. You will make a new `passdb` section that directs Dovecot to use MySQL for authentication. The `userdb` section will be identical to the one we had before, since the mailboxes aren't moving.
 
-{{< file-excerpt "/etc/dovecot/conf.d/auth-sql.conf.ext" >}}
+    {{< file-excerpt "/etc/dovecot/conf.d/auth-sql.conf.ext" >}}
 passdb {
   driver = sql
   args = /etc/dovecot/dovecot-sql.conf.ext
@@ -882,7 +882,7 @@ userdb {
 
 6.  Open `/etc/dovecot/dovecot-sql.conf.ext` for editing, uncomment the lines shown below, and update them with the appropriate MySQL connection information:
 
-{{< file-excerpt "/etc/dovecot/dovecot-sql.conf.ext" >}}
+    {{< file-excerpt "/etc/dovecot/dovecot-sql.conf.ext" >}}
 driver = mysql
 connect = host=127.0.0.1 dbname=mailserver user=mailuser password=mailuserpass
 default_pass_scheme = SHA512-CRYPT
@@ -893,7 +893,7 @@ password_query = SELECT email as user, password FROM virtual_users WHERE email='
 
 7.  Open `/etc/dovecot/conf.d/10-auth.conf` for editing. Comment out the `!include auth-passwdfile.conf.ext` line and uncomment the `!include auth-sql.conf.ext` line. This switches your authentication from the flat file to the database:
 
-{{< file-excerpt "/etc/dovecot/conf.d/10-auth.conf" >}}
+    {{< file-excerpt "/etc/dovecot/conf.d/10-auth.conf" >}}
 #!include auth-system.conf.ext
 !include auth-sql.conf.ext
 #!include auth-ldap.conf.ext
@@ -915,7 +915,7 @@ password_query = SELECT email as user, password FROM virtual_users WHERE email='
 
 10. Open `/etc/dovecot/conf.d/10-master.conf` for editing and, in the `service auth` section, set `user = dovecot`, below the line `# Auth process is run as this user.`:
 
-{{< file-excerpt "/etc/dovecot/conf.d/10-master.conf" >}}
+    {{< file-excerpt "/etc/dovecot/conf.d/10-master.conf" >}}
 service auth {
 ...
   # Auth process is run as this user.

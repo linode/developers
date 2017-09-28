@@ -79,7 +79,7 @@ From the SteamCMD guide, two additional steps are needed specifically for Gmod.
 
         quit
 
-{{< note >}}
+    {{< note >}}
 To update Gmod, run the above 4 commands again.
 {{< /note >}}
 
@@ -91,7 +91,7 @@ This section configures different aspects of the server, including gamemode and 
 
 1.  Create a startup script for Gmod with the following contents:
 
-{{< file "~/startgmod.sh" >}}
+    {{< file "~/startgmod.sh" >}}
 #!/bin/sh
 
 cd ./Steam/gmod
@@ -165,7 +165,7 @@ writeip
 
         cd ~/ && ./startgmod.sh
 
-{{< caution >}}
+    {{< caution >}}
 From this point, do not press the **Control+C** keys while in the console unless you want to stop Gmod.
 {{< /caution >}}
 

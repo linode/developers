@@ -102,7 +102,7 @@ The Python SPF policy agent adds SPF policy-checking to Postfix. The SPF record 
 
 2.  Edit `/etc/postfix/master.cf` and add the following entry at the end:
 
-{{< file-excerpt "/etc/postfix/master.cf" resource >}}
+    {{< file-excerpt "/etc/postfix/master.cf" resource >}}
 policyd-spf  unix  -       n       n       -       0       spawn
     user=policyd-spf argv=/usr/bin/policyd-spf
 
@@ -111,7 +111,7 @@ policyd-spf  unix  -       n       n       -       0       spawn
 
 3.  Open `/etc/postfix/main.cf` and add this entry to increase the Postfix policy agent timeout, which will prevent Postfix from aborting the agent if transactions run a bit slowly:
 
-{{< file-excerpt "/etc/postfix/main.cf" aconf >}}
+    {{< file-excerpt "/etc/postfix/main.cf" aconf >}}
 policyd-spf_time_limit = 3600
 
 {{< /file-excerpt >}}
@@ -119,7 +119,7 @@ policyd-spf_time_limit = 3600
 
 4.  Edit the `smtpd_recipient_restrictions` entry to add a `check_policy_service` entry:
 
-{{< file-excerpt "/etc/postfix/main.cf" aconf >}}
+    {{< file-excerpt "/etc/postfix/main.cf" aconf >}}
 smtpd_recipient_restrictions =
     ...
     reject_unauth_destination,
@@ -156,7 +156,7 @@ DKIM involves setting up the OpenDKIM package, hooking it into Postfix, and addi
 
 1.  The main OpenDKIM configuration file `/etc/opendkim.conf` needs to look like this:
 
-{{< file "/etc/opendkim.conf" aconf >}}
+    {{< file "/etc/opendkim.conf" aconf >}}
 # This is a basic configuration that can easily be adapted to suit a standard
 # installation. For more advanced options, see opendkim.conf(5) and/or
 # /usr/share/doc/opendkim/examples/opendkim.conf.sample.
@@ -214,7 +214,7 @@ OversignHeaders     From
 
 4.  Create the signing table `/etc/opendkim/signing.table`. It needs to have one line per domain that you handle email for. Each line should look like this:
 
-{{< file-excerpt "/etc/opendkim/signing.table" >}}
+    {{< file-excerpt "/etc/opendkim/signing.table" >}}
 *@example.com   example
 
 {{< /file-excerpt >}}
@@ -224,7 +224,7 @@ OversignHeaders     From
 
 5.  Create the key table `/etc/opendkim/key.table`. It needs to have one line per short domain name in the signing table. Each line should look like this:
 
-{{< file-excerpt "/etc/opendkim/key.table" resource >}}
+    {{< file-excerpt "/etc/opendkim/key.table" resource >}}
 example     example.com:YYYYMM:/etc/opendkim/keys/example.private
 
 {{< /file-excerpt >}}
@@ -238,13 +238,13 @@ example     example.com:YYYYMM:/etc/opendkim/keys/example.private
     - The second section is a selector used when looking up key records in DNS.
     - The third section names the file containing the signing key for the domain.
 
-{{< note >}}
+    {{< note >}}
 The flow for DKIM lookup starts with the sender's address. The signing table is scanned until an entry whose pattern (first item) matches the address is found. Then, the second item's value is used to locate the entry in the key table whose key information will be used. For incoming mail the domain and selector are then used to find the public key TXT record in DNS and that public key is used to validate the signature. For outgoing mail the private key is read from the named file and used to generate the signature on the message.
 {{< /note >}}
 
 6.  Create the trusted hosts file `/etc/opendkim/trusted.hosts`. Its contents need to be:
 
-{{< file "/etc/opendkim/trusted.hosts" resource >}}
+    {{< file "/etc/opendkim/trusted.hosts" resource >}}
 127.0.0.1
 ::1
 localhost
@@ -334,7 +334,7 @@ If everything is OK you shouldn't get any output. If you want to see more inform
 
 2.  Set the correct socket for Postfix in the OpenDKIM defaults file `/etc/default/opendkim`:
 
-{{< file "/etc/default/opendkim" aconf >}}
+    {{< file "/etc/default/opendkim" aconf >}}
 # Command-line options specified here will override the contents of
 # /etc/opendkim.conf. See opendkim(8) for a complete list of options.
 #DAEMON_OPTS=""
@@ -354,7 +354,7 @@ SOCKET="local:/var/spool/postfix/opendkim/opendkim.sock"
 
 3.  Edit `/etc/postfix/main.cf` and add a section to activate processing of e-mail through the OpenDKIM daemon:
 
-{{< file-excerpt "/etc/postfix/main.cf" aconf >}}
+    {{< file-excerpt "/etc/postfix/main.cf" aconf >}}
 # Milter configuration
 # OpenDKIM
 milter_default_action = accept

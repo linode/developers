@@ -38,7 +38,7 @@ This guide assumes a Linode with the root disk mounted as `/dev/sda` and swap sp
 
     [![Linode Manager add a volume](/docs/assets/bs-add-a-volume.png)](/docs/assets/bs-add-a-volume.png)
 
-{{< note >}}
+    {{< note >}}
 Block storage is currently only available to Linodes in our Newark datacenter. Contact [Linode Support](https://manager.linode.com/support/ticket/new?summary=Block%20Storage%20Beta) if you would like to migrate your Linode to Newark from another location.
 {{< /note >}}
 
@@ -66,7 +66,7 @@ Block storage is currently only available to Linodes in our Newark datacenter. C
 
     [![Linode Manager add volume](/docs/assets/bs-volume-attach-small.png)](/docs/assets/bs-volume-attach.png)
 
-{{< note >}}
+    {{< note >}}
 Block storage is currently only available to Linodes in our Newark datacenter. Contact [Linode Support](https://manager.linode.com/support/ticket/new?summary=Block%20Storage%20Beta) if you would like to migrate your Linode to Newark from another location.
 {{< /note >}}
 

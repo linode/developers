@@ -215,7 +215,7 @@ This script automatically starts a Black Mesa Dedicated Server into a **Screen s
 
 2.  Create the file to contain the script:
 
-{{< file "/home/steam/Steam/steamapps/common/Black Mesa Dedicated Server/run.sh" sh >}}
+	{{< file "/home/steam/Steam/steamapps/common/Black Mesa Dedicated Server/run.sh" sh >}}
 #!/bin/sh
 cd "$HOME/Steam/steamapps/common/Black Mesa Dedicated Server"
 screen -S "BMDS" -d -m
@@ -250,7 +250,7 @@ You can read the entire list of parameters on the [Valve Wiki](https://developer
 
 		wget http://www.metamodsource.net/mmsdrop/1.10/mmsource-1.10.7-git951-linux.tar.gz
 
-{{< note >}}
+      {{< note >}}
 This URL costantly changes as MetaMod is updated. Please check the downloads [page](http://www.metamodsource.net/snapshots) for the current URL.
 {{< /note >}}
 
@@ -281,7 +281,7 @@ It is recommended that you install the **SourceMod** add-on. It provides useful 
 
 		wget https://www.sourcemod.net/smdrop/1.8/sourcemod-1.8.0-git5829-linux.tar.gz
 
-{{< note >}}
+	{{< note >}}
 This URL constantly changes as SourceMod is updated. Please check the downloads [page](https://www.sourcemod.net/downloads.php) for the current URL.
 {{< /note >}}
 

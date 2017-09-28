@@ -62,7 +62,7 @@ Please note that this is an non-standard configuration. Troubleshooting encrypte
 
 4.  Once in Rescue Mode, download the Debian installation media and copy it to your *Installer* disk:
 
-{{< note >}}
+    {{< note >}}
 As an additional security step, you can use the keys provided in the same directory as the `iso` to [verify the authenticity](https://www.debian.org/CD/verify) of the image.
 {{< /note >}}
 
@@ -131,7 +131,7 @@ As an additional security step, you can use the keys provided in the same direct
 
     [![Debian 8 Encryption Passphrase Warning](/docs/assets/fde-weak-passphrase-warning-small.png)](/docs/assets/fde-weak-passphrase-warning.png)
 
-{{< caution >}}
+    {{< caution >}}
 If you lose or forget this password, the data on this disk image will be **irrecoverable**.
 {{< /caution >}}
 
@@ -171,7 +171,7 @@ By default the GRUB menu will only work with the Glish interface. This section e
 
 3.  Open the GRUB configuration file under `/etc/default/grub` with the text editor of your choice. Make the following changes to the appropriate directives:
 
-{{< file-excerpt "/etc/default/grub" >}}
+    {{< file-excerpt "/etc/default/grub" >}}
 GRUB_TIMEOUT=10
 GRUB_CMDLINE_LINUX="console=ttyS0,19200n8"
 GRUB_SERIAL_COMMAND="serial --speed=19200 --unit=0 --word=8 --parity=no --stop=1"

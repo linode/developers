@@ -63,7 +63,7 @@ This method differs from the one above in that it installs from the official ngi
 
 2.  Add the following lines to the file:
 
-{{< file "/etc/apt/sources.list.d/nginx.list" >}}
+    {{< file "/etc/apt/sources.list.d/nginx.list" >}}
 deb http://nginx.org/packages/debian/ jessie nginx
 deb-src http://nginx.org/packages/debian/ jessie nginx
 
@@ -135,7 +135,7 @@ The Debian project does not track the latest development of the nginx server. Co
 
 8.  Create a systemd service script to run nginx:
 
-{{< file "/lib/systemd/system/nginx.service" shell >}}
+    {{< file "/lib/systemd/system/nginx.service" shell >}}
 [Unit]
 Description=A high performance web server and a reverse proxy server
 After=network.target
@@ -156,7 +156,7 @@ WantedBy=multi-user.target
 {{< /file >}}
 
 
-{{< note >}}
+    {{< note >}}
 This script assumes that you used the build configuration options specified in Step 5. If your script is not working correctly, be sure that the path in the line beginning with `PIDFile` matches your PID file, and the path in lines beginning with `Exec` match your binary file. These file paths can be found in the output when you configured your build options.
 {{< /note >}}
 

@@ -159,7 +159,7 @@ Using Hiera, we can define the rest of the MySQL configuration entirely in yaml.
 
 2.  With the MySQL password hash ready, we can define Hiera values. The following yaml defines parameters to create a database called `wordpress` and a user named `wpuser` that has permission to connect from `localhost`. The yaml also defines a `GRANT` allowing `wpuser` to operate on the `wordpress` database with `ALL` permissions:
 
-{{< file "/etc/puppetlabs/code/environments/production/hieradata/common.yaml" yaml >}}
+    {{< file "/etc/puppetlabs/code/environments/production/hieradata/common.yaml" yaml >}}
 mysql::server::root_password: examplepassword
 mysql::server::databases:
   wordpress:
@@ -198,7 +198,7 @@ In the following example, Puppet will configure the MySQL server with one additi
 
 1.  Modify `hiera.yaml` to contain the following:
 
-{{< file "/etc/puppetlabs/puppet/hiera.yaml" yaml >}}
+    {{< file "/etc/puppetlabs/puppet/hiera.yaml" yaml >}}
 ---
 :backends:
   - yaml
@@ -213,7 +213,7 @@ In the following example, Puppet will configure the MySQL server with one additi
 
 2.  Create the following yaml file:
 
-{{< file "/etc/puppetlabs/code/environments/production/hieradata/Debian.yaml" yaml >}}
+    {{< file "/etc/puppetlabs/code/environments/production/hieradata/Debian.yaml" yaml >}}
 lookup_options:
   mysql::server::databases:
     merge: deep

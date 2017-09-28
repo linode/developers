@@ -49,7 +49,7 @@ After you purchase a domain, set your domain registrar to use Linode's name serv
 
 See the instructions on your domain name registrar's website for more information.
 
-{{< note >}}
+ {{< note >}}
 DNS changes can take up to 24 hours to propagate throughout the Internet, although the changes are usually visible within a couple hours.
 {{< /note >}}
 
@@ -90,7 +90,7 @@ This video runs through the process of adding a new domain zone:
 
 6.  If you want to add a *slave zone* instead of a master zone, click the **I wanted a slave zone** link to the lower right.
 
-{{< note >}}
+    {{< note >}}
 In order for Linode's DNS servers to function as slaves, your DNS master server must notify and allow AXFR requests from the following IP addresses:
 
 104.237.137.10
@@ -122,7 +122,7 @@ When you first create a domain zone, you'll need to add some DNS records. The DN
 
 2.  The page is divided into different sections for each type of DNS record. Locate the section for the type of DNS record you want to add, and then click the **Add new [DNS] record** link.
 
-{{< note >}}
+	{{< note >}}
 The exact form fields will vary depending on the type of DNS record you select.
 {{< /note >}}
 
@@ -159,7 +159,7 @@ Here's how to import a zone file:
 2.  Enter the domain name in the **Domain** field, as shown in the example above.
 3.  Enter the name server in the **Remote Nameserver** field.
 
-{{< note >}}
+	{{< note >}}
 The name server must allow zone transfers (AXFR) from: 96.126.114.97, 96.126.114.98, 2600:3c00::5e, and 2600:3c00::5f
 {{< /note >}}
 

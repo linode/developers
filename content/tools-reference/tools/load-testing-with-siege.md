@@ -56,7 +56,7 @@ This guide is for Debian or Ubuntu systems.
 
 9.  The suggested Siege configuration is for 25 concurrent users over a period of 1 minute. Set a location for your log file. Be sure to uncomment the variables shown below, and any other commented settings you want to use by removing the pound sign (`#`):
 
-{{< file-excerpt "~/.siegerc" >}}
+	{{< file-excerpt "~/.siegerc" >}}
 ...
 
 		#
@@ -132,7 +132,7 @@ If you want Siege to hit a number of pages on your website at random, configure 
 
 1.  Open the `urls.txt` file generally created at `/usr/local/etc/urls.txt`. Add a list of URLs or IP addresses to that file:
 
-{{< file "/usr/local/etc/urls.txt" >}}
+	{{< file "/usr/local/etc/urls.txt" >}}
 # URLS file for siege
 # --
 # Format the url entries in any of the following formats:

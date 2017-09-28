@@ -52,13 +52,13 @@ Replace each instance of `example.com` in this guide with your site's domain nam
 
 2.  Modify `httpd.conf` with your document root directory to point Apache to your site's files. Add the `<IfModule prefork.c>` section below to adjust the resource use settings. The settings shown below are a good starting point for a **Linode 2GB**:
 
-{{< note >}}
+    {{< note >}}
 Before changing any configuration files, we recommend that you make a backup of the file. To make a backup:
 
 cp /etc/httpd/conf/httpd.conf ~/httpd.conf.backup
 {{< /note >}}
 
-{{< file-excerpt "/etc/httpd/conf/httpd.conf" aconf >}}
+    {{< file-excerpt "/etc/httpd/conf/httpd.conf" aconf >}}
 DocumentRoot "/var/www/html/example.com/public_html"
 
 ...
@@ -82,7 +82,7 @@ You can choose many ways to set up a virtual host. In this section we recommend 
 
 1.  Within the `conf.d` directory create `vhost.conf` to store your virtual host configurations. The example below is a template for website `example.com`; change the necessary values for your domain:
 
-{{< file-excerpt "/etc/httpd/conf.d/vhost.conf" aconf >}}
+    {{< file-excerpt "/etc/httpd/conf.d/vhost.conf" aconf >}}
 NameVirtualHost *:80
 
 <VirtualHost *:80>
@@ -101,7 +101,7 @@ NameVirtualHost *:80
 
     ![Apache VirtualHost Traffic Flow](/docs/assets/apache-vhost-flow.png "Apache VirtualHost Traffic Flow")
 
-{{< note >}}
+    {{< note >}}
 `ErrorLog` and `CustomLog` entries are suggested for more specific logging, but are not required. If they are defined (as shown above), the `logs` directories must be created before you restart Apache.
 {{< /note >}}
 

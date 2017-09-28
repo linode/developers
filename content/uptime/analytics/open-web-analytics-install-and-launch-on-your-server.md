@@ -32,7 +32,7 @@ Open Web Analytics (OWA) is an open-source alternative to commercial web analyti
 
 
      
-{{< note >}}
+    {{< note >}}
 The steps required in this guide require root privileges. Be sure to run the steps below as **root** or with the `sudo` prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
 
 Your server must be configured with a fully qualified domain name (FQDN) and not just an IP address. If needed, you can use the address provided in the Remote Access Tab next to your public IP address.
@@ -54,7 +54,7 @@ Your server must be configured with a fully qualified domain name (FQDN) and not
 
           yum install httpd php php-mysql mysql-server mariadb-server
 
-{{< note >}}
+      {{< note >}}
 This command is designed to work with CentOS 6, which uses MySQL as the default database and CentOS 7 which uses MariaDB. You will get a notice when installing that the other package is not available.
 {{< /note >}}
 
@@ -121,7 +121,7 @@ This command is designed to work with CentOS 6, which uses MySQL as the default 
 
         wget https://github.com/padams/Open-Web-Analytics/archive/1.5.7.tar.gz
 
-{{< note >}}
+    {{< note >}}
 Version 1.5.7 is the current version and may be different by the time you read this. Please check [The Open Web Analytics](http://www.openwebanalytics.com/) site for the latest information.
 {{< /note >}}
 
@@ -162,7 +162,7 @@ Version 1.5.7 is the current version and may be different by the time you read t
 
 4.  Create a user account and define a domain to track. You will log in to see your OWA statistics through this user account. 
 
-{{< caution >}}
+    {{< caution >}}
 This process will display your password in plaintext once complete. Be careful if performing these steps in a public location.
 {{< /caution >}}
 
@@ -182,7 +182,7 @@ You will need to create site profiles and add JavaScript or PHP code to your web
 
 5.  On the resulting page you will see near the top a section named "Add a New Tracked Site Profile". Enter the domain name of the site you want to track and click Save Profile. The other two fields are for your information only and are, therefore, optional.
 
-{{< caution >}}
+    {{< caution >}}
 You must click "Save Profile" before trying to enter any of the settings below this button. Failure to do so will result in a  blank white page and your new site not being added. Recovery simply requires a click of the back button in your browser.
 {{< /caution >}}
 

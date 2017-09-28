@@ -32,7 +32,7 @@ OpenVPN's server-side configuration file is `/etc/openvpn/server.conf`, and it r
 
 1.  Set OpenVPN to push a gateway configuration so all clients send internet traffic through it.
 
-{{< file-excerpt "/etc/openvpn/server.conf" aconf >}}
+    {{< file-excerpt "/etc/openvpn/server.conf" aconf >}}
 # If enabled, this directive will configure
 # all clients to redirect their default
 # network gateway through the VPN, causing
@@ -52,7 +52,7 @@ push "redirect-gateway def1 bypass-dhcp"
 
     If using the options below to push DNS resolvers to VPN clients, you can disable the Google DNS fallback on your clients (or leave it enabled as the fallback it was intended to be). [OpenDNS](https://www.opendns.com/) is provided by default but you can change this to your preference.
 
-{{< file-excerpt "/etc/openvpn/server.conf" aconf >}}
+    {{< file-excerpt "/etc/openvpn/server.conf" aconf >}}
 # Certain Windows-specific network settings
 # can be pushed to clients, such as DNS
 # or WINS server addresses.  CAVEAT:
@@ -85,7 +85,7 @@ The steps below will overwrite any custom IPv4 firewall rules you may have.
 
 2.  Create a new IPv4 rule file using the ruleset below. The path `/etc/iptables/rules.v4` assumes Debian or Ubuntu with `iptables-persistent` installed.
 
-{{< file "/etc/iptables/rules.v4" aconf >}}
+    {{< file "/etc/iptables/rules.v4" aconf >}}
 *filter
 
 # Allow all loopback (lo) traffic and reject traffic

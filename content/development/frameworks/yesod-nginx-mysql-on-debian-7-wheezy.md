@@ -240,7 +240,7 @@ Warp is a fast http server, but it lacks some advanced features like virtual hos
 
 3.  Before starting your site, you need to modify the file ``/var/myblog/config/settings.yml``. This file has the same structure as ``mysql.yml``. There is a ``Default`` section and four other sections for various environments. We will only run ``/var/myblog`` in the ``Production`` environment, so we only need to modify the last three lines of this settings file:
 
-{{< file-excerpt "/var/myblog/config/settings.yml" >}}
+    {{< file-excerpt "/var/myblog/config/settings.yml" >}}
 Production:
   approot: "http://www.yoursite.com"
   <<: *defaults
@@ -259,7 +259,7 @@ Production:
 
 5.  If you want your site running as a daemon, which means in a constant state of running, you can create an init.d script. We have created a simple one, here, for your reference:
 
-{{< file-excerpt "/etc/init.d/myblog" bash >}}
+    {{< file-excerpt "/etc/init.d/myblog" bash >}}
 #! /bin/sh
 ### BEGIN INIT INFO
 # Provides:          myblog

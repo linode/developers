@@ -61,7 +61,7 @@ For these reasons, this series assumes your VPN will operate over IPv4 only. If 
 
 2.  See our [Securing Your Server](/docs/security/securing-your-server/#configuring-a-firewall) guide and complete the section on iptables for Debian **using the ruleset below**:
 
-{{< file "/tmp/v4" aconf >}}
+    {{< file "/tmp/v4" aconf >}}
 *filter
 
 # Allow all loopback (lo) traffic and reject anything
@@ -112,7 +112,7 @@ COMMIT
 {{< /file >}}
 
 
-{{< note >}}
+    {{< note >}}
 The `TUN` virtual interface is how the OpenVPN daemon communicates with your Linode's `eth0` hardware interface.
 {{< /note >}}
 
@@ -135,7 +135,7 @@ If you are exclusively using IPv4 on your VPN, IPv6 should be disabled unless yo
 
 3.  Go into `/etc/hosts` and comment out the line for IPv6 resolution over localhost.
 
-{{< file-excerpt "/etc/hosts" aconf >}}
+    {{< file-excerpt "/etc/hosts" aconf >}}
 #::1     localhost ip6-localhost ip6-loopback
 
 {{< /file-excerpt >}}
@@ -143,7 +143,7 @@ If you are exclusively using IPv4 on your VPN, IPv6 should be disabled unless yo
 
 4.  Add an ip6tables ruleset to reject all v6 traffic. Your `rules.v6` file should look like this:
 
-{{< file "/etc/iptables/rules.v6" aconf >}}
+    {{< file "/etc/iptables/rules.v6" aconf >}}
 *filter
 
 -A INPUT -j REJECT
@@ -183,7 +183,7 @@ For these next sections, you need a root shell.
 
 5.  The permissions of `/etc/openvpn/easy-rsa/keys` are `0700`, which do not allow for group or world access to the key and certificate files. For this reason, keep `keys` as the storage location for server credentials by specifying the absolute paths in OpenVPN's `server.conf`.
 
-{{< file-excerpt "/etc/openvpn/server.conf" aconf >}}
+    {{< file-excerpt "/etc/openvpn/server.conf" aconf >}}
 # Any X509 key management system can be used.
 # OpenVPN can also use a PKCS #12 formatted key file
 # (see "pkcs12" directive in man page).
@@ -203,7 +203,7 @@ dh /etc/openvpn/dh4096.pem
 
 6.  The `vars` file in `/etc/openvpn/easy-rsa` contains presets used by the [easy-rsa scripts](https://github.com/OpenVPN/easy-rsa). Here you can specify identification information for your OpenVPN server's certificate authority, which then will be passed to client certificates. Changing these fields is optional and you can always input them manually during certificate creation, but setting them here creates less work during client cert creation.
 
-{{< file-excerpt "/etc/openvpn/easy-rsa/vars" aconf >}}
+    {{< file-excerpt "/etc/openvpn/easy-rsa/vars" aconf >}}
 # These are the default values for fields
 # which will be placed in the certificate.
 # Don't leave any of these fields blank.
@@ -256,7 +256,7 @@ Further changes to `server.conf` are made to strengthen the cryptography used in
 
 1.  Require a matching HMAC signature for all packets involved in the TLS handshake between the server and connecting clients. Packets without this signature are dropped. Uncomment (by removing the `;`) and edit the line: `tls-auth ta.key 0 # This file is secret`.
 
-{{< file-excerpt "/etc/openvpn/server.conf" aconf >}}
+    {{< file-excerpt "/etc/openvpn/server.conf" aconf >}}
 # For extra security beyond that provided
 # by SSL/TLS, create an "HMAC firewall"
 # to help block DoS attacks and UDP port flooding.
@@ -284,7 +284,7 @@ tls-auth /etc/openvpn/easy-rsa/keys/ta.key 0 # This file is secret
 
     Uncomment the `user` and `group` lines, and edit `user` with the username above.  This tells the daemon to drop root privileges and switch to the `openvpn_server` user after startup.
 
-{{< file-excerpt "/etc/openvpn/server.conf" aconf >}}
+    {{< file-excerpt "/etc/openvpn/server.conf" aconf >}}
 # It's a good idea to reduce the OpenVPN
 # daemon's privileges after initialization.
 #
@@ -352,7 +352,7 @@ Each client needs a configuration file defining the OpenVPN server's settings fo
 
 2.  Update the `remote` line with the OpenVPN server's IP address:
 
-{{< file "/etc/openvpn/easy-rsa/keys/client.ovpn" aconf >}}
+    {{< file "/etc/openvpn/easy-rsa/keys/client.ovpn" aconf >}}
 # The hostname/IP and port of the server.
 # You can have multiple remote entries
 # to load balance between the servers.
@@ -362,13 +362,13 @@ remote 192.0.2.0 1194
 {{< /file >}}
 
 
-{{< note >}}
+    {{< note >}}
 A hostname would work too, but since all Linodes have static public IP addresses, it's preferable for security reasons to connect by IP and bypass the DNS lookup.
 {{< /note >}}
 
 3.  Tell the client-side OpenVPN service to drop root priviledges. For non-Windows machines only.
 
-{{< file "/etc/openvpn/easy-rsa/keys/client.ovpn" aconf >}}
+    {{< file "/etc/openvpn/easy-rsa/keys/client.ovpn" aconf >}}
 # Downgrade privileges after initialization (non-Windows only)
 user nobody
 group nogroup
@@ -378,7 +378,7 @@ group nogroup
 
 4.  Further down in the file, edit the `crt` and `key` lines to reflect the names and locations **on the client device**. Specify the path to the files if they, and `client.ovpn`, will not be stored in the same folder.
 
-{{< file-excerpt "/etc/openvpn/easy-rsa/keys/client.ovpn" aconf >}}
+    {{< file-excerpt "/etc/openvpn/easy-rsa/keys/client.ovpn" aconf >}}
 # SSL/TLS parms.
 # See the server config file for more
 # description.  It's best to use
@@ -394,7 +394,7 @@ key /path/to/client1.key
 
 5.  Tell the client to use the HMAC key generated earlier. Again specify the path if necessary.
 
-{{< file-excerpt "/etc/openvpn/easy-rsa/keys/client.ovpn" aconf >}}
+    {{< file-excerpt "/etc/openvpn/easy-rsa/keys/client.ovpn" aconf >}}
 # If a tls-auth key is used on the server
 # then every client must also have the key.
 tls-auth /path/to/ta.key 1
@@ -423,7 +423,7 @@ tls-auth /path/to/ta.key 1
     tar -C /etc/openvpn/easy-rsa/keys -cvzf /etc/openvpn/client1.tar.gz {ca.crt,client1.crt,client1.key,client.ovpn,ta.key}
     ~~~
 
-{{< note >}}
+    {{< note >}}
 Windows will need [7zip](http://www.7-zip.org/) to extract `.tar` files, or you can use the package [zip](http://linux.die.net/man/1/zip) to create a `.zip` archive.
 {{< /note >}}
 

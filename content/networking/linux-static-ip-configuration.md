@@ -258,7 +258,7 @@ routes_eth0="default via 198.51.100.1"
 
 1.  Modify the interface's config file:
 
-{{< file-excerpt "/etc/sysconfig/network/ifcfg-eth0" aconf >}}
+    {{< file-excerpt "/etc/sysconfig/network/ifcfg-eth0" aconf >}}
 BOOTPROTO=static
 
 . . .
@@ -280,7 +280,7 @@ LABEL2=2
 
 2.  You will also need to add your gateway to the network routes file:
 
-{{< file "/etc/sysconfig/network/routes" >}}
+    {{< file "/etc/sysconfig/network/routes" >}}
 # Destination   Gateway                 Netmask                 Device
 default         198.51.100.1            -                       eth0
 
@@ -289,7 +289,7 @@ default         198.51.100.1            -                       eth0
 
 3.  Edit each line to add DNS and domain information for netconfig. Netconfig uses this info to modify `resolv.conf`:
 
-{{< file-excerpt "/etc/sysconfig/network/config" >}}
+    {{< file-excerpt "/etc/sysconfig/network/config" >}}
 . . .
 NETCONFIG_DNS_STATIC_SERVERS="203.0.113.1 203.0.113.2 203.0.113.3"
 . . .

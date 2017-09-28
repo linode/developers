@@ -144,7 +144,7 @@ The steps below should be performed on each config server individually, unless o
 
 1.  On each config server, modify the following values in `/etc/mongod.conf`:
 
-{{< file-excerpt "/etc/mongod.conf" >}}
+    {{< file-excerpt "/etc/mongod.conf" >}}
 port: 27019
 bindIp: 192.0.2.1
 
@@ -155,7 +155,7 @@ bindIp: 192.0.2.1
 
 2.  Uncomment the `replication` section and add the `replSetName` directive below it to create a replica set for your config servers:
 
-{{< file-excerpt "/etc/mongod.conf" >}}
+    {{< file-excerpt "/etc/mongod.conf" >}}
 replication:
   replSetName: configReplSet
 
@@ -166,7 +166,7 @@ replication:
 
 3.  Uncomment the `sharding` section and configure the host's role in the cluster as a config server:
 
-{{< file-excerpt "/etc/mongod.conf" >}}
+    {{< file-excerpt "/etc/mongod.conf" >}}
 sharding:
   clusterRole: "configsvr"
 
@@ -272,7 +272,7 @@ All steps here should be performed from your query router Linode (this will be t
 
 1.  Create a new configuration file called `/etc/mongos.conf`, and supply the following values:
 
-{{< file-excerpt "/etc/mongos.conf" >}}
+    {{< file-excerpt "/etc/mongos.conf" >}}
 # where to write logging data.
 systemLog:
 destination: file
@@ -297,7 +297,7 @@ configDB: configReplSet/mongo-config-1:27019,mongo-config-2:27019,mongo-config-3
 
 2.  Create a new systemd unit file for `mongos` called `/lib/systemd/system/mongos.service`, with the following information:
 
-{{< file-excerpt "/lib/systemd/system/mongos.service" >}}
+    {{< file-excerpt "/lib/systemd/system/mongos.service" >}}
 [Unit]
 Description=Mongo Cluster Router
 After=network.target
@@ -359,7 +359,7 @@ Now that the query router is able to communicate with the config servers, we mus
 
 1.  Log into *each* of your shard servers and change the following line in the MongoDB configuration file:
 
-{{< file-excerpt "/etc/mongod.conf" >}}
+    {{< file-excerpt "/etc/mongod.conf" >}}
 bindIp: 192.0.2.5
 
 {{< /file-excerpt >}}
@@ -386,7 +386,7 @@ bindIp: 192.0.2.5
 
     In this format, `rs0` is the name of the replica set for the first shard, `mongo-repl-1` is the name of the first host in the shard (using port `27017`), and so on. You'll need to run the above command separately for each individual replica set.
 
-{{< note >}}
+    {{< note >}}
 Before adding replica sets as shards, you must first configure the replica sets themselves.
 {{< /note >}}
 

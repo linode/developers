@@ -25,7 +25,7 @@ The ability to associate an IP address with a domain name is referred to as *for
 
 Here's how to set reverse DNS for your domain names:
 
-{{< note >}}
+ {{< note >}}
 Before setting reverse DNS, verify that you have created a matching forward DNS record for the IP address. For instructions, see [Adding DNS Records](/docs/hosting-website#sph_adding-dns-records). If you use a third-party DNS provider, create the forward DNS record with your provider's management tool.
 {{< /note >}}
 
@@ -51,7 +51,7 @@ Before setting reverse DNS, verify that you have created a matching forward DNS 
 
 You have successfully configured reverse DNS.
 
-{{< note >}}
+ {{< note >}}
 If you receive the message that **no match was found**, this indicates that you need to update the forward DNS for this domain. Make sure the domain or subdomain in question resolves to the IP address for which you are trying to set the reverse DNS. If you've recently made a DNS change, you may need to wait 24-48 hours for it to propagate.
 {{< /note >}}
 
@@ -120,7 +120,7 @@ Here's how to swap IP addresses:
 
 6.  From the **With Linode** menu, select a Linode.
 
-{{< note >}}
+	{{< note >}}
 The menu only displays Linodes hosted in the same data center as the current Linode.
 {{< /note >}}
 
@@ -136,7 +136,7 @@ The menu only displays Linodes hosted in the same data center as the current Lin
 
     If Network Helper is turned off *and* you've [configured a static IP address](/docs/networking/linux-static-ip-configuration), you'll need to update the configuration for the new addresses, or turn Network Helper on.
 
-{{< note >}}
+    {{< note >}}
 If the IP is unreachable after a few minutes, you may need to notify the router directly of the IP change with the `arp` command:
 
 arping -c5 -I eth0 -b -A -s 198.51.100.10 198.51.100.1

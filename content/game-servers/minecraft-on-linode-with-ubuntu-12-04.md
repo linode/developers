@@ -106,13 +106,13 @@ To find the latest version of the Minecraft server, visit the [Minecraft downloa
 
         wget https://s3.amazonaws.com/Minecraft.Download/versions/1.6.4/minecraft_server.1.6.4.jar
 
-{{< note >}}
+    {{< note >}}
 This URL will change as Minecraft is updated. Please check the downloads [page](https://minecraft.net/download) for the current URL.
 {{< /note >}}
 
 5.  Using your preferred text editor, create the following text file. This is a script that invokes the JRE and tells it to run Minecraft:
 
-{{< file "/home/minecraft/run.sh" >}}
+    {{< file "/home/minecraft/run.sh" >}}
 #!/bin/sh
 BINDIR=$(dirname "$(readlink -fn "$0")")
 cd "$BINDIR"
@@ -122,7 +122,7 @@ java -Xms1024M -Xmx1536M -jar minecraft_server.1.6.4.jar -o true
 {{< /file >}}
 
         
-{{< note >}}
+    {{< note >}}
 If you are using a different or newer version of the Minecraft server, make sure to adjust this file to name the correct `.jar` file.
 
 The variable `-Xms` defines for Java the minimum amount of memory to allocate for the Minecraft server, and `-Xmx` defines the maximum. These values are set for a Linode 2GB, but you will want to adjust these numbers based on your Linode’s size and other uses.
@@ -140,7 +140,7 @@ The variable `-Xms` defines for Java the minimum amount of memory to allocate fo
 
         screen -S minecraft
 
-{{< note >}}
+    {{< note >}}
 To leave this screen session running in the background, type **CTRL-a** and then **d**. You can now safely exit from your SSH session. To reattach to the session later, use the command `screen -rd minecraft`.
 {{< /note >}}
 
@@ -194,7 +194,7 @@ For you and your friends to play Minecraft, you will all need to install the Min
 9.  In the **Server Address** field, enter your [Linode’s IP address](/docs/getting-started#sph_finding-the-ip-address), or any domain that resolves to your Linode.
 10. Click **Done** to return to the server list screen.
 
-{{< note >}}
+    {{< note >}}
 Sometimes the Minecraft Client will show a newly-added server as unavailable the first time around. Just click the **Refresh** button to reload the screen.
 {{< /note >}}
 

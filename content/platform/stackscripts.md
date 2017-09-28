@@ -21,7 +21,7 @@ external_resources:
 
 StackScripts are usually Bash scripts, stored in the Linode Manager, and can be accessed when you use the **Rebuild** link from the Linode Dashboard. During the first boot job of the newly created disks, the StackScript will run, using any variable you may have added, and perform the scripted commands.
 
-{{< caution >}}
+ {{< caution >}}
 The **Rebuild** option will destroy all existing disks and profiles.
 {{< /caution >}}
 
@@ -80,7 +80,7 @@ Alternatively, you can follow along with this video, which will show you how to 
 
     Here's the code used in our example script. The comment lines explain what each section does:
 
-{{< file "Initial Setup StackScript" bash >}}
+    {{< file "Initial Setup StackScript" bash >}}
 #!/bin/bash
 # This block defines the variables the user of the script needs to input
 # when deploying using this script.
@@ -240,7 +240,7 @@ The [Linode API](http://www.linode.com/api/index.cfm) contains support for manag
 -   [stackscript.update](https://www.linode.com/api/stackscript/stackscript.update)
 -   [linode.disk.createfromstackscript](https://www.linode.com/api/linode/linode.disk.createfromstackscript)
 
-{{< note >}}
+    {{< note >}}
 If creating a disk with `linode.disk.createfromstackscript`, you will need to create a configuration profile and attach the disk to the profile before you can boot and run the StackScript.
 {{< /note >}}
 

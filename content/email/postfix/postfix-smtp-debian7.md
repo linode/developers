@@ -45,7 +45,7 @@ Before starting this tutorial, you should have:
 
         sudo apt-get install libsasl2-modules
 
-{{< note >}}
+ {{< note >}}
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
 {{< /note >}}
 
@@ -73,7 +73,7 @@ In this section, you will install Postfix and set the domain and hostname.
 
 5.  Make sure that the **myhostname** parameter is configured with your server's FQDN:
 
-{{< file-excerpt "/etc/postfix/main.cf" >}}
+    {{< file-excerpt "/etc/postfix/main.cf" >}}
 myhostname = fqdn.example.com
 
 {{< /file-excerpt >}}
@@ -91,13 +91,13 @@ If you want to use [Mandrill](#settings-for-mandrill), or [SendGrid](#settings-f
 
 2.  Add your destination (SMTP Host), username, and password in the following format:
 
-{{< file "/etc/postfix/sasl\\_passwd" >}}
+    {{< file "/etc/postfix/sasl\\_passwd" >}}
 [mail.isp.example] username:password
 
 {{< /file >}}
 
 
-{{< note >}}
+    {{< note >}}
 If you want to specify a non-default TCP Port (such as 587), then use the following format:
 
 {{< file "> /etc/postfix/sasl\\_passwd" >}}
@@ -131,20 +131,20 @@ In this section, you will configure the `/etc/postfix/main.cf` file to use the e
 
 2.  Update the **relayhost** parameter to show your external SMTP relay host. **Important**: If you specified a non-default TCP port in the `sasl_passwd` file, then you must use the same port when configuring the **relayhost** parameter.
 
-{{< file-excerpt "/etc/postfix/main.cf" >}}
+    {{< file-excerpt "/etc/postfix/main.cf" >}}
 # specify SMTP relay host 
 relayhost = [mail.isp.example]:587
 
 {{< /file-excerpt >}}
 
 
-{{< note >}}
+    {{< note >}}
 Check the appropriate [Google Apps](#settings-for-google-apps), [Mandrill](#settings-for-mandrill), or [SendGrid](#settings-for-sendgrid) section for the details to enter here.
 {{< /note >}}
 
 3.  At the end of the file, add the following parameters to enable authentication:
 
-{{< file-excerpt "/etc/postfix/main.cf" >}}
+    {{< file-excerpt "/etc/postfix/main.cf" >}}
 # enable SASL authentication 
 smtp_sasl_auth_enable = yes
 # disallow methods that allow anonymous authentication. 
@@ -188,7 +188,7 @@ Use these settings for Mandrill.
 
 1.  For `/etc/postfix/sasl_passwd`, use the following configuration with your own credentials:
 
-{{< file "/etc/postfix/sasl\\_passwd" >}}
+    {{< file "/etc/postfix/sasl\\_passwd" >}}
 [smtp.mandrillapp.com]:587 USERNAME:API_KEY
 
 {{< /file >}}
@@ -196,7 +196,7 @@ Use these settings for Mandrill.
 
 2.  For `/etc/postfix/main.cf`, use the following **relayhost**:
 
-{{< file "/etc/postfix/main.cf" >}}
+    {{< file "/etc/postfix/main.cf" >}}
 relayhost = [smtp.mandrillapp.com]:587
 
 {{< /file >}}
@@ -216,7 +216,7 @@ Use these settings for SendGrid.
 
 1.  For `/etc/postfix/sasl_passwd`, use the following configuration with your own credentials:
 
-{{< file "/etc/postfix/sasl\\_passwd" >}}
+    {{< file "/etc/postfix/sasl\\_passwd" >}}
 [smtp.sendgrid.net]:587 USERNAME:PASSWORD
 
 {{< /file >}}
@@ -224,7 +224,7 @@ Use these settings for SendGrid.
 
 2.  For `/etc/postfix/main.cf`, use the following **relayhost**:
 
-{{< file "/etc/postfix/main.cf" >}}
+    {{< file "/etc/postfix/main.cf" >}}
 relayhost = [smtp.sendgrid.net]:587
 
 {{< /file >}}

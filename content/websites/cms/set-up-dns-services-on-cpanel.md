@@ -113,6 +113,6 @@ You'll then want to begin adding your domains to the Linode DNS Manager as slave
 
 5.  Click the "Add a Slave Zone" button.
 
-{{< note >}}
+    {{< note >}}
 Once you save your slave zone, you'll see a new text field titled "Domain Transfers". You can leave this empty.
 {{< /note >}}

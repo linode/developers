@@ -91,7 +91,7 @@ Using Git allows great flexibility because any time a new upgrade ,is available 
 
 3.  You'll be prompted for a password, **save it**, we'll need it shortly.
 
-{{< note >}}
+    {{< note >}}
 In the scenario of a testing or development environment you could create a user with no password using `createuser odoo -U postgres -dRS`.
 {{< /note >}}
 
@@ -153,7 +153,7 @@ Install Python libraries using the following commands:
 
 2.  Next we need to modify the configuration file. The finished file should look similar to this depending on your deploying needs:
 
-{{< file "/etc/odoo-server.conf" aconf >}}
+    {{< file "/etc/odoo-server.conf" aconf >}}
 [options]
 admin_passwd = admin
 db_host = False 

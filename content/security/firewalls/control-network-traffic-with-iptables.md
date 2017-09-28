@@ -461,7 +461,7 @@ In these distros, FirewallD is used to implement firewall rules instead of using
         sudo service iptables save
         sudo service ip6tables save
 
-{{< note >}}
+    {{< note >}}
 Firewall rules are saved to `/etc/sysconfig/iptables` and `/etc/sysconfig/ip6tables`.
 {{< /note >}}
 

@@ -52,7 +52,7 @@ Prior to installing your LAMP stack ensure that:
 
 2.  Edit the main Apache configuration file and turn off the `KeepAlive` setting:
 
-{{< file "/etc/apache2/apache2.conf" aconf >}}
+    {{< file "/etc/apache2/apache2.conf" aconf >}}
 KeepAlive Off
 
 {{< /file >}}
@@ -60,7 +60,7 @@ KeepAlive Off
 
 3.  Open `/etc/apache2/mods-available/mpm_prefork.conf` in your text editor and edit the values as needed. The following is optimized for a 2GB Linode:
 
-{{< file "/etc/apache2/mods-available/mpm_prefork.conf" aconf >}}
+    {{< file "/etc/apache2/mods-available/mpm_prefork.conf" aconf >}}
 # prefork MPM
 # StartServers: number of server processes to start
 # MinSpareServers: minimum number of server processes which are kept spare
@@ -81,7 +81,7 @@ KeepAlive Off
 {{< /file >}}
 
 
-{{< note >}}
+    {{< note >}}
 These settings are good starting points, but should be adjusted to best suite your specific stack's needs.
 {{< /note >}}
 
@@ -108,7 +108,7 @@ There can be as many virtual hosts files as needed to support the amount of doma
 
 2.  Create an `example.com.conf` file in `/etc/apache2/sites-available` with your text editor, replacing instances of `example.com` with your own domain URL in both the configuration file and in the file name:
 
-{{< file "/etc/apache2/sites-available/example.com.conf" aconf >}}
+    {{< file "/etc/apache2/sites-available/example.com.conf" aconf >}}
 <VirtualHost *:80>
      ServerAdmin webmaster@example.com
      ServerName example.com
@@ -123,7 +123,7 @@ There can be as many virtual hosts files as needed to support the amount of doma
 
     Repeat this process for any other domains you host:
 
-{{< file "/etc/apache2/sites-available/example.org.conf" aconf >}}
+    {{< file "/etc/apache2/sites-available/example.org.conf" aconf >}}
 <VirtualHost *:80>
      ServerAdmin webmaster@example.org     
      ServerName example.org
@@ -141,7 +141,7 @@ There can be as many virtual hosts files as needed to support the amount of doma
         sudo a2ensite example.com.conf
         sudo a2ensite example.org.conf
 
-{{< note >}}
+    {{< note >}}
 Should you need to disable a site, you can use `a2dissite example.com`.
 {{< /note >}}
 
@@ -197,7 +197,7 @@ PHP makes it possible to produce dynamic and interactive pages using your own sc
 
 2.  Open `/etc/php5/apache2/php.ini` in your text editor, and edit the following values. These settings are optimized for the 2GB Linode:
 
-{{< file-excerpt "/etc/php5/apache2/php.ini" ini >}}
+    {{< file-excerpt "/etc/php5/apache2/php.ini" ini >}}
 error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
 error_log = /var/log/php/error.log  
 max_input_time = 30
@@ -205,7 +205,7 @@ max_input_time = 30
 {{< /file-excerpt >}}
 
 
-{{< note >}}
+    {{< note >}}
 Ensure that all values are uncommented, by making sure they do not start with a semicolon (**;**).
 {{< /note >}}
 
