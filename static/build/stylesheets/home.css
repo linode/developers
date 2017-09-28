@@ -20903,10 +20903,6 @@ h1.contribute {
 #doc-sidebar-toc li.active > a {
   color: #005170;
 }
-#doc-sidebar-toc .affix {
-  position: fixed;
-  top: 0px;
-}
 /* Adapted from 
  https://bootsnipp.com/snippets/featured/share-on-social-networks
  Author: joao12ferreira

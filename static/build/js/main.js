@@ -130,16 +130,27 @@
 
     TocScroll = {
         init: function() {
+            var footer = $('footer');
+            var bottom =  Math.round($(document).height() - footer.offset().top) + 80
+
             $('#doc-sidebar-toc').affix({
                 offset: {
-                    top: 235,
-                    bottom: 960
+                    top:  $('#doc-sidebar-toc').offset().top,
+                    bottom: bottom
                 }
             });
 
 
+            // Workaround for https://github.com/twbs/bootstrap/issues/16045
+            $("#doc-sidebar-toc").on("affixed.bs.affix", function() {
+              var style =  $(this).attr("style");
+              style = style.replace("position: relative;", "");
+              $(this).attr("style", style)
+            });
+
+
             var resizeFn = function() {
-                $('#doc-sidebar-toc').css('width', $('#doc-sidebar').width() );
+                $('#doc-sidebar-toc').css('width', $('#doc-sidebar').width());
             };
 
             resizeFn();
