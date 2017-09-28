@@ -2,7 +2,6 @@ baseURL = "https://linode.com/docs/"
 languageCode = "en-us"
 title = "Linode Guides & Tutorials"
 
-
 # Highlighting config (Pygments)
 
 # Styles created with pygmentize -S perldoc -f html -a .highlight > syntax.css
@@ -20,6 +19,11 @@ pygmentsStyle = "perldoc"
 disqusShortname="TODO"
 
 disableKinds = ["taxonomy", "taxonomyTerm"]
+
+[outputs]
+home = [ "HTML", "RSS"]
+section = ["HTML"]
+page = ["HTML"]
 
 [taxonomies]
 category = "categories"
