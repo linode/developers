@@ -105,9 +105,7 @@ gulp.task('js-libs', function() {
 });
 
 gulp.task('js', function(cb) {
-    return gulp.src('assets/js/*.js')
-        .pipe(plugins.concat('main.js'))
-        .pipe(gulp.dest('static/build/js'))
+        return js()
         .pipe(plugins.uglify())
         .pipe(rename('main.min.js'))
         .pipe(gulp.dest('static/build/js')
@@ -115,8 +113,28 @@ gulp.task('js', function(cb) {
 
 });
 
+gulp.task('js-dev', function(cb) {
+        return js()
+});        
+
+function js() {
+        return gulp.src('assets/js/*.js')
+        .pipe(plugins.concat('main.js'))
+        .pipe(gulp.dest('static/build/js'))
+}
+
 gulp.task('css', function() {
-    return gulp.src('assets/stylesheets/home.less')
+    return less()
+        .pipe(rename('home.min.css'))
+        .pipe(gulp.dest('static/build/stylesheets')).on('error', gutil.log);
+});
+
+gulp.task('css-dev', function() {
+    return less();
+});
+
+function less() {
+   return gulp.src('assets/stylesheets/home.less')
         .pipe(plugins.plumber())
         .pipe(plugins.less())
         .on('error', function(err) {
@@ -128,9 +146,7 @@ gulp.task('css', function() {
         }))
         .pipe(gulp.dest('static/build/stylesheets'))
         .pipe(plugins.cssmin())
-        .pipe(rename('home.min.css'))
-        .pipe(gulp.dest('static/build/stylesheets')).on('error', gutil.log);
-});
+}
 
 gulp.task('hugo:server', function(cb) {
    return hugo(cb, "server")

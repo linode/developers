@@ -17,9 +17,9 @@ gulp.task('publish', function(cb) {
 // Convenient task for development.
 gulp.task('dev', ['watch', 'hugo:server']);
 
-// Default task
+
 gulp.task('watch', function() {
     gulp.watch('assets/js/libs/**/*.js', ['js-libs']);
-    gulp.watch('assets/js/*.js', ['js']);
-    gulp.watch('assets/stylesheets/**/*.less', ['css']);
+    gulp.watch('assets/js/*.js', ['js-dev']);
+    gulp.watch('assets/stylesheets/**/*.less', ['css-dev']);
 });
