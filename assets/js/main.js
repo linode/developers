@@ -130,12 +130,19 @@
 
     TocScroll = {
         init: function() {
-            var footer = $('footer');
-            var bottom =  Math.round($(document).height() - footer.offset().top) + 80
+            var toc = $('#doc-sidebar-toc');
+            if (toc.height() > 500) {
 
-            $('#doc-sidebar-toc').affix({
+              return
+            }
+
+
+            var footer = $('footer');
+            var bottom =  Math.round($(document).height() - footer.offset().top) + 80;
+
+            toc.affix({
                 offset: {
-                    top:  $('#doc-sidebar-toc').offset().top,
+                    top:  toc.offset().top,
                     bottom: bottom
                 }
             });
