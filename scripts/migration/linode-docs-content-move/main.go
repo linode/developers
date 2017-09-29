@@ -314,8 +314,6 @@ func (m *mover) move() error {
 
 	counter := 0
 
-	// Need to walk it twice to map out the symlinks.
-
 	err := filepath.Walk(m.fromDir, func(path string, fi os.FileInfo, err error) error {
 
 		if skipFiles[fi.Name()] {
@@ -342,16 +340,7 @@ func (m *mover) move() error {
 		return err
 	}
 
-	return filepath.Walk(m.fromDir, func(path string, fi os.FileInfo, err error) error {
-
-		// Create symbolic link and add the orignal path to front matter.
-		if fi.Mode()&os.ModeSymlink != 0 {
-			// TODO(bep) make symlinks relative
-			//return m.createSymlink(path, fi)
-		}
-
-		return nil
-	})
+	return nil
 
 }
 
@@ -368,61 +357,6 @@ func (m *mover) targetFilename(sourceFilename string) string {
 	filename = strings.Replace(filename, "index.md", "_index.md", 1)
 
 	return filename
-}
-
-func (m *mover) createSymlink(path string, info os.FileInfo) error {
-
-	fi, err := os.Stat(path)
-	if err != nil {
-		fmt.Printf("%s\t%s:%s\n", path, "Failed to read symlink:", err)
-	}
-
-	if fi.IsDir() {
-		fmt.Println(path, "is a dir, skip")
-		return nil
-	}
-
-	link, err := filepath.EvalSymlinks(path)
-	if err != nil {
-		fmt.Printf("%s\t%s:%s\n", path, "Failed to read symlink:", err)
-		return nil
-	}
-
-	// Recreate the symlink in new folder
-	old := m.fromToPath(link)
-	new := m.fromToPath(path)
-
-	err = os.Symlink(old, new)
-	if err != nil && !os.IsExist(err) {
-		fmt.Printf("%s\t%s:%s\n", path, "Failed to create symlink:", err)
-		return nil
-	}
-
-	// Add path to front matter
-	out, err := m.openTargetFile(old, info)
-	if err != nil {
-		fmt.Printf("%s\t%s:%s\n", path, "Failed set front matter for symlink:", err)
-		return nil
-	}
-	if out != nil {
-		defer out.Close()
-		in, err := os.Open(old)
-		if err != nil {
-			fmt.Printf("%s\t%s:%s\n", path, "Failed set front matter for symlink:", err)
-			return nil
-		}
-		defer in.Close()
-		relTarget := m.relNewContentPath(new)
-		replacer := func(path string, content string) (string, error) {
-			return appendToFrontMatter(content, fmt.Sprintf(`# This file has symlinks pointing to it.
-path: %q`, relTarget)), nil
-		}
-
-		return m.replaceInContent(link, in, out, replacer)
-
-	}
-
-	return nil
 }
 
 func (m *mover) openTargetFile(sourceFilename string, info os.FileInfo) (io.ReadWriteCloser, error) {
