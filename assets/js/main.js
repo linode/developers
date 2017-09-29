@@ -131,7 +131,8 @@
 
     TocScroll = {
         init: function() {
-            var toc = $('#doc-sidebar-toc');
+            var tocElemID = '#doc-sidebar-toc';
+            var toc = $(tocElemID);
             if (toc.height() > 500) {
 
                 return
@@ -150,7 +151,7 @@
 
 
             // Workaround for https://github.com/twbs/bootstrap/issues/16045
-            $("#doc-sidebar-toc").on("affixed.bs.affix", function() {
+            toc.on("affixed.bs.affix", function() {
                 var style = $(this).attr("style");
                 style = style.replace("position: relative;", "");
                 $(this).attr("style", style)
@@ -158,7 +159,7 @@
 
 
             var resizeFn = function() {
-                $('#doc-sidebar-toc').css('width', $('#doc-sidebar').width());
+                toc.css('width', $('#doc-sidebar').width());
             };
 
             resizeFn();
@@ -166,10 +167,10 @@
 
             /* activate scrollspy menu */
             var $body = $(document.body);
-            var navHeight = $('#doc-sidebar-toc').outerHeight(true) + 10;
+            var navHeight = toc.outerHeight(true) + 10;
 
             $body.scrollspy({
-                target: '#doc-sidebar-toc',
+                target: tocElemID,
                 offset: navHeight
             });
 
