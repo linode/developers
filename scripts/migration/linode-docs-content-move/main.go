@@ -30,13 +30,11 @@ func (m *mover) fromToPath(from string) string {
 
 func (m *mover) fixContent(path, s string) (string, error) {
 
-	// TODO(bep) fix markdown titles: ##Configure Apache
 	// TODO(bep) copy assets folder
 
 	fixers := []contentFixer{
-		// TODO(bep) for now we just remove the callout styling for
-		// striped tables.
 		tableFixer,
+		tableEndingFixer,
 
 		// Handles the callouts file, shell and file-exerpt
 		calloutFilesFixer,
@@ -260,6 +258,11 @@ var (
 
 	tableFixer = func(path, s string) (string, error) {
 		re := regexp.MustCompile(`{: \.table.*?}\s*\n`)
+		return re.ReplaceAllString(s, ""), nil
+	}
+
+	tableEndingFixer = func(path, s string) (string, error) {
+		re := regexp.MustCompile(`\|:------\S*\n\n`)
 		return re.ReplaceAllString(s, ""), nil
 	}
 

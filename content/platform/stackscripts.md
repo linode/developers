@@ -285,8 +285,6 @@ There are also a set of Linode created environmental variables that can be used 
 | `LINODE_LISHUSERNAME=linode123456` | The Linode's full lish-accessible name                                                    |
 | `LINODE_RAM=1024`                  | The RAM available on this Linode's plan                                                   |
 | `LINODE_DATACENTERID=6`            | The ID number of the data center containing the Linode. See our API for more information. |
-|:-----------------------------------|:------------------------------------------------------------------------------------------|
-
 
 
 If you do not want to use the StackScript system to set your environment variables, you might consider hosting files with settings on a different system. This is accomplished with the following fragment:

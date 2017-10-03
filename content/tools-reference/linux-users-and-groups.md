@@ -59,8 +59,6 @@ The useradd command utilizes a variety of variables, some of which are shown in 
 | `-e <date>`     | the date when the account will expire                              | `user add <name>** -e <YYYY-MM-DD>`        |
 | `-f <inactive>` | the number of days before the account expires                      | `useradd <name> -f <0 or -1>`              |
 | `-s <shell>`    | sets the default shell type                                        | `useradd <name> -s /bin/<shell>`           |
-|:----------------|:-------------------------------------------------------------------|:-------------------------------------------|
-
 You will need to set a password for the new user by using the `passwd` command. Note, you will need root privileges to change a user password. The syntax is as follows:
 
     passwd <username>
@@ -213,8 +211,6 @@ The command `chmod` is short for change mode. Chmod is used to change permission
 | u      | Current permissions the file has for owner                   |
 | g      | Current permissions the file has for users in the same group |
 | o      | Current permissions the file has for others not in the group |
-|:-------|:-------------------------------------------------------------|
-
 It is important to remember that the first character of the first column of a file listing denotes whether it is a directory or a file. The other nine characters are the permissions for the file/directory. The first three characters are for the user, the next three are for the group, and the last three are for others. The example **drwxrw-r--** is broken down as follows:
 
 > **d** is a directory

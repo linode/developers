@@ -159,8 +159,6 @@ Use a **Bold** font weight for buttons, menu selections and anything that requir
 |:--------------|:------------|
 | \*\*bold\*\* | **bold** |
 | \*italics\* | *italics* |
-|:--------------|:------------|
-
 ### Commands
 
 Commands that are not inline with paragraph text should be indented one tab from the beginning of the copy.
@@ -180,8 +178,6 @@ Inline commands should be denoted by backtics.
 | Formatting | Example |
 |:--------------|:------------|
 | Update your system by running \`yum update\`. | Update your system by running `yum update`. |
-|:--------------|:------------|
-
 ### Example IP Addresses
 
 Example IPs should use the documentation address blocks given in IETF [RFC 5737](https://tools.ietf.org/html/rfc5737). These are:
@@ -230,8 +226,6 @@ Inline file paths should be unformatted text.
 | Formatting | Example |
 |:--------------|:------------|
 | Navigate to \`/var/www/html\`. | Navigate to `/var/www/html`. |
-|:--------------|:------------|
-
 ### Headings
 
 | Formatting | Example |
@@ -257,8 +251,6 @@ When instructing a reader to use a combination of keys, format the key combinati
 | Formatting | Example |
 |:--------------|:------------|
 | Press \*\*CTRL+N\*\* then \*\*X\*\* to exit the program.  | Press **CTRL+N** then **X** to exit the program. |
-|:--------------|:------------|
-
 ### Links
 
 Internal links to other Linode guides should be relative, starting at `/docs/`, and external links should be formatted as shown below and use HTTPS URLs whenever possible.
@@ -292,8 +284,6 @@ Notes should be important text that does not necessarily fit the narrative of th
 | 1-10 | Greater than 10 |
 |:--------------|:------------|
 | Use words (one, two, three, etc.)  | Use numerical digits (11, 22, 33). |
-|:--------------|:------------|
-
 ### Sentence Spacing
 
 Use single spaces between sentences; do not double-space.
@@ -328,8 +318,6 @@ Variables that the reader will need to change for their system or preference sho
 | Formatting | Example |
 |:--------------|:------------|
 | Change the \`password\` and \`username\` values. | Change the `password` and `username` values. |
-|:--------------|:------------|
-
 ## Legal Information
 
 COPYRIGHT OWNERSHIP. Writer agrees that the Work is being created by the writer for the Linode Guides & Tutorials repository and that each form of Work is being created by the writer as a “work made for hire” under the United States Copyright Act and, at all stages of development, the Work shall be and remain the sole and exclusive property of Linode. At Linode's sole, absolute and unfettered discretion, Linode may make any alterations to the Work.

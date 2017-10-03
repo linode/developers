@@ -9227,6 +9227,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .note:before + .lead {
   padding-top: 10px;
 }
+.note a {
+  color: #0089bc;
+}
 .note:before {
   content: "Note";
 }
@@ -9296,6 +9299,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .caution:before + .lead {
   padding-top: 10px;
 }
+.caution a {
+  color: #0089bc;
+}
 .caution:before {
   content: "Caution";
 }
@@ -9364,6 +9370,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 }
 .deprecated:before + .lead {
   padding-top: 10px;
+}
+.deprecated a {
+  color: #0089bc;
 }
 .deprecated:before {
   content: "Deprecated";
@@ -10697,8 +10706,7 @@ body.modal-open,
   color: #747474;
 }
 .input-group-addon blockquote p,
-.input-group-addon blockquote ul > li,
-.input-group-addon blockquote * {
+.input-group-addon blockquote ul > li {
   color: #747474;
 }
 .has-warning .form-control {
@@ -11299,8 +11307,7 @@ div.no-padding {
   color: #747474;
 }
 .belt-outer .belt .belt-inner blockquote p,
-.belt-outer .belt .belt-inner blockquote ul > li,
-.belt-outer .belt .belt-inner blockquote * {
+.belt-outer .belt .belt-inner blockquote ul > li {
   color: #747474;
 }
 @media screen and (min-width: 768px) {
@@ -14379,8 +14386,7 @@ blockquote strong {
   color: #747474;
 }
 .white blockquote p,
-.white blockquote ul > li,
-.white blockquote * {
+.white blockquote ul > li {
   color: #747474;
 }
 .sand {
@@ -14648,8 +14654,7 @@ blockquote strong {
   color: #747474;
 }
 .sand blockquote p,
-.sand blockquote ul > li,
-.sand blockquote * {
+.sand blockquote ul > li {
   color: #747474;
 }
 .light-gray {
@@ -14917,8 +14922,7 @@ blockquote strong {
   color: #747474;
 }
 .light-gray blockquote p,
-.light-gray blockquote ul > li,
-.light-gray blockquote * {
+.light-gray blockquote ul > li {
   color: #747474;
 }
 .striped {
@@ -15187,8 +15191,7 @@ blockquote strong {
   color: #747474;
 }
 .striped blockquote p,
-.striped blockquote ul > li,
-.striped blockquote * {
+.striped blockquote ul > li {
   color: #747474;
 }
 .striped h1,
@@ -15471,8 +15474,7 @@ blockquote strong {
   color: #747474;
 }
 .cubes blockquote p,
-.cubes blockquote ul > li,
-.cubes blockquote * {
+.cubes blockquote ul > li {
   color: #747474;
 }
 .cubes h1,
@@ -16254,8 +16256,7 @@ blockquote strong {
   color: #747474;
 }
 .light-blue blockquote p,
-.light-blue blockquote ul > li,
-.light-blue blockquote * {
+.light-blue blockquote ul > li {
   color: #747474;
 }
 .red {
@@ -17458,8 +17459,7 @@ blockquote strong {
   color: #747474;
 }
 .primary blockquote p,
-.primary blockquote ul > li,
-.primary blockquote * {
+.primary blockquote ul > li {
   color: #747474;
 }
 .alt {
@@ -17727,8 +17727,7 @@ blockquote strong {
   color: #747474;
 }
 .alt blockquote p,
-.alt blockquote ul > li,
-.alt blockquote * {
+.alt blockquote ul > li {
   color: #747474;
 }
 .bold {
@@ -18246,8 +18245,7 @@ blockquote strong {
   color: #747474;
 }
 .neutral blockquote p,
-.neutral blockquote ul > li,
-.neutral blockquote * {
+.neutral blockquote ul > li {
   color: #747474;
 }
 .smart {
@@ -18805,8 +18803,7 @@ div.logo-tile blockquote {
   color: #747474;
 }
 div.logo-tile blockquote p,
-div.logo-tile blockquote ul > li,
-div.logo-tile blockquote * {
+div.logo-tile blockquote ul > li {
   color: #747474;
 }
 div.logo-tile.dark {
@@ -20272,6 +20269,80 @@ div.library-tile .tile-title + .lead {
   height: auto;
   margin: 0 auto;
 }
+#article-body table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 22px;
+}
+#article-body table > thead > tr > th,
+#article-body table > tbody > tr > th,
+#article-body table > tfoot > tr > th,
+#article-body table > thead > tr > td,
+#article-body table > tbody > tr > td,
+#article-body table > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #ddd;
+}
+#article-body table > thead > tr > th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #ddd;
+}
+#article-body table > caption + thead > tr:first-child > th,
+#article-body table > colgroup + thead > tr:first-child > th,
+#article-body table > thead:first-child > tr:first-child > th,
+#article-body table > caption + thead > tr:first-child > td,
+#article-body table > colgroup + thead > tr:first-child > td,
+#article-body table > thead:first-child > tr:first-child > td {
+  border-top: 0;
+}
+#article-body table > tbody + tbody {
+  border-top: 2px solid #ddd;
+}
+#article-body table .table {
+  background-color: #fff;
+}
+#article-body table > thead > tr > th {
+  color: white;
+  font-family: "Lato", sans-serif;
+  padding: 17px 10px;
+  vertical-align: middle;
+  text-align: left;
+  color: #555555;
+  background-color: #fff;
+  border-bottom: 2px solid #00aeef;
+  font-weight: 400;
+  font-size: 18px;
+}
+#article-body table > tbody > tr:first-child {
+  border-top: none;
+}
+#article-body table > tbody > tr:last-child {
+  border-bottom: 1px solid #e7e6e6;
+}
+#article-body table > tbody > tr > td {
+  background-color: #fff;
+  padding: 17px 10px;
+  vertical-align: middle;
+  text-align: left;
+  color: #747474;
+}
+#article-body table > tbody > tr > td:last-child {
+  border-right: none;
+}
+#article-body table > tbody > tr > td.large {
+  font-size: 20px;
+  color: black;
+}
+#article-body table > tbody > tr > td.large small {
+  display: block;
+  font-size: 16px;
+  color: #747474;
+}
+#article-body table > tbody > tr:nth-of-type(odd) {
+  background-color: #f9f9f9;
+}
 .doc-time {
   color: #9a9a9a;
 }
@@ -20561,8 +20632,7 @@ div.library-tile .tile-title + .lead {
   color: #747474;
 }
 .doc-sidebar-inner blockquote p,
-.doc-sidebar-inner blockquote ul > li,
-.doc-sidebar-inner blockquote * {
+.doc-sidebar-inner blockquote ul > li {
   color: #747474;
 }
 .doc-sidebar-inner + .doc-sidebar-inner {
@@ -20965,6 +21035,9 @@ h1.contribute {
   background-color: #ff6600 !important;
   width: 51px;
   color: #FFFFFF !important;
+}
+#disqus_thread {
+  margin-top: 40px;
 }
 /* Background */
 .chroma {

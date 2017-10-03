@@ -56,8 +56,6 @@ The sample command above:
 | `-o, --out-interface` | Name of the interface by which a packet is being sent.                                   |
 | `-f, --fragment`      | The rule will only be applied to the second and subsequent fragments of fragmented packets. |
 | `-c, --set-counters`  | Enables the admin to initialize the packet and byte counters of a rule.                  |
-|:----------------------|:-----------------------------------------------------------------------------------------|
-
 ### Default Tables
 
 Tables are made up of built-in chains and may also contain user-defined chains. The built-in tables will depend on the kernel configuration and the installed modules.
@@ -106,8 +104,6 @@ There are many options that may be used with the `iptables` command:
 | `-N --new-chain <name>`    | Create a new user-defined chain.                                                                            |
 | `-v --verbose`             | Provide more information when used with the list option.                                                    |
 | `-X --delete-chain <name>` | Delete the user-defined chain.                                                                    |
-|:---------------------------|:------------------------------------------------------------------------------------------------------------|
-
 ### Insert, Replace or Delete iptables Rules
 
 iptables rules are enforced top down, so the first rule in the ruleset is applied to traffic in the chain, then the second, third and so on. This means that rules cannot necessarily be added to a ruleset with `iptables -A` or `ip6tables -A`. Instead, rules must be *inserted* with `iptables -I` or `ip6tables -I`.
