@@ -21,7 +21,8 @@
   </div>
 </section>
 {{ end }}
-{{ with .Sections }}
+{{ $sections :=  where .Sections ".Params.show_in_lists" "==" true  }}
+{{ with $sections }}
 <section class="primary some-space">
   <div class="container">
     {{ range . }}
