@@ -26,6 +26,8 @@
 <section class="primary some-space">
   <div class="container">
     {{ range . }}
+    {{ $pages := where .Pages ".Params.deprecated" "!=" true }}
+    {{ if gt (len $pages) 0 }}
     <div class="row-content">
       <div class="col-sm-12">
         <h2 class="h3"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
@@ -38,6 +40,7 @@
         </ul>
       </div>
     </div>
+    {{ end }}
     {{ end }}
   </div>
 </section>
