@@ -1,6 +1,5 @@
 ---
 title: Troubleshooting
-featured: [troubleshooting, troubleshooting-memory-and-networking-issues, troubleshooting-common-apache-issues, rescue-and-rebuild, recovering-from-a-system-compromise]
 show_on_frontpage: true
 title_short: "Troubleshooting"
 weight: 140

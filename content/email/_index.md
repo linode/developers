@@ -5,12 +5,6 @@ author:
 keywords: ["linux mail server", "email server", "Citadel", "Postfix", "Courier", "SMTP server"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 title: Email Server Guides
-featured:
- - running-a-mail-server.md
- - email-with-postfix-dovecot-and-mysql.md
- - installing-mail-filtering-for-ubuntu-12-04.md
- - using-google-apps-for-email.md
- - how-to-create-an-email-server-with-mail-in-a-box.md
 show_on_frontpage: true
 title_short: "Email"
 weight: 80

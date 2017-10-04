@@ -8,10 +8,6 @@ license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 aliases: ['web-applications/']
 published: 2009-07-16
 title: Website Guides
-featured:
- - hosting-a-website.md
- - introduction-to-high-availability.md
- - host-a-website-with-high-availability.md
 show_on_frontpage: true
 title_short: "Websites"
 weight: 40

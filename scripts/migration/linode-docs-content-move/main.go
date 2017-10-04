@@ -36,6 +36,7 @@ func (m *mover) fixContent(path, s string) (string, error) {
 
 	fixers := []contentFixer{
 		categoriesHandler,
+		removeFeatured,
 
 		tableFixer,
 		tableEndingFixer,
@@ -282,6 +283,21 @@ var (
 	titlesFixes = func(path, s string) (string, error) {
 		re := regexp.MustCompile(`(?s)\n\n(#{1,3})(\w.*?)\n`)
 		return re.ReplaceAllString(s, "\n\n$1 $2\n"), nil
+	}
+
+	removeFeatured = func(path, s string) (string, error) {
+		res := []*regexp.Regexp{
+			regexp.MustCompile(`(?s)featured:\n(\s?\-.*?)\n(\-{3,4})`),
+			regexp.MustCompile(`(?s)featured:\n(\s?\-.*?)\n([^ \-])`),
+		}
+
+		for _, re := range res {
+			s = re.ReplaceAllString(s, "$2")
+		}
+
+		s = regexp.MustCompile(`featured: \[.*\]?.*\n`).ReplaceAllString(s, "")
+
+		return s, nil
 	}
 
 	categoriesHandler = func(path, s string) (string, error) {
