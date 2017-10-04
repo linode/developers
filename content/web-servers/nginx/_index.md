@@ -8,6 +8,7 @@ license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 aliases: ['websites/nginx/index.cfm/','websites/nginx/']
 published: 2009-12-14
 title: 'Nginx'
+show_in_lists: true
 ---
 
 The Nginx web server is a fast, lightweight server designed to efficiently handle the needs of both low and high traffic websites. These guides will help you get Nginx up and running on your Linode.

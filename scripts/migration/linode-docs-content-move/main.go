@@ -26,7 +26,7 @@ func (m *mover) relNewContentPath(s string) string {
 	return s[strings.Index(s, "content")+8:]
 }
 
-func (m *mover) fromToPath(from string) string {
+func fromToPath(from string) string {
 	return strings.Replace(from, "content_old/docs", "content", 1)
 }
 
@@ -290,16 +290,16 @@ var (
 			regexp.MustCompile(`(?s)categories:\n(\s?\-.*?)\n([^ \-])`),
 		}
 
-		dir := filepath.Dir(relOldContentPath(path))
+		dir := filepath.Dir(fromToPath(path))
 
 		for _, re := range res {
 			s = re.ReplaceAllStringFunc(s, func(s string) string {
 				m := re.FindAllStringSubmatch(s, -1)
 				f := m[0]
 
-				sections := strings.Split(strings.Replace(f[1], "-", "", -1), "\n")
+				sections := strings.Split(f[1], "\n")
 				for _, section := range sections {
-					section = strings.TrimSpace(section)
+					section = strings.Trim(section, " -")
 					if section == "" {
 						continue
 					}
@@ -371,7 +371,7 @@ func (m *mover) move() error {
 			if try && counter > 5 {
 				return filepath.SkipDir
 			}
-			return m.handleFile(path, fi)
+			return m.handleFile(path, true, fi, m.fixContent)
 
 		}
 
@@ -380,6 +380,21 @@ func (m *mover) move() error {
 
 	if err != nil {
 		return err
+	}
+
+	for _, sect := range listedSections {
+		index := filepath.Join(sect, "_index.md")
+		fi, err := os.Stat(index)
+		if err != nil {
+			if !os.IsNotExist(err) {
+				return err
+			}
+			fmt.Println(index, "not found. Skip setting the show_in_lists flag")
+		} else {
+			if err := m.handleFile(index, false, fi, showInList); err != nil {
+				return err
+			}
+		}
 	}
 
 	return nil
@@ -426,24 +441,41 @@ func (m *mover) openOrCreateTargetFile(sourceFilename string, info os.FileInfo) 
 		return nil, err
 	}
 
-	return os.OpenFile(targetFilename, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, info.Mode())
+	return m.openFileForWriting(targetFilename, info)
 }
 
-func (m *mover) handleFile(path string, info os.FileInfo) error {
+func (m *mover) openFileForWriting(filename string, info os.FileInfo) (io.ReadWriteCloser, error) {
+	return os.OpenFile(filename, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, info.Mode())
+}
+
+func (m *mover) handleFile(path string, create bool, info os.FileInfo, replacer func(path string, content string) (string, error)) error {
 	sourceFilename := path
-	out, err := m.openOrCreateTargetFile(sourceFilename, info)
+
+	var (
+		out io.ReadWriteCloser
+		in  bytes.Buffer
+		err error
+	)
+
+	infile, err := os.Open(sourceFilename)
+	if err != nil {
+		return err
+	}
+	in.ReadFrom(infile)
+	infile.Close()
+
+	if create {
+		out, err = m.openOrCreateTargetFile(sourceFilename, info)
+	} else {
+		out, err = m.openFileForWriting(sourceFilename, info)
+	}
+
 	if err != nil {
 		return err
 	}
 	defer out.Close()
 
-	in, err := os.Open(sourceFilename)
-	if err != nil {
-		return err
-	}
-	defer in.Close()
-
-	return m.replaceInContent(path, in, out, m.fixContent)
+	return m.replaceInContent(path, &in, out, replacer)
 }
 
 func (m *mover) replaceInContent(path string, in io.Reader, out io.Writer, replacer func(path string, content string) (string, error)) error {
@@ -516,6 +548,10 @@ weight: %d
 icon: %q`, addon.short_title, addon.weight, addon.icon)
 
 	return appendToFrontMatter(src, addition)
+}
+
+func showInList(path, s string) (string, error) {
+	return appendToFrontMatter(s, `show_in_lists: true`), nil
 }
 
 func appendToFrontMatter(src, addition string) string {

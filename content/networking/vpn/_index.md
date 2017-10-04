@@ -12,6 +12,7 @@ featured:
  - secure-communications-with-openvpn-on-centos-6.md
  - secure-communications-with-openvpn-on-ubuntu-12-04-precise-and-debian-7.md
 
+show_in_lists: true
 ---
 
 Learn how to use your Linode to manage a virtual private network (VPN). These guides will help you get up and running quickly with OpenVPN solution on a variety of Linux distributions.
