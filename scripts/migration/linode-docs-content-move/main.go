@@ -14,9 +14,11 @@ import (
 	"time"
 )
 
+var listedSections []string
+
 type contentFixer func(path, s string) (string, error)
 
-func (m *mover) relOldContentPath(s string) string {
+func relOldContentPath(s string) string {
 	return s[strings.Index(s, "content_old")+17:]
 }
 
@@ -33,6 +35,8 @@ func (m *mover) fixContent(path, s string) (string, error) {
 	// TODO(bep) copy assets folder
 
 	fixers := []contentFixer{
+		categoriesHandler,
+
 		tableFixer,
 		tableEndingFixer,
 
@@ -62,7 +66,9 @@ func (m *mover) fixContent(path, s string) (string, error) {
 		}
 	}
 
-	relPath := m.relOldContentPath(path)
+	//fmt.Println(listedSections)
+
+	relPath := relOldContentPath(path)
 
 	// Add front matter to get them listen on the front page tiles.
 	if addon, ok := fundamentalPages[relPath]; ok {
@@ -276,6 +282,39 @@ var (
 	titlesFixes = func(path, s string) (string, error) {
 		re := regexp.MustCompile(`(?s)\n\n(#{1,3})(\w.*?)\n`)
 		return re.ReplaceAllString(s, "\n\n$1 $2\n"), nil
+	}
+
+	categoriesHandler = func(path, s string) (string, error) {
+		res := []*regexp.Regexp{
+			regexp.MustCompile(`(?s)categories:\n(\s?\-.*?)\n(\-{3,4})`),
+			regexp.MustCompile(`(?s)categories:\n(\s?\-.*?)\n([^ \-])`),
+		}
+
+		dir := filepath.Dir(relOldContentPath(path))
+
+		for _, re := range res {
+			s = re.ReplaceAllStringFunc(s, func(s string) string {
+				m := re.FindAllStringSubmatch(s, -1)
+				f := m[0]
+
+				sections := strings.Split(strings.Replace(f[1], "-", "", -1), "\n")
+				for _, section := range sections {
+					section = strings.TrimSpace(section)
+					if section == "" {
+						continue
+					}
+
+					listedSections = append(listedSections, filepath.Join(dir, section))
+				}
+
+				s = f[2]
+
+				return s
+			})
+		}
+
+		return s, nil
+
 	}
 )
 

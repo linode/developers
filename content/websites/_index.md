@@ -12,13 +12,6 @@ featured:
  - hosting-a-website.md
  - introduction-to-high-availability.md
  - host-a-website-with-high-availability.md
-categories:
- - ssl
- - varnish
- - forums
- - cms
- - wikis
- - ecommerce
 show_on_frontpage: true
 title_short: "Websites"
 weight: 40

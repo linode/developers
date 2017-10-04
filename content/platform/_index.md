@@ -20,12 +20,6 @@ featured:
  - support.md
  - network-helper.md
  - linode-cli.md
-categories:
- - migrate-to-linode
- - longview
- - nodebalancer
- - disk-images
- - api
 show_on_frontpage: true
 title_short: "Linode Platform"
 weight: 30

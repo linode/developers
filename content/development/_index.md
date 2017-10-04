@@ -8,11 +8,6 @@ license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 aliases: ['applications/development/']
 published: 2017-04-14
 title: Development
-categories:
- - nodejs
- - frameworks
- - ror
- - version-control
 show_on_frontpage: true
 title_short: "Development"
 weight: 130

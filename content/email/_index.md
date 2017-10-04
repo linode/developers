@@ -11,14 +11,6 @@ featured:
  - installing-mail-filtering-for-ubuntu-12-04.md
  - using-google-apps-for-email.md
  - how-to-create-an-email-server-with-mail-in-a-box.md
-categories:
- - clients
- - postfix
- - citadel
- - zimbra
- - exim
- - mailman
- - iredmail
 show_on_frontpage: true
 title_short: "Email"
 weight: 80
