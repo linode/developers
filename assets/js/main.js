@@ -95,8 +95,7 @@
                     });
 
                     $(document).on('click', '#ds-search-btn-modal', function(e) {
-                        query = $('#ss_keyword').val();
-                        $('#ds-search').val(query);
+                        query = $('#ds-search').val();
                         search(query, searchStore);
                     });
 
