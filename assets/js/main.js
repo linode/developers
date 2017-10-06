@@ -54,6 +54,13 @@
         resultList.show();
     }
 
+    function toggleAndSearch(searchStore, query) {
+        $('#ds-search-modal').modal('toggle');
+        query = query || $('#ss_keyword').val();
+        $('#ds-search').val(query);
+        search(query, searchStore);
+    }
+
     Search = {
 
         init: function() {
@@ -68,10 +75,8 @@
                         if (e.keyCode !== 13) {
                             return
                         }
-                        $('#ds-search-modal').modal('toggle');
                         var query = $(this).val()
-                        $('#ds-search').val(query);
-                        search(query, searchStore);
+                        toggleAndSearch(searchStore, query, );
 
                     });
 
@@ -80,15 +85,25 @@
                             return
                         }
                         var query = $(this).val();
-
                         search(query, searchStore);
 
                     });
+
+                    $(document).on('click', '#ds-search-btn', function(e) {
+                        toggleAndSearch(searchStore);
+
+                    });
+
+                    $(document).on('click', '#ds-search-btn-modal', function(e) {
+                        query = $('#ss_keyword').val();
+                        $('#ds-search').val(query);
+                        search(query, searchStore);
+                    });
+
+
                 }
 
                 $.getJSON('/docs/lunr.json', setupSearch);
-
-
 
             });
 
