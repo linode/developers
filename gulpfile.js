@@ -15,7 +15,7 @@ gulp.task('publish', function(cb) {
 });
 
 // Convenient task for development.
-gulp.task('dev', ['watch', 'hugo:server']);
+gulp.task('dev', ['js-dev', 'css-dev', 'watch', 'hugo:server']);
 
 
 gulp.task('watch', function() {

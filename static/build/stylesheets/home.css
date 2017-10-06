@@ -9230,9 +9230,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .note a {
   color: #0089bc;
 }
-.note:before {
-  content: "Note";
-}
 .note strong {
   font-weight: bold;
 }
@@ -9302,9 +9299,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .caution a {
   color: #0089bc;
 }
-.caution:before {
-  content: "Caution";
-}
 .caution strong {
   font-weight: bold;
 }
@@ -9373,9 +9367,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 }
 .deprecated a {
   color: #0089bc;
-}
-.deprecated:before {
-  content: "Deprecated";
 }
 .deprecated strong {
   font-weight: bold;
