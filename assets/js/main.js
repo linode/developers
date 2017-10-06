@@ -67,6 +67,10 @@
 
             $(document).ready(function() {
 
+                $('#ds-search-modal').on("shown.bs.modal", function() {
+                    $('#ds-search').focus();
+                });
+
                 var setupSearch = function(json) {
                     var searchStore = {}
                     searchStore.index = lunr.Index.load(json.index);
