@@ -209,16 +209,14 @@ gulp.task('build:index', ["hugo:search-index"], function(cb) {
 
     var idx = lunr(function() {
         this.field('title', {
-            boost: 20
-        });
-        this.field('toc', {
-            boost: 10
+            boost: 30
         });
         this.field('keywords', {
+            boost: 10
+        });
+        this.field('toc', {
             boost: 5
         });
-        //this.field('body');
-        // TODO(bep) use toc + plainify
         this.ref('href');
 
         var source = JSON.parse(fs.readFileSync("dist/docs/index.json"));
@@ -230,10 +228,8 @@ gulp.task('build:index', ["hugo:search-index"], function(cb) {
                 'title': item.title,
                 'keywords': item.keywords,
                 'toc': item.toc,
-                // 'body': data.content,
                 'href': item.ref
             };
-
 
             data.store[doc.href] = item.title
 

@@ -41,7 +41,7 @@
         resultList.empty();
         for (var i = 0; i < result.length; i++) {
             var item = result[i];
-            if (item.score < 0.4) {
+            if (i > 30) {
                 break;
             }
 
