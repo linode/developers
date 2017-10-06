@@ -107,6 +107,7 @@ gulp.task('js-libs', function() {
 gulp.task('js', function(cb) {
         return js()
         .pipe(plugins.uglify())
+        .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
         .pipe(rename('main.min.js'))
         .pipe(gulp.dest('static/build/js')
             .on('error', gutil.log))

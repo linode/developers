@@ -75,8 +75,8 @@
                         if (e.keyCode !== 13) {
                             return
                         }
-                        var query = $(this).val()
-                        toggleAndSearch(searchStore, query, );
+                        var query = $(this).val();
+                        toggleAndSearch(searchStore, query);
 
                     });
 
@@ -99,7 +99,6 @@
                         $('#ds-search').val(query);
                         search(query, searchStore);
                     });
-
 
                 }
 
