@@ -131,7 +131,7 @@
 
     TocScroll = {
         init: function() {
-            var tocElemID = '#doc-sidebar-toc';
+            var tocElemID = '#doc-sidebar';
             var toc = $(tocElemID);
 
             var footer = $('footer');
@@ -154,7 +154,7 @@
 
 
             var resizeFn = function() {
-                toc.css('width', $('#doc-sidebar').width());
+                toc.css('width', $('#doc-sidebar-container').width());
             };
 
             resizeFn();

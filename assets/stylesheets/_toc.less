@@ -1,20 +1,28 @@
 /* Styling of Table of Contents. */
-#doc-sidebar-toc {
-	li.active > a {
-		color: @link-color-hover;
+#doc-sidebar-container {
+	#doc-sidebar {
+		margin-top: 10px;
+
+		li.active > a {
+			color: @link-color-hover;
+		}
+
+		.toc-long {
+			ul > li > ul > li > ul {
+				display: none;
+			}
+
+		}
 	}
 
 	.affix {
+		top: 0px;
 	}
 
 	.affix-top {
 	}
 
 	.affix-bottom {
-	}
-
-	.toc-long {
-		ul > li > ul > li > ul  { display: none; }
 	}
 
 }
