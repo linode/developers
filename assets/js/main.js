@@ -133,11 +133,6 @@
         init: function() {
             var tocElemID = '#doc-sidebar-toc';
             var toc = $(tocElemID);
-            if (toc.height() > 500) {
-
-                return
-            }
-
 
             var footer = $('footer');
             var bottom = Math.round($(document).height() - footer.offset().top) + 80;
