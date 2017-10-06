@@ -63,19 +63,16 @@
 
 .note {
 	.make-callout(@brand-subdued);
-	&:before { content: "Note"; }
 	strong { font-weight: bold; }
 }
 
 .caution {
 	.make-callout(lighten(@dangerzone-red, 40%));
-	&:before { content: "Caution"; }
 	strong { font-weight: bold; }
 }
 
 .deprecated {
 	.make-callout(lighten(@orange, 25%));
-	&:before { content: "Deprecated"; }
 	strong { font-weight: bold; }
 }
 

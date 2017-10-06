@@ -1,8 +1,11 @@
 {{ with .Params.deprecated }}
 <blockquote class="deprecated">
-	This guide has been deprecated and is no longer being maintained.
-	{{ if ne (printf "%T" .) "bool" }}
-	Please refer to the updated version of this guide: {{ . }}
-	{{ end }}
+	<strong class="callout-title">Deprecated</strong>
+	<div>This guide has been deprecated and is no longer being maintained.</div>
+	<div>
+		{{ if ne (printf "%T" .) "bool" }}
+		Please refer to the updated version of this guide: {{ . }}
+		{{ end }}
+	</div>
 </blockquote>
 {{ end }}
