@@ -20,6 +20,8 @@ disqusShortname="TODO"
 
 disableKinds = ["taxonomy", "taxonomyTerm"]
 
+rssLimit = 15
+
 [outputs]
 home = [ "HTML", "RSS"]
 section = ["HTML"]
