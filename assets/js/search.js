@@ -27,14 +27,27 @@
         search(query, searchStore);
     }
 
+    function initModal() {
+        var options = {
+            "backdrop": true,
+            "show": false
+        }
+
+        var elem = $('#ds-search-modal')
+
+        elem.modal(options);
+
+        elem.on("shown.bs.modal", function() {
+            $('#ds-search').focus();
+        });
+    }
+
     Search = {
 
         init: function() {
             $(document).ready(function() {
 
-                $('#ds-search-modal').on("shown.bs.modal", function() {
-                    $('#ds-search').focus();
-                });
+                initModal();
 
                 var setupSearch = function(json) {
                     var searchStore = {}
