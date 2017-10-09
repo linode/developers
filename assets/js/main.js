@@ -35,83 +35,6 @@
         }
     };
 
-    function search(query, searchStore) {
-        var result = searchStore.index.search(query);
-        var resultList = $('#ds-search-list');
-        resultList.empty();
-        for (var i = 0; i < result.length; i++) {
-            var item = result[i];
-            if (i > 30) {
-                break;
-            }
-
-            // TODO(bep) store and lookup the titles ...
-            var title = searchStore.store[item.ref]
-            var url = item.ref
-            var searchitem = '<li class="list-group-item"><a href="' + url + '">' + title + '</a><span class="badge">' + item.score.toFixed(2) + '</span></li>';
-            resultList.append(searchitem);
-        }
-        resultList.show();
-    }
-
-    function toggleAndSearch(searchStore, query) {
-        $('#ds-search-modal').modal('toggle');
-        query = query || $('#ss_keyword').val();
-        $('#ds-search').val(query);
-        search(query, searchStore);
-    }
-
-    Search = {
-
-        init: function() {
-
-            $(document).ready(function() {
-
-                $('#ds-search-modal').on("shown.bs.modal", function() {
-                    $('#ds-search').focus();
-                });
-
-                var setupSearch = function(json) {
-                    var searchStore = {}
-                    searchStore.index = lunr.Index.load(json.index);
-                    searchStore.store = json.store
-                    $(document).on('keypress', '#ss_keyword', function(e) {
-                        if (e.keyCode !== 13) {
-                            return
-                        }
-                        var query = $(this).val();
-                        toggleAndSearch(searchStore, query);
-
-                    });
-
-                    $(document).on('keypress', '#ds-search', function(e) {
-                        if (e.keyCode !== 13) {
-                            return
-                        }
-                        var query = $(this).val();
-                        search(query, searchStore);
-
-                    });
-
-                    $(document).on('click', '#ds-search-btn', function(e) {
-                        toggleAndSearch(searchStore);
-
-                    });
-
-                    $(document).on('click', '#ds-search-btn-modal', function(e) {
-                        query = $('#ds-search').val();
-                        search(query, searchStore);
-                    });
-
-                }
-
-                $.getJSON('/docs/lunr.json', setupSearch);
-
-            });
-
-        },
-
-    };
 
     Handlebars.registerHelper('formatDate', function(object) {
         var date = new Date(object),
@@ -130,8 +53,6 @@
         Page.Toggle.update($(event.target).parent()[0]);
     });
 
-    Search.init();
-
     if (Page.param('format') === 'app') {
         $('header').hide();
         $('.breadcrumb-row').hide();
@@ -146,65 +67,5 @@
         });
     }
 
-    TocScroll = {
-        init: function() {
-            var tocElemID = '#doc-sidebar';
-            var toc = $(tocElemID);
-
-            var footer = $('footer');
-            var bottom = Math.round($(document).height() - footer.offset().top) + 80;
-
-            toc.affix({
-                offset: {
-                    top: toc.offset().top,
-                    bottom: bottom
-                }
-            });
-
-
-            // Workaround for https://github.com/twbs/bootstrap/issues/16045
-            toc.on("affixed.bs.affix", function() {
-                var style = $(this).attr("style");
-                style = style.replace("position: relative;", "");
-                $(this).attr("style", style)
-            });
-
-
-            var resizeFn = function() {
-                toc.css('width', $('#doc-sidebar-container').width());
-            };
-
-            resizeFn();
-            $(window).resize(resizeFn);
-
-            /* activate scrollspy menu */
-            var $body = $(document.body);
-            var navHeight = toc.outerHeight(true) + 10;
-
-            $body.scrollspy({
-                target: tocElemID,
-                offset: navHeight
-            });
-
-            /*  scrollspy Table of contents, adapted from https://www.bootply.com/100983 
-                license: MIT
-                author: bootply.com
-             */
-            /* smooth scrolling sections */
-            $('a[href*=\\#]:not([href=\\#])').click(function() {
-                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-                    var target = $(this.hash);
-                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                    if (target.length) {
-                        $('html,body').animate({
-                            scrollTop: target.offset().top - 50
-                        }, 1000);
-                        return false;
-                    }
-                }
-            });
-        }
-
-    }
 
 })(jQuery);
