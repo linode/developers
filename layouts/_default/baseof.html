@@ -37,8 +37,7 @@
         {{ end }}
         <meta name="twitter:site" content="@linode">
         <link rel="alternate" type="application/rss+xml" title="RSS" href="https://www.linode.com/docs/rss" />
-        {{/* TODO(bep) versioning of CSS and JS */}}
-          {{ if not (getenv "HUGO_ENV") }}
+        {{ if not (getenv "HUGO_ENV") }}
             {{ partial "includes_head_dev" . }}
         {{ else }}
              {{ partial "includes_head_prod" . }}

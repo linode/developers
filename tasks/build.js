@@ -87,7 +87,6 @@ gulp.task("revreplace", ["revision"], function() {
 });
 
 
-/* TODO(bep) consistent ordering */
 gulp.task('js-libs', function() {
     return gulp.src(['assets/js/libs/**/*.js', 'assets/vendors/bootstrap/dist/js/bootstrap.js', 'assets/vendors/lunr/lunr.js'])
         .pipe(order([
@@ -242,7 +241,6 @@ gulp.task('build:index', ["hugo:search-index"], function(cb) {
 
     var serializedIdx = JSON.stringify(data)
 
-    // TODO(bep) add to .gitignore?
     fs.writeFile('static/lunr.json', serializedIdx, cb);
 
 });
@@ -256,7 +254,6 @@ function setHugoEnv() {
 	}
 	if (argv.test) {
 		 process.env.HUGO_ENV="test"
-		 // TODO(bep) improve the env handling
 		 process.env.HUGO_BASEURL="https://docstest.linode.com/docs/"
 	} else {
 		 // Development
