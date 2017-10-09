@@ -83,7 +83,7 @@
 
                 }
 
-                $.getJSON('/docs/lunr.json', setupSearch);
+                $.getJSON('/docs/build/lunr.json', setupSearch);
 
             });
 

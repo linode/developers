@@ -22,8 +22,7 @@ var opt = {
 
 
 gulp.task('build', function(cb) {
-    runSequence('build:clean', ['fonts',
-        'js-libs', 'js', 'css'], 'revreplace',
+    runSequence('build:clean', 'fonts', 'build:index', ['js-libs', 'js', 'css'], 'revreplace-templates',
         cb);
 });
 
@@ -64,26 +63,46 @@ gulp.task('fonts', function() {
 
 
 gulp.task('revision', [], function() {
-  return gulp.src(['**/home.min.css', '**/main.min.js', '**/libs.min.js'], {
+  return gulp.src(['static/**/home.min.css', 'static/**/main.min.js', 'static/**/libs.min.js'], {
            base: path.join(process.cwd(), opt.distFolder)
         })
         .pipe(rev())
         .pipe(gulp.dest(opt.distFolder))
-        .pipe(rev.manifest())
+        .pipe(rev.manifest("rev-manifest1.json"))
         .pipe(gulp.dest("assets")).on('error', gutil.log)
 });
 
-gulp.task("revreplace", ["revision"], function() {
-    var manifest = gulp.src("./assets/rev-manifest.json");
+gulp.task('revision-lunr', [], function() {
+  return gulp.src(['static/build/lunr.json'], {
+           base: path.join(process.cwd(), opt.distFolder)
+        })
+        .pipe(rev())
+        .pipe(gulp.dest(opt.distFolder))
+        .pipe(rev.manifest("rev-manifest2.json"))
+        .pipe(gulp.dest("assets")).on('error', gutil.log)
+});
+
+gulp.task("revreplace-templates", ["revision"], function() {
+    var manifest = gulp.src("./assets/rev-manifest1.json");
 
     return gulp.src(["layouts/partials/includes_body_end.html", "layouts/partials/includes_head.html"])
         .pipe(rename(function(path) {
-            path.extname = "_prod.html";
+                path.extname = "_prod.html";
         }))
         .pipe(revReplace({
             manifest: manifest
         }))
         .pipe(gulp.dest("layouts/partials")).on('error', gutil.log);
+});
+
+gulp.task("revreplace-js", ["revision-lunr"], function() {
+    var manifest = gulp.src("./assets/rev-manifest2.json");
+
+    return gulp.src(["static/build/js/main.js"])
+        .pipe(revReplace({
+            manifest: manifest
+        }))
+        .pipe(gulp.dest("static/build/js")).on('error', gutil.log);
 });
 
 
@@ -104,7 +123,13 @@ gulp.task('js-libs', function() {
 });
 
 gulp.task('js', function(cb) {
-        return js()
+   runSequence('js-main', 'revreplace-js', 'js-min', cb)
+
+});
+
+
+gulp.task('js-min', function(cb) {
+        return gulp.src('static/build/js/main.js')
         .pipe(plugins.uglify())
         .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
         .pipe(rename('main.min.js'))
@@ -113,7 +138,7 @@ gulp.task('js', function(cb) {
 
 });
 
-gulp.task('js-dev', function(cb) {
+gulp.task('js-main', function(cb) {
         return js()
 });        
 
@@ -241,7 +266,7 @@ gulp.task('build:index', ["hugo:search-index"], function(cb) {
 
     var serializedIdx = JSON.stringify(data)
 
-    fs.writeFile('static/lunr.json', serializedIdx, cb);
+    fs.writeFile('static/build/lunr.json', serializedIdx, cb);
 
 });
 

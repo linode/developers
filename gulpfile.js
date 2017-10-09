@@ -10,12 +10,12 @@ gulp.task('default', ['build']);
 // Build assets, Hugo site and deploy to server.
 // Deploy to test: gulp release --test
 gulp.task('publish', function(cb) {
-    runSequence('build', 'build:index', 'hugo', 'deploy:remote',
+    runSequence('build', 'hugo', 'deploy:remote',
         cb);
 });
 
 // Convenient task for development.
-gulp.task('dev', ['js-dev', 'css-dev', 'watch', 'hugo:server']);
+gulp.task('dev', ['js-main', 'css-dev', 'watch', 'hugo:server']);
 
 
 gulp.task('watch', function() {
