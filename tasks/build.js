@@ -42,7 +42,7 @@ gulp.task('build:clean-vendors', function() {
 });
 
 gulp.task('build:clean', function() {
-    return gulp.src('static/build/', {
+    return gulp.src(opt.distFolder, {
             read: false
         })
         .pipe(clean());
@@ -57,13 +57,13 @@ gulp.task('vendors', ['build:clean-vendors'], function() {
 
 gulp.task('fonts', function() {
     return gulp.src(['assets/vendors/bootstrap/dist/fonts/*', 'assets/vendors/font-awesome/fonts/*'])
-        .pipe(gulp.dest('static/build/fonts'))
+        .pipe(gulp.dest(opt.distFolder + '/fonts'))
         .on('error', gutil.log);
 });
 
 
 gulp.task('revision', [], function() {
-  return gulp.src(['static/**/home.min.css', 'static/**/main.min.js', 'static/**/libs.min.js'], {
+  return gulp.src([opt.distFolder+'/**/home.min.css', opt.distFolder+'/**/main.min.js', opt.distFolder+'/**/libs.min.js'], {
            base: path.join(process.cwd(), opt.distFolder)
         })
         .pipe(rev())
@@ -73,7 +73,7 @@ gulp.task('revision', [], function() {
 });
 
 gulp.task('revision-lunr', [], function() {
-  return gulp.src(['static/build/lunr.json'], {
+  return gulp.src([opt.distFolder+'/lunr.json'], {
            base: path.join(process.cwd(), opt.distFolder)
         })
         .pipe(rev())
@@ -98,11 +98,11 @@ gulp.task("revreplace-templates", ["revision"], function() {
 gulp.task("revreplace-js", ["revision-lunr"], function() {
     var manifest = gulp.src("./assets/rev-manifest2.json");
 
-    return gulp.src(["static/build/js/main.js"])
+    return gulp.src([opt.distFolder+"/js/main.js"])
         .pipe(revReplace({
             manifest: manifest
         }))
-        .pipe(gulp.dest("static/build/js")).on('error', gutil.log);
+        .pipe(gulp.dest(opt.distFolder+"/js")).on('error', gutil.log);
 });
 
 
@@ -115,10 +115,10 @@ gulp.task('js-libs', function() {
             "**/*.js"
         ]))
         .pipe(plugins.concat('libs.js'))
-        .pipe(gulp.dest('static/build/js'))
+        .pipe(gulp.dest(opt.distFolder+'/js'))
         .pipe(plugins.uglify())
         .pipe(rename('libs.min.js'))
-        .pipe(gulp.dest('static/build/js')
+        .pipe(gulp.dest(opt.distFolder+'/js')
             .on('error', gutil.log))
 });
 
@@ -129,11 +129,11 @@ gulp.task('js', function(cb) {
 
 
 gulp.task('js-min', function(cb) {
-        return gulp.src('static/build/js/main.js')
+        return gulp.src(opt.distFolder+'/js/main.js')
         .pipe(plugins.uglify())
         .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
         .pipe(rename('main.min.js'))
-        .pipe(gulp.dest('static/build/js')
+        .pipe(gulp.dest(opt.distFolder + '/js')
             .on('error', gutil.log))
 
 });
@@ -145,13 +145,13 @@ gulp.task('js-main', function(cb) {
 function js() {
         return gulp.src('assets/js/*.js')
         .pipe(plugins.concat('main.js'))
-        .pipe(gulp.dest('static/build/js'))
+        .pipe(gulp.dest(opt.distFolder+'/js'))
 }
 
 gulp.task('css', function() {
     return less()
         .pipe(rename('home.min.css'))
-        .pipe(gulp.dest('static/build/stylesheets')).on('error', gutil.log);
+        .pipe(gulp.dest(opt.distFolder+'/stylesheets')).on('error', gutil.log);
 });
 
 gulp.task('css-dev', function() {
@@ -169,7 +169,7 @@ function less() {
         .pipe(plugins.autoprefixer({
             browsers: ["last 2 versions"]
         }))
-        .pipe(gulp.dest('static/build/stylesheets'))
+        .pipe(gulp.dest(opt.distFolder+'/stylesheets'))
         .pipe(plugins.cssmin())
 }
 
@@ -266,7 +266,7 @@ gulp.task('build:index', ["hugo:search-index"], function(cb) {
 
     var serializedIdx = JSON.stringify(data)
 
-    fs.writeFile('static/build/lunr.json', serializedIdx, cb);
+    fs.writeFile(opt.distFolder+'/lunr.json', serializedIdx, cb);
 
 });
 
