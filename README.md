@@ -2,7 +2,7 @@
 
 ### Installation
 
-To preview the site you need `Hugo` installed, version `0.29` or higher. See: https://gohugo.io/getting-started/installing
+To preview or build the site you need `Hugo` installed, version `0.29` or higher. See: https://gohugo.io/getting-started/installing
 
 To make changes to styles or script, you need Gulp installed, see https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md
  
@@ -16,7 +16,7 @@ For development, use the convenient `dev` task.
 gulp dev
 ```
 
-Will both start a Hugo server and build and reload changes for both Hugo files (content, layouts, static files) and assets such as JavaScript and LESS files.
+This will both start a Hugo server and build and reload changes for both Hugo files (content, layouts, static files) and assets such as JavaScript and LESS files.
 
 
 ### Production and Test
@@ -36,3 +36,8 @@ Similar for production:
 ```bash
 gulp publish --target=production --username=youruser
 ````
+
+### Search
+
+This site uses [LunrJS](https://lunrjs.com/) for its search. See the `build:index` build target for how the search index is configured. The search index is also built as part of the main `build` task. See the [LunrJS](https://lunrjs.com/guides/upgrading.html#index-building) documentation for information about how to tweak this index.
+
