@@ -36,7 +36,8 @@
         <meta name="twitter:card" content="summary">
         {{ end }}
         <meta name="twitter:site" content="@linode">
-        <link rel="alternate" type="application/rss+xml" title="RSS" href="https://www.linode.com/docs/rss" />
+        {{ with  .Site.Home.OutputFormats.Get "rss" -}}<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
+{{ end }}
         {{ if not (getenv "HUGO_ENV") }}
             {{ partial "includes_head_dev" . }}
         {{ else }}
