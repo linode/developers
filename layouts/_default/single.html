@@ -21,7 +21,7 @@
             {{ partial "related" . }}
             {{ partial "more" . }}
             {{ if (getenv "HUGO_ENV") }}
-            {{ template "_internal/disqus.html" . }}
+            {{ partial "disqus" . }}
             {{ end }}
             {{ partial "license" . }}
           </div>

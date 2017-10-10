@@ -20,6 +20,6 @@ gulp.task('dev', ['js-main', 'css-dev', 'watch', 'hugo:server']);
 
 gulp.task('watch', function() {
     gulp.watch('assets/js/libs/**/*.js', ['js-libs']);
-    gulp.watch('assets/js/*.js', ['js-dev']);
+    gulp.watch('assets/js/*.js', ['js-main']);
     gulp.watch('assets/stylesheets/**/*.less', ['css-dev']);
 });
