@@ -19,15 +19,20 @@ gulp dev
 Will both start a Hugo server and build and reload changes for both Hugo files (content, layouts, static files) and assets such as JavaScript and LESS files.
 
 
-### Production and test
+### Production and Test
+
+See `tasks/config.json` for test server options. Add new publish targets as needed.
 
 The Gulp task `publish` does everything, i.e. builds assets and the Hugo site and pushes the changed files to the web server.
 
 ```bash
-gulp publish --test
+gulp publish --target=test --username=youruser
 ````
 
+**Note:** If `--username` is not provided, the server user in `config.json` is used.
+
+Similar for production:
 
 ```bash
-gulp publish --production
+gulp publish --target=production --username=youruser
 ````

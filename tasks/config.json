@@ -1,0 +1,15 @@
+{
+    "servers": {
+        "test": {
+            "hostname": "50.116.61.198",
+            "username": "bjorn",
+            "destination": "/home/bjorn/www",
+            "baseURL": "https://docstest.linode.com/docs/"
+        },
+        "production": {
+            "hostname": "TODO",
+            "username": "TODO",
+            "destination": "/home/TODO/www"
+        }
+    }
+}

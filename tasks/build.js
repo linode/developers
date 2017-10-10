@@ -14,12 +14,12 @@ var gulp = require('gulp'),
     lunr = require('lunr'),
     plugins = require('gulp-load-plugins')();
 
-
-
 var opt = {
     distFolder: 'static/build'
 }
 
+var cfg = JSON.parse(fs.readFileSync(path.join(process.cwd(), "tasks", "config.json")));
+var server = cfg.servers[argv.target]
 
 gulp.task('build', function(cb) {
     runSequence('build:clean', 'fonts', 'build:index', ['js-libs', 'js', 'css'], 'revreplace-templates',
@@ -274,18 +274,17 @@ gulp.task('build:index', ["hugo:search-index"], function(cb) {
 
 
 function setHugoEnv() {
-	if (argv.production) {
-		 process.env.HUGO_ENV="prod"
-	}
-	if (argv.test) {
-		 process.env.HUGO_ENV="test"
-		 process.env.HUGO_BASEURL="https://docstest.linode.com/docs/"
-	} else {
-		 // Development
-	 	process.env.HUGO_ENV=""
-	}
+    if (argv.target === "production") {
+         process.env.HUGO_ENV="prod"
+    } else if (argv.target) {
+          process.env.HUGO_ENV=argv.target
+    } else {
+         // Development
+         process.env.HUGO_ENV=""
+    }
 
-
+    if (server && server.baseURL) {
+         process.env.HUGO_BASEURL=server.baseURL
+    }
 	
-
 }
