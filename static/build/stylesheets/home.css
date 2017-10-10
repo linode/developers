@@ -10309,7 +10309,6 @@ body.modal-open,
   border-bottom: 1px solid #e7e6e6;
 }
 .table > tbody > tr > td {
-  background-color: #fff;
   padding: 17px 10px;
   vertical-align: middle;
   text-align: left;
@@ -20374,7 +20373,6 @@ div.library-tile .tile-title + .lead {
   border-bottom: 1px solid #e7e6e6;
 }
 #article-body table > tbody > tr > td {
-  background-color: #fff;
   padding: 17px 10px;
   vertical-align: middle;
   text-align: left;

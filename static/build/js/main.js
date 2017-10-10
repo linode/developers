@@ -154,7 +154,7 @@
 
                 }
 
-                $.getJSON('/docs/build/lunr.json', setupSearch);
+                $.getJSON('/docs/build/lunr-67a541f79a.json', setupSearch);
 
             });
 
