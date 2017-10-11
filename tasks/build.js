@@ -98,7 +98,7 @@ gulp.task("revreplace-templates", ["revision"], function() {
 gulp.task("revreplace-js", ["revision-lunr"], function() {
     var manifest = gulp.src("./assets/rev-manifest2.json");
 
-    return gulp.src([opt.distFolder+"/js/main.js"])
+    return gulp.src([opt.distFolder+"/js/main.min.js"])
         .pipe(revReplace({
             manifest: manifest
         }))
@@ -123,7 +123,7 @@ gulp.task('js-libs', function() {
 });
 
 gulp.task('js', function(cb) {
-   runSequence('js-main', 'revreplace-js', 'js-min', cb)
+   runSequence('js-main', 'js-min', 'revreplace-js', cb)
 
 });
 
