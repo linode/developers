@@ -186,16 +186,18 @@ div.library-tile {
 
 #article-body {
 	.font-smoothing(antialiased);
-	color:  rgb(51,51,51);
+	color: rgb(51, 51, 51);
 	.doc;
 
-	img { .img-responsive; }
-
-	table {
-	  .table;
-	  .table-striped;
-	
+	img {
+		.img-responsive
 	}
+
+	 table:not([class]) {
+			.table;
+			.table-striped
+	}
+
 }
 
 // .doc-modified-time { margin-bottom: 0; }

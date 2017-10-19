@@ -4,12 +4,11 @@ title = "Linode Guides & Tutorials"
 
 # Highlighting config (Pygments)
 
-# Styles created with pygmentize -S perldoc -f html -a .highlight > syntax.css
-# TODO(bep)
+# Styles created with hugo gen chromastyles --style=perldoc > assets/stylesheets/_syntax-chroma.css
 pygmentsUseClasses =  true
 pygmentsCodeFences = true
 
-# Use the new and fast Chroma highlighter (Pygments port) in Hugo 0.28.
+# Use the new and fast Chroma highlighter (Pygments port) in Hugo >= 0.28.
 pygmentsUseClassic = false
 
 # See https://help.farbox.com/pygments.html
