@@ -15,6 +15,13 @@ gulp.task('publish', function(cb) {
         cb);
 });
 
+
+gulp.task('build-and-publish', function(cb) {
+    runSequence('build:theme', 'publish',
+        cb);
+});
+
+
 // Convenient task for development.
 gulp.task('dev', ['js-main', 'css-dev', 'watch', 'hugo:server']);
 
