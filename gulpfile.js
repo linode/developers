@@ -4,7 +4,7 @@ var gulp = require('gulp'),
     runSequence = require('run-sequence');
 
 
-gulp.task('default', ['build']);
+gulp.task('default', ['dev']);
 
 
 // Build the Hugo site and deploys to server.
@@ -12,12 +12,6 @@ gulp.task('default', ['build']);
 // Deploy to test: gulp publish --target=test
 gulp.task('publish', function(cb) {
     runSequence('hugo', 'deploy:remote',
-        cb);
-});
-
-
-gulp.task('build-and-publish', function(cb) {
-    runSequence('build:theme', 'publish',
         cb);
 });
 

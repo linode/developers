@@ -25,16 +25,16 @@ var opt = {
 var cfg = JSON.parse(fs.readFileSync(path.join(process.cwd(), "tasks", "config.json")));
 var server = cfg.servers[argv.target]
 
-gulp.task('build', function(cb) {
+gulp.task('build:build', function(cb) {
     runSequence('build:clean', 'fonts', 'build:index', ['js-libs', 'js', 'css'], 'revreplace-templates',
         cb);
 });
 
 
-// build:theme does a full rebuild of the docsmith theme. 
+// build does a full rebuild of the docsmith theme. 
 // The result replaces the theme in <doc-repo>/themes/docsmith.
 // That theme will then be used for any publishing to a live server.
-gulp.task('build:theme', ['build', 'build:clean-theme'], function(cb) {
+gulp.task('build', ['build:build', 'build:clean-theme'], function(cb) {
     runSequence('build:copy-theme',
         cb);
 });
