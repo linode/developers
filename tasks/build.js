@@ -316,7 +316,9 @@ gulp.task('build:index', ["hugo:search-index"], function(cb) {
 
 
 function setHugoEnv() {
-    if (argv.target === "production") {
+    if (server && server.hugoEnv) {
+        process.env.HUGO_ENV = server.hugoEnv
+    } else if (argv.target === "production") {
         process.env.HUGO_ENV = "prod"
     } else if (argv.target) {
         process.env.HUGO_ENV = argv.target

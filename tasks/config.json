@@ -9,6 +9,7 @@
         "production": {
             "hostname": "TODO",
             "username": "TODO",
+            "hugoEnv": "prod",
             "destination": "/home/TODO/www"
         }
     }
