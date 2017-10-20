@@ -1,8 +1,0 @@
-<% if current_page.data["deprecated"] %>
-<blockquote class="deprecated">
-This guide has been deprecated and is no longer being maintained.
-<% if current_page.data["deprecated"].is_a? String %>
-Please refer to the updated version of this guide: <%= current_page.data["deprecated"] %>
-<% end %>
-</blockquote>
-<% end %>
