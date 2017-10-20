@@ -31,8 +31,7 @@ To upgrade to the Hourly billing system, follow these steps:
 5.  You will receive a confirmation message that your account has been converted to Hourly billing.
 
     {{< note >}}
-- Customers are not required to upgrade to the new billing method
-    - Prepaid discounts will not carry over to the new system
+- Prepaid discounts will not carry over to the new system
     - Those who remain on the prepaid billing system will not experience any changes, however newer plans and services may not be available on prepaid accounts.
 {{< /note >}}
 

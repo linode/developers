@@ -1,18 +1,20 @@
 ---
 author:
-  name: Linode
+  name: Jared Kobos
   email: docs@linode.com
 description: 'This guide shows how to create a Streisand gateway with automatically configured profiles for OpenVPN, ShadowSocks, WireGuard, Tor, etc.'
 keywords: ["streisand", "vpn", "openvpn", "tor", "wireguard", "L2TP/IPSec", "OpenConnect", "security"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 published: 2017-09-12
-modified: 2017-09-14
+modified: 2017-10-13
 modified_by:
   name: Linode
 title: 'How to Set Up a Streisand Gateway'
 external_resources:
   - '[Streisand Github repository](https://github.com/jlund/streisand)'
 ---
+
+![Streisand Gateway](/docs/assets/streisand/Streisand_Gateway.jpg)
 
 ## Why Use a VPN
 

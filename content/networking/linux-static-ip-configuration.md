@@ -6,7 +6,7 @@ description: 'Computer networks frequently use DHCP to assign IP addresses, rout
 keywords: ["multiple ip addresses", "linux static ip", "change ip address", "network configuration", "dns", "DHCP"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 aliases: ['networking/configuring-static-ip-interfaces/']
-modified: 2017-06-08
+modified: 2017-10-19
 modified_by:
   name: Linode
 published: 2014-07-20
@@ -72,7 +72,7 @@ For more info on `resolv.conf`, see [its manual page](http://linux.die.net/man/5
 Using the examples below, be sure the IP addresses you enter reflect those shown under the **Remote Access** tab of the Linode Manager.
 {{< /caution >}}
 
-### Arch / CoreOS Container Linux
+### Arch / CoreOS Container Linux / Ubuntu 17.10
 
 Add the following addressing to the interface's configuration:
 
@@ -302,7 +302,7 @@ NETCONFIG_DNS_RESOLVER_OPTIONS="rotate"
 
 ### Ubuntu
 
-Add the following to the interface's configuration file:
+Applies to 14.04, 16.04 and 17.04. [See above](/docs/networking/linux-static-ip-configuration#arch--coreos-container-linux--ubuntu-1710_) for 17.10. Add the following to the interface's configuration file:
 
 {{< file-excerpt "/etc/network/interfaces" aconf >}}
 . . .
