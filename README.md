@@ -24,6 +24,16 @@ This target will use unminified and unversioned CSS and JS files, which is what 
 HUGO_ENV=dev hugo server
 ```
 
+### Build Theme
+
+Note that the theme and the content is located in the `docs` repository (i.e. the public Git repo).
+
+To rebuild the theme from this repository:
+
+```bash
+gulp build:theme
+``` 
+
 
 ### Production and Test
 
