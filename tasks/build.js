@@ -17,7 +17,7 @@ var gulp = require('gulp'),
 var opt = {
     distFolder: 'static/build',
     themesFolder: '../docs/themes/docsmith',
-    targetHugoConfig: '../docs',
+    docsRepo: '../docs',
     contentDir: '../docs/content'
 
 }
@@ -51,7 +51,7 @@ gulp.task('build:copy-theme', function() {
         .on('error', gutil.log);
 
     return gulp.src(['config.toml'])
-        .pipe(gulp.dest(opt.targetHugoConfig))
+        .pipe(gulp.dest(opt.docsRepo))
         .on('error', gutil.log);
 });
 
@@ -218,15 +218,11 @@ gulp.task('hugo:server', function(cb) {
 
 });
 
+// Note: We build using the content and theme in the docs repo.
 gulp.task('hugo', ["hugo:clean"], function(cb) {
-    return hugo(cb, "--destination=dist/docs")
-
+    return hugo(cb, "--destination=../docsmith/dist/docs", "--source=" + opt.docsRepo)
 });
 
-gulp.task('hugo:dev', ["hugo:clean"], function(cb) {
-    return hugo(cb, "--destination=dist/docs", "--baseURL=http://localhost:1313/docs")
-
-});
 
 gulp.task('hugo:search-index', ["hugo:clean"], function(cb) {
     return hugo(cb, "--destination=dist/docs", "--config=config.toml,config-search.toml")
