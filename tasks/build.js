@@ -40,7 +40,6 @@ gulp.task('build:theme', ['build', 'build:clean-theme'], function(cb) {
 });
 
 
-// TODO(bep) the PROD vs DEV partials
 gulp.task('build:copy-theme', function() {
     gulp.src(['layouts/**/*'])
         .pipe(gulp.dest(opt.themesFolder + "/layouts"))
