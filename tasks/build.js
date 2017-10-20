@@ -33,7 +33,7 @@ gulp.task('build', function(cb) {
 // build:theme does a full rebuild of the docsmith theme. 
 // The result replaces the theme in <doc-repo>/themes/docsmith.
 // That theme will then be used for any publishing to a live server.
-gulp.task('build:theme', ['build:clean-theme'], function(cb) {
+gulp.task('build:theme', ['build', 'build:clean-theme'], function(cb) {
     runSequence('build:copy-theme',
         cb);
 });
