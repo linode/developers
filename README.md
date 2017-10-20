@@ -8,6 +8,12 @@ To make changes to styles or script, you need Gulp installed, see https://github
  
 ## Build
 
+The 3 core Gulp tasks explained in more detail below are:
+
+* **dev**: For theme development, will reload both Hugo related and JS and LESS changes.
+* **build**: A full build of the docsmith theme to the `docs` repo.
+* **publish**: Builds the Hugo site with the theme in `docs` repo and publishes it to the given target, i.e. `gulp publish --target=test`
+
 ### Development
 
 For development, use the convenient `dev` task.
@@ -31,7 +37,7 @@ Note that the theme and the content is located in the `docs` repository (i.e. th
 To rebuild the theme from this repository:
 
 ```bash
-gulp build:theme
+gulp build
 ``` 
 
 
