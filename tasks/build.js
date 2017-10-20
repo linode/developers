@@ -15,7 +15,10 @@ var gulp = require('gulp'),
     plugins = require('gulp-load-plugins')();
 
 var opt = {
-    distFolder: 'static/build'
+    distFolder: 'static/build',
+    themesFolder: '../docs/themes/docsmith',
+    targetHugoConfig: '../docs'
+
 }
 
 var cfg = JSON.parse(fs.readFileSync(path.join(process.cwd(), "tasks", "config.json")));
@@ -24,6 +27,40 @@ var server = cfg.servers[argv.target]
 gulp.task('build', function(cb) {
     runSequence('build:clean', 'fonts', 'build:index', ['js-libs', 'js', 'css'], 'revreplace-templates',
         cb);
+});
+
+
+// build:theme does a full rebuild of the docsmith theme. 
+// The result replaces the theme in <doc-repo>/themes/docsmith.
+// That theme will then be used for any publishing to a live server.
+gulp.task('build:theme', ['build:clean-theme'], function(cb) {
+    runSequence('build:copy-theme',
+        cb);
+});
+
+
+// TODO(bep) the PROD vs DEV partials
+gulp.task('build:copy-theme', function() {
+    gulp.src(['layouts/**/*'])
+        .pipe(gulp.dest(opt.themesFolder + "/layouts"))
+        .on('error', gutil.log);
+
+    gulp.src(['static/**/*'])
+        .pipe(gulp.dest(opt.themesFolder + "/static"))
+        .on('error', gutil.log);
+
+    return gulp.src(['config.toml'])
+        .pipe(gulp.dest(opt.targetHugoConfig))
+        .on('error', gutil.log);
+});
+
+gulp.task('build:clean-theme', function() {
+    return gulp.src(opt.themesFolder, {
+            read: false
+        })
+        .pipe(clean({
+            force: true
+        }));
 });
 
 gulp.task('build:all', function(cb) {
@@ -63,8 +100,8 @@ gulp.task('fonts', function() {
 
 
 gulp.task('revision', [], function() {
-  return gulp.src([opt.distFolder+'/**/home.min.css', opt.distFolder+'/**/main.min.js', opt.distFolder+'/**/libs.min.js'], {
-           base: path.join(process.cwd(), opt.distFolder)
+    return gulp.src([opt.distFolder + '/**/home.min.css', opt.distFolder + '/**/main.min.js', opt.distFolder + '/**/libs.min.js'], {
+            base: path.join(process.cwd(), opt.distFolder)
         })
         .pipe(rev())
         .pipe(gulp.dest(opt.distFolder))
@@ -73,8 +110,8 @@ gulp.task('revision', [], function() {
 });
 
 gulp.task('revision-lunr', [], function() {
-  return gulp.src([opt.distFolder+'/lunr.json'], {
-           base: path.join(process.cwd(), opt.distFolder)
+    return gulp.src([opt.distFolder + '/lunr.json'], {
+            base: path.join(process.cwd(), opt.distFolder)
         })
         .pipe(rev())
         .pipe(gulp.dest(opt.distFolder))
@@ -87,7 +124,7 @@ gulp.task("revreplace-templates", ["revision"], function() {
 
     return gulp.src(["layouts/partials/includes_body_end.html", "layouts/partials/includes_head.html"])
         .pipe(rename(function(path) {
-                path.extname = "_prod.html";
+            path.extname = "_prod.html";
         }))
         .pipe(revReplace({
             manifest: manifest
@@ -98,11 +135,11 @@ gulp.task("revreplace-templates", ["revision"], function() {
 gulp.task("revreplace-js", ["revision-lunr"], function() {
     var manifest = gulp.src("./assets/rev-manifest2.json");
 
-    return gulp.src([opt.distFolder+"/js/main.min.js"])
+    return gulp.src([opt.distFolder + "/js/main.min.js"])
         .pipe(revReplace({
             manifest: manifest
         }))
-        .pipe(gulp.dest(opt.distFolder+"/js")).on('error', gutil.log);
+        .pipe(gulp.dest(opt.distFolder + "/js")).on('error', gutil.log);
 });
 
 
@@ -115,23 +152,25 @@ gulp.task('js-libs', function() {
             "**/*.js"
         ]))
         .pipe(plugins.concat('libs.js'))
-        .pipe(gulp.dest(opt.distFolder+'/js'))
+        .pipe(gulp.dest(opt.distFolder + '/js'))
         .pipe(plugins.uglify())
         .pipe(rename('libs.min.js'))
-        .pipe(gulp.dest(opt.distFolder+'/js')
+        .pipe(gulp.dest(opt.distFolder + '/js')
             .on('error', gutil.log))
 });
 
 gulp.task('js', function(cb) {
-   runSequence('js-main', 'js-min', 'revreplace-js', cb)
+    runSequence('js-main', 'js-min', 'revreplace-js', cb)
 
 });
 
 
 gulp.task('js-min', function(cb) {
-        return gulp.src(opt.distFolder+'/js/main.js')
+    return gulp.src(opt.distFolder + '/js/main.js')
         .pipe(plugins.uglify())
-        .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
+        .on('error', function(err) {
+            gutil.log(gutil.colors.red('[Error]'), err.toString());
+        })
         .pipe(rename('main.min.js'))
         .pipe(gulp.dest(opt.distFolder + '/js')
             .on('error', gutil.log))
@@ -139,19 +178,19 @@ gulp.task('js-min', function(cb) {
 });
 
 gulp.task('js-main', function(cb) {
-        return js()
-});        
+    return js()
+});
 
 function js() {
-        return gulp.src('assets/js/*.js')
+    return gulp.src('assets/js/*.js')
         .pipe(plugins.concat('main.js'))
-        .pipe(gulp.dest(opt.distFolder+'/js'))
+        .pipe(gulp.dest(opt.distFolder + '/js'))
 }
 
 gulp.task('css', function() {
     return less()
         .pipe(rename('home.min.css'))
-        .pipe(gulp.dest(opt.distFolder+'/stylesheets')).on('error', gutil.log);
+        .pipe(gulp.dest(opt.distFolder + '/stylesheets')).on('error', gutil.log);
 });
 
 gulp.task('css-dev', function() {
@@ -159,7 +198,7 @@ gulp.task('css-dev', function() {
 });
 
 function less() {
-   return gulp.src('assets/stylesheets/home.less')
+    return gulp.src('assets/stylesheets/home.less')
         .pipe(plugins.plumber())
         .pipe(plugins.less())
         .on('error', function(err) {
@@ -169,27 +208,27 @@ function less() {
         .pipe(plugins.autoprefixer({
             browsers: ["last 2 versions"]
         }))
-        .pipe(gulp.dest(opt.distFolder+'/stylesheets'))
+        .pipe(gulp.dest(opt.distFolder + '/stylesheets'))
         .pipe(plugins.cssmin())
 }
 
 gulp.task('hugo:server', function(cb) {
-   return hugo(cb, "server")
+    return hugo(cb, "server")
 
 });
 
-gulp.task('hugo',  ["hugo:clean"], function(cb) {
-   return hugo(cb, "--destination=dist/docs")
+gulp.task('hugo', ["hugo:clean"], function(cb) {
+    return hugo(cb, "--destination=dist/docs")
 
 });
 
-gulp.task('hugo:dev',  ["hugo:clean"], function(cb) {
-   return hugo(cb, "--destination=dist/docs", "--baseURL=http://localhost:1313/docs")
+gulp.task('hugo:dev', ["hugo:clean"], function(cb) {
+    return hugo(cb, "--destination=dist/docs", "--baseURL=http://localhost:1313/docs")
 
 });
 
-gulp.task('hugo:search-index',  ["hugo:clean"], function(cb) {
-   return hugo(cb, "--destination=dist/docs", "--config=config.toml,config-search.toml")
+gulp.task('hugo:search-index', ["hugo:clean"], function(cb) {
+    return hugo(cb, "--destination=dist/docs", "--config=config.toml,config-search.toml")
 });
 
 gulp.task('hugo:clean', function() {
@@ -201,7 +240,7 @@ gulp.task('hugo:clean', function() {
 
 
 function hugo(cb, ...args) {
-	 setHugoEnv()
+    setHugoEnv()
 
     const hugoArgs = args ? args : [];
 
@@ -266,7 +305,7 @@ gulp.task('build:index', ["hugo:search-index"], function(cb) {
 
     var serializedIdx = JSON.stringify(data)
 
-    fs.writeFile(opt.distFolder+'/lunr.json', serializedIdx, cb);
+    fs.writeFile(opt.distFolder + '/lunr.json', serializedIdx, cb);
 
 });
 
@@ -275,16 +314,16 @@ gulp.task('build:index', ["hugo:search-index"], function(cb) {
 
 function setHugoEnv() {
     if (argv.target === "production") {
-         process.env.HUGO_ENV="prod"
+        process.env.HUGO_ENV = "prod"
     } else if (argv.target) {
-          process.env.HUGO_ENV=argv.target
+        process.env.HUGO_ENV = argv.target
     } else {
-         // Development
-         process.env.HUGO_ENV=""
+        // Development
+        process.env.HUGO_ENV = ""
     }
 
     if (server && server.baseURL) {
-         process.env.HUGO_BASEURL=server.baseURL
+        process.env.HUGO_BASEURL = server.baseURL
     }
-	
+
 }

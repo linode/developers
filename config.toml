@@ -1,6 +1,7 @@
 baseURL = "https://linode.com/docs/"
 languageCode = "en-us"
 title = "Linode Guides & Tutorials"
+theme = "docsmith"
 
 # Highlighting config (Pygments)
 
