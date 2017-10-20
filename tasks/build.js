@@ -17,7 +17,8 @@ var gulp = require('gulp'),
 var opt = {
     distFolder: 'static/build',
     themesFolder: '../docs/themes/docsmith',
-    targetHugoConfig: '../docs'
+    targetHugoConfig: '../docs',
+    contentDir: '../docs/content'
 
 }
 
@@ -243,6 +244,8 @@ function hugo(cb, ...args) {
     setHugoEnv()
 
     const hugoArgs = args ? args : [];
+
+    hugoArgs.push("--contentDir=" + opt.contentDir);
 
     const hugo = cp.spawn("hugo", hugoArgs, {
         stdio: "pipe"
