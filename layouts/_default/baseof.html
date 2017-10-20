@@ -38,10 +38,10 @@
         <meta name="twitter:site" content="@linode">
         {{ with  .Site.Home.OutputFormats.Get "rss" -}}<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
 {{ end }}
-        {{ if eq (getenv "HUGO_ENV") "prod" }}
-            {{ partial "includes_head_dev" . }}
+        {{ if (getenv "HUGO_ENV") }}
+            {{ partial "includes_head_prod" . }}
         {{ else }}
-             {{ partial "includes_head_prod" . }}
+             {{ partial "includes_head_dev" . }}
         {{ end }}
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
@@ -67,10 +67,10 @@
             {{ partial "contribute_footer" . }}
             {{ partial "footer" . }}
         </footer>
-        {{ if eq (getenv "HUGO_ENV") "dev" }}
-            {{ partial "includes_body_end_dev" . }}
+        {{ if (getenv "HUGO_ENV") }}
+            {{ partial "includes_body_end_prod" . }}
         {{ else }}
-             {{ partial "includes_body_end_prod" . }}
+             {{ partial "includes_body_end_dev" . }}
         {{ end }}
         {{ partial "js" . }}
         {{block "body-end" .}}{{ end }}
