@@ -18,6 +18,12 @@ gulp dev
 
 This will both start a Hugo server and build and reload changes for both Hugo files (content, layouts, static files) and assets such as JavaScript and LESS files.
 
+This target will use unminified and unversioned CSS and JS files, which is what you want during development. Note that if you run `hugo server` from the `docs` repo (i.e. the content repo), you will get the minified and versioned resources. But you can explicitly set the development enviroment:
+
+```bash
+HUGO_ENV=dev hugo server
+```
+
 
 ### Production and Test
 

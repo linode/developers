@@ -38,7 +38,7 @@
         <meta name="twitter:site" content="@linode">
         {{ with  .Site.Home.OutputFormats.Get "rss" -}}<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
 {{ end }}
-        {{ if not (getenv "HUGO_ENV") }}
+        {{ if eq (getenv "HUGO_ENV") "prod" }}
             {{ partial "includes_head_dev" . }}
         {{ else }}
              {{ partial "includes_head_prod" . }}
@@ -67,7 +67,7 @@
             {{ partial "contribute_footer" . }}
             {{ partial "footer" . }}
         </footer>
-        {{ if not (getenv "HUGO_ENV") }}
+        {{ if eq (getenv "HUGO_ENV") "dev" }}
             {{ partial "includes_body_end_dev" . }}
         {{ else }}
              {{ partial "includes_body_end_prod" . }}
