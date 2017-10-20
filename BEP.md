@@ -31,3 +31,20 @@ This is the fork: https://github.com/Guaris/docsmith
 
 **We work on this fork and merge it into https://github.com/linode/docsmith when ready.**
 
+
+## Migration
+
+In the prepared **Docs repo**:
+
+1. Pull in the last content changed.
+2. Run the migration script to populate `content`.
+3. Manually copy `docs/assets` to `content/assets`.
+4. Delete `docs/docs`
+5. Delete `temp` and other temporary work products.
+6. Merge the branch into https://github.com/linode/docs via PR or similar. **Consider squashing the changes.**
+
+
+In the prepared **Docsmith repo**:
+
+1. Remove any temporary work products.
+2. Merge the branch into https://github.com/linode/docsmith via PR or similar. **Consider squashing the changes.**
