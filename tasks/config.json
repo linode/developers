@@ -6,6 +6,12 @@
             "destination": "/home/bjorn/www",
             "baseURL": "https://docstest.linode.com/docs/"
         },
+        "demo": {
+            "hostname": "45.33.8.121",
+            "username": "root",
+            "destination": "/var/www",
+            "baseURL": "https://demotest.linode.com/docs/"
+        },
         "production": {
             "hostname": "TODO",
             "username": "TODO",
