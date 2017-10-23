@@ -26,18 +26,18 @@ var opt = {
 var cfg = JSON.parse(fs.readFileSync(path.join(process.cwd(), "tasks", "config.json")));
 var server = cfg.servers[argv.target]
 
-gulp.task('build:build', function(cb) {
+gulp.task('build:build', function(done) {
     runSequence('build:clean', 'fonts', 'build:index', ['js-libs', 'js', 'css'], 'revreplace-templates',
-        cb);
+        done);
 });
 
 
 // build does a full rebuild of the docsmith theme. 
 // The result replaces the theme in <doc-repo>/themes/docsmith.
 // That theme will then be used for any publishing to a live server.
-gulp.task('build', ['build:build', 'build:clean-theme'], function(cb) {
+gulp.task('build', ['build:build', 'build:clean-theme'], function(done) {
     runSequence('build:copy-theme',
-        cb);
+        done);
 });
 
 
@@ -64,9 +64,9 @@ gulp.task('build:clean-theme', function() {
         }));
 });
 
-gulp.task('build:all', function(cb) {
+gulp.task('build:all', function(done) {
     runSequence('vendors', 'build',
-        cb);
+        done);
 });
 
 
@@ -160,13 +160,13 @@ gulp.task('js-libs', function() {
             .on('error', gutil.log))
 });
 
-gulp.task('js', function(cb) {
-    runSequence('js-main', 'js-min', 'revreplace-js', cb)
+gulp.task('js', function(done) {
+    runSequence('js-main', 'js-min', 'revreplace-js', done)
 
 });
 
 
-gulp.task('js-min', function(cb) {
+gulp.task('js-min', function(done) {
     return gulp.src(opt.distFolder + '/js/main.js')
         .pipe(plugins.uglify())
         .on('error', function(err) {
@@ -178,7 +178,7 @@ gulp.task('js-min', function(cb) {
 
 });
 
-gulp.task('js-main', function(cb) {
+gulp.task('js-main', function(done) {
     return js()
 });
 
@@ -213,25 +213,25 @@ function less() {
         .pipe(plugins.cssmin())
 }
 
-gulp.task('hugo:server', function(cb) {
-    return hugo(cb, "server")
+gulp.task('hugo:server', function(done) {
+    return hugo(done, "server")
 
 });
 
 // When we build the final Hugo site, we need to control what version to build.
-gulp.task('hugo:versioned', function(cb) {
+gulp.task('hugo:versioned', function(done) {
     var ver = argv.version
     if (!ver) {
         throwError('hugo:checkout', gutil.colors.red('Missing --version'));
     }
     checkoutDocsVersion(ver);
     runSequence('hugo',
-        cb);
+        done);
 });
 
 // Note: We build using the content and theme in the docs repo.
-gulp.task('hugo', ["hugo:clean"], function(cb) {
-    return hugo(cb, "--destination=../docsmith/dist/docs", "--source=" + opt.docsRepo)
+gulp.task('hugo', ["hugo:clean"], function(done) {
+    return hugo(done, "--destination=../docsmith/dist/docs", "--source=" + opt.docsRepo)
 });
 
 
@@ -245,8 +245,8 @@ function checkoutDocsVersion(ver) {
 }
 
 
-gulp.task('hugo:search-index', ["hugo:clean"], function(cb) {
-    return hugo(cb, "--destination=dist/docs", "--config=config.toml,config-search.toml")
+gulp.task('hugo:search-index', ["hugo:clean"], function(done) {
+    return hugo(done, "--destination=dist/docs", "--config=config.toml,config-search.toml")
 });
 
 gulp.task('hugo:clean', function() {
@@ -257,7 +257,7 @@ gulp.task('hugo:clean', function() {
 });
 
 
-function hugo(cb, ...args) {
+function hugo(done, ...args) {
     setHugoEnv()
 
     const hugoArgs = args ? args : [];
@@ -270,9 +270,9 @@ function hugo(cb, ...args) {
 
     hugo.on("close", function(code) {
         if (code === 0) {
-            cb();
+            done();
         } else {
-            cb("hugo failed");
+            done("hugo failed");
         }
     });
 
@@ -285,7 +285,7 @@ function hugo(cb, ...args) {
     });
 }
 
-gulp.task('build:index', ["hugo:search-index"], function(cb) {
+gulp.task('build:index', ["hugo:search-index"], function(done) {
     var data = {
         store: {}
     };
@@ -325,7 +325,7 @@ gulp.task('build:index', ["hugo:search-index"], function(cb) {
 
     var serializedIdx = JSON.stringify(data)
 
-    fs.writeFile(opt.distFolder + '/lunr.json', serializedIdx, cb);
+    fs.writeFile(opt.distFolder + '/lunr.json', serializedIdx, done);
 
 });
 

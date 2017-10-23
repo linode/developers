@@ -56,13 +56,16 @@ gulp.task('deploy:remote', ['deploy:prepare', 'html-min'], function() {
         .pipe(rsync(rsyncConf));
 });
 
-gulp.task('html-min', function() {
-    gulp.src('dist/docs/**/*.html')
+gulp.task('html-min', function(done) {
+    return gulp.src('dist/docs/**/*.html')
         .pipe(htmlmin({
             collapseWhitespace: true
         }).on('error', function(err) {
-            // The HTML should be looked into, but this particular HTML page will be left unminified.
-            gutil.log(gutil.colors.yellow('HTML minify failed for file:', err.fileName))
+            gutil.log(gutil.colors.yellow('HTML minify failed for file:', err.fileName));
+    
+            // This HTML should be looked into, but we stop minifying at this point.
+            // This plugin does not currently support a continue.
+            done();
         }))
         .pipe(gulp.dest('dist/docs/'))
 });
