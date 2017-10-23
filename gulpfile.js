@@ -11,7 +11,7 @@ gulp.task('default', ['dev']);
 // Note that it is the content and theme in the docs repo that is used.
 // Deploy to test: gulp publish --target=test
 gulp.task('publish', function(cb) {
-    runSequence('hugo', 'deploy:remote',
+    runSequence('hugo:versioned', 'hugo', 'deploy:remote',
         cb);
 });
 

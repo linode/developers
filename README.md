@@ -48,10 +48,13 @@ See `tasks/config.json` for test server options. Add new publish targets as need
 The Gulp task `publish` does everything, i.e. builds assets and the Hugo site and pushes the changed files to the web server.
 
 ```bash
-gulp publish --target=test --username=youruser
+gulp publish --target=test --username=youruser --version=v1.0.0
 ````
 
-**Note:** If `--username` is not provided, the server user in `config.json` is used.
+**Note:**
+
+* If `--username` is not provided, the server user in `config.json` is used.
+* `version` must be a valid Git reference, i.e. a commit hash, branch, a tag or HEAD.
 
 Similar for production:
 

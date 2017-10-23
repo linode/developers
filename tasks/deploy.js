@@ -11,7 +11,8 @@ var gulp = require('gulp'),
 var cfg = JSON.parse(fs.readFileSync(path.join(process.cwd(), "tasks", "config.json")));
 
 
- var rsyncConf = {}
+var rsyncConf = {}
+
 
 gulp.task('deploy:prepare', function() {
     var env = argv.target

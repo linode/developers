@@ -12,6 +12,7 @@ var gulp = require('gulp'),
     runSequence = require('run-sequence'),
     cp = require('child_process'),
     lunr = require('lunr'),
+    git = require('gulp-git'),
     plugins = require('gulp-load-plugins')();
 
 var opt = {
@@ -217,10 +218,31 @@ gulp.task('hugo:server', function(cb) {
 
 });
 
+// When we build the final Hugo site, we need to control what version to build.
+gulp.task('hugo:versioned', function(cb) {
+    var ver = argv.version
+    if (!ver) {
+        throwError('hugo:checkout', gutil.colors.red('Missing --version'));
+    }
+    checkoutDocsVersion(ver);
+    runSequence('hugo',
+        cb);
+});
+
 // Note: We build using the content and theme in the docs repo.
 gulp.task('hugo', ["hugo:clean"], function(cb) {
     return hugo(cb, "--destination=../docsmith/dist/docs", "--source=" + opt.docsRepo)
 });
+
+
+function checkoutDocsVersion(ver) {
+    git.checkout(ver, {
+        cwd: opt.docsRepo
+    }, function(err) {
+        if (err)  throwError('hugo:checkout', gutil.colors.red(err));
+    });
+
+}
 
 
 gulp.task('hugo:search-index', ["hugo:clean"], function(cb) {
@@ -308,8 +330,6 @@ gulp.task('build:index', ["hugo:search-index"], function(cb) {
 });
 
 
-
-
 function setHugoEnv() {
     if (server && server.hugoEnv) {
         process.env.HUGO_ENV = server.hugoEnv
@@ -326,4 +346,11 @@ function setHugoEnv() {
         process.env.HUGO_BASEURL = server.baseURL
     }
 
+}
+
+function throwError(taskName, msg) {
+    throw new gutil.PluginError({
+        plugin: taskName,
+        message: msg
+    });
 }
