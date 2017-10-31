@@ -231,7 +231,7 @@ gulp.task('hugo:versioned', function(done) {
 
 // Note: We build using the content and theme in the docs repo.
 gulp.task('hugo', ["hugo:clean"], function(done) {
-    return hugo(done, "--destination=../docsmith/dist/docs", "--source=" + opt.docsRepo)
+    return hugo(done, "--destination=../hugo/dist/docs", "--source=" + opt.docsRepo)
 });
 
 
