@@ -1,6 +1,6 @@
-public/
-static/build/
-dist/
+/public/
+/static/build/
+/dist/
 .fuse_hidden*
 nohup.out
 node_modules/
