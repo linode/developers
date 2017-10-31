@@ -7,16 +7,15 @@
 {{ end }}
 </dt>
 <dd>
+{{ .Scratch.Set "style" "bash" }}
 {{ if .Params }}
 {{ if gt (len .Params ) 1 }}
 {{ $style := (.Get 1) }}
 {{ .Scratch.Set "style" $style }}
+{{ end }}
+{{ end }}
 {{ with .Scratch.Get "style" }}
 {{- highlight (trim $.Inner "\n" )  . "linenos=table" | -}}
-{{ else }}
-<pre><code class="nohighlight">{{ $.Inner }}</code></pre>
-{{ end }}
-{{ end }}
 {{ end }}
 </dd>
 </dl>
