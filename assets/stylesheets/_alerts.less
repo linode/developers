@@ -86,7 +86,14 @@
 	background-color: lighten(@border-light, 7%);
 	&:before { content: "Output"; }
 }
-
+pre {
+    overflow-x: auto;
+}
+pre code {
+	word-wrap: normal;
+    overflow-wrap: normal;
+    white-space: pre;
+}
 // generate inline blocks
 
 .make-inline-block(@color) {
