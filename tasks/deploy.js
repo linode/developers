@@ -6,12 +6,16 @@ var gulp = require('gulp'),
     rsync = require('gulp-rsync'),
     htmlmin = require('gulp-htmlmin'),
     prompt = require('gulp-prompt'),
-    gulpif = require('gulp-if');
+    gulpif = require('gulp-if'),
+    dcopy = require('deep-copy'),
+    merge = require('merge-stream');
 
 var cfg = JSON.parse(fs.readFileSync(path.join(process.cwd(), "tasks", "config.json")));
 
 
-var rsyncConf = {}
+var rsyncConf = {},
+    rsyncConf1 = {},
+    rsyncConf2 = {};
 
 
 gulp.task('deploy:prepare', function() {
@@ -33,27 +37,50 @@ gulp.task('deploy:prepare', function() {
         root: 'dist/',
     };
 
-    rsyncConf.hostname = server.hostname;
-    rsyncConf.username = username;
-    rsyncConf.destination = server.destination;
+    if (env == "production") {
+        rsyncConf1 = dcopy(rsyncConf);
+        rsyncConf2 = dcopy(rsyncConf);
 
+        rsyncConf1.hostname = server.docs1.hostname;
+        rsyncConf1.username = username;
+        rsyncConf1.destination = server.docs1.destination;
+
+        rsyncConf2.hostname = server.docs2.hostname;
+        rsyncConf2.username = username;
+        rsyncConf2.destination = server.docs2.destination;
+    } else {
+        rsyncConf.hostname = server.hostname;
+        rsyncConf.username = username;
+        rsyncConf.destination = server.destination;
+    }
 });
 
 
 gulp.task('deploy:remote', ['deploy:prepare', 'html-min'], function() {
-    return gulp.src(rsyncConf.root)
-        .pipe(htmlmin({
-            collapseWhitespace: true,
-            ignorePath: '/build'
-        }))
-        .pipe(gulpif(
-            argv.target == "production",
-            prompt.confirm({
-                message: 'Are you sure you want to deploy to production?',
-                default: false
-            })
-        ))
-        .pipe(rsync(rsyncConf));
+    if (argv.target != "production") {
+        return gulp.src(rsyncConf.root)
+            .pipe(htmlmin({
+                collapseWhitespace: true,
+                ignorePath: '/build'
+            }))
+            .pipe(rsync(rsyncConf));
+    } else {
+        var docs1 = gulp.src(rsyncConf1.root)
+            .pipe(htmlmin({
+                collapseWhitespace: true,
+                ignorePath: '/build'
+            }))
+            .pipe(rsync(rsyncConf1));
+
+        var docs2 = gulp.src(rsyncConf2.root)
+            .pipe(htmlmin({
+                collapseWhitespace: true,
+                ignorePath: '/build'
+            }))
+            .pipe(rsync(rsyncConf2));
+
+        return merge(docs1, docs2);
+    }
 });
 
 gulp.task('html-min', function(done) {
@@ -62,7 +89,7 @@ gulp.task('html-min', function(done) {
             collapseWhitespace: true
         }).on('error', function(err) {
             gutil.log(gutil.colors.yellow('HTML minify failed for file:', err.fileName));
-    
+
             // This HTML should be looked into, but we stop minifying at this point.
             // This plugin does not currently support a continue.
             done();
