@@ -32,7 +32,7 @@ gulp.task('build:build', function(done) {
 });
 
 
-// build does a full rebuild of the docsmith theme. 
+// build does a full rebuild of the docsmith theme.
 // The result replaces the theme in <doc-repo>/themes/docsmith.
 // That theme will then be used for any publishing to a live server.
 gulp.task('build', ['build:build', 'build:clean-theme'], function(done) {
@@ -231,7 +231,7 @@ gulp.task('hugo:versioned', function(done) {
 
 // Note: We build using the content and theme in the docs repo.
 gulp.task('hugo', ["hugo:clean"], function(done) {
-    return hugo(done, "--destination=../hugo/dist/docs", "--source=" + opt.docsRepo)
+    return hugo(done, "--destination=../hercules/dist/docs", "--source=" + opt.docsRepo)
 });
 
 
