@@ -6,25 +6,20 @@
             "destination": "/home/bjorn/www",
             "baseURL": "https://docstest.linode.com/docs/"
         },
-        "demo": {
-            "hostname": "TODO",
-            "username": "TODO",
-            "destination": "/home/TODO/www"
-        },
         "production": {
             "docs1": {
                 "hostname": "23.239.11.188",
                 "username": "docs",
                 "hugoEnv": "prod",
                 "destination": "/var/www/docs",
-                "baseURL": "https://linode.com/docs/"
+                "baseURL": "https://www.linode.com/docs/"
             },
             "docs2": {
                 "hostname": "173.255.236.165",
                 "username": "docs",
                 "hugoEnv": "prod",
                 "destination": "/var/www/docs",
-                "baseURL": "https://linode.com/docs/"
+                "baseURL": "https://www.linode.com/docs/"
             }
         }
     }
