@@ -8,14 +8,14 @@
         },
         "production": {
             "docs1": {
-                "hostname": "45.33.15.184",
+                "hostname": "docs1.linode.com",
                 "username": "docs",
                 "hugoEnv": "prod",
                 "destination": "/var/www/docs",
                 "baseURL": "https://www.linode.com/docs/"
             },
             "docs2": {
-                "hostname": "173.255.193.135",
+                "hostname": "docs2.linode.com",
                 "username": "docs",
                 "hugoEnv": "prod",
                 "destination": "/var/www/docs",
