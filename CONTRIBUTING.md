@@ -80,7 +80,7 @@ Your Linode SSH key will be credsynced to work with the docs1 and docs2 boxes. Y
 
 1.  Edit '~/.ssh/config`:
 
-        Host docs1.linode.com	
+        Host docs1.linode.com
             Hostname docs1.linode.com
             User docs
             IdentityFile ~/.ssh/id_rsa
@@ -96,9 +96,9 @@ Your Linode SSH key will be credsynced to work with the docs1 and docs2 boxes. Y
 		ssh-keyscan docs1.linode.com >> ~/.ssh/known_hosts
 		ssh-keyscan docs2.linode.com >> ~/.ssh/known_hosts
 
-	{{< note >}}
-If after completing this step, the `gulp publish` task described below still throws an error, manually use SSH to connect to each of the boxes and type 'yes' when asked if you are sure you wish to continue connecting.
-{{< /note >}}
+
+  If after completing this step, the `gulp publish` task described below still throws an error, manually use SSH to connect to each of the boxes and type 'yes' when asked if you are sure you wish to continue connecting.
+
 
 
 # Basic Gulp Tasks
