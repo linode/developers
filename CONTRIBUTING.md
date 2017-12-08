@@ -80,17 +80,16 @@ Your Linode SSH key will be credsynced to work with the docs1 and docs2 boxes. Y
 
 1.  Edit '~/.ssh/config`:
 
-	{{< file-excerpt "~/.ssh/config" >}}
-Host docs1.linode.com
-    Hostname docs1.linode.com
-    User docs
-    IdentityFile ~/.ssh/id_rsa
+        Host docs1.linode.com	
+            Hostname docs1.linode.com
+            User docs
+            IdentityFile ~/.ssh/id_rsa
 
-Host docs2.linode.com
-    Hostname docs2.linode.com
-    User docs
-    IdentityFile ~/.ssh/id_rsa
-{{< /file-excerpt >}}
+        Host docs2.linode.com
+            Hostname docs2.linode.com
+            User docs
+            IdentityFile ~/.ssh/id_rsa
+
 
 2.  Use `ssh-keyscan` to add docs1 and docs2 to your known hosts file:
 
@@ -116,11 +115,7 @@ When working with the Hugo repo, most of the workflow will use Gulp. This sectio
 
 		gulp dev
 
-	This task will build the theme and start a development server with hot-reloading. The default address is localhost:1313/docs. While this server is running, any style or layout changes will be automatically updated in the browser.
-
-	{{< note >}}
-`gulp dev` runs the `build` task as part of its pipeline. As a result, starting the development server will also change the linode/docs repo as a side effect.
-{{< /note >}}
+	This task will build the theme and start a development server with hot-reloading. The default address is localhost:1313/docs. While this server is running, any style or layout changes will be automatically updated in the browser. Keep in mind that`gulp dev` runs the `build` task as part of its pipeline. As a result, starting the development server will also change the linode/docs repo as a side effect.
 
 3.  Publish the hercules repo:
 
@@ -206,30 +201,26 @@ Running `ls` from the hercules root directory reveals the following structure:
 
 	When deploying to production you will be prompted to confirm the action.
 
-	{{< note >}}
-The `--version` tag must be present, and the tag specified must be locally available. If you omit a version target or refer to a remote tag that has not been pulled, the publish task will fail.
-{{< /note >}}
+  The `--version` tag must be present, and the tag specified must be locally available. If you omit a version target or refer to a remote tag that has not been pulled, the publish task will fail.
+
 
 # Configuring Servers
 
-The gulp publish task can deploy to any server listed in `linode/hercules/tasks/config.json`. To change the server configuration, edit this file:
+The gulp publish task can deploy to any server listed in `linode/hercules/tasks/config.json`. To change the server configuration, edit `hercules/tasks/config.json`:
 
-{{< file "tasks/config.json" json >}}
-{
-    "servers": {
-        "test": {
-            "hostname": "192.0.2.0",
-            "username": "username",
-            "destination": "/home/username/www",
-            "baseURL": "https://docstest.linode.com/docs/"
-        },
-        "production": {
-            "hostname": "198.51.100.0",
-            "username": "username",
-            "hugoEnv": "prod",
-            "destination": "/home/username/www"
+    {
+        "servers": {
+            "test": {
+                "hostname": "192.0.2.0",
+                "username": "docs",
+                "destination": "/home/username/www",
+                "baseURL": "https://docstest.linode.com/docs/"
+            },
+            "production": {
+                "hostname": "198.51.100.0",
+                "username": "docs",
+                "hugoEnv": "prod",
+                "destination": "/home/username/www"
+            }
         }
     }
-}
-
-{{< /file >}}
