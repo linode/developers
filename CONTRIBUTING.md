@@ -197,10 +197,8 @@ Running `ls` from the hercules root directory reveals the following structure:
 
 7.  Return to `linode/hercules` and deploy the site to production (or test) using the commit tag you created in the previous step.
 
-                cd ~/linode/hercules
+		cd ~/linode/hercules
 		gulp publish --target='production'  --version=2017-01-01
-
-	When deploying to production you will be prompted to confirm the action.
 
   The `--version` tag must be present, and the tag specified must be locally available. If you omit a version target or refer to a remote tag that has not been pulled, the publish task will fail.
 
