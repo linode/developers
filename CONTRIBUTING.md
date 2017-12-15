@@ -4,7 +4,7 @@ author:
   email: docs@linode.com
 description: 'This guide shows how to use Hugo to make changes to the Linode theme, and goes over the directory structure for our development environment.'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: 2017-11-10
+modified: 2017-12-15
 modified_by:
   name: Linode
 published: 2017-11-09
@@ -188,16 +188,19 @@ Running `ls` from the hercules root directory reveals the following structure:
 		cd ~/linode/docs
 		git status
 
-6.  Commit and push the changes to the docs repo. Make sure to tag the commit and specify the tag name when pushing:
+6.  Commit and push the changes to the docs repo. Make sure to tag the commit with the date you've completed it before pushing.
 
 		git add --all
 		git commit
 		git tag 2017-01-01
 		git push origin 2017-01-01
 
-8.  Return to `linode/hercules` and deploy the site to production (or test).
+7.  Return to `linode/hercules` and deploy the site to production (or test) using the commit tag you created in the previous step.
 
+                cd ~/linode/hercules
 		gulp publish --target='production'  --version=2017-01-01
+
+	When deploying to production you will be prompted to confirm the action.
 
   The `--version` tag must be present, and the tag specified must be locally available. If you omit a version target or refer to a remote tag that has not been pulled, the publish task will fail.
 
