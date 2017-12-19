@@ -79,6 +79,17 @@
 	strong { font-weight: bold; }
 }
 
+// Give output shortcode terminal-style formatting
+
+.terminal {
+	background-color: black;
+	color: rgba(65,255,0,0.85);
+	padding: 0 10px;
+	code {
+		white-space:pre-line;
+	}
+}
+
 // has outer :before
 
 .output {
@@ -134,4 +145,8 @@ pre code {
 .file-excerpt {
 	.file;
 	dt:before { content: "File excerpt: "; }
+}
+
+.file {
+	dt:before { content: "File: "; }
 }
