@@ -70,7 +70,7 @@ gulp.task('build:all', function(done) {
 });
 
 
-var vendors = ['bootstrap', 'font-awesome/less', 'font-awesome/fonts', 'lunr'];
+var vendors = ['bootstrap', 'font-awesome/less', 'font-awesome/fonts', 'lunr', 'clipboard'];
 
 gulp.task('build:clean-vendors', function() {
     return gulp.src('assets/vendors/', {

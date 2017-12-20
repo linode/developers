@@ -31,6 +31,7 @@
 				padding: 17px 10px;
 				vertical-align: middle;
 				text-align: left;
+                width: 0;
 
 				color: @text-on-white;
 
@@ -51,6 +52,17 @@
 			}
 		}
 	}
+}
+
+table.lntable tbody {
+    display: table;
+    width: inherit;
+
+    > tr > td.lntd {
+        &:first-child {
+            width: 0;
+        }
+    }
 }
 
 .table-responsive > .table > tbody > tr:last-child {
