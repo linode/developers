@@ -62,13 +62,9 @@
 
                     });
 
-                    $(document).on('keypress', '#ds-search', function(e) {
-                        if (e.keyCode !== 13) {
-                            return
-                        }
+                    $('#ds-search').keyup(function(e) {
                         var query = $(this).val();
                         search(query, searchStore);
-
                     });
 
                     $(document).on('click', '#ds-search-btn', function(e) {
