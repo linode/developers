@@ -1,7 +1,8 @@
 (function($) {
 
     function search(query, searchStore) {
-        var result = searchStore.index.search(query);
+        // Fuzzy search with sensitivity set to one character
+        var result = searchStore.index.search(query + '~1');
         var resultList = $('#ds-search-list');
         resultList.empty();
         var deprecatedResults = [];
