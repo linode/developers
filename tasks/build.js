@@ -300,6 +300,9 @@ gulp.task('build:index', ["hugo:search-index"], function(done) {
         this.field('toc', {
             boost: 5
         });
+        this.field('deprecated', {
+            boost: 1
+        });
         this.ref('href');
 
         var source = JSON.parse(fs.readFileSync("dist/docs/index.json"));
@@ -311,10 +314,14 @@ gulp.task('build:index', ["hugo:search-index"], function(done) {
                 'title': item.title,
                 'keywords': item.keywords,
                 'toc': item.toc,
-                'href': item.ref
+                'href': item.ref,
+                'deprecated' : item.deprecated
             };
 
-            data.store[doc.href] = item.title
+            data.store[doc.href] = {
+              title: item.title,
+              deprecated: item.deprecated
+            }
 
             that.add(doc);
         });
