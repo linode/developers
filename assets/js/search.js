@@ -52,7 +52,13 @@
                 var setupSearch = function(json) {
                     var searchStore = {}
                     searchStore.index = lunr.Index.load(json.index);
-                    searchStore.store = json.store
+                    searchStore.store = json.store;
+
+                    if (window.location.pathname == '/docs/search/' && Page.param('q')) {
+                        var query = decodeURIComponent(Page.param('q').replace(/\+/g, '%20'));
+                        toggleAndSearch(searchStore, query);
+                    };
+
                     $(document).on('keypress', '#ss_keyword', function(e) {
                         if (e.keyCode !== 13) {
                             return
@@ -76,7 +82,6 @@
                         query = $('#ds-search').val();
                         search(query, searchStore);
                     });
-
                 }
 
                 $.getJSON('/docs/build/lunr.json', setupSearch);
