@@ -320,12 +320,14 @@ gulp.task('build:index', ["hugo:search-index"], function(done) {
                 'keywords': item.keywords,
                 'toc': item.toc,
                 'href': item.ref,
-                'deprecated' : item.deprecated
+                'deprecated' : item.deprecated,
+                'shortguide' : item.shortguide
             };
 
             data.store[doc.href] = {
               title: item.title,
-              deprecated: item.deprecated
+              deprecated: item.deprecated,
+              shortguide: item.shortguide
             }
 
             that.add(doc);

@@ -16,6 +16,30 @@
 	}
 }
 
+div#os-tabs {
+
+    .btn {
+        border: 1px solid #dadada;
+        padding: 10px;
+        width: 200px;
+        background-color: white;
+        color: black;
+    }
+    .btn.current {
+        outline: none;
+        border-color: #9ecaed;
+        box-shadow: 0 0 10px #9ecaed;
+        max-height: inherit;
+    }
+    span {
+        font-family: @font-family-btn;
+    }
+}
+
+.macinstall, .linuxinstall, .windowsinstall {
+    font-size: 1.08rem;
+}
+
 .makeBtn(@color, @background) {
 	color: @color !important; // button color should never be affected by parent palette color
 	text-decoration: none !important;
