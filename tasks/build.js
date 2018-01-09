@@ -32,6 +32,11 @@ gulp.task('build:build', function(done) {
 });
 
 
+gulp.task('build:dev', function(done) {
+    runSequence('fonts', 'build:index', ['js-libs', 'js-main', 'css-dev'],
+        done);
+});
+
 // build does a full rebuild of the docsmith theme.
 // The result replaces the theme in <doc-repo>/themes/docsmith.
 // That theme will then be used for any publishing to a live server.

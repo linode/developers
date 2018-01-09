@@ -16,7 +16,10 @@ gulp.task('publish', function(done) {
 
 
 // Convenient task for development.
-gulp.task('dev', ['js-main', 'css-dev', 'watch', 'hugo:server']);
+gulp.task('dev', function(done) {
+    runSequence('build:dev', 'watch', 'hugo:server', done);
+});
+
 
 
 gulp.task('watch', function() {
