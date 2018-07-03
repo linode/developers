@@ -1,0 +1,15 @@
+{{ if isset .Site.Params "carousel" }}
+{{ if .Site.Params.carousel.enable }}
+{{ if gt (len .Site.Data.carousel) 0 }}
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      {{ range sort .Site.Data.carousel "weight" }}
+      <div class="carousel-item active">
+        <img class="d-block w-100 img-fluid" src="{{ .image }}" alt="{{ .title }}">
+      </div>
+      {{ end }}
+    </div>
+  </div>
+{{ end }}
+{{ end }}
+{{ end }}

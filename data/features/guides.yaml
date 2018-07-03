@@ -1,0 +1,8 @@
+weight: 2
+name: "Guides"
+icon: "fa fa-book"
+description: >
+  Get started building tools and apps using the Linode API.
+
+
+  <a href="/guides"><button type="button" class="btn btn-success">Do the Needful</button></a>

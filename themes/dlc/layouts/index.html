@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+  {{ partialCached "head.html" . }}
+
+  <body>
+    <div id="all">
+        <header>
+          {{ partialCached "top.html" . }}
+          {{ partialCached "nav.html" . }}
+        </header>
+        {{ partial "carousel.html" . }}
+        {{ partial "banners.html" . }}
+        {{ partial "features.html" . }}
+        {{ partial "features2.html" . }}
+        {{ partial "careers.html" . }}
+        {{ partial "events.html" . }}
+        {{ partial "footer.html" . }}
+    </div>
+    <!-- /#all -->
+
+    {{ partialCached "scripts.html" . }}
+  </body>
+</html>

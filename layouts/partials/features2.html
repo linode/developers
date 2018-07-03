@@ -1,0 +1,22 @@
+{{ if isset .Site.Params "features2" }}
+{{ if .Site.Params.features2.enable }}
+{{ if gt (len .Site.Data.features2) 0 }}
+    <div id="feature-row-2" class="section">
+        {{ range $index, $element := sort .Site.Data.features2 "weight" }}
+      		{{ if eq (mod $index 2) 0 }}
+      		<div class="col-12">
+              <div class="row">
+            		{{ end }}
+            				<div class="col-md-6 text-center">
+                        <h2><i class="{{ .icon }}"></i> {{ $element.name }}</h2>
+                        <p>{{ $element.description | markdownify }}</p>
+                    </div>
+            		{{ if or (eq (mod $index 3) 2) (eq $index (sub (len $.Site.Data.features2) 1 )) }}
+      	      </div>
+      		</div>
+      		{{ end }}
+        {{ end }}
+    </div>
+{{ end }}
+{{ end }}
+{{ end }}

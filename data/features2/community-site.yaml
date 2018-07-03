@@ -1,0 +1,8 @@
+weight: 2
+name: "Community Questions"
+icon: "fa fa-users"
+description: >
+  Questions and answers from the Linode community.
+
+
+  <a href="https://www.linode.com/community/questions/" target="_blank"><button type="button" class="btn btn-success">Community Site</button></a>

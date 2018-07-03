@@ -1,0 +1,70 @@
+baseURL = "https://developers.linode.com/"
+languageCode = "en-us"
+title = "Linode Developers Site"
+defaultContentLanguage = "en"
+paginate = 25
+
+# menu
+[menu]
+
+[[menu.main]]
+weight = 1
+name = "Home"
+url = "/"
+
+[[menu.main]]
+weight = 2
+name = "APIv4 Docs"
+url = "https://developers.linode.com/"
+
+[[menu.main]]
+weight = 3
+name = "Guides"
+url = "/guides/"
+
+[[menu.main]]
+weight = 4
+name = "Libraries and Tools"
+url = "/libraries-tools/"
+
+[[menu.main]]
+weight = 5
+name = "Changelog"
+url = "/changelog/"
+
+[[menu.topbar]]
+weight = 1
+name = "GitHub"
+url = "https://github.com/linode"
+pre = "<i class='fab fa-github'></i>"
+
+[[menu.topbar]]
+weight = 2
+name = "Facebook"
+url = "http://facebook.com/linode"
+pre = "<i class='fab fa-facebook'></i>"
+
+[[menu.topbar]]
+weight = 3
+name = "Twitter"
+url = "http://twitter.com/linode"
+pre = "<i class='fab fa-twitter'></i>"
+
+# params
+[params]
+date_format = "Monday, January 2, 2006"
+copyright = "Copyright (c) 2018, Linode LLC"
+logo = "/img/linode-logo_standard_light_small.png"
+
+[params.topbar]
+enable = true
+text = "For Developers, By Developers"
+
+[params.carousel]
+enable = true
+
+[params.features]
+enable = true
+
+[params.features2]
+enable = true

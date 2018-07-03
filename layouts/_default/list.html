@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+  {{ partialCached "head.html" . }}
+
+  <body>
+    <div id="all">
+      <header>
+        {{ partialCached "top.html" . }}
+        {{ partialCached "nav.html" . }}
+      </header>
+
+      <div class="container">
+        <div class="row pad-top">
+          <div class="col-12">
+            <h1>Changelog</h1>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <p style="color:red;"><em>Not showing _index.md front matter. Need to fix.</em></p>
+            <p>{{ .Summary }}</p>
+          </div>
+        </div>
+
+        <!-- Ranges through content/changelog/*.md -->
+        {{ range .Pages }}
+        <article>
+          <div class="row">
+            <div class="col-md-12">
+              <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a> ({{ .Date.Format "2006-01-02" }})</h3>
+              <p style="color:red;"><em>Content truncation isn't working with the more tag. Shows the Read More link, but doesn't truncate the content.</em></p>
+              <p>{{ .Content }}</p>
+            </div>
+          </div>
+
+          {{ if .Truncated }}
+          <!-- Includes a read more link if the summary is truncated... -->
+          <div class="row">
+            <div class="col-md-12 pad-bottom">
+              <a href="{{ .RelPermalink }}">Read More</a>
+            </div>
+          </div>
+          {{ end }}
+        </article>
+        {{ end }}
+      </div>
+      <!-- /#container -->
+
+      <h1>!!!! We Need Pagination !!!!</h1>
+
+      {{ partialCached "footer.html" . }}
+    </div>
+    <!-- /#all -->
+
+    {{ partialCached "scripts.html" . }}
+  </body>
+</html>
