@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://developers.linode.com/changelog/2018/06-25/</loc>
+    <lastmod>2018-06-25T11:02:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://developers.linode.com/changelog/2018/06-21/</loc>
+    <lastmod>2018-06-21T11:02:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://developers.linode.com/guides/</loc>
+    <lastmod>2018-06-13T08:55:08-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://developers.linode.com/libraries-tools/</loc>
+    <lastmod>2018-06-13T08:55:08-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://developers.linode.com/changelog/</loc>
+    <lastmod>2018-06-13T08:55:08-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://developers.linode.com/categories/apiv4/</loc>
+    <lastmod>2018-06-25T11:02:00-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://developers.linode.com/categories/</loc>
+    <lastmod>2018-06-25T11:02:00-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://developers.linode.com/categories/linode-cli/</loc>
+    <lastmod>2018-06-25T11:02:00-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://developers.linode.com/</loc>
+    <lastmod>2018-06-25T11:02:00-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://developers.linode.com/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

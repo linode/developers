@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linode Developers Site</title>
+    <link>https://developers.linode.com/</link>
+    <description>Recent content on Linode Developers Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 25 Jun 2018 11:02:00 -0400</lastBuildDate>
+    
+	<atom:link href="https://developers.linode.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Things with Stuff</title>
+      <link>https://developers.linode.com/changelog/2018/06-25/</link>
+      <pubDate>Mon, 25 Jun 2018 11:02:00 -0400</pubDate>
+      
+      <guid>https://developers.linode.com/changelog/2018/06-25/</guid>
+      <description>&lt;h4 id=&#34;we-can-do-things-with-stuff&#34;&gt;We Can Do Things with Stuff&lt;/h4&gt;
+
+&lt;p&gt;That&amp;rsquo;s right, I said it. If you want to see what else we are doing, click the link.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Welcome to the Changelog</title>
+      <link>https://developers.linode.com/changelog/2018/06-21/</link>
+      <pubDate>Thu, 21 Jun 2018 11:02:00 -0400</pubDate>
+      
+      <guid>https://developers.linode.com/changelog/2018/06-21/</guid>
+      <description>&lt;p&gt;Exciting things, blah blah, promote promote.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Guides</title>
+      <link>https://developers.linode.com/guides/</link>
+      <pubDate>Wed, 13 Jun 2018 08:55:08 -0400</pubDate>
+      
+      <guid>https://developers.linode.com/guides/</guid>
+      <description>This is the Guides page. This page will be a curated list of guides taken from our Docs site to make it easy for developers to find the resources they need to create and consume Linode&amp;rsquo;s products and services.</description>
+    </item>
+    
+    <item>
+      <title>Libraries and Tools</title>
+      <link>https://developers.linode.com/libraries-tools/</link>
+      <pubDate>Wed, 13 Jun 2018 08:55:08 -0400</pubDate>
+      
+      <guid>https://developers.linode.com/libraries-tools/</guid>
+      <description>Libraries and Tools We can put introduction copy here.</description>
+    </item>
+    
+  </channel>
+</rss>
