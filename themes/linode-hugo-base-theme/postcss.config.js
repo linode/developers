@@ -1,5 +1,6 @@
 module.exports = {
-    plugins: [
-        require('tailwindcss')('./tailwind.js')
-    ]
+  plugins: [
+    require("postcss-easy-import")(),
+    require('tailwindcss')('./tailwind.js'),
+  ]
 }
