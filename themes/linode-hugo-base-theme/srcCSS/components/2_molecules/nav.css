@@ -1,3 +1,7 @@
-.nav {
+.nav a {
   color: var(--tertiary-color);
+}
+
+.nav a:last-child {
+  margin-right: 0;
 }

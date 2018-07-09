@@ -1,0 +1,10 @@
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover,
+a:visited,
+a:active {
+  text-decoration: underline;
+}
