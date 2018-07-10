@@ -1,6 +1,4 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const PurgecssPlugin = require('purgecss-webpack-plugin');
-const glob = require('glob');
 const path = require('path');
 
 const PATHS = {
@@ -9,10 +7,9 @@ const PATHS = {
 
 module.exports = {
   output: {
-    path: path.resolve(__dirname, 'static/assets/css'),
-    filename: 'main.css',
+    path: path.resolve(__dirname, 'static/assets/css/info'),
+    filename: 'info.css',
   },
-  watch: true,
   module: {
     rules: [
       {
@@ -35,9 +32,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin('main.css'),
-    new PurgecssPlugin({
-      paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true })
-    })
+    new ExtractTextPlugin('info.css'),
   ]
 }
