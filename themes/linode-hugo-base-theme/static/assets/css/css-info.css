@@ -1,0 +1,16 @@
+.css-info-link {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  display: block;
+  background-color: #000;
+  padding: 8px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  transition: background-color .2s ease-in-out;
+}
+
+.css-info-link:hover {
+  background-color: var(--green);
+}

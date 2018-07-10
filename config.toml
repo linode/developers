@@ -69,3 +69,6 @@ enable = true
 
 [params.features2]
 enable = true
+
+[params.dev]
+enable = true

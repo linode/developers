@@ -23,6 +23,9 @@
   {{ partial "0_utilities/fonts.html" . }}
 
   <link href='{{ "assets/css/main.css" | relURL }}' rel="stylesheet">
+  {{ if .Site.Params.dev.enable}}
+    <link href='{{ "assets/css/css-info.css" | relURL }}' rel="stylesheet">
+  {{ end }}
 
   <link rel="shortcut icon" href='{{ "/img/favicon.ico" | relURL }}' type="image/x-icon" />
   <link rel="apple-touch-icon" href='{{ .Site.BaseURL }}img/apple-touch-icon.png' />

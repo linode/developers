@@ -4,6 +4,9 @@
   {{ partial "0_utilities/htmlHead.html" . }}
 
   <body>
+    {{ if .Site.Params.dev.enable}}
+      {{ partial "1_atoms/cssinfo.html" . }}
+    {{ end }}
 
     <div class="content">
       <div class="header-wrapper">
