@@ -1,12 +1,9 @@
 :root {
-  --white: #fff;
-  --black: #000;
-  --green: #3ba46c;
-  --primary-color: var(--black);
-  --secondary-color: #4c4c4c;
-  --tertiary-color: #a6a6a6;
-  --link-color: var(--green);
-  --primary-background: #323232;
-  --secondary-background: #ebeff0;
-  --tertiary-background: var(--white);
+  /* 
+  whatever variable is reusable and not applicate for a utility class. 
+  ex: nav > a for which we may not want to apply a utility class to every <a> element
+  match the var to the tailwind.js utility file for consistency
+  */
+  --nav-grey: #a6a6a6;
+  --l-green: #1AB15C;
 }

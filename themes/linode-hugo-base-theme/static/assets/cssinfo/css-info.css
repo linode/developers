@@ -3,7 +3,6 @@
   top: 10px;
   right: 10px;
   display: block;
-  background-color: #000;
   padding: 8px;
   border-radius: 50%;
   width: 40px;
@@ -12,5 +11,5 @@
 }
 
 .css-info-link:hover {
-  background-color: var(--green);
+  background-color: #000;
 }

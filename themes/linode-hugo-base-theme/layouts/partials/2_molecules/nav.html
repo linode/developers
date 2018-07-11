@@ -1,2 +1,3 @@
-<a href="/" class="mx-2">Home</a>
-<a href="/" class="mx-2">Contact</a>
+{{ range .Site.Menus.main }}
+  <a class="mx-2" href="{{ .URL }}">{{ .Name }}</a>
+{{ end }}
