@@ -1,15 +1,12 @@
 :root {
   --white: #fff;
   --black: #000;
-  --green: #3BA46C;
-
+  --green: #3ba46c;
   --primary-color: var(--black);
   --secondary-color: #4c4c4c;
   --tertiary-color: #a6a6a6;
-
   --link-color: var(--green);
-
   --primary-background: #323232;
-  --secondary-background: #EBEFF0;
+  --secondary-background: #ebeff0;
   --tertiary-background: var(--white);
 }

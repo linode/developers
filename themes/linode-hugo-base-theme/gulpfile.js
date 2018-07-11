@@ -1,22 +1,62 @@
 const gulp = require('gulp');
-const webpackStream = require('webpack-stream');
-const cssInfo_config = require('./cssInfo.config.js');
-const webpack_config = require('./webpack.config.js');
+const postcss = require('gulp-postcss');
+const tailwindcss = require('tailwindcss');
+const atImport = require('postcss-easy-import');
+const purgecss = require('gulp-purgecss')
+const autoprefixer = require('autoprefixer');
 const cssInfo = require('gulp-css-info');
+const cssnano = require('cssnano');
+const stylelint = require('stylelint');
+const reporter = require('postcss-reporter');
 
+const mainCss = './srcCSS/main.css';
+const css = './srcCSS/**/*.css';
+const html = './layouts/**/*.html'
 const output = 'static/assets/css/';
+const cssInfoDir = 'static/assets/cssinfo/';
 
-gulp.task('cssInfo', () => {
-  gulp.src('./index.js')
-    .pipe(webpackStream(cssInfo_config))
-    .pipe(cssInfo())
-    .pipe(gulp.dest(output))
+const plugins = [
+  atImport,
+  tailwindcss('./tailwind.js'),
+  autoprefixer({
+    browsers: ['last 2 versions', '> 2%']
+  }),
+  cssnano
+];
+
+gulp.task('lint', () => {
+  return gulp.src('./srcCSS/**/*.css')
+    .pipe(postcss([
+      stylelint(), 
+      reporter(),
+    ]));
 });
 
-gulp.task('webpack', ['cssInfo'], () => {
-  return gulp.src('./index.js')
-    .pipe(webpackStream(webpack_config))
+gulp.task('cssInfo', () => {
+  return gulp.src(mainCss)
+    .pipe(postcss(plugins))
+    .pipe(cssInfo())
+    .pipe(gulp.dest(cssInfoDir))
+});
+
+gulp.task('compile', () => {
+  return gulp.src(mainCss)
+    .pipe(postcss(plugins))
+    .pipe(
+      purgecss({
+        content: [html]
+      })
+    )
     .pipe(gulp.dest(output));
 });
 
-gulp.task('default', ['webpack']);
+gulp.task('watch:css', () => {
+  gulp.watch(css, ['compile']);
+});
+
+gulp.task('watch:html', () => {
+  gulp.watch(html, ['compile']);
+});
+
+gulp.task('default', ['lint', 'compile', 'cssInfo']);
+gulp.task('watch', ['watch:css', 'watch:html']);
