@@ -1,5 +1,5 @@
 .nav a {
-  color: var(--nav-grey);
+  @apply text-l-nav-grey;
 }
 
 .nav a:last-child {

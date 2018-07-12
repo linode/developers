@@ -8,6 +8,7 @@
         "glob": "^7.1.2",
         "gulp": "^3.9.1",
         "gulp-css-info": "^1.0.1",
+        "gulp-plumber": "^1.2.0",
         "gulp-postcss": "^7.0.1",
         "gulp-purgecss": "^1.0.0",
         "gulp-watch": "^5.0.0",

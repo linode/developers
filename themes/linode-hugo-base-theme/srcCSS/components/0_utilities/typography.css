@@ -1,5 +1,5 @@
 a {
-  color: var(--l-green);
+  @apply text-l-green;
   text-decoration: none;
 }
 

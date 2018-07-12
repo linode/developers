@@ -1,5 +1,6 @@
 const gulp = require('gulp');
 const postcss = require('gulp-postcss');
+const plumber = require('gulp-plumber');
 const tailwindcss = require('tailwindcss');
 const atImport = require('postcss-easy-import');
 const purgecss = require('gulp-purgecss')
@@ -41,6 +42,7 @@ gulp.task('cssInfo', () => {
 
 gulp.task('compile', () => {
   return gulp.src(mainCss)
+    .pipe(plumber())
     .pipe(postcss(plugins))
     .pipe(
       purgecss({
@@ -59,4 +61,4 @@ gulp.task('watch:html', () => {
 });
 
 gulp.task('default', ['lint', 'compile', 'cssInfo']);
-gulp.task('watch', ['watch:css', 'watch:html']);
+gulp.task('watch', ['compile', 'watch:css', 'watch:html']);
