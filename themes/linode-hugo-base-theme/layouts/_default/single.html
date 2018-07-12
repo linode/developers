@@ -1,0 +1,13 @@
+{{ define "main" }}
+
+<header>
+  <h1>{{ .Title | markdownify }}</h1>
+    {{ partial "1_atoms/post-date" . }}
+    {{ partial "2_molecules/post-categories" . }}
+</header>
+
+<article>
+  {{ .Content }}
+</article>
+
+{{ end }}

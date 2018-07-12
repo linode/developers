@@ -57,6 +57,9 @@ date_format = "Monday, January 2, 2006"
 copyright = "Copyright (c) 2018, Linode LLC"
 logo = "/img/linode-logo_standard_light_small.png"
 
+[params.truncate]
+enable = true
+
 [params.topbar]
 enable = true
 text = "For Developers, By Developers"
