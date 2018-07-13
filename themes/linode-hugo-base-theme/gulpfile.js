@@ -10,6 +10,7 @@ const cssnano = require('cssnano');
 const stylelint = require('stylelint');
 const reporter = require('postcss-reporter');
 
+const tailwind = 'tailwind.js';
 const mainCss = './srcCSS/main.css';
 const css = './srcCSS/**/*.css';
 const html = './layouts/**/*.html'
@@ -60,5 +61,9 @@ gulp.task('watch:html', () => {
   gulp.watch(html, ['compile']);
 });
 
+gulp.task('watch:tailwind', () => {
+  gulp.watch(tailwind, ['compile']);
+});
+
 gulp.task('default', ['lint', 'compile', 'cssInfo']);
-gulp.task('watch', ['compile', 'watch:css', 'watch:html']);
+gulp.task('watch', ['compile', 'watch:css', 'watch:html', 'watch:tailwind']);

@@ -48,6 +48,7 @@ let colors = {
   'l-green': '#1AB15C',
   'l-nav-grey': '#a6a6a6',
 
+  // Standard Colors
   'transparent': 'transparent',
 
   'black': '#22292f',
@@ -199,28 +200,10 @@ module.exports = {
 
   fonts: {
     'sans': [
-      'system-ui',
-      'BlinkMacSystemFont',
-      '-apple-system',
-      'Segoe UI',
-      'Roboto',
-      'Oxygen',
-      'Ubuntu',
-      'Cantarell',
-      'Fira Sans',
-      'Droid Sans',
-      'Helvetica Neue',
+      'Lato',
       'sans-serif',
     ],
     'serif': [
-      'Constantia',
-      'Lucida Bright',
-      'Lucidabright',
-      'Lucida Serif',
-      'Lucida',
-      'DejaVu Serif',
-      'Bitstream Vera Serif',
-      'Liberation Serif',
       'Georgia',
       'serif',
     ],
