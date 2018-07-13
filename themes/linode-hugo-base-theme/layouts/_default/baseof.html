@@ -6,14 +6,14 @@
 
   <div class="content">
     <div class="header-wrapper bg-light-black">
-      <header class="header container mx-auto lg p-4 flex flex-wrap items-center justify-between">
+      <header class="header max-w-4xl mx-auto p-4 flex flex-wrap items-center justify-between">
         {{ block "header" . }}
           {{ partial "3_organisms/header.html" . }}
         {{ end }}
       </header>
     </div>
 
-    <div class="main-wrapper container mx-auto lg p-4">
+    <div class="main-wrapper max-w-4xl mx-auto p-4">
       <main class="main">
         {{ block "main" . }}
           {{ partial "3_organisms/content.html" . }}
@@ -23,7 +23,7 @@
   </div>
 
   <div class="footer-wrapper bg-black">
-    <footer class="footer container mx-auto lg py-8 px-4 text-white">
+    <footer class="footer max-w-4xl mx-auto py-8 px-4 text-white">
       {{ block "footer" . }}
         {{ partial "3_organisms/footer.html" . }}
       {{ end }}

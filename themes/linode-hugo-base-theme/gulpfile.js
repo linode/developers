@@ -47,7 +47,8 @@ gulp.task('compile', () => {
     .pipe(postcss(plugins))
     .pipe(
       purgecss({
-        content: [html]
+        content: [html],
+        whitelist: ['mobile-nav']
       })
     )
     .pipe(gulp.dest(output));
