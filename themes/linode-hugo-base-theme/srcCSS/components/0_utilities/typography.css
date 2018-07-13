@@ -78,7 +78,8 @@ a {
 
 a:hover,
 a:visited,
-a:active {
+a:active,
+a.active {
   text-decoration: underline;
 }
 
