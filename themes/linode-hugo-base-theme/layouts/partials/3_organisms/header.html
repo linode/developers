@@ -1,2 +1,33 @@
-<div class="logo"><a href="/">{{ partial "1_atoms/logo.html" }}</a></div>
-<nav class="nav">{{ partial "2_molecules/nav.html" . }}</nav>
+<div class="logo">
+  <a href="/">{{ partial "1_atoms/logo.html" }}</a>
+</div>
+
+<a
+  href="#main-menu"
+  role="button"
+  class="nav-toggle"
+  aria-expanded="false"
+  aria-controls="main-menu"
+  aria-label="Open main menu"
+>
+  <span class="visually-hidden">Open main menu</span>
+  <img src='{{ "/img/menu.svg" | relURL }}' />
+</a>
+
+<nav
+  id="main-menu"
+  role="navigation"
+  class="main-nav"
+  aria-expanded="false"
+>
+
+  {{ partial "2_molecules/nav.html" . }}
+
+</nav>
+<a
+    href="#main-menu-toggle"
+    class="backdrop"
+    tabindex="-1"
+    aria-hidden="true" hidden
+  >
+</a>
