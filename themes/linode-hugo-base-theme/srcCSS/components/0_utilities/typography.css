@@ -1,0 +1,102 @@
+body {
+  @apply font-sans;
+  line-height: var(--line-height);
+  font-size: var(--body-font-size);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-sans;
+  font-weight: var(--heading-font-weight);
+  line-height: var(--heading-line-height);
+  margin-top: var(--heading-margin-top);
+  margin-bottom: var(--heading-margin-bottom);
+}
+
+p {
+  margin-top: var(--paragraph-margin-top);
+  margin-bottom: var(--paragraph-margin-bottom);
+}
+
+dl, ol, ul {
+  margin-top: var(--list-margin-top);
+  margin-bottom: var(--list-margin-bottom);
+}
+
+pre, code, samp {
+  @apply font-mono;
+  font-size: var(--pre-font-size);
+}
+
+pre {
+  margin-top: var(--pre-margin-top);
+  margin-bottom: var(--pre-margin-bottom);
+  overflow-x: scroll;
+}
+
+h1 { font-size: var(--h1) }
+h2 { font-size: var(--h2) }
+h3 { font-size: var(--h3) }
+h4 { font-size: var(--h4) }
+h5 { font-size: var(--h5) }
+h6 { font-size: var(--h6) }
+
+blockquote {
+  line-height: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+table {
+  margin-top: 1.5rem;
+  border-spacing: 0px;
+  border-collapse: collapse;
+}
+
+table td,
+table th {
+  padding: 0;
+  line-height: 33px;
+}
+
+code {
+  vertical-align: bottom;
+}
+
+.lead {
+  font-size: 1.414rem;
+}
+
+.hug {
+  margin-top: 0;
+}
+
+a {
+  @apply text-l-green;
+  text-decoration: none;
+}
+
+a:hover,
+a:visited,
+a:active,
+a.active {
+  text-decoration: underline;
+}
+
+:root {
+  --body-font-size: 1rem;
+  --line-height: 1.5;
+  --heading-font-weight: 700;
+  --heading-line-height: 1.25;
+  /* PLEASE USE A MODULAR SCALE SUCH AS: http://www.modularscale.com */
+  --h1: 2.441rem;
+  --h2: 1.953rem;
+  --h3: 1.25rem;
+  --h4: 1rem;
+  --h5: .8rem;
+  --h6: .64rem;
+  --paragraph-margin-top: 1.5rem;
+  --paragraph-margin-bottom: 0;
+  --heading-margin-top: 1.5rem;
+  --heading-margin-bottom: 0;
+}

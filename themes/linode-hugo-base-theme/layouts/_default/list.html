@@ -1,0 +1,18 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{.Content}}
+
+{{ $truncate := default true .Site.Params.truncate.enable }}
+{{ range .Paginator.Pages }}
+
+  {{ if $truncate }}
+    {{ .Render "summary" }}
+  {{ else }}
+    {{ .Render "content" }}
+  {{ end }}
+
+{{ end }}
+
+{{ partial "2_molecules/paginator" . }}
+
+{{ end }}

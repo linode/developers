@@ -1,9 +1,0 @@
-{{ if .Site.Params.topbar.enable }}
-<div id="top" class="text-right pad-right">
-  <div class="social">
-    {{ range .Site.Menus.topbar.ByWeight }}
-    <a href="{{ .URL }}" target="_blank" style="opacity: 1;">{{ .Pre }}</a>
-    {{ end }}
-  </div>
-</div>
-{{ end }}

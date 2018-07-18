@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang='{{ .Site.LanguageCode | default "en-us" }}'>
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ .Title }} | {{ .Site.Title }}</title>
+  <meta name="author" content='{{ .Site.Author.name }}' />
+
+  {{ if .Keywords }}
+  <meta name="keywords" content='{{ delimit .Keywords ", " }}'>
+  {{ else if .Site.Params.DefaultKeywords }}
+  <meta name="keywords" content='{{ delimit .Site.Params.DefaultKeywords ", " }}'>
+  {{ end }}
+
+  {{ if .Description }}
+  <meta name="description" content='{{ .Description }}'>
+  {{ else if .Site.Params.DefaultDescription }}
+  <meta name="description" content='{{ .Site.Params.DefaultDescription }}'>
+  {{ end }}
+
+  {{ .Hugo.Generator }}
+
+  {{ partial "0_utilities/fonts.html" . }}
+
+  <link href='{{ "assets/css/main.css" | relURL }}' rel="stylesheet">
+  {{ if .Site.Params.dev.enable}}
+    <link href='{{ "assets/cssinfo/css-info.css" | relURL }}' rel="stylesheet">
+  {{ end }}
+
+  <link rel="shortcut icon" href='{{ "/img/favicon.ico" | relURL }}' type="image/x-icon" />
+  <link rel="apple-touch-icon" href='{{ .Site.BaseURL }}img/apple-touch-icon.png' />
+</head>
+<body>

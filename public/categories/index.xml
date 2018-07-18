@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Linode Developers Site</title>
+    <link>https://developers.linode.com/categories/</link>
+    <description>Recent content in Categories on Linode Developers Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 25 Jun 2018 11:02:00 -0400</lastBuildDate>
+    
+	<atom:link href="https://developers.linode.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Apiv4</title>
+      <link>https://developers.linode.com/categories/apiv4/</link>
+      <pubDate>Mon, 25 Jun 2018 11:02:00 -0400</pubDate>
+      
+      <guid>https://developers.linode.com/categories/apiv4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linode Cli</title>
+      <link>https://developers.linode.com/categories/linode-cli/</link>
+      <pubDate>Mon, 25 Jun 2018 11:02:00 -0400</pubDate>
+      
+      <guid>https://developers.linode.com/categories/linode-cli/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

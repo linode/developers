@@ -3,6 +3,7 @@ languageCode = "en-us"
 title = "Linode Developers Site"
 defaultContentLanguage = "en"
 paginate = 25
+theme = "linode-hugo-base-theme"
 
 # menu
 [menu]
@@ -56,6 +57,9 @@ date_format = "Monday, January 2, 2006"
 copyright = "Copyright (c) 2018, Linode LLC"
 logo = "/img/linode-logo_standard_light_small.png"
 
+[params.truncate]
+enable = true
+
 [params.topbar]
 enable = true
 text = "For Developers, By Developers"
@@ -67,4 +71,7 @@ enable = true
 enable = true
 
 [params.features2]
+enable = true
+
+[params.dev]
 enable = true
