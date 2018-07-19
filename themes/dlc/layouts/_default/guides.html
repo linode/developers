@@ -6,25 +6,25 @@
   <h2>{{.Content}}</h2>
 </div>
 
-<div class="flex flex-wrap my-8 -mx-4">
+<div class="max-w-2xl mx-auto">
+  <div class="flex flex-wrap my-8 -mx-4">
 
-  {{ range .Paginator.Pages  }}
+    {{ range .Paginator.Pages  }}
+      <article class="w-full md:w-1/2 px-4 mb-4 md:mb-8">
+        <div class="p-8 h-full bg-grey-light">
+          <header>
+            <h3><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h3>
+            {{ partial "1_atoms/post-date" . }}
+            {{ partial "2_molecules/post-categories" . }}
+          </header>
+          {{ .Content }}
+        </div>
+      </article>
+    {{ end }}
 
-    <article class="w-1/2 px-4 mb-8">
-      <header>
-        <h2>
-          <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
-        </h2>
-        {{ partial "1_atoms/post-date" . }}
-        {{ partial "2_molecules/post-categories" . }}
-      </header>
-      {{ .Content }}
-    </article>
+    <button class="btn mx-auto">View All Platform Guides</button>
 
-  {{ end }}
-
-  <button class="mx-auto">View All Platform Guides</button>
-
+  </div>
 </div>
 
 {{ partial "2_molecules/paginator" . }}
