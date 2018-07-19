@@ -1,0 +1,26 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{.Content}}
+
+<div class="flex flex-wrap my-8 -mx-4">
+
+  {{ range .Paginator.Pages }}
+
+    <article class="w-1/2 px-4 mb-8">
+      <header>
+        <h2>
+          <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
+        </h2>
+        {{ partial "1_atoms/post-date" . }}
+        {{ partial "2_molecules/post-categories" . }}
+      </header>
+      {{ .Content }}
+    </article>
+
+  {{ end }}
+
+</div>
+
+{{ partial "2_molecules/paginator" . }}
+
+{{ end }}
