@@ -30,7 +30,13 @@ const plugins = [
   autoprefixer({
     browsers: ['last 2 versions', '> 2%']
   }),
-  cssnano
+  // cssnano({
+  //   preset: ['none', {
+  //     discardComments: {
+  //         removeAll: true,
+  //     },
+  //   }]
+  // })
 ];
 
 gulp.task('lint', () => {
