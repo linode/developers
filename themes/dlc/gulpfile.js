@@ -13,6 +13,8 @@ const reporter = require('postcss-reporter');
 const tailwind = 'tailwind.js';
 const mainCss = './srcCSS/main.css';
 const css = './srcCSS/**/*.css';
+const tailwindCss = 'srcCSS/tailwind.css';
+const imports = 'srcCSS/imports.css';
 const html = './layouts/**/*.html'
 const output = 'static/assets/css/';
 const cssInfoDir = 'static/assets/cssinfo/';
@@ -47,6 +49,31 @@ gulp.task('cssInfo', () => {
     .pipe(gulp.dest(cssInfoDir))
 });
 
+gulp.task('tailwind', () => {
+  return gulp.src(tailwindCss)
+    .pipe(plumber())
+    .pipe(postcss(plugins))
+    .pipe(
+      purgecss({
+        content: [html],
+        whitelist: ['mobile-nav', 'active'],
+        extractors: [
+          {
+            extractor: TailwindExtractor,
+            extensions: ["html"]
+          }
+        ]
+      })
+    )
+    .pipe(gulp.dest(output));
+});
+
+gulp.task('imports', () => {
+  return gulp.src(imports)
+    .pipe(postcss([atImport]))
+    .pipe(gulp.dest(output))
+});
+
 gulp.task('compile', () => {
   return gulp.src(mainCss)
     .pipe(plumber())
@@ -78,5 +105,5 @@ gulp.task('watch:tailwind', () => {
   gulp.watch(tailwind, ['compile']);
 });
 
-gulp.task('default', ['lint', 'compile', 'cssInfo']);
+gulp.task('default', ['tailwind', 'imports', 'compile', 'lint', 'cssInfo']);
 gulp.task('watch', ['compile', 'watch:css', 'watch:html', 'watch:tailwind']);

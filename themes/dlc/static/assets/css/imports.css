@@ -55,7 +55,6 @@ h1 {
  * 1. Add the correct display in IE.
  */
 
-
 main {
   /* 1 */
   display: block;
@@ -192,7 +191,6 @@ svg:not(:root) {
  * 2. Correct the inability to style clickable types in iOS and Safari.
  */
 
-
 html [type="button"],
 
 [type="reset"],
@@ -204,7 +202,6 @@ html [type="button"],
  * Remove the inner border and padding in Firefox.
  */
 
-
 [type="button"]::-moz-focus-inner,
 [type="reset"]::-moz-focus-inner,
 [type="submit"]::-moz-focus-inner {
@@ -215,7 +212,6 @@ html [type="button"],
 /**
  * Restore the focus styles unset by the previous rule.
  */
-
 
 [type="button"]:-moz-focusring,
 [type="reset"]:-moz-focusring,
@@ -360,7 +356,6 @@ html {
  * Removes the default spacing and border for appropriate elements.
  */
 
-
 h1,
 h2,
 p {
@@ -371,7 +366,6 @@ p {
  * Work around a Firefox/IE bug where the transparent `button` background
  * results in a loss of the default `button` focus styles.
  */
-
 
 ul {
   margin: 0;
@@ -435,7 +429,6 @@ img {
  * We can remove this when the reversion is in a normal Chrome release.
  */
 
-
 [type="button"],
 [type="reset"],
 [type="submit"] {
@@ -445,7 +438,6 @@ img {
 img {
   max-width: 100%;
 }
-
 
 [role=button] {
   cursor: pointer;
@@ -572,7 +564,6 @@ p {
   margin-top: var(--paragraph-margin-top);
   margin-bottom: var(--paragraph-margin-bottom);
 }
-
 
 ul {
   margin-top: var(--list-margin-top);

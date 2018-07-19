@@ -1,10 +1,14 @@
 {{ define "main" }}
-<h1>{{ .Title }}</h1>
-{{.Content}}
+
+
+<div class="mx-auto text-center max-w-lg my-8 pb-4">
+  <h1>{{ .Title }}</h1>
+  <h2>{{.Content}}</h2>
+</div>
 
 <div class="flex flex-wrap my-8 -mx-4">
 
-  {{ range .Paginator.Pages }}
+  {{ range .Paginator.Pages  }}
 
     <article class="w-1/2 px-4 mb-8">
       <header>
@@ -18,6 +22,8 @@
     </article>
 
   {{ end }}
+
+  <button class="mx-auto">View All Platform Guides</button>
 
 </div>
 
