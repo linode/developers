@@ -1,0 +1,4 @@
+.btn {
+  @apply font-bold py-3 px-4 bg-l-green text-white rounded;
+  width: fit-content;
+}

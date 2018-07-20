@@ -23,7 +23,6 @@
   {{ .Hugo.Generator }}
 
   {{ partial "0_utilities/fonts.html" . }}
-  <link href='{{ "assets/css/base.css" | relURL }}' rel="stylesheet">
   <link href='{{ "assets/css/main.css" | relURL }}' rel="stylesheet">
   {{ if .Site.Params.dev.enable}}
     <link href='{{ "assets/cssinfo/css-info.css" | relURL }}' rel="stylesheet">

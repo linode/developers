@@ -17,6 +17,12 @@ const html = './layouts/**/*.html'
 const output = 'static/assets/css/';
 const cssInfoDir = 'static/assets/cssinfo/';
 
+class TailwindExtractor {
+  static extract(content) {
+    return content.match(/[A-z0-9-:\/]+/g) || [];
+  }
+}
+
 const plugins = [
   atImport,
   tailwindcss('./tailwind.js'),
@@ -48,7 +54,13 @@ gulp.task('compile', () => {
     .pipe(
       purgecss({
         content: [html],
-        whitelist: ['mobile-nav', ['active']]
+        whitelist: ['mobile-nav', 'active'],
+        extractors: [
+          {
+            extractor: TailwindExtractor,
+            extensions: ["html"]
+          }
+        ]
       })
     )
     .pipe(gulp.dest(output));

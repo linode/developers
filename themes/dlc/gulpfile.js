@@ -13,9 +13,16 @@ const reporter = require('postcss-reporter');
 const tailwind = 'tailwind.js';
 const mainCss = './srcCSS/main.css';
 const css = './srcCSS/**/*.css';
-const html = './layouts/**/*.html'
+const baseThemeHtml = '../linode-hugo-base-theme/layouts/**/*.html';
+const html = './layouts/**/*.html';
 const output = 'static/assets/css/';
 const cssInfoDir = 'static/assets/cssinfo/';
+
+class TailwindExtractor {
+  static extract(content) {
+    return content.match(/[A-z0-9-:\/]+/g) || [];
+  }
+}
 
 const plugins = [
   atImport,
@@ -23,7 +30,13 @@ const plugins = [
   autoprefixer({
     browsers: ['last 2 versions', '> 2%']
   }),
-  cssnano
+  // cssnano({
+  //   preset: ['none', {
+  //     discardComments: {
+  //         removeAll: true,
+  //     },
+  //   }]
+  // })
 ];
 
 gulp.task('lint', () => {
@@ -47,8 +60,14 @@ gulp.task('compile', () => {
     .pipe(postcss(plugins))
     .pipe(
       purgecss({
-        content: [html],
-        whitelist: ['mobile-nav', ['active']]
+        content: [baseThemeHtml, html],
+        whitelist: ['mobile-nav', 'active'],
+        extractors: [
+          {
+            extractor: TailwindExtractor,
+            extensions: ["html"]
+          }
+        ]
       })
     )
     .pipe(gulp.dest(output));
