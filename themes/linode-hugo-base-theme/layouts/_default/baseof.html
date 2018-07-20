@@ -20,6 +20,14 @@
         {{ end }}
       </main>
     </div>
+
+    <div class="footer-nav-wrapper mx-auto p-4 items-center justify-between">
+      <div class="footer-nav">
+        {{ block "footer-nav" . }}
+          {{ partial "3_organisms/footer-nav.html" . }}
+        {{ end }}
+      </div>
+    </div>
   </div>
 
   <div class="footer-wrapper bg-black">
