@@ -51,7 +51,7 @@ let colors = {
   // Standard Colors
   'transparent': 'transparent',
 
-  'black': '#22292f',
+  'black': '#161616',
   'light-black': '#323232',
   'grey-darkest': '#3d4852',
   'grey-darker': '#606f7b',
@@ -173,6 +173,7 @@ module.exports = {
   */
 
   screens: {
+    'xs': '400px',
     'sm': '576px',
     'md': '768px',
     'lg': '992px',
