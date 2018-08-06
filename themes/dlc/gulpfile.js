@@ -26,6 +26,7 @@ class TailwindExtractor {
 
 const plugins = [
   atImport,
+  tailwindcss('../linode-hugo-base-theme/tailwind.js'),
   tailwindcss('./tailwind.js'),
   autoprefixer({
     browsers: ['last 2 versions', '> 2%']
