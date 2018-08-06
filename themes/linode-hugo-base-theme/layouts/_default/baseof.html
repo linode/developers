@@ -1,0 +1,34 @@
+{{ partial "0_utilities/htmlHead.html" . }}
+
+  {{ if .Site.Params.dev.enable}}
+    {{ partial "1_atoms/cssinfo.html" . }}
+  {{ end }}
+
+  <div class="content">
+    <div class="header-wrapper bg-light-black">
+      <header class="header max-w-4xl mx-auto p-4 flex flex-wrap items-center justify-between">
+        {{ block "header" . }}
+          {{ partial "3_organisms/header.html" . }}
+        {{ end }}
+      </header>
+    </div>
+
+    <div class="main-wrapper max-w-4xl mx-auto p-4">
+      <main class="main">
+        {{ block "main" . }}
+          {{ partial "3_organisms/content.html" . }}
+        {{ end }}
+      </main>
+    </div>
+  </div>
+
+  <div class="footer-wrapper bg-black">
+    <footer class="footer max-w-4xl mx-auto py-8 px-4 text-white">
+      {{ block "footer" . }}
+        {{ partial "3_organisms/footer.html" . }}
+      {{ end }}
+    </footer>
+  </div>
+
+{{ partial "0_utilities/scripts.html" . }}
+{{ partial "0_utilities/htmlFoot.html" . }}

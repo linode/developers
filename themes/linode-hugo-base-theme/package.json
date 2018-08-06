@@ -1,0 +1,22 @@
+{
+    "private": true,
+    "scripts": {},
+    "devDependencies": {},
+    "dependencies": {
+        "autoprefixer": "^8.6.5",
+        "cssnano": "^4.0.0",
+        "glob": "^7.1.2",
+        "gulp": "^3.9.1",
+        "gulp-css-info": "^1.0.1",
+        "gulp-plumber": "^1.2.0",
+        "gulp-postcss": "^7.0.1",
+        "gulp-purgecss": "^1.0.0",
+        "gulp-watch": "^5.0.0",
+        "postcss": "^6.0.14",
+        "postcss-easy-import": "^3.0.0",
+        "postcss-reporter": "^5.0.0",
+        "stylelint": "^9.3.0",
+        "stylelint-config-standard": "^18.2.0",
+        "tailwindcss": "^0.5.3"
+    }
+}

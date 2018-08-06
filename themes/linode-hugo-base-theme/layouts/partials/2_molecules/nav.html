@@ -1,0 +1,4 @@
+{{ $url := .URL }}
+{{ range .Site.Menus.main }}
+  <a href="{{ .URL }}" class="{{ if eq $url .URL }}active{{ end }}">{{ .Name }}</a>
+{{ end }}

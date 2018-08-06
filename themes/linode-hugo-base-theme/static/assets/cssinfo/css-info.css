@@ -1,0 +1,15 @@
+.css-info-link {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  display: block;
+  padding: 8px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  transition: background-color .2s ease-in-out;
+}
+
+.css-info-link:hover {
+  background-color: #000;
+}
