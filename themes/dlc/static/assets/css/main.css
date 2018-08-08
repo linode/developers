@@ -609,6 +609,10 @@ button,
   margin-top: 0;
 }
 
+.mt-1 {
+  margin-top: .25rem;
+}
+
 .mr-2 {
   margin-right: .5rem;
 }
@@ -801,6 +805,8 @@ h4 {
 a {
   color: #1ab15c;
   text-decoration: none;
+  -webkit-transition: color 225ms ease-in-out;
+  transition: color 225ms ease-in-out;
 }
 
 a:hover,
@@ -837,6 +843,23 @@ a.active {
 }
 
 .footer-nav a {
+  color: #a6a6a6;
+}
+
+.footer-nav-header a {
+  color: #fff;
+}
+
+.footer-nav-social a {
+  display: inline-block;
+  width: 24px;
+  margin-right: .4em;
+  border: 1px solid currentColor;
+  padding: 0 6px;
+  border-radius: 4px;
+}
+
+.footer-nav-social a:hover {
   color: #fff;
 }
 
