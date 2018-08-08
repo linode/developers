@@ -3,7 +3,7 @@ languageCode = "en-us"
 title = "Linode Developers Site"
 defaultContentLanguage = "en"
 paginate = 25
-theme = ["dlc", "linode-hugo-base-theme"]
+theme = ["dlc", "linode-hugo-theme"]
 
 # menu
 [menu]
@@ -74,4 +74,4 @@ enable = true
 enable = true
 
 [params.dev]
-enable = true
+enable = false

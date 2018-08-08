@@ -629,6 +629,10 @@ button,
   margin-bottom: 1rem;
 }
 
+.max-w-md {
+  max-width: 40rem;
+}
+
 .max-w-lg {
   max-width: 50rem;
 }
@@ -710,10 +714,6 @@ button,
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.w-1\/3 {
-  width: 33.33333%;
 }
 
 .w-1\/4 {
@@ -830,6 +830,10 @@ a.active {
 
 .logo {
   width: 150px;
+}
+
+.footer-links a {
+  color: #fff;
 }
 
 .footer-nav a {
@@ -955,6 +959,13 @@ a.active {
 
   .xs\:w-1\/2 {
     width: 50%;
+  }
+}
+
+@media (min-width: 576px) {
+
+  .sm\:w-1\/3 {
+    width: 33.33333%;
   }
 }
 
