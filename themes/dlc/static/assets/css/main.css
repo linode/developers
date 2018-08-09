@@ -799,7 +799,6 @@ button,
 html,
 body {
   height: 100%;
-  overflow-x: hidden;
 }
 
 body {
@@ -810,6 +809,8 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  overflow-x: hidden;
+  width: 100vw;
 }
 
 .content {
