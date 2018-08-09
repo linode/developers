@@ -3,53 +3,30 @@ languageCode = "en-us"
 title = "Linode Developers Site"
 defaultContentLanguage = "en"
 paginate = 25
-theme = ["dlc", "linode-hugo-base-theme"]
+theme = ["dlc", "linode-hugo-theme"]
 
 # menu
 [menu]
 
 [[menu.main]]
 weight = 1
-name = "Home"
-url = "/"
-
-[[menu.main]]
-weight = 2
-name = "APIv4 Docs"
+name = "Documentation"
 url = "https://developers.linode.com/"
 
 [[menu.main]]
-weight = 3
+weight = 2
 name = "Guides"
 url = "/guides/"
 
 [[menu.main]]
-weight = 4
-name = "Libraries and Tools"
+weight = 3
+name = "Libraries & Tools"
 url = "/libraries-tools/"
 
 [[menu.main]]
-weight = 5
-name = "Changelog"
+weight = 4
+name = "API Changelog"
 url = "/changelog/"
-
-[[menu.topbar]]
-weight = 1
-name = "GitHub"
-url = "https://github.com/linode"
-pre = "<i class='fab fa-github'></i>"
-
-[[menu.topbar]]
-weight = 2
-name = "Facebook"
-url = "http://facebook.com/linode"
-pre = "<i class='fab fa-facebook'></i>"
-
-[[menu.topbar]]
-weight = 3
-name = "Twitter"
-url = "http://twitter.com/linode"
-pre = "<i class='fab fa-twitter'></i>"
 
 # params
 [params]
@@ -74,4 +51,4 @@ enable = true
 enable = true
 
 [params.dev]
-enable = true
+enable = false

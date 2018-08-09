@@ -13,8 +13,8 @@ const reporter = require('postcss-reporter');
 const tailwind = 'tailwind.js';
 const mainCss = './srcCSS/main.css';
 const css = './srcCSS/**/*.css';
-const baseThemeHtml = '../linode-hugo-base-theme/layouts/**/*.html';
-const html = './layouts/**/*.html';
+const baseThemeHtml = '../linode-hugo-theme/layouts/**/*.html';
+const html = 'layouts/**/*.html';
 const output = 'static/assets/css/';
 const cssInfoDir = 'static/assets/cssinfo/';
 
@@ -26,8 +26,7 @@ class TailwindExtractor {
 
 const plugins = [
   atImport,
-  tailwindcss('../linode-hugo-base-theme/tailwind.js'),
-  tailwindcss('./tailwind.js'),
+  tailwindcss('tailwind.js'),
   autoprefixer({
     browsers: ['last 2 versions', '> 2%']
   }),

@@ -47,6 +47,8 @@ let colors = {
   // Linode Colors
   'l-green': '#1AB15C',
   'l-nav-grey': '#a6a6a6',
+  'l-full-black': '#000',
+  'd-header-green': '#2F9072',
 
   // Standard Colors
   'transparent': 'transparent',
@@ -638,6 +640,7 @@ module.exports = {
     '4': '1rem',
     '6': '1.5rem',
     '8': '2rem',
+    '10': '2rem',
   },
 
 
