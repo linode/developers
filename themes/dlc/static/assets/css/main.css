@@ -318,6 +318,12 @@ button:-moz-focusring,
  * 1. Add the correct display in Edge, IE, and Firefox.
  */
 
+
+
+menu {
+  display: block;
+}
+
 /*
  * Add the correct display in all browsers.
  */
@@ -649,8 +655,8 @@ button,
   max-width: 70rem;
 }
 
-.max-w-4xl {
-  max-width: 90rem;
+.max-w-3xl {
+  max-width: 80rem;
 }
 
 .-mx-2 {
@@ -661,6 +667,10 @@ button,
 .-mx-4 {
   margin-left: -1rem;
   margin-right: -1rem;
+}
+
+.p-2 {
+  padding: .5rem;
 }
 
 .p-4 {
@@ -694,6 +704,10 @@ button,
   padding-bottom: 2rem;
 }
 
+.relative {
+  position: relative;
+}
+
 .text-center {
   text-align: center;
 }
@@ -702,7 +716,15 @@ button,
   text-align: right;
 }
 
+.text-l-nav-grey {
+  color: #a6a6a6;
+}
+
 .text-white {
+  color: #fff;
+}
+
+.hover\:text-white:hover {
   color: #fff;
 }
 
@@ -834,10 +856,6 @@ a.active {
   --heading-margin-bottom: 0;
 }
 
-.logo {
-  width: 150px;
-}
-
 .footer-links a {
   color: #fff;
 }
@@ -861,6 +879,31 @@ a.active {
 
 .footer-nav-social a:hover {
   color: #fff;
+}
+
+.main-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  height: 3px;
+  width: 0;
+  background-color: #fff;
+  -webkit-transition: width 225ms ease-in-out;
+  transition: width 225ms ease-in-out;
+}
+
+.main-nav-link:hover,
+.main-nav-link.active {
+  text-decoration: none;
+  color: #fff;
+}
+
+.main-nav-link:hover::after,
+.main-nav-link.active::after {
+  width: 100%;
 }
 
 .menu-icon {
@@ -913,7 +956,7 @@ a.active {
   background-color: #323232;
   position: fixed;
   right: calc(-1 * var(--mobile-menu-width));
-  top: 0;
+  top: -2px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -941,6 +984,7 @@ a.active {
             box-shadow: none;
     text-align: initial;
     height: auto;
+    overflow-y: initial;
     right: 0;
   }
 
@@ -958,10 +1002,6 @@ a.active {
 
 :root {
   --mobile-menu-width: 300px;
-}
-
-.main-nav a {
-  color: #a6a6a6;
 }
 
 .btn {
@@ -989,6 +1029,10 @@ a.active {
 
   .sm\:w-1\/3 {
     width: 33.33333%;
+  }
+
+  .sm\:w-2\/3 {
+    width: 66.66667%;
   }
 }
 
