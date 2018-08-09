@@ -33,7 +33,8 @@ body {
 article,
 footer,
 header,
-nav {
+nav,
+section {
   display: block;
 }
 
@@ -533,6 +534,10 @@ button,
   background-color: #000;
 }
 
+.bg-d-header-green {
+  background-color: #2f9072;
+}
+
 .bg-black {
   background-color: #161616;
 }
@@ -669,6 +674,10 @@ button,
   margin-right: -1rem;
 }
 
+.-mt-2 {
+  margin-top: -0.5rem;
+}
+
 .p-2 {
   padding: .5rem;
 }
@@ -696,6 +705,11 @@ button,
   padding-bottom: 2rem;
 }
 
+.py-10 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 .pb-4 {
   padding-bottom: 1rem;
 }
@@ -704,8 +718,20 @@ button,
   padding-bottom: 2rem;
 }
 
+.absolute {
+  position: absolute;
+}
+
 .relative {
   position: relative;
+}
+
+.pin-t {
+  top: 0;
+}
+
+.pin-r {
+  right: 0;
 }
 
 .text-center {
@@ -736,6 +762,18 @@ button,
   font-size: 1.25rem;
 }
 
+.text-2xl {
+  font-size: 1.5rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+}
+
 .truncate {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -761,6 +799,7 @@ button,
 html,
 body {
   height: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -854,6 +893,11 @@ a.active {
   --paragraph-margin-bottom: 0;
   --heading-margin-top: 1.5rem;
   --heading-margin-bottom: 0;
+}
+
+.row-full {
+  width: 100vw !important;
+  margin-left: calc(-50vw + 50%) !important;
 }
 
 .footer-links a {
