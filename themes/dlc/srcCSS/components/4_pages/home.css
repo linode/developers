@@ -1,0 +1,9 @@
+.home-lins {
+  max-width: 200px;
+}
+
+@screen md {
+  .home-lins {
+    max-width: 437px;
+  }
+}

@@ -1,4 +1,11 @@
 .btn {
-  @apply font-bold py-3 px-4 bg-l-green text-white rounded;
+  @apply font-bold py-3 px-4 bg-d-turq text-white rounded;
   width: fit-content;
+  transition: background-color 225ms ease-in-out;
+  line-height: 1;
+}
+
+.btn:hover {
+  @apply bg-d-turq-hov;
+  text-decoration: none;
 }

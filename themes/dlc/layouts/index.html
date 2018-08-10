@@ -1,9 +1,41 @@
 {{ define "main" }}
-  <div class="row-full relative -mt-2">
-    <section class="header max-w-3xl mx-auto px-2 py-10">
+  <div class="row-full relative -mt-2 px-2">
+    <section class="header max-w-3xl mx-auto px-2 py-12 relative z-10">
       <h2>How easily can you create a linode?</h2>
-      <div class="text-2xl">is three steps easy enough?</div>
+      <div class="text-2xl my-3">is three steps easy enough?</div>
+      <button class="btn mt-3">Get started with our Linode CLI</button>
     </section>
-    <img src='{{ "img/grid.png" | relURL }}' class="absolute pin-t pin-r" />
+    <img src='{{ "img/grid.png" | relURL }}' class="home-lins absolute pin-t pin-r" />
+  </div>
+  
+  <div class="flex flex-wrap my-8 -mx-4 pb-8">
+    <article class="w-full md:w-1/2 px-4 mb-4 md:mb-8">
+      <div class="px-8 py-20 h-full bg-d-cell flex flex-col justify-center items-center">
+        <h2 class="mt-0 font-normal"><a href="https://developers.linode.com/" class="text-black">Guides</a></h3>
+        <p class="text-xl mt-2">Reference Documentation for the linode API</p>
+        <a href="https://developers.linode.com/" class="btn mt-6">View API docs</a>
+      </div>
+    </article>
+    <article class="w-full md:w-1/2 px-4 mb-4 md:mb-8">
+      <div class="p-8 py-20 h-full bg-d-cell flex flex-col justify-center items-center">
+        <h2 class="mt-0 font-normal"><a href="/guides/" class="text-black">Documentation</a></h3>
+        <p class="text-xl mt-2">How-to’s and examples using the Linode API</p>
+        <a href="/guides/"  class="btn mt-6">View Guides</a>
+      </div>
+    </article>
+    <article class="w-full md:w-1/2 px-4 mb-4 md:mb-8">
+      <div class="p-8 py-20 h-full bg-d-cell flex flex-col justify-center items-center">
+        <h2 class="mt-0 font-normal"><a href="/libraries-tools/" class="text-black">Libraries &amp; Tools</a></h3>
+        <p class="text-xl mt-2">Jumpstart your API integration</p>
+        <a href="/libraries-tools/" class="btn mt-6">View libraries &amp; tools</a>
+      </div>
+    </article>
+    <article class="w-full md:w-1/2 px-4 mb-4 md:mb-8">
+      <div class="p-8 py-20 h-full bg-d-cell flex flex-col justify-center items-center">
+        <h2 class="mt-0 font-normal"><a href="/changelog/" class="text-black">Community Questions</a></h3>
+        <p class="text-xl mt-2">Questions and answers from the Linode community</p>
+        <a href="/changelog/" class="btn mt-6">View Q&amp;A</a>
+      </div>
+    </article>
   </div>
 {{ end }}

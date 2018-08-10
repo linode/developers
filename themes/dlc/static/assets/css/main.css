@@ -538,6 +538,10 @@ button,
   background-color: #2f9072;
 }
 
+.bg-d-cell {
+  background-color: #ebeff0;
+}
+
 .bg-black {
   background-color: #161616;
 }
@@ -598,12 +602,21 @@ button,
           justify-content: space-between;
 }
 
+.font-normal {
+  font-weight: 400;
+}
+
 .h-12 {
   height: 3rem;
 }
 
 .h-full {
   height: 100%;
+}
+
+.my-3 {
+  margin-top: .75rem;
+  margin-bottom: .75rem;
 }
 
 .my-8 {
@@ -624,6 +637,10 @@ button,
   margin-top: .25rem;
 }
 
+.mt-2 {
+  margin-top: .5rem;
+}
+
 .mr-2 {
   margin-right: .5rem;
 }
@@ -636,12 +653,20 @@ button,
   margin-left: .5rem;
 }
 
+.mt-3 {
+  margin-top: .75rem;
+}
+
 .mt-4 {
   margin-top: 1rem;
 }
 
 .mb-4 {
   margin-bottom: 1rem;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
 }
 
 .max-w-md {
@@ -705,9 +730,24 @@ button,
   padding-bottom: 2rem;
 }
 
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
 .py-10 {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.py-12 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 .pb-4 {
@@ -744,6 +784,10 @@ button,
 
 .text-l-nav-grey {
   color: #a6a6a6;
+}
+
+.text-black {
+  color: #161616;
 }
 
 .text-white {
@@ -792,6 +836,10 @@ button,
   width: 100%;
 }
 
+.z-10 {
+  z-index: 10;
+}
+
 :root {
   --l-green: #1ab15c;
 }
@@ -799,6 +847,7 @@ button,
 html,
 body {
   height: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -809,8 +858,6 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  overflow-x: hidden;
-  width: 100vw;
 }
 
 .content {
@@ -1055,12 +1102,30 @@ a.active {
   padding-bottom: .75rem;
   padding-left: 1rem;
   padding-right: 1rem;
-  background-color: #1ab15c;
+  background-color: #346c8a;
   color: #fff;
   border-radius: .25rem;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  -webkit-transition: background-color 225ms ease-in-out;
+  transition: background-color 225ms ease-in-out;
+  line-height: 1;
+}
+
+.btn:hover {
+  background-color: #4b81d5;
+  text-decoration: none;
+}
+
+.home-lins {
+  max-width: 200px;
+}
+
+@media (min-width: 768px) {
+  .home-lins {
+    max-width: 437px;
+  }
 }
 
 @media (min-width: 400px) {
