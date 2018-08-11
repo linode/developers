@@ -13,6 +13,7 @@ const reporter = require('postcss-reporter');
 const tailwind = 'tailwind.js';
 const mainCss = './srcCSS/main.css';
 const css = './srcCSS/**/*.css';
+const baseCss = '../linode-hugo-theme/srcCSS/components/**/*.css';;
 const baseThemeHtml = '../linode-hugo-theme/layouts/**/*.html';
 const html = 'layouts/**/*.html';
 const output = 'static/assets/css/';
@@ -77,6 +78,10 @@ gulp.task('watch:css', () => {
   gulp.watch(css, ['compile']);
 });
 
+gulp.task('watch:basecss', () => {
+  gulp.watch(baseCss, ['compile']);
+});
+
 gulp.task('watch:html', () => {
   gulp.watch(html, ['compile']);
 });
@@ -86,4 +91,4 @@ gulp.task('watch:tailwind', () => {
 });
 
 gulp.task('default', ['lint', 'compile', 'cssInfo']);
-gulp.task('watch', ['compile', 'watch:css', 'watch:html', 'watch:tailwind']);
+gulp.task('watch', ['compile', 'watch:basecss', 'watch:css', 'watch:html', 'watch:tailwind']);

@@ -2,6 +2,7 @@
 title: "linode-python"
 description: linode-python
 author: tjfontaine
+origin: community
 categories:
 - APIv4
 - Node.js

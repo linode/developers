@@ -2,6 +2,7 @@
 title: "linode-elixir"
 description: linode-elixir
 author: stvnjacobs
+origin: community
 categories:
 - APIv4
 - Elixir

@@ -5,6 +5,10 @@
   line-height: 1;
 }
 
+.btn-small {
+  @apply py-2 px-3 text-sm;
+}
+
 .btn:hover {
   @apply bg-d-turq-hov;
   text-decoration: none;

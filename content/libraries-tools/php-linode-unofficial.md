@@ -2,6 +2,7 @@
 title: "php-linode-unofficial"
 description: php-linode-unofficial
 author: illblew
+origin: linode
 categories:
 - APIv4
 - PHP

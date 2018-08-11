@@ -2,6 +2,7 @@
 title: "linodego"
 description: linodego
 author: chiefy
+origin: community
 categories:
 - APIv4
 - Golang

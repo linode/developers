@@ -2,6 +2,7 @@
 title: "linode-php-krmdrms"
 description: linode-php-krmdrms
 author: krmdrms
+origin: community
 categories:
 - APIv4
 - PHP

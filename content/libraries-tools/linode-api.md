@@ -2,6 +2,7 @@
 title: "linode-api"
 description: linode-api
 author: tzurbaev
+origin: community
 categories:
 - APIv4
 - PHP

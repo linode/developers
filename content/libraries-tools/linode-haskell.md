@@ -2,6 +2,7 @@
 title: "linode-haskell"
 description: linode-haskell
 author: eatonphil
+origin: community
 categories:
 - APIv4
 - Haskell

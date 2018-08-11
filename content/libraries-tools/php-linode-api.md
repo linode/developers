@@ -2,6 +2,7 @@
 title: "php-linode-api"
 description: php-linode-api
 author: hnhdigital-os
+origin: community
 categories:
 - APIv4
 - PHP

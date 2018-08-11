@@ -2,6 +2,7 @@
 title: "linode-ruby"
 description: linode-ruby
 author: rick
+origin: linode
 categories:
 - APIv4
 - Node.js

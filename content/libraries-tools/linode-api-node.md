@@ -2,6 +2,7 @@
 title: "linode-api-node"
 description: linode-api-node
 author: RobinJ1995
+origin: community
 categories:
 - APIv4
 - Node.js

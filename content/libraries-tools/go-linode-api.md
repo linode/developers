@@ -2,6 +2,7 @@
 title: "go-linode-api"
 description: go-linode-api
 author: briansteffens
+origin: community
 categories:
 - APIv4
 - Golang
