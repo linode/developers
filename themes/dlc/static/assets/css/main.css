@@ -647,6 +647,11 @@ button,
   margin-bottom: 2rem;
 }
 
+.my-12 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -690,6 +695,10 @@ button,
 
 .mt-6 {
   margin-top: 1.5rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
 }
 
 .max-w-md {
@@ -1277,12 +1286,33 @@ input[type=radio]:checked ~ label {
   .sm\:w-2\/3 {
     width: 66.66667%;
   }
+
+  .sm\:w-1\/4 {
+    width: 25%;
+  }
+
+  .sm\:w-3\/4 {
+    width: 75%;
+  }
 }
 
 @media (min-width: 768px) {
 
+  .md\:block {
+    display: block;
+  }
+
   .md\:mb-8 {
     margin-bottom: 2rem;
+  }
+
+  .md\:mt-12 {
+    margin-top: 3rem;
+  }
+
+  .md\:py-6 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
   }
 
   .md\:w-auto {
@@ -1297,11 +1327,11 @@ input[type=radio]:checked ~ label {
     width: 33.33333%;
   }
 
-  .md\:w-1\/4 {
-    width: 25%;
+  .md\:w-1\/5 {
+    width: 20%;
   }
 
-  .md\:w-3\/4 {
-    width: 75%;
+  .md\:w-4\/5 {
+    width: 80%;
   }
 }
