@@ -3,7 +3,7 @@ title: "linode-ruby"
 description: linode-ruby
 author: rick
 origin: linode
-categories:
+languages:
 - APIv4
 - Node.js
 external_url: https://github.com/rick/linode

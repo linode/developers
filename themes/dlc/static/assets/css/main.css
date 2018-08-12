@@ -1018,6 +1018,7 @@ a.active {
   cursor: pointer;
   -webkit-transition: color 225ms ease-in-out;
   transition: color 225ms ease-in-out;
+  z-index: 2;
 }
 
 .radio-label:hover + .check {
@@ -1033,7 +1034,7 @@ a.active {
   width: 22px;
   top: 5px;
   left: 0;
-  z-index: 5;
+  z-index: 1;
   -webkit-transition: border 225ms ease-in-out;
   transition: border 225ms ease-in-out;
 }
@@ -1313,6 +1314,10 @@ input[type=radio]:checked ~ label {
   .md\:py-6 {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
+  }
+
+  .md\:text-right {
+    text-align: right;
   }
 
   .md\:w-auto {

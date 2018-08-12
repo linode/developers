@@ -3,7 +3,7 @@ title: "linode-php-krmdrms"
 description: linode-php-krmdrms
 author: krmdrms
 origin: community
-categories:
+languages:
 - APIv4
 - PHP
 external_url: https://github.com/krmdrms/linode

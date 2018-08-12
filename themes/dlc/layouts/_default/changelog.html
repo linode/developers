@@ -2,6 +2,9 @@
     <div class="container mx-auto max-w-xl">
 
         <div class="flex mb-4">
+            {{range ($.Site.GetPage "taxonomyTerm" "products").Pages }}
+            {{ .Title }}
+            {{ end }}
             <div class="w-full text-center">
                 <h1>{{ .Title }}</h1>
                 <h2>Latest updates from the Linode team</h2>

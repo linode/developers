@@ -8,6 +8,12 @@ theme = ["dlc", "linode-hugo-theme"]
 # menu
 [menu]
 
+[taxonomies]
+category = "categories"
+tag = "tags"
+language = "languages"
+product = "products"
+
 [[menu.main]]
 weight = 1
 name = "Documentation"

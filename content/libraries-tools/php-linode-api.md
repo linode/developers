@@ -3,7 +3,7 @@ title: "php-linode-api"
 description: php-linode-api
 author: hnhdigital-os
 origin: community
-categories:
+languages:
 - APIv4
 - PHP
 external_url: https://github.com/hnhdigital-os/php-linode-api

@@ -2,7 +2,7 @@
 
 <div class="my-12 max-w-3xl mx-auto">
   <div class="flex flex-wrap -mx-4 items-center">
-    <div class="w-full md:w-1/2 px-4 text-right">
+    <div class="w-full md:w-1/2 px-4 md:text-right">
       <img src="http://via.placeholder.com/350x150" />
     </div>
     <div class="w-full md:w-1/2 px-4">
@@ -24,7 +24,7 @@
       <button class="btn btn-small mt-4 mb-4" onclick="uncheckAll('createdFilters')">Show All</button>
       <div id="languageFilters" class="flex flex-wrap md:block">
         <h4 class="uppercase mb-4 w-full">Language</h4>
-        {{range ($.Site.GetPage "taxonomyTerm" "categories").Pages }}
+        {{range ($.Site.GetPage "taxonomyTerm" "languages").Pages }}
           {{ partial "1_atoms/radio.html" (dict "ID" (lower (replace .Title "." "-")) "Name" "language" "Value" (print "." (lower (replace .Title "." "-"))) "Label" .Title) . }}
         {{end}}
       </div>
@@ -39,7 +39,7 @@
         <div>No results</div>
       </div>
       {{ range .Paginator.Pages  }}
-        <article class="item lib-item w-full md:w-1/2 px-4 mb-4 md:mb-8 {{ range .Params.categories }}{{ lower (replace . "." "-") }} {{ end }}{{ .Params.origin }}">
+        <article class="item lib-item w-full md:w-1/2 px-4 mb-4 md:mb-8 {{ range .Params.languages }}{{ lower (replace . "." "-") }} {{ end }}{{ .Params.origin }}">
           <div class="p-8 h-full bg-d-cell">
             <header>
               <h3 class="mt-0"><a class="text-black" href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h3>
