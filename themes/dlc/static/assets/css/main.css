@@ -637,6 +637,12 @@ button,
           align-items: center;
 }
 
+.justify-start {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
 .justify-center {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -731,6 +737,10 @@ button,
 
 .mt-6 {
   margin-top: 1.5rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
 }
 
 .mt-8 {
@@ -855,6 +865,10 @@ button,
 
 .text-center {
   text-align: center;
+}
+
+.text-l-green {
+  color: #1ab15c;
 }
 
 .text-l-nav-grey {
@@ -983,7 +997,7 @@ pre {
 pre {
   margin-top: var(--pre-margin-top);
   margin-bottom: var(--pre-margin-bottom);
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 h1 {
@@ -1018,6 +1032,7 @@ a.active {
 
 :root {
   --body-font-size: 1rem;
+  --pre-font-size: .9rem;
   --line-height: 1.5;
   --heading-font-weight: 700;
   --heading-line-height: 1.25;
@@ -1384,12 +1399,27 @@ input[type=radio]:checked ~ label {
 }
 
 .code-box-content {
+  overflow-x: auto;
 }
 
 .code-box-circle {
   display: block;
-  width: 16px;
-  height: 16px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.circle-red {
+  background-color: #c65d6a;
+}
+
+.circle-yellow {
+  background-color: #cbbd0b;
+}
+
+.circle-green {
+  background-color: #219d5e;
 }
 
 .lib-item .bg-d-cell {
