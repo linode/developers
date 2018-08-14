@@ -573,10 +573,6 @@ button,
   background-color: #323232;
 }
 
-.bg-grey-light {
-  background-color: #dae1e7;
-}
-
 .rounded-full {
   border-radius: 9999px;
 }
@@ -705,8 +701,16 @@ button,
   margin-top: 1.5rem;
 }
 
+.mt-8 {
+  margin-top: 2rem;
+}
+
 .mb-8 {
   margin-bottom: 2rem;
+}
+
+.mb-12 {
+  margin-bottom: 3rem;
 }
 
 .max-w-md {
@@ -719,10 +723,6 @@ button,
 
 .max-w-xl {
   max-width: 60rem;
-}
-
-.max-w-2xl {
-  max-width: 70rem;
 }
 
 .max-w-3xl {
@@ -1231,6 +1231,12 @@ input[type=radio]:checked ~ label {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+.cell-border {
+  border-top-width: 5px;
+  border-style: solid;
+  border-color: #346c8a;
 }
 
 .btn {
