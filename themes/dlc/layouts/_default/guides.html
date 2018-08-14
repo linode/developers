@@ -48,28 +48,29 @@
   {{ end }}
 </div>
 
-<div class="flex flex-wrap my-8 -mx-4 pb-4">
-    <article class="w-full md:w-1/2 px-4 mb-4 md:mb-8" style="height: 300px">
-      <div class="p-8 h-full bg-d-cell">
-      </div>
-    </article>
-    <article class="w-full md:w-1/2 px-4 mb-4 md:mb-8">
-      <div class="p-8 h-full flex flex-col justify-center">
-        <header>
-          <h2 class="mt-0">Want more help?</h2>
-        </header>
-        <p class="text-xl mt-2">We're happy with any other qustions you might have.</p>
-        <button class="btn mt-4">Get your questions answered</button>
-      </div>
-    </article>
+<div class="flex flex-wrap my-8 -mx-4">
+  <article class="w-full md:w-1/2 px-4 mb-4 md:mb-8" style="height: 300px">
+    <div class="p-8 h-full bg-d-cell">
+    </div>
+  </article>
+  <article class="w-full md:w-1/2 px-4 mb-4 md:mb-8">
+    <div class="p-8 h-full flex flex-col justify-center">
+      <header>
+        <h2 class="mt-0">Want more help?</h2>
+      </header>
+      <p class="text-xl mt-2">We're happy with any other qustions you might have.</p>
+      <button class="btn mt-4">Get your questions answered</button>
+    </div>
+  </article>
 </div>
 
 <div class="my-8 -mx-4 pb-4">
-    <h2 class="text-center mx-auto">Get started in the Linode Cloud today</h2>
-    <div class="flex justify-center">
-        <button class="btn mt-4 mr-2">Create an account</button>
-        <button class="btn mt-4 ml-2">Learn more</button>
-    </div>
+  <div class="text-center my-4">{{ partial "0_svgs/divider.svg" }}</div>
+  <h2 class="text-center mx-auto">Get started in the Linode Cloud today</h2>
+  <div class="flex justify-center">
+    <button class="btn mt-4 mr-2">Create an account</button>
+    <button class="btn mt-4 ml-2">Learn more</button>
+  </div>
 </div>
 
 {{ partial "2_molecules/paginator" . }}

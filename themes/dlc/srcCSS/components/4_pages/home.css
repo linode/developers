@@ -7,3 +7,21 @@
     max-width: 437px;
   }
 }
+
+.code-box {
+  max-width: 500px;
+}
+
+.code-box-header {
+  border-bottom: 1px solid #fff;
+}
+
+.code-box-content {
+  
+}
+
+.code-box-circle {
+  display: block;
+  width: 16px;
+  height: 16px;
+}

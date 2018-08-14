@@ -53,6 +53,7 @@ let colors = {
   'd-turq-hov': '#4B81D5',
   'd-cell': '#EBEFF0',
   'd-blue-light': '#EDF7FE',
+  'd-beige': '#ECECEC',
 
   // Standard Colors
   'transparent': 'transparent',
