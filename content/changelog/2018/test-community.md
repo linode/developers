@@ -6,7 +6,7 @@ changelog:
 - Community
 version: 4.0.3
 ---
-### Added:
+### Added
 
-### Fixed:
+### Fixed
 

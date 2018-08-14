@@ -29,10 +29,11 @@
   </div>
     
   {{ range .Paginator.Pages }}
-    {{ partial "2_molecules/changelog.html" . }}
+    {{ partial "2_molecules/changelogs.html" . }}
   {{ end }}
     
     {{ partial "2_molecules/paginator" . }}
   </div>
+  <script src={{ "/assets/js/timeago.js" | relURL }} type="text/javascript"></script>
   {{ end }}
   

@@ -1,0 +1,8 @@
+.changelog-entry h3 {
+  @apply tag;
+  margin-top: 13px;
+}
+
+.changelog-entry > ul {
+  @apply my-4;
+}
