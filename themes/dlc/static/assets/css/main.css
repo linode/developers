@@ -105,9 +105,19 @@ a {
  * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
  */
 
+
+strong {
+  font-weight: inherit;
+}
+
 /**
  * Add the correct font weight in Chrome, Edge, and Safari.
  */
+
+
+strong {
+  font-weight: bolder;
+}
 
 /**
  * 1. Correct the inheritance and scaling of font size in all browsers.
@@ -663,6 +673,10 @@ button,
 
 .mt-1 {
   margin-top: .25rem;
+}
+
+.mr-1 {
+  margin-right: .25rem;
 }
 
 .mt-2 {
