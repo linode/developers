@@ -629,8 +629,8 @@ button,
   font-weight: 400;
 }
 
-.h-12 {
-  height: 3rem;
+.font-semibold {
+  font-weight: 600;
 }
 
 .h-full {
@@ -687,6 +687,10 @@ button,
 
 .mt-4 {
   margin-top: 1rem;
+}
+
+.mr-4 {
+  margin-right: 1rem;
 }
 
 .mb-4 {
@@ -833,6 +837,10 @@ button,
 
 .hover\:text-white:hover {
   color: #fff;
+}
+
+.text-xs {
+  font-size: .75rem;
 }
 
 .text-sm {
@@ -1239,8 +1247,8 @@ input[type=radio]:checked ~ label {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  -webkit-transition: background-color 225ms ease-in-out;
-  transition: background-color 225ms ease-in-out;
+  -webkit-transition: background-color 225ms ease-in-out, color 225ms ease-in-out;
+  transition: background-color 225ms ease-in-out, color 225ms ease-in-out;
   line-height: 1;
 }
 
@@ -1254,6 +1262,18 @@ input[type=radio]:checked ~ label {
 
 .btn:hover {
   background-color: #4b81d5;
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn-grey {
+  background-color: #dae1e7;
+  color: #161616;
+}
+
+.btn.active {
+  background-color: #346c8a;
+  color: #fff;
   text-decoration: none;
 }
 

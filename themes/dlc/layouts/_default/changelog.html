@@ -1,57 +1,38 @@
-{{ define "main" }}
-    <div class="container mx-auto max-w-xl">
-
-        <div class="flex mb-4">
-            {{range ($.Site.GetPage "taxonomyTerm" "products").Pages }}
-            {{ .Title }}
-            {{ end }}
-            <div class="w-full text-center">
-                <h1>{{ .Title }}</h1>
-                <h2>Latest updates from the Linode team</h2>
-            </div>
-        </div>
-
-         <div class="flex mb-4">
-            <div class="w-1/4 p-4">
-                <a href="/changelog/catgeories/APIv4" class="header-category">APIv4</a>
-            </div>
-            <div class="w-1/4 p-4">
-                <a href="/changelog/categories/community" class="header-category">Community</a>
-            </div>
-            <div class="w-1/4 p-4">
-                <a href="/changelog/categories/manager" class="header-category">Manager</a>
-            </div>
-         </div>
-
-        <div class="flex mb-4">
-            <div class="w-full h-12">
-                  <p>
-                    Our Changelog follows semantic versioning according to the
-                    <a href="https://semver.org" target="_blank">Semantic
-                        Versioning 2.0.0 Guidelines</a>.
-                  </p>
-            </div>
-        </div>
-
-        {{ range .Paginator.Pages }}
-        <div class="flex mb-4">
-            <div class="w-1/4 p-4 text-right">
-                <p>{{ .Date.Format "January 1, 2006" }}</p>
-                {{ if .Params.version }}
-                    <p>version {{ .Params.version }}</p>
-                {{ end }}
-            </div>
-            <div class="w-3/4 p-4">
-                <h3>
-                    {{ .Title | markdownify }}
-                </h3>
-                <p>
-                    {{ .Content | markdownify }}
-                </p>
-            </div>
-        </div>
-        {{ end }}
-
-        {{ partial "2_molecules/paginator" . }}
-    </div>
+{{ define "banner" }}
+  {{ partial "3_organisms/banner.html" ( dict "Title" "Changelog" "Subtitle" "Latest updates from the Linode team") . }}
 {{ end }}
+
+{{ define "main" }}
+
+<div class="container mx-auto max-w-lg my-8">
+  <nav class="flex mb-4 items-center">
+    <span class="uppercase font-semibold text-xs mr-4">Product:</span>
+    {{ $currentTag := index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0 }}
+    {{ range $name, $items := .Site.Taxonomies.changelog }}
+      <a href="{{ $.Site.BaseURL }}changelog/{{ $name | urlize | lower }}" class="btn btn-small btn-grey mr-2 {{ if eq $currentTag $name}}active{{end}}">{{ $name | humanize}}</a>
+    {{ end }}
+  </nav>
+
+  <div class="mb-4">
+    <div class="w-full">
+      <p>We follow semantic versioning according to the <a href="https://semver.org" target="_blank">Semantic Versioning 2.0.0 Guidelines</a>.</p>
+    </div>
+    <div class="bg-d-cell p-8 mt-4">
+      <div class="font-semibold mb-4">Unreleased changes</div>
+      <ul>
+        <li>Petierunt uti sibi concilium totius Galliae in diem certam indicere.</li>
+        <li>Phasellus laoreet lorem vel dolor tempus vehicula.</li>
+        <li>Contra legem facit qui id facit quod lex prohibet.</li>
+        <li>Paullum deliquit, ponderibus modulisque suis ratio utitur.</li>
+      </ul>
+    </div>
+  </div>
+    
+  {{ range .Paginator.Pages }}
+    {{ partial "2_molecules/changelog.html" . }}
+  {{ end }}
+    
+    {{ partial "2_molecules/paginator" . }}
+  </div>
+  {{ end }}
+  

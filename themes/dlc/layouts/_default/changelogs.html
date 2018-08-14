@@ -1,0 +1,17 @@
+{{/*  {{ define "banner" }}
+  {{ partial "3_organisms/banner.html" ( dict "Title" "Changelog" "Subtitle" "Latest updates from the Linode team") . }}
+{{ end }}
+
+{{ define "main" }}
+
+<div class="flex mb-4 items-center">
+<span class="uppercase font-semibold text-xs mr-4">Product:</span> 
+{{range ($.Site.GetPage "taxonomyTerm" "products").Pages }}
+  <a class="btn btn-small" href="{{ "/changelog/products/" | relLangURL }}{{ .Title | urlize }}">{{ .Title }}</a>
+{{ end }}
+</div>
+
+  {{ range .Paginator.Pages }}
+    {{ partial "2_molecules/changelog.html" . }}
+  {{ end }}
+{{ end }}  */}}

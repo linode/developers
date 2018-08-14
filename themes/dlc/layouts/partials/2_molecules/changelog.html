@@ -1,0 +1,16 @@
+<div class="flex mb-4">
+  <div class="w-1/4 p-4 text-right">
+    <p>{{ .Date.Format "January 1, 2006" }}</p>
+    {{ if .Params.version }}
+    <p>version {{ .Params.version }}</p>
+    {{ end }}
+  </div>
+  <div class="w-3/4 p-4">
+    <h3>
+      {{ .Title | markdownify }}
+    </h3>
+    <p>
+      {{ .Content | markdownify }}
+    </p>
+  </div>
+</div>

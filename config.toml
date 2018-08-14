@@ -12,7 +12,7 @@ theme = ["dlc", "linode-hugo-theme"]
 category = "categories"
 tag = "tags"
 language = "languages"
-product = "products"
+changelog = "changelog"
 
 [[menu.main]]
 weight = 1
@@ -32,7 +32,7 @@ url = "/libraries-tools/"
 [[menu.main]]
 weight = 4
 name = "API Changelog"
-url = "/changelog/"
+url = "/changelog/apiV4/"
 
 # params
 [params]
