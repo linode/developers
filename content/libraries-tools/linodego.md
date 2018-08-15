@@ -2,7 +2,8 @@
 title: "linodego"
 description: linodego
 author: chiefy
-categories:
+origin: community
+languages:
 - APIv4
 - Golang
 external_url: https://github.com/chiefy/linodego

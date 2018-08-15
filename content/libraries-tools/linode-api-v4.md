@@ -2,7 +2,8 @@
 title: "linode-api-v4"
 description: linode-api-v4
 author: iDimensionz
-categories:
+origin: community
+languages:
 - APIv4
 - PHP
 external_url: https://github.com/idimensionz/linode-api-v4

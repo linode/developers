@@ -1,5 +1,6 @@
 ---
-title: Libraries and Tools
+title: Libraries & Tools
+subtitle: What you need to integrate the Linode API with your application
 author:
   name: Josh Sager
   email: jsager@linode.com

@@ -1,82 +1,76 @@
 {{ define "main" }}
 
 <div class="mx-auto text-center max-w-lg my-8 pb-4">
-  <h1>{{ .Title }}</h1>
-  <div class="text-xl">{{.Content}}</div>
+  <h2>API Guides</h2>
 </div>
 
-<div class="max-w-2xl mx-auto pb-4">
-  <h2 class="text-center">API Guides</h2>
-  <div class="flex flex-wrap my-8 -mx-4">
+<div class="max-w-xl mx-auto pb-4">
+  <div class="flex flex-wrap mt-8 -mx-4">
     {{ range .Paginator.Pages  }}
       <article class="w-full md:w-1/2 px-4 mb-4 md:mb-8">
-        <div class="p-8 h-full bg-grey-light">
+        <div class="p-8 h-full bg-d-cell">
           <header>
-            <h3 class="mt-0"><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h3>
+            <h3 class="mt-0 font-normal text-2xl"><a href="{{ .RelPermalink }}" class="text-black">{{ .Title | markdownify }}</a></h3>
             {{ partial "2_molecules/post-categories" . }}
           </header>
           {{ .Content }}
         </div>
       </article>
     {{ end }}
-    <button class="btn mx-auto">View All Platform Guides</button>
   </div>
+  <div class="text-center mb-12"><button class="btn mx-auto">View All Platform Guides</button></div>
 </div>
 
 <h2 class="text-center">Recently Updated Guides</h2>
 
 <div class="flex flex-wrap my-8 -mx-4 pb-8">
+  {{ range last 3 (.Pages.ByParam "last_updated").Reverse }}
+    {{ if isset .Params "last_updated" }}
     <article class="w-full md:w-1/3 px-4 mb-4 md:mb-8">
-      <div class="p-8 h-full bg-grey-light">
+      <div class="p-8 h-full bg-d-cell cell-border">
         <header>
-          <h3 class="mt-0"><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h3>
+          <h3 class="mt-0"><a href="{{ .RelPermalink }}" class="text-black">{{ .Title | markdownify }}</a></h3>
           {{ partial "2_molecules/post-categories" . }}
         </header>
-        {{ .Content }}
+        <p><strong class="mr-1">Updated:</strong><span class="timeago" datetime='{{ .Date.Format "2006-01-02T15:04:05-07:00" }}'>{{ .Params.last_updated }}</span></p>
+        <p class="mt-0">
+          {{ $name := .Params.name }}
+          {{ if .Params.author.name }}
+            by {{.Params.author.name}}
+            {{ if .Params.author.company }}
+              ({{.Params.author.company}})
+            {{ end }}
+          {{ end }}
+        </p>
       </div>
     </article>
-    <article class="w-full md:w-1/3 px-4 mb-4 md:mb-8">
-      <div class="p-8 h-full bg-grey-light">
-        <header>
-          <h3 class="mt-0"><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h3>
-          {{ partial "2_molecules/post-categories" . }}
-        </header>
-        {{ .Content }}
-      </div>
-    </article>
-    <article class="w-full md:w-1/3 px-4 mb-4 md:mb-8">
-      <div class="p-8 h-full bg-grey-light">
-        <header>
-          <h3 class="mt-0"><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h3>
-          {{ partial "2_molecules/post-categories" . }}
-        </header>
-        {{ .Content }}
-      </div>
-    </article>
+    {{ end }}
+  {{ end }}
 </div>
 
-<div class="flex flex-wrap my-8 -mx-4 pb-4">
-    <article class="w-full md:w-1/2 px-4 mb-4 md:mb-8" style="height: 300px">
-      <div class="p-8 h-full bg-grey-light">
-      </div>
-    </article>
-    <article class="w-full md:w-1/2 px-4 mb-4 md:mb-8">
-      <div class="p-8 h-full flex flex-col justify-center">
-        <header>
-          <h2 class="mt-0">Want more help?</h2>
-        </header>
-        <p>We're happy with any other qustions you might have.</p>
-        <button class="btn mt-4">Get your questions answered</button>
-      </div>
-    </article>
+<div class="flex flex-wrap my-8 -mx-4">
+  <article class="w-full md:w-1/2 px-4 mb-4 md:mb-8" style="height: 300px">
+    <div class="p-8 h-full bg-d-cell">
+    </div>
+  </article>
+  <article class="w-full md:w-1/2 px-4 mb-4 md:mb-8">
+    <div class="p-8 h-full flex flex-col justify-center">
+      <header>
+        <h2 class="mt-0">Want more help?</h2>
+      </header>
+      <p class="text-xl mt-2">We're happy with any other qustions you might have.</p>
+      <button class="btn mt-4">Get your questions answered</button>
+    </div>
+  </article>
 </div>
 
 <div class="my-8 -mx-4 pb-4">
-    <h2 class="text-center mx-auto">Get started in the Linode Cloud today</h2>
-    <div class="flex justify-center">
-        <button class="btn mt-4 mr-2">Create an account</button>
-        <button class="btn mt-4 ml-2">Learn more</button>
-    </div>
+  <div class="text-center my-4">{{ partial "0_svgs/divider.svg" }}</div>
+  <h2 class="text-center mx-auto">Get started in the Linode Cloud today</h2>
+  <div class="flex justify-center">
+    <button class="btn mt-4 mr-2">Create an account</button>
+    <button class="btn mt-4 ml-2">Learn more</button>
+  </div>
 </div>
 
 {{ partial "2_molecules/paginator" . }}

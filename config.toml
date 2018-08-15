@@ -8,10 +8,16 @@ theme = ["dlc", "linode-hugo-theme"]
 # menu
 [menu]
 
+[taxonomies]
+category = "categories"
+tag = "tags"
+language = "languages"
+changelog = "changelog"
+
 [[menu.main]]
 weight = 1
 name = "Documentation"
-url = "https://developers.linode.com/"
+url = "https://developers.dev.linode.com/api/v4"
 
 [[menu.main]]
 weight = 2
@@ -26,7 +32,7 @@ url = "/libraries-tools/"
 [[menu.main]]
 weight = 4
 name = "API Changelog"
-url = "/changelog/"
+url = "/changelog/apiV4/"
 
 # params
 [params]

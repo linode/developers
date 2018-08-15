@@ -2,7 +2,8 @@
 title: "linode-haskell"
 description: linode-haskell
 author: eatonphil
-categories:
+origin: community
+languages:
 - APIv4
 - Haskell
 external_url: https://github.com/eatonphil/linode-haskell

@@ -2,7 +2,8 @@
 title: "linode-python"
 description: linode-python
 author: tjfontaine
-categories:
+origin: community
+languages:
 - APIv4
 - Node.js
 external_url: https://github.com/tjfontaine/linode-python

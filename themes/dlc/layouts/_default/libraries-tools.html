@@ -1,0 +1,60 @@
+{{ define "main" }}
+
+<div class="my-4 md:my-12 max-w-3xl mx-auto">
+  <div class="flex flex-wrap -mx-4 items-center">
+    <div class="w-full md:w-1/2 px-4 md:text-right">
+      <img src="http://via.placeholder.com/350x150" />
+    </div>
+    <div class="w-full md:w-1/2 px-4">
+      <h2>Linode Cli</h2>
+      <div class="text-2xl my-3">An easy way to get up and running with the  Linode API</div>
+    </div>
+  </div>
+</div>
+
+<div class="flex flex-wrap mb-8 -mx-4">
+
+  <div class="w-full sm:w-1/4 md:w-1/5 px-4">
+    <div class="button-group filters-group py-2 md:py-6 md:mt-12">
+      <div id="createdFilters" class="flex flex-wrap md:block">
+        <div class="md:my-4">{{ partial "0_svgs/divider.svg" (dict "width" 170) }}</div>
+        <h4 class="uppercase mb-4 w-full">Created By</h4>
+        {{ partial "1_atoms/radio.html" (dict "ID" "linode" "Name" "created" "Value" ".linode" "Label" "Linode") . }}
+        {{ partial "1_atoms/radio.html" (dict "ID" "community" "Name" "created" "Value" ".community" "Label" "Community") . }}
+      </div>
+      <button class="btn btn-small mt-4 mb-4" onclick="uncheckAll('createdFilters')">View All</button>
+      <div id="languageFilters" class="flex flex-wrap md:block">
+        <h4 class="uppercase mb-4 w-full">Language</h4>
+        {{range ($.Site.GetPage "taxonomyTerm" "languages").Pages }}
+          {{ partial "1_atoms/radio.html" (dict "ID" (lower (replace .Title "." "-")) "Name" "language" "Value" (print "." (lower (replace .Title "." "-"))) "Label" .Title) . }}
+        {{end}}
+      </div>
+      <button class="btn btn-small mt-4" onclick="uncheckAll('languageFilters')">View All</button>
+    </div>
+  </div>
+  
+  <div class="w-full sm:w-3/4 md:w-4/5 px-4">
+    <h2>Libraries</h2>
+    <div class="flex flex-wrap my-8 -mx-4 grid">
+      <div id="noResultsContainer" class="visually-hidden">
+        <div>No results</div>
+      </div>
+      {{ range .Paginator.Pages  }}
+        <article class="item lib-item w-full md:w-1/2 px-4 mb-4 md:mb-8 {{ range .Params.languages }}{{ lower (replace . "." "-") }} {{ end }}{{ .Params.origin }}">
+          <div class="p-8 h-full bg-d-cell">
+            <header>
+              <h3 class="mt-0"><a class="text-black" href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h3>
+            </header>
+            <section class="mt-2">{{ .Content | markdownify }}</section>
+          </div>
+        </article>
+      {{ end }}
+    </div>
+  </div>
+
+</div>
+
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+<script src={{ "/assets/js/tools.js" | relURL }} type="text/javascript"></script>
+{{ end }}
+

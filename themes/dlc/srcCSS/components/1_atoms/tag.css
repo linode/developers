@@ -1,0 +1,9 @@
+.tag {
+  @apply font-bold px-2 bg-d-blue-light text-d-turq rounded text-xs uppercase;
+  padding-top: 6px;
+  padding-bottom: 5px;
+  width: fit-content;
+  transition: background-color 225ms ease-in-out,
+              color 225ms ease-in-out;
+  line-height: 1;
+}

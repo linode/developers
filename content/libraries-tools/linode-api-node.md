@@ -2,7 +2,8 @@
 title: "linode-api-node"
 description: linode-api-node
 author: RobinJ1995
-categories:
+origin: community
+languages:
 - APIv4
 - Node.js
 external_url: https://github.com/RobinJ1995/linode-api-node

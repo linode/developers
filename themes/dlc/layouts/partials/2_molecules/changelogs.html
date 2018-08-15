@@ -1,0 +1,12 @@
+<div class="flex flex-wrap mb-4 py-4">
+  <div class="w-full md:w-1/4 py-2 md:p-6 md:text-right mt-1 flex items-center md:block">
+    <div class="timeago text-sm uppercase font-semibold mr-4 md:mr-0" datetime='{{ .Date.Format "2006-01-02T15:04:05-07:00" }}'>{{ .Date }}</div>
+    {{ if .Params.version }}
+    <div class="text-d-turq md:mt-4 leading-none">{{ .Params.version }}</div>
+    {{ end }}
+  </div>
+  <div class="w-full md:w-3/4 py-2 md:p-6">
+    <h2 class="mt-0 text-xl">{{ .Title | markdownify }}</h2>
+    <div class="changelog-entry">{{ .Content | markdownify }}</div>
+  </div>
+</div>

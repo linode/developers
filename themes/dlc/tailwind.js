@@ -49,6 +49,11 @@ let colors = {
   'l-nav-grey': '#a6a6a6',
   'l-full-black': '#000',
   'd-header-green': '#2F9072',
+  'd-turq': '#346C8A',
+  'd-turq-hov': '#4B81D5',
+  'd-cell': '#EBEFF0',
+  'd-blue-light': '#EDF7FE',
+  'd-beige': '#ECECEC',
 
   // Standard Colors
   'transparent': 'transparent',
@@ -389,6 +394,7 @@ module.exports = {
     '0': '0',
     '2': '2px',
     '4': '4px',
+    '5': '5px',
     '8': '8px',
   },
 
@@ -640,7 +646,9 @@ module.exports = {
     '4': '1rem',
     '6': '1.5rem',
     '8': '2rem',
-    '10': '2rem',
+    '10': '2.5rem',
+    '12': '3rem',
+    '20': '5rem',
   },
 
 
@@ -669,6 +677,9 @@ module.exports = {
     '4': '1rem',
     '6': '1.5rem',
     '8': '2rem',
+    '10': '2.5rem',
+    '12': '3rem',
+    '20': '5rem',
   },
 
 
