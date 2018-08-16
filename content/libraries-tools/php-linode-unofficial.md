@@ -4,7 +4,6 @@ description: php-linode-unofficial
 author: illblew
 origin: linode
 languages:
-- APIv4
 - PHP
 external_url: https://github.com/illblew/php-linode-unofficial
 ---

@@ -17,7 +17,7 @@ changelog = "changelog"
 [[menu.main]]
 weight = 1
 name = "Documentation"
-url = "https://developers.dev.linode.com/api/v4"
+url = "/api/v4"
 
 [[menu.main]]
 weight = 2
