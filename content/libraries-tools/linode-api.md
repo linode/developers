@@ -4,7 +4,6 @@ description: linode-api
 author: tzurbaev
 origin: community
 languages:
-- APIv4
 - PHP
 external_url: https://github.com/tzurbaev/linode-api
 ---

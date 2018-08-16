@@ -4,7 +4,6 @@ description: linode-elixir
 author: stvnjacobs
 origin: community
 languages:
-- APIv4
 - Elixir
 external_url: https://github.com/stvnjacobs/linode-elixir
 ---

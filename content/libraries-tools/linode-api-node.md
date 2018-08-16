@@ -4,7 +4,6 @@ description: linode-api-node
 author: RobinJ1995
 origin: community
 languages:
-- APIv4
 - Node.js
 external_url: https://github.com/RobinJ1995/linode-api-node
 ---
