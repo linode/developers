@@ -863,6 +863,14 @@ button,
   right: 0;
 }
 
+.pin-b {
+  bottom: 0;
+}
+
+.pin-l {
+  left: 0;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1161,7 +1169,7 @@ input[type=radio]:checked ~ label {
 .menu-icon {
   position: relative;
   display: block;
-  right: 1rem;
+  right: 0;
   -webkit-transition: background-color .7s ease, -webkit-transform .7s ease;
   transition: background-color .7s ease, -webkit-transform .7s ease;
   transition: background-color .7s ease, transform .7s ease;
@@ -1384,9 +1392,18 @@ input[type=radio]:checked ~ label {
   max-width: 200px;
 }
 
+.home-triangles {
+  bottom: -.5rem;
+  max-width: 150px;
+}
+
 @media (min-width: 768px) {
   .home-lins {
     max-width: 437px;
+  }
+
+  .home-triangles {
+    max-width: 277px;
   }
 }
 

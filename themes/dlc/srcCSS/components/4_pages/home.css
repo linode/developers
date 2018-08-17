@@ -2,9 +2,17 @@
   max-width: 200px;
 }
 
+.home-triangles {
+  bottom: -.5rem;
+  max-width: 150px;
+}
+
 @screen md {
   .home-lins {
     max-width: 437px;
+  }
+  .home-triangles {
+    max-width: 277px;
   }
 }
 
