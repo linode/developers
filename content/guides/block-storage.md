@@ -12,4 +12,5 @@ last_updated: 2018-08-13T08:55:08-04:00
 template: guides
 external_url: https://www.linode.com/docs/platform/api/create-block-storage-volumes-with-the-linode-api/
 ---
-content
+The Linode API allows you to create, delete, attach, detach, clone, and resize
+Block Storage Volumes.

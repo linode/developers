@@ -18,34 +18,9 @@
       </article>
     {{ end }}
   </div>
-  <div class="text-center mb-12"><button class="btn mx-auto">View All Platform Guides</button></div>
-</div>
-
-<h2 class="text-center">Recently Updated Guides</h2>
-
-<div class="flex flex-wrap my-8 -mx-4 pb-8">
-  {{ range last 3 (.Pages.ByParam "last_updated").Reverse }}
-    {{ if isset .Params "last_updated" }}
-    <article class="w-full md:w-1/3 px-4 mb-4 md:mb-8">
-      <div class="p-8 h-full bg-d-cell cell-border">
-        <header>
-          <h3 class="mt-0"><a href="{{ .Params.external_url }}" class="text-black" target="_blank">{{ .Title | markdownify }}</a></h3>
-          {{ partial "2_molecules/post-categories" . }}
-        </header>
-        <p><strong class="mr-1">Updated:</strong><span class="timeago" datetime='{{ .Date.Format "2006-01-02T15:04:05-07:00" }}'>{{ .Params.last_updated }}</span></p>
-        <p class="mt-0">
-          {{ $name := .Params.name }}
-          {{ if .Params.author.name }}
-            by {{.Params.author.name}}
-            {{ if .Params.author.company }}
-              ({{.Params.author.company}})
-            {{ end }}
-          {{ end }}
-        </p>
-      </div>
-    </article>
-    {{ end }}
-  {{ end }}
+  <div class="text-center mb-12">
+    <a href="https://linode.com/docs/platform" target="_blank" class="btn mx-auto">View All Platform Guides</a>
+  </div>
 </div>
 
 <div class="flex flex-wrap my-8 -mx-4">
@@ -58,8 +33,8 @@
       <header>
         <h2 class="mt-0">Want more help?</h2>
       </header>
-      <p class="text-xl mt-2">We're happy to answer any other qustions you might have.</p>
-      <a href="https://linode.com/community/questions" target="_blank" class="btn mt-4">Get your questions answered</a>
+      <p class="text-xl mt-2">Find answers, ask questions, and help others.</p>
+      <a href="https://linode.com/community/questions" target="_blank" class="btn mt-4">Join our Community</a>
     </div>
   </article>
 </div>
