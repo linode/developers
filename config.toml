@@ -16,7 +16,7 @@ changelog = "changelog"
 
 [[menu.main]]
 weight = 1
-name = "Documentation"
+name = "APIv4 Documentation"
 url = "/api/v4"
 
 [[menu.main]]
@@ -31,7 +31,7 @@ url = "/libraries-tools/"
 
 [[menu.main]]
 weight = 4
-name = "API Changelog"
+name = "Changelog"
 url = "/changelog/apiV4/"
 
 # params
