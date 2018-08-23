@@ -7,4 +7,4 @@ languages:
 - Node.js
 external_url: https://github.com/RobinJ1995/linode-api-node
 ---
-Node.js Linode API based on their (currently experimental) v4 API
+Node.js Linode API based on their v4 API
