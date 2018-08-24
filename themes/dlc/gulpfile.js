@@ -9,6 +9,8 @@ const cssInfo = require('gulp-css-info');
 const cssnano = require('cssnano');
 const stylelint = require('stylelint');
 const reporter = require('postcss-reporter');
+const size = require('gulp-size');
+const notify = require('gulp-notify');
 
 const tailwind = 'tailwind.js';
 const mainCss = './srcCSS/main.css';
@@ -31,13 +33,13 @@ const plugins = [
   autoprefixer({
     browsers: ['last 2 versions', '> 2%']
   }),
-  // cssnano({
-  //   preset: ['none', {
-  //     discardComments: {
-  //         removeAll: true,
-  //     },
-  //   }]
-  // })
+  cssnano({
+    preset: ['default', {
+      discardComments: {
+          removeAll: true,
+      },
+    }]
+  })
 ];
 
 gulp.task('lint', () => {
@@ -56,6 +58,7 @@ gulp.task('cssInfo', () => {
 });
 
 gulp.task('compile', () => {
+  const s = size();
   return gulp.src(mainCss)
     .pipe(plumber())
     .pipe(postcss(plugins))
@@ -71,7 +74,32 @@ gulp.task('compile', () => {
         ]
       })
     )
-    .pipe(gulp.dest(output));
+    .pipe(gulp.dest(output))
+});
+
+gulp.task('size', () => {
+  const s = size();
+  return gulp.src(mainCss)
+    .pipe(plumber())
+    .pipe(postcss(plugins))
+    .pipe(
+      purgecss({
+        content: [baseThemeHtml, html],
+        whitelist: ['mobile-nav', 'active'],
+        extractors: [
+          {
+            extractor: TailwindExtractor,
+            extensions: ["html"]
+          }
+        ]
+      })
+    )
+    .pipe(s)
+    .pipe(notify({
+			onLast: true,
+      message: () =>
+      `Compiled!\nCSS bundle size: ${s.prettySize}`
+		}));
 });
 
 gulp.task('watch:css', () => {
@@ -90,5 +118,5 @@ gulp.task('watch:tailwind', () => {
   gulp.watch(tailwind, ['compile']);
 });
 
-gulp.task('default', ['lint', 'compile', 'cssInfo']);
+gulp.task('default', ['lint', 'compile', 'cssInfo', 'size']);
 gulp.task('watch', ['compile', 'watch:basecss', 'watch:css', 'watch:html', 'watch:tailwind']);
