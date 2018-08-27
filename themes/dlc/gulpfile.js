@@ -35,8 +35,9 @@ const plugins = [
   }),
   cssnano({
     preset: ['default', {
+      mergeLonghand: false,
       discardComments: {
-          removeAll: true,
+        removeAll: true,
       },
     }]
   })

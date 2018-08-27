@@ -4,9 +4,9 @@
   {{ range last 3 (.Pages.ByParam "last_updated").Reverse }}
     {{ if isset .Params "last_updated" }}
     <article class="w-full md:w-1/3 px-4 mb-4 md:mb-8">
-      <div class="p-8 h-full bg-d-cell cell-border">
+      <div class="p-8 h-full bg-d-cell tile-border">
         <header>
-          <h3 class="mt-0"><a href="{{ .Params.external_url }}" class="text-black" target="_blank">{{ .Title | markdownify }}</a></h3>
+          <h3 class="mt-0"><a href="{{ .Params.external_url }}" class="text-black tile-link" target="_blank">{{ .Title | markdownify }}</a></h3>
           {{ partial "2_molecules/post-categories" . }}
         </header>
         <p><strong class="mr-1">Updated:</strong><span class="timeago" datetime='{{ .Date.Format "2006-01-02T15:04:05-07:00" }}'>{{ .Params.last_updated }}</span></p>
