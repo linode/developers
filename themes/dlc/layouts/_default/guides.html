@@ -8,12 +8,12 @@
   <div class="flex flex-wrap mt-8 -mx-4">
     {{ range .Paginator.Pages  }}
       <article class="w-full md:w-1/2 px-4 mb-4 md:mb-8">
-        <div class="p-8 h-full bg-d-cell">
+        <div class="p-8 h-full bg-d-cell tile">
           <header>
-            <h3 class="mt-0 font-normal text-2xl"><a href="{{ .Params.external_url }}" class="text-black" target="_blank">{{ .Title | markdownify }}</a></h3>
+            <h3 class="mt-0 text-2xl"><a href="{{ .Params.external_url }}" class="text-black tile-link" target="_blank">{{ .Title | markdownify }}</a></h3>
             {{ partial "2_molecules/post-categories" . }}
           </header>
-          {{ .Content }}
+          <section>{{ .Content }}</section>
         </div>
       </article>
     {{ end }}
@@ -25,7 +25,10 @@
 
 <div class="flex flex-wrap my-8 -mx-4">
   <article class="w-full md:w-1/2 px-4 mb-4 md:mb-8" style="height: 300px">
-    <div class="p-8 h-full bg-d-cell">
+    <div class="p-8 h-full">
+      <div class="cloud flex justify-center md:justify-end items-center">
+        {{ partial "0_svgs/cloud.svg" }}
+      </div>
     </div>
   </article>
   <article class="w-full md:w-1/2 px-4 mb-4 md:mb-8">

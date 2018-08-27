@@ -2,8 +2,10 @@
 
 <div class="my-4 md:my-12 max-w-3xl mx-auto">
   <div class="flex flex-wrap -mx-4 items-center">
-    <div class="w-full md:w-1/2 px-4 md:text-right">
-      <img src="http://via.placeholder.com/350x150" />
+    <div class="w-full md:w-1/2 px-4 flex md:justify-end">
+      <div style="width: 300px;">
+        {{ partial "2_molecules/code-box.html" }}
+      </div>
     </div>
     <div class="w-full md:w-1/2 px-4">
       <h2>Linode CLI</h2>
@@ -41,9 +43,9 @@
       </div>
       {{ range .Paginator.Pages  }}
         <article class="item lib-item w-full md:w-1/2 px-4 mb-4 md:mb-8 {{ range .Params.languages }}{{ lower (replace . "." "-") }} {{ end }}{{ .Params.origin }}">
-          <div class="p-8 h-full bg-d-cell">
+          <div class="p-8 h-full bg-d-cell tile">
             <header>
-              <h3 class="mt-0"><a class="text-black" href="{{ .Params.external_url }}" target="_blank">{{ .Title | markdownify }}</a></h3>
+              <h3 class="mt-0"><a class="text-black tile-link" href="{{ .Params.external_url }}" target="_blank">{{ .Title | markdownify }}</a></h3>
             </header>
             <section class="mt-2">{{ .Content | markdownify }}</section>
           </div>

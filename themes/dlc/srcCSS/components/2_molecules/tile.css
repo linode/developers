@@ -1,0 +1,37 @@
+.tile {
+  position: relative;
+  border: 1px solid transparent;
+  transition: border-color 225ms ease-in-out;
+}
+
+.tile-link::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.tile section {
+  transition: color 225ms ease-in-out;
+}
+
+.tile:hover {
+  @apply border-d-turq-hov;
+}
+
+.tile:hover .btn {
+  @apply bg-d-turq-hov;
+}
+
+.tile-border {
+  @apply border-t-5 border-solid border-d-turq;
+  transition: border-color 225ms ease-in-out;
+  position: relative;
+}
+
+.tile-border:hover {
+  @apply border-d-turq-hov;
+}
+
