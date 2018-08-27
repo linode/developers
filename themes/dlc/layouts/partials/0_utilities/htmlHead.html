@@ -7,19 +7,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ .Title }} | {{ .Site.Title }}</title>
   <meta name="author" content='{{ .Site.Author.name }}' />
-
   {{ if .Keywords }}
   <meta name="keywords" content='{{ delimit .Keywords ", " }}'>
   {{ else if .Site.Params.DefaultKeywords }}
   <meta name="keywords" content='{{ delimit .Site.Params.DefaultKeywords ", " }}'>
   {{ end }}
-
   {{ if .Description }}
   <meta name="description" content='{{ .Description }}'>
   {{ else if .Site.Params.DefaultDescription }}
   <meta name="description" content='{{ .Site.Params.DefaultDescription }}'>
   {{ end }}
-
+  <meta content="{{ $isHomePage := eq .Title .Site.Title }}{{ .Title }}{{ if eq $isHomePage false }} - {{ .Site.Title }}{{ end }}" property="og:title">
   {{ .Hugo.Generator }}
 
   {{ partial "0_utilities/fonts.html" . }}
