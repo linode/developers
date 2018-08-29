@@ -44,7 +44,7 @@
     <h2>Events</h2>
     <div class="text-2xl my-3">Catch us on the road at conferences, meetups, and job fairs</div>
   </div>
-  <div class="flex flex-wrap my-8 -mx-4 pb-8">
+  <div class="flex flex-wrap my-8 -mx-4 pb-8 justify-center">
     {{ range last 3 ((where .Pages "Section" "events").ByParam "start_date") }}
     {{ $t := (time .Params.end_date) }}
       {{ if  ge ($t.Unix) (now.Unix) }}
