@@ -12,7 +12,8 @@ Built with:
 
 From within your local developers-linode-com repository:
 
-`hugo server -D`
+`yarn`
+`gulp dev`
 
 Once running, you should be able to view the site in a browser on port 1313:
 
