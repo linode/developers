@@ -1,7 +1,7 @@
 {{ define "main" }}
 
 <div class="my-4 md:my-12 max-w-3xl mx-auto">
-  <div class="flex flex-wrap -mx-4 items-center">
+  <div class="flex flex-wrap -mx-4 items-center flex-col-reverse md:flex-row">
     <div class="w-full md:w-1/2 px-4 flex md:justify-end">
       <div style="width: 300px;">
         {{ partial "2_molecules/code-box.html" }}
@@ -19,7 +19,7 @@
   <div class="w-full sm:w-1/4 md:w-1/5 px-4">
     <div class="button-group filters-group py-2 md:py-6 md:mt-12">
       <div id="createdFilters" class="flex flex-wrap md:block">
-        <div class="md:my-4">{{ partial "0_svgs/divider.svg" (dict "width" 170) }}</div>
+        <div class="md:my-4 mx-auto">{{ partial "0_svgs/divider.svg" (dict "width" 170) }}</div>
         <h4 class="uppercase mb-4 w-full">Created By</h4>
         {{ partial "1_atoms/radio.html" (dict "ID" "linode" "Name" "created" "Value" ".linode" "Label" "Linode") . }}
         {{ partial "1_atoms/radio.html" (dict "ID" "community" "Name" "created" "Value" ".community" "Label" "Community") . }}
