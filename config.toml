@@ -32,7 +32,7 @@ url = "/libraries-tools/"
 [[menu.main]]
 weight = 4
 name = "Changelog"
-url = "/changelog/apiV4/"
+url = "/changelog/api/"
 
 # params
 [params]
