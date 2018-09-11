@@ -4,7 +4,7 @@ var runSequence = require('run-sequence');
 
 gulp.task('get-base-theme', 
   shell.task(
-    'cd themes/linode-hugo-theme && git pull origin development',
+    './dev_setup.sh',
   )
 );
 
