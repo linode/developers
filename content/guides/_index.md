@@ -1,7 +1,7 @@
 ---
 title: "Guides"
-subtitle: Get started building tools and apps using the Linode API
-Description: Get started building tools and apps using the Linode API
+subtitle: Get Started Building Tools and Apps Using the Linode API
+Description: Get Started Building Tools and Apps Using the Linode API
 author:
   name: Josh Sager
   email: jsager@linode.com

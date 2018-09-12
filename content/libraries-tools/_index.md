@@ -1,7 +1,7 @@
 ---
 title: Libraries & Tools
-subtitle: What you need to integrate the Linode API with your application
-Description: What you need to integrate the Linode API with your application
+subtitle: What You Need to Integrate the Linode API with Your Application
+Description: What You Need to Integrate the Linode API with Your Application
 author:
   name: Josh Sager
   email: jsager@linode.com
@@ -11,4 +11,4 @@ license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 date: 2018-06-13T08:55:08-04:00
 type: "libraries-tools"
 ---
-We can put introduction copy here.
+What You Need to Integrate the Linode API with Your Application
