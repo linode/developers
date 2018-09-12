@@ -4,6 +4,7 @@
   transition: background-color 225ms ease-in-out,
               color 225ms ease-in-out;
   line-height: 1;
+  text-decoration: none;
 }
 
 .btn-small {

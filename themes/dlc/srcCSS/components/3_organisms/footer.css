@@ -1,0 +1,14 @@
+.footer-nav a, 
+.footer-wrapper a {
+  text-decoration: none;
+}
+
+.footer-nav a:hover{  
+  @apply text-white;
+  text-decoration: none;
+}
+
+.footer-wrapper a:hover {
+  @apply text-white;
+  text-decoration: underline;
+}

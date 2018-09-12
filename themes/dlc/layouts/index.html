@@ -58,10 +58,16 @@
               <div><strong>{{ dateFormat "Jan 2, 2006" .Params.start_date }}</strong></div>
               <p>{{ .Content }}</p>
             </section>
+            {{ if .Params.register_link }}
+              <footer>
+                <a href="{{ .Params.register_link }}" target ="_blank">Register Now</a>
+              </footer>
+            {{ end }}
           </div>
         </article>
       {{ end }}
     {{ end }}
+    <a class="btn block mx-auto" href="https://www.linode.com/events" target="_blank">View All Events</a>
   </div>
 
   <div class="relative row-full pb-8">
