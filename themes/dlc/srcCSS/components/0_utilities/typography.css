@@ -1,8 +1,16 @@
-.bg-d-cell footer a {
+a {
   @apply text-d-turq;
   text-decoration: underline;
 }
 
-.bg-d-cell footer a:hover {
+a:hover {
   @apply text-d-turq-hov;
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a {
+  text-decoration: none;
 }
