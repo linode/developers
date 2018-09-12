@@ -1,5 +1,5 @@
 ---
 title: "Developer Tools"
-subtitle: "By developers for developers"
-Description: Developer Tools, By developers for developers
+subtitle: "By Developers for Developers"
+Description: Developer Tools, By Developers for Developers
 ---
