@@ -1,0 +1,8 @@
+.bg-d-cell footer a {
+  @apply text-d-turq;
+  text-decoration: underline;
+}
+
+.bg-d-cell footer a:hover {
+  @apply text-d-turq-hov;
+}

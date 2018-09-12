@@ -58,6 +58,11 @@
               <div><strong>{{ dateFormat "Jan 2, 2006" .Params.start_date }}</strong></div>
               <p>{{ .Content }}</p>
             </section>
+            {{ if .Params.register_link }}
+              <footer>
+                <a href="{{ .Params.register_link }}" target ="_blank">Register now</a>
+              </footer>
+            {{ end }}
           </div>
         </article>
       {{ end }}
