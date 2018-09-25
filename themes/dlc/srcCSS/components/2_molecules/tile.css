@@ -21,20 +21,3 @@
 .tile-link:hover {
   @apply text-d-section-header-green;
 }
-
-/* Former tile styles for events
-
-.tile:hover .btn {
-  @apply bg-d-turq-hov;
-} */
-
-/* .tile-border {
-  @apply border-t-5 border-solid border-d-turq;
-  transition: border-color 225ms ease-in-out;
-  position: relative;
-}
-
-.tile-border:hover {
-  @apply border-d-turq-hov;
-} */
-
