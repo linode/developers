@@ -19,5 +19,5 @@
 }
 
 .tile-link:hover {
-  @apply text-d-section-header-green;
+  @apply text-d-header-green;
 }

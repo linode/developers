@@ -54,7 +54,7 @@ let colors = {
   'd-cell': '#f4f4f4',
   'd-blue-light': '#EDF7FE',
   'd-beige': '#f4f4f4',
-  'd-section-header-green': '#4E674F',
+  'd-dark-green': '#4E674F',
 
   // Standard Colors
   'transparent': 'transparent',
