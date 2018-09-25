@@ -51,9 +51,10 @@ let colors = {
   'd-header-green': '#3D9C46',
   'd-turq': '#346C8A',
   'd-turq-hov': '#4B81D5',
-  'd-cell': '#EBEFF0',
+  'd-cell': '#f4f4f4',
   'd-blue-light': '#EDF7FE',
   'd-beige': '#f4f4f4',
+  'd-cell-header-green': '#4E674F',
 
   // Standard Colors
   'transparent': 'transparent',
@@ -208,7 +209,7 @@ module.exports = {
 
   fonts: {
     'sans': [
-      'Lato',
+      'Source Sans Pro',
       'sans-serif',
     ],
     'serif': [
