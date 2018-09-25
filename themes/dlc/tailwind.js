@@ -48,12 +48,12 @@ let colors = {
   'l-green': '#1AB15C',
   'l-nav-grey': '#a6a6a6',
   'l-full-black': '#000',
-  'd-header-green': '#2F9072',
+  'd-header-green': '#3D9C46',
   'd-turq': '#346C8A',
   'd-turq-hov': '#4B81D5',
   'd-cell': '#EBEFF0',
   'd-blue-light': '#EDF7FE',
-  'd-beige': '#ECECEC',
+  'd-beige': '#f4f4f4',
 
   // Standard Colors
   'transparent': 'transparent',

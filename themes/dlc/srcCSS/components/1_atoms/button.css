@@ -1,5 +1,5 @@
 .btn {
-  @apply font-bold py-3 px-4 bg-d-turq text-white rounded;
+  @apply py-3 px-4 bg-d-turq text-white;
   width: fit-content;
   transition: background-color 225ms ease-in-out,
               color 225ms ease-in-out;
