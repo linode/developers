@@ -2,7 +2,7 @@
   max-width: 200px;
 }
 
-.home-triangles {
+.home-cubes-1 {
   bottom: -.5rem;
   max-width: 150px;
 }
@@ -11,8 +11,9 @@
   .home-lins {
     max-width: 437px;
   }
-  .home-triangles {
-    max-width: 277px;
+  .home-cubes-1 {
+    left: -93px;
+    max-width: 543px;
   }
 }
 

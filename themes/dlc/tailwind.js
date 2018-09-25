@@ -49,12 +49,13 @@ let colors = {
   'l-nav-grey': '#E1E8EC',
   'l-full-black': '#000',
   'd-header-green': '#3D9C46',
-  'd-turq': '#346C8A',
+  'd-turq': '#107C9E',
   'd-turq-hov': '#4B81D5',
   'd-cell': '#f4f4f4',
   'd-blue-light': '#EDF7FE',
   'd-beige': '#f4f4f4',
   'd-dark-green': '#4E674F',
+  'd-transparent-blue': 'rgba(220,231,232,0.7)',
 
   // Standard Colors
   'transparent': 'transparent',
