@@ -46,7 +46,7 @@ View the full documentation at https://tailwindcss.com.
 let colors = {
   // Linode Colors
   'l-green': '#1AB15C',
-  'l-nav-grey': '#a6a6a6',
+  'l-nav-grey': '#E1E8EC',
   'l-full-black': '#000',
   'd-header-green': '#3D9C46',
   'd-turq': '#346C8A',

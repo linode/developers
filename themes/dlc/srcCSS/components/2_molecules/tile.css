@@ -18,9 +18,8 @@
   transition: color 225ms ease-in-out;
 }
 
-/* placeholder */
 .tile-link:hover {
-  color: #4E674F;
+  @apply text-d-section-header-green;
 }
 
 /* Former tile styles for events
