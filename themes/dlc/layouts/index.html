@@ -53,11 +53,6 @@
               <div><strong>{{ dateFormat "Jan 2, 2006" .Params.start_date }}</strong></div>
               <p>{{ .Content }}</p>
             </section>
-            {{/*  {{ if .Params.register_link }}
-              <footer>
-                <a href="{{ .Params.register_link }}" target ="_blank">Register Now</a>
-              </footer>
-            {{ end }}  */}}
           </div>
         </article>
       {{ end }}
@@ -65,14 +60,12 @@
     <a class="btn block mx-auto" href="https://www.linode.com/events" target="_blank">View All Events</a>
   </div>
 
-  <div class="relative row-full pb-8">
+  <div class="relative row-full pb-8 home-cubes">
     <div class="mx-auto text-center max-w-lg my-8">
       <h2 class="font-light text-d-dark-green">Careers at Linode</h2>
       <div class="text-2xl mt-4 font-light">Help us create the platform of tomorrow.</div>
       <a class="btn block mx-auto mt-6" href="https://www.linode.com/careers" target="_blank">View Opportunities</a>
     </div>
-    <img src='{{ "img/cubes.png" | relURL }}' class="home-cubes-1 absolute pin-b pin-l" />
-    <img src='{{ "img/cubes.png" | relURL }}' class="home-cubes-2 absolute pin-b pin-l" />
   </div>
 
 {{ end }}

@@ -2,18 +2,16 @@
   max-width: 200px;
 }
 
-.home-cubes-1 {
-  bottom: -.5rem;
-  max-width: 150px;
+.developer-tools-wl .content {
+  background-image: url('/img/cubes.png');
+  background-size: 594px;
+  background-repeat: no-repeat;
+  background-position: bottom left;
 }
 
 @screen md {
   .home-lins {
     max-width: 437px;
-  }
-  .home-cubes-1 {
-    left: -93px;
-    max-width: 543px;
   }
 }
 
