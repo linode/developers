@@ -10,14 +10,13 @@
         {{ partial "1_atoms/radio.html" (dict "ID" "linode" "Name" "created" "Value" ".linode" "Label" "Linode") . }}
         {{ partial "1_atoms/radio.html" (dict "ID" "community" "Name" "created" "Value" ".community" "Label" "Community") . }}
       </div>
-      <button class="btn btn-small mt-4 mb-4" onclick="uncheckAll('createdFilters')">View All</button>
       <div id="languageFilters" class="flex flex-wrap md:block">
         <h4 class="uppercase mb-4 w-full">Language</h4>
         {{range ($.Site.GetPage "taxonomyTerm" "languages").Pages }}
           {{ partial "1_atoms/radio.html" (dict "ID" (lower (replace .Title "." "-")) "Name" "language" "Value" (print "." (lower (replace .Title "." "-"))) "Label" .Title) . }}
         {{end}}
       </div>
-      <button class="btn btn-small mt-4" onclick="uncheckAll('languageFilters')">View All</button>
+      <button class="text-d-turq underline mt-4" onclick="uncheckAll('languageFilters')">Reset Filters</button>
     </div>
   </div>
   

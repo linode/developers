@@ -10,7 +10,7 @@
       <article class="w-full md:w-1/2 px-4 mb-4 md:mb-8">
         <div class="p-8 h-full bg-d-cell tile">
           <header>
-            <h3 class="mt-0 text-2xl"><a href="{{ .Params.external_url }}" class="text-black tile-link" target="_blank">{{ .Title | markdownify }}</a></h3>
+            <h3 class="mt-0 text-2xl font-normal"><a href="{{ .Params.external_url }}" class="text-black tile-link" target="_blank">{{ .Title | markdownify }}</a></h3>
             {{ partial "2_molecules/post-categories" . }}
           </header>
           <section>{{ .Content }}</section>

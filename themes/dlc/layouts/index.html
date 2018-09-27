@@ -39,7 +39,7 @@
     <h2 class="font-light text-d-dark-green">Events</h2>
     <div class="text-2xl my-3 font-light">Catch us on the road at conferences, meetups, and job fairs.</div>
   </div>
-  <div class="flex flex-wrap my-8 -mx-4 pb-8 justify-center">
+  <div class="flex flex-wrap my-8 -mx-4 pb-8 items-center justify-center">
     {{ range last 3 ((where .Pages "Section" "events").ByParam "start_date") }}
     {{ $t := (time .Params.end_date) }}
       {{ if  ge ($t.Unix) (now.Unix) }}
@@ -57,7 +57,9 @@
         </article>
       {{ end }}
     {{ end }}
-    <a class="btn block mx-auto" href="https://www.linode.com/events" target="_blank">View All Events</a>
+    <div class="">
+      <a class="btn block mx-auto text-center" href="https://www.linode.com/events" target="_blank">View All Events</a>
+    </div>
   </div>
 
   <div class="relative row-full pb-8 home-cubes">
