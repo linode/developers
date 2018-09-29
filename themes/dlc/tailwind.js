@@ -1,14 +1,7 @@
 const config = require('../linode-hugo-theme/tailwind');
 
-config.colors['l-green'] = 'pink'
-config.colors['l-nav-grey'] = '#a6a6a6'
-config.colors['l-full-black'] = '#000'
-config.colors['d-header-green'] = '#2F9072'
-config.colors['d-turq'] = '#346C8A'
-config.colors['d-turq-hov'] = '#4B81D5'
-config.colors['d-cell'] = '#EBEFF0'
-config.colors['d-blue-light'] = '#EDF7FE'
-config.colors['d-beige'] = '#ECECEC'
+config.colors['d-cell'] = '#EBEFF0';
+config.colors['d-beige'] = '#ECECEC';
 
 config.borderWidths['5'] = '5px'
 
