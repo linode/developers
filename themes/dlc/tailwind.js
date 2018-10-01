@@ -1,7 +1,7 @@
 const config = require('../linode-hugo-theme/tailwind');
 
-config.colors['d-cell'] = '#EBEFF0';
-config.colors['d-beige'] = '#ECECEC';
+config.colors['ThemeCell'] = '#EBEFF0';
+config.colors['ThemeBeige'] = '#ECECEC';
 
 config.borderWidths['5'] = '5px'
 
@@ -37,24 +37,13 @@ module.exports = {
   opacity: config.opacity,
   svgFill: config.svgFill,
   svgStroke: config.svgStroke,
->>>>>>> fix child theme talwind config
 
   plugins: [
   ],
 
-<<<<<<< HEAD
-module.exports = {
-  config,
-  colors,
-  borderWidths,
-  padding
-}
->>>>>>> attempting to set each set of vars as their own object to be exported
-=======
   options: {
     prefix: '',
     important: false,
     separator: ':',
   },
 }
->>>>>>> fix child theme talwind config
