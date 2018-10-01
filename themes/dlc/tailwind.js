@@ -2,6 +2,7 @@ const config = require('../linode-hugo-theme/tailwind');
 
 config.colors['ThemeCell'] = '#EBEFF0';
 config.colors['ThemeBeige'] = '#ECECEC';
+config.colors['ThemeTagGrey'] = '#E1E8EC';
 
 config.borderWidths['5'] = '5px'
 
