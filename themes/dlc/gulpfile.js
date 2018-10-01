@@ -67,6 +67,7 @@ gulp.task('compile', () => {
       purgecss({
         content: [baseThemeHtml, html],
         whitelist: ['mobile-nav', 'active'],
+        whitelistPatterns: [/wl$/],
         extractors: [
           {
             extractor: TailwindExtractor,
@@ -87,6 +88,7 @@ gulp.task('size', () => {
       purgecss({
         content: [baseThemeHtml, html],
         whitelist: ['mobile-nav', 'active'],
+        whitelistPatterns: [/wl$/],
         extractors: [
           {
             extractor: TailwindExtractor,

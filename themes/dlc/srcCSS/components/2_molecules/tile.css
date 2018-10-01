@@ -1,6 +1,7 @@
 .tile {
   position: relative;
-  border: 1px solid transparent;
+  outline: 2px solid white;
+  outline-offset: -10px;
   transition: border-color 225ms ease-in-out;
 }
 
@@ -17,21 +18,6 @@
   transition: color 225ms ease-in-out;
 }
 
-.tile:hover {
-  @apply border-d-turq-hov;
+.tile-link:hover {
+  @apply text-d-header-green;
 }
-
-.tile:hover .btn {
-  @apply bg-d-turq-hov;
-}
-
-.tile-border {
-  @apply border-t-5 border-solid border-d-turq;
-  transition: border-color 225ms ease-in-out;
-  position: relative;
-}
-
-.tile-border:hover {
-  @apply border-d-turq-hov;
-}
-
