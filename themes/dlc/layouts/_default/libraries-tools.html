@@ -16,7 +16,7 @@
           {{ partial "1_atoms/radio.html" (dict "ID" (lower (replace .Title "." "-")) "Name" "language" "Value" (print "." (lower (replace .Title "." "-"))) "Label" .Title) . }}
         {{end}}
       </div>
-      <button class="text-d-turq underline mt-4" onclick="uncheckAll('languageFilters')">Reset Filters</button>
+      <button class="text-BaseBlue underline mt-4" onclick="uncheckAll('languageFilters')">Reset Filters</button>
     </div>
   </div>
   
@@ -39,7 +39,7 @@
       </div>
       <div class="flex flex-wrap mt-8 md:mb-4 -mx-4">
         <article class="item lib-item w-full md:w-1/2 px-4 mb-4 md:mb-8">
-          <div class="p-8 h-full bg-d-cell tile">
+          <div class="p-8 h-full bg-ThemeCell tile">
             <header>
               <h3 class="mt-0"><a class="text-black tile-link" href="https://github.com/pharmer/pharmer" target="_blank">Pharmer</a></h3>
             </header>
@@ -49,7 +49,7 @@
           </div>
         </article>
         <article class="item lib-item w-full md:w-1/2 px-4 mb-4 md:mb-8">
-          <div class="p-8 h-full bg-d-cell tile">
+          <div class="p-8 h-full bg-ThemeCell tile">
             <header>
               <h3 class="mt-0"><a class="text-black tile-link" href="https://github.com/displague/vagrant-linode" target="_blank">vagrant-linode</a></h3>
             </header>
@@ -67,7 +67,7 @@
       </div>
       {{ range .Paginator.Pages  }}
         <article class="item lib-item w-full md:w-1/2 px-4 mb-4 md:mb-8 {{ range .Params.languages }}{{ lower (replace . "." "-") }} {{ end }}{{ .Params.origin }}">
-          <div class="p-8 h-full bg-d-cell tile">
+          <div class="p-8 h-full bg-ThemeCell tile">
             <header>
               <h3 class="mt-0"><a class="text-black tile-link" href="{{ .Params.external_url }}" target="_blank">{{ .Title | markdownify }}</a></h3>
             </header>
