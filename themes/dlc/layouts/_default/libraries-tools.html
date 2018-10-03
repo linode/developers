@@ -2,21 +2,25 @@
 
 <div class="flex flex-wrap mb-8 -mx-4">
 
-  <div class="w-full sm:w-1/4 md:w-1/5 px-4">
+  <div class="w-full sm:w-1/4 md:w-1/5 px-4 flex flex-wrap">
     <div id="filters" class="button-group filters-group sm:py-4 sm:mt-4">
-      <div class="flex flex-wrap md:block">
-        <div class="md:my-4 invisible sm:visible">{{ partial "0_svgs/divider.svg" (dict "width" 170) }}</div>
-        <h4 class="uppercase mb-4 w-full">Created By</h4>
+      <div class="md:block">
+        <div class="md:my-4 invisible sm:visible text-center">{{ partial "0_svgs/divider.svg" (dict "width" 170) }}</div>
+        <h4 class="uppercase mb-4 w-full md:text-center">Created By</h4>
         {{ partial "1_atoms/radio.html" (dict "ID" "linode" "Name" "created" "Value" ".linode" "Label" "Linode") . }}
         {{ partial "1_atoms/radio.html" (dict "ID" "community" "Name" "created" "Value" ".community" "Label" "Community") . }}
       </div>
-      <div class="flex flex-wrap md:block">
-        <h4 class="uppercase mb-4 w-full">Language</h4>
+      <div class="md:block">
+        <h4 class="uppercase mb-4 w-full md:text-center">Language</h4>
         {{range ($.Site.GetPage "taxonomyTerm" "languages").Pages }}
           {{ partial "1_atoms/radio.html" (dict "ID" (lower (replace .Title "." "-")) "Name" "language" "Value" (print "." (lower (replace .Title "." "-"))) "Label" .Title) . }}
         {{end}}
       </div>
       <button class="text-BaseBlue underline mt-4" onclick="uncheckAll('filters')">Reset Filters</button>
+      <div class="md:block md:text-center mt-12">
+        <h4 class="uppercase mb-4 w-full">Want More Help?</h4>
+        <a href="https://linode.com/community/questions" target="_blank" class="btn btn-small">Visit Linode Community</a>
+      </div>
     </div>
   </div>
   
