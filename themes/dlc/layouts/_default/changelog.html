@@ -9,7 +9,7 @@
     <span class="uppercase font-semibold text-xs mr-4">Product:</span>
     {{ $currentTag := index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0 }}
     {{ range $name, $items := .Site.Taxonomies.changelog }}
-      <a href="{{ $.Site.BaseURL }}changelog/{{ $name | urlize | lower }}" class="btn btn-small btn-grey mr-2 {{ if eq $currentTag $name}}active{{end}}">{{ $name | upper}}</a>
+      <a href="/changelog/{{ $name | urlize | lower }}" class="btn btn-small btn-grey mr-2 {{ if eq $currentTag $name}}active{{end}}">{{ $name | upper}}</a>
     {{ end }}
   </nav>
 
