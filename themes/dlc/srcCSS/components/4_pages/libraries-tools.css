@@ -1,3 +1,15 @@
 .lib-item .bg-ThemeCell {
   min-height: 145px;
 }
+
+.community-header:before {
+  @apply border-BaseGreen;
+  content: "";
+  display: block;
+  margin: 0 auto 24px;
+  box-sizing: border-box;
+  height: 2px;
+  width: 50px;
+  border-width: 2px;
+  border-style: solid;
+}
