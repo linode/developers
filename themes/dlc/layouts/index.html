@@ -40,7 +40,7 @@
     <div class="text-2xl my-3 font-light">Catch us on the road at conferences, meetups, and job fairs.</div>
   </div>
   <div class="my-8 -mx-4 pb-8">
-    <div class="flex flex-wrap items-center justify-center">
+    <div class="flex flex-row flex-wrap justify-center">
         {{ range last 3 ((where .Pages "Section" "events").ByParam "start_date") }}
         {{ $t := (time .Params.end_date) }}
           {{ if  ge ($t.Unix) (now.Unix) }}
