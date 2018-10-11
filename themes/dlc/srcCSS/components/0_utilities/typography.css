@@ -1,12 +1,3 @@
-a {
-  @apply text-d-turq;
-  text-decoration: underline;
-}
-
-a:hover {
-  @apply text-d-turq-hov;
-}
-
 h1 a,
 h2 a,
 h3 a,

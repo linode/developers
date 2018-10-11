@@ -2,45 +2,48 @@
 
 <div class="flex flex-wrap mb-8 -mx-4">
 
-  <div class="w-full sm:w-1/4 md:w-1/5 px-4">
-    <div class="button-group filters-group sm:py-4 sm:mt-4">
-      <div id="createdFilters" class="flex flex-wrap md:block">
-        <div class="md:my-4 invisible sm:visible">{{ partial "0_svgs/divider.svg" (dict "width" 170) }}</div>
-        <h4 class="uppercase mb-4 w-full">Created By</h4>
+  <div class="w-full sm:w-1/4 md:w-1/5 px-4 flex flex-wrap">
+    <div id="filters" class="button-group filters-group sm:py-4 sm:mt-4">
+      <div class="flex flex-wrap sm:block">
+        <div class="md:mt-4 invisible sm:visible text-center">{{ partial "0_svgs/divider.svg" (dict "width" 170) }}</div>
+        <h4 class="uppercase mt-2 mb-4 w-full md:text-center">Created By</h4>
         {{ partial "1_atoms/radio.html" (dict "ID" "linode" "Name" "created" "Value" ".linode" "Label" "Linode") . }}
         {{ partial "1_atoms/radio.html" (dict "ID" "community" "Name" "created" "Value" ".community" "Label" "Community") . }}
       </div>
-      <button class="btn btn-small mt-4 mb-4" onclick="uncheckAll('createdFilters')">View All</button>
-      <div id="languageFilters" class="flex flex-wrap md:block">
-        <h4 class="uppercase mb-4 w-full">Language</h4>
+      <div class="flex flex-wrap sm:block">
+        <h4 class="uppercase mb-4 w-full md:text-center">Language</h4>
         {{range ($.Site.GetPage "taxonomyTerm" "languages").Pages }}
           {{ partial "1_atoms/radio.html" (dict "ID" (lower (replace .Title "." "-")) "Name" "language" "Value" (print "." (lower (replace .Title "." "-"))) "Label" .Title) . }}
         {{end}}
       </div>
-      <button class="btn btn-small mt-4" onclick="uncheckAll('languageFilters')">View All</button>
+      <button class="text-BaseBlue underline mt-4" onclick="uncheckAll('filters')">Reset Filters</button>
+      <div class="md:block md:text-center mt-16">
+        <h4 class="uppercase mb-4 w-full community-header">Want More Help?</h4>
+        <a href="https://linode.com/community/questions" target="_blank" class="btn btn-small block text-center">Visit Linode Community</a>
+      </div>
     </div>
   </div>
   
   <div class="w-full sm:w-3/4 md:w-4/5 px-4">
     <div class="my-4 md:mt-12 md:mt-8 max-w-3xl">
       <div class="mb-4 mt-8 sm:hidden text-center">{{ partial "0_svgs/divider.svg" (dict "width" 170) }}</div>
-      <h2>Tools</h2>
+      <h2 class="font-normal text-BaseGreenDark">Tools</h2>
       <div class="flex -mx-4 md:items-center flex-col-reverse md:flex-row mb-2">
         <div class="px-4 flex flex-wrap">
           <div style="width: 300px;">
             {{ partial "2_molecules/code-box.html" }}
           </div>
-          <div class="mt-4 md:hidden flex w-full"><a href="https://www.linode.com/cli" target="_blank" class="btn btn-small">Linode CLI on GitHub</a></div>
+          <div class="mt-4 md:hidden flex w-full"><a href="https://www.linode.com/cli" target="_blank" class="btn text-sm">Linode CLI on GitHub</a></div>
         </div>
         <div class="px-4">
-          <h3 class="md:text-2xl mt-0">Linode CLI</h3>
-          <div class="md:text-lg my-3">An easy way to get up and running with the Linode API.</div>
-          <div class="pt-3 hidden hidden md:block"><a href="https://www.linode.com/cli" target="_blank" class="btn btn-small">Linode CLI on GitHub</a></div>
+          <h3 class="md:text-2xl mt-0 font-normal text-BaseGreenDark">Linode CLI</h3>
+          <div class="md:text-lg my-3 text-light">An easy way to get up and running with the Linode API.</div>
+          <div class="pt-3 hidden hidden md:block"><a href="https://www.linode.com/cli" target="_blank" class="btn text-sm">Linode CLI on GitHub</a></div>
         </div>
       </div>
       <div class="flex flex-wrap mt-8 md:mb-4 -mx-4">
         <article class="item lib-item w-full md:w-1/2 px-4 mb-4 md:mb-8">
-          <div class="p-8 h-full bg-d-cell tile">
+          <div class="p-8 h-full bg-ThemeCell tile">
             <header>
               <h3 class="mt-0"><a class="text-black tile-link" href="https://github.com/pharmer/pharmer" target="_blank">Pharmer</a></h3>
             </header>
@@ -50,7 +53,7 @@
           </div>
         </article>
         <article class="item lib-item w-full md:w-1/2 px-4 mb-4 md:mb-8">
-          <div class="p-8 h-full bg-d-cell tile">
+          <div class="p-8 h-full bg-ThemeCell tile">
             <header>
               <h3 class="mt-0"><a class="text-black tile-link" href="https://github.com/displague/vagrant-linode" target="_blank">vagrant-linode</a></h3>
             </header>
@@ -59,16 +62,27 @@
             </section>
           </div>
         </article>
+        <article class="item lib-item w-full md:w-1/2 px-4 mb-4 md:mb-8">
+          <div class="p-8 h-full bg-ThemeCell tile">
+            <header>
+              <h3 class="mt-0"><a class="text-black tile-link" href="https://github.com/kahkhang/kube-linode" target="_blank">kube-linode</a></h3>
+            </header>
+            <section class="mt-2">
+              Provision a Kubernetes/CoreOS cluster on Linode.
+            </section>
+          </div>
+        </article>
       </div>
     </div>
-    <h2>Libraries</h2>
+    <h2 class="font-normal text-BaseGreenDark">Libraries</h2>
     <div class="flex flex-wrap md:mt-8 md:mb-4 -mx-4 grid">
       <div id="noResultsContainer" class="visually-hidden">
         <div class="px-4">No results</div>
       </div>
       {{ range .Paginator.Pages  }}
         <article class="item lib-item w-full md:w-1/2 px-4 mb-4 md:mb-8 {{ range .Params.languages }}{{ lower (replace . "." "-") }} {{ end }}{{ .Params.origin }}">
-          <div class="p-8 h-full bg-d-cell tile">
+          <div class="p-8 h-full bg-ThemeCell tile">
+            <div class="origin mb-2 text-xs uppercase font-semibold {{ if eq .Params.origin "linode" }}text-BaseGreen{{ end }}">{{ .Params.origin }}</div>
             <header>
               <h3 class="mt-0"><a class="text-black tile-link" href="{{ .Params.external_url }}" target="_blank">{{ .Title | markdownify }}</a></h3>
             </header>
