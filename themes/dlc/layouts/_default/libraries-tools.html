@@ -5,8 +5,8 @@
   <div class="w-full sm:w-1/4 md:w-1/5 px-4 flex flex-wrap">
     <div id="filters" class="button-group filters-group sm:py-4 sm:mt-4">
       <div class="flex flex-wrap sm:block">
-        <div class="md:my-4 invisible sm:visible text-center">{{ partial "0_svgs/divider.svg" (dict "width" 170) }}</div>
-        <h4 class="uppercase mb-4 w-full md:text-center">Created By</h4>
+        <div class="md:mt-4 invisible sm:visible text-center">{{ partial "0_svgs/divider.svg" (dict "width" 170) }}</div>
+        <h4 class="uppercase mt-2 mb-4 w-full md:text-center">Created By</h4>
         {{ partial "1_atoms/radio.html" (dict "ID" "linode" "Name" "created" "Value" ".linode" "Label" "Linode") . }}
         {{ partial "1_atoms/radio.html" (dict "ID" "community" "Name" "created" "Value" ".community" "Label" "Community") . }}
       </div>
@@ -82,6 +82,7 @@
       {{ range .Paginator.Pages  }}
         <article class="item lib-item w-full md:w-1/2 px-4 mb-4 md:mb-8 {{ range .Params.languages }}{{ lower (replace . "." "-") }} {{ end }}{{ .Params.origin }}">
           <div class="p-8 h-full bg-ThemeCell tile">
+            <div class="origin mb-2 text-xs uppercase font-semibold {{ if eq .Params.origin "linode" }}text-BaseGreen{{ end }}">{{ .Params.origin }}</div>
             <header>
               <h3 class="mt-0"><a class="text-black tile-link" href="{{ .Params.external_url }}" target="_blank">{{ .Title | markdownify }}</a></h3>
             </header>
