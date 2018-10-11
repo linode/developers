@@ -1,6 +1,6 @@
 const config = require('../linode-hugo-theme/tailwind');
 
-config.colors['ThemeCell'] = '#EBEFF0';
+config.colors['ThemeCell'] = '#F4F4F4';
 config.colors['ThemeBeige'] = '#ECECEC';
 config.colors['ThemeTagGrey'] = '#E1E8EC';
 

@@ -27,18 +27,18 @@
   <div class="w-full sm:w-3/4 md:w-4/5 px-4">
     <div class="my-4 md:mt-12 md:mt-8 max-w-3xl">
       <div class="mb-4 mt-8 sm:hidden text-center">{{ partial "0_svgs/divider.svg" (dict "width" 170) }}</div>
-      <h2>Tools</h2>
+      <h2 class="font-normal text-BaseGreenDark">Tools</h2>
       <div class="flex -mx-4 md:items-center flex-col-reverse md:flex-row mb-2">
         <div class="px-4 flex flex-wrap">
           <div style="width: 300px;">
             {{ partial "2_molecules/code-box.html" }}
           </div>
-          <div class="mt-4 md:hidden flex w-full"><a href="https://www.linode.com/cli" target="_blank" class="btn btn-small">Linode CLI on GitHub</a></div>
+          <div class="mt-4 md:hidden flex w-full"><a href="https://www.linode.com/cli" target="_blank" class="btn text-sm">Linode CLI on GitHub</a></div>
         </div>
         <div class="px-4">
-          <h3 class="md:text-2xl mt-0">Linode CLI</h3>
-          <div class="md:text-lg my-3">An easy way to get up and running with the Linode API.</div>
-          <div class="pt-3 hidden hidden md:block"><a href="https://www.linode.com/cli" target="_blank" class="btn btn-small">Linode CLI on GitHub</a></div>
+          <h3 class="md:text-2xl mt-0 font-normal text-BaseGreenDark">Linode CLI</h3>
+          <div class="md:text-lg my-3 text-light">An easy way to get up and running with the Linode API.</div>
+          <div class="pt-3 hidden hidden md:block"><a href="https://www.linode.com/cli" target="_blank" class="btn text-sm">Linode CLI on GitHub</a></div>
         </div>
       </div>
       <div class="flex flex-wrap mt-8 md:mb-4 -mx-4">
@@ -74,7 +74,7 @@
         </article>
       </div>
     </div>
-    <h2>Libraries</h2>
+    <h2 class="font-normal text-BaseGreenDark">Libraries</h2>
     <div class="flex flex-wrap md:mt-8 md:mb-4 -mx-4 grid">
       <div id="noResultsContainer" class="visually-hidden">
         <div class="px-4">No results</div>
