@@ -1,7 +1,7 @@
 {{ define "main" }}
   <div class="row-full relative -mt-2 px-2">
     <section class="header max-w-3xl mx-auto px-4 md:px-8 py-12 relative z-10">
-      <h2 class="text-center font-light text-BaseGreenDark">Manage your Account with the Linode CLI</h2>
+      <h2 class="text-center font-normal text-BaseGreenDark">Manage your Account with the Linode CLI</h2>
       <div class="text-2xl my-3 text-center font-light">All of the functionality of the Manager from the command line.</div>
       {{ partial "2_molecules/code-box.html" }}
       <div class="mt-6 text-center"><a href="https://www.linode.com/cli" target="_blank" class="btn mt-3">Get Started with the Linode CLI</a></div>
@@ -12,31 +12,31 @@
     <article class="w-full md:w-1/2 px-4 mb-4 md:mb-8">
       <div class="px-8 py-20 h-full bg-ThemeCell tile flex flex-col justify-center items-center">
         <h2 class="mt-0 font-normal text-center"><a href="https://developers.linode.com/" class="text-black tile-link">API Documentation</a></h3>
-        <p class="text-xl mt-2 text-center">Reference Documentation for the Linode API</p>
+        <p class="text-xl mt-2 text-center font-light">Reference Documentation for the Linode API</p>
       </div>
     </article>
     <article class="w-full md:w-1/2 px-4 mb-4 md:mb-8">
       <div class="p-8 py-20 h-full bg-ThemeCell tile flex flex-col justify-center items-center">
         <h2 class="mt-0 font-normal text-center"><a href="/guides/" class="text-black tile-link">Guides</a></h3>
-        <p class="text-xl mt-2 text-center">How-to’s and Examples Using the Linode API</p>
+        <p class="text-xl mt-2 text-center font-light">How-to’s and Examples Using the Linode API</p>
       </div>
     </article>
     <article class="w-full md:w-1/2 px-4 mb-4 md:mb-8">
       <div class="p-8 py-20 h-full bg-ThemeCell tile flex flex-col justify-center items-center">
         <h2 class="mt-0 font-normal text-center"><a href="/libraries-tools/" class="text-black tile-link">Libraries &amp; Tools</a></h3>
-        <p class="text-xl mt-2 text-center">Jumpstart Your API Integration</p>
+        <p class="text-xl mt-2 text-center font-light">Jumpstart Your API Integration</p>
       </div>
     </article>
     <article class="w-full md:w-1/2 px-4 mb-4 md:mb-8">
       <div class="p-8 py-20 h-full bg-ThemeCell tile flex flex-col justify-center items-center">
         <h2 class="mt-0 font-normal text-center"><a href="https://www.linode.com/community/" target="_blank" class="text-black tile-link">Community Questions</a></h3>
-        <p class="text-xl mt-2 text-center">Questions and Answers from the Linode Community</p>
+        <p class="text-xl mt-2 text-center font-light">Questions and Answers from the Linode Community</p>
       </div>
     </article>
   </div>
 
   <div class="mx-auto text-center max-w-lg my-8">
-    <h2 class="font-light text-BaseGreenDark">Events</h2>
+    <h2 class="text-BaseGreenDark font-normal">Events</h2>
     <div class="text-2xl my-3 font-light">Catch us on the road at conferences, meetups, and job fairs.</div>
   </div>
   <div class="my-8 -mx-4 pb-8">
@@ -47,11 +47,11 @@
             <article class="w-full md:w-1/3 px-4 mb-4 md:mb-8">
               <div class="p-8 h-full bg-ThemeCell tile">
                 <header>
-                  <h3 class="mt-0 mb-4"><a href="{{ .Params.event_url }}" class="text-black tile-link" target="_blank">{{ .Title | markdownify }}</a></h3>
+                  <h3 class="mt-0 mb-4 font-normal"><a href="{{ .Params.event_url }}" class="text-black tile-link" target="_blank">{{ .Title | markdownify }}</a></h3>
                 </header>
                 <section>
-                  <div><strong>{{ .Params.location }}</strong></div>
-                  <div><strong>{{ dateFormat "Jan 2, 2006" .Params.start_date }}</strong></div>
+                  <div>{{ .Params.location }}</div>
+                  <div>{{ dateFormat "Jan 2, 2006" .Params.start_date }}</div>
                   <p>{{ .Content }}</p>
                 </section>
               </div>
@@ -64,8 +64,8 @@
 
   <div class="relative row-full pb-8 home-cubes">
     <div class="mx-auto text-center max-w-lg my-8">
-      <h2 class="font-light text-BaseGreenDark">Careers at Linode</h2>
-      <div class="text-2xl mt-4 font-light">Help us create the platform of tomorrow.</div>
+      <h2 class="font-normal text-BaseGreenDark">Careers at Linode</h2>
+      <div class="text-2xl mt-2 font-light">Help us create the platform of tomorrow.</div>
       <a class="btn block mx-auto mt-6" href="https://www.linode.com/careers" target="_blank">View Opportunities</a>
     </div>
   </div>

@@ -14,10 +14,16 @@
   height: 100%;
 }
 
-.tile section {
+.tile section,
+.tile .origin {
   transition: color 225ms ease-in-out;
 }
 
 .tile-link:hover {
   @apply text-BaseGreen;
+}
+
+
+.tile:hover .origin {
+  @apply text-BaseGreenDark;
 }
