@@ -1,7 +1,7 @@
 ---
-title: Libraries & Tools
-subtitle: Integrate the Linode API with Your Application
-Description: Integrate the Linode API with Your Application
+title: Linode API Libraries and Tools
+subtitle: Libraries and DevOps tools for the Linode API
+Description: Libraries and DevOps tools for the Linode API
 author:
   name: Josh Sager
   email: jsager@linode.com
