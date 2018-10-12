@@ -1,3 +1,7 @@
+{{ define "banner" }}
+  {{ partial "3_organisms/banner.html" ( dict "Title" "Developer Tools" "Subtitle" .Params.subtitle) . }}
+{{ end }}
+
 {{ define "main" }}
   <div class="row-full relative -mt-2 px-2">
     <section class="header max-w-3xl mx-auto px-4 md:px-8 py-12 relative z-10">
