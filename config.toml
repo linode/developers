@@ -1,6 +1,6 @@
-baseURL = "https://developers.linode.com/"
+BaseURL = "https://developers.linode.com/"
 languageCode = "en-us"
-title = "Linode Developers Site"
+title = "Developer Tools"
 defaultContentLanguage = "en"
 paginate = 25
 preserveTaxonomyNames = true
@@ -39,7 +39,7 @@ url = "/changelog/api/"
 [params]
 date_format = "Monday, January 2, 2006"
 copyright = "Copyright (c) 2018, Linode LLC"
-logo = "/img/linode-logo_standard_light_small.png"
+logo = "/img/linode-logo_standard_dark_small.png"
 
 [params.truncate]
 enable = true
