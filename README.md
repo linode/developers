@@ -10,6 +10,14 @@ Built with:
 
 ## Running Locally
 
+### Prerequisites
+
+Must have Hugo installed:
+
+`brew install hugo`
+
+### Setup
+
 From within your local developers-linode-com repository:
 
 `yarn`
