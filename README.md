@@ -10,10 +10,29 @@ Built with:
 
 ## Running Locally
 
+### Prerequisites
+
+Must have Hugo installed:
+
+`brew install hugo`
+
+### Setup
+
 From within your local developers-linode-com repository:
 
-`hugo server -D`
+`yarn`
+
+then
+
+`gulp dev`
 
 Once running, you should be able to view the site in a browser on port 1313:
 
 http://localhost:1313/
+
+## Deployment
+
+### !!!! Important !!!!
+If you are merging/deploying changes to both this repository _and_ to
+the linode-hugo-theme repo on GitHub, **YOU MUST** merge the GitHub pull
+requests first! The order in which they are merged matters.

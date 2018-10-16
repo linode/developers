@@ -1,5 +1,7 @@
 ---
-title: "Guides"
+title: "Linode API Guides"
+subtitle: Guides on getting started with the Linode API
+Description: Guides on getting started with the Linode API
 author:
   name: Josh Sager
   email: jsager@linode.com

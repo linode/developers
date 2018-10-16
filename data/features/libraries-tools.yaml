@@ -2,7 +2,7 @@ weight: 3
 name: "Libraries and Tools"
 icon: "fa fa-wrench"
 description: >
-  What you need to integrate the Linode API with your application.
+  What you need to Integrate the Linode API with Your Application.
 
 
   <a href="/libraries-tools"><button type="button" class="btn btn-success">View Libraries and Tools</button></a>

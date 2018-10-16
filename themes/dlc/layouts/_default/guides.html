@@ -1,83 +1,54 @@
 {{ define "main" }}
 
-
 <div class="mx-auto text-center max-w-lg my-8 pb-4">
-  <h1>{{ .Title }}</h1>
-  <div class="text-xl">{{.Content}}</div>
+  <h2 class="font-normal text-BaseGreenDark">API Guides</h2>
 </div>
 
-<div class="max-w-2xl mx-auto pb-4">
-  <h2 class="text-center">API Guides</h2>
-  <div class="flex flex-wrap my-8 -mx-4">
+<div class="max-w-xl mx-auto pb-4">
+  <div class="flex flex-wrap mt-8 -mx-4">
     {{ range .Paginator.Pages  }}
       <article class="w-full md:w-1/2 px-4 mb-4 md:mb-8">
-        <div class="p-8 h-full bg-grey-light">
+        <div class="p-8 h-full bg-ThemeCell tile">
           <header>
-            <h3 class="mt-0"><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h3>
+            <h3 class="mt-0 text-2xl font-normal"><a href="{{ .Params.external_url }}" class="text-black tile-link" target="_blank">{{ .Title | markdownify }}</a></h3>
             {{ partial "2_molecules/post-categories" . }}
           </header>
-          {{ .Content }}
+          <section>{{ .Content }}</section>
         </div>
       </article>
     {{ end }}
-    <button class="btn mx-auto">View All Platform Guides</button>
+  </div>
+  <div class="text-center mt-4 md:mt-0 md:mb-12">
+    <a href="https://linode.com/docs/platform" target="_blank" class="btn mx-auto">View All Platform Guides</a>
   </div>
 </div>
 
-<h2 class="text-center">Recently Updated Guides</h2>
-
-<div class="flex flex-wrap my-8 -mx-4 pb-8">
-    <article class="w-full md:w-1/3 px-4 mb-4 md:mb-8">
-      <div class="p-8 h-full bg-grey-light">
-        <header>
-          <h3 class="mt-0"><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h3>
-          {{ partial "2_molecules/post-categories" . }}
-        </header>
-        {{ .Content }}
+<div class="flex flex-wrap my-8 -mx-4">
+  <article class="w-full md:w-1/2 px-4 mb-4 md:mb-8">
+    <div class="md:p-8 h-full">
+      <div class="cloud flex justify-center md:justify-end items-center">
+        {{ partial "0_svgs/cloud.svg" }}
       </div>
-    </article>
-    <article class="w-full md:w-1/3 px-4 mb-4 md:mb-8">
-      <div class="p-8 h-full bg-grey-light">
-        <header>
-          <h3 class="mt-0"><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h3>
-          {{ partial "2_molecules/post-categories" . }}
-        </header>
-        {{ .Content }}
-      </div>
-    </article>
-    <article class="w-full md:w-1/3 px-4 mb-4 md:mb-8">
-      <div class="p-8 h-full bg-grey-light">
-        <header>
-          <h3 class="mt-0"><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h3>
-          {{ partial "2_molecules/post-categories" . }}
-        </header>
-        {{ .Content }}
-      </div>
-    </article>
-</div>
-
-<div class="flex flex-wrap my-8 -mx-4 pb-4">
-    <article class="w-full md:w-1/2 px-4 mb-4 md:mb-8" style="height: 300px">
-      <div class="p-8 h-full bg-grey-light">
-      </div>
-    </article>
-    <article class="w-full md:w-1/2 px-4 mb-4 md:mb-8">
-      <div class="p-8 h-full flex flex-col justify-center">
-        <header>
-          <h2 class="mt-0">Want more help?</h2>
-        </header>
-        <p>We're happy with any other qustions you might have.</p>
-        <button class="btn mt-4">Get your questions answered</button>
-      </div>
-    </article>
+    </div>
+  </article>
+  <article class="w-full md:w-1/2 px-4 mb-4 md:mb-8">
+    <div class="p-8 h-full flex flex-col justify-center">
+      <header>
+        <h2 class="mt-0 font-normal text-BaseGreenDark">Want more help?</h2>
+      </header>
+      <p class="text-xl mt-2 font-light">Find answers, ask questions, and help others.</p>
+      <a href="https://linode.com/community/questions" target="_blank" class="btn mt-4">Join our Community</a>
+    </div>
+  </article>
 </div>
 
 <div class="my-8 -mx-4 pb-4">
-    <h2 class="text-center mx-auto">Get started in the Linode Cloud today</h2>
-    <div class="flex justify-center">
-        <button class="btn mt-4 mr-2">Create an account</button>
-        <button class="btn mt-4 ml-2">Learn more</button>
-    </div>
+  <div class="text-center my-4">{{ partial "0_svgs/divider.svg" }}</div>
+  <h2 class="text-center mx-auto font-normal text-BaseGreenDark">Get started in the Linode cloud today.</h2>
+  <div class="flex justify-center">
+    <a href="https://manager.linode.com/session/signup" target="_blank" class="btn mt-4 mr-2">Create an Account</a>
+    <a href="https://www.linode.com/linodes" target="_blank" class="btn mt-4 ml-2">Learn More</a>
+  </div>
 </div>
 
 {{ partial "2_molecules/paginator" . }}

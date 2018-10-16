@@ -2,8 +2,8 @@
 title: "linode-api"
 description: linode-api
 author: tzurbaev
-categories:
-- APIv4
+origin: community
+languages:
 - PHP
 external_url: https://github.com/tzurbaev/linode-api
 ---

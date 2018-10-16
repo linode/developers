@@ -1,61 +1,45 @@
-baseURL = "https://developers.linode.com/"
+BaseURL = "https://developers.linode.com/"
 languageCode = "en-us"
-title = "Linode Developers Site"
+title = "Developer Tools"
 defaultContentLanguage = "en"
 paginate = 25
-theme = ["dlc", "linode-hugo-base-theme"]
+preserveTaxonomyNames = true
+theme = ["dlc", "linode-hugo-theme"]
 
 # menu
 [menu]
 
+[taxonomies]
+category = "categories"
+tag = "tags"
+language = "languages"
+changelog = "changelog"
+
 [[menu.main]]
 weight = 1
-name = "Home"
-url = "/"
+name = "API Documentation"
+url = "/api/v4"
 
 [[menu.main]]
 weight = 2
-name = "APIv4 Docs"
-url = "https://developers.linode.com/"
-
-[[menu.main]]
-weight = 3
 name = "Guides"
 url = "/guides/"
 
 [[menu.main]]
-weight = 4
-name = "Libraries and Tools"
+weight = 3
+name = "Libraries & Tools"
 url = "/libraries-tools/"
 
 [[menu.main]]
-weight = 5
+weight = 4
 name = "Changelog"
-url = "/changelog/"
-
-[[menu.topbar]]
-weight = 1
-name = "GitHub"
-url = "https://github.com/linode"
-pre = "<i class='fab fa-github'></i>"
-
-[[menu.topbar]]
-weight = 2
-name = "Facebook"
-url = "http://facebook.com/linode"
-pre = "<i class='fab fa-facebook'></i>"
-
-[[menu.topbar]]
-weight = 3
-name = "Twitter"
-url = "http://twitter.com/linode"
-pre = "<i class='fab fa-twitter'></i>"
+url = "/changelog/api/"
 
 # params
 [params]
 date_format = "Monday, January 2, 2006"
 copyright = "Copyright (c) 2018, Linode LLC"
-logo = "/img/linode-logo_standard_light_small.png"
+logo = "/img/linode-logo_standard_dark_small.png"
 
 [params.truncate]
 enable = true
@@ -74,4 +58,4 @@ enable = true
 enable = true
 
 [params.dev]
-enable = true
+enable = false

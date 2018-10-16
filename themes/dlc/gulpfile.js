@@ -9,12 +9,15 @@ const cssInfo = require('gulp-css-info');
 const cssnano = require('cssnano');
 const stylelint = require('stylelint');
 const reporter = require('postcss-reporter');
+const size = require('gulp-size');
+const notify = require('gulp-notify');
 
 const tailwind = 'tailwind.js';
 const mainCss = './srcCSS/main.css';
 const css = './srcCSS/**/*.css';
-const baseThemeHtml = '../linode-hugo-base-theme/layouts/**/*.html';
-const html = './layouts/**/*.html';
+const baseCss = '../linode-hugo-theme/srcCSS/components/**/*.css';;
+const baseThemeHtml = '../linode-hugo-theme/layouts/**/*.html';
+const html = 'layouts/**/*.html';
 const output = 'static/assets/css/';
 const cssInfoDir = 'static/assets/cssinfo/';
 
@@ -26,18 +29,18 @@ class TailwindExtractor {
 
 const plugins = [
   atImport,
-  tailwindcss('../linode-hugo-base-theme/tailwind.js'),
-  tailwindcss('./tailwind.js'),
+  tailwindcss('tailwind.js'),
   autoprefixer({
     browsers: ['last 2 versions', '> 2%']
   }),
-  // cssnano({
-  //   preset: ['none', {
-  //     discardComments: {
-  //         removeAll: true,
-  //     },
-  //   }]
-  // })
+  cssnano({
+    preset: ['default', {
+      mergeLonghand: false,
+      discardComments: {
+        removeAll: true,
+      },
+    }]
+  })
 ];
 
 gulp.task('lint', () => {
@@ -56,6 +59,7 @@ gulp.task('cssInfo', () => {
 });
 
 gulp.task('compile', () => {
+  const s = size();
   return gulp.src(mainCss)
     .pipe(plumber())
     .pipe(postcss(plugins))
@@ -63,6 +67,7 @@ gulp.task('compile', () => {
       purgecss({
         content: [baseThemeHtml, html],
         whitelist: ['mobile-nav', 'active'],
+        whitelistPatterns: [/wl$/],
         extractors: [
           {
             extractor: TailwindExtractor,
@@ -71,11 +76,41 @@ gulp.task('compile', () => {
         ]
       })
     )
-    .pipe(gulp.dest(output));
+    .pipe(gulp.dest(output))
+});
+
+gulp.task('size', () => {
+  const s = size();
+  return gulp.src(mainCss)
+    .pipe(plumber())
+    .pipe(postcss(plugins))
+    .pipe(
+      purgecss({
+        content: [baseThemeHtml, html],
+        whitelist: ['mobile-nav', 'active'],
+        whitelistPatterns: [/wl$/],
+        extractors: [
+          {
+            extractor: TailwindExtractor,
+            extensions: ["html"]
+          }
+        ]
+      })
+    )
+    .pipe(s)
+    .pipe(notify({
+			onLast: true,
+      message: () =>
+      `Compiled!\nCSS bundle size: ${s.prettySize}`
+		}));
 });
 
 gulp.task('watch:css', () => {
   gulp.watch(css, ['compile']);
+});
+
+gulp.task('watch:basecss', () => {
+  gulp.watch(baseCss, ['compile']);
 });
 
 gulp.task('watch:html', () => {
@@ -86,5 +121,5 @@ gulp.task('watch:tailwind', () => {
   gulp.watch(tailwind, ['compile']);
 });
 
-gulp.task('default', ['lint', 'compile', 'cssInfo']);
-gulp.task('watch', ['compile', 'watch:css', 'watch:html', 'watch:tailwind']);
+gulp.task('default', ['lint', 'compile', 'cssInfo', 'size']);
+gulp.task('watch', ['compile', 'watch:basecss', 'watch:css', 'watch:html', 'watch:tailwind']);

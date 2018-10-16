@@ -2,9 +2,9 @@
 title: "linodego"
 description: linodego
 author: chiefy
-categories:
-- APIv4
+origin: linode
+languages:
 - Golang
-external_url: https://github.com/chiefy/linodego
+external_url: https://github.com/linode/linodego
 ---
-Go client for Linode REST v4 API
+Official Go client for Linode REST v4 API
