@@ -37,11 +37,11 @@
     {{ end }}
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ .Site.BaseURL }}">
-    <meta property="og:image" content="{{ .Site.Params.logo }}">
-    <meta property="twitter:card" content="{{ .Site.Params.logo }}">
+    <meta property="og:image" content="{{ .Site.Params.logo | absURL }}">
+    <meta property="twitter:card" content="{{ .Site.Params.logo | absURL }}">
     <meta property="twitter:type" content="website">
     <meta property="twitter:domain" content="{{ .Site.BaseURL }}">
-    <meta property="twitter:image" content="{{ .Site.Params.logo }}">
+    <meta property="twitter:image" content="{{ .Site.Params.logo | absURL }}">
     <meta property="twitter:url" content="{{ .Site.BaseURL }}">
     
   {{ .Hugo.Generator }}
