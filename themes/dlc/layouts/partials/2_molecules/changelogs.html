@@ -1,9 +1,12 @@
 <div class="flex flex-wrap">
   <div class="w-full md:w-1/4 py-2 md:p-6 md:text-right mt-1 flex items-center md:block">
     <div class="timeago mr-4 md:mr-0" datetime='{{ .Date.Format "2006-01-02T15:04:05-07:00" }}'>{{ .Date }}</div>
-    {{ if .Params.version }}
-    <div class="text-BaseBlue md:mt-4 leading-none">{{ .Params.version }}</div>
-    {{ end }}
+    <div class="text-BaseBlue md:mt-2 flex md:block ">
+      <span class="changelog-product">{{ delimit .Params.changelog ", "}}</span>
+      {{ if .Params.version }}
+      <div class="text-BaseBlue ml-4 md:ml-0">{{ .Params.version }}</div>
+      {{ end }}
+    </div>
   </div>
   <div class="w-full md:w-3/4 py-2 md:p-6">
     <h2 class="mt-0 text-2xl font-normal">{{ .Title | markdownify }}</h2>
