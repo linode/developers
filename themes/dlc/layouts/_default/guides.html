@@ -6,7 +6,7 @@
 
 <div class="max-w-xl mx-auto pb-4">
   <div class="flex flex-wrap mt-8 -mx-4">
-    {{ range .Paginator.Pages  }}
+    {{ range .Paginator.Pages.ByWeight  }}
       <article class="w-full md:w-1/2 px-4 mb-4 md:mb-8">
         <div class="p-8 h-full bg-ThemeCell tile">
           <header>
