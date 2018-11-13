@@ -7,3 +7,7 @@
 .changelog-entry > ul {
   @apply my-4;
 }
+
+.int-changelog .changelog-product {
+  display: none;
+}

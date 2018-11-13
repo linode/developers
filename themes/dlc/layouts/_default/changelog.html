@@ -3,11 +3,11 @@
 {{ end }}
 
 {{ define "main" }}
-
-<div class="container mx-auto max-w-lg my-8">
+{{ $currentTag := index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0 }}
+<div class="container mx-auto max-w-lg my-8 {{ if ne $currentTag "changelog"}}int-changelog{{ end }}">
   <nav class="flex mb-4 items-center">
-    <span class="uppercase font-semibold text-xs mr-4">Product:</span>
-    {{ $currentTag := index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0 }}
+    <span class="uppercase font-semibold text-xs mr-4">Products:</span>
+    <a href="/changelog/" class="btn btn-small btn-grey mr-2 uppercase {{ if eq $currentTag "changelog"}}active{{end}}">All</a>
     {{ range $name, $items := .Site.Taxonomies.changelog }}
       <a href="/changelog/{{ $name | urlize | lower }}" class="btn btn-small btn-grey mr-2 {{ if eq $currentTag ($name | urlize)}}active{{end}}">{{ $name | upper}}</a>
     {{ end }}
