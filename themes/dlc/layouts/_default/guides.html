@@ -6,7 +6,7 @@
 
 <div class="max-w-xl mx-auto pb-4">
   <div class="flex flex-wrap mt-8 -mx-4">
-    {{ range .Paginator.Pages  }}
+    {{ range .Paginator.Pages.ByWeight  }}
       <article class="w-full md:w-1/2 px-4 mb-4 md:mb-8">
         <div class="p-8 h-full bg-ThemeCell tile">
           <header>
@@ -37,7 +37,9 @@
         <h2 class="mt-0 font-normal text-BaseGreenDark">Want more help?</h2>
       </header>
       <p class="text-xl mt-2 font-light">Find answers, ask questions, and help others.</p>
-      <a href="https://linode.com/community/questions" target="_blank" class="btn mt-4">Join our Community</a>
+      <div class="flex">
+        <a href="https://linode.com/community/questions" target="_blank" class="btn mt-4">Join our Community</a>
+      </div>
     </div>
   </article>
 </div>
