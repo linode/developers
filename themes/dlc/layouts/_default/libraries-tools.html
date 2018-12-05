@@ -30,7 +30,7 @@
       <div class="flex mx-auto md:-mx-4 items-center md:justify-center flex-col-reverse md:flex-row mb-2 max-w-xs md:max-w-full">
         <div class="px-4 flex flex-wrap">
           <div style="width: 300px;">
-            {{ partial "2_molecules/code-box.html" }}
+            {{ partial "2_molecules/code-box.html" ( dict "Line1" "pip install linode-cli" "Line2" "linode-cli linodes create") }}
           </div>
           <div class="mt-4 md:hidden flex w-full justify-center"><a href="https://www.linode.com/cli" target="_blank" class="btn text-sm">Linode CLI on GitHub</a></div>
         </div>
