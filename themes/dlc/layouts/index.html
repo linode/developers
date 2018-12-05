@@ -7,7 +7,7 @@
     <section class="header max-w-3xl mx-auto px-4 md:px-8 py-12 relative z-10">
       <h2 class="text-center font-normal text-BaseGreenDark">Manage your Account with the Linode CLI</h2>
       <div class="text-2xl my-3 text-center font-light">All of the functionality of the Manager from the command line.</div>
-      {{ partial "2_molecules/code-box.html" }}
+      {{ partial "2_molecules/code-box.html" ( dict "Line1" "pip install linode-cli" "Line2" "linode-cli linodes create") }}
       <div class="mt-6 text-center"><a href="https://www.linode.com/cli" target="_blank" class="btn mt-3">Get Started with the Linode CLI</a></div>
     </section>
   </div>

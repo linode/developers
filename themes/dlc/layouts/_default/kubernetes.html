@@ -1,0 +1,34 @@
+{{ define "main" }}
+
+<div class="flex flex-wrap mb-8 -mx-4">
+  
+  <div class="w-full px-4">
+    <div class="my-4 md:mt-12 md:mt-8 max-w-3xl">
+      <!-- <div class="mb-4 mt-8 sm:hidden text-center">{{ partial "0_svgs/divider.svg" (dict "width" 170) }}</div> -->
+      <h2 class="font-normal text-BaseGreenDark text-center">Create a Kubernetes Cluster with One Command</h2>
+      <h3 class="font-light text-center text-3xl mt-2">Integrated with Linode NodeBalancers and Block Storage</h3>
+      <div class="flex justify-center mt-4">
+        {{ partial "2_molecules/code-box.html" ( dict "Line1" "linode-cli k8s-alpha create mycluster") }}
+      </div>
+      <div class="flex justify-center mb-12 mt-8 md:mt-0">
+        <a class="btn" href="https://github.com/linode/linode-cli" target="_blank">Get Started with the Linode CLI</a>
+      </div>
+      <div class="flex justify-center my-8">
+        <div class="py-4" style="background-color: #000;">
+          <video width="100%" height='100%' playsinline loop autoPlay muted controls>
+            <source src='{{ "/video/linodek8s.mp4" | relURL }}'
+                    type="video/mp4">
+            <source src='{{ "/video/linodek8s.webm" | relURL }}'
+                    type="video/webm">
+            Sorry, your browser doesn't support embedded videos.
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script> -->
+<!-- <script src={{ "/assets/js/tools.js" | relURL }} type="text/javascript"></script> -->
+{{ end }}
