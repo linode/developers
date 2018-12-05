@@ -26,22 +26,28 @@
   
   <div class="w-full px-4">
     <div class="my-4 md:mt-12 md:mt-8 max-w-3xl">
-      <!-- <div class="mb-4 mt-8 sm:hidden text-center">{{ partial "0_svgs/divider.svg" (dict "width" 170) }}</div> -->
-      <h2 class="font-normal text-BaseGreenDark mb-6 md:mb-0">Tools</h2>
-      <div class="flex -mx-4 md:items-center flex-col-reverse md:flex-row mb-2">
+      <h2 class="font-normal text-BaseGreenDark mb-6 md:mb-0 text-center">Tools</h2>
+      <div class="flex mx-auto md:-mx-4 items-center md:justify-center flex-col-reverse md:flex-row mb-2 max-w-xs md:max-w-full">
         <div class="px-4 flex flex-wrap">
           <div style="width: 300px;">
             {{ partial "2_molecules/code-box.html" }}
           </div>
-          <div class="mt-4 md:hidden flex w-full"><a href="https://www.linode.com/cli" target="_blank" class="btn text-sm">Linode CLI on GitHub</a></div>
+          <div class="mt-4 md:hidden flex w-full justify-center"><a href="https://www.linode.com/cli" target="_blank" class="btn text-sm">Linode CLI on GitHub</a></div>
         </div>
         <div class="px-4">
-          <h3 class="md:text-2xl mt-0 font-normal text-BaseGreenDark">Linode CLI</h3>
-          <div class="md:text-lg my-3 text-light">An easy way to get up and running with the Linode API.</div>
-          <div class="pt-3 hidden hidden md:block"><a href="https://www.linode.com/cli" target="_blank" class="btn text-sm">Linode CLI on GitHub</a></div>
+          <h3 class="md:text-2xl mt-0 font-normal text-BaseGreenDark text-center md:text-left">Linode CLI</h3>
+          <div class="md:text-lg my-3 text-light text-center md:text-left">An easy way to get up and running with the Linode API.</div>
+          <div class="pt-3 hidden md:block"><a href="https://www.linode.com/cli" target="_blank" class="btn text-sm">Linode CLI on GitHub</a></div>
         </div>
       </div>
-      <div class="flex flex-wrap mt-8 md:mb-4 -mx-4">
+      <div class="mx-auto max-w-xs md:max-w-full">
+      <div class="mb-4 mt-8 text-center">{{ partial "0_svgs/divider.svg" (dict "width" 170) }}</div>
+        <h3 class="font-normal text-BaseGreenDark text-center text-2xl mt-2">Create a High Availability Kubernetes Cluster with One Command</h3>
+        <div class="flex justify-center mt-4 mb-12">
+          <a class="btn text-sm" href="/kubernetes">Check Out Our Alpha Kubernetes API</a>
+        </div>
+      </div>
+      <div class="flex flex-wrap mt-12 md:mb-4 -mx-4">
         <article class="item lib-item w-full md:w-1/2 px-4 mb-4 md:mb-8">
           <div class="p-8 h-full bg-ThemeCell tile">
             <header>
