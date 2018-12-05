@@ -1,7 +1,7 @@
 ---
 title: Container Tools
 subtitle: For Developers, by Developers
-Description: Create a High Availability Kubernetes Cluster with One Command
+Description: Create a Kubernetes Cluster with One Command
 author:
   name: Alban Bailly
   email: abailly@linode.com
