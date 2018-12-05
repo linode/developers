@@ -6,10 +6,13 @@
     <div class="my-4 md:mt-12 md:mt-8 max-w-3xl">
       <!-- <div class="mb-4 mt-8 sm:hidden text-center">{{ partial "0_svgs/divider.svg" (dict "width" 170) }}</div> -->
       <h2 class="font-normal text-BaseGreenDark text-center">Create a High Availability Kubernetes Cluster with One Command</h2>
-      <h3 class="font-light text-center text-3xl mt-2">Runs on Linode specs, network specs, storage specs</h3>
+      <h3 class="font-light text-center text-3xl mt-2">Integrated with Linode NodeBalancers and Block Storage</h3>
       <div class="flex justify-center my-8">
-        <div class="p-4 pb-2 bg-black">
-          <video controls width="500">
+        {{ partial "2_molecules/code-box.html" ( dict "Line1" "linode-cli k8s-alpha create mycluster --ha=3") }}
+      </div>
+        <div class="flex justify-center my-8">
+        <div class="py-4" style="background-color: #000;">
+          <video controls width="100%" loop autoplay>
             <source src='{{ "/video/linodek8s.webm" | relURL }}'
                     type="video/webm">
             Sorry, your browser doesn't support embedded videos.
@@ -17,7 +20,7 @@
         </div>
       </div>
       <div class="flex justify-center my-8">
-       <a class="btn" href="https://github.com/linode/linode-cli" target="_blank">Check Out Our Alpha Kubernetes API</a>
+       <a class="btn" href="https://github.com/linode/linode-cli" target="_blank">Get Started with the Linode CLI</a>
       </div>
     </div>
   </div>
