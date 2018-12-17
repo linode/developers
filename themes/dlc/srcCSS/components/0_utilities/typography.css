@@ -5,3 +5,7 @@ h4 a,
 h5 a {
   text-decoration: none !important;
 }
+
+code {
+  @apply p-4 mt-2 mb-8 bg-ThemeBeige block;
+}
