@@ -32,6 +32,11 @@ url = "/libraries-tools/"
 
 [[menu.main]]
 weight = 4
+name = "Kubernetes"
+url = "/kubernetes/"
+
+[[menu.main]]
+weight = 5
 name = "Changelog"
 url = "/changelog/"
 
