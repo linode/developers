@@ -7,4 +7,4 @@ languages:
 - Golang
 external_url: https://github.com/linode/linodego
 ---
-Official Go client for Linode REST v4 API
+Official Go client for Linode APIv4

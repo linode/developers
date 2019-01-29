@@ -7,4 +7,4 @@ languages:
 - PHP
 external_url: https://github.com/illblew/php-linode-unofficial
 ---
-Unofficial Linode API v4 PHP wrapper by [Will Blew](https://github.com/illblew)
+Unofficial Linode APIv4 PHP wrapper by [Will Blew](https://github.com/illblew)
