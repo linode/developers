@@ -1,7 +1,7 @@
 ---
 title: "linode_api4-python"
 description: linode_api4-python
-author: chiefy
+author: linode
 origin: linode
 languages:
 - Python

@@ -1,7 +1,7 @@
 ---
 title: "linodego"
 description: linodego
-author: chiefy
+author: linode
 origin: linode
 languages:
 - Golang

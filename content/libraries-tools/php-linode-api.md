@@ -7,4 +7,4 @@ languages:
 - PHP
 external_url: https://github.com/hnhdigital-os/php-linode-api
 ---
-The v4.01 Linode API for PHP [BETA]
+Unofficial Linode APIv4 PHP wrapper by [H&H|Digital](https://github.com/hnhdigital-os)
