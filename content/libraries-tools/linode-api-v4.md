@@ -7,4 +7,4 @@ languages:
 - PHP
 external_url: https://github.com/idimensionz/linode-api-v4
 ---
-iDimensionz's PHP client for Linode API v4
+Unofficial Linode APIv4 PHP wrapper by [iDimensionz](https://github.com/idimensionz/linode-api-v4)

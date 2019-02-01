@@ -7,4 +7,4 @@ languages:
 - PHP
 external_url: https://github.com/tzurbaev/linode-api
 ---
-Linode API v.4 Unoffical SDK
+Unofficial Linode APIv4 PHP wrapper by [tzurbaev](https://github.com/tzurbaev/linode-api)
