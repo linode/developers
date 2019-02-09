@@ -1,7 +1,29 @@
 module.exports = {
   siteMetadata: {
     title: `Linode Developer Tools`,
-    description: `Linode API Documentation, Guides, and Tools`
+    description: `Linode API Documentation, Guides, and Tools`,
+    menuLinks: [
+      {
+        name: "API Documentation",
+        link: "/api/v4"
+      },
+      {
+        name: "Guides",
+        link: "/guides"
+      },
+      {
+        name: "Libraries & Tools",
+        link: "/libraries-tools"
+      },
+      {
+        name: "Kubernetes",
+        link: "/kubernetes"
+      },
+      {
+        name: "Changelog",
+        link: "/changelog"
+      }
+    ]
   },
   plugins: [
     `gatsby-transformer-remark`,
@@ -31,7 +53,15 @@ module.exports = {
         background_color: `#ccc`,
         theme_color: `#666`,
         display: `minimal-ui`,
-        icon: `src/images/logo.svg` // This path is relative to the root of the site.
+        icon: `src/images/logo.png` // This path is relative to the root of the site.
+      }
+    },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: `${__dirname}/src/images/svgs`
+        }
       }
     },
     `gatsby-plugin-postcss`,

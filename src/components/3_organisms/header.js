@@ -1,32 +1,13 @@
 import React from "react";
-import { StaticQuery, graphql } from "gatsby";
-import { Link } from "gatsby";
+import Menu from "../2_molecules/menu";
 
-const Logo = ({ data }) => {
-  const name = data.site.siteMetadata.title;
-  return (
-    <div>
-      <Link to="/">{name}</Link>
-      <Link to="/guides">Guides</Link>
-    </div>
-  );
-};
+import Logo from "../../images/svgs/logo.svg";
 
-const Header = () => {
-  return (
-    <StaticQuery
-      query={graphql`
-        query {
-          site {
-            siteMetadata {
-              title
-            }
-          }
-        }
-      `}
-      render={data => <Logo data={data} />}
-    />
-  );
-};
+const Header = ({ siteTitle, menuLinks }) => (
+  <>
+    <Logo />
+    <Menu menuLinks={menuLinks} />
+  </>
+);
 
 export default Header;
