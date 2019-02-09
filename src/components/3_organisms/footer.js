@@ -7,12 +7,20 @@ const Footer = () => (
         &copy; {new Date().getFullYear()} Linode, LLC
       </div>
       <div className="w-full sm:w-1/3 px-2 text-center">
-        <a href="https://www.linode.com/security" target="_blank">
+        <a
+          href="https://www.linode.com/security"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Security
         </a>
       </div>
       <div className="w-full sm:w-1/3 px-2 text-center">
-        <a href="https://www.linode.com/compliance" target="_blank">
+        <a
+          href="https://www.linode.com/compliance"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Standards &amp; Compliance
         </a>
       </div>
