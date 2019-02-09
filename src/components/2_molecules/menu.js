@@ -3,11 +3,16 @@ import PropTypes from "prop-types";
 import { Link } from "gatsby";
 
 const Menu = ({ menuLinks }) => (
-  <nav>
+  <nav id="main-menu" role="menu" className="main-nav" aria-expanded="false">
     {menuLinks.map(link => (
-      <li key={link.name}>
-        <Link to={link.link}>{link.name}</Link>
-      </li>
+      <Link
+        key={link.name}
+        to={link.link}
+        className="main-nav-link text-BaseNavGrey hover:text-white relative"
+        role="menuitem"
+      >
+        {link.name}
+      </Link>
     ))}
   </nav>
 );
