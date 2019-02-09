@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
 
 import Header from "../3_organisms/header";
+import Footer from "../3_organisms/footer";
 import FooterNav from "../3_organisms/footer-nav";
 import "../../css/main.css";
 
@@ -32,7 +33,7 @@ const Layout = ({ children }) => (
         </div>
         <div className="footer-nav-wrapper bg-black">
           <footer className="max-w-3xl mx-auto py-8 px-4 md:px-8 text-white">
-            © {new Date().getFullYear()}, Linode
+            <Footer />
           </footer>
         </div>
         <div class="footer-wrapper bg-BaseBlackFull">
