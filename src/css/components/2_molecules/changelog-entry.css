@@ -1,0 +1,13 @@
+.changelog-entry h3 {
+  @apply tag;
+  display: inline-block;
+  margin-top: 13px;
+}
+
+.changelog-entry > ul {
+  @apply my-4;
+}
+
+.int-changelog .changelog-product {
+  display: none;
+}

@@ -1,0 +1,11 @@
+.bg-ThemeCell footer {
+  position: relative;
+  z-index: 2;
+}
+
+.page-load-status {
+  display: none; /* hidden by default */
+  padding-top: 20px;
+  text-align: center;
+  color: #777;
+}

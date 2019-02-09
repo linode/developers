@@ -1,0 +1,29 @@
+.tile {
+  position: relative;
+  outline: 2px solid white;
+  outline-offset: -10px;
+  transition: border-color 225ms ease-in-out;
+}
+
+.tile-link::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.tile section,
+.tile .origin {
+  transition: color 225ms ease-in-out;
+}
+
+.tile-link:hover {
+  @apply text-BaseGreen;
+}
+
+
+.tile:hover .origin {
+  @apply text-BaseGreenDark;
+}
