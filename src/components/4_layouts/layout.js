@@ -2,12 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
 
+import Banner from "../3_organisms/banner";
 import Header from "../3_organisms/header";
 import Footer from "../3_organisms/footer";
 import FooterNav from "../3_organisms/footer-nav";
 import "../../css/main.css";
 
-const Layout = ({ children }) => (
+const Layout = ({ children, title, subtitle }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -28,6 +29,7 @@ const Layout = ({ children }) => (
           siteTitle={data.site.siteMetadata.title}
           menuLinks={data.site.siteMetadata.menuLinks}
         />
+        {title && subtitle && <Banner title={title} subtitle={subtitle} />}
         <div className="main-wrapper max-w-3xl mx-auto py-2 px-4 md:px-8">
           <main className="main">{children}</main>
         </div>

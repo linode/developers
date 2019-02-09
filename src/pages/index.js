@@ -5,7 +5,7 @@ import SEO from "../components/0_utlilities/seo";
 
 const IndexPage = ({ data }) => {
   return (
-    <Layout>
+    <Layout title="Developer Tools" subtitle="For Developers, by Developers">
       <SEO title="Home" description="" />
       home
     </Layout>
