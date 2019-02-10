@@ -180,7 +180,7 @@ export const query = graphql`
           html
           frontmatter {
             title
-            start_date
+            start_date(formatString: "MMM DD, YYYY")
             event_url
             location
           }
