@@ -6,7 +6,7 @@
 }
 
 .tile-link::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -23,7 +23,10 @@
   @apply text-BaseGreen;
 }
 
-
 .tile:hover .origin {
   @apply text-BaseGreenDark;
+}
+
+.tile p:first-child {
+  margin-top: 0;
 }

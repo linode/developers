@@ -4,7 +4,9 @@ description: linode-api-v4
 author: iDimensionz
 origin: community
 languages:
-- PHP
+  - PHP
 external_url: https://github.com/idimensionz/linode-api-v4
+weight: 3
 ---
+
 Unofficial Linode APIv4 PHP wrapper by [iDimensionz](https://github.com/idimensionz/linode-api-v4)
