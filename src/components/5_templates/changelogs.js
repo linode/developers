@@ -1,27 +1,35 @@
 import React from "react";
 // import PropTypes from "prop-types";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 
 import Layout from "../../components/4_layouts/layout";
 import SEO from "../../components/0_utlilities/seo";
+import ChangelogNav from "../../components/2_molecules/changelog-nav";
+import ChangelogItem from "../../components/2_molecules/changelog-item";
 
 const Changelogs = ({ pageContext, data }) => {
-  const { changelog } = pageContext;
-  const { edges, totalCount } = data.allMarkdownRemark;
-  const tagHeader = `${totalCount} post${
-    totalCount === 1 ? "" : "s"
-  } tagged with "${changelog}"`;
+  const { edges } = data.allMarkdownRemark;
 
   return (
     <Layout title="Changelog" subtitle="Latest updates from the Linode team">
       <SEO title="Changelog" description="" />
-      {/* <h1>{tagHeader}</h1> */}
-      <ul>
+      <div className="container mx-auto max-w-lg my-8">
+        <ChangelogNav />
+        {/* <h1>{tagHeader}</h1> */}
         {edges.map(({ node }) => {
-          const { title } = node.frontmatter;
-          return <li key={title}>{title}</li>;
+          const { title, date, version } = node.frontmatter;
+          const { id, html } = node;
+          return (
+            <ChangelogItem
+              key={id}
+              title={title}
+              date={date}
+              version={version}
+              html={html}
+            />
+          );
         })}
-      </ul>
+      </div>
     </Layout>
   );
 };
@@ -59,8 +67,12 @@ export const query = graphql`
       totalCount
       edges {
         node {
+          id
+          html
           frontmatter {
             title
+            date(fromNow: true)
+            version
           }
         }
       }
