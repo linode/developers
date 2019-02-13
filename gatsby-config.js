@@ -70,7 +70,7 @@ module.exports = {
       options: {
         develop: true,
         tailwind: true,
-        whitelist: ["mobile-nav", "active", "error"],
+        whitelist: ["mobile-nav", "active", "error", "open"],
         purgeOnly: ["src/css/main.css"] // Purge only tailwind
       }
     }
