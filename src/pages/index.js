@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 
 import Layout from "../components/4_layouts/layout";
 import SEO from "../components/0_utlilities/seo";
+import CodeBox from "../components/2_molecules/code-box";
 
 const IndexPage = ({ data }) => {
   const { edges } = data.allMarkdownRemark;
@@ -17,6 +18,10 @@ const IndexPage = ({ data }) => {
           <div className="text-2xl my-3 text-center font-light">
             All of the functionality of the Manager from the command line.
           </div>
+          <CodeBox
+            line1="pip install linode-cli"
+            line2="linode-cli linodes create"
+          />
           {/* {{ partial "2_molecules/code-box.html" ( dict "Line1" "pip install linode-cli" "Line2" "linode-cli linodes create") }} */}
           <div className="mt-6 text-center">
             <a

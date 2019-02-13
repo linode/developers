@@ -1,6 +1,7 @@
 import React from "react";
 import Layout from "../components/4_layouts/layout";
 import SEO from "../components/0_utlilities/seo";
+import CodeBox from "../components/2_molecules/code-box";
 
 const KubernetesPage = () => {
   return (
@@ -12,7 +13,12 @@ const KubernetesPage = () => {
             <h2 className="font-normal text-BaseGreenDark text-center">
               Create a Kubernetes Cluster with One Command
             </h2>
-            <div className="flex justify-center mt-4">code box</div>
+            <div className="flex justify-center mt-4">
+              <CodeBox
+                line1="pip install linode-cli"
+                line2="linode-cli k8s-alpha create mycluster"
+              />
+            </div>
             <div className="flex justify-center mb-10 mt-8 md:mt-0">
               <a
                 className="btn"
