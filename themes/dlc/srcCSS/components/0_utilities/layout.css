@@ -2,3 +2,7 @@
   position: relative;
   z-index: 2;
 }
+
+.linode-api-documentation-wl {
+  overflow: hidden;
+}
