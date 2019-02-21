@@ -73,7 +73,14 @@ module.exports = {
         whitelist: ["mobile-nav", "active", "error", "open"],
         purgeOnly: ["src/css/main.css"] // Purge only tailwind
       }
-    }
+    },
+    `gatsby-transformer-yaml`,
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `./src/data`
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
