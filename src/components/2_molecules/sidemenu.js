@@ -1,26 +1,24 @@
 import React from "react";
 // import PropTypes from "prop-types";
-import { graphql } from "gatsby";
+import { graphql, StaticQuery } from "gatsby";
 
-// const groupFieldsByEndpoint = (fields) => {
-  
-// }
-
-const Sidebar = ({ fields }) => {
-  const query = graphql`
-  query {
-    dataYaml {
-      paths {
-        ${fields}
-      }
-    }
-  }
-`
-  return (
-    <div>
-
-    </div>
-  );
+const SideMenu = () => {
+  return <div />;
 };
 
-export default Sidebar;
+// export default props => (
+//   <StaticQuery
+//     query={graphql`
+//       query ApiPathsQuery {
+//         allOpenApiSpecPath {
+//           edges {
+//             node {
+//               name
+//             }
+//           }
+//         }
+//       }
+//     `}
+//     render={data => <SideMenu data={data} {...props} />}
+//   />
+// );

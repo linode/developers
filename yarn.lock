@@ -1349,7 +1349,7 @@ babel-preset-gatsby@^0.1.6:
     "@babel/preset-react" "^7.0.0"
     babel-plugin-macros "^2.4.2"
 
-babel-runtime@^6.26.0, babel-runtime@^6.9.2:
+babel-runtime@6.26.0, babel-runtime@^6.26.0, babel-runtime@^6.9.2:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
   dependencies:
@@ -4231,6 +4231,13 @@ gatsby-source-filesystem@^2.0.1-rc.6:
     slash "^1.0.0"
     valid-url "^1.0.9"
     xstate "^3.1.0"
+
+gatsby-source-openapi-aggregate@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/gatsby-source-openapi-aggregate/-/gatsby-source-openapi-aggregate-0.2.1.tgz#8895f160c2a1b30edbc0000fe201e07be40a266f"
+  integrity sha512-gqjMMTMogLnpeWQSCq6Gu0czNlkQqWNHdV3eIS+4tCFosiKsxQeYvBJ1ZmI1YNpWcxnL0UiV8bPzz2xlamKJzg==
+  dependencies:
+    babel-runtime "6.26.0"
 
 gatsby-transformer-remark@^2.1.1-rc.5:
   version "2.1.1-rc.5"

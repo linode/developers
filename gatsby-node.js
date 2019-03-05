@@ -6,8 +6,9 @@ exports.createPages = ({ actions, graphql }) => {
   const changelogTemplate = path.resolve(
     "src/components/5_templates/changelogs.js"
   );
+  const apiTemplate = path.resolve("src/components/5_templates/api.js");
 
-  return graphql(`
+  const changelogs = graphql(`
     {
       allMarkdownRemark(
         sort: { order: DESC, fields: [frontmatter___date] }
@@ -39,7 +40,6 @@ exports.createPages = ({ actions, graphql }) => {
 
     // Make tag pages
     tags.forEach(changelog => {
-      console.log(changelog);
       createPage({
         path: `/changelog/${_.kebabCase(changelog)}/`,
         component: changelogTemplate,
@@ -49,4 +49,32 @@ exports.createPages = ({ actions, graphql }) => {
       });
     });
   });
+
+  const specs = graphql(`
+    {
+      allOpenApiSpec {
+        edges {
+          node {
+            id
+            name
+          }
+        }
+      }
+    }
+  `).then(result => {
+    if (result.errors) {
+      return Promise.reject(result.errors);
+    }
+
+    result.data.allOpenApiSpec.edges.map(({ node }) => {
+      createPage({
+        path: `api/v4/${node.name}`,
+        component: apiTemplate,
+        context: {
+          id: node.id
+        }
+      });
+    });
+  });
+  return Promise.all([changelogs, specs]);
 };
