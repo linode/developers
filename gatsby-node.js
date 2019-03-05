@@ -1,14 +1,14 @@
 const path = require("path");
 const _ = require("lodash");
 
-exports.createPages = ({ actions, graphql }) => {
+exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
   const changelogTemplate = path.resolve(
     "src/components/5_templates/changelogs.js"
   );
   const apiTemplate = path.resolve("src/components/5_templates/api.js");
 
-  const changelogs = graphql(`
+  const changelogs = await graphql(`
     {
       allMarkdownRemark(
         sort: { order: DESC, fields: [frontmatter___date] }
@@ -50,7 +50,7 @@ exports.createPages = ({ actions, graphql }) => {
     });
   });
 
-  const specs = graphql(`
+  const specs = await graphql(`
     {
       allOpenApiSpec {
         edges {
