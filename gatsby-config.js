@@ -89,19 +89,6 @@ module.exports = {
         whitelist: ["mobile-nav", "active", "error", "open"],
         purgeOnly: ["src/css/main.css"] // Purge only tailwind
       }
-    },
-    {
-      resolve: `gatsby-source-openapi-aggregate`,
-      options: {
-        specs: [
-          {
-            name: "myspec", // required, must be unique
-            // resolve: `${__dirname}/src/data/spec.json`
-            resolve: () =>
-              fromJson(path.resolve(__dirname, "./src/data/spec.json"))
-          }
-        ]
-      }
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline

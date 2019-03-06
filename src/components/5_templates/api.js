@@ -1,40 +1,14 @@
-import { graphql } from "gatsby";
+import React from "react";
 
-export const query = graphql`
-  query ApiQuery($id: String!) {
-    openApiSpec(id: { eq: $id }) {
-      version
-      title
-      description
-      childrenOpenApiSpecPath {
-        name
-        verb
-        summary
-        description
-        parameters {
-          name
-          in
-          description
-          required
-          type
-          format
-        }
-        tag
-        childrenOpenApiSpecResponse {
-          id
-          statusCode
-          description
-          childrenOpenApiSpecDefinition {
-            name
-            properties {
-              name
-              type
-              description
-              format
-            }
-          }
-        }
-      }
-    }
-  }
-`;
+import Layout from "../../components/4_layouts/layout";
+import SEO from "../../components/0_utlilities/seo";
+import Sidebar from "../../components/2_molecules/sidemenu";
+
+const apiPage = () => (
+  <Layout title="API Documentation" subtitle="Linode API Documentation">
+    <SEO title="API Documentation" description="" />
+    <Sidebar />
+  </Layout>
+);
+
+export default apiPage;

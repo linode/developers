@@ -52,11 +52,12 @@ exports.createPages = async ({ actions, graphql }) => {
 
   const specs = await graphql(`
     {
-      allOpenApiSpec {
+      allMarkdownRemark {
         edges {
           node {
-            id
-            name
+            frontmatter {
+              changelog
+            }
           }
         }
       }
@@ -66,15 +67,18 @@ exports.createPages = async ({ actions, graphql }) => {
       return Promise.reject(result.errors);
     }
 
-    result.data.allOpenApiSpec.edges.map(({ node }) => {
+    const specsapi = require("./src/data/spec.json");
+
+    Object.keys(specsapi.paths).forEach(name => {
       createPage({
-        path: `api/v4/${node.name}`,
+        path: `api/v4${name}`,
         component: apiTemplate,
         context: {
-          id: node.id
+          name
         }
       });
     });
   });
+
   return Promise.all([changelogs, specs]);
 };

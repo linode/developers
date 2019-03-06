@@ -7,11 +7,10 @@ import SEO from "../../components/0_utlilities/seo";
 import Sidebar from "../../components/2_molecules/sidemenu";
 
 const APIDocs = ({ data }) => {
-  // const { fields } = data.__type;
-
   return (
     <Layout title="API Documentation" subtitle="Linode API Documentation">
       <SEO title="API Documentation" description="" />
+
       <Sidebar />
     </Layout>
   );

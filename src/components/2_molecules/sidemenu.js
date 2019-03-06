@@ -1,32 +1,23 @@
 import React from "react";
-import { graphql, StaticQuery } from "gatsby";
+// import { graphql, StaticQuery } from "gatsby";
 
-const SideMenu = ({ data }) => (
+const specs = require("../../data/spec.json");
+
+console.log(specs.paths);
+
+const SideMenu = () => (
   <React.Fragment>
-    {data.allOpenApiSpecPath.edges.map(edge => {
-      const { name } = edge.node;
+    {Object.keys(specs.paths).map(name => {
+      // const { eu } = name;
       return (
         <ul>
-          <li>{name}</li>
+          <li>
+            <a href={`/api/v4${name}`}>{name}</a>
+          </li>
         </ul>
       );
     })}
   </React.Fragment>
 );
 
-export default props => (
-  <StaticQuery
-    query={graphql`
-      query ApiPathsQuery {
-        allOpenApiSpecPath {
-          edges {
-            node {
-              name
-            }
-          }
-        }
-      }
-    `}
-    render={data => <SideMenu data={data} {...props} />}
-  />
-);
+export default SideMenu;
