@@ -16,13 +16,17 @@ const apiPage = ({ pageContext }) => {
   return (
     <Layout title="API Documentation" subtitle="Linode API Documentation">
       <SEO title="API Documentation" description="" />
+      <h1>
+        {(node["get"] && node["get"].tags) ||
+          (node["put"] && node["put"].tags) ||
+          (node["post"] && node["post"].tags)}
+      </h1>
       {Object.keys(node).map(e => {
         const mode = modes[e];
         const n = node[mode];
         return (
           mode !== undefined && (
             <div key={e}>
-              <h1>{n.tags}</h1>
               <h2>{mode}</h2>
               <p>{n.summary}</p>
             </div>
