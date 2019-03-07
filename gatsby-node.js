@@ -68,7 +68,6 @@ exports.createPages = async ({ actions, graphql }) => {
     }
 
     const specsapi = require("./src/data/spec.json");
-
     Object.keys(specsapi.paths).forEach(name => {
       createPage({
         path: `api/v4${name}`,

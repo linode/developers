@@ -3,20 +3,17 @@ import React from "react";
 
 const specs = require("../../data/spec.json");
 
-console.log(specs.paths);
-
 const SideMenu = () => (
   <React.Fragment>
-    {Object.keys(specs.paths).map(name => {
-      // const { eu } = name;
-      return (
-        <ul>
-          <li>
+    <ul>
+      {Object.keys(specs.paths).map(name => {
+        return (
+          <li key={name}>
             <a href={`/api/v4${name}`}>{name}</a>
           </li>
-        </ul>
-      );
-    })}
+        );
+      })}
+    </ul>
   </React.Fragment>
 );
 
