@@ -1,5 +1,63 @@
+const JsonSchemaRefParser = require("json-schema-ref-parser");
 const path = require("path");
 const _ = require("lodash");
+// const axios = require("axios");
+
+const specs = require("./src/data/spec.json");
+const crypto = require("crypto");
+const parser = new JsonSchemaRefParser();
+
+exports.sourceNodes = async ({ actions }) => {
+  const { createNode } = actions;
+  const res = await parser.dereference(specs);
+
+  // map into these results and create nodes
+  Object.keys(res.paths).map((path, i) => {
+    // Create your node object
+    const pathNode = {
+      // Required fields
+      id: `${i}`,
+      parent: `__SOURCE__`,
+      internal: {
+        type: `Paths` // name of the graphQL query --> allRandomUser {}
+        // contentDigest will be added just after
+        // but it is required
+      },
+      children: [],
+
+      // Other fields that you want to query with graphQl
+      name: path,
+      get: res.paths[path].get,
+      post: res.paths[path].post,
+      put: res.paths[path].put,
+      responses: res.paths[path].responses
+      // name: {
+      //   title: user.name.title,
+      //   first: user.name.first,
+      //   last: user.name.last
+      // },
+      // picture: {
+      //   large: user.picture.large,
+      //   medium: user.picture.medium,
+      //   thumbnail: user.picture.thumbnail
+      // }
+      // etc...
+    };
+
+    // Get content digest of node. (Required field)
+    const contentDigest = crypto
+      .createHash(`md5`)
+      .update(JSON.stringify(pathNode))
+      .digest(`hex`);
+    // add it to userNode
+    pathNode.internal.contentDigest = contentDigest;
+
+    // Create node with the gatsby createNode() API
+    createNode(pathNode);
+  });
+
+  return;
+};
 
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
@@ -50,14 +108,12 @@ exports.createPages = async ({ actions, graphql }) => {
     });
   });
 
-  const specs = await graphql(`
+  const specsPages = await graphql(`
     {
-      allMarkdownRemark {
+      allPaths {
         edges {
           node {
-            frontmatter {
-              changelog
-            }
+            name
           }
         }
       }
@@ -66,9 +122,15 @@ exports.createPages = async ({ actions, graphql }) => {
     if (result.errors) {
       return Promise.reject(result.errors);
     }
-
-    const specsapi = require("./src/data/spec.json");
-    Object.keys(specsapi.paths).forEach(name => {
+    const res = result.data.allPaths.edges;
+    let paths = [];
+    _.each(res, edge => {
+      if (_.get(edge, "node.name")) {
+        paths = paths.concat(edge.node.name);
+      }
+    });
+    paths = _.uniq(paths);
+    paths.forEach(name => {
       createPage({
         path: `api/v4${name}`,
         component: apiTemplate,
@@ -79,5 +141,5 @@ exports.createPages = async ({ actions, graphql }) => {
     });
   });
 
-  return Promise.all([changelogs, specs]);
+  return Promise.all([changelogs, specsPages]);
 };

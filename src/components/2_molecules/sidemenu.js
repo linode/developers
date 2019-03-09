@@ -1,20 +1,51 @@
 import React from "react";
-// import { graphql, StaticQuery } from "gatsby";
+import { graphql, StaticQuery } from "gatsby";
 
-const specs = require("../../data/spec.json");
-
-const SideMenu = () => (
-  <React.Fragment>
+const SideMenu = ({ data }) => {
+  const nodes = data.allPaths.edges;
+  return (
     <ul>
-      {Object.keys(specs.paths).map(name => {
+      {nodes.map((node, i) => {
+        const n = node.node;
         return (
-          <li key={name}>
-            <a href={`/api/v4${name}`}>{name}</a>
+          <li key={i} className="list-reset">
+            <a href={`/api/v4${n.name}`}>
+              {(n.get && n.get.summary) ||
+                (n.post && n.post.summary) ||
+                (n.put && n.put.summary)}
+            </a>
           </li>
         );
       })}
     </ul>
-  </React.Fragment>
-);
+  );
+};
 
-export default SideMenu;
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query {
+        allPaths {
+          edges {
+            node {
+              internal {
+                contentDigest
+              }
+              name
+              get {
+                summary
+              }
+              post {
+                summary
+              }
+              put {
+                summary
+              }
+            }
+          }
+        }
+      }
+    `}
+    render={data => <SideMenu data={data} {...props} />}
+  />
+);
