@@ -113,6 +113,7 @@ exports.createPages = async ({ actions, graphql }) => {
       allPaths {
         edges {
           node {
+            id
             name
           }
         }

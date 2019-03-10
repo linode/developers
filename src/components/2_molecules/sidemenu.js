@@ -8,13 +8,23 @@ const SideMenu = ({ data }) => {
       {nodes.map((node, i) => {
         const n = node.node;
         return (
-          <li key={i} className="list-reset">
-            <a href={`/api/v4${n.name}`}>
-              {(n.get && n.get.summary) ||
-                (n.post && n.post.summary) ||
-                (n.put && n.put.summary)}
-            </a>
-          </li>
+          <div key={i}>
+            {n.get && (
+              <li className="list-reset">
+                <a href={`/api/v4${n.name}`}>{n.get.summary}</a>
+              </li>
+            )}
+            {n.post && (
+              <li className="list-reset">
+                <a href={`/api/v4${n.name}`}>{n.post.summary}</a>
+              </li>
+            )}
+            {n.put && (
+              <li className="list-reset">
+                <a href={`/api/v4${n.name}`}>{n.put.summary}</a>
+              </li>
+            )}
+          </div>
         );
       })}
     </ul>
@@ -28,9 +38,6 @@ export default props => (
         allPaths {
           edges {
             node {
-              internal {
-                contentDigest
-              }
               name
               get {
                 summary
