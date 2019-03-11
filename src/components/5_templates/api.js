@@ -8,7 +8,7 @@ import Sidebar from "../../components/2_molecules/sidemenu";
 const apiPage = ({ data }) => {
   // const node = pageContext.name;
   const n = data.allPaths.edges[0].node;
-  console.log(n);
+  // console.log(n);
   return (
     <Layout title="API Documentation" subtitle="Linode API Documentation">
       <SEO title="API Documentation" description="" />
