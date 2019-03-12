@@ -5,6 +5,8 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "axios": "^0.18.0",
+    "crypto": "^1.0.1",
     "gatsby": "^2.0.115",
     "gatsby-image": "^2.0.29",
     "gatsby-plugin-manifest": "^2.0.17",
@@ -17,11 +19,14 @@
     "gatsby-source-filesystem": "^2.0.1-rc.6",
     "gatsby-transformer-remark": "^2.1.1-rc.5",
     "gatsby-transformer-sharp": "^2.1.13",
+    "gatsby-transformer-yaml": "^2.1.8",
+    "json-schema-ref-parser": "^6.1.0",
     "postcss-easy-import": "^3.0.0",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-helmet": "^5.2.0",
+    "swagger-parser": "^6.0.5",
     "tailwindcss": "^0.7.4"
   },
   "keywords": [

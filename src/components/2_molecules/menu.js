@@ -23,17 +23,16 @@ class Menu extends React.Component {
 
     return (
       <>
-        <a
+        <button
           aria-label="mobile menu button"
           id="menu-icon"
           className={`menu-icon ${menuOpen ? "open" : ""}`}
-          href="javascript:;"
           onClick={() => this.toggleMenu()}
         >
           <span className="bar top" />
           <span className="bar middle" />
           <span className="bar bottom" />
-        </a>
+        </button>
         <nav
           id="main-menu"
           role="menu"
