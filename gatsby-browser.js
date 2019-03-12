@@ -4,4 +4,19 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-// You can delete this file if you're not using it
+const transitionDelay = 50;
+
+exports.shouldUpdateScroll = ({ routerProps: { location } }) => {
+  if (!location.hash) {
+    window.setTimeout(() => window.scrollTo(0, 0), transitionDelay);
+  } else {
+    window.setTimeout(
+      () =>
+        document
+          .getElementById(location.hash.substr(1))
+          .scrollIntoView({ behavior: "smooth" }),
+      transitionDelay
+    );
+  }
+  return false;
+};

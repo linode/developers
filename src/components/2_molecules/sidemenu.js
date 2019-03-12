@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql, StaticQuery } from "gatsby";
+import { Link } from "gatsby";
 
 const _ = require("lodash");
 
@@ -18,23 +19,23 @@ const SideMenu = ({ data }) => {
                 <div key={i}>
                   {n.get && (
                     <li className="list-reset">
-                      <a href={`/api/v4/${_.kebabCase(n.name)}#get`}>
+                      <Link to={`/api/v4/${_.kebabCase(n.name)}#get`}>
                         {n.get.summary}
-                      </a>
+                      </Link>
                     </li>
                   )}
                   {n.post && (
                     <li className="list-reset">
-                      <a href={`/api/v4/${_.kebabCase(n.name)}#post`}>
+                      <Link to={`/api/v4/${_.kebabCase(n.name)}#post`}>
                         {n.post.summary}
-                      </a>
+                      </Link>
                     </li>
                   )}
                   {n.put && (
                     <li className="list-reset">
-                      <a href={`/api/v4/${_.kebabCase(n.name)}#put`}>
+                      <Link to={`/api/v4/${_.kebabCase(n.name)}#put`}>
                         {n.put.summary}
-                      </a>
+                      </Link>
                     </li>
                   )}
                 </div>

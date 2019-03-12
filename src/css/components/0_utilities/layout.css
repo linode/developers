@@ -9,3 +9,9 @@
   text-align: center;
   color: #777;
 }
+
+html {
+  height: inherit;
+  width: inherit;
+  overflow: inherit;
+}
