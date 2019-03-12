@@ -133,7 +133,7 @@ exports.createPages = async ({ actions, graphql }) => {
     paths = _.uniq(paths);
     paths.forEach(name => {
       createPage({
-        path: `api/v4${name}`,
+        path: `api/v4/${_.kebabCase(name)}`,
         component: apiTemplate,
         context: {
           name
