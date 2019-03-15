@@ -17,11 +17,15 @@ export default class Search extends Component {
   render() {
     return (
       <div>
-        <input type="text" value={this.state.query} onChange={this.search} />
-        <ul>
+        <input
+          type="text"
+          value={this.state.query}
+          onChange={this.search}
+          placeholder="Search"
+        />
+        <ul className="p-0">
           {this.state.results.map((n, i) => {
             const { query } = this.state;
-
             return (
               <div key={i}>
                 {n.getSummary &&
@@ -58,6 +62,7 @@ export default class Search extends Component {
       </div>
     );
   }
+
   getOrCreateIndex = () =>
     this.index
       ? this.index

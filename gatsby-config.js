@@ -84,10 +84,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-purgecss`,
       options: {
-        develop: true,
         tailwind: true,
         whitelist: ["mobile-nav", "active", "error", "open"],
-        purgeOnly: ["src/css/main.css"] // Purge only tailwind
+        purgeOnly: ["src/css/main.css"], // Purge only tailwind
+        develop: true
       }
     },
     {
