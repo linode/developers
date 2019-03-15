@@ -15,7 +15,6 @@ export default class Search extends Component {
   }
 
   render() {
-    console.log(this.state.results);
     return (
       <div>
         <input type="text" value={this.state.query} onChange={this.search} />
@@ -52,8 +51,8 @@ export default class Search extends Component {
               </div>
             );
           })}
-          {this.state.query && this.state.results.length == 0 && (
-            <div className>No results</div>
+          {this.state.query && this.state.results.length === 0 && (
+            <div>No results</div>
           )}
         </ul>
       </div>
