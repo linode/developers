@@ -30,10 +30,10 @@ const apiPage = ({ data }) => {
               (n.post && n.get.post) ||
               (n.put && n.put.tags)}
           </h1>
+
           {Object.keys(n).map(e => {
             const mode = modes[e];
             const m = n[mode];
-            // console.log(m);
             return (
               m && (
                 <div key={e} className="mb-8">

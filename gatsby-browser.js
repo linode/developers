@@ -14,7 +14,7 @@ exports.shouldUpdateScroll = ({ routerProps: { location } }) => {
       () =>
         document
           .getElementById(location.hash.substr(1))
-          .scrollIntoView({ behavior: "smooth" }),
+          .scrollIntoView({ block: "start", behavior: "smooth" }),
       transitionDelay
     );
   }

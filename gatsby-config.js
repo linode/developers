@@ -89,6 +89,21 @@ module.exports = {
         whitelist: ["mobile-nav", "active", "error", "open"],
         purgeOnly: ["src/css/main.css"] // Purge only tailwind
       }
+    },
+    {
+      resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
+      options: {
+        // Fields to index
+        fields: [`name`, `getSummary`, `putSummary`, `postSummary`],
+        resolvers: {
+          Paths: {
+            name: node => node.name,
+            getSummary: node => node["get"] && node["get"].summary,
+            putSummary: node => node["put"] && node["put"].summary,
+            postSummary: node => node["post"] && node["post"].summary
+          }
+        }
+      }
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
