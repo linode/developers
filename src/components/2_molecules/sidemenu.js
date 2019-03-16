@@ -41,8 +41,8 @@ class SideMenu extends React.Component {
         <SearchHeader />
         <Collapse
           accordion={true}
-          activeKey={activeKey}
-          onChange={this.onChange}
+          // activeKey={activeKey}
+          // onChange={this.onChange}
         >
           {groups.map((group, i) => {
             // console.log(activeKey);
@@ -56,7 +56,7 @@ class SideMenu extends React.Component {
                         <li className="list-reset">
                           <Link
                             to={`/api/v4/${_.kebabCase(n.name)}`}
-                            // onClick={this.setActivePage(n.name)}
+                            onClick={() => this.setActivePage(n.name)}
                           >
                             {n.get.summary}
                           </Link>
@@ -66,7 +66,7 @@ class SideMenu extends React.Component {
                         <li className="list-reset">
                           <Link
                             to={`/api/v4/${_.kebabCase(n.name)}#post`}
-                            // onClick={this.setActivePage(n.name)}
+                            onClick={() => this.setActivePage(n.name)}
                           >
                             {n.post.summary}
                           </Link>
@@ -76,7 +76,7 @@ class SideMenu extends React.Component {
                         <li className="list-reset">
                           <Link
                             to={`/api/v4/${_.kebabCase(n.name)}#put`}
-                            // onClick={this.setActivePage(n.name)}
+                            onClick={() => this.setActivePage(n.name)}
                           >
                             {n.put.summary}
                           </Link>
