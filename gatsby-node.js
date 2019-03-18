@@ -30,18 +30,8 @@ exports.sourceNodes = async ({ actions }) => {
       get: res.paths[path].get,
       post: res.paths[path].post,
       put: res.paths[path].put,
+      delete: res.paths[path].delete,
       responses: res.paths[path].responses
-      // name: {
-      //   title: user.name.title,
-      //   first: user.name.first,
-      //   last: user.name.last
-      // },
-      // picture: {
-      //   large: user.picture.large,
-      //   medium: user.picture.medium,
-      //   thumbnail: user.picture.thumbnail
-      // }
-      // etc...
     };
 
     // Get content digest of node. (Required field)

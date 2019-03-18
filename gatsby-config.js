@@ -94,13 +94,20 @@ module.exports = {
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
       options: {
         // Fields to index
-        fields: [`name`, `getSummary`, `putSummary`, `postSummary`],
+        fields: [
+          `name`,
+          `getSummary`,
+          `putSummary`,
+          `postSummary`,
+          `deleteSummary`
+        ],
         resolvers: {
           Paths: {
             name: node => node.name,
             getSummary: node => node["get"] && node["get"].summary,
             putSummary: node => node["put"] && node["put"].summary,
-            postSummary: node => node["post"] && node["post"].summary
+            postSummary: node => node["post"] && node["post"].summary,
+            deleteSummary: node => node["delete"] && node["delete"].summary
           }
         }
       }

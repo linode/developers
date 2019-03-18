@@ -10,7 +10,8 @@ const apiPage = ({ data }) => {
   const modes = {
     get: "get",
     post: "post",
-    put: "put"
+    put: "put",
+    delete: "delete"
   };
   const responses = {
     _200: "_200",
@@ -27,8 +28,9 @@ const apiPage = ({ data }) => {
         <div className="w-full md:w-3/4 pl-8">
           <h1>
             {(n.get && n.get.tags) ||
-              (n.post && n.get.post) ||
-              (n.put && n.put.tags)}
+              (n.post && n.post.tags) ||
+              (n.put && n.put.tags) ||
+              (n.delete && n.delete.tags)}
           </h1>
 
           {Object.keys(n).map(e => {
@@ -55,7 +57,7 @@ const apiPage = ({ data }) => {
                           </p>
                           <ul>
                             {r.content &&
-                              r.content.application_json &&
+                              r.content.application_json.schema.properties &&
                               Object.keys(
                                 r.content.application_json.schema.properties
                               ).map((p, i) => {
@@ -1365,6 +1367,56 @@ export const query = graphql`
                       properties {
                         errors {
                           items {
+                            properties {
+                              reason {
+                                type
+                                description
+                                example
+                              }
+                              field {
+                                type
+                                description
+                                example
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          delete {
+            summary
+            description
+            operationId
+            x_linode_cli_action
+            x_linode_grant
+            responses {
+              _200 {
+                description
+                content {
+                  application_json {
+                    schema {
+                      type
+                    }
+                  }
+                }
+              }
+              default {
+                description
+                content {
+                  application_json {
+                    schema {
+                      type
+                      properties {
+                        errors {
+                          type
+                          items {
+                            type
+                            description
                             properties {
                               reason {
                                 type

@@ -39,7 +39,7 @@ export default class Search extends Component {
                 {n.postSummary &&
                   n.postSummary.toLowerCase().includes(query.toLowerCase()) && (
                     <li className="list-reset">
-                      <Link to={`/api/v4/${_.kebabCase(n.name)}#post`}>
+                      <Link to={`/api/v4/${_.kebabCase(n.name)}/#post`}>
                         {n.postSummary}
                       </Link>
                     </li>
@@ -47,7 +47,7 @@ export default class Search extends Component {
                 {n.putSummary &&
                   n.putSummary.toLowerCase().includes(query.toLowerCase()) && (
                     <li className="list-reset">
-                      <Link to={`/api/v4/${_.kebabCase(n.name)}#put`}>
+                      <Link to={`/api/v4/${_.kebabCase(n.name)}/#put`}>
                         {n.putSummary}
                       </Link>
                     </li>
