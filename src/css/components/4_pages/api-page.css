@@ -1,0 +1,9 @@
+.list-group {
+  max-height: 0;
+  visibility: hidden;
+}
+
+.active-group .list-group {
+  max-height: 100%;
+  visibility: visible;
+}
