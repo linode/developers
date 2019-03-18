@@ -57,6 +57,7 @@ const apiPage = ({ data }) => {
                           </p>
                           <ul>
                             {r.content &&
+                              r.content.application_json &&
                               r.content.application_json.schema.properties &&
                               Object.keys(
                                 r.content.application_json.schema.properties

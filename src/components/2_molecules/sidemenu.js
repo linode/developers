@@ -74,7 +74,7 @@ class SideMenu extends React.Component {
       <div>
         <SearchHeader />
         <div>
-          <div className="api-navigation">
+          <div className="api-navigation mb-8">
             {groups.map((group, i) => {
               return (
                 <div className="list-container" key={i}>
