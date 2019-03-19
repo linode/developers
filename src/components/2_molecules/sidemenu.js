@@ -71,108 +71,102 @@ class SideMenu extends React.Component {
     // console.log(activePage);
 
     return (
-      <div>
+      <div className="api-navigation mb-8">
         <SearchHeader />
         <div>
-          <div className="api-navigation mb-8">
-            {groups.map((group, i) => {
-              return (
-                <div className="list-container" key={i}>
-                  <span className="caret mr-2">
-                    <Caret />
-                  </span>
-                  <a
-                    href="javascript:;"
-                    onClick={this.toggleActive}
-                    className="inline-block"
-                  >
-                    <h3 className="mt-0">{group.fieldValue}</h3>
-                  </a>
-                  <div
-                    id={_.kebabCase(group.fieldValue)}
-                    className="list-group"
-                  >
-                    {group.edges.map((link, i) => {
-                      const n = link.node;
-                      return (
-                        <ul key={i} className="p-0">
-                          {n.get && (
-                            <li className="list-reset">
-                              <Link
-                                to={`/api/v4/${_.kebabCase(n.name)}`}
-                                className={`${
-                                  _.kebabCase(n.name) + "/" === activePage
-                                    ? "active"
-                                    : null
-                                }
+          {groups.map((group, i) => {
+            return (
+              <div className="list-container" key={i}>
+                <span className="caret mr-2">
+                  <Caret />
+                </span>
+                <a
+                  href="javascript:;"
+                  onClick={this.toggleActive}
+                  className="inline-block"
+                >
+                  <h3 className="mt-0">{group.fieldValue}</h3>
+                </a>
+                <div id={_.kebabCase(group.fieldValue)} className="list-group">
+                  {group.edges.map((link, i) => {
+                    const n = link.node;
+                    return (
+                      <ul key={i} className="p-0">
+                        {n.get && (
+                          <li className="list-reset">
+                            <Link
+                              to={`/api/v4/${_.kebabCase(n.name)}`}
+                              className={`${
+                                _.kebabCase(n.name) + "/" === activePage
+                                  ? "active"
+                                  : null
+                              }
                               api-link ml-4
                               `}
-                                onClick={this.toggleActiveLink}
-                              >
-                                {n.get.summary}
-                              </Link>
-                            </li>
-                          )}
-                          {n.post && (
-                            <li className="list-reset">
-                              <Link
-                                to={`/api/v4/${_.kebabCase(n.name)}/#post`}
-                                className={`${
-                                  _.kebabCase(n.name) + "/#post" === activePage
-                                    ? "active"
-                                    : null
-                                }
+                              onClick={this.toggleActiveLink}
+                            >
+                              {n.get.summary}
+                            </Link>
+                          </li>
+                        )}
+                        {n.post && (
+                          <li className="list-reset">
+                            <Link
+                              to={`/api/v4/${_.kebabCase(n.name)}/#post`}
+                              className={`${
+                                _.kebabCase(n.name) + "/#post" === activePage
+                                  ? "active"
+                                  : null
+                              }
                               api-link ml-4
                               `}
-                                onClick={this.toggleActiveLink}
-                              >
-                                {n.post.summary}
-                              </Link>
-                            </li>
-                          )}
-                          {n.put && (
-                            <li className="list-reset">
-                              <Link
-                                to={`/api/v4/${_.kebabCase(n.name)}/#put`}
-                                className={`${
-                                  _.kebabCase(n.name) + "/#put" === activePage
-                                    ? "active"
-                                    : null
-                                }
+                              onClick={this.toggleActiveLink}
+                            >
+                              {n.post.summary}
+                            </Link>
+                          </li>
+                        )}
+                        {n.put && (
+                          <li className="list-reset">
+                            <Link
+                              to={`/api/v4/${_.kebabCase(n.name)}/#put`}
+                              className={`${
+                                _.kebabCase(n.name) + "/#put" === activePage
+                                  ? "active"
+                                  : null
+                              }
                               api-link ml-4
                               `}
-                                onClick={this.toggleActiveLink}
-                              >
-                                {n.put.summary}
-                              </Link>
-                            </li>
-                          )}
-                          {n.delete && (
-                            <li className="list-reset">
-                              <Link
-                                to={`/api/v4/${_.kebabCase(n.name)}/#delete`}
-                                className={`${
-                                  _.kebabCase(n.name) + "/#delete" ===
-                                  activePage
-                                    ? "active"
-                                    : null
-                                }
+                              onClick={this.toggleActiveLink}
+                            >
+                              {n.put.summary}
+                            </Link>
+                          </li>
+                        )}
+                        {n.delete && (
+                          <li className="list-reset">
+                            <Link
+                              to={`/api/v4/${_.kebabCase(n.name)}/#delete`}
+                              className={`${
+                                _.kebabCase(n.name) + "/#delete" === activePage
+                                  ? "active"
+                                  : null
+                              }
                               api-link ml-4
                               `}
-                                onClick={this.toggleActiveLink}
-                              >
-                                {n.delete.summary}
-                              </Link>
-                            </li>
-                          )}
-                        </ul>
-                      );
-                    })}
-                  </div>
+                              onClick={this.toggleActiveLink}
+                            >
+                              {n.delete.summary}
+                            </Link>
+                          </li>
+                        )}
+                      </ul>
+                    );
+                  })}
                 </div>
-              );
-            })}
-          </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     );
