@@ -99,7 +99,13 @@ const apiPage = ({ data }) => {
                                         <b>{p}</b>
                                       </div>
                                       <div className="w-3/4">
-                                        {l.description}
+                                        <div>
+                                          {l.type} &nbsp;{" "}
+                                          {l.type === "string" && "<="}{" "}
+                                          {l.maxLength}
+                                          {l.type === "string" && " characters"}
+                                        </div>
+                                        <div> {l.description}</div>
                                       </div>
                                     </div>
                                   )
@@ -1390,6 +1396,9 @@ export const query = graphql`
             operationId
             x_linode_cli_action
             x_linode_cli_skip
+            security {
+              oauth
+            }
             responses {
               _200 {
                 description
