@@ -45,10 +45,11 @@
   </div>
   <div class="my-8 -mx-4 pb-8 text-center">
     <div class="flex flex-row flex-wrap justify-center">
-        {{ range last 3 ((where .Pages "Section" "events").ByParam "start_date") }}
-        {{ $t := (time .Params.end_date) }}
-          {{ if  ge ($t.Unix) (now.Unix) }}
-            <article class="w-full md:w-1/3 px-4 mb-4 md:mb-8">
+        {{ $events := (where .Pages "Section" "events").ByParam "start_date" }}
+        {{ range $events  }}
+          {{ $t := (time .Params.end_date) }}
+          {{ if ge ($t) (now.Unix) }}
+            <article class="w-full md:w-1/3 px-4 mb-4 md:mb-8 event-item">
               <div class="p-8 h-full bg-ThemeCell tile">
                 <header>
                   <h3 class="mt-0 mb-4 font-normal"><a href="{{ .Params.event_url }}" class="text-black tile-link" target="_blank">{{ .Title | markdownify }}</a></h3>
