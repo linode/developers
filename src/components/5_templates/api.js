@@ -118,8 +118,8 @@ const apiPage = ({ data }) => {
                           </p>
                           <hr className="border border-BaseNavGrey" />
                           <div>
-                            {r.content.application_json.schema.type &&
-                              r.content.application_json.schema.type}
+                            {/* {r.content.application_json.schema.type &&
+                              r.content.application_json.schema.type} */}
                             {r.content &&
                               r.content.application_json &&
                               r.content.application_json.schema.properties &&
