@@ -33,12 +33,13 @@ const apiPage = ({ data }) => {
               (n.delete && n.delete.tags)}
           </h1>
 
-          {Object.keys(n).map(e => {
+          {Object.keys(n).map((e, i) => {
             const mode = modes[e];
             const m = n[mode];
+            console.log(m);
             return (
               m && (
-                <div key={e} className="mb-8 px-4 py-2 bg-grey-lighter">
+                <div key={i} className="mb-8 px-4 py-2 bg-ThemeCell">
                   <h2 id={mode} className="mt-0">
                     {m.summary}
                   </h2>
@@ -47,6 +48,42 @@ const apiPage = ({ data }) => {
                     https://api.linode.com/v4{m.name}
                   </p>
                   <p className="mt-0">{m.description}</p>
+
+                  {m.parameters && (
+                    <p>
+                      <b>Parameters</b>
+                    </p>
+                  )}
+                  {m.parameters &&
+                    m.parameters.map((param, i) => {
+                      return (
+                        <div key={i} className="flex">
+                          {" "}
+                          <div className="w-1/4">
+                            <b>{param.name}</b>
+                          </div>
+                          <div className="w-3/4">
+                            <div>
+                              <div>
+                                {param.schema.type}
+                                {param.schema.type === "integer" &&
+                                  param.schema.minimum &&
+                                  !param.schema.maximum &&
+                                  `${" > = "} ${param.schema.minimum}`}
+                                {param.schema.type === "integer" &&
+                                  param.schema.minimum &&
+                                  param.schema.maximum &&
+                                  `${" ["} ${param.schema.minimum}${" .. "}${
+                                    param.schema.maximum
+                                  }${"]"}`}
+                              </div>
+                              <div>Default: {param.schema.default}</div>
+                              <div>{param.description}</div>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
                   {m.security && (
                     <>
                       <div className="mt-4">
@@ -63,16 +100,15 @@ const apiPage = ({ data }) => {
                   {Object.keys(m.responses).map((e, i) => {
                     const response = responses[e];
                     const r = m.responses[response];
-                    // console.log(response);
                     return (
                       r && (
                         <div key={i}>
                           <p
-                            className={`text-lg ${
+                            className={`text-lg p-2 ${
                               response === "_200"
-                                ? "text-BaseGreen"
+                                ? "bg-BaseGreenLight text-BaseGreen"
                                 : response === "default"
-                                ? "text-BaseRed"
+                                ? "bg-BaseRedLight text-BaseRed"
                                 : null
                             }
                           `}
@@ -94,20 +130,57 @@ const apiPage = ({ data }) => {
                                   ];
                                 return (
                                   l && (
-                                    <div key={i} className="flex">
-                                      <div className="w-1/4">
-                                        <b>{p}</b>
-                                      </div>
-                                      <div className="w-3/4">
-                                        <div>
-                                          {l.type} &nbsp;{" "}
-                                          {l.type === "string" && "<="}{" "}
-                                          {l.maxLength}
-                                          {l.type === "string" && " characters"}
+                                    <>
+                                      <div key={i} className="flex">
+                                        <div className="w-1/4">
+                                          <b>{p}</b>
                                         </div>
-                                        <div> {l.description}</div>
+                                        <div className="w-3/4">
+                                          <div>
+                                            {l.type}
+                                            {l.type === "string" &&
+                                              l.maxLength &&
+                                              !l.minLength &&
+                                              `${" "} ${
+                                                l.maxLength
+                                              }${" "}<= characters`}
+                                            {l.type === "string" &&
+                                              l.maxLength &&
+                                              l.minLength &&
+                                              `${" ["} ${l.minLength}${" .. "}${
+                                                l.maxLength
+                                              }${"] "} characters`}
+                                          </div>
+                                          <div>
+                                            <div>{l.description}</div>
+                                          </div>
+                                        </div>
                                       </div>
-                                    </div>
+                                      {l.items &&
+                                        Object.keys(l.items.properties).map(
+                                          (e, i) => {
+                                            const error = l.items.properties[e];
+
+                                            return (
+                                              error && (
+                                                <div key={i} className="flex">
+                                                  <div className="w-1/4">
+                                                    <b>{e}</b>
+                                                  </div>
+                                                  <div className="w-3/4">
+                                                    <div>
+                                                      <div>{error.type}</div>
+                                                      <div>
+                                                        {error.description}
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              )
+                                            );
+                                          }
+                                        )}
+                                    </>
                                   )
                                 );
                               })}
@@ -149,6 +222,18 @@ export const query = graphql`
             tags
             security {
               oauth
+            }
+            parameters {
+              name
+              in
+              description
+              required
+              schema {
+                type
+                minimum
+                default
+                maximum
+              }
             }
             responses {
               _200 {
@@ -1368,6 +1453,13 @@ export const query = graphql`
               }
               default {
                 description
+                content {
+                  application_json {
+                    schema {
+                      type
+                    }
+                  }
+                }
               }
             }
           }
@@ -1386,6 +1478,13 @@ export const query = graphql`
               }
               default {
                 description
+                content {
+                  application_json {
+                    schema {
+                      type
+                    }
+                  }
+                }
               }
             }
           }

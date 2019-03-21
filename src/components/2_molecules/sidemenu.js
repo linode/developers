@@ -55,7 +55,6 @@ class SideMenu extends React.Component {
   toggleActiveLink = e => {
     if (e.target.classList.contains("api-link")) {
       document.querySelectorAll(".api-link").forEach(a => {
-        console.log(a);
         if (a.classList.contains("active")) {
           a.classList.remove("active");
         }
@@ -68,8 +67,6 @@ class SideMenu extends React.Component {
     const { activePage } = this.state;
     const groups = this.props.data.allPaths.group;
 
-    // console.log(activePage);
-
     return (
       <div className="api-navigation mb-8">
         <SearchHeader />
@@ -80,13 +77,9 @@ class SideMenu extends React.Component {
                 <span className="caret mr-2">
                   <Caret />
                 </span>
-                <a
-                  href="javascript:;"
-                  onClick={this.toggleActive}
-                  className="inline-block"
-                >
+                <button onClick={this.toggleActive} className="inline-block">
                   <h3 className="mt-0">{group.fieldValue}</h3>
-                </a>
+                </button>
                 <div id={_.kebabCase(group.fieldValue)} className="list-group">
                   {group.edges.map((link, i) => {
                     const n = link.node;
