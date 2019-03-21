@@ -36,7 +36,6 @@ const apiPage = ({ data }) => {
           {Object.keys(n).map((e, i) => {
             const mode = modes[e];
             const m = n[mode];
-            console.log(m);
             return (
               m && (
                 <div key={i} className="mb-8 px-4 py-2 bg-ThemeCell">
@@ -50,8 +49,8 @@ const apiPage = ({ data }) => {
                   <p className="mt-0">{m.description}</p>
 
                   {m.parameters && (
-                    <p>
-                      <b>Parameters</b>
+                    <p className="mb-2">
+                      <b>Query Parameters</b>
                     </p>
                   )}
                   {m.parameters &&
@@ -100,6 +99,7 @@ const apiPage = ({ data }) => {
                   {Object.keys(m.responses).map((e, i) => {
                     const response = responses[e];
                     const r = m.responses[response];
+                    console.log(r);
                     return (
                       r && (
                         <div key={i}>
@@ -118,6 +118,8 @@ const apiPage = ({ data }) => {
                           </p>
                           <hr className="border border-BaseNavGrey" />
                           <div>
+                            {r.content.application_json.schema.type &&
+                              r.content.application_json.schema.type}
                             {r.content &&
                               r.content.application_json &&
                               r.content.application_json.schema.properties &&
@@ -1457,6 +1459,24 @@ export const query = graphql`
                   application_json {
                     schema {
                       type
+                      properties {
+                        errors {
+                          items {
+                            properties {
+                              reason {
+                                type
+                                description
+                                example
+                              }
+                              field {
+                                type
+                                description
+                                example
+                              }
+                            }
+                          }
+                        }
+                      }
                     }
                   }
                 }
@@ -1482,6 +1502,26 @@ export const query = graphql`
                   application_json {
                     schema {
                       type
+                      properties {
+                        errors {
+                          type
+                          items {
+                            description
+                            properties {
+                              reason {
+                                type
+                                description
+                                example
+                              }
+                              field {
+                                type
+                                description
+                                example
+                              }
+                            }
+                          }
+                        }
+                      }
                     }
                   }
                 }
@@ -2361,6 +2401,7 @@ export const query = graphql`
                 content {
                   application_json {
                     schema {
+                      type
                       properties {
                         errors {
                           items {
