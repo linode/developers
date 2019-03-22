@@ -52,6 +52,16 @@ export default class Search extends Component {
                       </Link>
                     </li>
                   )}
+                {n.deleteSummary &&
+                  n.deleteSummary
+                    .toLowerCase()
+                    .includes(query.toLowerCase()) && (
+                    <li className="list-reset">
+                      <Link to={`/api/v4/${_.kebabCase(n.name)}/#delete`}>
+                        {n.deleteSummary}
+                      </Link>
+                    </li>
+                  )}
               </div>
             );
           })}
