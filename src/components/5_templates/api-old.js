@@ -2,7 +2,7 @@ import React from "react";
 import * as JsonSchemaRefParser from "json-schema-ref-parser";
 
 import Layout from "../../components/4_layouts/layout";
-import SEO from "../../components/0_utlilities/seo";
+import SEO from "../../components/0_utilities/seo";
 import Sidebar from "../../components/2_molecules/sidemenu";
 
 const specs = require("../../data/spec.json");

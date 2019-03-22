@@ -2,8 +2,10 @@ import React from "react";
 import { graphql } from "gatsby";
 
 import Layout from "../../components/4_layouts/layout";
-import SEO from "../../components/0_utlilities/seo";
+import SEO from "../../components/0_utilities/seo";
 import Sidebar from "../../components/2_molecules/sidemenu";
+
+const _ = require("lodash");
 
 const apiPage = ({ data }) => {
   const n = data.allPaths.edges[0].node;
@@ -56,28 +58,29 @@ const apiPage = ({ data }) => {
                   {m.parameters &&
                     m.parameters.map((param, i) => {
                       return (
-                        <div key={i} className="flex">
-                          {" "}
-                          <div className="w-1/4">
-                            <b>{param.name}</b>
-                          </div>
-                          <div className="w-3/4">
-                            <div>
+                        <div key={i}>
+                          <div>{param.schema.type}</div>
+                          <div className="flex">
+                            <div className="w-1/4">
+                              <b>{param.name}</b>
+                            </div>
+                            <div className="w-3/4">
                               <div>
-                                {param.schema.type}
-                                {param.schema.type === "integer" &&
-                                  param.schema.minimum &&
-                                  !param.schema.maximum &&
-                                  `${" > = "} ${param.schema.minimum}`}
-                                {param.schema.type === "integer" &&
-                                  param.schema.minimum &&
-                                  param.schema.maximum &&
-                                  `${" ["} ${param.schema.minimum}${" .. "}${
-                                    param.schema.maximum
-                                  }${"]"}`}
+                                <div>
+                                  {param.schema.type === "integer" &&
+                                    param.schema.minimum &&
+                                    !param.schema.maximum &&
+                                    `${" > = "} ${param.schema.minimum}`}
+                                  {param.schema.type === "integer" &&
+                                    param.schema.minimum &&
+                                    param.schema.maximum &&
+                                    `${" ["} ${param.schema.minimum}${" .. "}${
+                                      param.schema.maximum
+                                    }${"]"}`}
+                                </div>
+                                <div>Default: {param.schema.default}</div>
+                                <div>{param.description}</div>
                               </div>
-                              <div>Default: {param.schema.default}</div>
-                              <div>{param.description}</div>
                             </div>
                           </div>
                         </div>
@@ -99,7 +102,7 @@ const apiPage = ({ data }) => {
                   {Object.keys(m.responses).map((e, i) => {
                     const response = responses[e];
                     const r = m.responses[response];
-                    console.log(r);
+                    // console.log(r);
                     return (
                       r && (
                         <div key={i}>
@@ -118,8 +121,42 @@ const apiPage = ({ data }) => {
                           </p>
                           <hr className="border border-BaseNavGrey" />
                           <div>
-                            {/* {r.content.application_json.schema.type &&
-                              r.content.application_json.schema.type} */}
+                            {r.content &&
+                              r.content.application_json &&
+                              r.content.application_json.schema.properties &&
+                              r.content.application_json.schema.properties
+                                .data &&
+                              r.content.application_json.schema.properties.data
+                                .items && (
+                                <div className="mb-8 p-4 bg-ThemeBeige">
+                                  Data
+                                  {Object.keys(
+                                    r.content.application_json.schema.properties
+                                      .data.items.properties
+                                  ).map((d, i) => {
+                                    const a =
+                                      r.content.application_json.schema
+                                        .properties.data.items.properties[d];
+                                    return (
+                                      a && (
+                                        <div key={i}>
+                                          <div className="flex">
+                                            <div className="w-1/4">
+                                              <b>{d}</b>
+                                            </div>
+                                            <div className="w-3/4">
+                                              <div>{a.type}</div>
+                                              <div>
+                                                <div>{a.description}</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      )
+                                    );
+                                  })}
+                                </div>
+                              )}
                             {r.content &&
                               r.content.application_json &&
                               r.content.application_json.schema.properties &&
@@ -132,9 +169,12 @@ const apiPage = ({ data }) => {
                                   ];
                                 return (
                                   l && (
-                                    <>
-                                      <div key={i} className="flex">
-                                        <div className="w-1/4">
+                                    <div key={i}>
+                                      <div className="flex">
+                                        <div
+                                          className="w-1/4"
+                                          className={_.kebabCase(p)}
+                                        >
                                           <b>{p}</b>
                                         </div>
                                         <div className="w-3/4">
@@ -182,7 +222,7 @@ const apiPage = ({ data }) => {
                                             );
                                           }
                                         )}
-                                    </>
+                                    </div>
                                   )
                                 );
                               })}

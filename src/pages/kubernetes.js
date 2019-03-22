@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../components/4_layouts/layout";
-import SEO from "../components/0_utlilities/seo";
+import SEO from "../components/0_utilities/seo";
 import CodeBox from "../components/2_molecules/code-box";
 
 const KubernetesPage = () => {
