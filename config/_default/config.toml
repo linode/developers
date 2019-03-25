@@ -45,6 +45,7 @@ url = "/changelog/"
 date_format = "Monday, January 2, 2006"
 copyright = "Copyright (c) 2018, Linode LLC"
 logo = "/img/linode-logo_standard_light_medium.png"
+docsUrl="https://developers.linode.com/api/docs/v4"
 
 [params.truncate]
 enable = true
