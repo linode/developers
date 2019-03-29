@@ -166,11 +166,11 @@ const apiPage = ({ data }) => {
                                   r.content.application_json.schema.properties[
                                     p
                                   ];
-                                console.log(l);
+                                console.log(m);
                                 return (
                                   l && (
                                     <div key={i}>
-                                      <div className="flex">
+                                      <div className="flex mb-4">
                                         <div className="w-1/4">
                                           <b>{p !== "type" && p}</b>
                                         </div>
@@ -191,7 +191,8 @@ const apiPage = ({ data }) => {
                                               l.minLength &&
                                               `${" ["} ${l.minLength}${" .. "}${
                                                 l.maxLength
-                                              }${"] "} characters`}
+                                              }${"] "} characters`}{" "}
+                                            {l.pattern && l.pattern}
                                           </div>
                                           <div>
                                             <div>{l.description}</div>
@@ -208,7 +209,7 @@ const apiPage = ({ data }) => {
                                                 data && (
                                                   <div
                                                     key={i}
-                                                    className="flex "
+                                                    className="flex mb-4"
                                                   >
                                                     <div className="w-1/4">
                                                       <b>{e}</b>
