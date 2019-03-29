@@ -3,10 +3,14 @@
 }
 
 .developer-tools-wl .content {
-  background-image: url('/img/cubes.png');
+  background-image: url("/img/cubes.png");
   background-size: 594px;
   background-repeat: no-repeat;
   background-position: bottom left;
+}
+
+.event-item + .event-item + .event-item + .event-item {
+  display: none;
 }
 
 @screen md {
@@ -36,13 +40,13 @@
 }
 
 .circle-red {
-  background-color: #C65D6A;
+  background-color: #c65d6a;
 }
 
 .circle-yellow {
-  background-color: #CBBD0B;
+  background-color: #cbbd0b;
 }
 
 .circle-green {
-  background-color: #219D5E;
+  background-color: #219d5e;
 }
