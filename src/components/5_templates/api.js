@@ -98,6 +98,52 @@ const apiPage = ({ data }) => {
                       </div>
                     </>
                   )}
+                  <div className="">
+                    {m.requestBody && (
+                      <>
+                        <div className="my-4">
+                          <h4>Request Body Schema</h4>
+                        </div>
+                        {Object.keys(
+                          m.requestBody.content.application_json.schema
+                            .properties
+                        ).map((p, i) => {
+                          const b =
+                            m.requestBody.content.application_json.schema
+                              .properties[p];
+                          return (
+                            b && (
+                              <div key={i}>
+                                <div className="flex mb-4">
+                                  <div className="w-1/4">
+                                    <div>
+                                      <b>{p}</b>
+                                    </div>
+                                    <div>
+                                      {m.requestBody.content.application_json.schema.required.map(
+                                        req => {
+                                          if (p === req) {
+                                            return (
+                                              <span className="text-BaseRed">
+                                                Required
+                                              </span>
+                                            );
+                                          }
+                                        }
+                                      )}
+                                    </div>
+                                  </div>
+                                  <div className="w-3/4">
+                                    <div>{b.description}</div>
+                                  </div>
+                                </div>
+                              </div>
+                            )
+                          );
+                        })}
+                      </>
+                    )}
+                  </div>
                   <h3>Responses</h3>
                   {Object.keys(m.responses).map((e, i) => {
                     const response = responses[e];
@@ -2571,6 +2617,551 @@ export const query = graphql`
             x_linode_cli_command
             x_linode_charge
             x_linode_cli_skip
+            requestBody {
+              description
+              content {
+                application_json {
+                  schema {
+                    type
+                    description
+                    required
+                    properties {
+                      cvv {
+                        type
+                        description
+                        example
+                      }
+                      usd {
+                        type
+                        description
+                        example
+                      }
+                      cancel_url {
+                        type
+                        description
+                        example
+                      }
+                      redirect_url {
+                        type
+                        description
+                        example
+                      }
+                      payer_id {
+                        type
+                        description
+                        example
+                      }
+                      payment_id {
+                        type
+                        description
+                        example
+                      }
+                      username {
+                        type
+                        pattern
+                        minLength
+                        maxLength
+                        description
+                        example
+                      }
+                      email {
+                        type
+                        format
+                        description
+                        example
+                        x_linode_cli_display
+                      }
+                      restricted {
+                        type
+                        description
+                        example
+                      }
+                      id {
+                        type
+                        description
+                        example
+                        readOnly
+                        x_linode_cli_display
+                      }
+                      type {
+                        type
+                        description
+                        example
+                        x_linode_cli_display
+                      }
+                      domain {
+                        type
+                        pattern
+                        description
+                        example
+                        x_linode_filterable
+                        x_linode_cli_display
+                      }
+                      group {
+                        deprecated
+                        type
+                        description
+                        example
+                        minLength
+                        maxLength
+                        x_linode_filterable
+                        x_linode_cli_display
+                      }
+                      status {
+                        type
+                        description
+                        example
+                        x_linode_cli_display
+                      }
+                      description {
+                        type
+                        minLength
+                        maxLength
+                        description
+                        example
+                      }
+                      soa_email {
+                        type
+                        format
+                        description
+                        example
+                        x_linode_cli_display
+                      }
+                      retry_sec {
+                        type
+                        description
+                        example
+                      }
+                      master_ips {
+                        type
+                        description
+                      }
+                      axfr_ips {
+                        type
+                        description
+                      }
+                      expire_sec {
+                        type
+                        description
+                        example
+                      }
+                      refresh_sec {
+                        type
+                        description
+                        example
+                      }
+                      ttl_sec {
+                        type
+                        description
+                        example
+                      }
+                      tags {
+                        x_linode_filterable
+                        description
+                        type
+                      }
+                      backup_id {
+                        type
+                        example
+                        description
+                      }
+                      backups_enabled {
+                        type
+                        description
+                        example
+                      }
+                      swap_size {
+                        type
+                        example
+                        description
+                        default
+                      }
+                      region {
+                        type
+                        description
+                        example
+                      }
+                      image {
+                        type
+                        description
+                        example
+                      }
+                      root_pass {
+                        type
+                        format
+                        description
+                        example
+                        writeOnly
+                        minLength
+                        maxLength
+                        pattern
+                      }
+                      authorized_keys {
+                        type
+                        description
+                        writeOnly
+                      }
+                      stackscript_id {
+                        type
+                        description
+                        example
+                      }
+                      stackscript_data {
+                        type
+                        description
+                      }
+                      booted {
+                        type
+                        description
+                      }
+                      label {
+                        x_linode_filterable
+                        x_linode_cli_display
+                        description
+                        type
+                        minLength
+                        maxLength
+                        example
+                        pattern
+                      }
+                      private_ip {
+                        type
+                        description
+                        example
+                      }
+                      authorized_users {
+                        type
+                        description
+                        writeOnly
+                      }
+                      linode_id {
+                        type
+                        description
+                        example
+                        readOnly
+                      }
+                      overwrite {
+                        type
+                        description
+                        example
+                      }
+                      config_id {
+                        type
+                        description
+                        example
+                      }
+                      disks {
+                        type
+                        description
+                      }
+                      configs {
+                        type
+                        description
+                      }
+                      kernel {
+                        type
+                        description
+                        example
+                        x_linode_cli_display
+                      }
+                      comments {
+                        type
+                        nullable
+                        description
+                        example
+                      }
+                      memory_limit {
+                        type
+                        description
+                        example
+                      }
+                      run_level {
+                        type
+                        description
+                        example
+                      }
+                      virt_mode {
+                        type
+                        description
+                        example
+                      }
+                      helpers {
+                        type
+                        description
+                      }
+                      devices {
+                        type
+                      }
+                      root_device {
+                        type
+                        description
+                        example
+                      }
+                      size {
+                        x_linode_filterable
+                        type
+                        example
+                        description
+                        minimum
+                        default
+                        maximum
+                        x_linode_cli_display
+                      }
+                      filesystem {
+                        type
+                        description
+                        example
+                        x_linode_cli_display
+                      }
+                      read_only {
+                        type
+                        description
+                        example
+                      }
+                      password {
+                        type
+                        description
+                        minLength
+                        maxLength
+                        example
+                      }
+                      public {
+                        type
+                        description
+                        example
+                      }
+                      api_key {
+                        type
+                        description
+                        example
+                        readOnly
+                      }
+                      install_code {
+                        type
+                        description
+                        example
+                        readOnly
+                        x_linode_cli_display
+                      }
+                      apps {
+                        type
+                        description
+                        readOnly
+                      }
+                      created {
+                        type
+                        format
+                        description
+                        example
+                        readOnly
+                        x_linode_cli_display
+                      }
+                      updated {
+                        type
+                        format
+                        description
+                        example
+                        readOnly
+                      }
+                      name {
+                        type
+                        minLength
+                        maxLength
+                        pattern
+                        description
+                        example
+                        x_linode_cli_display
+                      }
+                      phone {
+                        type
+                        description
+                        x_linode_cli_display
+                      }
+                      assignments {
+                        type
+                        description
+                      }
+                      ips {
+                        type
+                        description
+                      }
+                      client_conn_throttle {
+                        type
+                        minimum
+                        maximum
+                        description
+                        example
+                        x_linode_cli_display
+                      }
+                      port {
+                        type
+                        minimum
+                        maximum
+                        description
+                        example
+                        x_linode_cli_display
+                      }
+                      protocol {
+                        type
+                        description
+                        example
+                        x_linode_cli_display
+                      }
+                      algorithm {
+                        type
+                        description
+                        example
+                        x_linode_cli_display
+                      }
+                      stickiness {
+                        type
+                        description
+                        example
+                        x_linode_cli_display
+                      }
+                      check {
+                        type
+                        description
+                        example
+                      }
+                      check_interval {
+                        type
+                        description
+                        example
+                      }
+                      check_timeout {
+                        type
+                        minimum
+                        maximum
+                        description
+                        example
+                      }
+                      check_attempts {
+                        type
+                        minimum
+                        maximum
+                        description
+                        example
+                      }
+                      check_path {
+                        type
+                        description
+                        example
+                      }
+                      check_body {
+                        type
+                        description
+                        example
+                      }
+                      check_passive {
+                        type
+                        description
+                        example
+                        x_linode_cli_display
+                      }
+                      cipher_suite {
+                        type
+                        description
+                        example
+                        x_linode_cli_display
+                      }
+                      nodebalancer_id {
+                        type
+                        description
+                        example
+                        readOnly
+                      }
+                      ssl_commonname {
+                        type
+                        description
+                        readOnly
+                        x_linode_cli_display
+                      }
+                      ssl_fingerprint {
+                        type
+                        description
+                        readOnly
+                        x_linode_cli_display
+                      }
+                      ssl_cert {
+                        type
+                        format
+                        nullable
+                        description
+                      }
+                      ssl_key {
+                        type
+                        format
+                        nullable
+                        description
+                      }
+                      nodes_status {
+                        type
+                        description
+                        readOnly
+                        x_linode_cli_display
+                      }
+                      tfa_code {
+                        type
+                        description
+                        example
+                      }
+                      scopes {
+                        type
+                        format
+                        description
+                        example
+                      }
+                      expiry {
+                        type
+                        format
+                        description
+                      }
+                      ssh_key {
+                        type
+                        format
+                        description
+                      }
+                      domain_id {
+                        type
+                        description
+                      }
+                      longviewclient_id {
+                        type
+                        description
+                      }
+                      summary {
+                        type
+                        minLength
+                        maxLength
+                        description
+                        example
+                      }
+                      volume_id {
+                        type
+                        description
+                      }
+                      linodes {
+                        type
+                        description
+                      }
+                      domains {
+                        type
+                        description
+                      }
+                      volumes {
+                        type
+                        description
+                      }
+                      nodebalancers {
+                        type
+                        description
+                      }
+                    }
+                  }
+                }
+              }
+            }
             responses {
               _200 {
                 description
