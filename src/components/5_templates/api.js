@@ -111,8 +111,10 @@ const apiPage = ({ data }) => {
                           <div className="my-4">
                             <h4>Request Body Schema</h4>
                           </div>
-                          {m.requestBody.content.application_json.schema
-                            .properties &&
+                          {m.requestBody.content.application_json &&
+                            m.requestBody.content.application_json.schema &&
+                            m.requestBody.content.application_json.schema
+                              .properties &&
                             Object.keys(
                               m.requestBody.content.application_json.schema
                                 .properties
@@ -180,6 +182,7 @@ const apiPage = ({ data }) => {
                             <div>
                               {r.content &&
                                 r.content.application_json &&
+                                r.content.application_json.schema &&
                                 r.content.application_json.schema.properties &&
                                 Object.keys(
                                   r.content.application_json.schema.properties
@@ -197,6 +200,14 @@ const apiPage = ({ data }) => {
                                               <b>{p}</b>
                                             </div>
                                             {m.requestBody &&
+                                              m.requestBody.content &&
+                                              m.requestBody.content
+                                                .application_json &&
+                                              m.requestBody.content
+                                                .application_json.schema &&
+                                              m.requestBody.content
+                                                .application_json.schema
+                                                .required &&
                                               m.requestBody.content.application_json.schema.required.map(
                                                 (req, i) => {
                                                   if (p === req) {
