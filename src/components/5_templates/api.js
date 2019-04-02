@@ -218,7 +218,21 @@ const apiPage = ({ data }) => {
                                     <div key={i}>
                                       <div className="flex mb-4">
                                         <div className="w-1/4">
-                                          <b>{p !== "type" && p}</b>
+                                          <div>
+                                            <b>{p !== "type" && p}</b>
+                                          </div>
+                                          {m.requestBody &&
+                                            m.requestBody.content.application_json.schema.required.map(
+                                              req => {
+                                                if (p === req) {
+                                                  return (
+                                                    <span className="text-BaseRed">
+                                                      Required
+                                                    </span>
+                                                  );
+                                                }
+                                              }
+                                            )}
                                         </div>
                                         <div className="w-3/4">
                                           <div>
@@ -2617,6 +2631,9 @@ export const query = graphql`
             x_linode_cli_command
             x_linode_charge
             x_linode_cli_skip
+            security {
+              oauth
+            }
             requestBody {
               description
               content {
@@ -4899,6 +4916,9 @@ export const query = graphql`
             operationId
             x_linode_cli_action
             x_linode_grant
+            security {
+              oauth
+            }
             responses {
               _200 {
                 description
