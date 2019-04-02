@@ -249,6 +249,7 @@ const apiPage = ({ data }) => {
                                             <div>
                                               <div>{l.description}</div>
                                             </div>
+                                            {console.log(l)}
                                           </div>
                                         </div>
                                         {l.items && (
@@ -397,6 +398,18 @@ export const query = graphql`
                           type
                           readOnly
                           description
+                          properties {
+                            expiry {
+                              type
+                              description
+                              example
+                            }
+                            last_four {
+                              type
+                              description
+                              example
+                            }
+                          }
                         }
                         company {
                           type
@@ -492,8 +505,35 @@ export const query = graphql`
                                 type
                                 readOnly
                                 description
-                                x_linode_cli_display
-                                nullable
+                                properties {
+                                  id {
+                                    type
+                                    description
+                                    example
+                                    x_linode_filterable
+                                    readOnly
+                                  }
+                                  label {
+                                    type
+                                    description
+                                    example
+                                    readOnly
+                                  }
+                                  type {
+                                    type
+                                    description
+                                    example
+                                    x_linode_filterable
+                                    readOnly
+                                  }
+                                  url {
+                                    type
+                                    description
+                                    example
+                                    format
+                                    readOnly
+                                  }
+                                }
                               }
                               percent_complete {
                                 type
@@ -1538,8 +1578,35 @@ export const query = graphql`
                           type
                           readOnly
                           description
-                          x_linode_cli_display
-                          nullable
+                          properties {
+                            id {
+                              type
+                              description
+                              example
+                              x_linode_filterable
+                              readOnly
+                            }
+                            label {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            type {
+                              type
+                              description
+                              example
+                              x_linode_filterable
+                              readOnly
+                            }
+                            url {
+                              type
+                              description
+                              example
+                              format
+                              readOnly
+                            }
+                          }
                         }
                         percent_complete {
                           type
@@ -3941,10 +4008,28 @@ export const query = graphql`
                         }
                         entity {
                           type
-                          nullable
                           readOnly
                           description
-                          x_linode_cli_display
+                          properties {
+                            label {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            type {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            url {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                          }
                         }
                         gravatar_id {
                           type
@@ -4099,6 +4184,18 @@ export const query = graphql`
                         type
                         readOnly
                         description
+                        properties {
+                          expiry {
+                            type
+                            description
+                            example
+                          }
+                          last_four {
+                            type
+                            description
+                            example
+                          }
+                        }
                       }
                       company {
                         type
@@ -4955,6 +5052,18 @@ export const query = graphql`
                           type
                           readOnly
                           description
+                          properties {
+                            expiry {
+                              type
+                              description
+                              example
+                            }
+                            last_four {
+                              type
+                              description
+                              example
+                            }
+                          }
                         }
                         company {
                           type
