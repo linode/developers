@@ -30,10 +30,10 @@ const apiPage = ({ data }) => {
     >
       <SEO title="API Documentation" description="" />
       <div className="flex flex-wrap">
-        <div className="w-full md:w-1/5">
+        <div className="w-full md:w-1/6">
           <Sidebar />
         </div>
-        <div className="w-full md:w-4/5 pl-8">
+        <div className="w-full md:w-5/6 pl-8">
           <h1 className="mb-4 ">
             {(n.get && n.get.tags) ||
               (n.post && n.post.tags) ||
@@ -105,52 +105,54 @@ const apiPage = ({ data }) => {
                         </div>
                       </>
                     )}
-                    <div className="">
+                    <div>
                       {m.requestBody && (
                         <>
                           <div className="my-4">
                             <h4>Request Body Schema</h4>
                           </div>
-                          {Object.keys(
-                            m.requestBody.content.application_json.schema
-                              .properties
-                          ).map((p, i) => {
-                            const b =
+                          {m.requestBody.content.application_json.schema
+                            .properties &&
+                            Object.keys(
                               m.requestBody.content.application_json.schema
-                                .properties[p];
-                            return (
-                              b && (
-                                <div key={i}>
-                                  <div className="flex mb-4">
-                                    <div className="w-1/4">
-                                      <div>
-                                        <b>{p}</b>
-                                      </div>
-                                      <div>
-                                        {m.requestBody.content.application_json
-                                          .schema.required &&
-                                          m.requestBody.content.application_json.schema.required.map(
-                                            req => {
-                                              if (p === req) {
-                                                return (
-                                                  <span className="text-BaseRed">
-                                                    Required
-                                                  </span>
-                                                );
+                                .properties
+                            ).map((p, i) => {
+                              const b =
+                                m.requestBody.content.application_json.schema
+                                  .properties[p];
+                              return (
+                                b && (
+                                  <div key={i}>
+                                    <div className="flex mb-4">
+                                      <div className="w-1/4">
+                                        <div>
+                                          <b>{p}</b>
+                                        </div>
+                                        <div>
+                                          {m.requestBody.content
+                                            .application_json.schema.required &&
+                                            m.requestBody.content.application_json.schema.required.map(
+                                              req => {
+                                                if (p === req) {
+                                                  return (
+                                                    <span className="text-BaseRed">
+                                                      Required
+                                                    </span>
+                                                  );
+                                                }
+                                                return false;
                                               }
-                                              return false;
-                                            }
-                                          )}
+                                            )}
+                                        </div>
                                       </div>
-                                    </div>
-                                    <div className="w-3/4">
-                                      <div>{b.description}</div>
+                                      <div className="w-3/4">
+                                        <div>{b.description}</div>
+                                      </div>
                                     </div>
                                   </div>
-                                </div>
-                              )
-                            );
-                          })}
+                                )
+                              );
+                            })}
                         </>
                       )}
                     </div>
@@ -185,7 +187,7 @@ const apiPage = ({ data }) => {
                                   const l =
                                     r.content.application_json.schema
                                       .properties[p];
-                                  console.log(m);
+                                  // console.log(m);
                                   return (
                                     l && (
                                       <div key={i}>
@@ -195,14 +197,14 @@ const apiPage = ({ data }) => {
                                               <b>{p}</b>
                                             </div>
                                             {m.requestBody &&
-                                              m.requestBody.content
-                                                .application_json.schema
-                                                .required &&
                                               m.requestBody.content.application_json.schema.required.map(
-                                                req => {
+                                                (req, i) => {
                                                   if (p === req) {
                                                     return (
-                                                      <span className="text-BaseRed">
+                                                      <span
+                                                        key={i}
+                                                        className="text-BaseRed"
+                                                      >
                                                         Required
                                                       </span>
                                                     );
@@ -288,6 +290,9 @@ const apiPage = ({ data }) => {
                               language="bash"
                               style={atomDark}
                               className="api-samples"
+                              codeTagProps={{
+                                style: { whiteSpace: "pre-wrap" }
+                              }}
                             >
                               {x.source}
                             </SyntaxHighlighter>
