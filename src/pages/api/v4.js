@@ -9,7 +9,11 @@ import Sidebar from "../../components/2_molecules/sidemenu";
 const APIDocs = ({ data }) => {
   // const nodes = data.allPaths.edges;
   return (
-    <Layout title="API Documentation" subtitle="Linode API Documentation">
+    <Layout
+      title="API Documentation"
+      subtitle="Linode API Documentation"
+      fullWidth
+    >
       <SEO title="API Documentation" description="" />
 
       <Sidebar />

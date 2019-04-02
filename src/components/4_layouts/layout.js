@@ -8,7 +8,7 @@ import Footer from "../3_organisms/footer";
 import FooterNav from "../3_organisms/footer-nav";
 import "../../css/main.css";
 
-const Layout = ({ children, title, subtitle }) => (
+const Layout = ({ children, title, subtitle, fullWidth }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -30,7 +30,10 @@ const Layout = ({ children, title, subtitle }) => (
           menuLinks={data.site.siteMetadata.menuLinks}
         />
         {title && subtitle && <Banner title={title} subtitle={subtitle} />}
-        <div className="main-wrapper max-w-3xl mx-auto py-2 px-4 md:px-8">
+        <div
+          className={`main-wrapper py-2 px-4 md:px-8 ${!fullWidth &&
+            "max-w-3xl mx-auto"}`}
+        >
           <main className="main">{children}</main>
         </div>
         <div className="footer-nav-wrapper bg-black">
