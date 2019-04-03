@@ -964,13 +964,91 @@ export const query = graphql`
                                 type
                                 description
                                 readOnly
+                                properties {
+                                  disk {
+                                    type
+                                    description
+                                    example
+                                    readOnly
+                                  }
+                                  memory {
+                                    type
+                                    description
+                                    example
+                                    readOnly
+                                  }
+                                  vcpus {
+                                    type
+                                    description
+                                    example
+                                    readOnly
+                                  }
+                                  transfer {
+                                    type
+                                    description
+                                    example
+                                    readOnly
+                                  }
+                                }
                               }
                               alerts {
                                 type
+                                properties {
+                                  cpu {
+                                    type
+                                    description
+                                    example
+                                  }
+                                  network_in {
+                                    type
+                                    description
+                                    example
+                                  }
+                                  network_out {
+                                    type
+                                    description
+                                    example
+                                  }
+                                  transfer_quota {
+                                    type
+                                    description
+                                    example
+                                  }
+                                  io {
+                                    type
+                                    description
+                                    example
+                                  }
+                                }
                               }
                               backups {
                                 type
                                 description
+                                properties {
+                                  enabled {
+                                    type
+                                    description
+                                    example
+                                    readOnly
+                                  }
+                                  schedule {
+                                    type
+                                    properties {
+                                      day {
+                                        type
+                                        nullable
+                                        description
+                                        example
+                                      }
+                                      window {
+                                        type
+                                        nullable
+                                        description
+                                        example
+                                      }
+                                    }
+                                  }
+                                }
                               }
                               watchdog_enabled {
                                 type
@@ -2229,13 +2307,91 @@ export const query = graphql`
                           type
                           description
                           readOnly
+                          properties {
+                            disk {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            memory {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            vcpus {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            transfer {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                          }
                         }
                         alerts {
                           type
+                          properties {
+                            cpu {
+                              type
+                              description
+                              example
+                            }
+                            network_in {
+                              type
+                              description
+                              example
+                            }
+                            network_out {
+                              type
+                              description
+                              example
+                            }
+                            transfer_quota {
+                              type
+                              description
+                              example
+                            }
+                            io {
+                              type
+                              description
+                              example
+                            }
+                          }
                         }
                         backups {
                           type
                           description
+                          properties {
+                            enabled {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            schedule {
+                              type
+                              properties {
+                                day {
+                                  type
+                                  nullable
+                                  description
+                                  example
+                                }
+                                window {
+                                  type
+                                  nullable
+                                  description
+                                  example
+                                }
+                              }
+                            }
+                          }
                         }
                         watchdog_enabled {
                           type
@@ -3814,13 +3970,91 @@ export const query = graphql`
                           type
                           description
                           readOnly
+                          properties {
+                            disk {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            memory {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            vcpus {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            transfer {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                          }
                         }
                         alerts {
                           type
+                          properties {
+                            cpu {
+                              type
+                              description
+                              example
+                            }
+                            network_in {
+                              type
+                              description
+                              example
+                            }
+                            network_out {
+                              type
+                              description
+                              example
+                            }
+                            transfer_quota {
+                              type
+                              description
+                              example
+                            }
+                            io {
+                              type
+                              description
+                              example
+                            }
+                          }
                         }
                         backups {
                           type
                           description
+                          properties {
+                            enabled {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            schedule {
+                              type
+                              properties {
+                                day {
+                                  type
+                                  nullable
+                                  description
+                                  example
+                                }
+                                window {
+                                  type
+                                  nullable
+                                  description
+                                  example
+                                }
+                              }
+                            }
+                          }
                         }
                         watchdog_enabled {
                           type
@@ -5017,13 +5251,91 @@ export const query = graphql`
                         type
                         description
                         readOnly
+                        properties {
+                          disk {
+                            type
+                            description
+                            example
+                            readOnly
+                          }
+                          memory {
+                            type
+                            description
+                            example
+                            readOnly
+                          }
+                          vcpus {
+                            type
+                            description
+                            example
+                            readOnly
+                          }
+                          transfer {
+                            type
+                            description
+                            example
+                            readOnly
+                          }
+                        }
                       }
                       alerts {
                         type
+                        properties {
+                          cpu {
+                            type
+                            description
+                            example
+                          }
+                          network_in {
+                            type
+                            description
+                            example
+                          }
+                          network_out {
+                            type
+                            description
+                            example
+                          }
+                          transfer_quota {
+                            type
+                            description
+                            example
+                          }
+                          io {
+                            type
+                            description
+                            example
+                          }
+                        }
                       }
                       backups {
                         type
                         description
+                        properties {
+                          enabled {
+                            type
+                            description
+                            example
+                            readOnly
+                          }
+                          schedule {
+                            type
+                            properties {
+                              day {
+                                type
+                                nullable
+                                description
+                                example
+                              }
+                              window {
+                                type
+                                nullable
+                                description
+                                example
+                              }
+                            }
+                          }
+                        }
                       }
                       watchdog_enabled {
                         type
@@ -6080,13 +6392,91 @@ export const query = graphql`
                           type
                           description
                           readOnly
+                          properties {
+                            disk {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            memory {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            vcpus {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            transfer {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                          }
                         }
                         alerts {
                           type
+                          properties {
+                            cpu {
+                              type
+                              description
+                              example
+                            }
+                            network_in {
+                              type
+                              description
+                              example
+                            }
+                            network_out {
+                              type
+                              description
+                              example
+                            }
+                            transfer_quota {
+                              type
+                              description
+                              example
+                            }
+                            io {
+                              type
+                              description
+                              example
+                            }
+                          }
                         }
                         backups {
                           type
                           description
+                          properties {
+                            enabled {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            schedule {
+                              type
+                              properties {
+                                day {
+                                  type
+                                  nullable
+                                  description
+                                  example
+                                }
+                                window {
+                                  type
+                                  nullable
+                                  description
+                                  example
+                                }
+                              }
+                            }
+                          }
                         }
                         watchdog_enabled {
                           type
