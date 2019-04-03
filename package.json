@@ -22,6 +22,7 @@
     "gatsby-transformer-sharp": "^2.1.13",
     "gatsby-transformer-yaml": "^2.1.8",
     "json-schema-ref-parser": "^6.1.0",
+    "marked": "^0.6.1",
     "postcss-easy-import": "^3.0.0",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
