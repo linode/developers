@@ -31,3 +31,5 @@ export const ParamDisplay = (props) => {
     </div>
   );
 }
+
+export default ParamDisplay;

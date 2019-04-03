@@ -1,11 +1,10 @@
 import React from 'react';
 
 export const ResponseItem = (props) => {
-  const { response } = props;
-  const r = m.responses[response];
+  const { response, r, m } = props;
   return (
     r && (
-      <div key={i}>
+      <div>
         <p
           className={`text-lg p-2 ${
             response === "_200"
@@ -132,3 +131,5 @@ export const ResponseItem = (props) => {
     )
   );
 }
+
+export default ResponseItem;

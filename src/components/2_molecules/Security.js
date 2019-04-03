@@ -15,3 +15,5 @@ export const Security = (props) => {
     </>
   )
 }
+
+export default Security;

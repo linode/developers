@@ -20,7 +20,7 @@ const apiPage = ({ data }) => {
     put: "put",
     delete: "delete"
   };
-  const responses = {
+  const responseOptions = {
     _200: "_200",
     _204: "_204",
     default: "default"
@@ -66,9 +66,9 @@ const apiPage = ({ data }) => {
                       </p>
                     )}
                     {m.parameters &&
-                      m.parameters.map((param, i) => {
-                        <ParamDisplay key={`param-item-${i}`} param={param} />
-                      })}
+                      m.parameters.map((param, i) =>
+                        <ParamDisplay key={`param-item-${i}`} param={param} m={m} />
+                      )}
                     {m.security &&
                       <Security oauth={m.security[1].oauth} />
                     }
@@ -125,7 +125,7 @@ const apiPage = ({ data }) => {
                         </>
                       )}
                     </div>
-                  <ResponseList responses={m.responses} />
+                  <ResponseList options={responseOptions} responses={m.responses} m={m} />
                   </div>
                   <div className="w-full md:w-1/3 mb-8 px-4 py-2">
                     {m.x_code_samples &&
