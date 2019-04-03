@@ -455,6 +455,21 @@ export const query = graphql`
                           maxLength
                           example
                           x_linode_cli_display
+                          properties {
+                            primary {
+                              type
+                              nullable
+                              format
+                              description
+                              example
+                            }
+                            secondary {
+                              type
+                              nullable
+                              format
+                              description
+                            }
+                          }
                         }
                         state {
                           type
@@ -1417,6 +1432,26 @@ export const query = graphql`
                                 type
                                 description
                                 readOnly
+                                properties {
+                                  apache {
+                                    type
+                                    description
+                                    example
+                                    readOnly
+                                  }
+                                  nginx {
+                                    type
+                                    description
+                                    example
+                                    readOnly
+                                  }
+                                  mysql {
+                                    type
+                                    description
+                                    example
+                                    readOnly
+                                  }
+                                }
                               }
                               clients_included {
                                 type
@@ -1429,6 +1464,21 @@ export const query = graphql`
                                 type
                                 description
                                 x_linode_cli_display
+                                properties {
+                                  primary {
+                                    type
+                                    nullable
+                                    format
+                                    description
+                                    example
+                                  }
+                                  secondary {
+                                    type
+                                    nullable
+                                    format
+                                    description
+                                  }
+                                }
                               }
                               services {
                                 type
@@ -1440,6 +1490,33 @@ export const query = graphql`
                                 type
                                 description
                                 x_linode_cli_display
+                                properties {
+                                  access {
+                                    type
+                                    description
+                                    example
+                                  }
+                                  user {
+                                    type
+                                    minLength
+                                    maxLength
+                                    description
+                                    example
+                                  }
+                                  port {
+                                    type
+                                    minimum
+                                    maximum
+                                    description
+                                    example
+                                  }
+                                  ip {
+                                    type
+                                    format
+                                    description
+                                    example
+                                  }
+                                }
                               }
                               service_type {
                                 type
@@ -1625,6 +1702,20 @@ export const query = graphql`
                                 description
                                 readOnly
                                 x_linode_cli_display
+                                properties {
+                                  up {
+                                    type
+                                    description
+                                    example
+                                    readOnly
+                                  }
+                                  down {
+                                    type
+                                    description
+                                    example
+                                    readOnly
+                                  }
+                                }
                               }
                               mode {
                                 type
@@ -3326,6 +3417,26 @@ export const query = graphql`
                           type
                           description
                           readOnly
+                          properties {
+                            apache {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            nginx {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            mysql {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                          }
                         }
                         clients_included {
                           type
@@ -3344,6 +3455,33 @@ export const query = graphql`
                           type
                           description
                           x_linode_cli_display
+                          properties {
+                            access {
+                              type
+                              description
+                              example
+                            }
+                            user {
+                              type
+                              minLength
+                              maxLength
+                              description
+                              example
+                            }
+                            port {
+                              type
+                              minimum
+                              maximum
+                              description
+                              example
+                            }
+                            ip {
+                              type
+                              format
+                              description
+                              example
+                            }
+                          }
                         }
                         service_type {
                           type
@@ -3493,6 +3631,20 @@ export const query = graphql`
                           description
                           readOnly
                           x_linode_cli_display
+                          properties {
+                            up {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            down {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                          }
                         }
                         mode {
                           type
@@ -3954,6 +4106,210 @@ export const query = graphql`
                       configs {
                         type
                         description
+                        items {
+                          type
+                          example
+                          allOf {
+                            type
+                            description
+                            properties {
+                              id {
+                                type
+                                description
+                                example
+                                readOnly
+                                x_linode_cli_display
+                              }
+                              port {
+                                type
+                                minimum
+                                maximum
+                                description
+                                example
+                                x_linode_cli_display
+                              }
+                              protocol {
+                                type
+                                description
+                                example
+                                x_linode_cli_display
+                              }
+                              algorithm {
+                                type
+                                description
+                                example
+                                x_linode_cli_display
+                              }
+                              stickiness {
+                                type
+                                description
+                                example
+                                x_linode_cli_display
+                              }
+                              check {
+                                type
+                                description
+                                example
+                              }
+                              check_interval {
+                                type
+                                description
+                                example
+                              }
+                              check_timeout {
+                                type
+                                minimum
+                                maximum
+                                description
+                                example
+                              }
+                              check_attempts {
+                                type
+                                minimum
+                                maximum
+                                description
+                                example
+                              }
+                              check_path {
+                                type
+                                description
+                                example
+                              }
+                              check_body {
+                                type
+                                description
+                                example
+                              }
+                              check_passive {
+                                type
+                                description
+                                example
+                                x_linode_cli_display
+                              }
+                              cipher_suite {
+                                type
+                                description
+                                example
+                                x_linode_cli_display
+                              }
+                              nodebalancer_id {
+                                type
+                                description
+                                example
+                                readOnly
+                              }
+                              ssl_commonname {
+                                type
+                                description
+                                readOnly
+                                x_linode_cli_display
+                              }
+                              ssl_fingerprint {
+                                type
+                                description
+                                readOnly
+                                x_linode_cli_display
+                              }
+                              ssl_cert {
+                                type
+                                format
+                                nullable
+                                description
+                              }
+                              ssl_key {
+                                type
+                                format
+                                nullable
+                                description
+                              }
+                              nodes_status {
+                                type
+                                description
+                                readOnly
+                                x_linode_cli_display
+                                properties {
+                                  up {
+                                    type
+                                    description
+                                    example
+                                    readOnly
+                                  }
+                                  down {
+                                    type
+                                    description
+                                    example
+                                    readOnly
+                                  }
+                                }
+                              }
+                              nodes {
+                                type
+                                description
+                                items {
+                                  type
+                                  description
+                                  properties {
+                                    id {
+                                      type
+                                      description
+                                      example
+                                      readOnly
+                                      x_linode_cli_display
+                                    }
+                                    address {
+                                      type
+                                      format
+                                      description
+                                      example
+                                      x_linode_cli_display
+                                    }
+                                    label {
+                                      type
+                                      minLength
+                                      maxLength
+                                      description
+                                      example
+                                      x_linode_cli_display
+                                    }
+                                    status {
+                                      type
+                                      description
+                                      example
+                                      readOnly
+                                      x_linode_cli_display
+                                    }
+                                    weight {
+                                      type
+                                      minimum
+                                      maximum
+                                      description
+                                      example
+                                      x_linode_cli_display
+                                    }
+                                    mode {
+                                      type
+                                      description
+                                      example
+                                      x_linode_cli_display
+                                    }
+                                    config_id {
+                                      type
+                                      description
+                                      example
+                                      readOnly
+                                    }
+                                    nodebalancer_id {
+                                      type
+                                      description
+                                      example
+                                      readOnly
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
                       }
                       kernel {
                         type
@@ -4105,6 +4461,26 @@ export const query = graphql`
                         type
                         description
                         readOnly
+                        properties {
+                          apache {
+                            type
+                            description
+                            example
+                            readOnly
+                          }
+                          nginx {
+                            type
+                            description
+                            example
+                            readOnly
+                          }
+                          mysql {
+                            type
+                            description
+                            example
+                            readOnly
+                          }
+                        }
                       }
                       created {
                         type
@@ -4134,10 +4510,40 @@ export const query = graphql`
                         type
                         description
                         x_linode_cli_display
+                        properties {
+                          primary {
+                            type
+                            nullable
+                            format
+                            description
+                            example
+                          }
+                          secondary {
+                            type
+                            nullable
+                            format
+                            description
+                          }
+                        }
                       }
                       assignments {
                         type
                         description
+                        items {
+                          properties {
+                            address {
+                              type
+                              format
+                              description
+                              example
+                            }
+                            linode_id {
+                              type
+                              description
+                              example
+                            }
+                          }
+                        }
                       }
                       ips {
                         type
@@ -4258,6 +4664,20 @@ export const query = graphql`
                         description
                         readOnly
                         x_linode_cli_display
+                        properties {
+                          up {
+                            type
+                            description
+                            example
+                            readOnly
+                          }
+                          down {
+                            type
+                            description
+                            example
+                            readOnly
+                          }
+                        }
                       }
                       tfa_code {
                         type
@@ -5042,11 +5462,46 @@ export const query = graphql`
                           type
                           description
                           readOnly
+                          properties {
+                            apache {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            nginx {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            mysql {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                          }
                         }
                         phone {
                           type
                           description
                           x_linode_cli_display
+                          properties {
+                            primary {
+                              type
+                              nullable
+                              format
+                              description
+                              example
+                            }
+                            secondary {
+                              type
+                              nullable
+                              format
+                              description
+                            }
+                          }
                         }
                         service_type {
                           type
@@ -5106,6 +5561,29 @@ export const query = graphql`
                         transfer {
                           type
                           description
+                          properties {
+                            total {
+                              type
+                              nullable
+                              description
+                              example
+                              readOnly
+                            }
+                            in {
+                              type
+                              nullable
+                              description
+                              example
+                              readOnly
+                            }
+                            out {
+                              type
+                              nullable
+                              description
+                              example
+                              readOnly
+                            }
+                          }
                         }
                         algorithm {
                           type
@@ -5200,6 +5678,20 @@ export const query = graphql`
                           description
                           readOnly
                           x_linode_cli_display
+                          properties {
+                            up {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            down {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                          }
                         }
                         mode {
                           type
@@ -5491,6 +5983,21 @@ export const query = graphql`
                         maxLength
                         example
                         x_linode_cli_display
+                        properties {
+                          primary {
+                            type
+                            nullable
+                            format
+                            description
+                            example
+                          }
+                          secondary {
+                            type
+                            nullable
+                            format
+                            description
+                          }
+                        }
                       }
                       state {
                         type
@@ -6371,11 +6878,58 @@ export const query = graphql`
                         type
                         description
                         readOnly
+                        properties {
+                          apache {
+                            type
+                            description
+                            example
+                            readOnly
+                          }
+                          nginx {
+                            type
+                            description
+                            example
+                            readOnly
+                          }
+                          mysql {
+                            type
+                            description
+                            example
+                            readOnly
+                          }
+                        }
                       }
                       ssh {
                         type
                         description
                         x_linode_cli_display
+                        properties {
+                          access {
+                            type
+                            description
+                            example
+                          }
+                          user {
+                            type
+                            minLength
+                            maxLength
+                            description
+                            example
+                          }
+                          port {
+                            type
+                            minimum
+                            maximum
+                            description
+                            example
+                          }
+                          ip {
+                            type
+                            format
+                            description
+                            example
+                          }
+                        }
                       }
                       service_type {
                         type
@@ -6472,6 +7026,29 @@ export const query = graphql`
                       transfer {
                         type
                         description
+                        properties {
+                          total {
+                            type
+                            nullable
+                            description
+                            example
+                            readOnly
+                          }
+                          in {
+                            type
+                            nullable
+                            description
+                            example
+                            readOnly
+                          }
+                          out {
+                            type
+                            nullable
+                            description
+                            example
+                            readOnly
+                          }
+                        }
                       }
                       algorithm {
                         type
@@ -6566,6 +7143,20 @@ export const query = graphql`
                         description
                         readOnly
                         x_linode_cli_display
+                        properties {
+                          up {
+                            type
+                            description
+                            example
+                            readOnly
+                          }
+                          down {
+                            type
+                            description
+                            example
+                            readOnly
+                          }
+                        }
                       }
                       mode {
                         type
@@ -6740,6 +7331,21 @@ export const query = graphql`
                           maxLength
                           example
                           x_linode_cli_display
+                          properties {
+                            primary {
+                              type
+                              nullable
+                              format
+                              description
+                              example
+                            }
+                            secondary {
+                              type
+                              nullable
+                              format
+                              description
+                            }
+                          }
                         }
                         state {
                           type
@@ -7653,11 +8259,58 @@ export const query = graphql`
                           type
                           description
                           readOnly
+                          properties {
+                            apache {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            nginx {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            mysql {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                          }
                         }
                         ssh {
                           type
                           description
                           x_linode_cli_display
+                          properties {
+                            access {
+                              type
+                              description
+                              example
+                            }
+                            user {
+                              type
+                              minLength
+                              maxLength
+                              description
+                              example
+                            }
+                            port {
+                              type
+                              minimum
+                              maximum
+                              description
+                              example
+                            }
+                            ip {
+                              type
+                              format
+                              description
+                              example
+                            }
+                          }
                         }
                         service_type {
                           type
@@ -7717,6 +8370,29 @@ export const query = graphql`
                         transfer {
                           type
                           description
+                          properties {
+                            total {
+                              type
+                              nullable
+                              description
+                              example
+                              readOnly
+                            }
+                            in {
+                              type
+                              nullable
+                              description
+                              example
+                              readOnly
+                            }
+                            out {
+                              type
+                              nullable
+                              description
+                              example
+                              readOnly
+                            }
+                          }
                         }
                         algorithm {
                           type
@@ -7811,6 +8487,20 @@ export const query = graphql`
                           description
                           readOnly
                           x_linode_cli_display
+                          properties {
+                            up {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            down {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                          }
                         }
                         mode {
                           type
