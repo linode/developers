@@ -1778,10 +1778,84 @@ export const query = graphql`
                         global {
                           type
                           description
+                          properties {
+                            add_linodes {
+                              type
+                              description
+                              example
+                            }
+                            add_longview {
+                              type
+                              description
+                              example
+                            }
+                            longview_subscription {
+                              type
+                              description
+                              example
+                            }
+                            account_access {
+                              type
+                              nullable
+                              description
+                              example
+                            }
+                            cancel_account {
+                              type
+                              description
+                              example
+                            }
+                            add_domains {
+                              type
+                              description
+                              example
+                            }
+                            add_stackscripts {
+                              type
+                              description
+                              example
+                            }
+                            add_nodebalancers {
+                              type
+                              description
+                              example
+                            }
+                            add_images {
+                              type
+                              description
+                              example
+                            }
+                            add_volumes {
+                              type
+                              description
+                              example
+                            }
+                          }
                         }
                         linode {
                           type
                           description
+                          items {
+                            properties {
+                              id {
+                                type
+                                description
+                                example
+                              }
+                              permissions {
+                                type
+                                nullable
+                                description
+                                example
+                              }
+                              label {
+                                type
+                                description
+                                example
+                                readOnly
+                              }
+                            }
+                          }
                         }
                         domain {
                           type
@@ -1790,10 +1864,52 @@ export const query = graphql`
                           example
                           x_linode_filterable
                           x_linode_cli_display
+                          items {
+                            properties {
+                              id {
+                                type
+                                description
+                                example
+                              }
+                              permissions {
+                                type
+                                nullable
+                                description
+                                example
+                              }
+                              label {
+                                type
+                                description
+                                example
+                                readOnly
+                              }
+                            }
+                          }
                         }
                         nodebalancer {
                           type
                           description
+                          items {
+                            properties {
+                              id {
+                                type
+                                description
+                                example
+                              }
+                              permissions {
+                                type
+                                nullable
+                                description
+                                example
+                              }
+                              label {
+                                type
+                                description
+                                example
+                                readOnly
+                              }
+                            }
+                          }
                         }
                         image {
                           type
@@ -1802,18 +1918,102 @@ export const query = graphql`
                           readOnly
                           nullable
                           x_linode_cli_display
+                          items {
+                            properties {
+                              id {
+                                type
+                                description
+                                example
+                              }
+                              permissions {
+                                type
+                                nullable
+                                description
+                                example
+                              }
+                              label {
+                                type
+                                description
+                                example
+                                readOnly
+                              }
+                            }
+                          }
                         }
                         longview {
                           type
                           description
+                          items {
+                            properties {
+                              id {
+                                type
+                                description
+                                example
+                              }
+                              permissions {
+                                type
+                                nullable
+                                description
+                                example
+                              }
+                              label {
+                                type
+                                description
+                                example
+                                readOnly
+                              }
+                            }
+                          }
                         }
                         stackscript {
                           type
                           description
+                          items {
+                            properties {
+                              id {
+                                type
+                                description
+                                example
+                              }
+                              permissions {
+                                type
+                                nullable
+                                description
+                                example
+                              }
+                              label {
+                                type
+                                description
+                                example
+                                readOnly
+                              }
+                            }
+                          }
                         }
                         volume {
                           type
                           description
+                          items {
+                            properties {
+                              id {
+                                type
+                                description
+                                example
+                              }
+                              permissions {
+                                type
+                                nullable
+                                description
+                                example
+                              }
+                              label {
+                                type
+                                description
+                                example
+                                readOnly
+                              }
+                            }
+                          }
                         }
                         type {
                           type
@@ -4360,10 +4560,84 @@ export const query = graphql`
                       global {
                         type
                         description
+                        properties {
+                          add_linodes {
+                            type
+                            description
+                            example
+                          }
+                          add_longview {
+                            type
+                            description
+                            example
+                          }
+                          longview_subscription {
+                            type
+                            description
+                            example
+                          }
+                          account_access {
+                            type
+                            nullable
+                            description
+                            example
+                          }
+                          cancel_account {
+                            type
+                            description
+                            example
+                          }
+                          add_domains {
+                            type
+                            description
+                            example
+                          }
+                          add_stackscripts {
+                            type
+                            description
+                            example
+                          }
+                          add_nodebalancers {
+                            type
+                            description
+                            example
+                          }
+                          add_images {
+                            type
+                            description
+                            example
+                          }
+                          add_volumes {
+                            type
+                            description
+                            example
+                          }
+                        }
                       }
                       linode {
                         type
                         description
+                        items {
+                          properties {
+                            id {
+                              type
+                              description
+                              example
+                            }
+                            permissions {
+                              type
+                              nullable
+                              description
+                              example
+                            }
+                            label {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                          }
+                        }
                       }
                       domain {
                         type
@@ -4372,10 +4646,52 @@ export const query = graphql`
                         example
                         x_linode_filterable
                         x_linode_cli_display
+                        items {
+                          properties {
+                            id {
+                              type
+                              description
+                              example
+                            }
+                            permissions {
+                              type
+                              nullable
+                              description
+                              example
+                            }
+                            label {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                          }
+                        }
                       }
                       nodebalancer {
                         type
                         description
+                        items {
+                          properties {
+                            id {
+                              type
+                              description
+                              example
+                            }
+                            permissions {
+                              type
+                              nullable
+                              description
+                              example
+                            }
+                            label {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                          }
+                        }
                       }
                       image {
                         type
@@ -4384,18 +4700,102 @@ export const query = graphql`
                         readOnly
                         nullable
                         x_linode_cli_display
+                        items {
+                          properties {
+                            id {
+                              type
+                              description
+                              example
+                            }
+                            permissions {
+                              type
+                              nullable
+                              description
+                              example
+                            }
+                            label {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                          }
+                        }
                       }
                       longview {
                         type
                         description
+                        items {
+                          properties {
+                            id {
+                              type
+                              description
+                              example
+                            }
+                            permissions {
+                              type
+                              nullable
+                              description
+                              example
+                            }
+                            label {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                          }
+                        }
                       }
                       stackscript {
                         type
                         description
+                        items {
+                          properties {
+                            id {
+                              type
+                              description
+                              example
+                            }
+                            permissions {
+                              type
+                              nullable
+                              description
+                              example
+                            }
+                            label {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                          }
+                        }
                       }
                       volume {
                         type
                         description
+                        items {
+                          properties {
+                            id {
+                              type
+                              description
+                              example
+                            }
+                            permissions {
+                              type
+                              nullable
+                              description
+                              example
+                            }
+                            label {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                          }
+                        }
                       }
                       type {
                         type
@@ -5222,10 +5622,84 @@ export const query = graphql`
                         global {
                           type
                           description
+                          properties {
+                            add_linodes {
+                              type
+                              description
+                              example
+                            }
+                            add_longview {
+                              type
+                              description
+                              example
+                            }
+                            longview_subscription {
+                              type
+                              description
+                              example
+                            }
+                            account_access {
+                              type
+                              nullable
+                              description
+                              example
+                            }
+                            cancel_account {
+                              type
+                              description
+                              example
+                            }
+                            add_domains {
+                              type
+                              description
+                              example
+                            }
+                            add_stackscripts {
+                              type
+                              description
+                              example
+                            }
+                            add_nodebalancers {
+                              type
+                              description
+                              example
+                            }
+                            add_images {
+                              type
+                              description
+                              example
+                            }
+                            add_volumes {
+                              type
+                              description
+                              example
+                            }
+                          }
                         }
                         linode {
                           type
                           description
+                          items {
+                            properties {
+                              id {
+                                type
+                                description
+                                example
+                              }
+                              permissions {
+                                type
+                                nullable
+                                description
+                                example
+                              }
+                              label {
+                                type
+                                description
+                                example
+                                readOnly
+                              }
+                            }
+                          }
                         }
                         domain {
                           type
@@ -5234,10 +5708,52 @@ export const query = graphql`
                           example
                           x_linode_filterable
                           x_linode_cli_display
+                          items {
+                            properties {
+                              id {
+                                type
+                                description
+                                example
+                              }
+                              permissions {
+                                type
+                                nullable
+                                description
+                                example
+                              }
+                              label {
+                                type
+                                description
+                                example
+                                readOnly
+                              }
+                            }
+                          }
                         }
                         nodebalancer {
                           type
                           description
+                          items {
+                            properties {
+                              id {
+                                type
+                                description
+                                example
+                              }
+                              permissions {
+                                type
+                                nullable
+                                description
+                                example
+                              }
+                              label {
+                                type
+                                description
+                                example
+                                readOnly
+                              }
+                            }
+                          }
                         }
                         image {
                           type
@@ -5246,18 +5762,102 @@ export const query = graphql`
                           readOnly
                           nullable
                           x_linode_cli_display
+                          items {
+                            properties {
+                              id {
+                                type
+                                description
+                                example
+                              }
+                              permissions {
+                                type
+                                nullable
+                                description
+                                example
+                              }
+                              label {
+                                type
+                                description
+                                example
+                                readOnly
+                              }
+                            }
+                          }
                         }
                         longview {
                           type
                           description
+                          items {
+                            properties {
+                              id {
+                                type
+                                description
+                                example
+                              }
+                              permissions {
+                                type
+                                nullable
+                                description
+                                example
+                              }
+                              label {
+                                type
+                                description
+                                example
+                                readOnly
+                              }
+                            }
+                          }
                         }
                         stackscript {
                           type
                           description
+                          items {
+                            properties {
+                              id {
+                                type
+                                description
+                                example
+                              }
+                              permissions {
+                                type
+                                nullable
+                                description
+                                example
+                              }
+                              label {
+                                type
+                                description
+                                example
+                                readOnly
+                              }
+                            }
+                          }
                         }
                         volume {
                           type
                           description
+                          items {
+                            properties {
+                              id {
+                                type
+                                description
+                                example
+                              }
+                              permissions {
+                                type
+                                nullable
+                                description
+                                example
+                              }
+                              label {
+                                type
+                                description
+                                example
+                                readOnly
+                              }
+                            }
+                          }
                         }
                         type {
                           type
