@@ -6,6 +6,8 @@ import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import Layout from "../../components/4_layouts/layout";
 import SEO from "../../components/0_utilities/seo";
 import Sidebar from "../../components/2_molecules/sidemenu";
+import ParamDisplay from "../../components/2_molecules/paramDisplay";
+import Security from "../../components/2_molecules/Security";
 
 // const _ = require("lodash");
 
@@ -64,47 +66,11 @@ const apiPage = ({ data }) => {
                     )}
                     {m.parameters &&
                       m.parameters.map((param, i) => {
-                        return (
-                          <div key={i} className="mb-4">
-                            <div className="flex">
-                              <div className="w-1/4">
-                                <b>{param.name}</b>
-                              </div>
-                              <div className="w-3/4">
-                                <div>
-                                  <div>
-                                    {param.schema.type}{" "}
-                                    {param.schema.type === "integer" &&
-                                      param.schema.minimum &&
-                                      !param.schema.maximum &&
-                                      `${" > = "} ${param.schema.minimum}`}
-                                    {param.schema.type === "integer" &&
-                                      param.schema.minimum &&
-                                      param.schema.maximum &&
-                                      `${" ["} ${
-                                        param.schema.minimum
-                                      }${" .. "}${param.schema.maximum}${"]"}`}
-                                  </div>
-                                  <div>Default: {param.schema.default}</div>
-                                  <div>{param.description}</div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        );
+                        <ParamDisplay key={`param-item-${i}`} param={param} />
                       })}
-                    {m.security && (
-                      <>
-                        <div className="mt-4">
-                          <b>Authorizations</b>
-                        </div>
-                        <div>personalAccessToken</div>
-                        <div>
-                          <span>oAuth:</span>
-                          <span>({m.security[1].oauth})</span>
-                        </div>
-                      </>
-                    )}
+                    {m.security &&
+                      <Security oauth={m.security[1].oauth} />
+                    }
                     <div>
                       {m.requestBody && (
                         <>
