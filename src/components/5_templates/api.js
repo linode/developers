@@ -1251,6 +1251,48 @@ export const query = graphql`
                                 type
                                 description
                                 readOnly
+                                items {
+                                  type
+                                  required
+                                  description
+                                  properties {
+                                    label {
+                                      type
+                                      description
+                                      example
+                                      readOnly
+                                    }
+                                    name {
+                                      type
+                                      description
+                                      example
+                                      readOnly
+                                    }
+                                    example {
+                                      type
+                                      description
+                                      example
+                                      readOnly
+                                    }
+                                    oneOf {
+                                      type
+                                      description
+                                      example
+                                      readOnly
+                                    }
+                                    manyOf {
+                                      type
+                                      description
+                                      example
+                                      readOnly
+                                    }
+                                    default {
+                                      type
+                                      description
+                                      readOnly
+                                    }
+                                  }
+                                }
                               }
                               disk {
                                 x_linode_filterable
@@ -1273,11 +1315,52 @@ export const query = graphql`
                                 readOnly
                                 description
                                 x_linode_cli_display
+                                properties {
+                                  hourly {
+                                    type
+                                    description
+                                    example
+                                    x_linode_cli_display
+                                    readOnly
+                                  }
+                                  monthly {
+                                    type
+                                    description
+                                    example
+                                    x_linode_cli_display
+                                    readOnly
+                                  }
+                                }
                               }
                               addons {
                                 type
                                 readOnly
                                 description
+                                properties {
+                                  backups {
+                                    type
+                                    readOnly
+                                    description
+                                    properties {
+                                      price {
+                                        type
+                                        description
+                                        properties {
+                                          hourly {
+                                            type
+                                            description
+                                            example
+                                          }
+                                          monthly {
+                                            type
+                                            description
+                                            example
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
                               }
                               network_out {
                                 x_linode_filterable
@@ -2354,6 +2437,22 @@ export const query = graphql`
                           description
                           x_linode_cli_display
                           format
+                          properties {
+                            public {
+                              type
+                              description
+                              readOnly
+                            }
+                            private {
+                              type
+                              description
+                              readOnly
+                            }
+                            shared {
+                              type
+                              readOnly
+                            }
+                          }
                         }
                         ipv6 {
                           type
@@ -2363,6 +2462,20 @@ export const query = graphql`
                           nullable
                           format
                           x_linode_cli_display
+                          properties {
+                            link_local {
+                              type
+                              description
+                            }
+                            slaac {
+                              type
+                              description
+                            }
+                            global {
+                              type
+                              description
+                            }
+                          }
                         }
                         specs {
                           type
@@ -2948,14 +3061,60 @@ export const query = graphql`
                         io {
                           type
                           description
+                          properties {
+                            io {
+                              type
+                              description
+                            }
+                            swap {
+                              type
+                              description
+                            }
+                          }
                         }
                         netv4 {
                           type
                           description
+                          properties {
+                            in {
+                              type
+                              description
+                            }
+                            out {
+                              type
+                              description
+                            }
+                            private_in {
+                              type
+                              description
+                            }
+                            private_out {
+                              type
+                              description
+                            }
+                          }
                         }
                         netv6 {
                           type
                           description
+                          properties {
+                            in {
+                              type
+                              description
+                            }
+                            out {
+                              type
+                              description
+                            }
+                            private_in {
+                              type
+                              description
+                            }
+                            private_out {
+                              type
+                              description
+                            }
+                          }
                         }
                         title {
                           type
@@ -3001,6 +3160,48 @@ export const query = graphql`
                           type
                           description
                           readOnly
+                          items {
+                            type
+                            required
+                            description
+                            properties {
+                              label {
+                                type
+                                description
+                                example
+                                readOnly
+                              }
+                              name {
+                                type
+                                description
+                                example
+                                readOnly
+                              }
+                              example {
+                                type
+                                description
+                                example
+                                readOnly
+                              }
+                              oneOf {
+                                type
+                                description
+                                example
+                                readOnly
+                              }
+                              manyOf {
+                                type
+                                description
+                                example
+                                readOnly
+                              }
+                              default {
+                                type
+                                description
+                                readOnly
+                              }
+                            }
+                          }
                         }
                         disk {
                           x_linode_filterable
@@ -3023,11 +3224,52 @@ export const query = graphql`
                           readOnly
                           description
                           x_linode_cli_display
+                          properties {
+                            hourly {
+                              type
+                              description
+                              example
+                              x_linode_cli_display
+                              readOnly
+                            }
+                            monthly {
+                              type
+                              description
+                              example
+                              x_linode_cli_display
+                              readOnly
+                            }
+                          }
                         }
                         addons {
                           type
                           readOnly
                           description
+                          properties {
+                            backups {
+                              type
+                              readOnly
+                              description
+                              properties {
+                                price {
+                                  type
+                                  description
+                                  properties {
+                                    hourly {
+                                      type
+                                      description
+                                      example
+                                    }
+                                    monthly {
+                                      type
+                                      description
+                                      example
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
                         }
                         network_out {
                           x_linode_filterable
@@ -4740,6 +4982,48 @@ export const query = graphql`
                           type
                           description
                           readOnly
+                          items {
+                            type
+                            required
+                            description
+                            properties {
+                              label {
+                                type
+                                description
+                                example
+                                readOnly
+                              }
+                              name {
+                                type
+                                description
+                                example
+                                readOnly
+                              }
+                              example {
+                                type
+                                description
+                                example
+                                readOnly
+                              }
+                              oneOf {
+                                type
+                                description
+                                example
+                                readOnly
+                              }
+                              manyOf {
+                                type
+                                description
+                                example
+                                readOnly
+                              }
+                              default {
+                                type
+                                description
+                                readOnly
+                              }
+                            }
+                          }
                         }
                         api_key {
                           type
@@ -6027,6 +6311,48 @@ export const query = graphql`
                         type
                         description
                         readOnly
+                        items {
+                          type
+                          required
+                          description
+                          properties {
+                            label {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            name {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            example {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            oneOf {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            manyOf {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            default {
+                              type
+                              description
+                              readOnly
+                            }
+                          }
+                        }
                       }
                       api_key {
                         type
@@ -7267,6 +7593,48 @@ export const query = graphql`
                           type
                           description
                           readOnly
+                          items {
+                            type
+                            required
+                            description
+                            properties {
+                              label {
+                                type
+                                description
+                                example
+                                readOnly
+                              }
+                              name {
+                                type
+                                description
+                                example
+                                readOnly
+                              }
+                              example {
+                                type
+                                description
+                                example
+                                readOnly
+                              }
+                              oneOf {
+                                type
+                                description
+                                example
+                                readOnly
+                              }
+                              manyOf {
+                                type
+                                description
+                                example
+                                readOnly
+                              }
+                              default {
+                                type
+                                description
+                                readOnly
+                              }
+                            }
+                          }
                         }
                         api_key {
                           type
