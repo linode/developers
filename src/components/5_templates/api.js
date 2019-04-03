@@ -1085,9 +1085,70 @@ export const query = graphql`
                               helpers {
                                 type
                                 description
+                                properties {
+                                  updatedb_disabled {
+                                    type
+                                    description
+                                    example
+                                  }
+                                  distro {
+                                    type
+                                    description
+                                    example
+                                  }
+                                  modules_dep {
+                                    type
+                                    description
+                                    example
+                                  }
+                                  network {
+                                    type
+                                    description
+                                    example
+                                  }
+                                  devtmpfs_automount {
+                                    type
+                                    description
+                                    example
+                                  }
+                                }
                               }
                               devices {
                                 type
+                                properties {
+                                  sda {
+                                    type
+                                    description
+                                  }
+                                  sdb {
+                                    type
+                                    description
+                                  }
+                                  sdc {
+                                    type
+                                    description
+                                  }
+                                  sdd {
+                                    type
+                                    description
+                                  }
+                                  sde {
+                                    type
+                                    description
+                                  }
+                                  sdf {
+                                    type
+                                    description
+                                  }
+                                  sdg {
+                                    type
+                                    description
+                                  }
+                                  sdh {
+                                    type
+                                    description
+                                  }
+                                }
                               }
                               root_device {
                                 type
@@ -2400,9 +2461,263 @@ export const query = graphql`
                         }
                         automatic {
                           type
+                          items {
+                            allOf {
+                              properties {
+                                id {
+                                  type
+                                  readOnly
+                                  description
+                                  example
+                                  x_linode_cli_display
+                                }
+                                type {
+                                  type
+                                  readOnly
+                                  description
+                                  example
+                                  x_linode_cli_display
+                                }
+                                status {
+                                  type
+                                  readOnly
+                                  description
+                                  example
+                                  x_linode_cli_display
+                                }
+                                created {
+                                  type
+                                  format
+                                  readOnly
+                                  description
+                                  example
+                                  x_linode_cli_display
+                                }
+                                updated {
+                                  type
+                                  format
+                                  readOnly
+                                  description
+                                  example
+                                }
+                                finished {
+                                  type
+                                  format
+                                  readOnly
+                                  description
+                                  example
+                                }
+                                label {
+                                  type
+                                  description
+                                  example
+                                  x_linode_cli_display
+                                  nullable
+                                }
+                                configs {
+                                  type
+                                  readOnly
+                                  description
+                                }
+                                disks {
+                                  type
+                                  readOnly
+                                  description
+                                  items {
+                                    properties {
+                                      size {
+                                        type
+                                        example
+                                      }
+                                      filesystem {
+                                        type
+                                        description
+                                        example
+                                        x_linode_cli_display
+                                      }
+                                      label {
+                                        type
+                                        example
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
                         }
                         snapshot {
                           type
+                          properties {
+                            in_progress {
+                              type
+                              description
+                              properties {
+                                id {
+                                  type
+                                  readOnly
+                                  description
+                                  example
+                                  x_linode_cli_display
+                                }
+                                type {
+                                  type
+                                  readOnly
+                                  description
+                                  example
+                                  x_linode_cli_display
+                                }
+                                status {
+                                  type
+                                  readOnly
+                                  description
+                                  example
+                                  x_linode_cli_display
+                                }
+                                created {
+                                  type
+                                  format
+                                  readOnly
+                                  description
+                                  example
+                                  x_linode_cli_display
+                                }
+                                updated {
+                                  type
+                                  format
+                                  readOnly
+                                  description
+                                  example
+                                }
+                                finished {
+                                  type
+                                  format
+                                  readOnly
+                                  description
+                                  example
+                                }
+                                label {
+                                  type
+                                  description
+                                  example
+                                  x_linode_cli_display
+                                  nullable
+                                }
+                                configs {
+                                  type
+                                  readOnly
+                                  description
+                                }
+                                disks {
+                                  type
+                                  readOnly
+                                  description
+                                  items {
+                                    properties {
+                                      size {
+                                        type
+                                        example
+                                      }
+                                      filesystem {
+                                        type
+                                        description
+                                        example
+                                        x_linode_cli_display
+                                      }
+                                      label {
+                                        type
+                                        example
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                            current {
+                              type
+                              description
+                              properties {
+                                id {
+                                  type
+                                  readOnly
+                                  description
+                                  example
+                                  x_linode_cli_display
+                                }
+                                type {
+                                  type
+                                  readOnly
+                                  description
+                                  example
+                                  x_linode_cli_display
+                                }
+                                status {
+                                  type
+                                  readOnly
+                                  description
+                                  example
+                                  x_linode_cli_display
+                                }
+                                created {
+                                  type
+                                  format
+                                  readOnly
+                                  description
+                                  example
+                                  x_linode_cli_display
+                                }
+                                updated {
+                                  type
+                                  format
+                                  readOnly
+                                  description
+                                  example
+                                }
+                                finished {
+                                  type
+                                  format
+                                  readOnly
+                                  description
+                                  example
+                                }
+                                label {
+                                  type
+                                  description
+                                  example
+                                  x_linode_cli_display
+                                  nullable
+                                }
+                                configs {
+                                  type
+                                  readOnly
+                                  description
+                                }
+                                disks {
+                                  type
+                                  readOnly
+                                  description
+                                  items {
+                                    properties {
+                                      size {
+                                        type
+                                        example
+                                      }
+                                      filesystem {
+                                        type
+                                        description
+                                        example
+                                        x_linode_cli_display
+                                      }
+                                      label {
+                                        type
+                                        example
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
                         }
                         finished {
                           type
@@ -2420,6 +2735,24 @@ export const query = graphql`
                           type
                           readOnly
                           description
+                          items {
+                            properties {
+                              size {
+                                type
+                                example
+                              }
+                              filesystem {
+                                type
+                                description
+                                example
+                                x_linode_cli_display
+                              }
+                              label {
+                                type
+                                example
+                              }
+                            }
+                          }
                         }
                         kernel {
                           type
@@ -2451,9 +2784,70 @@ export const query = graphql`
                         helpers {
                           type
                           description
+                          properties {
+                            updatedb_disabled {
+                              type
+                              description
+                              example
+                            }
+                            distro {
+                              type
+                              description
+                              example
+                            }
+                            modules_dep {
+                              type
+                              description
+                              example
+                            }
+                            network {
+                              type
+                              description
+                              example
+                            }
+                            devtmpfs_automount {
+                              type
+                              description
+                              example
+                            }
+                          }
                         }
                         devices {
                           type
+                          properties {
+                            sda {
+                              type
+                              description
+                            }
+                            sdb {
+                              type
+                              description
+                            }
+                            sdc {
+                              type
+                              description
+                            }
+                            sdd {
+                              type
+                              description
+                            }
+                            sde {
+                              type
+                              description
+                            }
+                            sdf {
+                              type
+                              description
+                            }
+                            sdg {
+                              type
+                              description
+                            }
+                            sdh {
+                              type
+                              description
+                            }
+                          }
                         }
                         root_device {
                           type
@@ -3349,9 +3743,70 @@ export const query = graphql`
                       helpers {
                         type
                         description
+                        properties {
+                          updatedb_disabled {
+                            type
+                            description
+                            example
+                          }
+                          distro {
+                            type
+                            description
+                            example
+                          }
+                          modules_dep {
+                            type
+                            description
+                            example
+                          }
+                          network {
+                            type
+                            description
+                            example
+                          }
+                          devtmpfs_automount {
+                            type
+                            description
+                            example
+                          }
+                        }
                       }
                       devices {
                         type
+                        properties {
+                          sda {
+                            type
+                            description
+                          }
+                          sdb {
+                            type
+                            description
+                          }
+                          sdc {
+                            type
+                            description
+                          }
+                          sdd {
+                            type
+                            description
+                          }
+                          sde {
+                            type
+                            description
+                          }
+                          sdf {
+                            type
+                            description
+                          }
+                          sdg {
+                            type
+                            description
+                          }
+                          sdh {
+                            type
+                            description
+                          }
+                        }
                       }
                       root_device {
                         type
@@ -4077,6 +4532,24 @@ export const query = graphql`
                           type
                           readOnly
                           description
+                          items {
+                            properties {
+                              size {
+                                type
+                                example
+                              }
+                              filesystem {
+                                type
+                                description
+                                example
+                                x_linode_cli_display
+                              }
+                              label {
+                                type
+                                example
+                              }
+                            }
+                          }
                         }
                         kernel {
                           type
@@ -4108,9 +4581,70 @@ export const query = graphql`
                         helpers {
                           type
                           description
+                          properties {
+                            updatedb_disabled {
+                              type
+                              description
+                              example
+                            }
+                            distro {
+                              type
+                              description
+                              example
+                            }
+                            modules_dep {
+                              type
+                              description
+                              example
+                            }
+                            network {
+                              type
+                              description
+                              example
+                            }
+                            devtmpfs_automount {
+                              type
+                              description
+                              example
+                            }
+                          }
                         }
                         devices {
                           type
+                          properties {
+                            sda {
+                              type
+                              description
+                            }
+                            sdb {
+                              type
+                              description
+                            }
+                            sdc {
+                              type
+                              description
+                            }
+                            sdd {
+                              type
+                              description
+                            }
+                            sde {
+                              type
+                              description
+                            }
+                            sdf {
+                              type
+                              description
+                            }
+                            sdg {
+                              type
+                              description
+                            }
+                            sdh {
+                              type
+                              description
+                            }
+                          }
                         }
                         root_device {
                           type
@@ -5372,9 +5906,70 @@ export const query = graphql`
                       helpers {
                         type
                         description
+                        properties {
+                          updatedb_disabled {
+                            type
+                            description
+                            example
+                          }
+                          distro {
+                            type
+                            description
+                            example
+                          }
+                          modules_dep {
+                            type
+                            description
+                            example
+                          }
+                          network {
+                            type
+                            description
+                            example
+                          }
+                          devtmpfs_automount {
+                            type
+                            description
+                            example
+                          }
+                        }
                       }
                       devices {
                         type
+                        properties {
+                          sda {
+                            type
+                            description
+                          }
+                          sdb {
+                            type
+                            description
+                          }
+                          sdc {
+                            type
+                            description
+                          }
+                          sdd {
+                            type
+                            description
+                          }
+                          sde {
+                            type
+                            description
+                          }
+                          sdf {
+                            type
+                            description
+                          }
+                          sdg {
+                            type
+                            description
+                          }
+                          sdh {
+                            type
+                            description
+                          }
+                        }
                       }
                       root_device {
                         type
@@ -6513,9 +7108,70 @@ export const query = graphql`
                         helpers {
                           type
                           description
+                          properties {
+                            updatedb_disabled {
+                              type
+                              description
+                              example
+                            }
+                            distro {
+                              type
+                              description
+                              example
+                            }
+                            modules_dep {
+                              type
+                              description
+                              example
+                            }
+                            network {
+                              type
+                              description
+                              example
+                            }
+                            devtmpfs_automount {
+                              type
+                              description
+                              example
+                            }
+                          }
                         }
                         devices {
                           type
+                          properties {
+                            sda {
+                              type
+                              description
+                            }
+                            sdb {
+                              type
+                              description
+                            }
+                            sdc {
+                              type
+                              description
+                            }
+                            sdd {
+                              type
+                              description
+                            }
+                            sde {
+                              type
+                              description
+                            }
+                            sdf {
+                              type
+                              description
+                            }
+                            sdg {
+                              type
+                              description
+                            }
+                            sdh {
+                              type
+                              description
+                            }
+                          }
                         }
                         root_device {
                           type
