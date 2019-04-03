@@ -3678,6 +3678,45 @@ export const query = graphql`
                           type
                           description
                           readOnly
+                          properties {
+                            code {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            url {
+                              type
+                              format
+                              description
+                              example
+                              readOnly
+                            }
+                            total {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            completed {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            pending {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            credit {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                          }
                         }
                         ip_whitelist_enabled {
                           deprecated
@@ -7190,6 +7229,45 @@ export const query = graphql`
                         type
                         description
                         readOnly
+                        properties {
+                          code {
+                            type
+                            description
+                            example
+                            readOnly
+                          }
+                          url {
+                            type
+                            format
+                            description
+                            example
+                            readOnly
+                          }
+                          total {
+                            type
+                            description
+                            example
+                            readOnly
+                          }
+                          completed {
+                            type
+                            description
+                            example
+                            readOnly
+                          }
+                          pending {
+                            type
+                            description
+                            example
+                            readOnly
+                          }
+                          credit {
+                            type
+                            description
+                            example
+                            readOnly
+                          }
+                        }
                       }
                       ip_whitelist_enabled {
                         deprecated
@@ -8534,6 +8612,45 @@ export const query = graphql`
                           type
                           description
                           readOnly
+                          properties {
+                            code {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            url {
+                              type
+                              format
+                              description
+                              example
+                              readOnly
+                            }
+                            total {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            completed {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            pending {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                            credit {
+                              type
+                              description
+                              example
+                              readOnly
+                            }
+                          }
                         }
                         ip_whitelist_enabled {
                           deprecated
