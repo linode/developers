@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const paramDisplay = (props) => {
+export const ParamDisplay = (props) => {
   const { param } = props;
   return (
     <div className="mb-4">
