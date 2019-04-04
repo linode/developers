@@ -9,6 +9,7 @@ import Sidebar from "../../components/2_molecules/sidemenu";
 import ParamDisplay from "../../components/2_molecules/paramDisplay";
 import Security from "../../components/2_molecules/Security";
 import ResponseList from "../../components/2_molecules/ResponseList";
+import ResponseSamples from "../2_molecules/ResponseSamples";
 
 // const _ = require("lodash");
 
@@ -66,12 +67,14 @@ const apiPage = ({ data }) => {
                       </p>
                     )}
                     {m.parameters &&
-                      m.parameters.map((param, i) =>
-                        <ParamDisplay key={`param-item-${i}`} param={param} m={m} />
-                      )}
-                    {m.security &&
-                      <Security oauth={m.security[1].oauth} />
-                    }
+                      m.parameters.map((param, i) => (
+                        <ParamDisplay
+                          key={`param-item-${i}`}
+                          param={param}
+                          m={m}
+                        />
+                      ))}
+                    {m.security && <Security oauth={m.security[1].oauth} />}
                     <div>
                       {m.requestBody && (
                         <>
@@ -125,9 +128,14 @@ const apiPage = ({ data }) => {
                         </>
                       )}
                     </div>
-                  <ResponseList options={responseOptions} responses={m.responses} m={m} />
+                    <ResponseList
+                      options={responseOptions}
+                      responses={m.responses}
+                      m={m}
+                    />
                   </div>
                   <div className="w-full md:w-1/3 mb-8 px-4 py-2">
+                    <h3>Request Samples</h3>
                     {m.x_code_samples &&
                       m.x_code_samples.map((x, i) => {
                         return (
@@ -146,6 +154,11 @@ const apiPage = ({ data }) => {
                           </div>
                         );
                       })}
+                    <ResponseSamples
+                      options={responseOptions}
+                      responses={m.responses}
+                      m={m}
+                    />
                   </div>
                 </div>
               )

@@ -27,7 +27,6 @@ export const ResponseItem = props => {
             Object.keys(r.content.application_json.schema.properties).map(
               (p, i) => {
                 const l = r.content.application_json.schema.properties[p];
-                // console.log(m);
                 return (
                   l && (
                     <div key={i}>
@@ -76,7 +75,6 @@ export const ResponseItem = props => {
                           <div>
                             <div>{l.description}</div>
                           </div>
-                          {console.log(l)}
                         </div>
                       </div>
                       {l.properties && (
