@@ -84,7 +84,7 @@ class SideMenu extends React.Component {
                   {group.edges.map((link, i) => {
                     const n = link.node;
                     return (
-                      <ul key={i} className="p-0">
+                      <ul key={i} className="p-0 pl-4">
                         {n.get && (
                           <li className="list-reset">
                             <Link
@@ -94,7 +94,7 @@ class SideMenu extends React.Component {
                                   ? "active"
                                   : null
                               }
-                              api-link ml-4
+                              api-link
                               `}
                               onClick={this.toggleActiveLink}
                             >
@@ -111,7 +111,7 @@ class SideMenu extends React.Component {
                                   ? "active"
                                   : null
                               }
-                              api-link ml-4
+                              api-link
                               `}
                               onClick={this.toggleActiveLink}
                             >
@@ -128,7 +128,7 @@ class SideMenu extends React.Component {
                                   ? "active"
                                   : null
                               }
-                              api-link ml-4
+                              api-link
                               `}
                               onClick={this.toggleActiveLink}
                             >
@@ -145,7 +145,7 @@ class SideMenu extends React.Component {
                                   ? "active"
                                   : null
                               }
-                              api-link ml-4
+                              api-link
                               `}
                               onClick={this.toggleActiveLink}
                             >

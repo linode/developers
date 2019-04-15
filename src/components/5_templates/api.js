@@ -37,7 +37,7 @@ const apiPage = ({ data }) => {
         <div className="w-full md:w-1/6">
           <Sidebar />
         </div>
-        <div className="w-full md:w-5/6 pl-8">
+        <div className="w-full md:w-5/6">
           <h1 className="mb-4 ">
             {(n.get && n.get.tags) ||
               (n.post && n.post.tags) ||
