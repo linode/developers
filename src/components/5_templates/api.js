@@ -104,10 +104,13 @@ const apiPage = ({ data }) => {
                                           {m.requestBody.content
                                             .application_json.schema.required &&
                                             m.requestBody.content.application_json.schema.required.map(
-                                              req => {
+                                              (req, i) => {
                                                 if (p === req) {
                                                   return (
-                                                    <span className="text-BaseRed">
+                                                    <span
+                                                      className="text-BaseRed"
+                                                      key={i}
+                                                    >
                                                       Required
                                                     </span>
                                                   );
