@@ -39,7 +39,7 @@ export const ResponseItem = props => {
                               <>
                                 "{p}":{" "}
                                 <span style={{ color: "#3BB878" }}>
-                                  "{l.example}"
+                                  "{l.example}",
                                 </span>
                               </>
                             ) : (
