@@ -88,6 +88,7 @@ module.exports = {
         whitelist: [
           "mobile-nav",
           "active",
+          "active-item",
           "error",
           "open",
           "table",

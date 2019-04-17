@@ -50,6 +50,6 @@
   left: 2px;
 }
 
-.api-link.active {
+.api-link.active-item {
   @apply text-BaseBlackFull no-underline;
 }

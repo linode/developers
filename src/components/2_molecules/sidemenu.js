@@ -27,7 +27,7 @@ class SideMenu extends React.Component {
     });
 
     setTimeout(() => {
-      const activeEl = document.getElementsByClassName("active")[0];
+      const activeEl = document.getElementsByClassName("active-item")[0];
       const activeGroup =
         activeEl && activeEl.parentNode.parentNode.parentNode.parentNode;
       activeEl && activeGroup.classList.add("active-group");
@@ -55,11 +55,11 @@ class SideMenu extends React.Component {
   toggleActiveLink = e => {
     if (e.target.classList.contains("api-link")) {
       document.querySelectorAll(".api-link").forEach(a => {
-        if (a.classList.contains("active")) {
-          a.classList.remove("active");
+        if (a.classList.contains("active-item")) {
+          a.classList.remove("active-item");
         }
       });
-      e.target.classList.add("active");
+      e.target.classList.add("active-item");
     }
   };
 
@@ -91,7 +91,7 @@ class SideMenu extends React.Component {
                               to={`/api/v4/${_.kebabCase(n.name)}`}
                               className={`${
                                 _.kebabCase(n.name) + "/" === activePage
-                                  ? "active"
+                                  ? "active-item"
                                   : null
                               }
                               api-link
@@ -108,7 +108,7 @@ class SideMenu extends React.Component {
                               to={`/api/v4/${_.kebabCase(n.name)}/#post`}
                               className={`${
                                 _.kebabCase(n.name) + "/#post" === activePage
-                                  ? "active"
+                                  ? "active-item"
                                   : null
                               }
                               api-link
@@ -125,7 +125,7 @@ class SideMenu extends React.Component {
                               to={`/api/v4/${_.kebabCase(n.name)}/#put`}
                               className={`${
                                 _.kebabCase(n.name) + "/#put" === activePage
-                                  ? "active"
+                                  ? "active-item"
                                   : null
                               }
                               api-link
@@ -142,7 +142,7 @@ class SideMenu extends React.Component {
                               to={`/api/v4/${_.kebabCase(n.name)}/#delete`}
                               className={`${
                                 _.kebabCase(n.name) + "/#delete" === activePage
-                                  ? "active"
+                                  ? "active-item"
                                   : null
                               }
                               api-link
