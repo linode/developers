@@ -99,24 +99,25 @@ export const ResponseItem = props => {
                       )}
                       {l.items && (
                         <div className="py-2 px-4 bg-ThemeBeige mt-2 mb-4">
-                          {Object.keys(l.items.properties).map((e, i) => {
-                            const data = l.items.properties[e];
-                            return (
-                              data && (
-                                <div key={i} className="flex mb-4">
-                                  <div className="w-1/4">
-                                    <b>{e}</b>
-                                  </div>
-                                  <div className="w-3/4">
-                                    <div>
-                                      <div>{data.type}</div>
-                                      <div>{data.description}</div>
+                          {l.items.properties &&
+                            Object.keys(l.items.properties).map((e, i) => {
+                              const data = l.items.properties[e];
+                              return (
+                                data && (
+                                  <div key={i} className="flex mb-4">
+                                    <div className="w-1/4">
+                                      <b>{e}</b>
+                                    </div>
+                                    <div className="w-3/4">
+                                      <div>
+                                        <div>{data.type}</div>
+                                        <div>{data.description}</div>
+                                      </div>
                                     </div>
                                   </div>
-                                </div>
-                              )
-                            );
-                          })}
+                                )
+                              );
+                            })}
                         </div>
                       )}
                     </div>

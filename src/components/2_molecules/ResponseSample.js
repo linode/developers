@@ -62,41 +62,42 @@ export const ResponseItem = props => {
                               </div>
                             );
                           })}
-                        {l.items && (
-                          <div>
-                            {"  {"}
-                            {Object.keys(l.items.properties).map((e, i) => {
-                              const data = l.items.properties[e];
-                              const rowLen3 = Object.keys(l.items).length;
-                              return (
-                                data && (
-                                  <div key={i} className="ml-8">
-                                    <div>
-                                      "{e}":{" "}
-                                      <span style={{ color: "#3BB878" }}>
-                                        "{data.example}"
-                                        {rowLen3 === i + 1 && ","}
-                                      </span>
+                        {l.items &&
+                          (l.items.properties && (
+                            <div>
+                              {"  {"}
+                              {Object.keys(l.items.properties).map((e, i) => {
+                                const data = l.items.properties[e];
+                                const rowLen3 = Object.keys(l.items).length;
+                                return (
+                                  data && (
+                                    <div key={i} className="ml-8">
+                                      <div>
+                                        "{e}":{" "}
+                                        <span style={{ color: "#3BB878" }}>
+                                          "{data.example}"
+                                          {rowLen3 === i + 1 && ","}
+                                        </span>
+                                      </div>
                                     </div>
-                                  </div>
-                                )
-                              );
-                            })}
-                            {"  }"}
-                            {l.type !== "array" && (
-                              <div>
-                                {"]"}
-                                {rowLen !== i + 1 && ","}
-                              </div>
-                            )}
-                            {p !== "errors" && (
-                              <div>
-                                {"]"}
-                                {rowLen !== i + 1 && ","}
-                              </div>
-                            )}
-                          </div>
-                        )}
+                                  )
+                                );
+                              })}
+                              {"  }"}
+                              {l.type !== "array" && (
+                                <div>
+                                  {"]"}
+                                  {rowLen !== i + 1 && ","}
+                                </div>
+                              )}
+                              {p !== "errors" && (
+                                <div>
+                                  {"]"}
+                                  {rowLen !== i + 1 && ","}
+                                </div>
+                              )}
+                            </div>
+                          ))}
                       </div>
                     )
                   );
