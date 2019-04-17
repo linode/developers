@@ -2,6 +2,14 @@ import React from "react";
 // import PropTypes from "prop-types";
 import { Link } from "gatsby";
 
+const isPartiallyActive = ({ isPartiallyCurrent }) =>
+  isPartiallyCurrent
+    ? {
+        className:
+          "main-nav-link text-BaseNavGrey hover:text-white relative active"
+      }
+    : null;
+
 class Menu extends React.Component {
   constructor(props) {
     super(props);
@@ -45,6 +53,8 @@ class Menu extends React.Component {
               to={link.link}
               className="main-nav-link text-BaseNavGrey hover:text-white relative"
               role="menuitem"
+              activeClassName="active"
+              getProps={link === "/" ? undefined : isPartiallyActive}
             >
               {link.name}
             </Link>

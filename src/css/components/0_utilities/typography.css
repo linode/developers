@@ -24,9 +24,7 @@ h5 a {
   @apply p-2 border border-BaseGrey;
 }
 
-.api-body li code {
-  @apply py-0 px-2 m-0 my-1 inline-block text-BaseRed;
-}
-
-.api-body table li {
+.api-body table code {
+  @apply py-0 px-2 m-0 mb-1 inline-block text-BaseRed rounded;
+  line-height: 1.7;
 }
