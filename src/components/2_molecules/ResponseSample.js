@@ -28,8 +28,6 @@ export const ResponseItem = props => {
                   const rowLen = Object.keys(
                     r.content.application_json.schema.properties
                   ).length;
-
-                  console.log(rowLen);
                   return (
                     l && (
                       <div key={i} className="ml-4">
