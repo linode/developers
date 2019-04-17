@@ -85,9 +85,27 @@ module.exports = {
       resolve: `gatsby-plugin-purgecss`,
       options: {
         tailwind: true,
-        whitelist: ["mobile-nav", "active", "error", "open"],
+        whitelist: [
+          "mobile-nav",
+          "active",
+          "error",
+          "open",
+          "table",
+          "tbody",
+          "thead",
+          "th",
+          "td"
+        ],
         purgeOnly: ["src/css/main.css"], // Purge only tailwind
         develop: true
+      }
+    },
+    `gatsby-transformer-json`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `data`,
+        path: `${__dirname}/src/data`
       }
     },
     {

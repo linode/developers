@@ -6,6 +6,27 @@ h5 a {
   text-decoration: none !important;
 }
 
-code {
-  /* @apply p-4 mt-2 mb-8 bg-ThemeBeige block; */
+.api-body code {
+  @apply p-2 mt-2 mb-4 bg-ThemeBeige block;
+}
+
+.api-body table {
+  width: 100%;
+  @apply border border-BaseGrey;
+}
+
+.api-body thead {
+  text-align: left;
+}
+
+.api-body th,
+.api-body td {
+  @apply p-2 border border-BaseGrey;
+}
+
+.api-body li code {
+  @apply py-0 px-2 m-0 my-1 inline-block text-BaseRed;
+}
+
+.api-body table li {
 }

@@ -2,15 +2,23 @@
   position: sticky;
   top: 30px;
   z-index: 2;
-  overflow-y: auto;
   padding-right: 1rem;
   margin-right: 1rem;
   margin-top: 2rem;
 }
 
+.api-body {
+  @apply mb-8;
+}
+
 .list-group {
   max-height: 0;
   visibility: hidden;
+  line-height: 1;
+}
+
+.active-group .list-group li {
+  @apply my-2;
 }
 
 .active-group .list-group {
@@ -36,10 +44,12 @@
 .active-group .caret {
   transform: rotate(90deg);
 }
+
 .api-link {
   position: relative;
   left: 2px;
 }
+
 .api-link.active {
   @apply text-BaseBlackFull no-underline;
 }
