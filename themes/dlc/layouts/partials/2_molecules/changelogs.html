@@ -1,15 +1,16 @@
-<div class="flex flex-wrap">
+<div class="flex flex-wrap" itemscope="" itemtype="http://schema.org/CreativeWork">
+  <meta itemprop="author" content="Linode">
   <div class="w-full md:w-1/4 py-2 md:p-6 md:text-right mt-1 flex items-center md:block">
-    <div class="timeago mr-4 md:mr-0" datetime='{{ .Date.Format "2006-01-02T15:04:05-07:00" }}'>{{ .Date }}</div>
+    <div class="timeago mr-4 md:mr-0" datetime='{{ .Date.Format "2006-01-02T15:04:05-07:00" }}' itemprop="datePublished">{{ .Date }}</div>
     <div class="text-BaseBlue md:mt-3 flex md:block ">
-      <span class="changelog-product">{{ delimit .Params.changelog ", "}}</span>
+      <span class="changelog-product" itemprop="name">{{ delimit .Params.changelog ", "}}</span>
       {{ if .Params.version }}
-      <div class="text-BaseBlue ml-4 md:ml-0">{{ .Params.version }}</div>
+      <div class="text-BaseBlue ml-4 md:ml-0" itemprop="version">{{ .Params.version }}</div>
       {{ end }}
     </div>
   </div>
   <div class="w-full md:w-3/4 py-2 md:p-6">
-    <h2 class="mt-0 text-2xl font-normal">{{ .Title | markdownify }}</h2>
-    <div class="changelog-entry">{{ .Content | markdownify }}</div>
+    <h2 class="mt-0 text-2xl font-normal" itemprop="alternativeHeadline">{{ .Title | markdownify }}</h2>
+    <div class="changelog-entry" itemprop="disambiguatingDescription">{{ .Content | markdownify }}</div>
   </div>
 </div>
