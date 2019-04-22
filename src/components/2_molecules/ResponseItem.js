@@ -45,11 +45,8 @@ export const ResponseItem = props => {
                               (req, i) => {
                                 if (p === req) {
                                   return (
-                                    <div className="leading-xs">
-                                      <span
-                                        key={i}
-                                        className="text-BaseRed text-sm"
-                                      >
+                                    <div className="leading-xs" key={i}>
+                                      <span className="text-BaseRed text-sm">
                                         Required
                                       </span>
                                     </div>
@@ -119,7 +116,12 @@ export const ResponseItem = props => {
                                 <div className="w-3/4">
                                   <div>
                                     <div className="text-sm text-grey-darkest">
-                                      {data.type}
+                                      {data.type}{" "}
+                                      {data.pattern && (
+                                        <span className="tag">
+                                          {data.pattern}
+                                        </span>
+                                      )}
                                     </div>
                                     {data.enum && (
                                       <div className="flex flex-wrap mb-2">
@@ -159,6 +161,11 @@ export const ResponseItem = props => {
                                       <div>
                                         <div className="text-sm text-grey-darkest leading-text-sm">
                                           {data.type}
+                                          {data.pattern && (
+                                            <span className="tag">
+                                              {data.pattern}
+                                            </span>
+                                          )}
                                         </div>
                                         {data.enum && (
                                           <div className="flex flex-wrap mb-2">

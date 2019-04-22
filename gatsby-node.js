@@ -15,6 +15,12 @@ exports.sourceNodes = async ({ actions }) => {
   // map into these results and create nodes
   Object.keys(res.paths).map((path, i) => {
     // Create your node object
+    const modes = {
+      get: "get",
+      post: "post",
+      put: "put",
+      delete: "delete"
+    };
     const pathNode = {
       // Required fields
       id: `${i}`,
@@ -32,7 +38,12 @@ exports.sourceNodes = async ({ actions }) => {
       post: res.paths[path].post,
       put: res.paths[path].put,
       delete: res.paths[path].delete,
-      responses: res.paths[path].responses
+      responses: res.paths[path].responses,
+      tagGroup:
+        (res.paths[path]["get"] && res.paths[path]["get"].tags) ||
+        (res.paths[path]["put"] && res.paths[path]["put"].tags) ||
+        (res.paths[path]["post"] && res.paths[path]["post"].tags) ||
+        (res.paths[path]["delete"] && res.paths[path]["delete"].tags)
     };
 
     // Get content digest of node. (Required field)
