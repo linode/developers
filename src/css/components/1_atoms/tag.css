@@ -3,7 +3,6 @@
   padding-top: 6px;
   padding-bottom: 5px;
   width: fit-content;
-  transition: background-color 225ms ease-in-out,
-              color 225ms ease-in-out;
+  transition: background-color 225ms ease-in-out, color 225ms ease-in-out;
   line-height: 1;
 }

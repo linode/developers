@@ -12,4 +12,7 @@ config.padding["10"] = "2.5rem";
 config.padding["12"] = "3rem";
 config.padding["20"] = "5rem";
 
+config.leading["xs"] = ".75";
+config.leading["text-sm"] = "1.8";
+
 module.exports = config;

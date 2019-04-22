@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-export const ParamDisplay = (props) => {
+export const ParamDisplay = props => {
   const { param } = props;
   return (
     <div className="mb-4">
@@ -14,14 +14,18 @@ export const ParamDisplay = (props) => {
               {param.schema.type}{" "}
               {param.schema.type === "integer" &&
                 param.schema.minimum &&
-                !param.schema.maximum &&
-                `${" > = "} ${param.schema.minimum}`}
+                !param.schema.maximum && (
+                  <span className="tag">> = {param.schema.minimum}</span>
+                )}
               {param.schema.type === "integer" &&
                 param.schema.minimum &&
-                param.schema.maximum &&
-                `${" ["} ${
-                  param.schema.minimum
-                }${" .. "}${param.schema.maximum}${"]"}`}
+                param.schema.maximum && (
+                  <span className="tag">
+                    [{param.schema.minimum}
+                    {" .. "}
+                    {param.schema.maximum}]
+                  </span>
+                )}
             </div>
             <div>Default: {param.schema.default}</div>
             <div>{param.description}</div>
@@ -30,6 +34,6 @@ export const ParamDisplay = (props) => {
       </div>
     </div>
   );
-}
+};
 
 export default ParamDisplay;

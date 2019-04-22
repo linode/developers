@@ -18,7 +18,7 @@ export const ResponseItem = props => {
           <b>{response.replace(/[_]/g, " ")}</b>:&nbsp;
           {r.description}
         </p>
-        <hr className="border border-BaseNavGrey" />
+        <hr className="border-top border-BaseNavGrey" />
         <div>
           {r.content &&
             r.content.application_json &&
@@ -45,9 +45,14 @@ export const ResponseItem = props => {
                               (req, i) => {
                                 if (p === req) {
                                   return (
-                                    <span key={i} className="text-BaseRed">
-                                      Required
-                                    </span>
+                                    <div className="leading-xs">
+                                      <span
+                                        key={i}
+                                        className="text-BaseRed text-sm"
+                                      >
+                                        Required
+                                      </span>
+                                    </div>
                                   );
                                 }
                                 return false;
@@ -56,22 +61,47 @@ export const ResponseItem = props => {
                         </div>
                         <div className="w-3/4">
                           <div>
-                            {r.content.application_json.schema.properties
-                              .errors || l.items
-                              ? "array of objects"
-                              : l.type}
-                            {l.type === "string" &&
-                              l.maxLength &&
-                              !l.minLength &&
-                              `${" "} ${l.maxLength}${" "}<= characters`}
-                            {l.type === "string" &&
-                              l.maxLength &&
-                              l.minLength &&
-                              `${" ["} ${l.minLength}${" .. "}${
-                                l.maxLength
-                              }${"] "} characters`}{" "}
-                            {l.pattern && l.pattern}
+                            <div className="text-sm leading-text-sm text-grey-darkest">
+                              {r.content.application_json.schema.properties
+                                .errors || l.items
+                                ? "array of objects"
+                                : l.type}{" "}
+                              {l.type === "string" &&
+                                l.maxLength &&
+                                !l.minLength && (
+                                  <span className="tag">
+                                    {`${l.maxLength}${" "}<= characters`}
+                                  </span>
+                                )}
+                              {l.type === "string" &&
+                                l.maxLength &&
+                                l.minLength && (
+                                  <span className="tag">
+                                    {`${" ["} ${l.minLength}${" .. "}${
+                                      l.maxLength
+                                    }${"] "} characters`}{" "}
+                                  </span>
+                                )}
+                              {l.pattern && (
+                                <span className="tag">{l.pattern}</span>
+                              )}
+                            </div>
                           </div>
+                          {l.enum && (
+                            <div className="flex flex-wrap mb-2">
+                              <span className="text-sm">Enum: </span>
+                              {l.enum.map((e, i) => {
+                                return (
+                                  <span
+                                    className="tag mr-2 mb-1 inline-block"
+                                    key={i}
+                                  >
+                                    "{e}"
+                                  </span>
+                                );
+                              })}
+                            </div>
+                          )}
                           <div>
                             <div>{l.description}</div>
                           </div>
@@ -88,7 +118,24 @@ export const ResponseItem = props => {
                                 </div>
                                 <div className="w-3/4">
                                   <div>
-                                    <div>{data.type}</div>
+                                    <div className="text-sm text-grey-darkest">
+                                      {data.type}
+                                    </div>
+                                    {data.enum && (
+                                      <div className="flex flex-wrap mb-2">
+                                        <span className="text-sm">Enum: </span>
+                                        {data.enum.map((e, i) => {
+                                          return (
+                                            <span
+                                              className="tag mr-2 mb-1 inline-block"
+                                              key={i}
+                                            >
+                                              "{e}"
+                                            </span>
+                                          );
+                                        })}
+                                      </div>
+                                    )}
                                     <div>{data.description}</div>
                                   </div>
                                 </div>
@@ -110,7 +157,26 @@ export const ResponseItem = props => {
                                     </div>
                                     <div className="w-3/4">
                                       <div>
-                                        <div>{data.type}</div>
+                                        <div className="text-sm text-grey-darkest leading-text-sm">
+                                          {data.type}
+                                        </div>
+                                        {data.enum && (
+                                          <div className="flex flex-wrap mb-2">
+                                            <span className="text-sm">
+                                              Enum:{" "}
+                                            </span>
+                                            {data.enum.map((e, i) => {
+                                              return (
+                                                <span
+                                                  className="tag mr-2 mb-1 inline-block"
+                                                  key={i}
+                                                >
+                                                  "{e}"
+                                                </span>
+                                              );
+                                            })}
+                                          </div>
+                                        )}
                                         <div>{data.description}</div>
                                       </div>
                                     </div>

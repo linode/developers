@@ -6,6 +6,10 @@ h5 a {
   text-decoration: none !important;
 }
 
+.border-top {
+  border-top-width: 1px;
+}
+
 .api-body code {
   @apply p-2 mt-2 mb-4 bg-ThemeBeige block;
 }

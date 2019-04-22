@@ -59,8 +59,8 @@ const apiPage = ({ data }) => {
                       <b className="uppercase">{mode}</b>&nbsp;&nbsp;
                       https://api.linode.com/v4{n.name}
                     </p>
+                    <hr className="border-top border-BaseNavGrey" />
                     <p className="mt-0">{m.description}</p>
-
                     {m.parameters && (
                       <p className="mb-2">
                         <b>Query Parameters</b>
@@ -100,7 +100,7 @@ const apiPage = ({ data }) => {
                                         <div>
                                           <b>{p}</b>
                                         </div>
-                                        <div>
+                                        <div className="leading-xs">
                                           {m.requestBody.content
                                             .application_json.schema.required &&
                                             m.requestBody.content.application_json.schema.required.map(
@@ -108,7 +108,7 @@ const apiPage = ({ data }) => {
                                                 if (p === req) {
                                                   return (
                                                     <span
-                                                      className="text-BaseRed"
+                                                      className="text-BaseRed text-sm"
                                                       key={i}
                                                     >
                                                       Required
@@ -121,6 +121,25 @@ const apiPage = ({ data }) => {
                                         </div>
                                       </div>
                                       <div className="w-3/4">
+                                        <div className="text-sm leading-text-sm text-grey-darkest">
+                                          {b.type}{" "}
+                                          {b.pattern && (
+                                            <span className="tag">
+                                              {b.pattern}
+                                            </span>
+                                          )}
+                                        </div>
+                                        <div>
+                                          {/* {console.log(b)}
+                                          {b.enum &&
+                                            b.enum.map((e, i) => {
+                                              return (
+                                                <span className="tag" key={i}>
+                                                  {e}
+                                                </span>
+                                              );
+                                            })} */}
+                                        </div>
                                         <div>{b.description}</div>
                                       </div>
                                     </div>
@@ -357,6 +376,7 @@ export const query = graphql`
                                 description
                                 example
                                 x_linode_cli_display
+                                enum
                               }
                               created {
                                 type
@@ -391,6 +411,7 @@ export const query = graphql`
                                     example
                                     x_linode_filterable
                                     readOnly
+                                    enum
                                   }
                                   url {
                                     type
@@ -431,6 +452,7 @@ export const query = graphql`
                                 description
                                 x_linode_cli_display
                                 example
+                                enum
                               }
                               time_remaining {
                                 type
@@ -510,6 +532,7 @@ export const query = graphql`
                                 description
                                 example
                                 x_linode_cli_display
+                                enum
                               }
                               unitprice {
                                 type
@@ -1728,6 +1751,7 @@ export const query = graphql`
                           description
                           example
                           x_linode_cli_display
+                          enum
                         }
                         created {
                           type
@@ -1762,6 +1786,7 @@ export const query = graphql`
                               example
                               x_linode_filterable
                               readOnly
+                              enum
                             }
                             url {
                               type
@@ -1802,6 +1827,7 @@ export const query = graphql`
                           description
                           x_linode_cli_display
                           example
+                          enum
                         }
                         time_remaining {
                           type
@@ -2185,6 +2211,7 @@ export const query = graphql`
                           example
                           x_linode_cli_display
                           readOnly
+                          enum
                         }
                         group {
                           deprecated
@@ -2532,6 +2559,7 @@ export const query = graphql`
                                   description
                                   example
                                   x_linode_cli_display
+                                  enum
                                 }
                                 status {
                                   type
@@ -2539,6 +2567,7 @@ export const query = graphql`
                                   description
                                   example
                                   x_linode_cli_display
+                                  enum
                                 }
                                 created {
                                   type
@@ -2621,6 +2650,7 @@ export const query = graphql`
                                   description
                                   example
                                   x_linode_cli_display
+                                  enum
                                 }
                                 status {
                                   type
@@ -2628,6 +2658,7 @@ export const query = graphql`
                                   description
                                   example
                                   x_linode_cli_display
+                                  enum
                                 }
                                 created {
                                   type
@@ -2705,6 +2736,7 @@ export const query = graphql`
                                   description
                                   example
                                   x_linode_cli_display
+                                  enum
                                 }
                                 status {
                                   type
@@ -2712,6 +2744,7 @@ export const query = graphql`
                                   description
                                   example
                                   x_linode_cli_display
+                                  enum
                                 }
                                 created {
                                   type
@@ -3827,6 +3860,7 @@ export const query = graphql`
                         description
                         example
                         x_linode_cli_display
+                        enum
                       }
                       domain {
                         type
@@ -3851,6 +3885,7 @@ export const query = graphql`
                         description
                         example
                         x_linode_cli_display
+                        enum
                       }
                       description {
                         type
@@ -4167,6 +4202,7 @@ export const query = graphql`
                                       example
                                       readOnly
                                       x_linode_cli_display
+                                      enum
                                     }
                                     weight {
                                       type
@@ -4668,6 +4704,7 @@ export const query = graphql`
                           example
                           readOnly
                           x_linode_cli_display
+                          enum
                         }
                         secret {
                           type
@@ -4746,6 +4783,7 @@ export const query = graphql`
                           example
                           x_linode_cli_display
                           readOnly
+                          enum
                         }
                         domain {
                           type
@@ -5937,6 +5975,7 @@ export const query = graphql`
                         example
                         readOnly
                         x_linode_cli_display
+                        enum
                       }
                       secret {
                         type
@@ -6252,6 +6291,7 @@ export const query = graphql`
                         example
                         x_linode_cli_display
                         readOnly
+                        enum
                       }
                       group {
                         deprecated
@@ -7318,6 +7358,7 @@ export const query = graphql`
                           example
                           readOnly
                           x_linode_cli_display
+                          enum
                         }
                         secret {
                           type
@@ -7633,6 +7674,7 @@ export const query = graphql`
                           example
                           x_linode_cli_display
                           readOnly
+                          enum
                         }
                         group {
                           deprecated
