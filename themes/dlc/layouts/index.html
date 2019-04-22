@@ -49,15 +49,16 @@
         {{ range $events  }}
           {{ $t := (time .Params.end_date) }}
           {{ if ge ($t) (now.Unix) }}
-            <article class="w-full md:w-1/3 px-4 mb-4 md:mb-8 event-item">
+            <article itemscope="" itemtype="http://schema.org/ExhibitionEvent" class="w-full md:w-1/3 px-4 mb-4 md:mb-8 event-item">
+              <meta itemprop="attendee" itemscope itemtype="http://schema.org/Organization" content="Linode">
               <div class="p-8 h-full bg-ThemeCell tile">
                 <header>
-                  <h3 class="mt-0 mb-4 font-normal"><a href="{{ .Params.event_url }}" class="text-black tile-link" target="_blank">{{ .Title | markdownify }}</a></h3>
+                  <h3 class="mt-0 mb-4 font-normal"><a itemprop="url" href="{{ .Params.event_url }}" class="text-black tile-link" target="_blank"><span itemprop="name">{{ .Title | markdownify }}</span></a></h3>
                 </header>
                 <section>
-                  <div>{{ .Params.location }}</div>
-                  <div>{{ dateFormat "Jan 2, 2006" .Params.start_date }}</div>
-                  <p>{{ .Content }}</p>
+                  <div itemprop="location" itemscope itemtype="http://schema.org/Place"><span itemprop="address">{{ .Params.location }}</span></div>
+                  <div><time itemprop="startDate" datetime="{{ dateFormat "2006-01-02" .Params.start_date }}">{{ dateFormat "Jan 2, 2006" .Params.start_date }}</time></div>
+                  <p itemprop="description">{{ .Content }}</p>
                 </section>
               </div>
             </article>
