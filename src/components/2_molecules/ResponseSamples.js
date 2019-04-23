@@ -18,6 +18,10 @@ export const ResponseList = props => {
                   <ResponseSampleTitle
                     response={options[e]}
                     r={responses[options[e]]}
+                    className={
+                      (options[e] === "_200" && "text-BaseGreen") ||
+                      (options[e] === "default" && "text-BaseRed")
+                    }
                   />
                 </Tab>
               )

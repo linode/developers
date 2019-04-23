@@ -31,8 +31,8 @@ const Layout = ({ children, title, subtitle, fullWidth }) => (
         />
         {title && subtitle && <Banner title={title} subtitle={subtitle} />}
         <div
-          className={`main-wrapper py-2 px-4 md:px-8 ${!fullWidth &&
-            "max-w-3xl mx-auto"}`}
+          className={`main-wrapper ${!fullWidth &&
+            "max-w-3xl mx-auto px-4 md:px-8 py-2"}`}
         >
           <main className="main">{children}</main>
         </div>

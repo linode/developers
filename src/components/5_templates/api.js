@@ -57,11 +57,10 @@ const apiPage = ({ data }) => {
                       {m.summary}
                     </h2>
                     <p className="mb-2">
-                      <b className="uppercase">{mode}</b>&nbsp;&nbsp;
-                      https://api.linode.com/v4{n.name}
+                      <span className="tag big bold">{mode}</span>
+                      &nbsp;&nbsp; https://api.linode.com/v4{n.name}
                     </p>
-                    <hr className="border-top border-BaseNavGrey" />
-                    <p className="mt-0">{m.description}</p>
+                    <p>{m.description}</p>
                     {m.parameters && (
                       <p className="mb-2">
                         <b>Query Parameters</b>

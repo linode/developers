@@ -4,22 +4,20 @@ export const ResponseItem = props => {
   const { response, r, m } = props;
   return (
     r && (
-      <div>
+      <div className="mt-8">
         <p
-          className={`text-lg p-2 ${
+          className={`text-lg p-1 pl-4 text-xl ${
             response === "_200"
-              ? "bg-BaseGreenLight text-BaseGreen"
+              ? "response-200 text-BaseGreen"
               : response === "default"
-              ? "bg-BaseRedLight text-BaseRed"
+              ? "response-default text-BaseRed"
               : null
           }
       `}
         >
-          <b>{response.replace(/[_]/g, " ")}</b>:&nbsp;
-          {r.description}
+          <b>{response.replace(/[_]/g, " ")}</b>: {r.description}
         </p>
-        <hr className="border-top border-BaseNavGrey" />
-        <div>
+        <div className="mt-6">
           {r.content &&
             r.content.application_json &&
             r.content.application_json.schema &&
@@ -105,7 +103,7 @@ export const ResponseItem = props => {
                         </div>
                       </div>
                       {l.properties && (
-                        <div className="py-2 px-4 bg-ThemeBeige mt-2 mb-4">
+                        <div className="px-4 mt-2 mb-4 ml-4 subResponse">
                           {Object.keys(l.properties).map((e, i) => {
                             const data = l.properties[e];
                             return (
@@ -147,7 +145,7 @@ export const ResponseItem = props => {
                         </div>
                       )}
                       {l.items && (
-                        <div className="py-2 px-4 bg-ThemeBeige mt-2 mb-4">
+                        <div className="px-4 mt-2 mb-4 ml-4 subResponse">
                           {l.items.properties &&
                             Object.keys(l.items.properties).map((e, i) => {
                               const data = l.items.properties[e];

@@ -6,6 +6,10 @@ h5 a {
   text-decoration: none !important;
 }
 
+.tag.big {
+  font-size: 1rem;
+}
+
 .border-top {
   border-top-width: 1px;
 }
