@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import Clipboard from "react-clipboard.js";
 import "react-tabs/style/react-tabs.css";
 
 import Layout from "../../components/4_layouts/layout";
@@ -12,6 +13,8 @@ import ParamDisplay from "../../components/2_molecules/paramDisplay";
 import Security from "../../components/2_molecules/Security";
 import ResponseList from "../../components/2_molecules/ResponseList";
 import ResponseSamples from "../2_molecules/ResponseSamples";
+
+import Copy from "../../images/svgs/copy.svg";
 
 // const _ = require("lodash");
 
@@ -56,11 +59,13 @@ const apiPage = ({ data }) => {
                     <h2 id={mode} className="mt-0">
                       {m.summary}
                     </h2>
-                    <p className="mb-2">
-                      <span className="tag big bold">{mode}</span>
-                      &nbsp;&nbsp; https://api.linode.com/v4{n.name}
-                    </p>
-                    <p>{m.description}</p>
+                    <div className="bg-ThemeCell p-4 mt-4 mb-8">
+                      <span className="tag big bold mr-2 uppercase">
+                        {mode}
+                      </span>
+                      <span>https://api.linode.com/v4{n.name}</span>
+                    </div>
+                    {m.description}
                     {m.parameters && (
                       <p className="mb-2">
                         <b>Query Parameters</b>
@@ -79,7 +84,7 @@ const apiPage = ({ data }) => {
                       {m.requestBody && (
                         <>
                           <div className="my-4">
-                            <h4>Request Body Schema</h4>
+                            <h3>Request Body Schema</h3>
                           </div>
                           {m.requestBody.content.application_json &&
                             m.requestBody.content.application_json.schema &&
@@ -163,6 +168,15 @@ const apiPage = ({ data }) => {
                           m.x_code_samples.map((x, i) => {
                             return (
                               <TabPanel key={i}>
+                                <div className="flex justify-end text-sm">
+                                  <Clipboard
+                                    data-clipboard-text={x.source}
+                                    className="flex items-center hover:text-BaseBlueLight"
+                                  >
+                                    <span className="mr-2">Copy</span>
+                                    <Copy style={{ width: 22, height: 22 }} />
+                                  </Clipboard>
+                                </div>
                                 <SyntaxHighlighter
                                   language="bash"
                                   style={atomDark}

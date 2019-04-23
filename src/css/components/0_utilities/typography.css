@@ -6,8 +6,12 @@ h5 a {
   text-decoration: none !important;
 }
 
+input[type="text"] {
+  background-color: white;
+}
+
 .tag.big {
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 .border-top {

@@ -28,7 +28,7 @@ export const ResponseItem = props => {
                 return (
                   l && (
                     <div key={i}>
-                      <div className="flex mb-4">
+                      <div className={`flex mb-2 pt-2 initResponse`}>
                         <div className="w-1/4">
                           <div>
                             <b>{p}</b>

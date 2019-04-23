@@ -1,5 +1,5 @@
 .tag {
-  @apply font-normal px-2 bg-ThemeTagGrey text-BaseBlackFull text-xs uppercase;
+  @apply font-normal px-2 bg-ThemeTagGrey text-BaseBlackFull text-sm;
   padding-top: 6px;
   padding-bottom: 5px;
   width: fit-content;

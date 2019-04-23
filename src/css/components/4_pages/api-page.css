@@ -71,7 +71,12 @@
   @apply border-BaseRed;
 }
 
+.initResponse {
+  border-top-width: 1px;
+  @apply border-grey-light;
+}
+
 .subResponse {
   border-left-width: 2px;
-  @apply border-grey-darker;
+  @apply border-grey-light;
 }
