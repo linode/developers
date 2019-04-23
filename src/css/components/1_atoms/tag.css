@@ -1,7 +1,7 @@
 .tag {
-  @apply font-normal px-2 bg-ThemeTagGrey text-BaseBlackFull text-sm;
-  padding-top: 6px;
-  padding-bottom: 5px;
+  @apply font-normal inline-block px-1 bg-ThemeTagGrey text-BaseBlackFull text-sm;
+  padding-top: 4px;
+  padding-bottom: 3px;
   width: fit-content;
   transition: background-color 225ms ease-in-out, color 225ms ease-in-out;
   line-height: 1;

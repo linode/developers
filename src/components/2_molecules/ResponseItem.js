@@ -1,4 +1,5 @@
 import React from "react";
+import Markdown from "react-markdown/with-html";
 
 export const ResponseItem = props => {
   const { response, r, m } = props;
@@ -27,7 +28,7 @@ export const ResponseItem = props => {
                 const l = r.content.application_json.schema.properties[p];
                 return (
                   l && (
-                    <div key={i}>
+                    <div key={i} className="response-wrapper">
                       <div className={`flex mb-2 pt-2 initResponse`}>
                         <div className="w-1/4">
                           <div>
@@ -123,7 +124,9 @@ export const ResponseItem = props => {
                                     </div>
                                     {data.enum && (
                                       <div className="flex flex-wrap mb-2">
-                                        <span className="text-sm">Enum: </span>
+                                        <span className="text-sm mr-2">
+                                          Enum:
+                                        </span>
                                         {data.enum.map((e, i) => {
                                           return (
                                             <span
@@ -167,8 +170,8 @@ export const ResponseItem = props => {
                                         </div>
                                         {data.enum && (
                                           <div className="flex flex-wrap mb-2">
-                                            <span className="text-sm">
-                                              Enum:{" "}
+                                            <span className="text-sm mr-2">
+                                              Enum:
                                             </span>
                                             {data.enum.map((e, i) => {
                                               return (

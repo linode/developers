@@ -4,6 +4,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import Clipboard from "react-clipboard.js";
+import Markdown from "react-markdown/with-html";
 import "react-tabs/style/react-tabs.css";
 
 import Layout from "../../components/4_layouts/layout";
@@ -65,7 +66,13 @@ const apiPage = ({ data }) => {
                       </span>
                       <span>https://api.linode.com/v4{n.name}</span>
                     </div>
-                    {m.description}
+
+                    <Markdown
+                      source={m.description}
+                      escapeHtml={false}
+                      className="mt-8 api-desc"
+                    />
+
                     {m.parameters && (
                       <p className="mb-2">
                         <b>Query Parameters</b>

@@ -72,8 +72,12 @@
 }
 
 .initResponse {
-  border-top-width: 1px;
-  @apply border-grey-light;
+  /* border-top-width: 1px;
+  @apply border-grey-light; */
+}
+
+.response-wrapper .initResponse:first-child {
+  /* border: 0; */
 }
 
 .subResponse {
