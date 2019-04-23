@@ -1,12 +1,12 @@
 import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { TabPanel } from "react-tabs";
 
 export const ResponseSampleBody = props => {
-  const { r } = props;
+  const { r, response } = props;
   return (
-    r && (
+    r &&
+    r[response] !== "" && (
       <SyntaxHighlighter
         language="json"
         style={atomDark}

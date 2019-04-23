@@ -7,6 +7,10 @@
   margin-top: 2rem;
 }
 
+.api-content {
+  max-width: 60vw;
+}
+
 .api-body {
   @apply mb-8;
 }

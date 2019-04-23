@@ -78,7 +78,7 @@ class SideMenu extends React.Component {
                   <Caret />
                 </span>
                 <button onClick={this.toggleActive} className="inline-block">
-                  <h3 className="mt-0">{group.fieldValue}</h3>
+                  <span className="mt-0">{group.fieldValue}</span>
                 </button>
                 <div id={_.kebabCase(group.fieldValue)} className="list-group">
                   {group.edges.map((link, i) => {

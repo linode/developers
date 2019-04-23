@@ -39,54 +39,20 @@ const apiPage = ({ data }) => {
         <div className="w-full md:w-1/6">
           <Sidebar />
         </div>
-        <div className="w-full md:w-5/6">
+        <div className="w-full md:w-5/6 api-content mx-auto">
           <h1 className="mb-4 ">
             {(n.get && n.get.tags) ||
               (n.post && n.post.tags) ||
               (n.put && n.put.tags) ||
               (n.delete && n.delete.tags)}
           </h1>
-
           {Object.keys(n).map((e, i) => {
             const mode = modes[e];
             const m = n[mode];
             return (
               m && (
                 <div key={i} className="flex flex-col">
-                  <div className="w-full mb-8 px-4 py-2">
-                    <h3>Request Samples</h3>
-                    <Tabs className="my-4">
-                      <TabList>
-                        {m.x_code_samples &&
-                          m.x_code_samples.map((x, i) => {
-                            return <Tab key={i}>{x.lang}</Tab>;
-                          })}
-                      </TabList>
-                      {m.x_code_samples &&
-                        m.x_code_samples.map((x, i) => {
-                          return (
-                            <TabPanel key={i}>
-                              <SyntaxHighlighter
-                                language="bash"
-                                style={atomDark}
-                                className="api-samples"
-                                codeTagProps={{
-                                  style: { whiteSpace: "pre-wrap" }
-                                }}
-                              >
-                                {x.source}
-                              </SyntaxHighlighter>
-                            </TabPanel>
-                          );
-                        })}
-                    </Tabs>
-                    <ResponseSamples
-                      options={responseOptions}
-                      responses={m.responses}
-                      m={m}
-                    />
-                  </div>
-                  <div className="w-full bg-ThemeCell mb-8 px-4 py-2">
+                  <div className="w-full mb-8 py-2">
                     <h2 id={mode} className="mt-0">
                       {m.summary}
                     </h2>
@@ -184,6 +150,39 @@ const apiPage = ({ data }) => {
                             })}
                         </>
                       )}
+                    </div>
+                    <div className="w-full mb-8">
+                      <h3>Request Samples</h3>
+                      <Tabs className="my-4">
+                        <TabList>
+                          {m.x_code_samples &&
+                            m.x_code_samples.map((x, i) => {
+                              return <Tab key={i}>{x.lang}</Tab>;
+                            })}
+                        </TabList>
+                        {m.x_code_samples &&
+                          m.x_code_samples.map((x, i) => {
+                            return (
+                              <TabPanel key={i}>
+                                <SyntaxHighlighter
+                                  language="bash"
+                                  style={atomDark}
+                                  className="api-samples"
+                                  codeTagProps={{
+                                    style: { whiteSpace: "pre-wrap" }
+                                  }}
+                                >
+                                  {x.source}
+                                </SyntaxHighlighter>
+                              </TabPanel>
+                            );
+                          })}
+                      </Tabs>
+                      <ResponseSamples
+                        options={responseOptions}
+                        responses={m.responses}
+                        m={m}
+                      />
                     </div>
                     <ResponseList
                       options={responseOptions}

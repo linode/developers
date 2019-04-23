@@ -11,25 +11,29 @@ export const ResponseList = props => {
       <h3>Response Samples</h3>
       <Tabs className="my-4">
         <TabList>
-          {Object.keys(responses).map((e, i) => (
-            <Tab>
-              <ResponseSampleTitle
-                response={options[e]}
-                r={responses[options[e]]}
-                key={i}
-              />
-            </Tab>
-          ))}
+          {Object.keys(responses).map(
+            (e, i) =>
+              responses[options[e]] !== null && (
+                <Tab key={i}>
+                  <ResponseSampleTitle
+                    response={options[e]}
+                    r={responses[options[e]]}
+                  />
+                </Tab>
+              )
+          )}
         </TabList>
-        {Object.keys(responses).map((e, i) => (
-          <TabPanel>
-            <ResponseSampleBody
-              response={options[e]}
-              r={responses[options[e]]}
-              key={i}
-            />
-          </TabPanel>
-        ))}
+        {Object.keys(responses).map(
+          (e, i) =>
+            responses[options[e]] !== null && (
+              <TabPanel key={i}>
+                <ResponseSampleBody
+                  response={options[e]}
+                  r={responses[options[e]]}
+                />
+              </TabPanel>
+            )
+        )}
       </Tabs>
     </>
   );
