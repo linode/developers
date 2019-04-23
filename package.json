@@ -31,6 +31,7 @@
     "react-markdown": "^4.0.8",
     "react-select": "^2.4.2",
     "react-syntax-highlighter": "^10.2.1",
+    "react-tabs": "^3.0.0",
     "swagger-parser": "^6.0.5",
     "tailwindcss": "^0.7.4"
   },

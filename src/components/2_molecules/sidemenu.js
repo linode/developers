@@ -83,7 +83,6 @@ class SideMenu extends React.Component {
                 <div id={_.kebabCase(group.fieldValue)} className="list-group">
                   {group.edges.map((link, i) => {
                     const n = link.node;
-                    console.log(n.post && n.post.summary);
                     return (
                       <ul key={i} className="p-0 pl-4">
                         {n.get && (

@@ -2,6 +2,8 @@ import React from "react";
 import { graphql } from "gatsby";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
 
 import Layout from "../../components/4_layouts/layout";
 import SEO from "../../components/0_utilities/seo";
@@ -50,8 +52,41 @@ const apiPage = ({ data }) => {
             const m = n[mode];
             return (
               m && (
-                <div key={i} className="flex">
-                  <div className="w-full md:w-2/3 bg-ThemeCell mb-8 px-4 py-2">
+                <div key={i} className="flex flex-col">
+                  <div className="w-full mb-8 px-4 py-2">
+                    <h3>Request Samples</h3>
+                    <Tabs className="my-4">
+                      <TabList>
+                        {m.x_code_samples &&
+                          m.x_code_samples.map((x, i) => {
+                            return <Tab key={i}>{x.lang}</Tab>;
+                          })}
+                      </TabList>
+                      {m.x_code_samples &&
+                        m.x_code_samples.map((x, i) => {
+                          return (
+                            <TabPanel key={i}>
+                              <SyntaxHighlighter
+                                language="bash"
+                                style={atomDark}
+                                className="api-samples"
+                                codeTagProps={{
+                                  style: { whiteSpace: "pre-wrap" }
+                                }}
+                              >
+                                {x.source}
+                              </SyntaxHighlighter>
+                            </TabPanel>
+                          );
+                        })}
+                    </Tabs>
+                    <ResponseSamples
+                      options={responseOptions}
+                      responses={m.responses}
+                      m={m}
+                    />
+                  </div>
+                  <div className="w-full bg-ThemeCell mb-8 px-4 py-2">
                     <h2 id={mode} className="mt-0">
                       {m.summary}
                     </h2>
@@ -151,32 +186,6 @@ const apiPage = ({ data }) => {
                       )}
                     </div>
                     <ResponseList
-                      options={responseOptions}
-                      responses={m.responses}
-                      m={m}
-                    />
-                  </div>
-                  <div className="w-full md:w-1/3 mb-8 px-4 py-2">
-                    <h3>Request Samples</h3>
-                    {m.x_code_samples &&
-                      m.x_code_samples.map((x, i) => {
-                        return (
-                          <div key={i} className="mb-4">
-                            <div>{x.lang}</div>
-                            <SyntaxHighlighter
-                              language="bash"
-                              style={atomDark}
-                              className="api-samples"
-                              codeTagProps={{
-                                style: { whiteSpace: "pre-wrap" }
-                              }}
-                            >
-                              {x.source}
-                            </SyntaxHighlighter>
-                          </div>
-                        );
-                      })}
-                    <ResponseSamples
                       options={responseOptions}
                       responses={m.responses}
                       m={m}
