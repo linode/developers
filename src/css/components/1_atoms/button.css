@@ -1,0 +1,3 @@
+.btn[aria-current="page"] {
+  @apply bg-BaseBlue text-white;
+}
