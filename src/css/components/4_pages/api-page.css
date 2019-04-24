@@ -1,11 +1,17 @@
+.layout-fixed .sidebar-container {
+  position: fixed;
+  top: 64px;
+  height: calc(100vh - 64px - 4rem);
+}
+
 .api-navigation-wrapper {
   padding: 2rem;
   margin-right: 1rem;
-  height: 100%;
+  overflow-y: scroll;
 }
 
 .api-navigation {
-  position: sticky;
+  /* position: sticky; */
   z-index: 2;
   top: 2rem;
 }
@@ -72,8 +78,8 @@
 }
 
 .initResponse {
-  /* border-top-width: 1px;
-  @apply border-grey-light; */
+  border-top-width: 1px;
+  @apply border-grey-light;
 }
 
 .response-wrapper .initResponse:first-child {
@@ -81,6 +87,6 @@
 }
 
 .subResponse {
-  border-left-width: 2px;
+  border-left-width: 1px;
   @apply border-grey-light;
 }

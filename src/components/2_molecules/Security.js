@@ -3,7 +3,7 @@ import React from "react";
 export const Security = props => {
   const { oauth } = props;
   return (
-    <div class="flex items-start mt-4">
+    <div className="flex items-start mt-4">
       <div className="mr-4">
         <b>Authorizations:</b>
       </div>

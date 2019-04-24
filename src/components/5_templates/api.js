@@ -34,13 +34,13 @@ const apiPage = ({ data }) => {
   };
   return (
     <Layout
-      title="API Documentation"
-      subtitle="Linode API Documentation"
+      // title="API Documentation"
+      // subtitle="Linode API Documentation"
       fullWidth
     >
       <SEO title="API Documentation" description="" />
       <div className="flex flex-wrap">
-        <div className="w-full md:w-1/6">
+        <div className="w-full md:w-1/6 sidebar-container">
           <Sidebar />
         </div>
         <div className="w-full md:w-5/6 api-content mx-auto">

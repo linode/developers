@@ -31,7 +31,7 @@ input[type="text"] {
 
 .api-body table {
   width: 100%;
-  @apply border border-BaseGrey;
+  @apply border border-grey-light;
 }
 
 .api-body thead {
@@ -40,7 +40,7 @@ input[type="text"] {
 
 .api-body th,
 .api-body td {
-  @apply p-2 border border-BaseGrey;
+  @apply p-2 border border-grey-light;
 }
 
 .api-body table code {

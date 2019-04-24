@@ -104,7 +104,7 @@ export const ResponseItem = props => {
                         </div>
                       </div>
                       {l.properties && (
-                        <div className="px-4 mt-2 mb-4 ml-4 subResponse">
+                        <div className="px-4 mt-4 mb-4 ml-4 subResponse">
                           {Object.keys(l.properties).map((e, i) => {
                             const data = l.properties[e];
                             return (
@@ -148,7 +148,7 @@ export const ResponseItem = props => {
                         </div>
                       )}
                       {l.items && (
-                        <div className="px-4 mt-2 mb-4 ml-4 subResponse">
+                        <div className="px-4 mt-4 mb-4 ml-4 subResponse">
                           {l.items.properties &&
                             Object.keys(l.items.properties).map((e, i) => {
                               const data = l.items.properties[e];

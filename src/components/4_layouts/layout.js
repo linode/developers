@@ -24,7 +24,7 @@ const Layout = ({ children, title, subtitle, fullWidth }) => (
       }
     `}
     render={data => (
-      <div className="content">
+      <div className={`content ${fullWidth ? "layout-fixed" : ""}`}>
         <Header
           siteTitle={data.site.siteMetadata.title}
           menuLinks={data.site.siteMetadata.menuLinks}
@@ -36,16 +36,20 @@ const Layout = ({ children, title, subtitle, fullWidth }) => (
         >
           <main className="main">{children}</main>
         </div>
-        <div className="footer-nav-wrapper bg-black">
-          <footer className="max-w-3xl mx-auto py-8 px-4 md:px-8 text-white">
-            <Footer />
-          </footer>
-        </div>
-        <div className="footer-wrapper bg-BaseBlackFull">
-          <footer className="max-w-3xl mx-auto py-8 px-4 md:px-8 text-white">
-            <FooterNav />
-          </footer>
-        </div>
+        {!fullWidth && (
+          <div className="footer-nav-wrapper bg-black">
+            <footer className="max-w-3xl mx-auto py-8 px-4 md:px-8 text-white">
+              <Footer />
+            </footer>
+          </div>
+        )}
+        {!fullWidth && (
+          <div className="footer-wrapper bg-BaseBlackFull">
+            <footer className="max-w-3xl mx-auto py-8 px-4 md:px-8 text-white">
+              <FooterNav />
+            </footer>
+          </div>
+        )}
       </div>
     )}
   />
