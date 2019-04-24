@@ -10,7 +10,7 @@ const ChangelogList = ({
 }) => (
   <nav className="flex mb-4 items-center">
     <span className="uppercase font-semibold text-xs mr-4">Products:</span>
-    <Link to="/changelog" className="btn btn-small btn-grey mr-2 uppercase">
+    <Link to="/changelog/" className="btn btn-small btn-grey mr-2 uppercase">
       All ({totalCount})
     </Link>
     {group.map(changelog => (

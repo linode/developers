@@ -37,7 +37,7 @@ module.exports = {
       },
       {
         name: "Changelog",
-        link: "/changelog"
+        link: "/changelog/"
       }
     ]
   },
