@@ -7,7 +7,7 @@
 const transitionDelay = 50;
 
 exports.shouldUpdateScroll = ({ routerProps: { location } }) => {
-  if (!location.hash) {
+  if (!location.hash || !document.getElementById(location.hash.substr(1))) {
     window.setTimeout(() => window.scrollTo(0, 0), transitionDelay);
   } else {
     window.setTimeout(

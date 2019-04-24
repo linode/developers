@@ -34,6 +34,7 @@ class SideMenu extends React.Component {
     });
 
     hash &&
+      document.getElementById(hash.substr(1)) !== null &&
       window.setTimeout(
         () =>
           document

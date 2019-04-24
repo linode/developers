@@ -25,6 +25,9 @@
   margin-left: 300px;
 }
 
+.main-wrapper {
+}
+
 .api-content {
   max-width: 60vw;
   margin-left: 16.66667%;
@@ -32,6 +35,12 @@
 
 .api-body {
   @apply mb-8;
+}
+
+.endpoint-anchor {
+  position: relative;
+  top: -84px;
+  visibility: hidden;
 }
 
 .list-group {
@@ -90,10 +99,6 @@
 .initResponse {
   border-top-width: 1px;
   @apply border-grey-light;
-}
-
-.response-wrapper .initResponse:first-child {
-  /* border: 0; */
 }
 
 .subResponse {

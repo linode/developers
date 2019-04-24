@@ -7,7 +7,7 @@ export const Security = props => {
       <div className="mr-4">
         <b>Authorizations:</b>
       </div>
-      <div class="flex flex-col">
+      <div className="flex flex-col">
         <div>personalAccessToken</div>
         <div>
           <span>oAuth: </span>(<span className="tag">{oauth}</span>)

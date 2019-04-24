@@ -29,7 +29,7 @@ export const ResponseItem = props => {
                 return (
                   l && (
                     <div key={i} className="response-wrapper">
-                      <div className={`flex mb-2 pt-2 initResponse`}>
+                      <div className="flex mb-2 pt-2 initResponse">
                         <div className="w-1/4">
                           <div>
                             <b>{p}</b>
@@ -99,7 +99,11 @@ export const ResponseItem = props => {
                             </div>
                           )}
                           <div>
-                            <div>{l.description}</div>
+                            <Markdown
+                              source={l.description}
+                              escapeHtml={false}
+                              className="api-desc"
+                            />
                           </div>
                         </div>
                       </div>
@@ -139,7 +143,13 @@ export const ResponseItem = props => {
                                         })}
                                       </div>
                                     )}
-                                    <div>{data.description}</div>
+                                    <div>
+                                      <Markdown
+                                        source={data.description}
+                                        escapeHtml={false}
+                                        className="api-desc"
+                                      />
+                                    </div>
                                   </div>
                                 </div>
                               </div>
@@ -185,7 +195,13 @@ export const ResponseItem = props => {
                                             })}
                                           </div>
                                         )}
-                                        <div>{data.description}</div>
+                                        <div>
+                                          <Markdown
+                                            source={data.description}
+                                            escapeHtml={false}
+                                            className="api-desc"
+                                          />
+                                        </div>
                                       </div>
                                     </div>
                                   </div>

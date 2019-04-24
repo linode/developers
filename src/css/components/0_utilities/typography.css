@@ -23,10 +23,15 @@ input[type="text"] {
 }
 
 .api-desc code {
-  @apply font-normal px-1 bg-ThemeTagGrey inline text-sm;
+  @apply font-normal px-1 bg-ThemeTagGrey inline text-xs relative;
   padding-top: 4px;
   padding-bottom: 3px;
   width: fit-content;
+  top: -1px;
+}
+
+.api-desc p:first-child {
+  margin-top: 0;
 }
 
 .api-body table {

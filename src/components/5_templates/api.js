@@ -44,7 +44,7 @@ const apiPage = ({ data }) => {
           <Sidebar />
         </div>
         <div className="api-content-wrapper">
-          <div class="api-content mx-auto">
+          <div className="api-content mx-auto">
             <h1 className="mb-4 ">
               {(n.get && n.get.tags) ||
                 (n.post && n.post.tags) ||
@@ -57,10 +57,9 @@ const apiPage = ({ data }) => {
               return (
                 m && (
                   <div key={i} className="flex flex-col">
+                    <span id={mode} className="endpoint-anchor" />
                     <div className="w-full mb-8 py-2">
-                      <h2 id={mode} className="mt-0">
-                        {m.summary}
-                      </h2>
+                      <h2 className="mt-0">{m.summary}</h2>
                       <div className="bg-ThemeCell p-4 mt-4 mb-8">
                         <span className="tag big bold mr-2 uppercase">
                           {mode}
@@ -71,7 +70,7 @@ const apiPage = ({ data }) => {
                       <Markdown
                         source={m.description}
                         escapeHtml={false}
-                        className="mt-8 api-desc"
+                        className="my-8 api-desc"
                       />
 
                       {m.parameters && (
@@ -107,8 +106,8 @@ const apiPage = ({ data }) => {
                                     .properties[p];
                                 return (
                                   b && (
-                                    <div key={i}>
-                                      <div className="flex mb-4">
+                                    <div key={i} className="response-wrapper">
+                                      <div className="flex mb-4 initResponse">
                                         <div className="w-1/4">
                                           <div>
                                             <b>{p}</b>
