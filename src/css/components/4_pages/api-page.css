@@ -1,23 +1,33 @@
 .layout-fixed .sidebar-container {
   position: fixed;
   top: 64px;
-  height: calc(100vh - 64px - 4rem);
+  height: calc(100vh - 64px);
+  overflow-y: hidden;
 }
 
 .api-navigation-wrapper {
   padding: 2rem;
   margin-right: 1rem;
   overflow-y: scroll;
+  width: 300px;
+  height: 100%;
 }
 
 .api-navigation {
   /* position: sticky; */
   z-index: 2;
   top: 2rem;
+  overflow: hidden;
+}
+
+.api-content-wrapper {
+  max-width: 60vw;
+  margin-left: 300px;
 }
 
 .api-content {
   max-width: 60vw;
+  margin-left: 16.66667%;
 }
 
 .api-body {

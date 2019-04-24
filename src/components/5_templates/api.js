@@ -40,109 +40,111 @@ const apiPage = ({ data }) => {
     >
       <SEO title="API Documentation" description="" />
       <div className="flex flex-wrap">
-        <div className="w-full md:w-1/6 sidebar-container">
+        <div className="sidebar-container">
           <Sidebar />
         </div>
-        <div className="w-full md:w-5/6 api-content mx-auto">
-          <h1 className="mb-4 ">
-            {(n.get && n.get.tags) ||
-              (n.post && n.post.tags) ||
-              (n.put && n.put.tags) ||
-              (n.delete && n.delete.tags)}
-          </h1>
-          {Object.keys(n).map((e, i) => {
-            const mode = modes[e];
-            const m = n[mode];
-            return (
-              m && (
-                <div key={i} className="flex flex-col">
-                  <div className="w-full mb-8 py-2">
-                    <h2 id={mode} className="mt-0">
-                      {m.summary}
-                    </h2>
-                    <div className="bg-ThemeCell p-4 mt-4 mb-8">
-                      <span className="tag big bold mr-2 uppercase">
-                        {mode}
-                      </span>
-                      <span>https://api.linode.com/v4{n.name}</span>
-                    </div>
+        <div className="api-content-wrapper">
+          <div class="api-content mx-auto">
+            <h1 className="mb-4 ">
+              {(n.get && n.get.tags) ||
+                (n.post && n.post.tags) ||
+                (n.put && n.put.tags) ||
+                (n.delete && n.delete.tags)}
+            </h1>
+            {Object.keys(n).map((e, i) => {
+              const mode = modes[e];
+              const m = n[mode];
+              return (
+                m && (
+                  <div key={i} className="flex flex-col">
+                    <div className="w-full mb-8 py-2">
+                      <h2 id={mode} className="mt-0">
+                        {m.summary}
+                      </h2>
+                      <div className="bg-ThemeCell p-4 mt-4 mb-8">
+                        <span className="tag big bold mr-2 uppercase">
+                          {mode}
+                        </span>
+                        <span>https://api.linode.com/v4{n.name}</span>
+                      </div>
 
-                    <Markdown
-                      source={m.description}
-                      escapeHtml={false}
-                      className="mt-8 api-desc"
-                    />
+                      <Markdown
+                        source={m.description}
+                        escapeHtml={false}
+                        className="mt-8 api-desc"
+                      />
 
-                    {m.parameters && (
-                      <p className="mb-2">
-                        <b>Query Parameters</b>
-                      </p>
-                    )}
-                    {m.parameters &&
-                      m.parameters.map((param, i) => (
-                        <ParamDisplay
-                          key={`param-item-${i}`}
-                          param={param}
-                          m={m}
-                        />
-                      ))}
-                    {m.security && <Security oauth={m.security[1].oauth} />}
-                    <div>
-                      {m.requestBody && (
-                        <>
-                          <div className="my-4">
-                            <h3>Request Body Schema</h3>
-                          </div>
-                          {m.requestBody.content.application_json &&
-                            m.requestBody.content.application_json.schema &&
-                            m.requestBody.content.application_json.schema
-                              .properties &&
-                            Object.keys(
+                      {m.parameters && (
+                        <p className="mb-2">
+                          <b>Query Parameters</b>
+                        </p>
+                      )}
+                      {m.parameters &&
+                        m.parameters.map((param, i) => (
+                          <ParamDisplay
+                            key={`param-item-${i}`}
+                            param={param}
+                            m={m}
+                          />
+                        ))}
+                      {m.security && <Security oauth={m.security[1].oauth} />}
+                      <div>
+                        {m.requestBody && (
+                          <>
+                            <div className="my-4">
+                              <h3>Request Body Schema</h3>
+                            </div>
+                            {m.requestBody.content.application_json &&
+                              m.requestBody.content.application_json.schema &&
                               m.requestBody.content.application_json.schema
-                                .properties
-                            ).map((p, i) => {
-                              const b =
+                                .properties &&
+                              Object.keys(
                                 m.requestBody.content.application_json.schema
-                                  .properties[p];
-                              return (
-                                b && (
-                                  <div key={i}>
-                                    <div className="flex mb-4">
-                                      <div className="w-1/4">
-                                        <div>
-                                          <b>{p}</b>
-                                        </div>
-                                        <div className="leading-xs">
-                                          {m.requestBody.content
-                                            .application_json.schema.required &&
-                                            m.requestBody.content.application_json.schema.required.map(
-                                              (req, i) => {
-                                                if (p === req) {
-                                                  return (
-                                                    <span
-                                                      className="text-BaseRed text-sm"
-                                                      key={i}
-                                                    >
-                                                      Required
-                                                    </span>
-                                                  );
+                                  .properties
+                              ).map((p, i) => {
+                                const b =
+                                  m.requestBody.content.application_json.schema
+                                    .properties[p];
+                                return (
+                                  b && (
+                                    <div key={i}>
+                                      <div className="flex mb-4">
+                                        <div className="w-1/4">
+                                          <div>
+                                            <b>{p}</b>
+                                          </div>
+                                          <div className="leading-xs">
+                                            {m.requestBody.content
+                                              .application_json.schema
+                                              .required &&
+                                              m.requestBody.content.application_json.schema.required.map(
+                                                (req, i) => {
+                                                  if (p === req) {
+                                                    return (
+                                                      <span
+                                                        className="text-BaseRed text-sm"
+                                                        key={i}
+                                                      >
+                                                        Required
+                                                      </span>
+                                                    );
+                                                  }
+                                                  return false;
                                                 }
-                                                return false;
-                                              }
+                                              )}
+                                          </div>
+                                        </div>
+                                        <div className="w-3/4">
+                                          <div className="text-sm leading-text-sm text-grey-darkest">
+                                            {b.type}{" "}
+                                            {b.pattern && (
+                                              <span className="tag">
+                                                {b.pattern}
+                                              </span>
                                             )}
-                                        </div>
-                                      </div>
-                                      <div className="w-3/4">
-                                        <div className="text-sm leading-text-sm text-grey-darkest">
-                                          {b.type}{" "}
-                                          {b.pattern && (
-                                            <span className="tag">
-                                              {b.pattern}
-                                            </span>
-                                          )}
-                                        </div>
-                                        <div>
-                                          {/* {console.log(b)}
+                                          </div>
+                                          <div>
+                                            {/* {console.log(b)}
                                           {b.enum &&
                                             b.enum.map((e, i) => {
                                               return (
@@ -151,69 +153,70 @@ const apiPage = ({ data }) => {
                                                 </span>
                                               );
                                             })} */}
+                                          </div>
+                                          <div>{b.description}</div>
                                         </div>
-                                        <div>{b.description}</div>
                                       </div>
                                     </div>
-                                  </div>
-                                )
-                              );
-                            })}
-                        </>
-                      )}
-                    </div>
-                    <div className="w-full mb-8">
-                      <h3>Request Samples</h3>
-                      <Tabs className="my-4">
-                        <TabList>
+                                  )
+                                );
+                              })}
+                          </>
+                        )}
+                      </div>
+                      <div className="w-full mb-8">
+                        <h3>Request Samples</h3>
+                        <Tabs className="my-4">
+                          <TabList>
+                            {m.x_code_samples &&
+                              m.x_code_samples.map((x, i) => {
+                                return <Tab key={i}>{x.lang}</Tab>;
+                              })}
+                          </TabList>
                           {m.x_code_samples &&
                             m.x_code_samples.map((x, i) => {
-                              return <Tab key={i}>{x.lang}</Tab>;
-                            })}
-                        </TabList>
-                        {m.x_code_samples &&
-                          m.x_code_samples.map((x, i) => {
-                            return (
-                              <TabPanel key={i}>
-                                <div className="flex justify-end text-sm">
-                                  <Clipboard
-                                    data-clipboard-text={x.source}
-                                    className="flex items-center hover:text-BaseBlueLight"
+                              return (
+                                <TabPanel key={i}>
+                                  <div className="flex justify-end text-sm">
+                                    <Clipboard
+                                      data-clipboard-text={x.source}
+                                      className="flex items-center hover:text-BaseBlueLight"
+                                    >
+                                      <span className="mr-2">Copy</span>
+                                      <Copy style={{ width: 22, height: 22 }} />
+                                    </Clipboard>
+                                  </div>
+                                  <SyntaxHighlighter
+                                    language="bash"
+                                    style={atomDark}
+                                    className="api-samples"
+                                    codeTagProps={{
+                                      style: { whiteSpace: "pre-wrap" }
+                                    }}
                                   >
-                                    <span className="mr-2">Copy</span>
-                                    <Copy style={{ width: 22, height: 22 }} />
-                                  </Clipboard>
-                                </div>
-                                <SyntaxHighlighter
-                                  language="bash"
-                                  style={atomDark}
-                                  className="api-samples"
-                                  codeTagProps={{
-                                    style: { whiteSpace: "pre-wrap" }
-                                  }}
-                                >
-                                  {x.source}
-                                </SyntaxHighlighter>
-                              </TabPanel>
-                            );
-                          })}
-                      </Tabs>
-                      <ResponseSamples
+                                    {x.source}
+                                  </SyntaxHighlighter>
+                                </TabPanel>
+                              );
+                            })}
+                        </Tabs>
+                        <ResponseSamples
+                          options={responseOptions}
+                          responses={m.responses}
+                          m={m}
+                        />
+                      </div>
+                      <ResponseList
                         options={responseOptions}
                         responses={m.responses}
                         m={m}
                       />
                     </div>
-                    <ResponseList
-                      options={responseOptions}
-                      responses={m.responses}
-                      m={m}
-                    />
                   </div>
-                </div>
-              )
-            );
-          })}
+                )
+              );
+            })}
+          </div>
         </div>
       </div>
     </Layout>

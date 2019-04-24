@@ -27,16 +27,18 @@ const APIDocs = ({ data }) => {
     >
       <SEO title="API Documentation" description="" />
       <div className="flex flex-wrap">
-        <div className="w-full md:w-1/6 sidebar-container">
+        <div className="sidebar-container">
           <Sidebar />
         </div>
-        <div className="w-full md:w-5/6 api-content mx-auto">
-          <Markdown
-            source={n.info.description}
-            escapeHtml={false}
-            renderers={{ heading: HeadingRenderer }}
-            className="mt-8 api-body"
-          />
+        <div className="api-content-wrapper">
+          <div className="api-content mx-auto">
+            <Markdown
+              source={n.info.description}
+              escapeHtml={false}
+              renderers={{ heading: HeadingRenderer }}
+              className="mt-8 api-body"
+            />
+          </div>
         </div>
       </div>
     </Layout>
