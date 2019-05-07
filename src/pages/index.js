@@ -115,7 +115,7 @@ const IndexPage = ({ data }) => {
               const { frontmatter } = edge.node;
               return (
                 <article
-                  className="w-full md:w-1/3 px-4 mb-4 md:mb-8"
+                  className="w-full md:w-1/3 px-4 mb-4 md:mb-8 event-item"
                   key={edge.node.id}
                   itemscope=""
                   itemtype="http://schema.org/ExhibitionEvent"
