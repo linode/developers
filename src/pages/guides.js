@@ -101,7 +101,7 @@ const GuidesPage = ({ data }) => {
         </h2>
         <div className="flex justify-center">
           <a
-            href="https://manager.linode.com/session/signup"
+            href="https://login.linode.com/signup"
             target="_blank"
             className="btn mt-4 mr-2"
             rel="noopener noreferrer"
