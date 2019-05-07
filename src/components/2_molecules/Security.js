@@ -10,7 +10,7 @@ export const Security = props => {
       <div className="flex flex-col w-3/4">
         <div>personalAccessToken</div>
         <div>
-          <span>oAuth: </span>(<span className="tag">{oauth}</span>)
+          <span>oAuth: </span>(<span className="tag tag-light">{oauth}</span>)
         </div>
       </div>
     </div>

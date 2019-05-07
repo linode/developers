@@ -27,7 +27,10 @@ export const ParamDisplay = props => {
                   </span>
                 )}
             </div>
-            <div>Default: {param.schema.default}</div>
+            <div>
+              Default:{" "}
+              <span className="tag tag-light">{param.schema.default}</span>
+            </div>
             <div>{param.description}</div>
           </div>
         </div>
