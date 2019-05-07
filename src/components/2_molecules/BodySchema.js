@@ -8,7 +8,7 @@ export const BodySchema = props => {
 
   return (
     <>
-      <div className="my-4">
+      <div className="my-8">
         <h3>Request Body Schema</h3>
       </div>
       {data.requestBody.content.application_json &&
@@ -79,23 +79,20 @@ export const BodySchema = props => {
                             <b>{p}</b>
                           </div>
                           <div className="leading-xs">
-                            {data.requestBody.content.application_json.schema
-                              .required &&
-                              data.requestBody.content.application_json.schema.required.map(
-                                (req, i) => {
-                                  if (p === req) {
-                                    return (
-                                      <span
-                                        className="text-BaseRed text-sm"
-                                        key={i}
-                                      >
-                                        Required
-                                      </span>
-                                    );
-                                  }
-                                  return false;
+                            {s.required &&
+                              s.required.map((req, i) => {
+                                if (p === req) {
+                                  return (
+                                    <span
+                                      className="text-BaseRed text-sm"
+                                      key={i}
+                                    >
+                                      Required
+                                    </span>
+                                  );
                                 }
-                              )}
+                                return false;
+                              })}
                           </div>
                         </div>
                         <div className="w-3/4">

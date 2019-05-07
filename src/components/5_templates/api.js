@@ -3757,6 +3757,7 @@ export const query = graphql`
                     description
                     required
                     allOf {
+                      required
                       properties {
                         card_number {
                           type
