@@ -89,6 +89,8 @@ const apiPage = ({ data }) => {
                         </div>
                       )}
 
+                      {console.log(n.parameters)}
+
                       {m.requestBody && <BodySchema data={m} />}
 
                       <div className="w-full mb-8">
@@ -161,6 +163,18 @@ export const query = graphql`
             contentDigest
           }
           name
+          parameters {
+            name
+            in
+            description
+            required
+            schema {
+              type
+              format
+              minimum
+              maximum
+            }
+          }
           get {
             x_linode_grant
             summary
