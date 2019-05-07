@@ -48,7 +48,7 @@ class apiPage extends React.Component {
 
     return (
       <Layout title="API Documentation" subtitle="Linode API Documentation">
-        <SEO title="API Documentation" description="" />
+        <SEO title="Linode API Documentation" description="Container Tools" />
         <div className="flex flex-wrap">
           <div className="w-full md:w-1/4 mt-8">
             <Sidebar />

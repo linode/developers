@@ -5,8 +5,14 @@ import CodeBox from "../components/2_molecules/code-box";
 
 const KubernetesPage = () => {
   return (
-    <Layout title="Developer Tools" subtitle="For Developers, by Developers">
-      <SEO title="Home" description="" />
+    <Layout
+      title="Kubernetes Tools"
+      subtitle="Create a Kubernetes Cluster with One Command"
+    >
+      <SEO
+        title="Kubernetes Tools"
+        description="Create a Kubernetes Cluster with One Command"
+      />
       <div className="flex flex-wrap mb-8 -mx-4">
         <div className="w-full px-4">
           <div className="my-4 md:mt-12 md:mt-8 max-w-3xl">

@@ -12,7 +12,10 @@ const LibToolsPage = () => {
       title="Linode API Libraries and Tools"
       subtitle="Libraries and DevOps tools for the Linode API"
     >
-      <SEO title="Home" description="" />
+      <SEO
+        title="Linode API Libraries & Tools"
+        description="Libraries and DevOps tools for the Linode API"
+      />
       <div className="flex flex-wrap mb-8 -mx-4">
         <div className="w-full px-4">
           <div className="my-4 md:mt-12 md:mt-8 max-w-3xl">
