@@ -1,6 +1,8 @@
 import React from "react";
 import Markdown from "react-markdown/with-html";
 
+import CharDisplay from "../2_molecules/charDisplay";
+
 export const ResponseItem = props => {
   const { response, r, m } = props;
   return (
@@ -62,22 +64,7 @@ export const ResponseItem = props => {
                                 .errors || l.items
                                 ? "array of objects"
                                 : l.type}{" "}
-                              {l.type === "string" &&
-                                l.maxLength &&
-                                !l.minLength && (
-                                  <span className="tag">
-                                    {`${l.maxLength}${" "}<= characters`}
-                                  </span>
-                                )}
-                              {l.type === "string" &&
-                                l.maxLength &&
-                                l.minLength && (
-                                  <span className="tag">
-                                    {`${" ["} ${l.minLength}${" .. "}${
-                                      l.maxLength
-                                    }${"] "} characters`}{" "}
-                                  </span>
-                                )}
+                              <CharDisplay data={l} />
                               {l.pattern && (
                                 <span className="tag">{l.pattern}</span>
                               )}
