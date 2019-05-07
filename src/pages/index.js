@@ -117,7 +117,15 @@ const IndexPage = ({ data }) => {
                 <article
                   className="w-full md:w-1/3 px-4 mb-4 md:mb-8"
                   key={edge.node.id}
+                  itemscope=""
+                  itemtype="http://schema.org/ExhibitionEvent"
                 >
+                  <meta
+                    itemprop="attendee"
+                    itemscope
+                    itemtype="http://schema.org/Organization"
+                    content="Linode"
+                  />
                   <div className="p-8 h-full bg-ThemeCell tile">
                     <header>
                       <h3 className="mt-0 mb-4 font-normal">
@@ -126,16 +134,31 @@ const IndexPage = ({ data }) => {
                           className="text-black tile-link"
                           target="_blank"
                           rel="noopener noreferrer"
+                          itemprop="url"
                         >
-                          {frontmatter.title}
+                          <span itemprop="name">{frontmatter.title}</span>
                         </a>
                       </h3>
                     </header>
                     <section>
-                      <div>{frontmatter.location}</div>
-                      <div>{frontmatter.start_date}</div>
+                      <div
+                        itemprop="location"
+                        itemscope
+                        itemtype="http://schema.org/Place"
+                      >
+                        <span itemprop="address">{frontmatter.location}</span>
+                      </div>
+                      <div>
+                        <time
+                          itemprop="startDate"
+                          datetime={frontmatter.start_date}
+                        >
+                          {frontmatter.start_date}
+                        </time>
+                      </div>
                       {edge.node.html && (
                         <p
+                          itemprop="description"
                           dangerouslySetInnerHTML={{ __html: edge.node.html }}
                         />
                       )}
