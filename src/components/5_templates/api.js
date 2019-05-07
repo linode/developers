@@ -74,21 +74,20 @@ const apiPage = ({ data }) => {
                         className="my-8 api-desc"
                       />
 
-                      {m.parameters && (
-                        <p className="mb-2">
-                          <b>Query Parameters</b>
-                        </p>
-                      )}
-                      {m.parameters &&
-                        m.parameters.map((param, i) => (
-                          <ParamDisplay
-                            key={`param-item-${i}`}
-                            param={param}
-                            m={m}
-                          />
-                        ))}
-
                       {m.security && <Security oauth={m.security[1].oauth} />}
+
+                      {m.parameters && (
+                        <div className="my-8">
+                          <h3 className="mb-2">Query Parameters</h3>
+                          {m.parameters.map((param, i) => (
+                            <ParamDisplay
+                              key={`param-item-${i}`}
+                              param={param}
+                              m={m}
+                            />
+                          ))}
+                        </div>
+                      )}
 
                       {m.requestBody && <BodySchema data={m} />}
 
