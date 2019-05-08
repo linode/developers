@@ -14,7 +14,10 @@ const GuidesPage = ({ data }) => {
       title="Linode API Guides"
       subtitle="Guides on getting started with the Linode API"
     >
-      <SEO title="Changelog" description="" />
+      <SEO
+        title="Linode API Guides"
+        description="Guides on getting started with the Linode API"
+      />
       <div className="mx-auto text-center max-w-lg my-8 pb-4">
         <h2 className="font-normal text-BaseGreenDark">API Guides</h2>
       </div>

@@ -12,7 +12,10 @@ const ChangelogPage = ({ data }) => {
 
   return (
     <Layout title="Changelog" subtitle="Latest updates from the Linode team">
-      <SEO title="Changelog" description="" />
+      <SEO
+        title="Changelog"
+        description="Latest updates from the Linode team"
+      />
       <div className="container mx-auto max-w-lg my-8">
         <ChangelogNav totalCount={totalCount} />
         {edges.map(({ node }) => {

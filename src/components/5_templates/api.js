@@ -38,7 +38,7 @@ const apiPage = ({ data }) => {
       // subtitle="Linode API Documentation"
       fullWidth
     >
-      <SEO title="API Documentation" description="" />
+      <SEO title="Linode API Documentation" description="Container Tools" />
       <div className="flex flex-wrap">
         <div className="sidebar-container">
           <Sidebar />
