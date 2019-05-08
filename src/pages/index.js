@@ -1,12 +1,10 @@
 import React from "react";
-import { graphql } from "gatsby";
 
 import Layout from "../components/4_layouts/layout";
 import SEO from "../components/0_utilities/seo";
 import CodeBox from "../components/2_molecules/code-box";
 
-const IndexPage = ({ data }) => {
-  const { edges } = data.allMarkdownRemark;
+const IndexPage = () => {
   return (
     <Layout title="Developer Tools" subtitle="For Developers, by Developers">
       <SEO
@@ -113,27 +111,5 @@ const IndexPage = ({ data }) => {
     </Layout>
   );
 };
-
-export const query = graphql`
-  query EventQuery {
-    allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/content/events/" } }
-      sort: { order: ASC, fields: [frontmatter___start_date] }
-    ) {
-      edges {
-        node {
-          id
-          html
-          frontmatter {
-            title
-            start_date(formatString: "MMM DD, YYYY")
-            event_url
-            location
-          }
-        }
-      }
-    }
-  }
-`;
 
 export default IndexPage;
