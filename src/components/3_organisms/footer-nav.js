@@ -1,32 +1,202 @@
 import React from "react";
-
-import Facebook from "../../images/svgs/facebook.svg";
-import Twitter from "../../images/svgs/twitter.svg";
-import Googleplus from "../../images/svgs/googleplus.svg";
-import Linkedin from "../../images/svgs/linkedin.svg";
-import Github from "../../images/svgs/github.svg";
-
+// @todo update links once we have them, these were just guesses based on current setup
 const FooterNav = () => (
-  <div className="footer-nav container mx-auto max-w-xl">
+  <div className="footer-nav container mx-auto">
     <div className="flex flex-wrap justify-between mb-4 -mx-4">
-      <div className="w-full xs:w-1/2 sm:w-1/3 md:w-auto px-4">
+      <div className="w-full xs:w-full md:w-1/4 px-4">
+        <div>
+          <h4 className="footer-nav-header mb-2">
+            <a
+              href="https://linode.com/linodes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Why Linode?
+            </a>
+          </h4>
+          <ul className="list-reset text-sm">
+            <li>
+              <a
+                href="https://linode.com/linodes"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Choosing Linode
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linode.com/linodes"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Data Centers and Network
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linode.com/linodes"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Customer Stories
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linode.com/linodes"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Linode vs. AWS
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linode.com/linodes"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Future of Cloud Computing
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="footer-nav-header mb-2">
+            <a
+              href="https://linode.com/about"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Company
+            </a>
+          </h4>
+          <ul className="list-reset text-sm">
+            <li>
+              <a
+                href="https://linode.com/about"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                About
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linode.com/about"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Leadership
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linode.com/about"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Contact
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="footer-nav-header mb-2">
+            <a
+              href="https://linode.com/linodes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Solutions
+            </a>
+          </h4>
+          <ul className="list-reset text-sm">
+            <li>
+              <a
+                href="https://linode.com/linodes"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Solutions Overview
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linode.com/linodes"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Gaming
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linode.com/linodes"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Websites
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linode.com/linodes"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Machine Learning / AI
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linode.com/linodes"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Web Apps
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linode.com/linodes"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Developer Applications
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linode.com/linodes"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Hosted Services
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div className="w-full xs:w-full md:w-1/4 px-4">
         <h4 className="footer-nav-header mb-2">
           <a
             href="https://linode.com/linodes"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Overview
+            Products
           </a>
         </h4>
         <ul className="list-reset text-sm">
           <li>
             <a
-              href="https://linode.com/pricing"
+              href="https://linode.com/linodes"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Plans &amp; Pricing
+              Products Overview
             </a>
           </li>
           <li>
@@ -35,264 +205,424 @@ const FooterNav = () => (
               target="_blank"
               rel="noopener noreferrer"
             >
-              Features
+              Nanodes
             </a>
           </li>
           <li>
             <a
-              href="https://linode.com/addons"
+              href="https://linode.com/linodes"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Add-Ons
+              Standard Linodes
             </a>
           </li>
           <li>
             <a
-              href="https://linode.com/managed"
+              href="https://linode.com/linodes"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Managed
+              Dedicated CPU
             </a>
           </li>
           <li>
             <a
-              href="https://linode.com/professional-services"
+              href="https://linode.com/linodes"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Professional Services
+              High Memory Linodes
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://linode.com/linodes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Block Storage
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://linode.com/linodes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Object Storage
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://linode.com/linodes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Kubernetes
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://linode.com/linodes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              1-Click Apps
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://linode.com/linodes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Node Balancers
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://linode.com/linodes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Cloud Firewalls
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://linode.com/linodes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              DNS Manager
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://linode.com/linodes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Linode API
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://linode.com/linodes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Longview
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://linode.com/linodes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Backups
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://linode.com/linodes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Integrations
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://linode.com/linodes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Incident Response
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://linode.com/linodes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Pro Services
             </a>
           </li>
         </ul>
       </div>
-      <div className="w-full xs:w-1/2 sm:w-1/3 md:w-auto px-4">
-        <h4 className="footer-nav-header mb-2">
-          <a
-            href="https://linode.com/docs"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Resources
-          </a>
-        </h4>
-        <ul className="list-reset text-sm">
-          <li>
+      <div className="w-full xs:w-full md:w-1/4 px-4">
+        <div>
+          <h4 className="footer-nav-header mb-2">
             <a
               href="https://linode.com/docs"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Guides &amp; Tutorials
+              Resources
             </a>
-          </li>
-          <li>
+          </h4>
+          <ul className="list-reset text-sm">
+            <li>
+              <a
+                href="https://linode.com/docs"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Support
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linode.com/docs"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Documentation
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linode.com/chat"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Chat
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linode.com/docs"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Speed Test
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://status.linode.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                System Status
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="footer-nav-header mb-2">
             <a
-              href="https://linode.com/speedtest"
+              href="https://linode.com/pricing"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Speed Test
+              Pricing
             </a>
-          </li>
-          <li>
+          </h4>
+          <ul className="list-reset text-sm">
+            <li>
+              <a
+                href="https://linode.com/pricing"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Pricing
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="footer-nav-header mb-2">
             <a
-              href="https://linode.com/community"
+              href="https://linode.com/compliance"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Community
+              Legal &amp; Compliance
             </a>
-          </li>
-          <li>
-            <a
-              href="https://linode.com/chat"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Chat
-            </a>
-          </li>
-          <li>
-            <a
-              href="http://status.linode.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              System Status
-            </a>
-          </li>
-        </ul>
+          </h4>
+          <ul className="list-reset text-sm">
+            <li>
+              <a
+                href="https://linode.com/agreement"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Customer Agreement
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linode.com/tos"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Terms of Service
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linode.com/privacy"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Privacy Policy
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linode.com/aup"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Acceptable User Policy
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linode.com/security"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Security
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linode.com/compliance"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Standards &amp; Compliance
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div className="w-full xs:w-1/2 sm:w-1/3 md:w-auto px-4">
-        <h4 className="footer-nav-header mb-2">
-          <a
-            href="https://linode.com/about"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Company
-          </a>
-        </h4>
-        <ul className="list-reset text-sm">
-          <li>
+      <div className="w-full xs:w-full md:w-1/4 px-4">
+        <div>
+          <h4 className="footer-nav-header mb-2">
             <a
-              href="https://linode.com/about"
+              href="https://linode.com/sales"
               target="_blank"
               rel="noopener noreferrer"
             >
-              About Us
+              Engage
             </a>
-          </li>
-          <li>
+          </h4>
+          <ul className="list-reset text-sm">
+            <li>
+              <a
+                href="https://linode.com/sales"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Contact Sales
+              </a>
+            </li>
+            <li>
+              <a
+                href="https:/blog.linode.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Blog
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linode.com/events"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Events
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linode.com/podcast"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Podcast
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linode.com/community"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Community
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linode.com/referrals"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Referral Program
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linode.com/community"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Lift Startup Program
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linode.com/partners"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Partners
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linode.com/careers"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Press Careers
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="footer-nav-header mb-2">
             <a
-              href="https://blog.linode.com/"
+              href="https://linode.com/contact"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Blog
+              Contact
             </a>
-          </li>
-          <li>
-            <a
-              href="https://linode.com/press"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Press
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://linode.com/referrals"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Referral System
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://linode.com/careers"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Careers
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div className="w-full xs:w-1/2 sm:w-1/3 md:w-auto px-4">
-        <h4 className="footer-nav-header mb-2">
-          <a
-            href="https://linode.com/agreement"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Legal
-          </a>
-        </h4>
-        <ul className="list-reset text-sm">
-          <li>
-            <a
-              href="https://linode.com/agreement"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Customer Agreement
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://linode.com/tos"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Terms of Service
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://linode.com/privacy"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Privacy Policy
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://linode.com/aup"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Acceptable Use Policy
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div className="w-full xs:w-1/2 sm:w-2/3 md:w-auto px-4">
-        <h4 className="footer-nav-header mb-2">
-          <a
-            href="https://linode.com/contact"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Contact Us
-          </a>
-        </h4>
-        <ul className="list-reset text-sm">
-          <li>
-            <a href="tel:+18554546633">855-4-LINODE</a>
-          </li>
-          <li>
-            <a href="tel:+18554546633">(855-454-6633)</a>
-          </li>
-          <li>
-            <a href="tel:+16093807100">Intl.: +1 609-380-7100</a>
-          </li>
-          <li>
-            <a href="mailto:support@linode.com">Email us</a>
-          </li>
-          <li className="footer-nav-social mt-1">
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://twitter.com/linode"
-            >
-              <Twitter />
-            </a>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://plus.google.com/+linode/"
-            >
-              <Googleplus />
-            </a>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://facebook.com/linode"
-            >
-              <Facebook />
-            </a>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://linkedin.com/company/linode"
-            >
-              <Linkedin />
-            </a>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://github.com/linode/"
-            >
-              <Github />
-            </a>
-          </li>
-        </ul>
+          </h4>
+          <ul className="list-reset text-sm">
+            <li>
+              <a href="tel:+18554546633">855-4-LINODE</a>
+            </li>
+            <li>
+              <a href="tel:+18554546633">(855-454-6633)</a>
+            </li>
+            <li>
+              <a href="tel:+16093807100">Intl.: +1 609-380-7100</a>
+            </li>
+            <li>
+              <a href="mailto:support@linode.com">Email us</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
