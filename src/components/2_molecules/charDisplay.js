@@ -21,7 +21,7 @@ export const CharDisplay = props => {
           <span className="tag">{data.maxLength} characters</span>
         ) : (
           <span className="tag">
-            {`${"["} ${data.minLength}${" .. "}${
+            {`${"["}${data.minLength}${" .. "}${
               data.maxLength
             }${"] "} characters`}{" "}
           </span>

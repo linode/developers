@@ -4,7 +4,7 @@ import Markdown from "react-markdown/with-html";
 import CharDisplay from "../2_molecules/charDisplay";
 
 export const ResponseItem = props => {
-  const { response, r, m } = props;
+  const { response, r } = props;
   return (
     r && (
       <div className="mt-8">
@@ -31,12 +31,13 @@ export const ResponseItem = props => {
                 return (
                   l && (
                     <div key={i} className="response-wrapper">
+                      {/* {console.log(l)} */}
                       <div className="flex mb-2 pt-2 initResponse">
                         <div className="w-1/4">
                           <div>
                             <b>{p}</b>
                           </div>
-                          {m.requestBody &&
+                          {/* {m.requestBody &&
                             m.requestBody.content &&
                             m.requestBody.content.application_json &&
                             m.requestBody.content.application_json.schema &&
@@ -55,7 +56,14 @@ export const ResponseItem = props => {
                                 }
                                 return false;
                               }
-                            )}
+                            )} */}
+                          {l.x_linode_filterable && (
+                            <div className="leading-xs">
+                              <span className="text-grey-dark text-sm">
+                                Filterable
+                              </span>
+                            </div>
+                          )}
                         </div>
                         <div className="w-3/4">
                           <div>

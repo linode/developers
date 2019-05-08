@@ -89,7 +89,18 @@ const apiPage = ({ data }) => {
                         </div>
                       )}
 
-                      {console.log(n.parameters)}
+                      {n.parameters && (
+                        <div className="my-8">
+                          <h3 className="mb-2">Path Parameters</h3>
+                          {n.parameters.map((param, i) => (
+                            <ParamDisplay
+                              key={`param-item-${i}`}
+                              param={param}
+                              m={n}
+                            />
+                          ))}
+                        </div>
+                      )}
 
                       {m.requestBody && <BodySchema data={m} />}
 

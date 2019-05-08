@@ -20,8 +20,10 @@ export const BodySchema = props => {
           const b =
             data.requestBody.content.application_json.schema.properties[p];
           return (
-            b && (
+            b &&
+            b.readOnly !== true && (
               <div key={i} className="response-wrapper">
+                {/* {console.log(b)} */}
                 <div className="flex mb-4 pt-2 initResponse">
                   <div className="w-1/4">
                     <div>
@@ -43,6 +45,13 @@ export const BodySchema = props => {
                           }
                         )}
                     </div>
+                    {b.x_linode_filterable && (
+                      <div className="leading-xs">
+                        <span className="text-grey-dark text-sm">
+                          Filterable
+                        </span>
+                      </div>
+                    )}
                   </div>
                   <div className="w-3/4">
                     <div className="text-sm leading-text-sm text-grey-darkest">
@@ -71,7 +80,8 @@ export const BodySchema = props => {
               Object.keys(s.properties).map((p, i) => {
                 const b = s.properties[p];
                 return (
-                  b && (
+                  b &&
+                  b.readOnly === undefined && (
                     <div key={i} className="response-wrapper">
                       <div className="flex pt-2 mb-4 initResponse">
                         <div className="w-1/4">
@@ -93,6 +103,32 @@ export const BodySchema = props => {
                                 }
                                 return false;
                               })}
+                          </div>
+                          <div className="leading-xs">
+                            {data.requestBody.content.application_json.schema
+                              .required &&
+                              data.requestBody.content.application_json.schema.required.map(
+                                (req, i) => {
+                                  if (p === req) {
+                                    return (
+                                      <span
+                                        className="text-BaseRed text-sm"
+                                        key={i}
+                                      >
+                                        Required
+                                      </span>
+                                    );
+                                  }
+                                  return false;
+                                }
+                              )}
+                          </div>
+                          <div className="leading-xs mt-1">
+                            {b.x_linode_filterable && (
+                              <span className="text-grey-dark text-sm">
+                                Filterable
+                              </span>
+                            )}
                           </div>
                         </div>
                         <div className="w-3/4">
