@@ -8,6 +8,7 @@ export const ResponseItemElements = props => {
   return (
     <div className="mt-6">
       {context &&
+        context.content &&
         context.content.application_json &&
         context.content.application_json.schema &&
         context.content.application_json.schema.properties &&
@@ -73,43 +74,49 @@ export const ResponseItemElements = props => {
                       {Object.keys(l.properties).map((e, i) => {
                         const data = l.properties[e];
                         return (
-                          <div key={i} className="flex mb-4">
-                            <div className="w-1/4">
-                              <b>{e}</b>
-                            </div>
-                            <div className="w-3/4">
-                              <div>
-                                <div className="text-sm text-grey-darkest">
-                                  {data.type}{" "}
-                                  {data.pattern && (
-                                    <span className="tag">{data.pattern}</span>
-                                  )}
-                                </div>
-                                {data.enum && (
-                                  <div className="flex flex-wrap mb-2">
-                                    <span className="text-sm mr-2">Enum:</span>
-                                    {data.enum.map((e, i) => {
-                                      return (
-                                        <span
-                                          className="tag mr-2 mb-1 inline-block"
-                                          key={i}
-                                        >
-                                          "{e}"
-                                        </span>
-                                      );
-                                    })}
-                                  </div>
-                                )}
+                          data && (
+                            <div key={i} className="flex mb-4">
+                              <div className="w-1/4">
+                                <b>{e}</b>
+                              </div>
+                              <div className="w-3/4">
                                 <div>
-                                  <Markdown
-                                    source={data.description}
-                                    escapeHtml={false}
-                                    className="api-desc"
-                                  />
+                                  <div className="text-sm text-grey-darkest">
+                                    {data.type && data.type}{" "}
+                                    {data.pattern && (
+                                      <span className="tag">
+                                        {data.pattern}
+                                      </span>
+                                    )}
+                                  </div>
+                                  {data.enum && (
+                                    <div className="flex flex-wrap mb-2">
+                                      <span className="text-sm mr-2">
+                                        Enum:
+                                      </span>
+                                      {data.enum.map((e, i) => {
+                                        return (
+                                          <span
+                                            className="tag mr-2 mb-1 inline-block"
+                                            key={i}
+                                          >
+                                            "{e}"
+                                          </span>
+                                        );
+                                      })}
+                                    </div>
+                                  )}
+                                  <div>
+                                    <Markdown
+                                      source={data.description}
+                                      escapeHtml={false}
+                                      className="api-desc"
+                                    />
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
+                          )
                         );
                       })}
                     </div>
@@ -121,14 +128,14 @@ export const ResponseItemElements = props => {
                           const data = l.items.properties[e];
                           return (
                             data && (
-                              <div key={i} className="flex mb-4">
+                              <div key={i} classN ame="flex mb-4">
                                 <div className="w-1/4">
                                   <b>{e}</b>
                                 </div>
                                 <div className="w-3/4">
                                   <div>
                                     <div className="text-sm text-grey-darkest leading-text-sm">
-                                      {data.type}
+                                      {data.type && data.type}
                                       {data.pattern && (
                                         <span className="tag">
                                           {data.pattern}
