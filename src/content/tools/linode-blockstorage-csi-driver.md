@@ -6,4 +6,4 @@ external_url: https://github.com/linode/linode-blockstorage-csi-driver
 weight: 2
 ---
 
-Integrates Linode Block Storage with Kubernetes and other container orchestrators.
+Container Storage Interface driver for Linode Block Storage integration with Kubernetes and other container orchestrators.
