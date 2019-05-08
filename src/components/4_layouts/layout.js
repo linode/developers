@@ -36,7 +36,7 @@ const Layout = ({ children, title, subtitle, fullWidth, noFooter }) => (
         >
           <main className="main">{children}</main>
         </div>
-        {!noFooter && (
+        {!noFooter && !fullWidth && (
           <>
             {!fullWidth && (
               <div className="footer-wrapper bg-BaseBlackFull">
