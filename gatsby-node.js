@@ -39,6 +39,7 @@ exports.sourceNodes = async ({ actions }) => {
       put: res.paths[path].put,
       delete: res.paths[path].delete,
       responses: res.paths[path].responses,
+      requestBody: res.paths[path].requestBody,
       parameters: res.paths[path].parameters,
       tagGroup:
         (res.paths[path]["get"] && res.paths[path]["get"].tags) ||

@@ -24,8 +24,8 @@ const apiPage = ({ data }) => {
   const n = data.allPaths.edges[0].node;
   const modes = {
     get: "get",
-    post: "post",
     put: "put",
+    post: "post",
     delete: "delete"
   };
   const responseOptions = {
@@ -55,6 +55,7 @@ const apiPage = ({ data }) => {
             {Object.keys(n).map((e, i) => {
               const mode = modes[e];
               const m = n[mode];
+
               return (
                 m && (
                   <div key={i} className="flex flex-col">
@@ -67,15 +68,12 @@ const apiPage = ({ data }) => {
                         </span>
                         <span>https://api.linode.com/v4{n.name}</span>
                       </div>
-
                       <Markdown
                         source={m.description}
                         escapeHtml={false}
                         className="my-8 api-desc"
                       />
-
                       {m.security && <Security oauth={m.security[1].oauth} />}
-
                       {m.parameters && (
                         <div className="my-8">
                           <h3 className="mb-2">Query Parameters</h3>
@@ -88,7 +86,6 @@ const apiPage = ({ data }) => {
                           ))}
                         </div>
                       )}
-
                       {n.parameters && (
                         <div className="my-8">
                           <h3 className="mb-2">Path Parameters</h3>
@@ -101,9 +98,7 @@ const apiPage = ({ data }) => {
                           ))}
                         </div>
                       )}
-
                       {m.requestBody && <BodySchema data={m} />}
-
                       <div className="w-full mb-8">
                         <h3>Request Samples</h3>
                         <Tabs className="my-4">
@@ -146,10 +141,12 @@ const apiPage = ({ data }) => {
                           m={m}
                         />
                       </div>
+
                       <ResponseList
                         options={responseOptions}
                         responses={m.responses}
                         m={m}
+                        mode={mode}
                       />
                     </div>
                   </div>
@@ -6185,6 +6182,139 @@ export const query = graphql`
                     type
                     required
                     description
+                    allOf {
+                      properties {
+                        label {
+                          type
+                          description
+                          example
+                          minLength
+                          maxLength
+                          pattern
+                          x_linode_filterable
+                          x_linode_cli_display
+                        }
+                        group {
+                          deprecated
+                          type
+                          x_linode_filterable
+                          description
+                          example
+                        }
+                        type {
+                          readOnly
+                          type
+                          description
+                          example
+                          x_linode_cli_display
+                        }
+                        region {
+                          readOnly
+                          type
+                          description
+                          example
+                          x_linode_cli_display
+                          x_linode_filterable
+                        }
+                        address {
+                          type
+                          format
+                          description
+                          example
+                          readOnly
+                          x_linode_cli_display
+                        }
+                        gateway {
+                          type
+                          nullable
+                          format
+                          description
+                          example
+                          readOnly
+                        }
+                        subnet_mask {
+                          type
+                          format
+                          description
+                          example
+                          readOnly
+                        }
+                        prefix {
+                          type
+                          description
+                          example
+                          readOnly
+                        }
+                        public {
+                          type
+                          description
+                          example
+                          readOnly
+                          x_linode_cli_display
+                        }
+                        rdns {
+                          type
+                          description
+                          x_linode_cli_display
+                          example
+                        }
+                        linode_id {
+                          type
+                          description
+                          example
+                          readOnly
+                          x_linode_cli_display
+                          nullable
+                        }
+                        id {
+                          type
+                          description
+                          example
+                          readOnly
+                          x_linode_cli_display
+                        }
+                        filesystem_path {
+                          type
+                          description
+                          example
+                          readOnly
+                        }
+                        status {
+                          type
+                          description
+                          example
+                          readOnly
+                          x_linode_cli_display
+                        }
+                        size {
+                          type
+                          description
+                          maximum
+                          x_linode_cli_display
+                          example
+                          readOnly
+                        }
+                        created {
+                          type
+                          format
+                          description
+                          example
+                          readOnly
+                        }
+                        updated {
+                          type
+                          format
+                          description
+                          example
+                          readOnly
+                        }
+                        tags {
+                          x_linode_filterable
+                          description
+                          type
+                        }
+                      }
+                    }
                     properties {
                       active_since {
                         type
