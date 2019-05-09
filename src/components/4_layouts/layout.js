@@ -36,20 +36,19 @@ const Layout = ({ children, title, subtitle, fullWidth, noFooter }) => (
         >
           <main className="main">{children}</main>
         </div>
-        {!noFooter && !fullWidth && (
-          <>
-            <div className="footer-nav-wrapper bg-black">
-              <footer className="max-w-3xl mx-auto py-8 px-4 md:px-8 text-white">
-                <Footer />
-              </footer>
-            </div>
-
-            <div className="footer-wrapper bg-BaseBlackFull">
-              <footer className="max-w-3xl mx-auto py-8 px-4 md:px-8 text-white">
-                <FooterNav />
-              </footer>
-            </div>
-          </>
+        {!fullWidth && (
+          <div className="footer-wrapper border-top">
+            <footer className="max-w-3xl mx-auto py-8 px-4 md:px-8 text-BaseBlackFull">
+              <FooterNav />
+            </footer>
+          </div>
+        )}
+        {!fullWidth && (
+          <div className="footer-nav-wrapper border-top">
+            <footer className="max-w-3xl mx-auto py-8 px-4 md:px-8 text-BaseBlackFull">
+              <Footer />
+            </footer>
+          </div>
         )}
       </div>
     )}

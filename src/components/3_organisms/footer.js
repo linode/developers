@@ -11,7 +11,7 @@ import Logo from "../../images/svgs/logo.svg";
 const Footer = () => (
   <div className="footer-links container mx-auto">
     <div className="flex flex-wrap items-center justify-between">
-      <div className="w-1/2 px-2">
+      <div className="xs-full sm-1/2 px-2">
         <div className="flex items-center">
           <div className="mr-4">
             <Logo />
@@ -19,7 +19,7 @@ const Footer = () => (
           &copy; {new Date().getFullYear()} Linode, LLC. All rights reserved.
         </div>
       </div>
-      <div className="w-1/2 px-2">
+      <div className="xs-full sm:items-end px-2">
         <ul className="list-reset text-sm">
           <li className="footer-nav-social mt-1">
             <a
