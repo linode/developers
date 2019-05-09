@@ -30,7 +30,7 @@ const APIDocs = ({ data }) => {
         <div className="sidebar-container">
           <Sidebar />
         </div>
-        <div className="api-content-wrapper">
+        <div className="w-full px-4 api-content-wrapper">
           <div className="api-content mx-auto">
             <Markdown
               source={n.info.description}
