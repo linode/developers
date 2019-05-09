@@ -7,17 +7,19 @@ import Logo from "../../images/svgs/logo.svg";
 
 const Header = () => (
   <div className="header-wrapper">
-    <header className="header max-w-3xl mx-auto py-2 px-4 md:px-8 flex flex-wrap items-center justify-between">
-      <div className="w-full flex justify-end">
+    <header className="header">
+      <div className="border-b py-2">
         <MainSiteGlobalMenu />
       </div>
-      <div className="logo">
-        <Link to="/" className="flex items-center">
-          <Logo />
-        </Link>
-      </div>
-      <div className="border-t">
-        <MainSiteNav />
+      <div className="flex flex-wrap items-center justify-between py-4 max-w-3xl mx-auto px-4 md:px-8">
+        <div className="logo">
+          <Link to="/" className="flex items-center">
+            <Logo />
+          </Link>
+        </div>
+        <div>
+          <MainSiteNav />
+        </div>
       </div>
     </header>
   </div>
