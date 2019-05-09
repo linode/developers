@@ -91,6 +91,7 @@ export default props => (
             node {
               info {
                 description
+                version
               }
             }
           }

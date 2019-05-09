@@ -23,7 +23,7 @@ const DLCMenu = ({ data }) => {
           <Link
             key={link.name}
             to={link.link}
-            className="main-nav-link text-white underline hover:text-white hover:no-underline relative"
+            className="nav-link text-white underline hover:text-white hover:no-underline relative mx-2"
             role="menuitem"
             activeClassName="active"
             getProps={link === "/" ? undefined : isPartiallyActive}
