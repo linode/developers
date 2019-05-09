@@ -15,10 +15,6 @@ const Layout = ({ children, title, subtitle, fullWidth, noFooter }) => (
         site {
           siteMetadata {
             title
-            menuLinks {
-              name
-              link
-            }
           }
         }
       }
@@ -27,7 +23,7 @@ const Layout = ({ children, title, subtitle, fullWidth, noFooter }) => (
       <div className={`content ${fullWidth ? "layout-fixed" : ""}`}>
         <Header
           siteTitle={data.site.siteMetadata.title}
-          menuLinks={data.site.siteMetadata.menuLinks}
+          dlcLinks={data.site.siteMetadata.dlcLinks}
         />
         {title && subtitle && <Banner title={title} subtitle={subtitle} />}
         <div
