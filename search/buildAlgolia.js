@@ -1,6 +1,5 @@
 algoliasearch = require('algoliasearch'),
 randomstring = require('randomstring');
-require('dotenv').config();
 
 const updateAlgolia = (records) => {
   if (!process.env.ALGOLIA_API_KEY || !process.env.ALGOLIA_API_SECRET) {

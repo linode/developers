@@ -2,9 +2,10 @@ const fs = require('fs');
 const _ = require('lodash');
 const md5 = require('md5');
 const buildAlgolia = require('./buildAlgolia');
+require('dotenv').config();
 
 // This assumes the version of the spec in data/ is the current version
-const spec = require('src/data/spec.json');
+const spec = require('../src/data/spec.json');
 
 const BASE_URL = 'https://developers.linode.com/api/v4/';
 
