@@ -44,7 +44,7 @@ const apiPage = ({ data }) => {
         <div className="sidebar-container">
           <Sidebar />
         </div>
-        <div className="w-full px-2 api-content-wrapper">
+        <div className="w-full px-4 api-content-wrapper">
           <div className="api-content mx-auto">
             <h1 className="mb-4 ">
               {(n.get && n.get.tags) ||
