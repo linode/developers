@@ -10,7 +10,7 @@ const MainSiteNav = ({ data }) => {
           <Link
             key={link.name}
             to={link.link}
-            className="text-BaseText hover:text-black relative text-lg mx-2"
+            className="nav-link text-BaseText hover:text-black relative text-lg mx-4"
             role="menuitem"
             activeClassName="active"
           >

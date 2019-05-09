@@ -15,7 +15,7 @@ const MainSiteGlobalMenu = ({ data }) => {
           <Link
             key={link.name}
             to={link.link}
-            className="main-nav-link text-BaseText hover:text-black relative text-sm"
+            className="nav-link text-BaseText hover:text-black relative text-sm mx-2"
             role="menuitem"
             activeClassName="active"
           >

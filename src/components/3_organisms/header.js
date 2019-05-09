@@ -5,8 +5,12 @@ import MainSiteNav from "../2_molecules/MainSiteNav";
 
 import Logo from "../../images/svgs/logo.svg";
 
-const Header = () => (
-  <div className="header-wrapper">
+const Header = ({ border }) => (
+  <div
+    className={`header-wrapper bg-white ${
+      border ? "border-b border-ThemeCell" : ""
+    }`}
+  >
     <header className="header">
       <div className="border-b py-2">
         <MainSiteGlobalMenu />
