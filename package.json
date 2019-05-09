@@ -53,5 +53,11 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "devDependencies": {
+    "algoliasearch": "^3.33.0",
+    "lodash": "^4.17.11",
+    "md5": "^2.2.1",
+    "randomstring": "^1.1.5"
   }
 }
