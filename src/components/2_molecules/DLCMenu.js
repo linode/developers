@@ -16,14 +16,14 @@ const DLCMenu = ({ data }) => {
       <nav
         id="main-menu"
         role="menu"
-        className="main-nav"
+        className="main-nav mb-8"
         aria-expanded="false"
       >
         {dlcLinks.map(link => (
           <Link
             key={link.name}
             to={link.link}
-            className="main-nav-link text-BaseNavGrey hover:text-white relative"
+            className="main-nav-link text-white underline hover:text-white hover:no-underline relative"
             role="menuitem"
             activeClassName="active"
             getProps={link === "/" ? undefined : isPartiallyActive}

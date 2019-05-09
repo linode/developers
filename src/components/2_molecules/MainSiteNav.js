@@ -5,17 +5,12 @@ const MainSiteNav = ({ data }) => {
   const { mainSiteNav } = data.site.siteMetadata;
   return (
     <>
-      <nav
-        id="main-menu"
-        role="menu"
-        className="main-nav"
-        aria-expanded="false"
-      >
+      <nav id="main-menu" role="menu" className="" aria-expanded="false">
         {mainSiteNav.map(link => (
           <Link
             key={link.name}
             to={link.link}
-            className="main-nav-link text-BaseNavGrey hover:text-white relative"
+            className="text-BaseText hover:text-black relative text-lg mx-2"
             role="menuitem"
             activeClassName="active"
           >
