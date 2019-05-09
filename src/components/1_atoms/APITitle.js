@@ -4,11 +4,7 @@ import { StaticQuery, graphql } from "gatsby";
 const APITitle = ({ data }) => {
   const n = data.allDataJson.edges[0].node;
 
-  return (
-    <div className="mb-4">
-      <div className="text-2xl">Linode API {n.info.version}</div>
-    </div>
-  );
+  return <div className="text-2xl mb-4">Linode API {n.info.version}</div>;
 };
 
 export default props => (

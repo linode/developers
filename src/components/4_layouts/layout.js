@@ -24,11 +24,13 @@ const Layout = ({ children, title, subtitle, fullWidth, noFooter }) => (
         <Header
           siteTitle={data.site.siteMetadata.title}
           dlcLinks={data.site.siteMetadata.dlcLinks}
+          border={fullWidth}
         />
         {title && subtitle && <Banner title={title} subtitle={subtitle} />}
         <div
-          className={`main-wrapper ${!fullWidth &&
-            "max-w-3xl mx-auto px-4 md:px-8 py-2"}`}
+          className={`main-wrapper ${
+            !fullWidth ? "max-w-3xl mx-auto px-4 md:px-8 py-2" : ""
+          }`}
         >
           <main className="main">{children}</main>
         </div>

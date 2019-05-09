@@ -52,6 +52,7 @@ export const query = graphql`
         node {
           info {
             description
+            version
           }
         }
       }

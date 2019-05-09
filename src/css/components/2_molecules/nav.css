@@ -1,11 +1,7 @@
-.main-nav-link {
-  text-decoration: none;
-}
-
-.main-nav-link:first-child {
+.nav-link:first-child {
   margin-left: 0;
 }
 
-.main-nav-link:last-child {
+.nav-link:last-child {
   margin-right: 0;
 }
