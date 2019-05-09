@@ -41,7 +41,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "./getBaseTheme.sh && gatsby build",
+    "build": "./getBaseTheme.sh && gatsby build && node search/buildIndex.js",
     "develop": "./getBaseTheme.sh && gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve",
