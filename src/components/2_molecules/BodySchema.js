@@ -23,11 +23,10 @@ export const BodySchema = props => {
             b &&
             b.readOnly !== true && (
               <div key={i} className="response-wrapper">
-                {/* {console.log(b)} */}
                 <div className="flex mb-4 pt-2 initResponse">
                   <div className="w-1/4">
                     <div>
-                      <b>{p}</b>
+                      <b className={b.deprecated && "line-through"}>{p}</b>
                     </div>
                     <div className="leading-xs">
                       {data.requestBody.content.application_json.schema
@@ -58,6 +57,11 @@ export const BodySchema = props => {
                       {b.type} <CharDisplay data={b} />
                       {b.pattern && <span className="tag">{b.pattern}</span>}
                     </div>
+                    {b.deprecated && (
+                      <div>
+                        <span className="tag tag-deprecated">Deprecated</span>
+                      </div>
+                    )}
                     <Markdown
                       source={b.description}
                       escapeHtml={false}

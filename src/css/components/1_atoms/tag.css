@@ -12,3 +12,7 @@
 .tag-light {
   @apply bg-white border;
 }
+
+.tag-deprecated {
+  @apply font-sans text-sm bg-orange text-white;
+}

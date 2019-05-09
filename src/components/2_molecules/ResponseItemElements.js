@@ -21,9 +21,8 @@ export const ResponseItemElements = props => {
                   <div className="flex mb-2 pt-2 initResponse">
                     <div className="w-1/4">
                       <div>
-                        <b>{p}</b>
+                        <b className={l.deprecated && "line-through"}>{p}</b>
                       </div>
-
                       {l.x_linode_filterable && (
                         <div className="leading-xs">
                           <span className="text-grey-dark text-sm">
@@ -60,6 +59,11 @@ export const ResponseItemElements = props => {
                           })}
                         </div>
                       )}
+                      {l.deprecated && (
+                        <div>
+                          <span className="tag tag-deprecated">Deprecated</span>
+                        </div>
+                      )}
                       <div>
                         <Markdown
                           source={l.description}
@@ -77,7 +81,11 @@ export const ResponseItemElements = props => {
                           data && (
                             <div key={i} className="flex mb-4">
                               <div className="w-1/4">
-                                <b>{e}</b>
+                                <b
+                                  className={data.deprecated && "line-through"}
+                                >
+                                  {e}
+                                </b>
                               </div>
                               <div className="w-3/4">
                                 <div>
@@ -106,6 +114,13 @@ export const ResponseItemElements = props => {
                                       })}
                                     </div>
                                   )}
+                                  {data.deprecated && (
+                                    <div>
+                                      <span className="tag tag-deprecated">
+                                        Deprecated
+                                      </span>
+                                    </div>
+                                  )}
                                   <div>
                                     <Markdown
                                       source={data.description}
@@ -128,9 +143,15 @@ export const ResponseItemElements = props => {
                           const data = l.items.properties[e];
                           return (
                             data && (
-                              <div key={i} classN ame="flex mb-4">
+                              <div key={i} className="flex mb-4">
                                 <div className="w-1/4">
-                                  <b>{e}</b>
+                                  <b
+                                    className={
+                                      data.deprecated && "line-through"
+                                    }
+                                  >
+                                    {e}
+                                  </b>
                                 </div>
                                 <div className="w-3/4">
                                   <div>
@@ -157,6 +178,13 @@ export const ResponseItemElements = props => {
                                             </span>
                                           );
                                         })}
+                                      </div>
+                                    )}
+                                    {data.deprecated && (
+                                      <div>
+                                        <span className="tag tag-deprecated">
+                                          Deprecated
+                                        </span>
                                       </div>
                                     )}
                                     <div>

@@ -1,8 +1,6 @@
 import React from "react";
-import Markdown from "react-markdown/with-html";
 
 import ResponseItemElements from "../2_molecules/ResponseItemElements";
-import CharDisplay from "../2_molecules/charDisplay";
 
 export const ResponseItem = props => {
   const { response, r, m, mode } = props;
