@@ -1,14 +1,36 @@
-.footer-nav a, 
+.footer-nav a,
 .footer-wrapper a {
   text-decoration: none;
+  @apply text-BaseBlackFull;
 }
 
-.footer-nav a:hover{  
-  @apply text-white;
+.footer-nav-header a {
+  @apply text-BaseBlackFull;
+}
+
+.footer-nav a:hover {
+  @apply text-BaseBlackFull;
   text-decoration: none;
 }
 
 .footer-wrapper a:hover {
-  @apply text-white;
+  @apply text-BaseBlackFull;
   text-decoration: underline;
+}
+
+.footer-nav-social a {
+  display: inline-block;
+  width: 24px;
+  margin-right: 3rem;
+  border: 1px solid currentColor;
+  padding: 0 6px;
+  border-radius: 4px;
+}
+
+.footer-nav-social a:hover {
+  @apply text-BaseBlackFull;
+}
+
+.footer-links a {
+  @apply text-BaseBlackFull;
 }
