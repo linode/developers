@@ -1,10 +1,10 @@
 const fs = require('fs');
 const _ = require('lodash');
 const md5 = require('md5');
-const buildAlgolia = require('./buildalgolia');
+const buildAlgolia = require('./buildAlgolia');
 
 // This assumes the version of the spec in data/ is the current version
-const spec = require('../data/spec.json');
+const spec = require('src/data/spec.json');
 
 const BASE_URL = 'https://developers.linode.com/api/v4/';
 
