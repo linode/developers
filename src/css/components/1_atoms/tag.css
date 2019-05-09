@@ -1,8 +1,18 @@
 .tag {
-  @apply font-normal inline-block px-1 bg-ThemeTagGrey text-BaseBlackFull text-sm;
+  @apply font-normal inline-block px-1 bg-ThemeTagGrey text-BaseBlackFull text-xs;
   padding-top: 4px;
   padding-bottom: 3px;
   width: fit-content;
   transition: background-color 225ms ease-in-out, color 225ms ease-in-out;
   line-height: 1;
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+    monospace;
+}
+
+.tag-light {
+  @apply bg-white border;
+}
+
+.tag-deprecated {
+  @apply font-sans text-sm bg-orange text-white;
 }

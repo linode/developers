@@ -7,6 +7,11 @@ export const ParamDisplay = props => {
       <div className="flex">
         <div className="w-1/4">
           <b>{param.name}</b>
+          {param.required && (
+            <div className="leading-xs">
+              <span className="text-BaseRed text-sm">Required</span>
+            </div>
+          )}
         </div>
         <div className="w-3/4">
           <div>
@@ -27,8 +32,13 @@ export const ParamDisplay = props => {
                   </span>
                 )}
             </div>
-            <div>Default: {param.schema.default}</div>
-            <div>{param.description}</div>
+            {param.schema.default && (
+              <div>
+                Default:{" "}
+                <span className="tag tag-light">{param.schema.default}</span>
+              </div>
+            )}
+            {param.description && <div>{param.description}</div>}
           </div>
         </div>
       </div>
