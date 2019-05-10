@@ -7,9 +7,7 @@ import Logo from "../../images/svgs/logo.svg";
 
 const Header = ({ border }) => (
   <div
-    className={`header-wrapper bg-white ${
-      border ? "border-b border-ThemeCell" : ""
-    }`}
+    className={`header-wrapper bg-white ${border ? "border-b border-api" : ""}`}
   >
     <header className="header">
       <div className="border-b py-2">

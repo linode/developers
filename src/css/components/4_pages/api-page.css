@@ -22,6 +22,10 @@
   overflow: auto;
 }
 
+.border-api {
+  border-color: #f4f4f4;
+}
+
 .api-body {
   @apply mb-8;
   overflow: auto;
