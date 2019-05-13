@@ -36,7 +36,7 @@ const APIDocs = ({ data }) => {
               source={n.info.description}
               escapeHtml={false}
               renderers={{ heading: HeadingRenderer }}
-              className="mt-8 api-body"
+              className="md:mt-8 api-body"
             />
           </div>
         </div>

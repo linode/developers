@@ -27,6 +27,7 @@
 
 .api-body {
   @apply mb-8;
+  overflow: hidden;
 }
 
 .endpoint-anchor {
