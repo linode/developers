@@ -12,7 +12,7 @@ const SearchHeader = () => (
       }
     `}
     render={data => (
-      <header className="mb-4">
+      <header className="md:mb-4">
         <Search searchIndex={data.siteSearchIndex.index} />
       </header>
     )}
