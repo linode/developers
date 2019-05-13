@@ -37,7 +37,6 @@ input[type="text"] {
 
 .api-body table {
   width: 100%;
-  overflow-x: auto;
   @apply border border-grey-light;
 }
 
