@@ -1,6 +1,7 @@
 backend:
-  name: linode-developer-cms
+  name: github
   branch: gastby # Branch to update (optional; defaults to master)
+  repo: https://github.com/linode/developers.git
 
 publish_mode: editorial_workflow
 
