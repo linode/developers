@@ -1,6 +1,8 @@
 import React from "react";
 import { graphql, StaticQuery } from "gatsby";
 import { Link } from "gatsby";
+
+import APITitle from "../1_atoms/APITitle";
 import SearchHeader from "./search-header";
 
 import Caret from "../../images/svgs/caret.svg";
@@ -71,6 +73,7 @@ class SideMenu extends React.Component {
     return (
       <div className="api-navigation-wrapper bg-ThemeCell">
         <div className="api-navigation">
+          <APITitle />
           <SearchHeader />
           <div>
             {groups.map((group, i) => {
