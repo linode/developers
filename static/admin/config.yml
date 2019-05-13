@@ -1,7 +1,7 @@
 backend:
   name: github
   branch: gastby # Branch to update (optional; defaults to master)
-  repo: https://github.com/linode/developers.git
+  repo: linode/developers
 
 publish_mode: editorial_workflow
 
