@@ -1,8 +1,3 @@
-const fs = require("fs");
-const path = require("path");
-yaml = require("js-yaml");
-fs = require("fs");
-
 module.exports = {
   siteMetadata: {
     title: `Linode Developer Tools`,
