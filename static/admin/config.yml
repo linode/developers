@@ -1,7 +1,6 @@
 backend:
-  name: github
+  name: git-gateway
   branch: gastby # Branch to update (optional; defaults to master)
-  repo: linode/developers
 
 publish_mode: editorial_workflow
 
