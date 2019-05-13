@@ -1,8 +1,6 @@
 const JsonSchemaRefParser = require("json-schema-ref-parser");
 const path = require("path");
 const _ = require("lodash");
-// const axios = require("axios");
-// https://developers.linode.com/api/docs/v4/openapi.yaml
 
 const specs = require("./src/data/spec.json");
 const crypto = require("crypto");
