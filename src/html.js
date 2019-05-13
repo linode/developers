@@ -15,7 +15,6 @@ function HTML(props) {
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600"
           rel="stylesheet"
         />
-        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
       </head>
       <body>
         <div id="___gatsby" dangerouslySetInnerHTML={{ __html: props.body }} />
