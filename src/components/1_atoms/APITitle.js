@@ -6,9 +6,9 @@ const APITitle = ({ data }) => {
 
   return (
     <div className="mb-4">
-      <div className="mb-4">
+      {/* <div className="mb-4">
         <Link to="/">developers.linode.com</Link>
-      </div>
+      </div> */}
       <div className="text-2xl">Linode API {n.info.version}</div>
     </div>
   );
