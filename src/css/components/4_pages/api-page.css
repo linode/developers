@@ -18,6 +18,7 @@
 }
 
 .api-content-wrapper {
+  overflow: auto;
 }
 
 .main-wrapper {
@@ -122,7 +123,7 @@
   }
 
   .list-container {
-    display: inline-block;
+    display: block;
     margin-bottom: 0;
   }
 

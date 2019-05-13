@@ -66,7 +66,7 @@ const apiPage = ({ data }) => {
                         <span className="tag big bold mr-2 uppercase">
                           {mode}
                         </span>
-                        <span>https://api.linode.com/v4{n.name}</span>
+                        <pre>https://api.linode.com/v4{n.name}</pre>
                       </div>
                       <Markdown
                         source={m.description}
