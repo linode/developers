@@ -11,4 +11,5 @@ fi
 
 echo
 echo "${BLUE}Fetching API specs${NC}"
-curl -O-o ./src/data/spec.yaml https://developers.linode.com/api/docs/v4/openapi.yaml
+cd -
+curl https://developers.linode.com/api/docs/v4/openapi.yaml > src/data/openapi.yaml

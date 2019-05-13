@@ -72,3 +72,6 @@ yarn-error.log
 linode-hugo-theme
 
 themes/
+
+# Open API files
+src/data
