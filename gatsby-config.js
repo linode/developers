@@ -26,7 +26,15 @@ module.exports = {
     ]
   },
   plugins: [
-    `gatsby-plugin-netlify-cms`,
+    {
+      resolve: "gatsby-plugin-netlify-cms",
+      options: {
+        modulePath: `${__dirname}/src/cms/index.js`,
+        options: {
+          manualInit: true
+        }
+      }
+    },
     `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-filesystem`,
