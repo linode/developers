@@ -120,6 +120,7 @@
     height: calc(100vh - 64px);
     position: fixed;
     top: 64px;
+    width: auto;
   }
 
   .list-container {
