@@ -23,8 +23,8 @@ export const BodySchema = props => {
             b &&
             b.readOnly !== true && (
               <div key={i} className="response-wrapper">
-                <div className="flex mb-4 pt-2 -mx-2 lg:mx-0 initResponse">
-                  <div className="w-1/2 px-2 lg:w-1/4 lg:px-0">
+                <div className="lg:flex mb-4 pt-2 initResponse">
+                  <div className="w-full lg:w-1/4">
                     <div>
                       <b className={b.deprecated && "line-through"}>{p}</b>
                     </div>
@@ -52,7 +52,7 @@ export const BodySchema = props => {
                       </div>
                     )}
                   </div>
-                  <div className="w-1/2 px-2 lg:w-3/4 lg:px-0">
+                  <div className="w-full lg:w-3/4">
                     <div className="text-sm leading-text-sm text-grey-darkest">
                       {b.type} <CharDisplay data={b} />
                       {b.pattern && <span className="tag">{b.pattern}</span>}
@@ -87,8 +87,8 @@ export const BodySchema = props => {
                   b &&
                   b.readOnly === undefined && (
                     <div key={i} className="response-wrapper">
-                      <div className="flex pt-2 mb-4 -mx-2 lg:mx-0 initResponse">
-                        <div className="w-1/2 px-2 lg:w-1/4 lg:px-0">
+                      <div className="lg:flex pt-2 mb-4 initResponse">
+                        <div className="w-full lg:w-1/4">
                           <div>
                             <b>{p}</b>
                           </div>
@@ -135,7 +135,7 @@ export const BodySchema = props => {
                             )}
                           </div>
                         </div>
-                        <div className="w-1/2 px-2 lg:w-3/4 lg:px-0">
+                        <div className="w-full lg:w-3/4">
                           <div className="text-sm leading-text-sm text-grey-darkest">
                             {b.type} <CharDisplay data={b} />
                             {b.pattern && (
