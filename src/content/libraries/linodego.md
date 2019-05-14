@@ -6,7 +6,7 @@ origin: linode
 languages:
   - Golang
 external_url: https://github.com/linode/linodego
-weight: 5
+weight: 6
 ---
 
 Official Go client for Linode APIv4
