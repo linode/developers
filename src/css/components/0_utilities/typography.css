@@ -20,6 +20,7 @@ input[type="text"] {
 
 .api-body code {
   @apply p-2 mt-2 mb-4 bg-ThemeBeige block;
+  overflow-x: auto;
 }
 
 .api-desc code {
@@ -46,6 +47,7 @@ input[type="text"] {
 .api-body th,
 .api-body td {
   @apply p-2 border border-grey-light;
+  @apply leading-tight;
 }
 
 .api-body table code {

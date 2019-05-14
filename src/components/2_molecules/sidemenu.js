@@ -71,7 +71,7 @@ class SideMenu extends React.Component {
     const groups = this.props.data.allPaths.group;
 
     return (
-      <div className="api-navigation-wrapper bg-ThemeCell">
+      <div className="api-navigation-wrapper md:bg-ThemeCell">
         <div className="api-navigation">
           <APITitle />
           <SearchHeader />
