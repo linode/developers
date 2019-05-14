@@ -44,7 +44,7 @@ const apiPage = ({ data }) => {
         <div className="sidebar-container">
           <Sidebar />
         </div>
-        <div className="api-content-wrapper">
+        <div className="w-full px-4 api-content-wrapper">
           <div className="api-content mx-auto">
             <h1 className="mb-4 ">
               {(n.get && n.get.tags) ||
@@ -60,13 +60,13 @@ const apiPage = ({ data }) => {
                 m && (
                   <div key={i} className="flex flex-col">
                     <span id={mode} className="endpoint-anchor" />
-                    <div className="w-full mb-8 py-2">
+                    <div className="xs-full mb-8 px-2">
                       <h2 className="mt-0">{m.summary}</h2>
                       <div className="bg-ThemeCell p-4 mt-4 mb-8">
                         <span className="tag big bold mr-2 uppercase">
                           {mode}
                         </span>
-                        <span>https://api.linode.com/v4{n.name}</span>
+                        <pre>https://api.linode.com/v4{n.name}</pre>
                       </div>
                       <Markdown
                         source={m.description}

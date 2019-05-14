@@ -30,13 +30,13 @@ const APIDocs = ({ data }) => {
         <div className="sidebar-container">
           <Sidebar />
         </div>
-        <div className="api-content-wrapper">
+        <div className="w-full px-4 api-content-wrapper">
           <div className="api-content mx-auto">
             <Markdown
               source={n.info.description}
               escapeHtml={false}
               renderers={{ heading: HeadingRenderer }}
-              className="mt-8 api-body"
+              className="md:mt-8 api-body"
             />
           </div>
         </div>

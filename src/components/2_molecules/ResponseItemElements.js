@@ -18,8 +18,8 @@ export const ResponseItemElements = props => {
             return (
               l && (
                 <div key={i} className="response-wrapper">
-                  <div className="flex mb-2 pt-2 initResponse">
-                    <div className="w-1/4">
+                  <div className="lg:flex mb-2 pt-2 initResponse">
+                    <div className="w-full lg:w-1/4">
                       <div>
                         <b className={l.deprecated && "line-through"}>{p}</b>
                       </div>
@@ -31,7 +31,7 @@ export const ResponseItemElements = props => {
                         </div>
                       )}
                     </div>
-                    <div className="w-3/4">
+                    <div className="w-full lg:w-3/4">
                       <div>
                         <div className="text-sm leading-text-sm text-grey-darkest">
                           {context.content.application_json.schema.properties
@@ -79,15 +79,15 @@ export const ResponseItemElements = props => {
                         const data = l.properties[e];
                         return (
                           data && (
-                            <div key={i} className="flex mb-4">
-                              <div className="w-1/4">
+                            <div key={i} className="lg:flex mb-4">
+                              <div className="w-full lg:w-1/4">
                                 <b
                                   className={data.deprecated && "line-through"}
                                 >
                                   {e}
                                 </b>
                               </div>
-                              <div className="w-3/4">
+                              <div className="w-full lg:w-3/4">
                                 <div>
                                   <div className="text-sm text-grey-darkest">
                                     {data.type && data.type}{" "}
@@ -143,8 +143,8 @@ export const ResponseItemElements = props => {
                           const data = l.items.properties[e];
                           return (
                             data && (
-                              <div key={i} className="flex mb-4">
-                                <div className="w-1/4">
+                              <div key={i} className="lg:flex mb-4">
+                                <div className="w-full lg:w-1/4">
                                   <b
                                     className={
                                       data.deprecated && "line-through"
@@ -153,7 +153,7 @@ export const ResponseItemElements = props => {
                                     {e}
                                   </b>
                                 </div>
-                                <div className="w-3/4">
+                                <div className="w-full lg:w-3/4">
                                   <div>
                                     <div className="text-sm text-grey-darkest leading-text-sm">
                                       {data.type && data.type}
