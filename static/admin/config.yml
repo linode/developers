@@ -29,6 +29,11 @@ collections:
         widget: "datetime"
         default: ""
 
+      - label: "Version"
+        name: "version"
+        required: true
+        widget: "string"
+
       - label: "Changelog Type"
         name: "changelog"
         required: true

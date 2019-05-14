@@ -19,7 +19,7 @@ const ChangelogPage = ({ data }) => {
       <div className="container mx-auto max-w-lg my-8">
         <ChangelogNav totalCount={totalCount} />
         {edges.map(({ node }) => {
-          const { title, date, version } = node.frontmatter;
+          const { title, date, version, changelog } = node.frontmatter;
           const { id, html } = node;
           return (
             <ChangelogItem
@@ -27,6 +27,7 @@ const ChangelogPage = ({ data }) => {
               title={title}
               date={date}
               version={version}
+              changelog={changelog}
               html={html}
             />
           );
@@ -35,24 +36,6 @@ const ChangelogPage = ({ data }) => {
     </Layout>
   );
 };
-
-// TagsPage.propTypes = {
-//   data: PropTypes.shape({
-//     allMarkdownRemark: PropTypes.shape({
-//       group: PropTypes.arrayOf(
-//         PropTypes.shape({
-//           fieldValue: PropTypes.string.isRequired,
-//           totalCount: PropTypes.number.isRequired
-//         }).isRequired
-//       )
-//     }),
-//     site: PropTypes.shape({
-//       siteMetadata: PropTypes.shape({
-//         title: PropTypes.string.isRequired
-//       })
-//     })
-//   })
-// };
 
 export default ChangelogPage;
 
@@ -70,6 +53,7 @@ export const query = graphql`
           frontmatter {
             title
             date(fromNow: true)
+            changelog
             version
           }
         }
