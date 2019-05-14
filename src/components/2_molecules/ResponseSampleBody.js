@@ -3,10 +3,11 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 export const ResponseSampleBody = props => {
-  const { r, response } = props;
+  const { context, response, error } = props;
+  console.log(error);
   return (
-    r &&
-    r[response] !== "" && (
+    context &&
+    context[response] !== "" && (
       <SyntaxHighlighter
         language="json"
         style={atomDark}
@@ -17,15 +18,15 @@ export const ResponseSampleBody = props => {
       >
         <div>
           {"{"}
-          {r.content &&
-            r.content.application_json &&
-            r.content.application_json.schema &&
-            r.content.application_json.schema.properties &&
-            Object.keys(r.content.application_json.schema.properties).map(
+          {context.content &&
+            context.content.application_json &&
+            context.content.application_json.schema &&
+            context.content.application_json.schema.properties &&
+            Object.keys(context.content.application_json.schema.properties).map(
               (p, i) => {
-                const l = r.content.application_json.schema.properties[p];
+                const l = context.content.application_json.schema.properties[p];
                 const rowLen = Object.keys(
-                  r.content.application_json.schema.properties
+                  context.content.application_json.schema.properties
                 ).length;
                 return (
                   l && (
@@ -34,7 +35,11 @@ export const ResponseSampleBody = props => {
                         <div>
                           {l.type !== "array" && p !== "errors" ? (
                             <>
-                              "{p}":{" "}
+                              "
+                              <span className={l.deprecated && "line-through"}>
+                                {p}
+                              </span>
+                              ":{" "}
                               <span style={{ color: "#3BB878" }}>
                                 "{l.example}",
                               </span>
@@ -61,6 +66,7 @@ export const ResponseSampleBody = props => {
                             </div>
                           );
                         })}
+                      {console.log()}
                       {l.items &&
                         (l.items.properties && (
                           <div>

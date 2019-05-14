@@ -18,8 +18,6 @@ import ResponseSamples from "../2_molecules/ResponseSamples";
 
 import Copy from "../../images/svgs/copy.svg";
 
-// const _ = require("lodash");
-
 const apiPage = ({ data }) => {
   const n = data.allPaths.edges[0].node;
   const modes = {
@@ -139,6 +137,7 @@ const apiPage = ({ data }) => {
                           options={responseOptions}
                           responses={m.responses}
                           m={m}
+                          mode={mode}
                         />
                       </div>
 
@@ -5114,6 +5113,11 @@ export const query = graphql`
                           x_linode_cli_display
                         }
                         payment_id {
+                          type
+                          description
+                          example
+                        }
+                        checkout_token {
                           type
                           description
                           example

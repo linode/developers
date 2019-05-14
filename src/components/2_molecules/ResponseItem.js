@@ -4,6 +4,7 @@ import ResponseItemElements from "../2_molecules/ResponseItemElements";
 
 export const ResponseItem = props => {
   const { response, r, m, mode } = props;
+  console.log(r);
   return (
     r && (
       <div className="mt-8">
@@ -19,7 +20,7 @@ export const ResponseItem = props => {
         >
           <b>{response.replace(/[_]/g, " ")}</b>: {r.description}
         </p>
-        {(mode === "put" || mode === "post") && response !== "default" ? (
+        {mode === "put" && response !== "default" ? (
           <ResponseItemElements context={m.requestBody} />
         ) : (
           <ResponseItemElements context={r} />

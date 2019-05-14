@@ -4,8 +4,8 @@ import { Tabs, Tab, TabList, TabPanel } from "react-tabs";
 import ResponseSampleTitle from "../../components/2_molecules/ResponseSampleTitle";
 import ResponseSampleBody from "../../components/2_molecules/ResponseSampleBody";
 
-export const ResponseList = props => {
-  const { responses, options } = props;
+export const ResponseSamples = props => {
+  const { responses, options, mode, m } = props;
   return (
     <>
       <h3>Response Samples</h3>
@@ -27,20 +27,32 @@ export const ResponseList = props => {
               )
           )}
         </TabList>
-        {Object.keys(responses).map(
-          (e, i) =>
-            responses[options[e]] !== null && (
+        {Object.keys(responses).map((e, i) => {
+          const response = responses[options[e]];
+          return (
+            response !== null && (
               <TabPanel key={i}>
-                <ResponseSampleBody
-                  response={options[e]}
-                  r={responses[options[e]]}
-                />
+                {(mode === "put" || mode === "post") && response["default"] ? (
+                  <ResponseSampleBody
+                    response={options[e]}
+                    context={m.requestBody}
+                    mode={mode}
+                  />
+                ) : (
+                  <ResponseSampleBody
+                    response={options[e]}
+                    context={response}
+                    error=""
+                    mode={mode}
+                  />
+                )}
               </TabPanel>
             )
-        )}
+          );
+        })}
       </Tabs>
     </>
   );
 };
 
-export default ResponseList;
+export default ResponseSamples;
