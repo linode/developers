@@ -1088,7 +1088,6 @@ export const query = graphql`
                               }
                               images {
                                 type
-                                x_linode_filterable
                                 description
                                 x_linode_cli_display
                               }
@@ -3083,7 +3082,6 @@ export const query = graphql`
                         }
                         images {
                           type
-                          x_linode_filterable
                           description
                           x_linode_cli_display
                         }
@@ -4047,7 +4045,6 @@ export const query = graphql`
                         }
                         images {
                           type
-                          x_linode_filterable
                           description
                           x_linode_cli_display
                         }
@@ -5673,7 +5670,6 @@ export const query = graphql`
                         }
                         images {
                           type
-                          x_linode_filterable
                           description
                           x_linode_cli_display
                         }
@@ -7202,7 +7198,6 @@ export const query = graphql`
                       root_device {
                         type
                         description
-                        example
                       }
                       filesystem {
                         type
@@ -7224,7 +7219,6 @@ export const query = graphql`
                       }
                       images {
                         type
-                        x_linode_filterable
                         description
                         x_linode_cli_display
                       }
@@ -8646,7 +8640,6 @@ export const query = graphql`
                         }
                         images {
                           type
-                          x_linode_filterable
                           description
                           x_linode_cli_display
                         }
