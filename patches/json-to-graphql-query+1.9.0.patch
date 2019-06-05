@@ -1,0 +1,341 @@
+diff --git a/node_modules/json-to-graphql-query/lib/jsonToGraphQLQuery.js b/node_modules/json-to-graphql-query/lib/jsonToGraphQLQuery.js
+index c07301f..775ac43 100644
+--- a/node_modules/json-to-graphql-query/lib/jsonToGraphQLQuery.js
++++ b/node_modules/json-to-graphql-query/lib/jsonToGraphQLQuery.js
+@@ -3,163 +3,203 @@ Object.defineProperty(exports, "__esModule", { value: true });
+ var EnumType_1 = require("./types/EnumType");
+ var VariableType_1 = require("./types/VariableType");
+ exports.configFields = [
+-    '__args', '__alias', '__aliasFor', '__variables', '__directives', '__on', '__typeName'
++  "__args",
++  "__alias",
++  "__aliasFor",
++  "__variables",
++  "__directives",
++  "__on",
++  "__typeName"
+ ];
+ function stringify(obj_from_json) {
+-    if (obj_from_json instanceof EnumType_1.EnumType) {
+-        return obj_from_json.value;
+-    }
+-    else if (obj_from_json instanceof VariableType_1.VariableType) {
+-        return "$" + obj_from_json.value;
+-    }
+-    else if (typeof obj_from_json !== 'object' || obj_from_json === null) {
+-        return JSON.stringify(obj_from_json);
+-    }
+-    else if (Array.isArray(obj_from_json)) {
+-        return "[" + obj_from_json.map(function (item) { return stringify(item); }).join(', ') + "]";
+-    }
+-    var props = Object
+-        .keys(obj_from_json)
+-        .map(function (key) { return key + ": " + stringify(obj_from_json[key]); })
+-        .join(', ');
+-    return "{" + props + "}";
++  if (obj_from_json instanceof EnumType_1.EnumType) {
++    return obj_from_json.value;
++  } else if (obj_from_json instanceof VariableType_1.VariableType) {
++    return "$" + obj_from_json.value;
++  } else if (typeof obj_from_json !== "object" || obj_from_json === null) {
++    return JSON.stringify(obj_from_json);
++  } else if (Array.isArray(obj_from_json)) {
++    return (
++      "[" +
++      obj_from_json
++        .map(function(item) {
++          return stringify(item);
++        })
++        .join(", ") +
++      "]"
++    );
++  }
++  var props = Object.keys(obj_from_json)
++    .map(function(key) {
++      return key + ": " + stringify(obj_from_json[key]);
++    })
++    .join(", ");
++  return "{" + props + "}";
+ }
+ function buildArgs(argsObj) {
+-    var args = [];
+-    for (var argName in argsObj) {
+-        args.push(argName + ": " + stringify(argsObj[argName]));
+-    }
+-    return args.join(', ');
++  var args = [];
++  for (var argName in argsObj) {
++    args.push(argName + ": " + stringify(argsObj[argName]));
++  }
++  return args.join(", ");
+ }
+ function buildVariables(varsObj) {
+-    var args = [];
+-    for (var varName in varsObj) {
+-        args.push("$" + varName + ": " + varsObj[varName]);
+-    }
+-    return args.join(', ');
++  var args = [];
++  for (var varName in varsObj) {
++    args.push("$" + varName + ": " + varsObj[varName]);
++  }
++  return args.join(", ");
+ }
+ function buildDirectives(dirsObj) {
+-    var directiveName = Object.keys(dirsObj)[0];
+-    var directiveValue = dirsObj[directiveName];
+-    if (typeof directiveValue === 'boolean') {
+-        return directiveName;
+-    }
+-    else if (typeof directiveValue === 'object') {
+-        var args = [];
+-        for (var argName in directiveValue) {
+-            var argVal = stringify(directiveValue[argName]).replace(/"/g, '');
+-            args.push(argName + ": " + argVal);
+-        }
+-        return directiveName + "(" + args.join(', ') + ")";
+-    }
+-    else {
+-        throw new Error("Unsupported type for directive: " + typeof directiveValue + ". Types allowed: object, boolean.\n" +
+-            ("Offending object: " + JSON.stringify(dirsObj)));
++  var directiveName = Object.keys(dirsObj)[0];
++  var directiveValue = dirsObj[directiveName];
++  if (typeof directiveValue === "boolean") {
++    return directiveName;
++  } else if (typeof directiveValue === "object") {
++    var args = [];
++    for (var argName in directiveValue) {
++      var argVal = stringify(directiveValue[argName]).replace(/"/g, "");
++      args.push(argName + ": " + argVal);
+     }
++    return directiveName + "(" + args.join(", ") + ")";
++  } else {
++    throw new Error(
++      "Unsupported type for directive: " +
++        typeof directiveValue +
++        ". Types allowed: object, boolean.\n" +
++        ("Offending object: " + JSON.stringify(dirsObj))
++    );
++  }
+ }
+ function getIndent(level) {
+-    return Array((level * 4) + 1).join(' ');
++  return Array(level * 4 + 1).join(" ");
+ }
+ function filterNonConfigFields(fieldName, ignoreFields) {
+-    return exports.configFields.indexOf(fieldName) == -1 && ignoreFields.indexOf(fieldName) == -1;
++  return (
++    exports.configFields.indexOf(fieldName) == -1 &&
++    ignoreFields.indexOf(fieldName) == -1
++  );
+ }
+ function convertQuery(node, level, output, options) {
++  (Object.keys(node) !== null || Object.keys(node) !== undefined) &&
+     Object.keys(node)
+-        .filter(function (key) { return filterNonConfigFields(key, options.ignoreFields); })
+-        .forEach(function (key) {
++      .filter(function(key) {
++        // console.log(key);
++        return filterNonConfigFields(key, options.ignoreFields);
++      })
++      .forEach(function(key) {
+         var value = node[key];
+-        if (typeof value === 'object') {
+-            if (Array.isArray(value)) {
+-                value = value.find(function (item) { return item && typeof item === 'object'; });
+-                if (!value) {
+-                    output.push(["" + key, level]);
+-                    return;
+-                }
++
++        if (value !== null && typeof value === "object") {
++          if (Array.isArray(value)) {
++            value = value.find(function(item) {
++              return item && typeof item === "object";
++            });
++            if (!value) {
++              output.push(["" + key, level]);
++              return;
+             }
+-            var fieldCount = Object.keys(value)
+-                .filter(function (keyCount) { return filterNonConfigFields(keyCount, options.ignoreFields); }).length;
+-            var subFields = fieldCount > 0;
+-            var argsExist = typeof value.__args === 'object';
+-            var directivesExist = typeof value.__directives === 'object';
+-            var inlineFragmentsExist = typeof value.__on === 'object';
+-            var token = "" + key;
+-            if (typeof value.__aliasFor === 'string') {
+-                token = token + ": " + value.__aliasFor;
++          }
++          var fieldCount = Object.keys(value).filter(function(keyCount) {
++            return filterNonConfigFields(keyCount, options.ignoreFields);
++          }).length;
++          var subFields = fieldCount > 0;
++          var argsExist = typeof value.__args === "object";
++          var directivesExist = typeof value.__directives === "object";
++          var inlineFragmentsExist = typeof value.__on === "object";
++          var token = "" + key;
++          if (typeof value.__aliasFor === "string") {
++            token = token + ": " + value.__aliasFor;
++          }
++          if (typeof value.__variables === "object") {
++            token = token + " (" + buildVariables(value.__variables) + ")";
++          } else if (argsExist || directivesExist) {
++            var argsStr = void 0;
++            var dirsStr = void 0;
++            if (directivesExist) {
++              var numDirectives = Object.keys(value.__directives).length;
++              if (numDirectives > 1) {
++                throw new Error(
++                  "Too many directives. The object/key " +
++                    ("'" +
++                      Object.keys(value)[0] +
++                      "' had " +
++                      numDirectives +
++                      " directives, ") +
++                    "but only 1 directive per object/key is supported at this time."
++                );
++              }
++              dirsStr = "@" + buildDirectives(value.__directives);
+             }
+-            if (typeof value.__variables === 'object') {
+-                token = token + " (" + buildVariables(value.__variables) + ")";
++            if (argsExist) {
++              argsStr = "(" + buildArgs(value.__args) + ")";
+             }
+-            else if (argsExist || directivesExist) {
+-                var argsStr = void 0;
+-                var dirsStr = void 0;
+-                if (directivesExist) {
+-                    var numDirectives = Object.keys(value.__directives).length;
+-                    if (numDirectives > 1) {
+-                        throw new Error("Too many directives. The object/key " +
+-                            ("'" + Object.keys(value)[0] + "' had " + numDirectives + " directives, ") +
+-                            "but only 1 directive per object/key is supported at this time.");
+-                    }
+-                    dirsStr = "@" + buildDirectives(value.__directives);
+-                }
+-                if (argsExist) {
+-                    argsStr = "(" + buildArgs(value.__args) + ")";
+-                }
+-                var spacer = directivesExist && argsExist ? ' ' : '';
+-                token = token + " " + (dirsStr ? dirsStr : '') + spacer + (argsStr ? argsStr : '');
+-            }
+-            if (typeof value.__alias === 'string') {
+-                token = value.__alias + ": " + token;
+-            }
+-            output.push([token + (subFields || inlineFragmentsExist ? ' {' : ''), level]);
+-            convertQuery(value, level + 1, output, options);
+-            if (inlineFragmentsExist) {
+-                var inlineFragments = value.__on instanceof Array ? value.__on : [value.__on];
+-                inlineFragments.forEach(function (inlineFragment) {
+-                    var name = inlineFragment.__typeName;
+-                    output.push(["... on " + name + " {", level + 1]);
+-                    convertQuery(inlineFragment, level + 2, output, options);
+-                    output.push(['}', level + 1]);
+-                });
+-            }
+-            if (subFields || inlineFragmentsExist) {
+-                output.push(['}', level]);
+-            }
+-        }
+-        else if (options.includeFalsyKeys === true || value) {
+-            output.push(["" + key, level]);
++            var spacer = directivesExist && argsExist ? " " : "";
++            token =
++              token +
++              " " +
++              (dirsStr ? dirsStr : "") +
++              spacer +
++              (argsStr ? argsStr : "");
++          }
++          if (typeof value.__alias === "string") {
++            token = value.__alias + ": " + token;
++          }
++          output.push([
++            token + (subFields || inlineFragmentsExist ? " {" : ""),
++            level
++          ]);
++          convertQuery(value, level + 1, output, options);
++          if (inlineFragmentsExist) {
++            var inlineFragments =
++              value.__on instanceof Array ? value.__on : [value.__on];
++            inlineFragments.forEach(function(inlineFragment) {
++              var name = inlineFragment.__typeName;
++              output.push(["... on " + name + " {", level + 1]);
++              convertQuery(inlineFragment, level + 2, output, options);
++              output.push(["}", level + 1]);
++            });
++          }
++          if (subFields || inlineFragmentsExist) {
++            output.push(["}", level]);
++          }
++        } else if (options.includeFalsyKeys === true || value) {
++          output.push(["" + key, level]);
+         }
+-    });
++      });
+ }
+ function jsonToGraphQLQuery(query, options) {
+-    if (options === void 0) { options = {}; }
+-    if (!query || typeof query != 'object') {
+-        throw new Error('query object not specified');
+-    }
+-    if (Object.keys(query).length == 0) {
+-        throw new Error('query object has no data');
++  if (options === void 0) {
++    options = {};
++  }
++  if (!query || typeof query != "object") {
++    throw new Error("query object not specified");
++  }
++  if (Object.keys(query).length == 0) {
++    throw new Error("query object has no data");
++  }
++  if (!(options.ignoreFields instanceof Array)) {
++    options.ignoreFields = [];
++  }
++  var queryLines = [];
++  convertQuery(query, 0, queryLines, options);
++  var output = "";
++  queryLines.forEach(function(_a) {
++    var line = _a[0],
++      level = _a[1];
++    if (options.pretty) {
++      if (output) {
++        output += "\n";
++      }
++      output += getIndent(level) + line;
++    } else {
++      if (output) {
++        output += " ";
++      }
++      output += line;
+     }
+-    if (!(options.ignoreFields instanceof Array)) {
+-        options.ignoreFields = [];
+-    }
+-    var queryLines = [];
+-    convertQuery(query, 0, queryLines, options);
+-    var output = '';
+-    queryLines.forEach(function (_a) {
+-        var line = _a[0], level = _a[1];
+-        if (options.pretty) {
+-            if (output) {
+-                output += '\n';
+-            }
+-            output += getIndent(level) + line;
+-        }
+-        else {
+-            if (output) {
+-                output += ' ';
+-            }
+-            output += line;
+-        }
+-    });
+-    return output;
++  });
++  return output;
+ }
+ exports.jsonToGraphQLQuery = jsonToGraphQLQuery;
+ //# sourceMappingURL=jsonToGraphQLQuery.js.map
