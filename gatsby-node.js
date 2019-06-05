@@ -80,7 +80,7 @@ exports.sourceNodes = async ({ actions }) => {
       pretty: true,
       includeFalsyKeys: true
     });
-    const fileName = `./src/data/${path}.txt`;
+    const fileName = `./src/data/${_.kebabCase(path)}.txt`;
     const file = fs.createWriteStream(fileName);
     file.write(
       query
