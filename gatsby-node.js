@@ -91,10 +91,10 @@ exports.sourceNodes = async ({ actions }) => {
         .replace(/\b([{()}])/g, "")
         .toLowerCase()
     );
-  });
 
-  // Create node with the gatsby createNode() API
-  createNode(pathNode);
+    // Create node with the gatsby createNode() API
+    createNode(pathNode);
+  });
 
   return;
 };
