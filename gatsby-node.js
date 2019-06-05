@@ -1,10 +1,32 @@
 const JsonSchemaRefParser = require("json-schema-ref-parser");
 const path = require("path");
 const _ = require("lodash");
+const fs = require("fs");
+const { jsonToGraphQLQuery } = require("json-to-graphql-query");
 
 const specs = require("./src/data/spec.json");
 const crypto = require("crypto");
 const parser = new JsonSchemaRefParser();
+
+new Promise((resolve, reject) => {
+  resolve(parser.dereference(specs));
+}).then(result => {
+  const query = jsonToGraphQLQuery(result, {
+    pretty: true,
+    includeFalsyKeys: true
+  });
+  const fileName = "./src/data/query.txt";
+  const file = fs.createWriteStream(fileName);
+  file.write(
+    query
+      .replace(/\//g, "")
+      .replace(/\-/g, "_")
+      .replace(/200/g, "_200")
+      .replace(/204/g, "_204")
+      .replace(/\b([{()}])/g, "")
+      .toLowerCase()
+  );
+});
 
 exports.sourceNodes = async ({ actions }) => {
   const { createNode } = actions;

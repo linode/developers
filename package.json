@@ -23,6 +23,7 @@
     "gatsby-transformer-remark": "^2.1.1-rc.5",
     "gatsby-transformer-sharp": "^2.1.13",
     "json-schema-ref-parser": "^6.1.0",
+    "json-to-graphql-query": "^1.9.0",
     "netlify-cms-app": "^2.9.1",
     "netlify-cms-widget-inline-select": "^1.3.1",
     "postcss-easy-import": "^3.0.0",

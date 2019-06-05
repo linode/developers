@@ -6741,6 +6741,11 @@ json-stringify-safe@^5.0.1, json-stringify-safe@~5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
 
+json-to-graphql-query@^1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/json-to-graphql-query/-/json-to-graphql-query-1.9.0.tgz#65e2099b27195b4bb7cace474e4b6910de6bb8a8"
+  integrity sha512-SXZzxv5J7AQgdmJBkq94mIStjDxuWmecLhsNYTENm+Fzil1qyt6PiKDvq4cHjFJKXB6Qp4TedZxElyRHr7oPYw==
+
 json3@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/json3/-/json3-3.3.2.tgz#3c0434743df93e2f5c42aee7b19bcb483575f4e1"
