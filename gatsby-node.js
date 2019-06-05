@@ -8,25 +8,25 @@ const specs = require("./src/data/spec.json");
 const crypto = require("crypto");
 const parser = new JsonSchemaRefParser();
 
-new Promise((resolve, reject) => {
-  resolve(parser.dereference(specs));
-}).then(result => {
-  const query = jsonToGraphQLQuery(result, {
-    pretty: true,
-    includeFalsyKeys: true
-  });
-  const fileName = "./src/data/query.txt";
-  const file = fs.createWriteStream(fileName);
-  file.write(
-    query
-      .replace(/\//g, "")
-      .replace(/\-/g, "_")
-      .replace(/200/g, "_200")
-      .replace(/204/g, "_204")
-      .replace(/\b([{()}])/g, "")
-      .toLowerCase()
-  );
-});
+// new Promise((resolve, reject) => {
+//   resolve(parser.dereference(specs));
+// }).then(result => {
+//   const query = jsonToGraphQLQuery(result, {
+//     pretty: true,
+//     includeFalsyKeys: true
+//   });
+//   const fileName = "./src/data/query.txt";
+//   const file = fs.createWriteStream(fileName);
+//   file.write(
+//     query
+//       .replace(/\//g, "")
+//       .replace(/\-/g, "_")
+//       .replace(/200/g, "_200")
+//       .replace(/204/g, "_204")
+//       .replace(/\b([{()}])/g, "")
+//       .toLowerCase()
+//   );
+// });
 
 exports.sourceNodes = async ({ actions }) => {
   const { createNode } = actions;
@@ -76,9 +76,25 @@ exports.sourceNodes = async ({ actions }) => {
     // add it to userNode
     pathNode.internal.contentDigest = contentDigest;
 
-    // Create node with the gatsby createNode() API
-    createNode(pathNode);
+    const query = jsonToGraphQLQuery(res.paths[path], {
+      pretty: true,
+      includeFalsyKeys: true
+    });
+    const fileName = `./src/data/${path}.txt`;
+    const file = fs.createWriteStream(fileName);
+    file.write(
+      query
+        .replace(/\//g, "")
+        .replace(/\-/g, "_")
+        .replace(/200/g, "_200")
+        .replace(/204/g, "_204")
+        .replace(/\b([{()}])/g, "")
+        .toLowerCase()
+    );
   });
+
+  // Create node with the gatsby createNode() API
+  createNode(pathNode);
 
   return;
 };
