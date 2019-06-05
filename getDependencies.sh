@@ -16,7 +16,7 @@ curl https://developers.linode.com/api/docs/v4/openapi.yaml > src/data/openapi.y
 
 echo
 echo "${BLUE}Removing faulty data${NC}"
-sed -i '/backgroundColor:/d' src/data/openapi.yaml
+sed -i "" '/backgroundColor:/d' src/data/openapi.yaml
 
 echo
 echo "${BLUE}Converting YAML to JSON${NC}"
