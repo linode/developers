@@ -105,6 +105,21 @@
   @apply border-grey-light;
 }
 
+.searchHeader {
+  position: relative;
+  top: 0;
+  width: auto;
+  transition: all 0.25s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.searchHeader.searchHeader--fixed {
+  position: fixed;
+  top: 65px;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
 @screen md {
   .api-content-wrapper {
     margin-left: 300px;
