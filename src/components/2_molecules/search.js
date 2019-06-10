@@ -23,7 +23,7 @@ export default class Search extends Component {
           onChange={this.search}
           placeholder="Search"
         />
-        <ul className="p-0">
+        <ul className="p-0 bg-white">
           {this.state.results.map((n, i) => {
             const { query } = this.state;
             return (

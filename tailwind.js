@@ -6,6 +6,7 @@ config.colors["ThemeTagGrey"] = "#e1e8eC";
 config.colors["ThemeTagGreyLight"] = "#fbfbfb";
 config.colors["BaseGreenLight"] = "#f1f9f5";
 config.colors["BaseRedLight"] = "#fdF1ef";
+config.colors["white"] = "#fff";
 
 config.borderWidths["5"] = "5px";
 
