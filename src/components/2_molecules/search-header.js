@@ -43,8 +43,8 @@ class SearchHeader extends React.Component {
         `}
         render={data => (
           <header
-            className={`md:mb-4 searchHeader ${
-              searchIsFixed ? "searchHeader--fixed" : ""
+            className={`md:mb-4 search-header ${
+              searchIsFixed ? "search-header--fixed" : ""
             }`}
           >
             <Search searchIndex={data.siteSearchIndex.index} />
