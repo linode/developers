@@ -26,13 +26,13 @@ const Results = connectStateResults(
     res && res.nbHits > 0 ? children : `No results for '${state.query}'`
 )
 
+const searchClient = algoliasearch(
+  process.env.GATSBY_ALGOLIA_APP_ID,
+  process.env.GATSBY_ALGOLIA_SEARCH_KEY
+)
+
 // Search component
 export default (props) => {
-  
-  const searchClient = algoliasearch(
-      process.env.GATSBY_ALGOLIA_APP_ID,
-      process.env.GATSBY_ALGOLIA_SEARCH_KEY
-    )
   return (
     <div>
       <InstantSearch

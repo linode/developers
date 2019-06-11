@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 export default clickHandler => ({ hit }) => {
   return (
     <div>
-        <Link to={hit.slug} onClick={clickHandler}>
+        <Link to={`api/v4/${hit.slug}`} onClick={clickHandler}>
           <h4>
             <Highlight attribute="name" hit={hit} tagName="mark" />
           </h4>
