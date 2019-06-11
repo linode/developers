@@ -23,6 +23,7 @@ const buildIndex = () => {
         entry.tags = thisMethod.tags;
         entry.description = thisMethod.description.trim();
         entry.href = getUrl(key);
+        entry.slug = getUrl(key, true);
         entry.objectID = md5(key);
         index.push(entry);
       }
@@ -31,9 +32,9 @@ const buildIndex = () => {
   return index;
 }
 
-const getUrl = (endpoint) => {
+const getUrl = (endpoint, slug=false) => {
   const url = _.kebabCase(endpoint);
-  return BASE_URL + url;
+  return slug ? url : BASE_URL + url;
 }
 
 // Generate an array of objects representing index entries

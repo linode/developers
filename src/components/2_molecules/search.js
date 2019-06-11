@@ -1,94 +1,49 @@
-import React, { Component } from "react";
-import { Index } from "elasticlunr";
-import { Link } from "gatsby";
+import React from "react";
+import SearchResult from './searchResult';
+import {
+  InstantSearch,
+  Index,
+  Hits,
+  connectSearchBox,
+  connectStateResults,
+} from "react-instantsearch-dom"
+import algoliasearch from 'algoliasearch/lite';
 
-const _ = require("lodash");
+const Input = connectSearchBox(({refine, ...rest }) => {
+  return (<form>
+    <input 
+      type="text"
+      placeholder="Search"
+      aria-label="Search"
+      onChange={e => refine(e.target.value)}
+      {...rest}
+    />
+  </form>)
+})
+
+const Results = connectStateResults(
+  ({ searchState: state, searchResults: res, children }) =>
+    res && res.nbHits > 0 ? children : `No results for '${state.query}'`
+)
 
 // Search component
-export default class Search extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      query: ``,
-      results: []
-    };
-  }
-
-  render() {
-    return (
-      <div>
-        <input
-          type="text"
-          value={this.state.query}
-          onChange={this.search}
-          placeholder="Search"
-        />
-        <ul className="p-0 search-results-list">
-          {this.state.results.map((n, i) => {
-            const { query } = this.state;
-            return (
-              <React.Fragment key={i}>
-                {n.getSummary &&
-                  n.getSummary.toLowerCase().includes(query.toLowerCase()) && (
-                    <li className="list-reset p-1 px-4 md:p-0 md:px-0">
-                      <Link to={`/api/v4/${_.kebabCase(n.name)}`}>
-                        {n.getSummary}
-                      </Link>
-                    </li>
-                  )}
-                {n.postSummary &&
-                  n.postSummary.toLowerCase().includes(query.toLowerCase()) && (
-                    <li className="list-reset p-1 px-4 md:p-0 md:px-0">
-                      <Link to={`/api/v4/${_.kebabCase(n.name)}/#post`}>
-                        {n.postSummary}
-                      </Link>
-                    </li>
-                  )}
-                {n.putSummary &&
-                  n.putSummary.toLowerCase().includes(query.toLowerCase()) && (
-                    <li className="list-reset p-1 px-4 md:p-0 md:px-0">
-                      <Link to={`/api/v4/${_.kebabCase(n.name)}/#put`}>
-                        {n.putSummary}
-                      </Link>
-                    </li>
-                  )}
-                {n.deleteSummary &&
-                  n.deleteSummary
-                    .toLowerCase()
-                    .includes(query.toLowerCase()) && (
-                    <li className="list-reset p-1 px-4 md:p-0 md:px-0">
-                      <Link to={`/api/v4/${_.kebabCase(n.name)}/#delete`}>
-                        {n.deleteSummary}
-                      </Link>
-                    </li>
-                  )}
-              </React.Fragment>
-            );
-          })}
-          {this.state.query && this.state.results.length === 0 && (
-            <div>No results</div>
-          )}
-        </ul>
-      </div>
-    );
-  }
-
-  getOrCreateIndex = () =>
-    this.index
-      ? this.index
-      : // Create an elastic lunr index and hydrate with graphql query results
-        Index.load(this.props.searchIndex);
-
-  search = evt => {
-    const query = evt.target.value;
-    this.index = this.getOrCreateIndex();
-    this.setState({
-      query,
-      // Query the index with search string to get an [] of IDs
-      results: this.index
-        .search(query, { expand: true })
-        // Map over each ID and return the full document
-        .map(({ ref }) => this.index.documentStore.getDoc(ref))
-    });
-  };
+export default (props) => {
+  
+  const searchClient = algoliasearch(
+      process.env.GATSBY_ALGOLIA_APP_ID,
+      process.env.GATSBY_ALGOLIA_SEARCH_KEY
+    )
+  return (
+    <div>
+      <InstantSearch
+        searchClient={searchClient}
+        indexName={'linode-api-spec'}
+      >
+        <Input />
+        <Results>
+          <Hits hitComponent={SearchResult(() => null)} />
+        </Results>
+      </InstantSearch>
+    </div>
+  );
 }
