@@ -1,6 +1,7 @@
 const JsonSchemaRefParser = require("json-schema-ref-parser");
 const path = require("path");
 const _ = require("lodash");
+const fs = require("fs");
 
 const specs = require("./src/data/spec.json");
 const crypto = require("crypto");
@@ -157,5 +158,49 @@ exports.createPages = async ({ actions, graphql }) => {
     });
   });
 
-  return Promise.all([changelogs, specsPages]);
+  const fragments = await graphql(`
+    {
+      __type(
+        name: "PathsGetResponses_200ContentApplication_jsonSchemaProperties"
+      ) {
+        name
+        fields {
+          name
+          type {
+            fields {
+              name
+              type {
+                fields {
+                  name
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `).then(result => {
+    if (result.errors) {
+      return Promise.reject(result.errors);
+    }
+
+    const fileName = `./src/components/0_fragments/api/poo.jsx`;
+    const props = result.data.__type.fields;
+    const file = fs.createWriteStream(fileName);
+
+    const poo = props.map(
+      a => a.name + "{" + a.type.fields.map(b => b.name + "") + "}"
+    );
+
+    file.write(`
+import { graphql } from "gatsby"
+export const query = graphql\`
+  fragment Poo on PathsGetResponses_200ContentApplication_jsonSchemaProperties {
+      ${poo}
+    }
+  \`
+`);
+  });
+
+  return Promise.all([changelogs, specsPages, fragments]);
 };

@@ -3,7 +3,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 export const ResponseSampleBody = props => {
-  const { context, response, error } = props;
+  const { context, response } = props;
   return (
     context &&
     context[response] !== "" && (
