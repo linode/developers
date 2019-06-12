@@ -27,10 +27,10 @@ export default class Search extends Component {
           {this.state.results.map((n, i) => {
             const { query } = this.state;
             return (
-              <div key={i}>
+              <React.Fragment key={i}>
                 {n.getSummary &&
                   n.getSummary.toLowerCase().includes(query.toLowerCase()) && (
-                    <li className="list-reset p-1 md:p-0">
+                    <li className="list-reset p-1 px-4 md:p-0 md:px-0">
                       <Link to={`/api/v4/${_.kebabCase(n.name)}`}>
                         {n.getSummary}
                       </Link>
@@ -38,7 +38,7 @@ export default class Search extends Component {
                   )}
                 {n.postSummary &&
                   n.postSummary.toLowerCase().includes(query.toLowerCase()) && (
-                    <li className="list-reset p-1 md:p-0">
+                    <li className="list-reset p-1 px-4 md:p-0 md:px-0">
                       <Link to={`/api/v4/${_.kebabCase(n.name)}/#post`}>
                         {n.postSummary}
                       </Link>
@@ -46,7 +46,7 @@ export default class Search extends Component {
                   )}
                 {n.putSummary &&
                   n.putSummary.toLowerCase().includes(query.toLowerCase()) && (
-                    <li className="list-reset p-1 md:p-0">
+                    <li className="list-reset p-1 px-4 md:p-0 md:px-0">
                       <Link to={`/api/v4/${_.kebabCase(n.name)}/#put`}>
                         {n.putSummary}
                       </Link>
@@ -56,13 +56,13 @@ export default class Search extends Component {
                   n.deleteSummary
                     .toLowerCase()
                     .includes(query.toLowerCase()) && (
-                    <li className="list-reset p-1 md:p-0">
+                    <li className="list-reset p-1 px-4 md:p-0 md:px-0">
                       <Link to={`/api/v4/${_.kebabCase(n.name)}/#delete`}>
                         {n.deleteSummary}
                       </Link>
                     </li>
                   )}
-              </div>
+              </React.Fragment>
             );
           })}
           {this.state.query && this.state.results.length === 0 && (
