@@ -189,7 +189,18 @@ exports.createPages = async ({ actions, graphql }) => {
     const file = fs.createWriteStream(fileName);
 
     const poo = props.map(
-      a => a.name + "{" + a.type.fields.map(b => b.name + "") + "}"
+      a =>
+        a.name +
+        "{" +
+        a.type.fields.map(
+          b =>
+            b.name +
+            " " +
+            (b.type.fields
+              ? "{" + b.type.fields.map(c => c.name + "") + "}"
+              : "")
+        ) +
+        "}"
     );
 
     file.write(`
