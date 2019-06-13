@@ -172,6 +172,21 @@ exports.createPages = async ({ actions, graphql }) => {
               type {
                 fields {
                   name
+                  type {
+                    fields {
+                      name
+                      type {
+                        fields {
+                          name
+                          type {
+                            fields {
+                              name
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -197,8 +212,26 @@ exports.createPages = async ({ actions, graphql }) => {
             b.name +
             " " +
             (b.type.fields
-              ? "{" + b.type.fields.map(c => c.name + "") + "}"
-              : "")
+              ? "{" +
+                b.type.fields.map(
+                  c =>
+                    c.name +
+                    " " +
+                    (c.type && c.type.fields
+                      ? "{" +
+                        c.type.fields.map(
+                          d =>
+                            d.name +
+                            " " +
+                            (d.type && d.type.fields
+                              ? "{" + d.type.fields.map(e => e.name + " ") + "}"
+                              : " ")
+                        ) +
+                        "}"
+                      : " ")
+                ) +
+                "}"
+              : " ")
         ) +
         "}"
     );
