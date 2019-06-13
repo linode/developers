@@ -66,7 +66,7 @@ export default class Search extends React.Component {
             onFocus={() => this.setState({ focus: true })}
             onBlur={() => this.setState({ focus: false })}
           />
-          {true &&
+          {this.state.focus &&
             <Panel className={"absolute bg-white z-50 w-10/12"}>
               <Results>
                 <Hits hitComponent={SearchResult(() => null)} />
