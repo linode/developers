@@ -181,6 +181,21 @@ exports.createPages = async ({ actions, graphql }) => {
                           type {
                             fields {
                               name
+                              type {
+                                fields {
+                                  name
+                                  type {
+                                    fields {
+                                      name
+                                      type {
+                                        fields {
+                                          name
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
                             }
                           }
                         }
@@ -199,50 +214,104 @@ exports.createPages = async ({ actions, graphql }) => {
       return Promise.reject(result.errors);
     }
 
-    const fileName = `./src/components/0_fragments/api/poo.jsx`;
+    const fileName = `./src/components/0_fragments/api/introspection.text`;
     const props = result.data.__type.fields;
     const file = fs.createWriteStream(fileName);
 
-    const poo = props.map(
-      a =>
-        a.name +
-        "{" +
-        a.type.fields.map(
-          b =>
-            b.name +
-            " " +
-            (b.type.fields
-              ? "{" +
-                b.type.fields.map(
-                  c =>
-                    c.name +
-                    " " +
-                    (c.type && c.type.fields
-                      ? "{" +
-                        c.type.fields.map(
-                          d =>
-                            d.name +
-                            " " +
-                            (d.type && d.type.fields
-                              ? "{" + d.type.fields.map(e => e.name + " ") + "}"
-                              : " ")
-                        ) +
-                        "}"
-                      : " ")
-                ) +
-                "}"
-              : " ")
-        ) +
-        "}"
+    const rawQuery = props.map(a =>
+      a.name !== "data"
+        ? a.name +
+          "{" +
+          a.type.fields.map(
+            b =>
+              b.name +
+              " " +
+              (b.type.fields
+                ? "{" +
+                  b.type.fields.map(
+                    c =>
+                      c.name +
+                      " " +
+                      (c.type && c.type.fields
+                        ? "{" +
+                          c.type.fields.map(
+                            d =>
+                              d.name +
+                              " " +
+                              (d.type && d.type.fields
+                                ? "{" +
+                                  d.type.fields.map(
+                                    e =>
+                                      e.name +
+                                      " " +
+                                      (e.type && e.type.fields
+                                        ? "{" +
+                                          e.type.fields.map(
+                                            f =>
+                                              f.name +
+                                              " " +
+                                              (f.type && f.type.fields
+                                                ? "{" +
+                                                  f.type.fields.map(
+                                                    g =>
+                                                      g.name +
+                                                      " " +
+                                                      (g.type && g.type.fields
+                                                        ? "{" +
+                                                          g.type.fields.map(
+                                                            h => h.name + " "
+                                                          ) +
+                                                          "}"
+                                                        : " ")
+                                                  ) +
+                                                  "}"
+                                                : " ")
+                                          ) +
+                                          "}"
+                                        : " ")
+                                  ) +
+                                  "}"
+                                : " ")
+                          ) +
+                          "}"
+                        : " ")
+                  ) +
+                  "}"
+                : " ")
+          ) +
+          "}"
+        : ""
     );
 
+    const query = rawQuery.toString().replace(/\,/g, "");
+
     file.write(`
-import { graphql } from "gatsby"
-export const query = graphql\`
-  fragment Poo on PathsGetResponses_200ContentApplication_jsonSchemaProperties {
-      ${poo}
+    query introspection {
+      allPaths {
+        edges {
+          node {
+            get {
+              responses {
+                _200 {
+                  content {
+                    application_json {
+                      schema {
+                        properties {
+                          ...GetProperties
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
-  \`
+    fragment GetProperties on PathsGetResponses_200ContentApplication_jsonSchemaProperties {
+      ${query}
+    }
 `);
   });
 
