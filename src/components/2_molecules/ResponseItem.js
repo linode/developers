@@ -4,7 +4,6 @@ import ResponseItemElements from "../2_molecules/ResponseItemElements";
 
 export const ResponseItem = props => {
   const { response, r, m, mode } = props;
-  console.log(r);
   return (
     r && (
       <div className="mt-8">

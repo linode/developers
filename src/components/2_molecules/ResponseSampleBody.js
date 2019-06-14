@@ -4,7 +4,6 @@ import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 export const ResponseSampleBody = props => {
   const { context, response, error } = props;
-  console.log(error);
   return (
     context &&
     context[response] !== "" && (
@@ -66,7 +65,6 @@ export const ResponseSampleBody = props => {
                             </div>
                           );
                         })}
-                      {console.log()}
                       {l.items &&
                         (l.items.properties && (
                           <div>

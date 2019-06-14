@@ -66,7 +66,6 @@ class apiPage extends React.Component {
               {Object.keys(apispecs.paths[pageContext.name]).map(e => {
                 const mode = modes[e];
                 const n = apispecs.paths[pageContext.name][mode];
-                // console.log(n);
                 return (
                   mode !== undefined && (
                     <div key={e}>
@@ -78,19 +77,6 @@ class apiPage extends React.Component {
                       <p>{n.description}</p>
                       <div>
                         <h3>Responses</h3>
-                        {/* {Object.keys(n.responses).map(response => {
-                          const r = n.responses[response];
-                          return (
-                            <div key={response} className="mb-8">
-                              <b>{response}</b>
-                              {Object.keys(
-                                r.content["application/json"].schema.properties
-                              ).map(property => {
-                                return <div>{property}</div>;
-                              })}
-                            </div>
-                          );
-                        })} */}
                       </div>
                     </div>
                   )

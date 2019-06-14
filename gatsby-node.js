@@ -7,8 +7,21 @@ const crypto = require("crypto");
 const parser = new JsonSchemaRefParser();
 
 exports.sourceNodes = async ({ actions }) => {
-  const { createNode } = actions;
+  const { createNode, createTypes } = actions;
   const res = await parser.dereference(specs);
+
+  const typeDefs = `
+    type MarkdownRemark implements Node {
+      frontmatter: Frontmatter!
+    }
+
+    type Frontmatter {
+      date: Date! @dateformat
+      author: String!
+    }
+  `;
+
+  createTypes(typeDefs);
 
   // map into these results and create nodes
   Object.keys(res.paths).map((path, i) => {
