@@ -19,7 +19,8 @@ class ChangelogItem extends React.Component {
   render() {
     const { title, date, version, changelog, html } = this.props;
     const productTitle =
-      changelog.toString() === "Cloud Manager" ? "Cloud" : "API";
+      String(changelog) === "Cloud Manager" ? "Cloud" : "API";
+
     const link = `${productTitle}-${version}`;
     return (
       <div
