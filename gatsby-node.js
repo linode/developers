@@ -7,6 +7,8 @@ const specs = require("./src/data/spec.json");
 const crypto = require("crypto");
 const parser = new JsonSchemaRefParser();
 
+const rawQuery = require("./generateQuery.js");
+
 exports.sourceNodes = async ({ actions }) => {
   const { createNode, createTypes } = actions;
   const res = await parser.dereference(specs);
@@ -158,10 +160,28 @@ exports.createPages = async ({ actions, graphql }) => {
     });
   });
 
-  const fragments = await graphql(`
+  const fragmentQueries = [
+    {
+      path: "PathsGetResponses_200ContentApplication_jsonSchemaProperties",
+      name: "getProperties"
+    },
+    {
+      path: "PathsPostRequestBodyContentApplication_jsonSchemaProperties",
+      name: "postRequestBody"
+    },
+    {
+      path: "PathsPostRequestBodyContentApplication_jsonSchemaAllOfProperties",
+      name: "allOfPostRequestBody"
+    }
+  ];
+
+  const fragments = [];
+
+  await fragmentQueries.map(q => {
+    let partialFragments = graphql(`
     {
       __type(
-        name: "PathsGetResponses_200ContentApplication_jsonSchemaProperties"
+        name: "${q.path}"
       ) {
         name
         fields {
@@ -210,109 +230,27 @@ exports.createPages = async ({ actions, graphql }) => {
       }
     }
   `).then(result => {
-    if (result.errors) {
-      return Promise.reject(result.errors);
-    }
-
-    const fileName = `./src/components/0_fragments/api/introspection.text`;
-    const props = result.data.__type.fields;
-    const file = fs.createWriteStream(fileName);
-
-    const rawQuery = props.map(a =>
-      a.name !== "data"
-        ? a.name +
-          "{" +
-          a.type.fields.map(
-            b =>
-              b.name +
-              " " +
-              (b.type.fields
-                ? "{" +
-                  b.type.fields.map(
-                    c =>
-                      c.name +
-                      " " +
-                      (c.type && c.type.fields
-                        ? "{" +
-                          c.type.fields.map(
-                            d =>
-                              d.name +
-                              " " +
-                              (d.type && d.type.fields
-                                ? "{" +
-                                  d.type.fields.map(
-                                    e =>
-                                      e.name +
-                                      " " +
-                                      (e.type && e.type.fields
-                                        ? "{" +
-                                          e.type.fields.map(
-                                            f =>
-                                              f.name +
-                                              " " +
-                                              (f.type && f.type.fields
-                                                ? "{" +
-                                                  f.type.fields.map(
-                                                    g =>
-                                                      g.name +
-                                                      " " +
-                                                      (g.type && g.type.fields
-                                                        ? "{" +
-                                                          g.type.fields.map(
-                                                            h => h.name + " "
-                                                          ) +
-                                                          "}"
-                                                        : " ")
-                                                  ) +
-                                                  "}"
-                                                : " ")
-                                          ) +
-                                          "}"
-                                        : " ")
-                                  ) +
-                                  "}"
-                                : " ")
-                          ) +
-                          "}"
-                        : " ")
-                  ) +
-                  "}"
-                : " ")
-          ) +
-          "}"
-        : ""
-    );
-
-    const query = rawQuery.toString().replace(/\,/g, "");
-
-    file.write(`
-    query introspection {
-      allPaths {
-        edges {
-          node {
-            get {
-              responses {
-                _200 {
-                  content {
-                    application_json {
-                      schema {
-                        properties {
-                          ...GetProperties
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
+      if (result.errors) {
+        return Promise.reject(result.errors);
       }
-    }
-    fragment GetProperties on PathsGetResponses_200ContentApplication_jsonSchemaProperties {
-      ${query}
-    }
-`);
+
+      const fileName = `./src/components/0_fragments/api/${q.name}.text`;
+      const props = result.data.__type.fields;
+      const file = fs.createWriteStream(fileName);
+
+      const query = rawQuery(props)
+        .toString()
+        .replace(/\,/g, "");
+
+      return (
+        fragments.push(partialFragments),
+        file.write(`
+          fragment ${q.name} on ${q.path} {
+            ${query}
+          }
+        `)
+      );
+    });
   });
 
   return Promise.all([changelogs, specsPages, fragments]);
