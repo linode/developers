@@ -298,24 +298,28 @@ export const postRequestBody = graphql`
             }
             protocol {
               type
+              enum
               description
               example
               x_linode_cli_display
             }
             algorithm {
               type
+              enum
               description
               example
               x_linode_cli_display
             }
             stickiness {
               type
+              enum
               description
               example
               x_linode_cli_display
             }
             check {
               type
+              enum
               description
               example
             }
@@ -356,9 +360,14 @@ export const postRequestBody = graphql`
             }
             cipher_suite {
               type
+              enum
               description
               example
               x_linode_cli_display
+              x_linode_cli_color {
+                legacy
+                default_
+              }
             }
             nodebalancer_id {
               type
@@ -395,11 +404,27 @@ export const postRequestBody = graphql`
               description
               readOnly
               x_linode_cli_display
+              properties {
+                up {
+                  type
+                  description
+                  example
+                  readOnly
+                }
+                down {
+                  type
+                  description
+                  example
+                  readOnly
+                }
+              }
             }
             nodes {
               type
               description
               items {
+                type
+                description
                 properties {
                   id {
                     type
@@ -419,17 +444,24 @@ export const postRequestBody = graphql`
                     type
                     minLength
                     maxLength
+                    pattern
                     description
                     example
                     x_linode_cli_display
                   }
                   status {
                     type
+                    enum
                     description
                     example
                     readOnly
                     x_linode_cli_display
-                    enum
+                    x_linode_cli_color {
+                      UP
+                      unknown
+                      DOWN
+                      default_
+                    }
                   }
                   weight {
                     type
@@ -441,6 +473,7 @@ export const postRequestBody = graphql`
                   }
                   mode {
                     type
+                    enum
                     description
                     example
                     x_linode_cli_display
