@@ -38,13 +38,14 @@
   line-height: 1;
 }
 
-.active-group .list-group li {
-  @apply my-2;
-}
-
 .active-group .list-group {
   max-height: 100%;
   visibility: visible;
+  @apply mt-2 mb-4 ml-4;
+}
+
+.active-group .list-group li {
+  @apply my-2;
 }
 
 .caret {
@@ -72,7 +73,7 @@
 }
 
 .api-link.active-item {
-  @apply text-BaseBlackFull no-underline;
+  @apply text-BaseBlackFull font-bold no-underline;
 }
 
 .list-container {
@@ -93,6 +94,10 @@
 
 .sidemenu-button:focus {
   outline: 1px dotted #ddd;
+}
+
+.active-group .sidemenu-button {
+  border-bottom-color: transparent;
 }
 
 .response-200 {

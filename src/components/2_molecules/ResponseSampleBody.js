@@ -40,31 +40,46 @@ export const ResponseSampleBody = props => {
                               </span>
                               ":{" "}
                               <span style={{ color: "#3BB878" }}>
-                                "{l.example}",
+                                {/* "{l.example}"{" "} */}
+                                {l.properties ? "{" : `"${l.example}"`},
                               </span>
                             </>
                           ) : (
                             <>
                               "{p}"{": ["}
+                              {l.example &&
+                                l.example.map((e, i) => {
+                                  const rowLen4 = l.example.length;
+                                  return (
+                                    <span style={{ color: "#3BB878" }} key={i}>
+                                      "{e}"{rowLen4 !== i + 1 && ","}
+                                    </span>
+                                  );
+                                })}
+                              {"]"}
                             </>
                           )}
                         </div>
                       </div>
-                      {l.properties &&
-                        Object.keys(l.properties).map((e, i) => {
-                          const data = l.properties[e];
-                          const rowLen2 = Object.keys(l.properties).length;
-                          return (
-                            <div key={i} className="ml-4">
-                              <div>
-                                {e}:{" "}
-                                <span style={{ color: "#3BB878" }}>
-                                  "{data.example}"{rowLen2 !== i + 1 && ","}
-                                </span>
+                      {l.properties && (
+                        <>
+                          {Object.keys(l.properties).map((e, i) => {
+                            const data = l.properties[e];
+                            const rowLen2 = Object.keys(l.properties).length;
+                            return (
+                              <div key={i} className="ml-4">
+                                <div>
+                                  {e}:{" "}
+                                  <span style={{ color: "#3BB878" }}>
+                                    "{data.example}"{rowLen2 !== i + 1 && ","}
+                                  </span>
+                                </div>
                               </div>
-                            </div>
-                          );
-                        })}
+                            );
+                          })}
+                          {"  }"}
+                        </>
+                      )}
                       {l.items &&
                         (l.items.properties && (
                           <div>

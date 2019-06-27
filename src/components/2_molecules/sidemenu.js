@@ -97,7 +97,7 @@ class SideMenu extends React.Component {
                     {group.edges.map((link, i) => {
                       const n = link.node;
                       return (
-                        <ul key={i} className="p-0" style={{ marginLeft: 6 }}>
+                        <ul key={i} className="p-0">
                           {n.get && (
                             <li className="list-reset">
                               <Link
