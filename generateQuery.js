@@ -40,7 +40,18 @@ const rawQuery = properties => {
                                                     (g.type && g.type.fields
                                                       ? "{" +
                                                         g.type.fields.map(
-                                                          h => h.name + " "
+                                                          h =>
+                                                            h.name +
+                                                            " " +
+                                                            (h.type &&
+                                                            h.type.fields
+                                                              ? "{" +
+                                                                h.type.fields.map(
+                                                                  i =>
+                                                                    i.name + " "
+                                                                ) +
+                                                                "}"
+                                                              : " ")
                                                         ) +
                                                         "}"
                                                       : " ")

@@ -172,6 +172,22 @@ exports.createPages = async ({ actions, graphql }) => {
     {
       path: "PathsPostRequestBodyContentApplication_jsonSchemaAllOfProperties",
       name: "allOfPostRequestBody"
+    },
+    {
+      path: "PathsPostResponses_200ContentApplication_jsonSchemaProperties",
+      name: "postProperties"
+    },
+    {
+      path: "PathsPutRequestBodyContentApplication_jsonSchemaProperties",
+      name: "putRequestBody"
+    },
+    {
+      path: "PathsPutRequestBodyContentApplication_jsonSchemaAllOfProperties",
+      name: "allOfputRequestBody"
+    },
+    {
+      path: "PathsPutResponses_200ContentApplication_jsonSchemaProperties",
+      name: "putProperties"
     }
   ];
 
@@ -206,6 +222,11 @@ exports.createPages = async ({ actions, graphql }) => {
                                 type {
                                   fields {
                                     name
+                                    type {
+                                      fields {
+                                        name
+                                      }
+                                    }
                                   }
                                 }
                               }
@@ -347,7 +368,7 @@ exports.createPages = async ({ actions, graphql }) => {
         return Promise.reject(result.errors);
       }
 
-      const fileName = `./src/components/0_fragments/api/${q.name}.text`;
+      const fileName = `./src/components/0_fragments/api/${q.name}.jsx`;
       const props = result.data.__type.fields;
       const file = fs.createWriteStream(fileName);
 
@@ -358,10 +379,13 @@ exports.createPages = async ({ actions, graphql }) => {
       return (
         fragments.push(partialFragments),
         file.write(`
-          fragment ${q.name} on ${q.path} {
-            ${query}
-          }
-        `)
+import { graphql } from "gatsby"
+export const query = graphql\`
+  fragment ${q.name} on ${q.path} {
+      ${query}
+    }
+  \`
+`)
       );
     });
   });
