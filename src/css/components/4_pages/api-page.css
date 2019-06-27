@@ -79,6 +79,22 @@
   display: none;
 }
 
+.sidemenu-button {
+  width: calc(100% - 12px);
+  padding: 6px 0;
+  margin: 0 6px;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  outline: none;
+}
+
+.sidemenu-button:focus {
+  outline: 1px dotted #ddd;
+}
+
 .response-200 {
   border-left-width: 5px;
   @apply border-BaseGreen;

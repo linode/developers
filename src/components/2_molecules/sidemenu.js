@@ -79,11 +79,16 @@ class SideMenu extends React.Component {
             {groups.map((group, i) => {
               return (
                 <div className="list-container" key={i}>
-                  <span className="caret mr-2">
-                    <Caret />
-                  </span>
-                  <button onClick={this.toggleActive} className="inline-block">
-                    <span className="mt-0">{group.fieldValue}</span>
+                  <button
+                    onClick={this.toggleActive}
+                    className="sidemenu-button"
+                  >
+                    <span className="mt-0">
+                      <b>{group.fieldValue}</b>
+                    </span>
+                    <span className="caret ml-2">
+                      <Caret />
+                    </span>
                   </button>
                   <div
                     id={_.kebabCase(group.fieldValue)}
@@ -92,7 +97,7 @@ class SideMenu extends React.Component {
                     {group.edges.map((link, i) => {
                       const n = link.node;
                       return (
-                        <ul key={i} className="p-0 pl-4">
+                        <ul key={i} className="p-0" style={{ marginLeft: 6 }}>
                           {n.get && (
                             <li className="list-reset">
                               <Link
