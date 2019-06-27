@@ -58,9 +58,9 @@ const apiPage = ({ data }) => {
                 m && (
                   <div key={i} className="flex flex-col">
                     <span id={mode} className="endpoint-anchor" />
-                    <div className="xs-full mb-8 px-2">
+                    <div className="xs-full mb-8">
                       <h2 className="mt-0">{m.summary}</h2>
-                      <div className="bg-ThemeCell p-4 mt-4 mb-8">
+                      <div className="bg-ThemeCell p-4 mt-4 mb-8 flex items-center">
                         <span className="tag big bold mr-2 uppercase">
                           {mode}
                         </span>

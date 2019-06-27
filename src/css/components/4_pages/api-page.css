@@ -21,12 +21,6 @@
   overflow: auto;
 }
 
-.main-wrapper {
-}
-
-.api-content {
-}
-
 .api-body {
   @apply mb-8;
   overflow: auto;
@@ -134,21 +128,15 @@
 }
 
 @screen md {
-  .api-content-wrapper {
-    margin-left: 300px;
-    max-width: 60vw;
-  }
-
-  .api-content {
-    max-width: 60vw;
-    margin-left: 16.66667%;
-  }
-
   .layout-fixed .sidebar-container {
     height: calc(100vh - 64px);
     position: fixed;
     top: 64px;
     width: auto;
+  }
+
+  .api-content-wrapper {
+    margin-left: 300px;
   }
 
   .list-container {
@@ -165,5 +153,11 @@
   .search-results-list {
     box-shadow: none;
     background-color: none;
+  }
+}
+
+@screen lg {
+  .api-content {
+    max-width: 60vw;
   }
 }
