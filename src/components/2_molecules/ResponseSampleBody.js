@@ -39,7 +39,12 @@ export const ResponseSampleBody = props => {
                     l.example.map((e, i) => {
                       return `"${e}"`;
                     })}
-                  ${!(l.items && l.items.properties) ? `${"]"}` : ""}
+                    
+                  ${
+                    !(l.items && l.items.properties)
+                      ? `${`"string"`} ${"]"}`
+                      : ""
+                  }
               `) +
                 (l.properties &&
                   `{
@@ -65,20 +70,15 @@ export const ResponseSampleBody = props => {
                         `{
                         ${Object.keys(data.properties).map(o => {
                           const a = data.properties[o];
+                          console.log(a.type);
                           return `"${o}": ${
-                            e
+                            a.example
                               ? a.type !== "number" &&
                                 a.type !== "integer" &&
                                 a.type !== "boolean"
                                 ? `${JSON.stringify(a.example)}`
                                 : `${a.example}`
-                              : o === "id"
-                              ? `${'"2737bf16b39ab5d7b4a1"'}`
-                              : a.type === "boolean"
-                              ? `${"false"}`
-                              : !o.properties
-                              ? `${'"0"'}`
-                              : ""
+                              : `${`["${a.type}"]`}`
                           }`;
                         })}}`)
                     );
@@ -112,7 +112,13 @@ export const ResponseSampleBody = props => {
     .replace(/undefined/g, "")
     .replace(/null/g, "");
 
-  const finalSource = JSON.stringify(JSON.parse(sanitized), null, 2);
+  try {
+    var parsed = JSON.parse(sanitized);
+  } catch (e) {
+    console.log(e);
+  }
+
+  const finalSource = JSON.stringify(parsed, null, 2);
   // const finalSource = sanitized;
 
   return (
