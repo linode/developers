@@ -16,7 +16,6 @@ export const ResponseSampleBody = props => {
           )
           .map((p, i) => {
             const l = context.content.application_json.schema.properties[p];
-
             return (
               l &&
               (l.type !== "array" && p !== "errors"
@@ -46,11 +45,43 @@ export const ResponseSampleBody = props => {
                   `{
                   ${Object.keys(l.properties).map((e, i) => {
                     const data = l.properties[e];
-                    return `"${e}": ${
-                      data.type !== "number"
-                        ? `"${data.example}"`
-                        : `${data.example}`
-                    }`;
+                    return (
+                      `"${e}": ${
+                        e
+                          ? data.type !== "number" &&
+                            data.type !== "integer" &&
+                            data.type !== "boolean"
+                            ? `${JSON.stringify(data.example)}`
+                            : `${data.example}`
+                          : e === "id"
+                          ? `${'"2737bf16b39ab5d7b4a1"'}`
+                          : data.type === "boolean"
+                          ? `${"false"}`
+                          : !data.properties
+                          ? `${'"0"'}`
+                          : ""
+                      }` +
+                      (data.properties &&
+                        `{
+                        ${Object.keys(data.properties).map(o => {
+                          const a = data.properties[o];
+                          return `"${o}": ${
+                            e
+                              ? a.type !== "number" &&
+                                a.type !== "integer" &&
+                                a.type !== "boolean"
+                                ? `${JSON.stringify(a.example)}`
+                                : `${a.example}`
+                              : o === "id"
+                              ? `${'"2737bf16b39ab5d7b4a1"'}`
+                              : a.type === "boolean"
+                              ? `${"false"}`
+                              : !o.properties
+                              ? `${'"0"'}`
+                              : ""
+                          }`;
+                        })}}`)
+                    );
                   })}
                 }
               `) +
@@ -82,7 +113,7 @@ export const ResponseSampleBody = props => {
     .replace(/null/g, "");
 
   const finalSource = JSON.stringify(JSON.parse(sanitized), null, 2);
-  //const finalSource = sanitized;
+  // const finalSource = sanitized;
 
   return (
     context &&
