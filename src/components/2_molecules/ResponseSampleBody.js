@@ -20,7 +20,13 @@ export const ResponseSampleBody = props => {
             return (
               l &&
               (l.type !== "array" && p !== "errors"
-                ? `"${p}": "${l.example}"`
+                ? `"${p}": ${
+                    p === "id"
+                      ? "1234"
+                      : l.type === "number" || l.type === "integer"
+                      ? `${l.example}`
+                      : `"${l.example}"`
+                  }`
                 : `"${p}" : [`) +
                 (l.properties &&
                   `{` +
