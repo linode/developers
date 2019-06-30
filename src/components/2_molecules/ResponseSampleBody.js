@@ -19,13 +19,13 @@ export const ResponseSampleBody = props => {
             const l = context.content.application_json.schema.properties[p];
             return (
               l &&
-              (l.type !== "array" && p !== "errors"
+              (l.type !== "array" && l.type !== "object" && p !== "errors"
                 ? `"${p}": ${
                     p === "id"
                       ? "1234"
                       : l.type === "number" || l.type === "integer"
                       ? `${l.example}`
-                      : `"${l.example}"`
+                      : `${JSON.stringify(l.example ? l.example : "")}`
                   }`
                 : `"${p}" : [`) +
                 (l.properties &&
@@ -33,7 +33,7 @@ export const ResponseSampleBody = props => {
                     Object.keys(l.properties).map(e => {
                       const data = l.properties[e];
                       return `
-                        "${e}": "${data.example}"
+                        "${e}": ${JSON.stringify(data.example)}
                     `;
                     }) +
                     `}`) +
@@ -47,12 +47,14 @@ export const ResponseSampleBody = props => {
                       return (
                         data &&
                         `
-                        "${e}": "${data.example ? data.example : ""}"
+                        "${e}": ${JSON.stringify(
+                          data.example ? data.example : ""
+                        )}
                       `
                       );
                     })}
                   }`) +
-                (l.type === "array"
+                (l.type === "array" || l.type === "object"
                   ? `
                       ]
                   ` ||
