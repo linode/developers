@@ -72,6 +72,13 @@
   left: 2px;
 }
 
+.top-menu-anchor {
+  position: relative;
+  top: -64px;
+  visibility: hidden;
+  display: block;
+}
+
 .api-link.active-item {
   @apply text-BaseBlackFull font-bold no-underline;
 }
