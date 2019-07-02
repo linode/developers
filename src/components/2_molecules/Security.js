@@ -7,10 +7,13 @@ export const Security = props => {
       <div className="sm-full md-1/4 px-2">
         <h3 className="mt-0">Authorizations</h3>
       </div>
-      <div className="sm-full md:flex md:flex-col md-3/4 px-2">
-        <div>personalAccessToken</div>
+      <div
+        className="sm-full md:flex md:flex-col md-3/4 px-2"
+        style={{ marginTop: 2 }}
+      >
+        <div>Personal Access Token</div>
         <div>
-          <span>oAuth: </span>(<span className="tag tag-light">{oauth}</span>)
+          <span>OAuth: </span>( <span className="tag tag-light">{oauth}</span>)
         </div>
       </div>
     </div>
