@@ -137,65 +137,139 @@ export const ResponseItemElements = props => {
                     </div>
                   )}
                   {l.items && (
-                    <div className="px-4 mt-4 mb-4 ml-4 subResponse">
+                    <div className="px-4 mt-4 mb-4 ml-4 subResponse ">
                       {l.items.properties &&
                         Object.keys(l.items.properties).map((e, i) => {
                           const data = l.items.properties[e];
                           return (
                             data && (
-                              <div key={i} className="lg:flex mb-4">
-                                <div className="w-full lg:w-1/4">
-                                  <b
-                                    className={
-                                      data.deprecated && "line-through"
-                                    }
-                                  >
-                                    {e}
-                                  </b>
-                                </div>
-                                <div className="w-full lg:w-3/4">
-                                  <div>
-                                    <div className="text-sm text-grey-darkest leading-text-sm">
-                                      {data.type && data.type}
-                                      {data.pattern && (
-                                        <span className="tag">
-                                          {data.pattern}
-                                        </span>
-                                      )}
-                                    </div>
-                                    {data.enum && (
-                                      <div className="flex flex-wrap mb-2">
-                                        <span className="text-sm mr-2">
-                                          Enum:
-                                        </span>
-                                        {data.enum.map((e, i) => {
-                                          return (
-                                            <span
-                                              className="tag mr-2 mb-1 inline-block"
-                                              key={i}
-                                            >
-                                              "{e}"
-                                            </span>
-                                          );
-                                        })}
-                                      </div>
-                                    )}
-                                    {data.deprecated && (
-                                      <div>
-                                        <span className="tag tag-deprecated">
-                                          Deprecated
-                                        </span>
-                                      </div>
-                                    )}
+                              <div key={i} className="response-wrapper">
+                                <div className="lg:flex mb-4">
+                                  <div className="w-full lg:w-1/4">
+                                    <b
+                                      className={
+                                        data.deprecated && "line-through"
+                                      }
+                                    >
+                                      {e}
+                                    </b>
+                                  </div>
+                                  <div className="w-full lg:w-3/4">
                                     <div>
-                                      <Markdown
-                                        source={data.description}
-                                        escapeHtml={false}
-                                        className="api-desc"
-                                      />
+                                      <div className="text-sm text-grey-darkest leading-text-sm">
+                                        {data.type && data.type}
+                                        {data.pattern && (
+                                          <span className="tag">
+                                            {data.pattern}
+                                          </span>
+                                        )}
+                                      </div>
+
+                                      {data.enum && (
+                                        <div className="flex flex-wrap mb-2">
+                                          <span className="text-sm mr-2">
+                                            Enum:
+                                          </span>
+                                          {data.enum.map((e, i) => {
+                                            return (
+                                              <span
+                                                className="tag mr-2 mb-1 inline-block"
+                                                key={i}
+                                              >
+                                                "{e}"
+                                              </span>
+                                            );
+                                          })}
+                                        </div>
+                                      )}
+                                      {data.deprecated && (
+                                        <div>
+                                          <span className="tag tag-deprecated">
+                                            Deprecated
+                                          </span>
+                                        </div>
+                                      )}
+                                      <div>
+                                        <Markdown
+                                          source={data.description}
+                                          escapeHtml={false}
+                                          className="api-desc"
+                                        />
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
+                                {data.properties && (
+                                  <div className="px-4 mt-4 mb-4 ml-4 subResponse">
+                                    {Object.keys(data.properties).map(
+                                      (dp, i) => {
+                                        const dps = data.properties[dp];
+                                        return (
+                                          dps && (
+                                            <div
+                                              key={i}
+                                              className="lg:flex mb-4"
+                                            >
+                                              <div className="w-full lg:w-1/4">
+                                                <b
+                                                  className={
+                                                    data.deprecated &&
+                                                    "line-through"
+                                                  }
+                                                >
+                                                  {dp}
+                                                </b>
+                                              </div>
+                                              <div className="w-full lg:w-3/4">
+                                                <div>
+                                                  <div className="text-sm text-grey-darkest">
+                                                    {data.type && data.type}{" "}
+                                                    {data.pattern && (
+                                                      <span className="tag">
+                                                        {data.pattern}
+                                                      </span>
+                                                    )}
+                                                  </div>
+                                                  {dps.enum && (
+                                                    <div className="flex flex-wrap mb-2">
+                                                      <span className="text-sm mr-2">
+                                                        Enum:
+                                                      </span>
+                                                      {data.enum.map((e, i) => {
+                                                        return (
+                                                          <span
+                                                            className="tag mr-2 mb-1 inline-block"
+                                                            key={i}
+                                                          >
+                                                            "{e}"
+                                                          </span>
+                                                        );
+                                                      })}
+                                                    </div>
+                                                  )}
+                                                  {dps.deprecated && (
+                                                    <div>
+                                                      <span className="tag tag-deprecated">
+                                                        Deprecated
+                                                      </span>
+                                                    </div>
+                                                  )}
+                                                  <div>
+                                                    <Markdown
+                                                      source={dps.description}
+                                                      escapeHtml={false}
+                                                      className="api-desc"
+                                                    />
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          )
+                                        );
+                                      }
+                                    )}
+                                  </div>
+                                )}
                               </div>
                             )
                           );
