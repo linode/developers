@@ -13,7 +13,7 @@ const KubernetesPage = () => {
         title="Kubernetes Tools"
         description="Create a Kubernetes Cluster with One Command"
       />
-      <div className="flex flex-wrap mb-8 -mx-4">
+      <div className="flex flex-wrap mb-8 -mx-4 kubernetes-body">
         <div className="w-full px-4">
           <div className="my-4 md:mt-12 md:mt-8 max-w-3xl">
             <h2 className="font-normal text-BaseGreenDark text-center">
