@@ -1,5 +1,4 @@
 import React from "react";
-
 import ResponseItemElements from "../2_molecules/ResponseItemElements";
 
 export const ResponseItem = props => {

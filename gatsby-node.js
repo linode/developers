@@ -1,10 +1,13 @@
 const JsonSchemaRefParser = require("json-schema-ref-parser");
 const path = require("path");
 const _ = require("lodash");
+const fs = require("fs");
 
 const specs = require("./src/data/spec.json");
 const crypto = require("crypto");
 const parser = new JsonSchemaRefParser();
+
+const rawQuery = require("./generateQuery.js");
 
 exports.sourceNodes = async ({ actions }) => {
   const { createNode, createTypes } = actions;
@@ -157,5 +160,235 @@ exports.createPages = async ({ actions, graphql }) => {
     });
   });
 
-  return Promise.all([changelogs, specsPages]);
+  const fragmentQueries = [
+    {
+      path: "PathsGetResponses_200ContentApplication_jsonSchemaProperties",
+      name: "getProperties"
+    },
+    {
+      path: "PathsPostRequestBodyContentApplication_jsonSchemaProperties",
+      name: "postRequestBody"
+    },
+    {
+      path: "PathsPostRequestBodyContentApplication_jsonSchemaAllOfProperties",
+      name: "allOfPostRequestBody"
+    },
+    {
+      path: "PathsPostResponses_200ContentApplication_jsonSchemaProperties",
+      name: "postProperties"
+    },
+    {
+      path: "PathsPutRequestBodyContentApplication_jsonSchemaProperties",
+      name: "putRequestBody"
+    },
+    {
+      path: "PathsPutRequestBodyContentApplication_jsonSchemaAllOfProperties",
+      name: "allOfputRequestBody"
+    },
+    {
+      path: "PathsPutResponses_200ContentApplication_jsonSchemaProperties",
+      name: "putProperties"
+    }
+  ];
+
+  const fragments = [];
+
+  await fragmentQueries.map(q => {
+    let partialFragments = graphql(`
+    {
+      __type(
+        name: "${q.path}"
+      ) {
+        name
+        fields {
+          name
+          type {
+            ofType {
+              name
+              fields {
+                name
+                type {
+                  fields {
+                    name
+                    type {
+                      fields {
+                        name
+                        type {
+                          fields {
+                            name
+                            type {
+                              fields {
+                                name
+                                type {
+                                  fields {
+                                    name
+                                    type {
+                                      fields {
+                                        name
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            fields {
+              name
+              type {
+                ofType {
+                  name
+                  fields {
+                    name
+                    type {
+                      fields {
+                        name
+                        type {
+                          fields {
+                            name
+                            type {
+                              fields {
+                                name
+                                type {
+                                  fields {
+                                    name
+                                    type {
+                                      fields {
+                                        name
+                                        type {
+                                          fields {
+                                            name
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+                fields {
+                  name
+                  type {
+                    ofType {
+                      name
+                      fields {
+                        name
+                        type {
+                          fields {
+                            name
+                            type {
+                              fields {
+                                name
+                                type {
+                                  fields {
+                                    name
+                                    type {
+                                      fields {
+                                        name
+                                        type {
+                                          fields {
+                                            name
+                                            type {
+                                              fields {
+                                                name
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                    fields {
+                      name
+                      type {
+                        fields {
+                          name
+                          type {
+                            fields {
+                              name
+                              type {
+                                fields {
+                                  name
+                                  type {
+                                    fields {
+                                      name
+                                      type {
+                                        fields {
+                                          name
+                                          type {
+                                            fields {
+                                              name
+                                              type {
+                                                fields {
+                                                  name
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `).then(result => {
+      if (result.errors) {
+        return Promise.reject(result.errors);
+      }
+
+      const fileName = `./src/components/0_fragments/api/${q.name}.jsx`;
+      const props = result.data.__type.fields;
+      const file = fs.createWriteStream(fileName);
+
+      const query = rawQuery(props)
+        .toString()
+        .replace(/\,/g, "");
+
+      return (
+        fragments.push(partialFragments),
+        file.write(`
+import { graphql } from "gatsby"
+export const query = graphql\`
+  fragment ${q.name} on ${q.path} {
+      ${query}
+    }
+  \`
+`)
+      );
+    });
+  });
+
+  return Promise.all([changelogs, specsPages, fragments]);
 };

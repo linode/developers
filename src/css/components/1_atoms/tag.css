@@ -4,7 +4,7 @@
   padding-bottom: 3px;
   width: fit-content;
   transition: background-color 225ms ease-in-out, color 225ms ease-in-out;
-  line-height: 1;
+  line-height: 1.4;
   font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
     monospace;
 }
