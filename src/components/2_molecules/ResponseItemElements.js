@@ -235,7 +235,7 @@ export const ResponseItemElements = props => {
                                                       <span className="text-sm mr-2">
                                                         Enum:
                                                       </span>
-                                                      {data.enum.map((e, i) => {
+                                                      {dps.enum.map((e, i) => {
                                                         return (
                                                           <span
                                                             className="tag mr-2 mb-1 inline-block"
