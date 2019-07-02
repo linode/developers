@@ -24,44 +24,70 @@ export const ResponseSampleBody = props => {
                     p === "id"
                       ? "1234"
                       : l.type === "number" || l.type === "integer"
-                      ? `${l.example}`
+                      ? `${
+                          l.example && l.example !== null
+                            ? l.example
+                            : `${'""'}`
+                        }`
                       : `${JSON.stringify(l.example ? l.example : "")}`
                   }`
                 : `"${p}" : [`) +
+                (l.example && l.type === "array"
+                  ? Object.keys(l.example).map(v => {
+                      const va = l.example[v];
+                      return `"${va}"`;
+                    })
+                  : "") +
                 (l.properties &&
                   `{` +
                     Object.keys(l.properties).map(e => {
                       const data = l.properties[e];
                       return `
-                        "${e}": ${JSON.stringify(data.example)}
+                        "${e}": ${JSON.stringify(
+                        data.example ? data.example : ""
+                      )}
                     `;
                     }) +
                     `}`) +
-                (l.items &&
-                  l.items.properties &&
-                  `{
+                (l.items && l.items.properties
+                  ? `{
                   ${Object.keys(l.items.properties)
                     .filter(v => l.items.properties[v] !== null)
                     .map(e => {
                       const data = l.items.properties[e];
-                      return (
-                        data &&
-                        `
+                      return data &&
+                        (data.type !== "array" && data.type !== "object")
+                        ? `
                         "${e}": ${JSON.stringify(
-                          data.example ? data.example : ""
-                        )}
+                            data.example ? data.example : ""
+                          )}
                       `
-                      );
-                    })}
-                  }`) +
-                (l.type === "array" || l.type === "object"
-                  ? `
-                      ]
-                  ` ||
-                    (p !== "errors" &&
-                      `
-                      ]
-                  `)
+                        : data && data.properties && data.type === "object"
+                        ? `"${e}": {
+                      ${Object.keys(data.properties)
+                        .filter(dp => data.properties[dp] !== null)
+                        .map(e => {
+                          const dps = data.properties[e];
+                          return dps
+                            ? `"${e}": ${JSON.stringify(
+                                dps.example ? dps.example : ""
+                              )}`
+                            : "";
+                        })}}`
+                        : data && data.type === "array"
+                        ? data.example
+                          ? `"${e}": [` +
+                            Object.keys(data.example).map(v => {
+                              const va = data.example[v];
+                              return `"${va}"`;
+                            }) +
+                            `]`
+                          : `"${e}": ${"[ ]"}`
+                        : "";
+                    })}}`
+                  : "") +
+                (l.type === "array" || l.type === "object" || p === "errors"
+                  ? `]`
                   : "")
             );
           })}

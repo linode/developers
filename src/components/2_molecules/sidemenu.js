@@ -121,8 +121,6 @@ class SideMenu extends React.Component {
         );
       });
 
-    console.log(activePage);
-
     return (
       <div className="api-navigation-wrapper md:bg-ThemeCell">
         <div className="api-navigation">
