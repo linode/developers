@@ -62,7 +62,7 @@ export const ResponseSampleBody = props => {
                             data.example ? data.example : ""
                           )}
                       `
-                        : data && data.properties
+                        : data && data.properties && data.type === "object"
                         ? `"${e}": {
                       ${Object.keys(data.properties)
                         .filter(dp => data.properties[dp] !== null)
@@ -74,11 +74,20 @@ export const ResponseSampleBody = props => {
                               )}`
                             : "";
                         })}}`
+                        : data && data.type === "array"
+                        ? data.example
+                          ? `"${e}": [` +
+                            Object.keys(data.example).map(v => {
+                              const va = data.example[v];
+                              return `"${va}"`;
+                            }) +
+                            `]`
+                          : `"${e}": ${"[ ]"}`
                         : "";
                     })}}`
                   : "") +
                 (l.type === "array" || l.type === "object" || p === "errors"
-                  ? `] `
+                  ? `]`
                   : "")
             );
           })}
