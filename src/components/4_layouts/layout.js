@@ -8,7 +8,7 @@ import Footer from "../3_organisms/footer";
 import FooterNav from "../3_organisms/footer-nav";
 import "../../css/main.css";
 
-const Layout = ({ children, title, subtitle, fullWidth }) => (
+const Layout = ({ children, title, subtitle, fullWidth, noFooter }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -36,19 +36,23 @@ const Layout = ({ children, title, subtitle, fullWidth }) => (
         >
           <main className="main">{children}</main>
         </div>
-        {!fullWidth && (
-          <div className="footer-nav-wrapper bg-black">
-            <footer className="max-w-3xl mx-auto py-8 px-4 md:px-8 text-white">
-              <Footer />
-            </footer>
-          </div>
-        )}
-        {!fullWidth && (
-          <div className="footer-wrapper bg-BaseBlackFull">
-            <footer className="max-w-3xl mx-auto py-8 px-4 md:px-8 text-white">
-              <FooterNav />
-            </footer>
-          </div>
+        {!noFooter && (
+          <>
+            {!fullWidth && (
+              <div className="footer-nav-wrapper bg-black">
+                <footer className="max-w-3xl mx-auto py-8 px-4 md:px-8 text-white">
+                  <Footer />
+                </footer>
+              </div>
+            )}
+            {!fullWidth && (
+              <div className="footer-wrapper bg-BaseBlackFull">
+                <footer className="max-w-3xl mx-auto py-8 px-4 md:px-8 text-white">
+                  <FooterNav />
+                </footer>
+              </div>
+            )}
+          </>
         )}
       </div>
     )}
