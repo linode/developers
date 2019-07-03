@@ -60,6 +60,12 @@ class SideMenu extends React.Component {
           activeEl && activeEl.parentNode.parentNode.parentNode.parentNode;
         activeEl && activeGroup.classList.add("active-group");
       }
+      const activeGroup = document.getElementsByClassName("active-group")[0];
+
+      activeGroup &&
+        activeGroup.scrollIntoView({
+          block: "start"
+        });
     });
 
     hash &&

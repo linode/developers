@@ -11,10 +11,8 @@
 }
 
 .api-navigation {
-  /* position: sticky; */
   z-index: 2;
   top: 2rem;
-  overflow: hidden;
 }
 
 .api-content-wrapper {
@@ -32,7 +30,8 @@
   visibility: hidden;
 }
 
-.list-group {
+.list-group,
+.list-group ul {
   max-height: 0;
   visibility: hidden;
   line-height: 1;
@@ -41,7 +40,13 @@
 .active-group .list-group {
   max-height: 100%;
   visibility: visible;
-  @apply mt-2 mb-4 ml-4;
+  border-left: 1px solid #ddd;
+  @apply mt-2 mb-4 ml-2 pl-2;
+}
+
+.active-group .list-group ul {
+  max-height: 100%;
+  visibility: visible;
 }
 
 .active-group .list-group li {
