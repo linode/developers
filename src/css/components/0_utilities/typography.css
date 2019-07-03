@@ -18,6 +18,10 @@ input[type="text"] {
   border-top-width: 1px;
 }
 
+.kubernetes-body code {
+  @apply p-4 mt-2 mb-2 bg-ThemeBeige block;
+}
+
 .api-body code {
   @apply p-2 mt-2 mb-4 bg-ThemeBeige block;
   overflow-x: auto;
