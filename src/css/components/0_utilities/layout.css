@@ -15,3 +15,7 @@ html {
   width: inherit;
   overflow: inherit;
 }
+
+.entry-point > div {
+  box-shadow: none;
+}

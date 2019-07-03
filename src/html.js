@@ -17,7 +17,11 @@ function HTML(props) {
         />
       </head>
       <body>
-        <div id="___gatsby" dangerouslySetInnerHTML={{ __html: props.body }} />
+        <div
+          id="___gatsby"
+          className="entry-point"
+          dangerouslySetInnerHTML={{ __html: props.body }}
+        />
         {props.postBodyComponents}
       </body>
     </html>
