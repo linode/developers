@@ -2,6 +2,7 @@ const JsonSchemaRefParser = require("json-schema-ref-parser");
 const path = require("path");
 const _ = require("lodash");
 const fs = require("fs");
+const axios = require("axios");
 
 const specs = require("./static/api/docs/v4/spec.json");
 const crypto = require("crypto");
@@ -13,6 +14,7 @@ exports.sourceNodes = async ({ actions }) => {
   const { createNode, createTypes } = actions;
   const res = await parser.dereference(specs);
 
+  // CREATING NODES FROM API SPECS
   const typeDefs = `
     type MarkdownRemark implements Node {
       frontmatter: Frontmatter!
@@ -29,20 +31,12 @@ exports.sourceNodes = async ({ actions }) => {
   // map into these results and create nodes
   Object.keys(res.paths).map((path, i) => {
     // Create your node object
-    const modes = {
-      get: "get",
-      post: "post",
-      put: "put",
-      delete: "delete"
-    };
     const pathNode = {
       // Required fields
       id: `${i}`,
       parent: `__SOURCE__`,
       internal: {
         type: `Paths` // name of the graphQL query --> allRandomUser {}
-        // contentDigest will be added just after
-        // but it is required
       },
       children: [],
 
@@ -72,6 +66,40 @@ exports.sourceNodes = async ({ actions }) => {
 
     // Create node with the gatsby createNode() API
     createNode(pathNode);
+  });
+
+  // CREATING MENU NODES FROM WP API
+  const headerPrimaryData = () =>
+    axios.get(
+      `https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/header-primary`
+    );
+  // await for results
+  const headerPrimary = await headerPrimaryData();
+
+  headerPrimary.data.items.map((menuItem, i) => {
+    // Create your node object
+    const headerPrimaryNode = {
+      // Required fields
+      id: `${i}`,
+      parent: `__SOURCE__`,
+      internal: {
+        type: `HeaderPrimary` // name of the graphQL query --> allHeaderPrimary {}
+      },
+      children: [],
+      title: menuItem.title,
+      url: menuItem.url
+    };
+
+    // Get content digest of node. (Required field)
+    const contentDigest = crypto
+      .createHash(`md5`)
+      .update(JSON.stringify(headerPrimaryNode))
+      .digest(`hex`);
+    // add it to userNode
+    headerPrimaryNode.internal.contentDigest = contentDigest;
+
+    // Create node with the gatsby createNode() API
+    createNode(headerPrimaryNode);
   });
 
   return;

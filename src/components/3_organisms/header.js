@@ -13,14 +13,16 @@ const Header = ({ border }) => (
       <div className="border-b py-2">
         <MainSiteGlobalMenu />
       </div>
-      <div className="flex flex-wrap items-center justify-between py-4 max-w-3xl mx-auto px-4 md:px-8">
-        <div className="logo">
-          <Link to="/" className="flex items-center">
-            <Logo />
-          </Link>
-        </div>
-        <div>
-          <MainSiteNav />
+      <div className="primaryLinks-container max-w-3xl mx-auto">
+        <div class="primaryLinks-inner flex flex-wrap items-center justify-between">
+          <div className="logo">
+            <Link to="/" className="flex items-center">
+              <Logo />
+            </Link>
+          </div>
+          <div>
+            <MainSiteNav />
+          </div>
         </div>
       </div>
     </header>
