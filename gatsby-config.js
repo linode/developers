@@ -20,32 +20,6 @@ module.exports = {
         link: "#"
       }
     ],
-    mainSiteNav: [
-      {
-        name: "Why Linode",
-        link: "#"
-      },
-      {
-        name: "Products",
-        link: "#"
-      },
-      {
-        name: "Solutions",
-        link: "#"
-      },
-      {
-        name: "Docs",
-        link: "#"
-      },
-      {
-        name: "Pricing",
-        link: "#"
-      },
-      {
-        name: "Partners",
-        link: "#"
-      }
-    ],
     dlcLinks: [
       {
         name: "API Documentation",

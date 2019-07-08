@@ -1,7 +1,31 @@
-.nav-link:first-child {
+.nav-link {
+  line-height: 1.33333;
+  cursor: pointer;
+  margin: 0 20px;
+}
+
+.nav-link:hover {
+  text-decoration: none;
+}
+
+.nav-link.dropdown .caret {
+  display: inline-block;
+  width: 8px;
+  position: relative;
+  top: 4px;
+  margin-left: 0.666rem;
+}
+
+/* .nav-link:first-child {
   margin-left: 0;
 }
 
 .nav-link:last-child {
   margin-right: 0;
+} */
+
+.nav-link .search-icon {
+  display: inline-block;
+  width: 18px;
+  position: relative;
 }
