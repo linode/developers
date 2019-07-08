@@ -1,3 +1,15 @@
+.nav-link-utility {
+  font-size: 0.8125rem;
+  line-height: 1.30769;
+  border: 0 solid transparent;
+  border-width: 2px 0;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 12px;
+  padding: 8px 0;
+  text-decoration: none;
+}
+
 .nav-link {
   line-height: 1.33333;
   cursor: pointer;
@@ -23,6 +35,10 @@
 .nav-link:last-child {
   margin-right: 0;
 } */
+
+.nav-link.search {
+  margin-right: 8px;
+}
 
 .nav-link .search-icon {
   display: inline-block;

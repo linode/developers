@@ -2,24 +2,6 @@ module.exports = {
   siteMetadata: {
     title: `Linode Developer Tools`,
     description: `Linode API Documentation, Guides, and Tools`,
-    mainSiteGlobalMenu: [
-      {
-        name: "Engage",
-        link: "#"
-      },
-      {
-        name: "Support",
-        link: "#"
-      },
-      {
-        name: "Log In",
-        link: "#"
-      },
-      {
-        name: "Sign Up",
-        link: "#"
-      }
-    ],
     dlcLinks: [
       {
         name: "API Documentation",

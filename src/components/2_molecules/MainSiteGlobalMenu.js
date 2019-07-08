@@ -1,8 +1,7 @@
 import React from "react";
-import { StaticQuery, graphql, Link } from "gatsby";
+import { StaticQuery, graphql } from "gatsby";
 
 const MainSiteGlobalMenu = ({ data }) => {
-  const { mainSiteGlobalMenu } = data.site.siteMetadata;
   return (
     <div className="max-w-3xl mx-auto flex justify-end">
       <nav
@@ -11,17 +10,19 @@ const MainSiteGlobalMenu = ({ data }) => {
         className="px-4 md:px-8"
         aria-expanded="false"
       >
-        {mainSiteGlobalMenu.map(link => (
-          <Link
-            key={link.name}
-            to={link.link}
-            className="nav-link text-BaseText hover:text-black relative text-sm mx-2"
-            role="menuitem"
-            activeClassName="active"
-          >
-            {link.name}
-          </Link>
-        ))}
+        {data.allHeaderUtility.edges.map(link => {
+          const node = link.node;
+          return (
+            <a
+              key={node.id}
+              href={node.url ? node.url : null}
+              className="nav-link-utility text-BaseText hover:text-black relative text-sm mx-2"
+              role="menuitem"
+            >
+              {node.title}
+            </a>
+          );
+        })}
       </nav>
     </div>
   );
@@ -31,11 +32,12 @@ export default props => (
   <StaticQuery
     query={graphql`
       query mainSiteGlobalMenu {
-        site {
-          siteMetadata {
-            mainSiteGlobalMenu {
-              name
-              link
+        allHeaderUtility {
+          edges {
+            node {
+              id
+              title
+              url
             }
           }
         }

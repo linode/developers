@@ -4,6 +4,8 @@ import { StaticQuery, graphql } from "gatsby";
 import Caret from "../../images/svgs/angle-down-regular.svg";
 import SearchIcon from "../../images/svgs/search-solid.svg";
 
+const _ = require("lodash");
+
 const MainSiteNav = ({ data }) => {
   return (
     <>
@@ -16,7 +18,7 @@ const MainSiteNav = ({ data }) => {
               href={node.url ? node.url : null}
               className={`header-primary-menu nav-link text-BaseText hover:text-black relative text-lg ${
                 !node.url ? "dropdown" : ""
-              }`}
+              } ${_.kebabCase(node.title)}`}
               role="menuitem"
             >
               {node.title !== "Search" ? (
