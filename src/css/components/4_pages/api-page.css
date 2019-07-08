@@ -169,9 +169,9 @@
 
 @screen md {
   .layout-fixed .sidebar-container {
-    height: calc(100vh - 64px);
+    height: calc(100vh - 50px);
     position: fixed;
-    top: 64px;
+    top: 50px;
     width: auto;
   }
 

@@ -1,17 +1,11 @@
-.layout-fixed .header-wrapper {
-  position: fixed;
-  width: 100%;
+.header-wrapper {
+  position: sticky;
+  top: -37px;
   z-index: 2;
+  background-color: white;
 }
 
 .primaryLinks-inner {
-  padding: 1rem 0.5rem;
+  padding: 1rem;
   width: 100%;
-}
-
-@screen xl {
-  .primaryLinks-inner {
-    padding: 1rem 0;
-    width: 100%;
-  }
 }
