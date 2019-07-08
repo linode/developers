@@ -3,3 +3,15 @@
   width: 100%;
   z-index: 2;
 }
+
+.primaryLinks-inner {
+  padding: 1rem 0.5rem;
+  width: 100%;
+}
+
+@screen xl {
+  .primaryLinks-inner {
+    padding: 1rem 0;
+    width: 100%;
+  }
+}
