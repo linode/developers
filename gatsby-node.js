@@ -69,6 +69,42 @@ exports.sourceNodes = async ({ actions }) => {
   });
 
   // CREATING MENU NODES FROM WP API
+
+  // Utility menu
+  const headerUtilityData = () =>
+    axios.get(
+      `https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/header-utility`
+    );
+  // await for results
+  const headerUtility = await headerUtilityData();
+
+  headerUtility.data.items.map((menuItem, i) => {
+    // Create your node object
+    const headerUtilityNode = {
+      // Required fields
+      id: `${i}`,
+      parent: `__SOURCE__`,
+      internal: {
+        type: `HeaderUtility` // name of the graphQL query --> allHeaderUtility {}
+      },
+      children: [],
+      title: menuItem.title,
+      url: menuItem.url
+    };
+
+    // Get content digest of node. (Required field)
+    const contentDigest = crypto
+      .createHash(`md5`)
+      .update(JSON.stringify(headerUtilityNode))
+      .digest(`hex`);
+    // add it to userNode
+    headerUtilityNode.internal.contentDigest = contentDigest;
+
+    // Create node with the gatsby createNode() API
+    createNode(headerUtilityNode);
+  });
+
+  // Primarly Links
   const headerPrimaryData = () =>
     axios.get(
       `https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/header-primary`
