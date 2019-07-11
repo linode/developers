@@ -85,7 +85,7 @@ exports.sourceNodes = async ({ actions }) => {
       id: `${i}`,
       parent: `__SOURCE__`,
       internal: {
-        type: `HeaderUtility` // name of the graphQL query --> allHeaderUtility {}
+        type: `HeaderUtility`
       },
       children: [],
       title: menuItem.title,
@@ -104,7 +104,7 @@ exports.sourceNodes = async ({ actions }) => {
     createNode(headerUtilityNode);
   });
 
-  // Primarly Links
+  // Primary Links
   const headerPrimaryData = () =>
     axios.get(
       `https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/header-primary`
@@ -119,11 +119,12 @@ exports.sourceNodes = async ({ actions }) => {
       id: `${i}`,
       parent: `__SOURCE__`,
       internal: {
-        type: `HeaderPrimary` // name of the graphQL query --> allHeaderPrimary {}
+        type: `HeaderPrimary`
       },
       children: [],
       title: menuItem.title,
-      url: menuItem.url
+      url: menuItem.url,
+      toggle: menuItem.toggle
     };
 
     // Get content digest of node. (Required field)
@@ -136,6 +137,74 @@ exports.sourceNodes = async ({ actions }) => {
 
     // Create node with the gatsby createNode() API
     createNode(headerPrimaryNode);
+  });
+
+  // Why Submenu Primary
+  const whyPrimaryData = () =>
+    axios.get(
+      `https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/submenu-why-linode-primary`
+    );
+  // await for results
+  const whyPrimary = await whyPrimaryData();
+
+  whyPrimary.data.items.map((menuItem, i) => {
+    // Create your node object
+    const whyPrimaryNode = {
+      // Required fields
+      id: `${i}`,
+      parent: `__SOURCE__`,
+      internal: {
+        type: `WhyPrimary`
+      },
+      children: [],
+      title: menuItem.title,
+      url: menuItem.url
+    };
+
+    // Get content digest of node. (Required field)
+    const contentDigest = crypto
+      .createHash(`md5`)
+      .update(JSON.stringify(whyPrimaryNode))
+      .digest(`hex`);
+    // add it to userNode
+    whyPrimaryNode.internal.contentDigest = contentDigest;
+
+    // Create node with the gatsby createNode() API
+    createNode(whyPrimaryNode);
+  });
+
+  // Why Submenu Services
+  const whyServicesData = () =>
+    axios.get(
+      `https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/submenu-why-linode-services`
+    );
+  // await for results
+  const whyServices = await whyServicesData();
+
+  whyServices.data.items.map((menuItem, i) => {
+    // Create your node object
+    const whyServicesNode = {
+      // Required fields
+      id: `${i}`,
+      parent: `__SOURCE__`,
+      internal: {
+        type: `WhyServices`
+      },
+      children: [],
+      title: menuItem.title,
+      url: menuItem.url
+    };
+
+    // Get content digest of node. (Required field)
+    const contentDigest = crypto
+      .createHash(`md5`)
+      .update(JSON.stringify(whyServicesNode))
+      .digest(`hex`);
+    // add it to userNode
+    whyServicesNode.internal.contentDigest = contentDigest;
+
+    // Create node with the gatsby createNode() API
+    createNode(whyServicesNode);
   });
 
   return;
