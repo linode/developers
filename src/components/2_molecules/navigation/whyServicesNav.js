@@ -9,9 +9,10 @@ const WhyServicesNav = ({ data }) => {
       <ul
         id="why-services"
         role="menu"
-        className="sub-menu__item why-services-nav"
+        className="sub-menu__item sub-menu__item--reg why-services-nav"
         aria-expanded="false"
       >
+        <h6 className="sub-menu__header">&nbsp;</h6>
         {data.allWhyServices.edges.map(link => {
           const node = link.node;
           return (

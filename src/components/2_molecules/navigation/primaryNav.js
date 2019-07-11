@@ -47,34 +47,34 @@ class MainSiteNav extends React.Component {
           {data.allHeaderPrimary.edges.map(link => {
             const node = link.node;
             return (
-              <a
-                key={node.id}
-                href={node.url ? node.url : null}
-                className={`header__link primary-nav__link ${
-                  node.toggle ? "dropdown" : ""
-                } ${_.kebabCase(node.title)}`}
-                role="menuitem"
-                data-submenu={
-                  node.toggle ? _.kebabCase(node.toggle) : undefined
-                }
-                onClick={this.openSubMenu}
-              >
-                {node.title !== "Search" ? (
-                  <>
-                    {node.title}
-                    {node.toggle && (
-                      <span className="caret">
-                        <Caret />
-                      </span>
-                    )}
-                  </>
-                ) : (
-                  <span className="search-icon">
-                    <span className="visually-hidden">{node.title}</span>
-                    <SearchIcon />
+              <>
+                <a
+                  key={node.id}
+                  href={node.url ? node.url : null}
+                  className={`header__link primary-nav__link ${
+                    node.toggle ? "dropdown" : ""
+                  } ${_.kebabCase(node.title)}`}
+                  role="menuitem"
+                  data-submenu={
+                    node.toggle ? _.kebabCase(node.toggle) : undefined
+                  }
+                  onClick={this.openSubMenu}
+                >
+                  {node.title !== "Search" ? (
+                    node.title
+                  ) : (
+                    <span className="search-icon">
+                      <span className="visually-hidden">{node.title}</span>
+                      <SearchIcon />
+                    </span>
+                  )}
+                </a>
+                {node.toggle && (
+                  <span className="primary-nav__caret">
+                    <Caret />
                   </span>
                 )}
-              </a>
+              </>
             );
           })}
           <SubMenus
