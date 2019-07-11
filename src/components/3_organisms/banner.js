@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import DLCMenu from "../2_molecules/DLCMenu";
 
 const Banner = ({ title, subtitle }) => (
-  <div className="bg-BaseGreen">
+  <div className="bg-BaseGreen relative z-0">
     <header className="header max-w-3xl mx-auto px-4 md:px-8 py-8 text-white">
       <DLCMenu />
       <div className="text-4xl leading-none font-semibold">{title}</div>

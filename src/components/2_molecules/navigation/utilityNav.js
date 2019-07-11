@@ -3,11 +3,11 @@ import { StaticQuery, graphql } from "gatsby";
 
 const MainSiteGlobalMenu = ({ data }) => {
   return (
-    <div className="max-w-3xl mx-auto flex justify-end">
+    <div className="utility-nav__container">
       <nav
         id="main-menu"
         role="menu"
-        className="px-4 md:px-8"
+        className="utility-nav"
         aria-expanded="false"
       >
         {data.allHeaderUtility.edges.map(link => {
@@ -16,7 +16,7 @@ const MainSiteGlobalMenu = ({ data }) => {
             <a
               key={node.id}
               href={node.url ? node.url : null}
-              className="nav-link-utility text-BaseText hover:text-black relative text-sm mx-2"
+              className="header__link utility-nav__link"
               role="menuitem"
             >
               {node.title}
