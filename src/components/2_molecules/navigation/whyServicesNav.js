@@ -13,16 +13,19 @@ const WhyServicesNav = ({ data }) => {
         aria-expanded="false"
       >
         <h6 className="sub-menu__header">&nbsp;</h6>
-        {data.allWhyServices.edges.map(link => {
+        {data.allWhyServices.edges.map((link, i) => {
           const node = link.node;
           return (
-            <li className="sub-menu__li">
+            <li className="sub-menu__li" key={i}>
               <a
                 key={node.id}
                 href={node.url ? node.url : null}
-                className={`header__link sub-menu__link why-services-nav__link ${
-                  !node.url ? "dropdown" : ""
-                } ${_.kebabCase(node.title)}`}
+                className={`
+                  header__link
+                  sub-menu__link
+                  why-services-nav__link
+                  ${_.kebabCase(node.title)}
+                `}
                 role="menuitem"
               >
                 {node.title}
