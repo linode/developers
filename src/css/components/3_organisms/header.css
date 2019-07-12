@@ -162,6 +162,11 @@ body.oh {
 
 /* SUBMENUS */
 
+.sub-menu.visually-hidden {
+  top: 66%;
+  /* opacity: 0.75; */
+}
+
 .sub-menu {
   position: absolute;
   background: white;
@@ -170,6 +175,9 @@ body.oh {
   height: 100vh;
   top: 100%;
   margin-top: 1px;
+  transition: top linear 0.2s, opacity linear 0.2s;
+  opacity: 1;
+  z-index: -1;
 }
 
 .sub-menu__item {

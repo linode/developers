@@ -6,7 +6,7 @@ import PrimaryNav from "../2_molecules/navigation/primaryNav";
 import Logo from "../../images/svgs/new-logo.svg";
 
 const Header = () => (
-  <div className="header__wrapper">
+  <div className="header__wrapper" id="header">
     <header className="header">
       <div className="utility-nav__wrapper">
         <UtilityNav />
