@@ -20,6 +20,39 @@ class MainSiteNav extends React.Component {
     };
   }
 
+  isDescendant(parent, child) {
+    var node = child.parentNode;
+    while (node !== null) {
+      if (node === parent) {
+        return true;
+      }
+      node = node.parentNode;
+    }
+    return false;
+  }
+
+  componentDidMount() {
+    const subMenus = document.getElementById("sub-menus");
+    const otherMenus = document.getElementsByClassName("sub-menu");
+    const header = document.getElementById("header");
+
+    const hideAll = () => {
+      Object.keys(otherMenus).map(e => {
+        const om = otherMenus[e];
+        return (
+          om.classList.add("visually-hidden") +
+          document.body.classList.remove("oh")
+        );
+      });
+    };
+
+    header.addEventListener("click", e => {
+      !e.target.classList.contains("primary-nav__link") &&
+        !this.isDescendant(subMenus, e.target) &&
+        hideAll();
+    });
+  }
+
   openSubMenu = e => {
     const otherMenus = document.getElementsByClassName("sub-menu");
     const target = e.target.getAttribute("data-submenu");
@@ -93,16 +126,18 @@ class MainSiteNav extends React.Component {
               </React.Fragment>
             );
           })}
-          <SubMenus
-            id="js-tab-why-linode"
-            columns={[<WhyPrimaryNav />, <WhyServicesNav />]}
-            subMenuOpen={subMenuOpen}
-          />
-          <SubMenus
-            id="js-tab-products"
-            columns={[<ProductsFeatured />]}
-            subMenuOpen={subMenuOpen}
-          />
+          <div id="sub-menus">
+            <SubMenus
+              id="js-tab-why-linode"
+              columns={[<WhyPrimaryNav />, <WhyServicesNav />]}
+              subMenuOpen={subMenuOpen}
+            />
+            <SubMenus
+              id="js-tab-products"
+              columns={[<ProductsFeatured />]}
+              subMenuOpen={subMenuOpen}
+            />
+          </div>
         </nav>
       </>
     );
