@@ -28,186 +28,110 @@ exports.sourceNodes = async ({ actions }) => {
 
   createTypes(typeDefs);
 
-  // map into these results and create nodes
-  Object.keys(res.paths).map((path, i) => {
-    // Create your node object
-    const pathNode = {
-      // Required fields
-      id: `${i}`,
-      parent: `__SOURCE__`,
-      internal: {
-        type: `Paths` // name of the graphQL query --> allRandomUser {}
-      },
-      children: [],
+  const allSpecs =
+    // map into these results and create nodes
+    Object.keys(res.paths).map(async (path, i) => {
+      // Create your node object
+      const pathNode = {
+        // Required fields
+        id: `${i}`,
+        parent: `__SOURCE__`,
+        internal: {
+          type: `Paths` // name of the graphQL query --> allRandomUser {}
+        },
+        children: [],
 
-      // Other fields that you want to query with graphQl
-      name: path,
-      get: res.paths[path].get,
-      post: res.paths[path].post,
-      put: res.paths[path].put,
-      delete: res.paths[path].delete,
-      responses: res.paths[path].responses,
-      requestBody: res.paths[path].requestBody,
-      parameters: res.paths[path].parameters,
-      tagGroup:
-        (res.paths[path]["get"] && res.paths[path]["get"].tags) ||
-        (res.paths[path]["put"] && res.paths[path]["put"].tags) ||
-        (res.paths[path]["post"] && res.paths[path]["post"].tags) ||
-        (res.paths[path]["delete"] && res.paths[path]["delete"].tags)
-    };
+        // Other fields that you want to query with graphQl
+        name: path,
+        get: res.paths[path].get,
+        post: res.paths[path].post,
+        put: res.paths[path].put,
+        delete: res.paths[path].delete,
+        responses: res.paths[path].responses,
+        requestBody: res.paths[path].requestBody,
+        parameters: res.paths[path].parameters,
+        tagGroup:
+          (res.paths[path]["get"] && res.paths[path]["get"].tags) ||
+          (res.paths[path]["put"] && res.paths[path]["put"].tags) ||
+          (res.paths[path]["post"] && res.paths[path]["post"].tags) ||
+          (res.paths[path]["delete"] && res.paths[path]["delete"].tags)
+      };
 
-    // Get content digest of node. (Required field)
-    const contentDigest = crypto
-      .createHash(`md5`)
-      .update(JSON.stringify(pathNode))
-      .digest(`hex`);
-    // add it to userNode
-    pathNode.internal.contentDigest = contentDigest;
+      // Get content digest of node. (Required field)
+      const contentDigest = crypto
+        .createHash(`md5`)
+        .update(JSON.stringify(pathNode))
+        .digest(`hex`);
+      // add it to userNode
+      pathNode.internal.contentDigest = contentDigest;
 
-    // Create node with the gatsby createNode() API
-    createNode(pathNode);
-  });
+      // Create node with the gatsby createNode() API
+      createNode(pathNode);
+    });
 
   // CREATING MENU NODES FROM WP API
+  const wpMenus = [
+    {
+      path:
+        "https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/header-utility",
+      name: "HeaderUtility"
+    },
+    {
+      path:
+        "https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/header-primary",
+      name: "HeaderPrimary"
+    },
+    {
+      path:
+        "https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/submenu-why-linode-primary",
+      name: "WhyPrimary"
+    },
+    {
+      path:
+        "https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/submenu-why-linode-services",
+      name: "WhyServices"
+    },
+    {
+      path:
+        "https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/submenu-products-featured",
+      name: "ProductsFeatured"
+    }
+  ];
 
-  // Utility menu
-  const headerUtilityData = () =>
-    axios.get(
-      `https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/header-utility`
-    );
-  // await for results
-  const headerUtility = await headerUtilityData();
+  const allMenus = wpMenus.map(async menu => {
+    const endpoint = () => axios.get(menu.path);
+    // await for results
+    const list = await endpoint();
 
-  headerUtility.data.items.map((menuItem, i) => {
-    // Create your node object
-    const headerUtilityNode = {
-      // Required fields
-      id: `${i}`,
-      parent: `__SOURCE__`,
-      internal: {
-        type: `HeaderUtility`
-      },
-      children: [],
-      title: menuItem.title,
-      url: menuItem.url
-    };
+    list.data.items.map((menuItem, i) => {
+      // Create your node object
+      const itemNode = {
+        // Required fields
+        id: `${i}`,
+        parent: `__SOURCE__`,
+        internal: {
+          type: menu.name
+        },
+        children: [],
+        title: menuItem.title,
+        url: menuItem.url,
+        toggle: menuItem.toggle ? menuItem.toggle : undefined
+      };
 
-    // Get content digest of node. (Required field)
-    const contentDigest = crypto
-      .createHash(`md5`)
-      .update(JSON.stringify(headerUtilityNode))
-      .digest(`hex`);
-    // add it to userNode
-    headerUtilityNode.internal.contentDigest = contentDigest;
+      // Get content digest of node. (Required field)
+      const contentDigest = crypto
+        .createHash(`md5`)
+        .update(JSON.stringify(itemNode))
+        .digest(`hex`);
+      // add it to userNod  e
+      itemNode.internal.contentDigest = contentDigest;
 
-    // Create node with the gatsby createNode() API
-    createNode(headerUtilityNode);
+      // Create node with the gatsby createNode() API
+      return createNode(itemNode);
+    });
   });
 
-  // Primary Links
-  const headerPrimaryData = () =>
-    axios.get(
-      `https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/header-primary`
-    );
-  // await for results
-  const headerPrimary = await headerPrimaryData();
-
-  headerPrimary.data.items.map((menuItem, i) => {
-    // Create your node object
-    const headerPrimaryNode = {
-      // Required fields
-      id: `${i}`,
-      parent: `__SOURCE__`,
-      internal: {
-        type: `HeaderPrimary`
-      },
-      children: [],
-      title: menuItem.title,
-      url: menuItem.url,
-      toggle: menuItem.toggle
-    };
-
-    // Get content digest of node. (Required field)
-    const contentDigest = crypto
-      .createHash(`md5`)
-      .update(JSON.stringify(headerPrimaryNode))
-      .digest(`hex`);
-    // add it to userNode
-    headerPrimaryNode.internal.contentDigest = contentDigest;
-
-    // Create node with the gatsby createNode() API
-    createNode(headerPrimaryNode);
-  });
-
-  // Why Submenu Primary
-  const whyPrimaryData = () =>
-    axios.get(
-      `https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/submenu-why-linode-primary`
-    );
-  // await for results
-  const whyPrimary = await whyPrimaryData();
-
-  whyPrimary.data.items.map((menuItem, i) => {
-    // Create your node object
-    const whyPrimaryNode = {
-      // Required fields
-      id: `${i}`,
-      parent: `__SOURCE__`,
-      internal: {
-        type: `WhyPrimary`
-      },
-      children: [],
-      title: menuItem.title,
-      url: menuItem.url
-    };
-
-    // Get content digest of node. (Required field)
-    const contentDigest = crypto
-      .createHash(`md5`)
-      .update(JSON.stringify(whyPrimaryNode))
-      .digest(`hex`);
-    // add it to userNode
-    whyPrimaryNode.internal.contentDigest = contentDigest;
-
-    // Create node with the gatsby createNode() API
-    createNode(whyPrimaryNode);
-  });
-
-  // Why Submenu Services
-  const whyServicesData = () =>
-    axios.get(
-      `https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/submenu-why-linode-services`
-    );
-  // await for results
-  const whyServices = await whyServicesData();
-
-  whyServices.data.items.map((menuItem, i) => {
-    // Create your node object
-    const whyServicesNode = {
-      // Required fields
-      id: `${i}`,
-      parent: `__SOURCE__`,
-      internal: {
-        type: `WhyServices`
-      },
-      children: [],
-      title: menuItem.title,
-      url: menuItem.url
-    };
-
-    // Get content digest of node. (Required field)
-    const contentDigest = crypto
-      .createHash(`md5`)
-      .update(JSON.stringify(whyServicesNode))
-      .digest(`hex`);
-    // add it to userNode
-    whyServicesNode.internal.contentDigest = contentDigest;
-
-    // Create node with the gatsby createNode() API
-    createNode(whyServicesNode);
-  });
-
-  return;
+  return Promise.all(allMenus, allSpecs);
 };
 
 exports.createPages = async ({ actions, graphql }) => {
