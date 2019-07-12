@@ -148,6 +148,10 @@ body.oh {
   margin-right: 8px;
 }
 
+.primary-nav__link.search:hover {
+  border: 0;
+}
+
 .primary-nav__link .search-icon {
   display: inline-block;
   width: 18px;

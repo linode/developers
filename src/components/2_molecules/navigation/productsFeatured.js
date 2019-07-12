@@ -3,17 +3,17 @@ import { StaticQuery, graphql } from "gatsby";
 
 const _ = require("lodash");
 
-const WhyPrimaryNav = ({ data }) => {
+const ProductsFeaturedNav = ({ data }) => {
   return (
     <>
       <ul
-        id="why-primary"
+        id="products"
         role="menu"
         className="sub-menu__item why-primary-nav"
         aria-expanded="false"
       >
-        <h6 className="sub-menu__header">Why Linode</h6>
-        {data.allWhyPrimary.edges.map((link, i) => {
+        <h6 className="sub-menu__header">Featured</h6>
+        {data.allProductsFeatured.edges.map((link, i) => {
           const node = link.node;
           return (
             <li className="sub-menu__li sub-menu__header-li" key={i}>
@@ -42,8 +42,8 @@ const WhyPrimaryNav = ({ data }) => {
 export default props => (
   <StaticQuery
     query={graphql`
-      query whyPrimary {
-        allWhyPrimary {
+      query productsFeatured {
+        allProductsFeatured {
           edges {
             node {
               id
@@ -54,6 +54,6 @@ export default props => (
         }
       }
     `}
-    render={data => <WhyPrimaryNav data={data} {...props} />}
+    render={data => <ProductsFeaturedNav data={data} {...props} />}
   />
 );
