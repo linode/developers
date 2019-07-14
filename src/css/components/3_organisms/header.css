@@ -56,6 +56,10 @@ body.oh {
   margin-bottom: 0.5rem;
 }
 
+.sub-menu__header-link--w-icon {
+  margin-bottom: 0.75rem;
+}
+
 /* HEADER */
 .header__wrapper {
   position: sticky;
@@ -166,7 +170,7 @@ body.oh {
 
 .sub-menu.visually-hidden {
   top: 66%;
-  /* opacity: 0.75; */
+  opacity: 0.75;
 }
 
 .sub-menu {
@@ -206,6 +210,35 @@ body.oh {
 .sub-menu__content {
   padding: 2rem 4rem;
   border-right: 1px solid #ededf4;
+}
+
+.sub-menu__icon {
+  display: inline-block;
+  float: left;
+  height: 3rem;
+  margin-right: 1rem;
+  overflow: hidden;
+  width: 3rem;
+}
+
+.sub-menu__body {
+  display: block;
+  overflow: hidden;
+}
+
+.sub-menu__title {
+  display: block;
+}
+
+.sub-menu__description {
+  color: #616266;
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.42857;
+  font-weight: 400;
+  letter-spacing: 0;
+  width: 100%;
+  display: block;
 }
 
 .sub-menu__col:first-child .sub-menu__content {

@@ -24,12 +24,23 @@ const ProductsFeaturedNav = ({ data }) => {
                   header__link
                   sub-menu__link
                   sub-menu__header-link
+                  sub-menu__header-link--w-icon
                   why-primary-nav__link
                   ${_.kebabCase(node.title)}
                 `}
                 role="menuitem"
               >
-                {node.title}
+                <img
+                  src={node.icon}
+                  className="sub-menu__icon"
+                  alt={node.title}
+                />
+                <span className="sub-menu__body">
+                  <span className="sub-menu__title">{node.title}</span>
+                  <span className="sub-menu__description">
+                    {node.description}
+                  </span>
+                </span>
               </a>
             </li>
           );
@@ -49,6 +60,8 @@ export default props => (
               id
               title
               url
+              description
+              icon
             }
           }
         }
