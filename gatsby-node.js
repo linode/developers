@@ -115,7 +115,9 @@ exports.sourceNodes = async ({ actions }) => {
         children: [],
         title: menuItem.title,
         url: menuItem.url,
-        toggle: menuItem.toggle ? menuItem.toggle : undefined
+        toggle: menuItem.toggle ? menuItem.toggle : undefined,
+        description: menuItem.description ? menuItem.description : undefined,
+        icon: menuItem.icon ? menuItem.icon : undefined
       };
 
       // Get content digest of node. (Required field)
