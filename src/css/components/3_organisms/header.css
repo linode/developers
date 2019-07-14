@@ -127,6 +127,7 @@ body.oh {
   margin: 0 20px;
   font-size: 1.125rem;
   line-height: 1.33333;
+  font-weight: 600;
   padding: 10px 0;
   border-width: 2px 0;
   border-style: solid;
@@ -160,10 +161,17 @@ body.oh {
 
 .primary-nav__link .search-icon {
   display: inline-block;
-  width: 18px;
   position: relative;
-  top: 2px;
   margin-left: 1px;
+}
+
+.primary-nav__link .search-icon:before {
+  background-image: url("data:image/svg+xml;utf8,<svg width='23px' height='23px' viewBox='0 0 23 23' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><title>Icon / Search</title><g id='Symbols' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'><g id='Icon--Search' transform='translate(1.000000, 2.000000)' stroke='%23353233' stroke-width='2.2'><g><circle id='Oval' cx='11.5' cy='8.5' r='8.5'></circle><path d='M5.5,14.5 L0.816060936,19.1839391' id='Line' stroke-linecap='square'></path></g></g></g></svg>");
+  content: "";
+  display: inline-block;
+  height: 23px;
+  vertical-align: middle;
+  width: 23px;
 }
 
 /* SUBMENUS */
