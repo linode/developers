@@ -8,7 +8,6 @@ import WhyServicesNav from "./whyServicesNav";
 import ProductsFeatured from "./productsFeatured";
 
 import Caret from "../../../images/svgs/angle-down-regular.svg";
-import SearchIcon from "../../../images/svgs/search-solid.svg";
 
 const _ = require("lodash");
 
@@ -114,7 +113,6 @@ class MainSiteNav extends React.Component {
                   ) : (
                     <span className="search-icon">
                       <span className="visually-hidden">{node.title}</span>
-                      <SearchIcon />
                     </span>
                   )}
                 </a>
