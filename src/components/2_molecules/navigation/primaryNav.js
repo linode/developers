@@ -2,10 +2,8 @@ import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 
 import SubMenus from "./subMenus";
-import WhyPrimaryNav from "./whyPrimaryNav";
-import WhyServicesNav from "./whyServicesNav";
-
-import ProductsFeatured from "./productsFeatured";
+import WhyMenus from "./whyMenus";
+import ProductsMenus from "./productsMenus";
 
 import Caret from "../../../images/svgs/angle-down-regular.svg";
 
@@ -127,12 +125,12 @@ class MainSiteNav extends React.Component {
           <div id="sub-menus">
             <SubMenus
               id="js-tab-why-linode"
-              columns={[<WhyPrimaryNav />, <WhyServicesNav />]}
+              menus={<WhyMenus />}
               subMenuOpen={subMenuOpen}
             />
             <SubMenus
               id="js-tab-products"
-              columns={[<ProductsFeatured />]}
+              menus={<ProductsMenus />}
               subMenuOpen={subMenuOpen}
             />
           </div>
