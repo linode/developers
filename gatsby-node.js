@@ -95,6 +95,31 @@ exports.sourceNodes = async ({ actions }) => {
       path:
         "https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/submenu-products-featured",
       name: "ProductsFeatured"
+    },
+    {
+      path:
+        "https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/submenu-products-compute",
+      name: "ProductsCompute"
+    },
+    {
+      path:
+        "https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/submenu-products-storage",
+      name: "ProductsStorage"
+    },
+    {
+      path:
+        "https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/submenu-products-services",
+      name: "ProductsServices"
+    },
+    {
+      path:
+        "https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/submenu-products-networking",
+      name: "ProductsNetworking"
+    },
+    {
+      path:
+        "https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/submenu-products-developer-tools",
+      name: "ProductsDevTools"
     }
   ];
 
