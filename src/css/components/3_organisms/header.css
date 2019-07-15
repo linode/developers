@@ -37,6 +37,7 @@ body.oh {
   letter-spacing: 2px;
   margin: 0;
   text-transform: uppercase;
+  margin-bottom: 1rem;
 }
 
 .sub-menu__header-li {
@@ -218,6 +219,7 @@ body.oh {
 .sub-menu__content {
   padding: 2rem 4rem;
   border-right: 1px solid #ededf4;
+  height: 100%;
 }
 
 .sub-menu__icon {

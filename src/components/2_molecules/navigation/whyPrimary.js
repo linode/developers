@@ -4,10 +4,10 @@ import Col from "./col";
 
 const _ = require("lodash");
 
-const ProductsFeaturedNav = ({ data }) => {
+const WhyPrimary = ({ data }) => {
   return (
-    <Col name="products-featured" header="Featured">
-      {data.allProductsFeatured.edges.map((link, i) => {
+    <Col name="why-primary" header="Why Linode">
+      {data.allWhyPrimary.edges.map((link, i) => {
         const node = link.node;
         return (
           <li className="sub-menu__li sub-menu__header-li" key={i}>
@@ -18,23 +18,12 @@ const ProductsFeaturedNav = ({ data }) => {
                   header__link
                   sub-menu__link
                   sub-menu__header-link
-                  sub-menu__header-link--w-icon
                   why-primary-nav__link
                   ${_.kebabCase(node.title)}
                 `}
               role="menuitem"
             >
-              <img
-                src={node.icon}
-                className="sub-menu__icon"
-                alt={node.title}
-              />
-              <span className="sub-menu__body">
-                <span className="sub-menu__title">{node.title}</span>
-                <span className="sub-menu__description">
-                  {node.description}
-                </span>
-              </span>
+              {node.title}
             </a>
           </li>
         );
@@ -46,20 +35,18 @@ const ProductsFeaturedNav = ({ data }) => {
 export default props => (
   <StaticQuery
     query={graphql`
-      query productsFeatured {
-        allProductsFeatured {
+      query whyPrimary {
+        allWhyPrimary {
           edges {
             node {
               id
               title
               url
-              description
-              icon
             }
           }
         }
       }
     `}
-    render={data => <ProductsFeaturedNav data={data} {...props} />}
+    render={data => <WhyPrimary data={data} {...props} />}
   />
 );
