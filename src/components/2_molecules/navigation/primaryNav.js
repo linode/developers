@@ -38,7 +38,7 @@ class MainSiteNav extends React.Component {
       Object.keys(otherMenus).map(e => {
         const om = otherMenus[e];
         return (
-          om.classList.add("visually-hidden") +
+          om.classList.add("visually-hidden", "visibility-hidden") +
           document.body.classList.remove("oh")
         );
       });
@@ -49,6 +49,13 @@ class MainSiteNav extends React.Component {
         !this.isDescendant(subMenus, e.target) &&
         hideAll();
     });
+
+    document.onkeydown = function(evt) {
+      evt = evt || window.event;
+      if (evt.keyCode == 27) {
+        hideAll();
+      }
+    };
   }
 
   openSubMenu = e => {
@@ -61,7 +68,7 @@ class MainSiteNav extends React.Component {
         const om = otherMenus[e];
         return (
           om !== subMenuContainer &&
-          om.classList.add("visually-hidden") +
+          om.classList.add("visually-hidden", "visibility-hidden") +
             document.body.classList.remove("oh")
         );
       });
@@ -71,10 +78,13 @@ class MainSiteNav extends React.Component {
 
     if (subMenuContainer !== null) {
       if (!subMenuContainer.classList.contains("visually-hidden")) {
-        subMenuContainer.classList.add("visually-hidden");
+        subMenuContainer.classList.add("visually-hidden", "visibility-hidden");
         document.body.classList.remove("oh");
       } else {
-        subMenuContainer.classList.remove("visually-hidden");
+        subMenuContainer.classList.remove(
+          "visually-hidden",
+          "visibility-hidden"
+        );
         document.body.classList.add("oh");
       }
     }
@@ -97,7 +107,7 @@ class MainSiteNav extends React.Component {
               <React.Fragment key={i}>
                 <a
                   key={node.id}
-                  href={node.url ? node.url : null}
+                  href={node.url ? node.url : "#"}
                   className={`header__link primary-nav__link ${
                     node.toggle ? "dropdown" : ""
                   } ${_.kebabCase(node.title)}`}
