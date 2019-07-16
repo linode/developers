@@ -5,12 +5,12 @@ import WhyServices from "./whyServices";
 
 const ProductMenus = () => (
   <>
-    <div class="sub-menu__col">
+    <div className="sub-menu__col">
       <div className="sub-menu__content">
         <WhyPrimary />
       </div>
     </div>
-    <div class="sub-menu__col">
+    <div className="sub-menu__col">
       <div className="sub-menu__content">
         <WhyServices />
       </div>

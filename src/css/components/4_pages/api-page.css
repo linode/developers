@@ -1,7 +1,4 @@
 .layout-fixed .sidebar-container {
-  /* position: fixed;
-  top: 122px;
-  height: calc(100vh - 64px); */
   overflow-y: hidden;
   width: 100%;
 }
@@ -33,7 +30,7 @@
 
 .endpoint-anchor {
   position: relative;
-  top: -142px;
+  top: -100px;
   visibility: hidden;
 }
 
