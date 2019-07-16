@@ -18,7 +18,6 @@ const WhyPrimary = ({ data }) => {
                   header__link
                   sub-menu__link
                   sub-menu__header-link
-                  why-primary-nav__link
                   ${_.kebabCase(node.title)}
                 `}
               role="menuitem"

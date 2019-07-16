@@ -4,13 +4,13 @@ import Col from "./col";
 
 const _ = require("lodash");
 
-const WhyServices = ({ data }) => {
+const CommunityServices = ({ data }) => {
   return (
-    <Col name="why-services" header="&nbsp;">
-      {data.allWhyServices.edges.map((link, i) => {
+    <Col name="community-services" header="Engage">
+      {data.allCommunityServices.edges.map((link, i) => {
         const node = link.node;
         return (
-          <li className="sub-menu__li" key={i}>
+          <li className="sub-menu__li sub-menu__header-li" key={i}>
             <a
               key={node.id}
               href={node.url ? node.url : null}
@@ -33,8 +33,8 @@ const WhyServices = ({ data }) => {
 export default props => (
   <StaticQuery
     query={graphql`
-      query whyServices {
-        allWhyServices {
+      query communityServices {
+        allCommunityServices {
           edges {
             node {
               id
@@ -45,6 +45,6 @@ export default props => (
         }
       }
     `}
-    render={data => <WhyServices data={data} {...props} />}
+    render={data => <CommunityServices data={data} {...props} />}
   />
 );
