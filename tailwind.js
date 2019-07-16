@@ -17,4 +17,6 @@ config.padding["20"] = "5rem";
 config.leading["xs"] = ".75";
 config.leading["text-sm"] = "1.9";
 
+config.maxWidth["3xl"] = "1296px";
+
 module.exports = config;

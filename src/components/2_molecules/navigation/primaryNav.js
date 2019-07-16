@@ -96,7 +96,7 @@ class MainSiteNav extends React.Component {
     return (
       <>
         <nav
-          id="main-menu"
+          id="primary-nav"
           role="menu"
           className="primary-nav"
           aria-expanded="false"
