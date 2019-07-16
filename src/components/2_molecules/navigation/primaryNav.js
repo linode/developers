@@ -4,6 +4,7 @@ import { StaticQuery, graphql } from "gatsby";
 import SubMenus from "./subMenus";
 import WhyMenus from "./whyMenus";
 import ProductsMenus from "./productsMenus";
+import CommunityMenus from "./communityMenus";
 
 import Caret from "../../../images/svgs/angle-down-regular.svg";
 
@@ -105,6 +106,7 @@ class MainSiteNav extends React.Component {
                     node.toggle ? _.kebabCase(node.toggle) : undefined
                   }
                   onClick={this.openSubMenu}
+                  tabIndex={0}
                 >
                   {node.title !== "Search" ? (
                     node.title
@@ -131,6 +133,11 @@ class MainSiteNav extends React.Component {
             <SubMenus
               id="js-tab-products"
               menus={<ProductsMenus />}
+              subMenuOpen={subMenuOpen}
+            />
+            <SubMenus
+              id="js-tab-community"
+              menus={<CommunityMenus />}
               subMenuOpen={subMenuOpen}
             />
           </div>
