@@ -120,6 +120,16 @@ exports.sourceNodes = async ({ actions }) => {
       path:
         "https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/submenu-products-developer-tools",
       name: "ProductsDevTools"
+    },
+    {
+      path:
+        "https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/submenu-community-primary",
+      name: "CommunityPrimary"
+    },
+    {
+      path:
+        "https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/submenu-community-secondary",
+      name: "CommunityServices"
     }
   ];
 
