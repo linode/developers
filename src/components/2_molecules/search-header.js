@@ -8,23 +8,10 @@ class SearchHeader extends React.Component {
     this.state = {
       searchIsFixed: false
     };
-    this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentDidMount() {
-    window.addEventListener("scroll", this.handleScroll);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("scroll", this.handleScroll);
-  }
-
-  handleScroll() {
-    if (window.innerWidth >= 640) {
-      this.setState({ searchIsFixed: false });
-    } else if (window.scrollY <= 30 && this.state.searchIsFixed === true) {
-      this.setState({ searchIsFixed: false });
-    } else if (window.scrollY > 30 && this.state.searchIsFixed !== true) {
+    if (window.innerWidth <= 640) {
       this.setState({ searchIsFixed: true });
     }
   }

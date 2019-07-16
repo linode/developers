@@ -81,6 +81,12 @@ export default class Search extends Component {
     );
   }
 
+  // clearSearch = () => {
+  //   this.setState({
+  //     results: []
+  //   });
+  // };
+
   getOrCreateIndex = () =>
     this.index
       ? this.index
