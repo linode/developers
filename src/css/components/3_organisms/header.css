@@ -80,7 +80,7 @@ body.oh {
 .header__wrapper {
   position: sticky;
   top: -37px;
-  z-index: 2;
+  z-index: 3;
   background-color: white;
   border-bottom: 1px solid #ededf4;
 }

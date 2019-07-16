@@ -25,3 +25,8 @@ body {
   position: relative;
   z-index: 1;
 }
+
+.layout-fixed .banner__wrapper,
+.layout-fixed .dlc-nav {
+  /* margin-left: 300px; */
+}
