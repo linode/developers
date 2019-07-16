@@ -5,7 +5,7 @@ const SubMenu = ({ id, menus, subMenuOpen }) => (
     id={id}
     className={`
     sub-menu
-    ${subMenuOpen === false ? `visually-hidden` : ""}
+    ${subMenuOpen === false ? `visually-hidden visibility-hidden` : ""}
   `}
   >
     <div className="sub-menu__container">{menus}</div>
