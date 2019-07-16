@@ -5,7 +5,7 @@ const isPartiallyActive = ({ isPartiallyCurrent }) =>
   isPartiallyCurrent
     ? {
         className:
-          "main-nav-link text-BaseNavGrey hover:text-white relative active"
+          "dlc-nav__link text-BaseNavGrey hover:text-white relative active"
       }
     : null;
 
@@ -16,21 +16,23 @@ const DLCMenu = ({ data }) => {
       <nav
         id="main-menu"
         role="menu"
-        className="main-nav mb-8"
+        className="dlc-nav bg-white"
         aria-expanded="false"
       >
-        {dlcLinks.map(link => (
-          <Link
-            key={link.name}
-            to={link.link}
-            className="nav-link text-white underline hover:text-white hover:no-underline relative mx-2"
-            role="menuitem"
-            activeClassName="active"
-            getProps={link === "/" ? undefined : isPartiallyActive}
-          >
-            {link.name}
-          </Link>
-        ))}
+        <div className="max-w-3xl mx-auto px-4 py-4">
+          {dlcLinks.map(link => (
+            <Link
+              key={link.name}
+              to={link.link}
+              className="dlc-nav__link relative mx-4"
+              role="menuitem"
+              activeClassName="active"
+              getProps={link === "/" ? undefined : isPartiallyActive}
+            >
+              {link.name}
+            </Link>
+          ))}
+        </div>
       </nav>
     </>
   );

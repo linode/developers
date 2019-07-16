@@ -20,11 +20,7 @@ const APIDocs = ({ data }) => {
   const n = data.allDataJson.edges[0].node;
 
   return (
-    <Layout
-      // title="API Documentation"
-      // subtitle="Linode API Documentation"
-      fullWidth
-    >
+    <Layout title="Linode API Documentation" fullWidth>
       <SEO title="API Documentation" description="" />
       <div className="flex flex-wrap">
         <div className="sidebar-container">

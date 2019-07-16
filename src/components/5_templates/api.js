@@ -32,11 +32,7 @@ const apiPage = ({ data }) => {
     default: "default"
   };
   return (
-    <Layout
-      // title="API Documentation"
-      // subtitle="Linode API Documentation"
-      fullWidth
-    >
+    <Layout title="Linode API Documentation" fullWidth>
       <SEO title="Linode API Documentation" description="Container Tools" />
       <div className="flex flex-wrap">
         <div className="sidebar-container">

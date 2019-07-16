@@ -1,0 +1,22 @@
+.dlc-nav {
+  position: sticky;
+  top: 75px;
+  z-index: 2;
+  border-bottom: 1px solid #ededf4;
+  /* box-shadow: 0 4px 2px -2px #ededf4; */
+}
+
+.dlc-nav__link {
+  color: rgb(50, 54, 59);
+  font-weight: 600;
+}
+
+.dlc-nav__link:hover,
+.dlc-nav__link.active {
+  color: rgb(50, 54, 59);
+  text-decoration: underline;
+}
+
+.dlc-nav__link:first-child {
+  margin-left: 0;
+}

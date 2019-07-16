@@ -5,7 +5,7 @@ const MainSiteGlobalMenu = ({ data }) => {
   return (
     <div className="utility-nav__container">
       <nav
-        id="main-menu"
+        id="utility-nav"
         role="menu"
         className="utility-nav"
         aria-expanded="false"

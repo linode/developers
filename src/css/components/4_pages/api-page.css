@@ -1,20 +1,3 @@
-.layout-fixed .sidebar-container {
-  overflow-y: hidden;
-  width: 100%;
-}
-
-.api-navigation-wrapper {
-  padding: 1.2rem 1.2rem 0;
-  overflow-y: scroll;
-  width: 100%;
-  height: 100%;
-}
-
-.api-navigation {
-  z-index: 2;
-  top: 2rem;
-}
-
 .api-content-wrapper {
   overflow: auto;
 }
@@ -30,90 +13,15 @@
 
 .endpoint-anchor {
   position: relative;
-  top: -100px;
+  top: -150px;
   visibility: hidden;
-}
-
-.list-group,
-.list-group ul {
-  max-height: 0;
-  visibility: hidden;
-  line-height: 1;
-}
-
-.active-group .list-group {
-  max-height: 100%;
-  visibility: visible;
-  border-left: 1px solid #ddd;
-  @apply mt-2 mb-4 ml-2 pl-2;
-}
-
-.active-group .list-group ul {
-  max-height: 100%;
-  visibility: visible;
-}
-
-.active-group .list-group li {
-  @apply my-2;
-}
-
-.caret {
-  @apply text-BaseBlackFull;
-  width: 10px;
-  height: 10px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.2s ease-in-out;
-}
-
-.caret svg {
-  position: relative;
-  top: -1px;
-}
-
-.active-group .caret {
-  transform: rotate(90deg);
-}
-
-.api-link {
-  position: relative;
-  left: 2px;
 }
 
 .top-menu-anchor {
   position: relative;
-  top: -64px;
+  top: -120px;
   visibility: hidden;
   display: block;
-}
-
-.api-link.active-item {
-  @apply text-BaseBlackFull font-bold no-underline;
-}
-
-.list-container {
-  display: none;
-}
-
-.sidemenu-button {
-  width: calc(100% - 12px);
-  padding: 6px 0;
-  margin: 0 6px;
-  text-align: left;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #ddd;
-  outline: none;
-}
-
-.sidemenu-button:focus {
-  outline: 1px dotted #ddd;
-}
-
-.active-group .sidemenu-button {
-  border-bottom-color: transparent;
 }
 
 .response-200 {
@@ -136,46 +44,7 @@
   @apply border-grey-light;
 }
 
-.search-header {
-  position: relative;
-  top: 0;
-  width: auto;
-  transition: all 0.15s cubic-bezier(0, 0, 0.2, 1);
-}
-
-.search-header.search-header--fixed {
-  position: fixed;
-  top: 65px;
-  left: 0;
-  width: 100%;
-  z-index: 1;
-  padding: 1rem;
-  background-color: #fff;
-}
-
-.search-results-list {
-  background-color: #fff;
-}
-
-.search-header--fixed .search-results-list {
-  max-height: 250px;
-  height: 100%;
-  overflow-y: scroll;
-  box-shadow: 0px 5px 8px -2px rgba(0, 0, 0, 0.5);
-}
-
 @screen md {
-  .layout-fixed .sidebar-container {
-    height: calc(100vh - 50px);
-    position: fixed;
-    top: 50px;
-    width: auto;
-  }
-
-  .api-content-wrapper {
-    margin-left: 300px;
-  }
-
   .list-container {
     display: block;
     margin-bottom: 0;
