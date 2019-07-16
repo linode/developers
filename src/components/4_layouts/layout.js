@@ -24,7 +24,6 @@ const Layout = ({ children, title, subtitle, fullWidth, noFooter }) => (
         <Header
           siteTitle={data.site.siteMetadata.title}
           dlcLinks={data.site.siteMetadata.dlcLinks}
-          border={fullWidth}
         />
         {title && subtitle && <Banner title={title} subtitle={subtitle} />}
         <div

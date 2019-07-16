@@ -1,26 +1,26 @@
 import React from "react";
 import { Link } from "gatsby";
-import MainSiteGlobalMenu from "../2_molecules/MainSiteGlobalMenu";
-import MainSiteNav from "../2_molecules/MainSiteNav";
+import UtilityNav from "../2_molecules/navigation/utilityNav";
+import PrimaryNav from "../2_molecules/navigation/primaryNav";
 
-import Logo from "../../images/svgs/logo.svg";
+import Logo from "../../images/svgs/new-logo.svg";
 
-const Header = ({ border }) => (
-  <div
-    className={`header-wrapper bg-white ${border ? "border-b border-api" : ""}`}
-  >
+const Header = () => (
+  <div className="header__wrapper" id="header">
     <header className="header">
-      <div className="border-b py-2">
-        <MainSiteGlobalMenu />
+      <div className="utility-nav__wrapper">
+        <UtilityNav />
       </div>
-      <div className="flex flex-wrap items-center justify-between py-4 max-w-3xl mx-auto px-4 md:px-8">
-        <div className="logo">
-          <Link to="/" className="flex items-center">
-            <Logo />
-          </Link>
-        </div>
-        <div>
-          <MainSiteNav />
+      <div className="primary-nav__wrapper">
+        <div className="primary-nav__inner">
+          <div className="logo">
+            <Link to="/" className="flex items-center">
+              <Logo />
+            </Link>
+          </div>
+          <div>
+            <PrimaryNav />
+          </div>
         </div>
       </div>
     </header>
