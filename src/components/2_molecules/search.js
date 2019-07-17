@@ -21,6 +21,7 @@ export default class Search extends Component {
           type="text"
           value={this.state.query}
           onChange={this.search}
+          onSubmit={this.clearSearch}
           placeholder="Search"
         />
         {this.state.query &&
@@ -81,11 +82,11 @@ export default class Search extends Component {
     );
   }
 
-  // clearSearch = () => {
-  //   this.setState({
-  //     results: []
-  //   });
-  // };
+  clearSearch = () => {
+    this.setState({
+      query: ""
+    });
+  };
 
   getOrCreateIndex = () =>
     this.index

@@ -15,6 +15,7 @@ import BodySchema from "../../components/2_molecules/BodySchema";
 import Security from "../../components/2_molecules/Security";
 import ResponseList from "../../components/2_molecules/ResponseList";
 import ResponseSamples from "../2_molecules/ResponseSamples";
+import SearchHeader from "../2_molecules/search-header";
 
 import Copy from "../../images/svgs/copy.svg";
 
@@ -39,6 +40,9 @@ const apiPage = ({ data }) => {
     >
       <SEO title="Linode API Documentation" description="Container Tools" />
       <div className="flex flex-wrap">
+        <div className="md:hidden search-header-wrapper">
+          <SearchHeader />
+        </div>
         <div className="sidebar-container">
           <Sidebar />
         </div>
