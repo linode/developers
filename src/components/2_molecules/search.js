@@ -21,7 +21,6 @@ export default class Search extends Component {
           type="text"
           value={this.state.query}
           onChange={this.search}
-          onSubmit={this.clearSearch}
           placeholder="Search"
         />
         {this.state.query &&
@@ -36,7 +35,10 @@ export default class Search extends Component {
                         .toLowerCase()
                         .includes(query.toLowerCase()) && (
                         <li className="list-reset pt-1 px-2">
-                          <Link to={`/api/v4/${_.kebabCase(n.name)}`}>
+                          <Link
+                            to={`/api/v4/${_.kebabCase(n.name)}`}
+                            onClick={this.clearSearch}
+                          >
                             {n.getSummary}
                           </Link>
                         </li>
@@ -46,7 +48,10 @@ export default class Search extends Component {
                         .toLowerCase()
                         .includes(query.toLowerCase()) && (
                         <li className="list-reset pt-1 px-2">
-                          <Link to={`/api/v4/${_.kebabCase(n.name)}/#post`}>
+                          <Link
+                            to={`/api/v4/${_.kebabCase(n.name)}/#post`}
+                            onClick={this.clearSearch}
+                          >
                             {n.postSummary}
                           </Link>
                         </li>
@@ -56,7 +61,10 @@ export default class Search extends Component {
                         .toLowerCase()
                         .includes(query.toLowerCase()) && (
                         <li className="list-reset pt-1 px-2">
-                          <Link to={`/api/v4/${_.kebabCase(n.name)}/#put`}>
+                          <Link
+                            to={`/api/v4/${_.kebabCase(n.name)}/#put`}
+                            onClick={this.clearSearch}
+                          >
                             {n.putSummary}
                           </Link>
                         </li>
@@ -66,7 +74,10 @@ export default class Search extends Component {
                         .toLowerCase()
                         .includes(query.toLowerCase()) && (
                         <li className="list-reset pt-1 px-2">
-                          <Link to={`/api/v4/${_.kebabCase(n.name)}/#delete`}>
+                          <Link
+                            to={`/api/v4/${_.kebabCase(n.name)}/#delete`}
+                            onClick={this.clearSearch}
+                          >
                             {n.deleteSummary}
                           </Link>
                         </li>
