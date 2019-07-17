@@ -5,6 +5,7 @@ import Markdown from "react-markdown/with-html";
 
 import Layout from "../../components/4_layouts/layout";
 import SEO from "../../components/0_utilities/seo";
+import SearchHeader from "../../components/2_molecules/search-header";
 import Sidebar from "../../components/2_molecules/sidemenu";
 
 const HeadingRenderer = props => {
@@ -27,6 +28,9 @@ const APIDocs = ({ data }) => {
     >
       <SEO title="API Documentation" description="" />
       <div className="flex flex-wrap">
+        <div className="md:hidden search-header-wrapper">
+          <SearchHeader />
+        </div>
         <div className="sidebar-container">
           <Sidebar />
         </div>
