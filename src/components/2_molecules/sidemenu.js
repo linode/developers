@@ -131,7 +131,7 @@ class SideMenu extends React.Component {
       <div className="api-navigation-wrapper md:bg-ThemeCell">
         <div className="api-navigation">
           <APITitle />
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <SearchHeader />
           </div>
           <div>

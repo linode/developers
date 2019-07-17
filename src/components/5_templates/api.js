@@ -40,7 +40,7 @@ const apiPage = ({ data }) => {
     >
       <SEO title="Linode API Documentation" description="Container Tools" />
       <div className="flex flex-wrap">
-        <div className="md:hidden search-header-wrapper">
+        <div className="search-header-wrapper">
           <SearchHeader />
         </div>
         <div className="sidebar-container">
