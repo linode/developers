@@ -34,7 +34,7 @@ export default class Search extends Component {
                       n.getSummary
                         .toLowerCase()
                         .includes(query.toLowerCase()) && (
-                        <li className="list-reset pt-1 px-2">
+                        <li className="list-reset pt-3 md:pt-1 px-2">
                           <Link
                             to={`/api/v4/${_.kebabCase(n.name)}`}
                             onClick={this.clearSearch}
@@ -47,7 +47,7 @@ export default class Search extends Component {
                       n.postSummary
                         .toLowerCase()
                         .includes(query.toLowerCase()) && (
-                        <li className="list-reset pt-1 px-2">
+                        <li className="list-reset pt-3 md:pt-1 px-2">
                           <Link
                             to={`/api/v4/${_.kebabCase(n.name)}/#post`}
                             onClick={this.clearSearch}
@@ -60,7 +60,7 @@ export default class Search extends Component {
                       n.putSummary
                         .toLowerCase()
                         .includes(query.toLowerCase()) && (
-                        <li className="list-reset pt-1 px-2">
+                        <li className="list-reset pt-3 md:pt-1 px-2">
                           <Link
                             to={`/api/v4/${_.kebabCase(n.name)}/#put`}
                             onClick={this.clearSearch}
@@ -73,7 +73,7 @@ export default class Search extends Component {
                       n.deleteSummary
                         .toLowerCase()
                         .includes(query.toLowerCase()) && (
-                        <li className="list-reset pt-1 px-2">
+                        <li className="list-reset pt-3 md:pt-1 px-2">
                           <Link
                             to={`/api/v4/${_.kebabCase(n.name)}/#delete`}
                             onClick={this.clearSearch}

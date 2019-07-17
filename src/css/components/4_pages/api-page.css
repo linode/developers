@@ -75,6 +75,7 @@
 .api-link {
   position: relative;
   left: 2px;
+  line-height: 1.4;
 }
 
 .top-menu-anchor {
