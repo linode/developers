@@ -264,6 +264,7 @@ export const query = graphql`
           post {
             x_linode_grant
             summary
+            tags
             description
             operationId
             x_linode_cli_action
@@ -347,6 +348,7 @@ export const query = graphql`
           put {
             x_linode_grant
             summary
+            tags
             description
             operationId
             x_linode_cli_action
@@ -423,6 +425,7 @@ export const query = graphql`
             }
           }
           delete {
+            tags
             summary
             description
             operationId
