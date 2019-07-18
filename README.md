@@ -1,38 +1,24 @@
-# developers-linode-com
+# DLC Built with Gatsby
 
-The developers.linode.com website.
+The developers.linode.com website built with Gatsby and including the API Docs
 
-## Tech/Framework
-
-Built with:
-
-* [Hugo](https://themes.gohugo.io/) (Golang)
-
-## Running Locally
-
-### Prerequisites
-
-Must have Hugo installed:
-
-`brew install hugo`
-
-### Setup
-
-From within your local developers-linode-com repository:
+## Setup
 
 `yarn`
 
-then
+`yarn develop`
 
-`gulp dev`
+you may need to install the Gatsby CLI as well `npm install -g gatsby-cli`
 
-Once running, you should be able to view the site in a browser on port 1313:
+Check out the site at http://localhost:8000/
 
-http://localhost:1313/
+### Build
 
-## Deployment
+The API documentation in this site is also indexed in Algolia, so that
+it can be searched across Linode's services. The scripts for this are
+located in the `/search` directory. In order to run them correctly,
+you will need to create a `.env` file in the root directory with the 
+following values:
 
-### !!!! Important !!!!
-If you are merging/deploying changes to both this repository _and_ to
-the linode-hugo-theme repo on GitHub, **YOU MUST** merge the GitHub pull
-requests first! The order in which they are merged matters.
+ALGOLIA_API_KEY=(your key here)
+ALGOLIA_API_SECRET=(your secret here)

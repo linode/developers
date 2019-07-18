@@ -1,0 +1,66 @@
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a {
+  text-decoration: none !important;
+}
+
+input[type="text"] {
+  background-color: white;
+}
+
+.tag.big {
+  font-size: 1.1rem;
+}
+
+.border-top {
+  border-top-width: 1px;
+}
+
+.kubernetes-body code {
+  @apply p-4 mt-2 mb-2 bg-ThemeBeige block;
+}
+
+.api-body pre code {
+  @apply p-2 mt-2 mb-4 bg-ThemeBeige block;
+  overflow-x: auto;
+}
+
+.api-body code {
+  @apply p-1 bg-ThemeBeige;
+}
+
+.api-desc code {
+  @apply font-normal px-1 bg-ThemeTagGrey inline text-xs relative;
+  padding-top: 4px;
+  padding-bottom: 3px;
+  width: fit-content;
+  top: -1px;
+}
+
+.api-desc p:first-child {
+  margin-top: 0;
+}
+
+.api-body table {
+  width: 100%;
+  @apply border border-grey-light;
+}
+
+.api-body thead {
+  text-align: left;
+}
+
+.api-body th,
+.api-body td {
+  @apply p-2 border border-grey-light;
+  @apply leading-tight;
+}
+
+.api-body table code {
+  @apply py-0 px-1 m-0 mb-1 inline-block text-BaseRed;
+  line-height: 1.7;
+  position: relative;
+  top: 5px;
+}
