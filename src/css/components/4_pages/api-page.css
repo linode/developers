@@ -74,7 +74,7 @@
 
 .api-link {
   position: relative;
-  left: 2px;
+  line-height: 1.4;
 }
 
 .top-menu-anchor {
@@ -93,9 +93,9 @@
 }
 
 .sidemenu-button {
-  width: calc(100% - 12px);
+  width: 100%;
   padding: 6px 0;
-  margin: 0 6px;
+  /* margin: 0 6px; */
   text-align: left;
   display: flex;
   justify-content: space-between;
@@ -132,20 +132,12 @@
   @apply border-grey-light;
 }
 
-.search-header {
-  position: relative;
-  top: 0;
-  width: auto;
-  transition: all 0.15s cubic-bezier(0, 0, 0.2, 1);
-}
-
-.search-header.search-header--fixed {
-  position: fixed;
+.search-header-wrapper {
+  position: sticky;
   top: 65px;
-  left: 0;
   width: 100%;
   z-index: 1;
-  padding: 1rem;
+  padding: 1rem 1rem 0;
   background-color: #fff;
 }
 
@@ -153,7 +145,7 @@
   background-color: #fff;
 }
 
-.search-header--fixed .search-results-list {
+.search-header .search-results-list {
   max-height: 250px;
   height: 100%;
   overflow-y: scroll;
@@ -161,6 +153,12 @@
 }
 
 @screen md {
+  .search-header .search-results-list {
+    max-height: none;
+    overflow-y: auto;
+    box-shadow: none;
+  }
+
   .layout-fixed .sidebar-container {
     height: calc(100vh - 64px);
     position: fixed;

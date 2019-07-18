@@ -12,6 +12,7 @@ import SEO from "../../components/0_utilities/seo";
 import Sidebar from "../../components/2_molecules/sidemenu";
 import ParamDisplay from "../../components/2_molecules/paramDisplay";
 import BodySchema from "../../components/2_molecules/BodySchema";
+import SearchHeader from "../2_molecules/search-header";
 import Security from "../../components/2_molecules/Security";
 import ResponseList from "../../components/2_molecules/ResponseList";
 import ResponseSamples from "../2_molecules/ResponseSamples";
@@ -39,6 +40,9 @@ const apiPage = ({ data }) => {
     >
       <SEO title="Linode API Documentation" description="Container Tools" />
       <div className="flex flex-wrap">
+        <div className="md:hidden search-header-wrapper">
+          <SearchHeader />
+        </div>
         <div className="sidebar-container">
           <Sidebar />
         </div>
@@ -260,6 +264,7 @@ export const query = graphql`
           post {
             x_linode_grant
             summary
+            tags
             description
             operationId
             x_linode_cli_action
@@ -343,6 +348,7 @@ export const query = graphql`
           put {
             x_linode_grant
             summary
+            tags
             description
             operationId
             x_linode_cli_action
@@ -419,6 +425,7 @@ export const query = graphql`
             }
           }
           delete {
+            tags
             summary
             description
             operationId
