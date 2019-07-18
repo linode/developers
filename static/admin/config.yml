@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: gatsby # Branch to update (optional; defaults to master)
+  branch: development # Branch to update (optional; defaults to master)
 
 publish_mode: editorial_workflow
 
