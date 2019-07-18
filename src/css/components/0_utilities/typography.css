@@ -22,9 +22,13 @@ input[type="text"] {
   @apply p-4 mt-2 mb-2 bg-ThemeBeige block;
 }
 
-.api-body code {
+.api-body pre code {
   @apply p-2 mt-2 mb-4 bg-ThemeBeige block;
   overflow-x: auto;
+}
+
+.api-body code {
+  @apply p-1 bg-ThemeBeige;
 }
 
 .api-desc code {
@@ -55,6 +59,8 @@ input[type="text"] {
 }
 
 .api-body table code {
-  @apply py-0 px-2 m-0 mb-1 inline-block text-BaseRed rounded;
+  @apply py-0 px-1 m-0 mb-1 inline-block text-BaseRed;
   line-height: 1.7;
+  position: relative;
+  top: 5px;
 }
