@@ -135,7 +135,7 @@ class SideMenu extends React.Component {
             <SearchHeader />
           </div>
           <div>
-            <ul className="p-0 ml-1 mb-4">
+            <ul className="p-0 mb-4">
               <TopMenu />
             </ul>
             {groups.map((group, i) => {
