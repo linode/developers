@@ -121,7 +121,7 @@ class MainSiteNav extends React.Component {
                   {node.title !== "Search" ? (
                     node.title
                   ) : (
-                    <span className="search-icon">
+                    <span className="header-search-icon">
                       <span className="visually-hidden">{node.title}</span>
                     </span>
                   )}
