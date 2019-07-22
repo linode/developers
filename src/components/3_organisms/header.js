@@ -14,7 +14,7 @@ const Header = () => (
       <div className="primary-nav__wrapper">
         <div className="primary-nav__inner">
           <div className="logo">
-            <Link to="/" className="flex items-center">
+            <Link to="/" className="logo__link">
               <Logo />
             </Link>
           </div>
