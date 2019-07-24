@@ -70,14 +70,17 @@ const apiPage = ({ data }) => {
                             {mode}
                           </span>
                           <pre className="whitespace-pre-line">
-                            {m.servers[0].url}
+                            {m.servers
+                              ? m.servers[0].url
+                              : "https://api.linode.com/v4"}
                             {n.name}
                           </pre>
                         </div>
-                        {m.servers[0].url ===
-                          "https://api.linode.com/v4beta" && (
-                          <span className="tag tag-beta">BETA</span>
-                        )}
+                        {m.servers &&
+                          m.servers[0].url ===
+                            "https://api.linode.com/v4beta" && (
+                            <span className="tag tag-beta">BETA</span>
+                          )}
                       </div>
                       <Markdown
                         source={m.description}
