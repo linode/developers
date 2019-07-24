@@ -37,13 +37,27 @@ body.oh {
   font-size: 16px;
 }
 
+.header *:after, .header *:before {
+  box-sizing: inherit;
+}
+
 .header__link {
   color: #32363b;
   user-select: none;
 }
 
-.header__link:hover {
+.header__link:first-child {
+  margin-left: 0;
+}
+
+.header__link:last-child {
+  margin-right: 0;
+}
+
+.header__link:hover,
+.header__link:focus {
   color: #32363b;
+  text-decoration: none;
 }
 
 .sub-menu__li {
@@ -58,7 +72,8 @@ body.oh {
 }
 
 .sub-menu__header {
-  font-size: 0.75rem;
+  font-size: 12px;
+  line-height: 13px;
   font-weight: 400;
   color: #999b9d;
   letter-spacing: 2px;
@@ -88,16 +103,17 @@ body.oh {
 .header__wrapper {
   position: sticky;
   top: -37px;
-  z-index: 3;
+  z-index: 11;
   background-color: white;
-  border-bottom: 1px solid #ededf4;
+  border-bottom: 1px solid rgb(237, 237, 244);
 }
 
 /* UTILITY NAV */
 
 .utility-nav__wrapper {
-  border-bottom: 1px solid #ededf4;
-  padding-top: 1px;
+  border-bottom: 1px solid rgb(237, 237, 244);
+  padding: 0 16px;
+  height: 37px;
 }
 
 .utility-nav__container {
@@ -109,7 +125,6 @@ body.oh {
 }
 
 .utility-nav {
-  padding: 0 16px;
   font-weight: 400;
 }
 
@@ -118,11 +133,13 @@ body.oh {
   line-height: 17px;
   border: 0 solid transparent;
   border-width: 2px 0;
-  cursor: pointer;
   display: inline-block;
   margin: 0 12px;
   padding: 8px 0;
   text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  top: -1px;
 }
 
 /* PRIMARY NAV */
@@ -177,7 +194,7 @@ body.oh {
 }
 
 .primary-nav__link.search {
-  margin-right: 8px;
+  margin-right: 0;
 }
 
 .primary-nav__link.search:hover {
@@ -252,22 +269,24 @@ body.oh {
   margin-right: 16px;
   overflow: hidden;
   width: 48px;
+  vertical-align: top;
 }
 
 .sub-menu__body {
-  display: block;
+  display: inline-block;
   overflow: hidden;
 }
 
 .sub-menu__title {
   display: block;
+  font-size: 22px;
 }
 
 .sub-menu__description {
   color: #616266;
-  margin-top: 0.25rem;
-  font-size: 0.875rem;
-  line-height: 1.42857;
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 20px;
   font-weight: 400;
   letter-spacing: 0;
   width: 100%;
