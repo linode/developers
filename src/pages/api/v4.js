@@ -8,6 +8,12 @@ import SEO from "../../components/0_utilities/seo";
 import SearchHeader from "../../components/2_molecules/search-header";
 import Sidebar from "../../components/2_molecules/sidemenu";
 
+import Caret from "../../images/svgs/caret.svg";
+
+const scrollToTop = () => {
+  window.setTimeout(() => window.scrollTo(0, 0, "smooth"));
+};
+
 const HeadingRenderer = props => {
   if (props.level === 1) {
     return <h2>{props.children}</h2>;
@@ -44,6 +50,15 @@ const APIDocs = ({ data }) => {
             />
           </div>
         </div>
+      </div>
+      <div
+        className="back-to-top md:hidden"
+        onClick={scrollToTop}
+        id="back-to-top"
+      >
+        <span className="back-to-top__caret">
+          <Caret />
+        </span>
       </div>
     </Layout>
   );
