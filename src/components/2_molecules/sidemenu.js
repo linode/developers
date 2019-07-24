@@ -104,6 +104,15 @@ class SideMenu extends React.Component {
     }
   };
 
+  toggleMobileMenu = e => {
+    const menu = document.querySelector(".mobile-sidebar");
+    if (menu && menu.classList.contains("is-expanded")) {
+      menu.classList.remove("is-expanded");
+    } else if (menu) {
+      menu.classList.add("is-expanded");
+    }
+  };
+
   render() {
     const { activePage } = this.state;
     const groups = this.props.data.allPaths.group;
@@ -138,104 +147,120 @@ class SideMenu extends React.Component {
             <ul className="p-0 mb-4">
               <TopMenu />
             </ul>
-            {groups.map((group, i) => {
-              return (
-                <div className="list-container" key={i}>
-                  <button
-                    onClick={this.toggleActive}
-                    className="sidemenu-button"
-                  >
-                    <span className="mt-0">
-                      <b>{group.fieldValue}</b>
-                    </span>
-                    <span className="caret ml-2">
-                      <Caret />
-                    </span>
-                  </button>
-                  <div
-                    id={_.kebabCase(group.fieldValue)}
-                    className="list-group"
-                  >
-                    {group.edges.map((link, i) => {
-                      const n = link.node;
-                      return (
-                        <ul key={i} className="p-0">
-                          {n.get && (
-                            <li className="list-reset">
-                              <Link
-                                to={`/api/v4/${_.kebabCase(n.name)}`}
-                                className={`${
-                                  _.kebabCase(n.name) + "/" === activePage
-                                    ? "active-item"
-                                    : null
-                                }
-                              api-link
-                              `}
-                                onClick={this.toggleActiveLink}
-                              >
-                                {n.get.summary}
-                              </Link>
-                            </li>
-                          )}
-                          {n.post && (
-                            <li className="list-reset">
-                              <Link
-                                to={`/api/v4/${_.kebabCase(n.name)}/#post`}
-                                className={`${
-                                  _.kebabCase(n.name) + "/#post" === activePage
-                                    ? "active-item"
-                                    : null
-                                }
-                              api-link
-                              `}
-                                onClick={this.toggleActiveLink}
-                              >
-                                {n.post.summary}
-                              </Link>
-                            </li>
-                          )}
-                          {n.put && (
-                            <li className="list-reset">
-                              <Link
-                                to={`/api/v4/${_.kebabCase(n.name)}/#put`}
-                                className={`${
-                                  _.kebabCase(n.name) + "/#put" === activePage
-                                    ? "active-item"
-                                    : null
-                                }
-                              api-link
-                              `}
-                                onClick={this.toggleActiveLink}
-                              >
-                                {n.put.summary}
-                              </Link>
-                            </li>
-                          )}
-                          {n.delete && (
-                            <li className="list-reset">
-                              <Link
-                                to={`/api/v4/${_.kebabCase(n.name)}/#delete`}
-                                className={`${
-                                  _.kebabCase(n.name) + "/#delete" ===
-                                  activePage
-                                    ? "active-item"
-                                    : null
-                                }
-                              api-link
-                              `}
-                                onClick={this.toggleActiveLink}
-                              >
-                                {n.delete.summary}
-                              </Link>
-                            </li>
-                          )}
-                        </ul>
-                      );
-                    })}
-                  </div>
+            <div className="mobile-sidebar">
+              <div className="mobile-sidebar__header-wrapper md:hidden">
+                <div onClick={this.toggleMobileMenu}>
+                  <p className="mobile-sidebar__header">Endpoints</p>
                 </div>
-              );
-            })}
+                <span className="mobile-sidebar__caret ml-2">
+                  <Caret />
+                </span>
+              </div>
+              <div className="mobile-sidebar__list">
+                {groups.map((group, i) => {
+                  return (
+                    <div className="list-container" key={i}>
+                      <button
+                        onClick={this.toggleActive}
+                        className="sidemenu-button"
+                      >
+                        <span className="mt-0">
+                          <b>{group.fieldValue}</b>
+                        </span>
+                        <span className="caret ml-2">
+                          <Caret />
+                        </span>
+                      </button>
+                      <div
+                        id={_.kebabCase(group.fieldValue)}
+                        className="list-group"
+                      >
+                        {group.edges.map((link, i) => {
+                          const n = link.node;
+                          return (
+                            <ul key={i} className="p-0">
+                              {n.get && (
+                                <li className="list-reset">
+                                  <Link
+                                    to={`/api/v4/${_.kebabCase(n.name)}`}
+                                    className={`${
+                                      _.kebabCase(n.name) + "/" === activePage
+                                        ? "active-item"
+                                        : null
+                                    }
+                              api-link
+                              `}
+                                    onClick={this.toggleActiveLink}
+                                  >
+                                    {n.get.summary}
+                                  </Link>
+                                </li>
+                              )}
+                              {n.post && (
+                                <li className="list-reset">
+                                  <Link
+                                    to={`/api/v4/${_.kebabCase(n.name)}/#post`}
+                                    className={`${
+                                      _.kebabCase(n.name) + "/#post" ===
+                                      activePage
+                                        ? "active-item"
+                                        : null
+                                    }
+                              api-link
+                              `}
+                                    onClick={this.toggleActiveLink}
+                                  >
+                                    {n.post.summary}
+                                  </Link>
+                                </li>
+                              )}
+                              {n.put && (
+                                <li className="list-reset">
+                                  <Link
+                                    to={`/api/v4/${_.kebabCase(n.name)}/#put`}
+                                    className={`${
+                                      _.kebabCase(n.name) + "/#put" ===
+                                      activePage
+                                        ? "active-item"
+                                        : null
+                                    }
+                              api-link
+                              `}
+                                    onClick={this.toggleActiveLink}
+                                  >
+                                    {n.put.summary}
+                                  </Link>
+                                </li>
+                              )}
+                              {n.delete && (
+                                <li className="list-reset">
+                                  <Link
+                                    to={`/api/v4/${_.kebabCase(
+                                      n.name
+                                    )}/#delete`}
+                                    className={`${
+                                      _.kebabCase(n.name) + "/#delete" ===
+                                      activePage
+                                        ? "active-item"
+                                        : null
+                                    }
+                              api-link
+                              `}
+                                    onClick={this.toggleActiveLink}
+                                  >
+                                    {n.delete.summary}
+                                  </Link>
+                                </li>
+                              )}
+                            </ul>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
       </div>
