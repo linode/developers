@@ -64,11 +64,20 @@ const apiPage = ({ data }) => {
                     <span id={mode} className="endpoint-anchor" />
                     <div className="xs-full mb-8">
                       <h2 className="mt-0">{m.summary}</h2>
-                      <div className="bg-ThemeCell p-4 mt-4 mb-8 flex items-center">
-                        <span className="tag big bold mr-2 uppercase">
-                          {mode}
-                        </span>
-                        <pre>https://api.linode.com/v4{n.name}</pre>
+                      <div className="bg-ThemeCell p-4 mt-4 mb-8 flex items-center justify-between flex-wrap">
+                        <div className="flex items-center mr-4">
+                          <span className="tag big bold mr-2 uppercase">
+                            {mode}
+                          </span>
+                          <pre className="whitespace-pre-line">
+                            {m.servers[0].url}
+                            {n.name}
+                          </pre>
+                        </div>
+                        {m.servers[0].url ===
+                          "https://api.linode.com/v4beta" && (
+                          <span className="tag tag-beta">BETA</span>
+                        )}
                       </div>
                       <Markdown
                         source={m.description}
@@ -195,6 +204,9 @@ export const query = graphql`
             x_linode_cli_skip
             x_linode_redoc_load_ids
             x_linode_cli_command
+            servers {
+              url
+            }
             tags
             security {
               oauth
@@ -278,6 +290,9 @@ export const query = graphql`
               lang
               source
             }
+            servers {
+              url
+            }
             requestBody {
               description
               content {
@@ -360,6 +375,9 @@ export const query = graphql`
               lang
               source
             }
+            servers {
+              url
+            }
             requestBody {
               description
               content {
@@ -437,6 +455,9 @@ export const query = graphql`
             x_code_samples {
               lang
               source
+            }
+            servers {
+              url
             }
             responses {
               _200 {
