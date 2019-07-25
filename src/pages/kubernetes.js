@@ -59,8 +59,9 @@ const KubernetesPage = () => {
                       Linode CLI
                     </a>
                     , and add an SSH key to your ssh-agent. If any dependencies
-                    are not present, you'll recieve installation instructions
-                    during command execution.
+                    are not present, you'll receive installation instructions
+                    during command execution. <strong>Note:</strong> Terraform
+                    version 0.12.0+ is required.
                   </li>
                   <li>
                     When you deploy a LoadBalancer-type service through
