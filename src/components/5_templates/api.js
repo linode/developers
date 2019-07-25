@@ -33,12 +33,21 @@ const apiPage = ({ data }) => {
     default: "default"
   };
   return (
-    <Layout
-      // title="API Documentation"
-      // subtitle="Linode API Documentation"
-      fullWidth
-    >
-      <SEO title="Linode API Documentation" description="Container Tools" />
+    <Layout fullWidth>
+      <SEO
+        title={
+          "Linode API | " + (n.get && n.get.tags) ||
+          (n.post && n.post.tags) ||
+          (n.put && n.put.tags) ||
+          (n.delete && n.delete.tags)
+        }
+        description={
+          (n.get && n.get.description ? n.get.description : "") +
+          (n.post && n.post.description ? n.post.description : "") +
+          (n.put && n.put.description ? n.put.description : "") +
+          (n.delete && n.delete.description ? n.delete.description : "")
+        }
+      />
       <div className="flex flex-wrap">
         <div className="md:hidden search-header-wrapper">
           <SearchHeader />
