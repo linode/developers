@@ -8,6 +8,16 @@ import SEO from "../../components/0_utilities/seo";
 import SearchHeader from "../../components/2_molecules/search-header";
 import Sidebar from "../../components/2_molecules/sidemenu";
 
+import Caret from "../../images/svgs/caret.svg";
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "smooth"
+  });
+};
+
 const HeadingRenderer = props => {
   if (props.level === 1) {
     return <h2>{props.children}</h2>;
@@ -16,6 +26,16 @@ const HeadingRenderer = props => {
   const Heading = Markdown.renderers.heading;
   return <Heading {...props} />;
 };
+
+window.addEventListener("scroll", () => {
+  const top = window.scrollY;
+  const scrollButton = document.getElementById("back-to-top");
+  if (top >= 50) {
+    scrollButton.classList.add("is-visible");
+  } else {
+    scrollButton.classList.remove("is-visible");
+  }
+});
 
 const APIDocs = ({ data }) => {
   const n = data.allDataJson.edges[0].node;
@@ -44,6 +64,15 @@ const APIDocs = ({ data }) => {
             />
           </div>
         </div>
+      </div>
+      <div
+        className="back-to-top md:hidden"
+        onClick={scrollToTop}
+        id="back-to-top"
+      >
+        <span className="back-to-top__caret">
+          <Caret />
+        </span>
       </div>
     </Layout>
   );

@@ -17,7 +17,16 @@ import Security from "../../components/2_molecules/Security";
 import ResponseList from "../../components/2_molecules/ResponseList";
 import ResponseSamples from "../2_molecules/ResponseSamples";
 
+import Caret from "../../images/svgs/caret.svg";
 import Copy from "../../images/svgs/copy.svg";
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "smooth"
+  });
+};
 
 const apiPage = ({ data }) => {
   const n = data.allPaths.edges[0].node;
@@ -32,6 +41,17 @@ const apiPage = ({ data }) => {
     _204: "_204",
     default: "default"
   };
+
+  window.addEventListener("scroll", () => {
+    const top = window.scrollY;
+    const scrollButton = document.getElementById("back-to-top");
+    if (top >= 50) {
+      scrollButton.classList.add("is-visible");
+    } else {
+      scrollButton.classList.remove("is-visible");
+    }
+  });
+
   return (
     <Layout fullWidth>
       <SEO
@@ -179,6 +199,15 @@ const apiPage = ({ data }) => {
             })}
           </div>
         </div>
+      </div>
+      <div
+        className="back-to-top md:hidden"
+        onClick={scrollToTop}
+        id="back-to-top"
+      >
+        <span className="back-to-top__caret">
+          <Caret />
+        </span>
       </div>
     </Layout>
   );
