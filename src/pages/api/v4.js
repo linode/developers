@@ -11,7 +11,11 @@ import Sidebar from "../../components/2_molecules/sidemenu";
 import Caret from "../../images/svgs/caret.svg";
 
 const scrollToTop = () => {
-  window.setTimeout(() => window.scrollTo(0, 0, "smooth"));
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "smooth"
+  });
 };
 
 const HeadingRenderer = props => {

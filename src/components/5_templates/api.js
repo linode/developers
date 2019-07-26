@@ -21,7 +21,11 @@ import Caret from "../../images/svgs/caret.svg";
 import Copy from "../../images/svgs/copy.svg";
 
 const scrollToTop = () => {
-  window.setTimeout(() => window.scrollTo(0, 0, "smooth"));
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "smooth"
+  });
 };
 
 const apiPage = ({ data }) => {
