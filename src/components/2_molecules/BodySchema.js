@@ -14,65 +14,87 @@ export const BodySchema = props => {
       {data.requestBody.content.application_json &&
         data.requestBody.content.application_json.schema &&
         data.requestBody.content.application_json.schema.properties &&
-        Object.keys(
-          data.requestBody.content.application_json.schema.properties
-        ).map((p, i) => {
-          const b =
-            data.requestBody.content.application_json.schema.properties[p];
-          return (
-            b &&
-            b.readOnly !== true && (
-              <div key={i} className="response-wrapper">
-                <div className="lg:flex mb-4 pt-2 initResponse">
-                  <div className="w-full lg:w-1/4">
-                    <div>
-                      <b className={b.deprecated && "line-through"}>{p}</b>
-                    </div>
-                    <div className="leading-xs">
-                      {data.requestBody.content.application_json.schema
-                        .required &&
-                        data.requestBody.content.application_json.schema.required.map(
-                          (req, i) => {
-                            if (p === req) {
-                              return (
-                                <span className="text-BaseRed text-sm" key={i}>
-                                  Required
-                                </span>
-                              );
-                            }
-                            return false;
-                          }
-                        )}
-                    </div>
-                    {b.x_linode_filterable && (
-                      <div className="leading-xs">
-                        <span className="text-grey-dark text-sm">
-                          Filterable
-                        </span>
-                      </div>
-                    )}
-                  </div>
-                  <div className="w-full lg:w-3/4">
-                    <div className="text-sm leading-text-sm text-grey-darkest">
-                      {b.type} <CharDisplay data={b} />
-                      {b.pattern && <span className="tag">{b.pattern}</span>}
-                    </div>
-                    {b.deprecated && (
+        Object.keys(data.requestBody.content.application_json.schema.properties)
+          .sort((a, b) => {
+            const required =
+              data.requestBody.content.application_json.schema.required || [];
+            const r1 = required.includes(a) ? 1 : 0;
+            const r2 = required.includes(b) ? 1 : 0;
+            // sorting and adding required fields at the top
+            if (r1 > r2) {
+              return -1;
+            }
+            if (r1 < r2) {
+              return 1;
+            }
+            if (a > b) {
+              return 1;
+            }
+            if (a < b) {
+              return -1;
+            }
+            return 0;
+          })
+          .map((p, i) => {
+            const b =
+              data.requestBody.content.application_json.schema.properties[p];
+            return (
+              b &&
+              b.readOnly !== true && (
+                <div key={i} className="response-wrapper">
+                  <div className="lg:flex mb-4 pt-2 initResponse">
+                    <div className="w-full lg:w-1/4">
                       <div>
-                        <span className="tag tag-deprecated">Deprecated</span>
+                        <b className={b.deprecated && "line-through"}>{p}</b>
                       </div>
-                    )}
-                    <Markdown
-                      source={b.description}
-                      escapeHtml={false}
-                      className="api-desc"
-                    />
+                      <div className="leading-xs">
+                        {data.requestBody.content.application_json.schema
+                          .required &&
+                          data.requestBody.content.application_json.schema.required.map(
+                            (req, i) => {
+                              if (p === req) {
+                                return (
+                                  <span
+                                    className="text-BaseRed text-sm"
+                                    key={i}
+                                  >
+                                    Required
+                                  </span>
+                                );
+                              }
+                              return false;
+                            }
+                          )}
+                      </div>
+                      {b.x_linode_filterable && (
+                        <div className="leading-xs mt-1">
+                          <span className="text-grey-dark text-sm">
+                            Filterable
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                    <div className="w-full lg:w-3/4">
+                      <div className="text-sm leading-text-sm text-grey-darkest">
+                        {b.type} <CharDisplay data={b} />
+                        {b.pattern && <span className="tag">{b.pattern}</span>}
+                      </div>
+                      {b.deprecated && (
+                        <div>
+                          <span className="tag tag-deprecated">Deprecated</span>
+                        </div>
+                      )}
+                      <Markdown
+                        source={b.description}
+                        escapeHtml={false}
+                        className="api-desc"
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
-            )
-          );
-        })}
+              )
+            );
+          })}
       {data.requestBody.content.application_json &&
         data.requestBody.content.application_json.schema &&
         data.requestBody.content.application_json.schema.allOf &&

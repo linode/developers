@@ -48,12 +48,21 @@ const apiPage = ({ data }) => {
   };
 
   return (
-    <Layout
-      // title="API Documentation"
-      // subtitle="Linode API Documentation"
-      fullWidth
-    >
-      <SEO title="Linode API Documentation" description="Container Tools" />
+    <Layout fullWidth>
+      <SEO
+        title={
+          "Linode API | " + (n.get && n.get.tags) ||
+          (n.post && n.post.tags) ||
+          (n.put && n.put.tags) ||
+          (n.delete && n.delete.tags)
+        }
+        description={
+          (n.get && n.get.description ? n.get.description : "") +
+          (n.post && n.post.description ? n.post.description : "") +
+          (n.put && n.put.description ? n.put.description : "") +
+          (n.delete && n.delete.description ? n.delete.description : "")
+        }
+      />
       <div className="flex flex-wrap">
         <div className="md:hidden search-header-wrapper">
           <SearchHeader />
@@ -79,11 +88,23 @@ const apiPage = ({ data }) => {
                     <span id={mode} className="endpoint-anchor" />
                     <div className="xs-full mb-8">
                       <h2 className="mt-0">{m.summary}</h2>
-                      <div className="bg-ThemeCell p-4 mt-4 mb-8 flex items-center">
-                        <span className="tag big bold mr-2 uppercase">
-                          {mode}
-                        </span>
-                        <pre>https://api.linode.com/v4{n.name}</pre>
+                      <div className="bg-ThemeCell p-4 mt-4 mb-8 flex items-center justify-between flex-wrap">
+                        <div className="flex items-center mr-4">
+                          <span className="tag big bold mr-2 uppercase">
+                            {mode}
+                          </span>
+                          <pre className="whitespace-pre-line">
+                            {m.servers
+                              ? m.servers[0].url
+                              : "https://api.linode.com/v4"}
+                            {n.name}
+                          </pre>
+                        </div>
+                        {m.servers &&
+                          m.servers[0].url ===
+                            "https://api.linode.com/v4beta" && (
+                            <span className="tag tag-beta">BETA</span>
+                          )}
                       </div>
                       <Markdown
                         source={m.description}
@@ -219,6 +240,9 @@ export const query = graphql`
             x_linode_cli_skip
             x_linode_redoc_load_ids
             x_linode_cli_command
+            servers {
+              url
+            }
             tags
             security {
               oauth
@@ -302,6 +326,9 @@ export const query = graphql`
               lang
               source
             }
+            servers {
+              url
+            }
             requestBody {
               description
               content {
@@ -384,6 +411,9 @@ export const query = graphql`
               lang
               source
             }
+            servers {
+              url
+            }
             requestBody {
               description
               content {
@@ -461,6 +491,9 @@ export const query = graphql`
             x_code_samples {
               lang
               source
+            }
+            servers {
+              url
             }
             responses {
               _200 {

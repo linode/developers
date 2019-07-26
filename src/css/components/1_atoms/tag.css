@@ -16,3 +16,7 @@
 .tag-deprecated {
   @apply font-sans text-sm bg-orange text-white;
 }
+
+.tag-beta {
+  @apply font-sans text-sm font-bold bg-orange text-white rounded;
+}
