@@ -24,15 +24,6 @@ const scrollToTop = () => {
   window.setTimeout(() => window.scrollTo(0, 0, "smooth"));
 };
 
-// const toggleTopButton = () => {
-//   const backToTop = document.getElementById("back-to-top");
-//   if (window.scrollTop() >= 50) {
-//     backToTop.classList.add("is-visible");
-//   } else {
-//     backToTop.classList.remove("is-visible");
-//   }
-// };
-
 const apiPage = ({ data }) => {
   const n = data.allPaths.edges[0].node;
   const modes = {
@@ -46,6 +37,16 @@ const apiPage = ({ data }) => {
     _204: "_204",
     default: "default"
   };
+
+  window.addEventListener("scroll", () => {
+    const top = window.scrollY;
+    const scrollButton = document.getElementById("back-to-top");
+    if (top >= 50) {
+      scrollButton.classList.add("is-visible");
+    } else {
+      scrollButton.classList.remove("is-visible");
+    }
+  });
 
   return (
     <Layout fullWidth>

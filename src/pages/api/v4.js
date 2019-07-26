@@ -23,6 +23,16 @@ const HeadingRenderer = props => {
   return <Heading {...props} />;
 };
 
+window.addEventListener("scroll", () => {
+  const top = window.scrollY;
+  const scrollButton = document.getElementById("back-to-top");
+  if (top >= 50) {
+    scrollButton.classList.add("is-visible");
+  } else {
+    scrollButton.classList.remove("is-visible");
+  }
+});
+
 const APIDocs = ({ data }) => {
   const n = data.allDataJson.edges[0].node;
 
