@@ -223,10 +223,10 @@ export const ResponseItemElements = props => {
                                               <div className="w-full lg:w-3/4">
                                                 <div>
                                                   <div className="text-sm text-grey-darkest">
-                                                    {data.type && data.type}{" "}
-                                                    {data.pattern && (
+                                                    {dps.type && dps.type}{" "}
+                                                    {dps.pattern && (
                                                       <span className="tag">
-                                                        {data.pattern}
+                                                        {dps.pattern}
                                                       </span>
                                                     )}
                                                   </div>
