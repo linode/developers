@@ -106,9 +106,10 @@ export const BodySchema = props => {
               s.properties &&
               Object.keys(s.properties).map((p, i) => {
                 const b = s.properties[p];
+                console.log(b)
                 return (
                   b &&
-                  b.readOnly === undefined && (
+                  b.x_linode_cli_display !== 1 && (
                     <div key={i} className="response-wrapper">
                       <div className="lg:flex pt-2 mb-4 initResponse">
                         <div className="w-full lg:w-1/4">
