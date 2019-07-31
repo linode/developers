@@ -201,10 +201,11 @@
   z-index: 100;
   border-radius: 50%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  bottom: 44px;
+  bottom: 20px;
   width: 60px;
   height: 60px;
   padding: 0 20px;
+  outline: 0 !important;
 }
 
 .is-visible {

@@ -1,6 +1,6 @@
 import React from "react";
 // import PropTypes from "prop-types";
-import { graphql } from "gatsby";
+import { graphql, StaticQuery } from "gatsby";
 import Markdown from "react-markdown/with-html";
 
 import Layout from "../../components/4_layouts/layout";
@@ -27,69 +27,76 @@ const HeadingRenderer = props => {
   return <Heading {...props} />;
 };
 
-window.addEventListener("scroll", () => {
-  const top = window.scrollY;
-  const scrollButton = document.getElementById("back-to-top");
-  if (top >= 50) {
-    scrollButton.classList.add("is-visible");
-  } else {
-    scrollButton.classList.remove("is-visible");
+class APIDocs extends React.Component {
+  componentDidMount() {
+    window.addEventListener("scroll", () => {
+      const top = window.scrollY;
+      const scrollButton = document.getElementById("back-to-top");
+      if (top >= 50) {
+        scrollButton.classList.add("is-visible");
+      } else {
+        scrollButton.classList.remove("is-visible");
+      }
+    });
   }
-});
 
-const APIDocs = ({ data }) => {
-  const n = data.allDataJson.edges[0].node;
+  render() {
+    const n = this.props.data.allDataJson.edges[0].node;
 
-  return (
-    <Layout
-      // title="API Documentation"
-      // subtitle="Linode API Documentation"
-      fullWidth
-    >
-      <SEO title="API Documentation" description="" />
-      <div className="flex flex-wrap">
-        <div className="md:hidden search-header-wrapper">
-          <SearchHeader />
-        </div>
-        <div className="sidebar-container">
-          <Sidebar />
-        </div>
-        <div className="w-full px-4 api-content-wrapper">
-          <div className="api-content mx-auto">
-            <Markdown
-              source={n.info.description}
-              escapeHtml={false}
-              renderers={{ heading: HeadingRenderer }}
-              className="md:mt-8 api-body"
-            />
+    return (
+      <Layout
+        // title="API Documentation"
+        // subtitle="Linode API Documentation"
+        fullWidth
+      >
+        <SEO title="API Documentation" description="" />
+        <div className="flex flex-wrap">
+          <div className="md:hidden search-header-wrapper">
+            <SearchHeader />
+          </div>
+          <div className="sidebar-container">
+            <Sidebar />
+          </div>
+          <div className="w-full px-4 api-content-wrapper">
+            <div className="api-content mx-auto">
+              <Markdown
+                source={n.info.description}
+                escapeHtml={false}
+                renderers={{ heading: HeadingRenderer }}
+                className="md:mt-8 api-body"
+              />
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        className="back-to-top md:hidden"
-        onClick={scrollToTop}
-        id="back-to-top"
-      >
-        <span className="back-to-top__caret">
-          <Caret />
-        </span>
-      </div>
-    </Layout>
-  );
-};
+        <button
+          className="back-to-top md:hidden"
+          onClick={scrollToTop}
+          id="back-to-top"
+        >
+          <span className="back-to-top__caret">
+            <Caret />
+          </span>
+        </button>
+      </Layout>
+    );
+  }
+}
 
-export const query = graphql`
-  query apiV4 {
-    allDataJson {
-      edges {
-        node {
-          info {
-            description
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query {
+        allDataJson {
+          edges {
+            node {
+              info {
+                description
+              }
+            }
           }
         }
       }
-    }
-  }
-`;
-
-export default APIDocs;
+    `}
+    render={data => <APIDocs data={data} {...props} />}
+  />
+);
