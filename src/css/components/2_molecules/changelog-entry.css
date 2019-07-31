@@ -8,6 +8,10 @@
   @apply my-4;
 }
 
+.changelog-entry ul p {
+  @apply mt-0;
+}
+
 .int-changelog .changelog-product {
   display: none;
 }

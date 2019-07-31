@@ -1,3 +1,4 @@
+import { getOr } from 'lodash/fp';
 import React from "react";
 import Markdown from "react-markdown/with-html";
 
@@ -5,36 +6,36 @@ import CharDisplay from "./charDisplay";
 
 export const BodySchema = props => {
   const { data } = props;
+  const requiredProperties = getOr([], ['requestBody', 'content', 'application_json', 'schema', 'required'], data) || [];
+  const properties = getOr(null, ['requestBody', 'content', 'application_json', 'schema', 'properties'], data);
+
+  const sortByRequired = (a, b) => {
+    const r1 = requiredProperties.includes(a) ? 1 : 0;
+    const r2 = requiredProperties.includes(b) ? 1 : 0;
+    // sorting and adding required fields at the top
+    if (r1 > r2) {
+      return -1;
+    }
+    if (r1 < r2) {
+      return 1;
+    }
+    if (a > b) {
+      return 1;
+    }
+    if (a < b) {
+      return -1;
+    }
+    return 0;
+  }
 
   return (
     <>
       <div className="my-8">
         <h3>Request Body Schema</h3>
       </div>
-      {data.requestBody.content.application_json &&
-        data.requestBody.content.application_json.schema &&
-        data.requestBody.content.application_json.schema.properties &&
-        Object.keys(data.requestBody.content.application_json.schema.properties)
-          .sort((a, b) => {
-            const required =
-              data.requestBody.content.application_json.schema.required || [];
-            const r1 = required.includes(a) ? 1 : 0;
-            const r2 = required.includes(b) ? 1 : 0;
-            // sorting and adding required fields at the top
-            if (r1 > r2) {
-              return -1;
-            }
-            if (r1 < r2) {
-              return 1;
-            }
-            if (a > b) {
-              return 1;
-            }
-            if (a < b) {
-              return -1;
-            }
-            return 0;
-          })
+      {properties &&
+        Object.keys(properties)
+          .sort(sortByRequired)
           .map((p, i) => {
             const b =
               data.requestBody.content.application_json.schema.properties[p];
@@ -105,9 +106,10 @@ export const BodySchema = props => {
               s.properties &&
               Object.keys(s.properties).map((p, i) => {
                 const b = s.properties[p];
+                console.log(b)
                 return (
                   b &&
-                  b.readOnly === undefined && (
+                  b.x_linode_cli_display !== 1 && (
                     <div key={i} className="response-wrapper">
                       <div className="lg:flex pt-2 mb-4 initResponse">
                         <div className="w-full lg:w-1/4">
