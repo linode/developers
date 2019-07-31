@@ -33,11 +33,11 @@ class apiPage extends React.Component {
     window.addEventListener("scroll", () => {
       const top = window.scrollY;
       const scrollButton = document.getElementById("back-to-top");
-      if (top >= 50) {
+      if (scrollButton && top >= 50) {
         scrollButton.classList.add("is-visible");
-      } else {
+      } else if (scrollButton) {
         scrollButton.classList.remove("is-visible");
-      }
+      } else;
     });
   }
 

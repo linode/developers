@@ -73,7 +73,7 @@
 
 .api-link {
   position: relative;
-  line-height: 1.4;
+  line-height: 1.1;
 }
 
 .top-menu-anchor {
@@ -269,7 +269,7 @@
   }
 
   .active-group .list-group li {
-    @apply py-2;
+    padding: 5px 0;
   }
 }
 
