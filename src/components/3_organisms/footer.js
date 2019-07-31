@@ -9,7 +9,7 @@ import Logo from "../../images/svgs/logo.svg";
 // import Github from "../../images/svgs/github.svg";
 
 const Footer = () => (
-  <div className="footer-links container mx-auto">
+  <div className="footer-links container mx-auto my-2">
     <div className="flex flex-wrap items-center justify-between">
       <div className="xs-full sm-1/2 px-2">
         <div className="flex items-center">
