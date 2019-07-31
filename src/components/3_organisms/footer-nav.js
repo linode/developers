@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../../images/svgs/logo.svg";
+import Logo from "../../images/svgs/new-logo.svg";
 // @todo update links once we have them, these were just guesses based on current setup
 const FooterNav = () => (
   <div className="footer-nav container mx-auto">
@@ -10,22 +10,16 @@ const FooterNav = () => (
             <Logo />
           </div>
           <div>
-            &copy; {new Date().getFullYear()} Linode, LLC. All rights reserved.
+            <p className="copyright">
+              &copy; {new Date().getFullYear()} All rights reserved.
+            </p>
           </div>
         </div>
       </div>
       <div className="w-full md:w-1/6 px-4">
         <div>
-          <h4 className="footer-nav-header mb-2">
-            <a
-              href="https://linode.com/linodes"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Why Linode?
-            </a>
-          </h4>
-          <ul className="list-reset text-sm">
+          <h4 className="footer-nav-header mb-4">Why Linode?</h4>
+          <ul className="list-reset text-sm footer-sublist">
             <li>
               <a
                 href="https://linode.com/linodes"
@@ -111,16 +105,8 @@ const FooterNav = () => (
         </div>
       </div>
       <div className="w-full md:w-1/6 px-4">
-        <h4 className="footer-nav-header mb-2">
-          <a
-            href="https://linode.com/linodes"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Products
-          </a>
-        </h4>
-        <ul className="list-reset text-sm">
+        <h4 className="footer-nav-header mb-4">Products</h4>
+        <ul className="list-reset text-sm footer-sublist">
           <li>
             <a
               href="https://linode.com/linodes"
@@ -251,16 +237,8 @@ const FooterNav = () => (
       </div>
       <div className="w-full md:w-1/6 px-4">
         <div>
-          <h4 className="footer-nav-header mb-2">
-            <a
-              href="https://linode.com/docs"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Solutions
-            </a>
-          </h4>
-          <ul className="list-reset text-sm">
+          <h4 className="footer-nav-header mb-4">Solutions</h4>
+          <ul className="list-reset text-sm footer-sublist">
             <li>
               <a
                 href="https://linode.com/docs"
@@ -272,16 +250,8 @@ const FooterNav = () => (
             </li>
           </ul>
           <div>
-            <h4 className="footer-nav-header mb-2">
-              <a
-                href="https://linode.com/pricing"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Pricing
-              </a>
-            </h4>
-            <ul className="list-reset text-sm">
+            <h4 className="footer-nav-header mb-4">Pricing</h4>
+            <ul className="list-reset text-sm footer-sublist">
               <li>
                 <a
                   href="https://linode.com/pricing"
@@ -294,16 +264,8 @@ const FooterNav = () => (
             </ul>
           </div>
           <div>
-            <h4 className="footer-nav-header mb-2">
-              <a
-                href="https://linode.com/compliance"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Company
-              </a>
-            </h4>
-            <ul className="list-reset text-sm">
+            <h4 className="footer-nav-header mb-4">Company</h4>
+            <ul className="list-reset text-sm footer-sublist">
               <li>
                 <a
                   href="https://linode.com/agreement"
@@ -354,16 +316,8 @@ const FooterNav = () => (
         </div>
       </div>
       <div className="w-full md:w-1/6 px-4">
-        <h4 className="footer-nav-header mb-2">
-          <a
-            href="https://linode.com/linodes"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Community
-          </a>
-        </h4>
-        <ul className="list-reset text-sm">
+        <h4 className="footer-nav-header mb-4">Community</h4>
+        <ul className="list-reset text-sm footer-sublist">
           <li>
             <a
               href="https://linode.com/linodes"
@@ -476,16 +430,8 @@ const FooterNav = () => (
       </div>
       <div className="w-full md:w-1/6 px-4">
         <div>
-          <h4 className="footer-nav-header mb-2">
-            <a
-              href="https://linode.com/docs"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Contact
-            </a>
-          </h4>
-          <ul className="list-reset text-sm">
+          <h4 className="footer-nav-header mb-4">Contact</h4>
+          <ul className="list-reset text-sm footer-sublist">
             <li>
               <a
                 href="https://linode.com/docs"
@@ -524,16 +470,8 @@ const FooterNav = () => (
             </li>
           </ul>
           <div>
-            <h4 className="footer-nav-header mb-2">
-              <a
-                href="https://linode.com/pricing"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Follow Us
-              </a>
-            </h4>
-            <ul className="list-reset text-sm">
+            <h4 className="footer-nav-header mb-4">Follow Us</h4>
+            <ul className="list-reset text-sm footer-sublist">
               <li>
                 <a
                   href="https://linode.com/pricing"
