@@ -78,10 +78,6 @@
   @apply text-BaseBlackFull font-bold no-underline;
 }
 
-.list-container {
-  display: none;
-}
-
 .sidemenu-button {
   width: calc(100% - 12px);
   padding: 6px 0;

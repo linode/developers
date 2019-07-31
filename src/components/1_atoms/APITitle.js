@@ -1,5 +1,5 @@
 import React from "react";
-import { StaticQuery, graphql, Link } from "gatsby";
+import { StaticQuery, graphql } from "gatsby";
 
 const APITitle = ({ data }) => {
   const n = data.allV4Json.edges[0].node;

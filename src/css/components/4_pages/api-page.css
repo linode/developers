@@ -141,6 +141,37 @@
 }
 
 @screen md {
+  .search-header .search-results-list {
+    max-height: none;
+    overflow-y: auto;
+    box-shadow: none;
+  }
+
+  .layout-fixed .sidebar-container {
+    height: calc(100vh - 64px);
+    position: fixed;
+    top: 64px;
+    width: auto;
+  }
+
+  .sidemenu-button {
+    padding: 6px 0;
+  }
+
+  .api-content-wrapper {
+    margin-left: 300px;
+  }
+
+  .mobile-sidebar {
+    width: auto;
+    border: none;
+    cursor: auto;
+  }
+
+  .mobile-sidebar__list {
+    display: block;
+  }
+
   .list-container {
     display: block;
     margin-bottom: 0;
