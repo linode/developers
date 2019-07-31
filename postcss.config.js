@@ -13,9 +13,7 @@ module.exports = {
   plugins: [
     atImport,
     tailwindcss("./tailwind.js"),
-    autoprefixer({
-      browsers: ["last 2 versions", "> 2%"]
-    }),
+    autoprefixer(),
     cssnano({
       preset: "default"
     })

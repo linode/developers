@@ -44,6 +44,10 @@
     "gatsby"
   ],
   "license": "MIT",
+  "browserslist": [
+    "last 2 version",
+    "> 2%"
+  ],
   "scripts": {
     "build": "./getDependencies.sh && gatsby build && node search/buildIndex.js",
     "develop": "./getDependencies.sh && gatsby develop",
