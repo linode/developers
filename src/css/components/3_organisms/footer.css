@@ -58,6 +58,10 @@
   font-size: 14px;
 }
 
+.footer-logo-outer {
+  margin-bottom: 2rem;
+}
+
 .footer-nav li:last-child {
   margin-bottom: 0;
 }

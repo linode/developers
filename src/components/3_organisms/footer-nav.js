@@ -1,11 +1,13 @@
 import React from "react";
 import Logo from "../../images/svgs/new-logo.svg";
+
 // @todo update links once we have them, these were just guesses based on current setup
+// @todo need social icons
 const FooterNav = () => (
   <div className="footer-nav container mx-auto">
     <div className="flex flex-wrap justify-between mb-4 -mx-4">
       <div className="w-full md:w-1/6 px-4">
-        <div>
+        <div className="footer-logo-outer">
           <div>
             <Logo />
           </div>
