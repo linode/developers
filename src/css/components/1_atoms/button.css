@@ -1,3 +1,18 @@
 .btn[aria-current="page"] {
   @apply bg-BaseBlue text-white;
 }
+
+.changelog-anchor-link svg {
+  width: 22px;
+  height: 22px;
+  padding: 4px;
+  margin-right: .5rem;
+  position: relative;
+  top: 3px;
+  @apply rounded;
+}
+
+.changelog-anchor-link svg:hover,
+.changelog-anchor-link svg:focus {
+  @apply bg-grey text-white;
+}

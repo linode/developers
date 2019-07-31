@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import Link from "../../images/svgs/link.svg";
+
 class ChangelogItem extends React.Component {
   componentDidMount() {
     const hash = document.location.hash;
@@ -11,7 +13,7 @@ class ChangelogItem extends React.Component {
         () =>
           document
             .getElementById(hash.substr(1))
-            .scrollIntoView({ block: "start", behavior: "smooth" }),
+            .scrollIntoView({ block: "start" }),
         50
       );
   }
@@ -52,7 +54,7 @@ class ChangelogItem extends React.Component {
             className="mt-0 text-2xl font-normal"
             itemProp="alternativeHeadline"
           >
-            {title}
+            <a href={`#${link}`} className="changelog-anchor-link"><Link /></a>{title}
           </h2>
           <div
             className="changelog-entry"
