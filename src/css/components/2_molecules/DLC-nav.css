@@ -1,14 +1,26 @@
 .dlc-nav {
-  position: sticky;
-  top: 70px;
-  z-index: 2;
   border-bottom: 1px solid #ededf4;
-  /* box-shadow: 0 4px 2px -2px #ededf4; */
+}
+
+@media only screen and (min-width: 768px) {
+  .dlc-nav {
+    position: sticky;
+    top: 70px;
+    z-index: 2;
+  }
 }
 
 .dlc-nav__link {
   color: rgb(50, 54, 59);
   font-weight: 600;
+}
+
+@media only screen and (max-width: 560px) {
+  .dlc-nav__link {
+    clear: both;
+    margin: 0;
+    display: block;
+  }
 }
 
 .dlc-nav__link:hover,

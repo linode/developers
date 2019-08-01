@@ -5,7 +5,7 @@ const isPartiallyActive = ({ isPartiallyCurrent }) =>
   isPartiallyCurrent
     ? {
         className:
-          "dlc-nav__link text-BaseNavGrey hover:text-white relative active"
+          "dlc-nav__link text-BaseNavGrey hover:text-white relative active mx-4"
       }
     : null;
 

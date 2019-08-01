@@ -12,7 +12,7 @@ const PrimaryMobileNav = ({ data }) => {
           <li className="sub-menu__li sub-menu__header-li" key={node.id}>
             <a
               href={node.url ? node.url : null}
-              className="header__link sub-menu__link sub-menu__header-link primary-mobile__link"
+              className="header__link sub-menu__link sub-menu__header-link mobile__link"
               role="menuitem"
             >
               {node.title}
