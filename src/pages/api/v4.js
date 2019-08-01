@@ -44,7 +44,7 @@ class APIDocs extends React.Component {
     const n = this.props.data.allDataJson.edges[0].node;
 
     return (
-      <Layout title="Linode API Documentation" fullWidth>
+      <Layout title="Linode API Documentation" subtitle="" fullWidth>
         <SEO title="API Documentation" description="" />
         <div className="flex flex-wrap">
           <div className="md:hidden search-header-wrapper">

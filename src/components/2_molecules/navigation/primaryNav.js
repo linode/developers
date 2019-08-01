@@ -123,7 +123,7 @@ class MainSiteNav extends React.Component {
                       <span className="visually-hidden">{node.title}</span>
                     </span>
                   ) : node.title === "Mobile" ? (
-                    <span class="header-mobile-icon">
+                    <span className="header-mobile-icon">
                       <svg
                         width="20"
                         height="20"
@@ -132,7 +132,7 @@ class MainSiteNav extends React.Component {
                       >
                         <path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" />
                       </svg>
-                      <span class="visually-hidden">Menu</span>
+                      <span className="visually-hidden">Menu</span>
                     </span>
                   ) : (
                     node.title
