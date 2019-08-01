@@ -97,6 +97,7 @@ module.exports = {
         whitelist: [
           "mobile",
           "mobile-nav",
+          "sign-up",
           "active",
           "active-item",
           "error",

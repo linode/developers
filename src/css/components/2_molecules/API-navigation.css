@@ -5,9 +5,9 @@
 
 @screen md {
   .layout-fixed .sidebar-container {
-    height: calc(100vh - 131px);
+    height: calc(100vh - 126px);
     position: sticky;
-    top: 131px;
+    top: 126px;
     width: auto;
   }
 
@@ -27,6 +27,7 @@
   z-index: 2;
   top: 2rem;
 }
+
 .list-group,
 .list-group ul {
   max-height: 0;
