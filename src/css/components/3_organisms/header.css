@@ -3,11 +3,6 @@ body.oh {
   overflow: hidden;
 }
 
-.logo {
-  margin-bottom: 8px;
-  margin-top: 8px;
-}
-
 .logo__link {
   display: flex;
   align-items: center;
@@ -37,7 +32,8 @@ body.oh {
   font-size: 16px;
 }
 
-.header *:after, .header *:before {
+.header *:after,
+.header *:before {
   box-sizing: inherit;
 }
 
@@ -214,6 +210,21 @@ body.oh {
   height: 23px;
   vertical-align: middle;
   width: 23px;
+}
+
+.primary-nav__link.mobile {
+  display: block;
+}
+
+.primary-nav__link .header-mobile-icon {
+  position: relative;
+  top: 5px;
+}
+
+@media only screen and (min-width: 768px) {
+  .primary-nav__link.mobile {
+    display: none;
+  }
 }
 
 /* SUBMENUS */

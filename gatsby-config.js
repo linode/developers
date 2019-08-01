@@ -95,6 +95,7 @@ module.exports = {
       options: {
         tailwind: true,
         whitelist: [
+          "mobile",
           "mobile-nav",
           "active",
           "active-item",
