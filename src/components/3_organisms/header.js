@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "gatsby";
 import UtilityNav from "../2_molecules/navigation/utilityNav";
 import PrimaryNav from "../2_molecules/navigation/primaryNav";
+import PrimaryMobile from "../2_molecules/navigation/primaryMobile";
+import UtilityMobile from "../2_molecules/navigation/utilityMobile";
 
 import Logo from "../../images/svgs/new-logo.svg";
 
@@ -22,6 +24,34 @@ const Header = () => (
             <PrimaryNav />
           </div>
         </div>
+      </div>
+      <div className="mobile-menus__wrapper">
+        <form
+          role="search"
+          method="get"
+          className="search-form"
+          action="https://linode.flywheelsites.com/"
+        >
+          <label>
+            <span className="search-form__placeholder visually-hidden">
+              Search for:
+            </span>
+            <input
+              type="search"
+              className="search-form__search-field"
+              placeholder="Search …"
+              value=""
+              name="s"
+            />
+          </label>
+          <input
+            type="submit"
+            className="search-submit visually-hidden"
+            value="Search"
+          />
+        </form>
+        <PrimaryMobile />
+        <UtilityMobile />
       </div>
     </header>
   </div>

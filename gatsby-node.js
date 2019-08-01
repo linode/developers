@@ -69,67 +69,66 @@ exports.sourceNodes = async ({ actions }) => {
       createNode(pathNode);
     });
 
+  const baseUrl =
+    "https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus";
+
   // CREATING MENU NODES FROM WP API
   const wpMenus = [
     {
-      path:
-        "https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/header-utility",
+      path: `${baseUrl}/header-utility`,
       name: "HeaderUtility"
     },
     {
-      path:
-        "https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/header-primary",
+      path: `${baseUrl}/header-primary`,
       name: "HeaderPrimary"
     },
     {
-      path:
-        "https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/submenu-why-linode-primary",
+      path: `${baseUrl}/submenu-why-linode-primary`,
       name: "WhyPrimary"
     },
     {
-      path:
-        "https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/submenu-why-linode-services",
+      path: `${baseUrl}/submenu-why-linode-services`,
       name: "WhyServices"
     },
     {
-      path:
-        "https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/submenu-products-featured",
+      path: `${baseUrl}/submenu-products-featured`,
       name: "ProductsFeatured"
     },
     {
-      path:
-        "https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/submenu-products-compute",
+      path: `${baseUrl}/submenu-products-compute`,
       name: "ProductsCompute"
     },
     {
-      path:
-        "https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/submenu-products-storage",
+      path: `${baseUrl}/submenu-products-storage`,
       name: "ProductsStorage"
     },
     {
-      path:
-        "https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/submenu-products-services",
+      path: `${baseUrl}/submenu-products-services`,
       name: "ProductsServices"
     },
     {
-      path:
-        "https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/submenu-products-networking",
+      path: `${baseUrl}/submenu-products-networking`,
       name: "ProductsNetworking"
     },
     {
-      path:
-        "https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/submenu-products-developer-tools",
+      path: `${baseUrl}/submenu-products-developer-tools`,
       name: "ProductsDevTools"
     },
     {
-      path:
-        "https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/submenu-community-primary",
+      path: `${baseUrl}/submenu-community-primary`,
       name: "CommunityPrimary"
     },
     {
-      path:
-        "https://linodeteam:welcometothebank@linode.flywheelsites.com/wp-json/menus/v1/menus/submenu-community-secondary",
+      path: `${baseUrl}/submenu-community-secondary`,
       name: "CommunityServices"
+    },
+    {
+      path: `${baseUrl}/submenu-mobile-primary`,
+      name: "PrimaryMobile"
+    },
+    {
+      path: `${baseUrl}/submenu-mobile-utility`,
+      name: "UtilityMobile"
     }
   ];
 
