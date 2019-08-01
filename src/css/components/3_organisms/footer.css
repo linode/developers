@@ -65,3 +65,14 @@
 .footer-nav li:last-child {
   margin-bottom: 0;
 }
+
+.footer-social-icon {
+  height: 14px;
+  color: #32363b;
+  margin-right: 0.666em;
+}
+
+.footer-social-a {
+  display: flex;
+  align-items: center;
+}

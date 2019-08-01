@@ -1,8 +1,13 @@
 import React from "react";
 import Logo from "../../images/svgs/new-logo.svg";
 
+import Github from "../../images/svgs/github.svg";
+import Instagram from "../../images/svgs/instagram.svg";
+import Linkedin from "../../images/svgs/linkedin.svg";
+import Twitter from "../../images/svgs/twitter.svg";
+import Youtube from "../../images/svgs/youtube.svg";
+
 // @todo update links once we have them, these were just guesses based on current setup
-// @todo need social icons
 const FooterNav = () => (
   <div className="footer-nav container mx-auto">
     <div className="flex flex-wrap justify-between mb-4 -mx-4">
@@ -479,7 +484,9 @@ const FooterNav = () => (
                   href="https://linode.com/pricing"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="footer-social-a"
                 >
+                  <Twitter className="footer-social-icon" />
                   Twitter
                 </a>
               </li>
@@ -488,7 +495,9 @@ const FooterNav = () => (
                   href="https://linode.com/pricing"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="footer-social-a"
                 >
+                  <Instagram className="footer-social-icon" />
                   Instagram
                 </a>
               </li>
@@ -497,7 +506,9 @@ const FooterNav = () => (
                   href="https://linode.com/pricing"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="footer-social-a"
                 >
+                  <Youtube className="footer-social-icon" />
                   Youtube
                 </a>
               </li>
@@ -506,7 +517,9 @@ const FooterNav = () => (
                   href="https://linode.com/pricing"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="footer-social-a"
                 >
+                  <Linkedin className="footer-social-icon" />
                   LinkedIn
                 </a>
               </li>
@@ -515,7 +528,9 @@ const FooterNav = () => (
                   href="https://linode.com/pricing"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="footer-social-a"
                 >
+                  <Github className="footer-social-icon" />
                   Github
                 </a>
               </li>
