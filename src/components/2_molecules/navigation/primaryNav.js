@@ -14,7 +14,8 @@ class MainSiteNav extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      subMenuOpen: false
+      subMenuOpen: false,
+      mobileNavOpen: false
     };
   }
 
@@ -90,9 +91,22 @@ class MainSiteNav extends React.Component {
     }
   };
 
+  openMobileNav = () => {
+    const target = document.getElementById("mobile-menus");
+
+    this.setState({
+      mobileNavOpen: !this.state.mobileNavOpen
+    });
+
+    target.classList.toggle("active");
+    target.classList.contains("active")
+      ? document.body.classList.add("oh")
+      : document.body.classList.remove("oh");
+  };
+
   render() {
     const data = this.props.data;
-    const { subMenuOpen } = this.state;
+    const { subMenuOpen, mobileNavOpen } = this.state;
     return (
       <>
         <nav
@@ -115,7 +129,11 @@ class MainSiteNav extends React.Component {
                   data-submenu={
                     node.toggle ? _.kebabCase(node.toggle) : undefined
                   }
-                  onClick={this.openSubMenu}
+                  onClick={
+                    node.title === "Mobile"
+                      ? this.openMobileNav
+                      : this.openSubMenu
+                  }
                   tabIndex={0}
                 >
                   {node.title === "Search" ? (
@@ -124,12 +142,22 @@ class MainSiteNav extends React.Component {
                     </span>
                   ) : node.title === "Mobile" ? (
                     <span className="header-mobile-icon">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 448 512"
-                      >
-                        <path d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z" />
-                      </svg>
+                      {mobileNavOpen === true ? (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 320 512"
+                          style={{ marginTop: -4 }}
+                        >
+                          <path d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z" />
+                        </svg>
+                      ) : (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 448 512"
+                        >
+                          <path d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z" />
+                        </svg>
+                      )}
                       <span className="visually-hidden">Menu</span>
                     </span>
                   ) : (

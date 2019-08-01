@@ -87,7 +87,7 @@
 
 .search-header-wrapper {
   position: sticky;
-  top: 65px;
+  top: 0px;
   width: 100%;
   z-index: 1;
   padding: 1rem 1rem 0;

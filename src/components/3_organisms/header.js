@@ -25,7 +25,7 @@ const Header = () => (
           </div>
         </div>
       </div>
-      <div className="mobile-menus__wrapper">
+      <div className="mobile-menus__wrapper" id="mobile-menus">
         <form
           role="search"
           method="get"
@@ -40,8 +40,6 @@ const Header = () => (
               type="search"
               className="search-form__search-field"
               placeholder="Search …"
-              value=""
-              name="s"
             />
           </label>
           <input

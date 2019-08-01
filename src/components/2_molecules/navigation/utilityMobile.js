@@ -12,7 +12,7 @@ const UtilityMobileNav = ({ data }) => {
           <li className="sub-menu__li sub-menu__header-li" key={node.id}>
             <a
               href={node.url ? node.url : null}
-              className="header__link sub-menu__link utility-mobile__link"
+              className="header__link sub-menu__link mobile__link--small"
               role="menuitem"
             >
               {node.title}
