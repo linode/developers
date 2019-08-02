@@ -170,6 +170,10 @@ body.m-oh {
 }
 
 .primary-nav__wrapper {
+  padding: 0 16px;
+}
+
+.primary-nav__container {
   max-width: 1296px;
   margin: 8px auto;
   padding: 0 8px;

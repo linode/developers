@@ -14,14 +14,16 @@ const Header = () => (
         <UtilityNav />
       </div>
       <div className="primary-nav__wrapper">
-        <div className="primary-nav__inner">
-          <div className="logo">
-            <Link to="/" className="logo__link">
-              <Logo />
-            </Link>
-          </div>
-          <div>
-            <PrimaryNav />
+        <div class="primary-nav__container">
+          <div className="primary-nav__inner">
+            <div className="logo">
+              <Link to="/" className="logo__link">
+                <Logo />
+              </Link>
+            </div>
+            <div>
+              <PrimaryNav />
+            </div>
           </div>
         </div>
       </div>
