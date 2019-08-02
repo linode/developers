@@ -422,6 +422,10 @@ body.m-oh {
   padding: 0 8px;
 }
 
+.header-search-form__label {
+  width: 100%;
+}
+
 .search-form__search-field {
   font-size: 14px;
   line-height: 1.22222;
