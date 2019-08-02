@@ -1,5 +1,6 @@
 /* LAYOUT */
-body.oh {
+body.oh,
+body.m-oh {
   overflow: hidden;
 }
 
@@ -408,11 +409,11 @@ body.oh {
   }
 }
 
-.search-form {
+.header-search-form {
   padding: 0 8px;
 }
 
-.search-form__search-field {
+.search-form__search-field [type=search] {
   font-size: 14px;
   line-height: 1.22222;
   color: var(--h6-color, var(--heading-color));

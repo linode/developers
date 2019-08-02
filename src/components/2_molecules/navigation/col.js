@@ -3,7 +3,6 @@ import React from "react";
 const Col = props => (
   <div className={`${props.name + "nav__wrapper"}`}>
     <ul
-      id="products-compute"
       role="menu"
       className={`
             sub-menu__item

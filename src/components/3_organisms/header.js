@@ -29,7 +29,7 @@ const Header = () => (
         <form
           role="search"
           method="get"
-          className="search-form"
+          className="header-search-form"
           action="https://linode.flywheelsites.com/"
         >
           <label>
