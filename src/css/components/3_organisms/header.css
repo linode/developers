@@ -10,8 +10,8 @@ body.m-oh {
 }
 
 .logo svg {
-  width: 108px;
-  margin: 8px 0 0 16px;
+  width: 100px;
+  margin: 8px 0;
 }
 
 @media only screen and (min-width: 768px) {
@@ -171,12 +171,14 @@ body.m-oh {
 
 .primary-nav__wrapper {
   padding: 0 16px;
+  display: flex;
 }
 
 .primary-nav__container {
   max-width: 1296px;
   margin: 8px auto;
   padding: 0 8px;
+  width: 100%;
 }
 
 .primary-nav__inner {
@@ -185,8 +187,6 @@ body.m-oh {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  margin-top: 3px;
-  margin-bottom: 3px;
 }
 
 .primary-nav__link {
@@ -276,8 +276,13 @@ body.m-oh {
 .primary-nav__link.mobile {
   display: block;
   margin: 0;
-  padding: 6px 20px;
+  padding: 5px 10px;
+  margin-right: -14px;
   border: 0;
+  position: relative;
+  top: -4px;
+  outline: 0;
+  box-shadow: none;
 }
 
 .primary-nav__link .header-mobile-icon {
@@ -286,7 +291,7 @@ body.m-oh {
 }
 
 .primary-nav__link.mobile svg {
-  width: 20px;
+  width: 21px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -417,10 +422,9 @@ body.m-oh {
   padding: 0 8px;
 }
 
-.search-form__search-field [type=search] {
+.search-form__search-field {
   font-size: 14px;
   line-height: 1.22222;
-  color: var(--h6-color, var(--heading-color));
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 600;
   letter-spacing: -0.25px;
