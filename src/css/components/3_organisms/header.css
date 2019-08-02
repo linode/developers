@@ -400,7 +400,7 @@ body.m-oh {
 
 .mobile-menus__wrapper.active {
   visibility: visible;
-  z-index: 10;
+  z-index: 100;
 }
 
 @media only screen and (min-width: 768px) {
