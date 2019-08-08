@@ -52,6 +52,11 @@ const Header = () => (
         </form>
         <PrimaryMobile />
         <UtilityMobile />
+        <div className="mobile-sign-up">
+          <a href="https://login.linode.com/signup" target="_self" className="mobile-sign-up__button">
+            Sign Up
+          </a>
+      </div>
       </div>
     </header>
   </div>
