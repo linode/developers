@@ -14,7 +14,7 @@ const Header = () => (
         <UtilityNav />
       </div>
       <div className="primary-nav__wrapper">
-        <div class="primary-nav__container">
+        <div className="primary-nav__container">
           <div className="primary-nav__inner">
             <div className="logo">
               <Link to="/" className="logo__link">
@@ -34,7 +34,7 @@ const Header = () => (
           className="header-search-form"
           action="https://linode.flywheelsites.com/"
         >
-          <label class="header-search-form__label">
+          <label className="header-search-form__label">
             <span className="search-form__placeholder visually-hidden">
               Search for:
             </span>

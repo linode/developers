@@ -1,7 +1,7 @@
 import React from "react";
 
 const Col = props => (
-  <div className={`${props.name + "nav__wrapper"}`}>
+  <div className="nav__wrapper">
     <ul
       role="menu"
       className={`
