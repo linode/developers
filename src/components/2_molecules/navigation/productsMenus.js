@@ -7,6 +7,8 @@ import ProductsServices from "./productsServices";
 import ProductsNetworking from "./productsNetworking";
 import ProductsDevTools from "./productsDevTools";
 
+import Caret from "../../../images/svgs/angle-down-regular.svg";
+
 const ProductMenus = () => (
   <>
     <div className="sub-menu__col">
@@ -26,6 +28,17 @@ const ProductMenus = () => (
         <ProductsNetworking />
         <ProductsDevTools />
       </div>
+    </div>
+    <div className="all-products-link">
+      <a
+        href="https://linode.flywheelsites.com/products/"
+        className="header__link primary-nav__link"
+      >
+        View All Products
+        <span className="all-products-link__caret">
+          <Caret />
+        </span>
+      </a>
     </div>
   </>
 );
