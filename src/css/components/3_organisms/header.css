@@ -482,3 +482,25 @@ body.m-oh {
   color: #32363b;
   opacity: 1;
 }
+
+.mobile-sign-up {
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+}
+
+.mobile-sign-up__button {
+  background-color: #02b159;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 22px;
+  padding: 16px 26px;
+  border-radius: 4px;
+  border: 2px solid #02b159;
+}
+
+.mobile-sign-up__button:hover {
+  background-color: rgb(50, 54, 59);
+  border-color: rgb(50, 54, 59);
+}
