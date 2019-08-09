@@ -1,29 +1,32 @@
 import React from "react";
-<<<<<<< HEAD
 
+import Logo from "../../images/svgs/new-logo.svg";
 import Facebook from "../../images/svgs/facebook.svg";
-import Twitter from "../../images/svgs/twitter.svg";
-import Linkedin from "../../images/svgs/linkedin.svg";
 import Github from "../../images/svgs/github.svg";
+import Instagram from "../../images/svgs/instagram.svg";
+import Linkedin from "../../images/svgs/linkedin.svg";
+import Twitter from "../../images/svgs/twitter.svg";
+import Youtube from "../../images/svgs/youtube.svg";
 
-=======
-// @todo update links once we have them, these were just guesses based on current setup
->>>>>>> updating footer structure and content to match new marketing site
 const FooterNav = () => (
-  <div className="footer-nav container mx-auto">
+  <div className="footer-nav mx-auto">
     <div className="flex flex-wrap justify-between mb-4 -mx-4">
-      <div className="w-full xs:w-full md:w-1/4 px-4">
+      <div className="w-full md:w-1/6 px-4">
+        <div className="footer-logo-outer">
+          <div>
+            <Logo className="footer-logo" />
+          </div>
+          <div>
+            <p className="copyright">
+              &copy; {new Date().getFullYear()} All rights reserved.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="w-full md:w-1/6 px-4">
         <div>
-          <h4 className="footer-nav-header mb-2">
-            <a
-              href="https://linode.com/linodes"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Why Linode?
-            </a>
-          </h4>
-          <ul className="list-reset text-sm">
+          <h4 className="footer-nav-header mb-4">Why Linode</h4>
+          <ul className="list-reset text-sm footer-sublist">
             <li>
               <a
                 href="https://linode.com/linodes"
@@ -39,7 +42,7 @@ const FooterNav = () => (
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Data Centers and Network
+                Support Experience
               </a>
             </li>
             <li>
@@ -48,7 +51,7 @@ const FooterNav = () => (
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Customer Stories
+                Cloud Simplified
               </a>
             </li>
             <li>
@@ -66,29 +69,7 @@ const FooterNav = () => (
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Future of Cloud Computing
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h4 className="footer-nav-header mb-2">
-            <a
-              href="https://linode.com/about"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Company
-            </a>
-          </h4>
-          <ul className="list-reset text-sm">
-            <li>
-              <a
-                href="https://linode.com/about"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                About
+                Global Infrastructure
               </a>
             </li>
             <li>
@@ -97,7 +78,7 @@ const FooterNav = () => (
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Leadership
+                Craft of Code
               </a>
             </li>
             <li>
@@ -106,106 +87,49 @@ const FooterNav = () => (
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Contact
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h4 className="footer-nav-header mb-2">
-            <a
-              href="https://linode.com/linodes"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Solutions
-            </a>
-          </h4>
-          <ul className="list-reset text-sm">
-            <li>
-              <a
-                href="https://linode.com/linodes"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Solutions Overview
+                Linode for Business
               </a>
             </li>
             <li>
               <a
-                href="https://linode.com/linodes"
+                href="https://linode.com/about"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Gaming
+                What is Cloud Computing
               </a>
             </li>
             <li>
               <a
-                href="https://linode.com/linodes"
+                href="https://linode.com/about"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Websites
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://linode.com/linodes"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Machine Learning / AI
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://linode.com/linodes"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Web Apps
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://linode.com/linodes"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Developer Applications
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://linode.com/linodes"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Hosted Services
+                Open Cloud
               </a>
             </li>
           </ul>
         </div>
       </div>
-      <div className="w-full xs:w-full md:w-1/4 px-4">
-        <h4 className="footer-nav-header mb-2">
-          <a
-            href="https://linode.com/linodes"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Products
-          </a>
-        </h4>
-        <ul className="list-reset text-sm">
+      <div className="w-full md:w-1/6 px-4">
+        <h4 className="footer-nav-header mb-4">Products</h4>
+        <ul className="list-reset text-sm footer-sublist">
           <li>
             <a
               href="https://linode.com/linodes"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Products Overview
+              Products
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://linode.com/linodes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Kubernetes
             </a>
           </li>
           <li>
@@ -232,7 +156,7 @@ const FooterNav = () => (
               target="_blank"
               rel="noopener noreferrer"
             >
-              Dedicated CPU
+              High Memory Linodes
             </a>
           </li>
           <li>
@@ -241,7 +165,7 @@ const FooterNav = () => (
               target="_blank"
               rel="noopener noreferrer"
             >
-              High Memory Linodes
+              Dedicated CPU
             </a>
           </li>
           <li>
@@ -268,7 +192,7 @@ const FooterNav = () => (
               target="_blank"
               rel="noopener noreferrer"
             >
-              Kubernetes
+              Backups
             </a>
           </li>
           <li>
@@ -277,7 +201,7 @@ const FooterNav = () => (
               target="_blank"
               rel="noopener noreferrer"
             >
-              1-Click Apps
+              One-Click Apps
             </a>
           </li>
           <li>
@@ -286,16 +210,7 @@ const FooterNav = () => (
               target="_blank"
               rel="noopener noreferrer"
             >
-              Node Balancers
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://linode.com/linodes"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Cloud Firewalls
+              NodeBalancers
             </a>
           </li>
           <li>
@@ -313,7 +228,7 @@ const FooterNav = () => (
               target="_blank"
               rel="noopener noreferrer"
             >
-              Linode API
+              Managed
             </a>
           </li>
           <li>
@@ -322,59 +237,209 @@ const FooterNav = () => (
               target="_blank"
               rel="noopener noreferrer"
             >
-              Longview
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://linode.com/linodes"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Backups
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://linode.com/linodes"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Integrations
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://linode.com/linodes"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Incident Response
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://linode.com/linodes"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Pro Services
+              Professional Services
             </a>
           </li>
         </ul>
       </div>
-      <div className="w-full xs:w-full md:w-1/4 px-4">
+      <div className="w-full md:w-1/6 px-4">
         <div>
-          <h4 className="footer-nav-header mb-2">
+          <h4 className="footer-nav-header mb-4">Solutions</h4>
+          <ul className="list-reset text-sm footer-sublist">
+            <li>
+              <a
+                href="https://linode.com/docs"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Solutions Overview
+              </a>
+            </li>
+          </ul>
+          <div>
+            <h4 className="footer-nav-header mb-4">Pricing</h4>
+            <ul className="list-reset text-sm footer-sublist">
+              <li>
+                <a
+                  href="https://linode.com/pricing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Pricing
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="footer-nav-header mb-4">Company</h4>
+            <ul className="list-reset text-sm footer-sublist">
+              <li>
+                <a
+                  href="https://linode.com/agreement"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  About
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://linode.com/tos"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Leadership
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://linode.com/privacy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Press
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://linode.com/aup"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Careers
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://linode.com/security"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Legal &amp; Security
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div className="w-full md:w-1/6 px-4">
+        <h4 className="footer-nav-header mb-4">Community</h4>
+        <ul className="list-reset text-sm footer-sublist">
+          <li>
             <a
-              href="https://linode.com/docs"
+              href="https://linode.com/linodes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Community Overview
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://linode.com/linodes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Q&amp;A
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://linode.com/linodes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Developer Portal
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://linode.com/linodes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Blog
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://linode.com/linodes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Events
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://linode.com/linodes"
               target="_blank"
               rel="noopener noreferrer"
             >
               Resources
             </a>
-          </h4>
-          <ul className="list-reset text-sm">
+          </li>
+          <li>
+            <a
+              href="https://linode.com/linodes"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://facebook.com/linode"
+            >
+              Newsletter
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://linode.com/linodes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Startup Program
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://linode.com/linodes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Referral Program
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://linode.com/linodes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              API
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://linode.com/linodes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Documentation
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div className="w-full md:w-1/6 px-4">
+        <div>
+          <h4 className="footer-nav-header mb-4">Contact</h4>
+          <ul className="list-reset text-sm footer-sublist">
+            <li>
+              <a
+                href="https://linode.com/docs"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Contact
+              </a>
+            </li>
             <li>
               <a
                 href="https://linode.com/docs"
@@ -390,16 +455,7 @@ const FooterNav = () => (
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Documentation
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://linode.com/chat"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Chat
+                Contact Sales
               </a>
             </li>
             <li>
@@ -408,233 +464,73 @@ const FooterNav = () => (
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Speed Test
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://status.linode.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
                 System Status
               </a>
             </li>
           </ul>
-        </div>
-        <div>
-          <h4 className="footer-nav-header mb-2">
-            <a
-              href="https://linode.com/pricing"
-              target="_blank"
-              rel="noopener noreferrer"
-<<<<<<< HEAD
-              href="https://facebook.com/linode"
-=======
-            >
-              Pricing
-            </a>
-          </h4>
-          <ul className="list-reset text-sm">
-            <li>
+          <div>
+            <h4 className="footer-nav-header mb-4">Follow Us</h4>
+            <ul className="list-reset text-sm footer-sublist">
+              <li>
+                <a
+                  href="https://linode.com/pricing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-social-a"
+                >
+                  <Twitter className="footer-social-icon" />
+                </a>
+              </li>
               <a
-                href="https://linode.com/pricing"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="footer-social-a"
+                href="https://facebook.com/linode"
               >
-                Pricing
+                <Facebook className="footer-social-icon" />
               </a>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h4 className="footer-nav-header mb-2">
-            <a
-              href="https://linode.com/compliance"
-              target="_blank"
-              rel="noopener noreferrer"
->>>>>>> updating footer structure and content to match new marketing site
-            >
-              Legal &amp; Compliance
-            </a>
-          </h4>
-          <ul className="list-reset text-sm">
-            <li>
-              <a
-                href="https://linode.com/agreement"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Customer Agreement
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://linode.com/tos"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Terms of Service
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://linode.com/privacy"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Privacy Policy
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://linode.com/aup"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Acceptable User Policy
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://linode.com/security"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Security
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://linode.com/compliance"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Standards &amp; Compliance
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div className="w-full xs:w-full md:w-1/4 px-4">
-        <div>
-          <h4 className="footer-nav-header mb-2">
-            <a
-              href="https://linode.com/sales"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Engage
-            </a>
-          </h4>
-          <ul className="list-reset text-sm">
-            <li>
-              <a
-                href="https://linode.com/sales"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Contact Sales
-              </a>
-            </li>
-            <li>
-              <a
-                href="https:/blog.linode.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Blog
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://linode.com/events"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Events
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://linode.com/podcast"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Podcast
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://linode.com/community"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Community
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://linode.com/referrals"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Referral Program
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://linode.com/community"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Lift Startup Program
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://linode.com/partners"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Partners
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://linode.com/careers"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Press Careers
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h4 className="footer-nav-header mb-2">
-            <a
-              href="https://linode.com/contact"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Contact
-            </a>
-          </h4>
-          <ul className="list-reset text-sm">
-            <li>
-              <a href="tel:+18554546633">855-4-LINODE</a>
-            </li>
-            <li>
-              <a href="tel:+18554546633">(855-454-6633)</a>
-            </li>
-            <li>
-              <a href="tel:+16093807100">Intl.: +1 609-380-7100</a>
-            </li>
-            <li>
-              <a href="mailto:support@linode.com">Email us</a>
-            </li>
-          </ul>
+              <li>
+                <a
+                  href="https://linode.com/pricing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-social-a"
+                >
+                  <Instagram className="footer-social-icon" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://linode.com/pricing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-social-a"
+                >
+                  <Youtube className="footer-social-icon" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://linode.com/pricing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-social-a"
+                >
+                  <Linkedin className="footer-social-icon" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://linode.com/pricing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-social-a"
+                >
+                  <Github className="footer-social-icon" />
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
