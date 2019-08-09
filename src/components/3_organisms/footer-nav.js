@@ -12,7 +12,7 @@ const FooterNav = () => (
   <div className="footer-nav mx-auto">
     <div className="flex flex-wrap justify-between mb-4 -mx-4">
       <div className="w-full md:w-1/6 px-4">
-        <div className="footer-logo-outer">
+        <div className="footer-logo-outer ml-4">
           <div>
             <Logo className="footer-logo" />
           </div>
