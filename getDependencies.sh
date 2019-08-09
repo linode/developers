@@ -21,5 +21,4 @@ rm src/data/openapi.yaml.bak
 
 echo
 echo "${BLUE}Converting YAML to JSON${NC}"
-npm install -g yamljs
-yaml2json src/data/openapi.yaml > src/data/spec.json
+./node_modules/yamljs/bin/yaml2json src/data/openapi.yaml > src/data/spec.json
