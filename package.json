@@ -67,6 +67,7 @@
     "dotenv": "^8.0.0",
     "lodash": "^4.17.11",
     "md5": "^2.2.1",
-    "randomstring": "^1.1.5"
+    "randomstring": "^1.1.5",
+    "yamljs": "^0.3.0"
   }
 }
