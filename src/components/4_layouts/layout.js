@@ -5,7 +5,6 @@ import { StaticQuery, graphql } from "gatsby";
 import DLCMenu from "../2_molecules/DLCMenu";
 import Banner from "../3_organisms/banner";
 import Header from "../3_organisms/header";
-import Footer from "../3_organisms/footer";
 import FooterNav from "../3_organisms/footer-nav";
 import "../../css/main.css";
 
@@ -37,14 +36,9 @@ const Layout = ({ children, title, subtitle, fullWidth, noFooter }) => (
         </div>
         {!fullWidth && !noFooter && (
           <>
-            <div className="footer-wrapper border-top">
-              <footer className="max-w-3xl mx-auto py-8 px-4 md:px-8 text-BaseBlackFull">
+            <div className="footer-wrapper">
+              <footer className="max-w-3xl mx-auto pt-16 pb-4 px-4 md:px-0">
                 <FooterNav />
-              </footer>
-            </div>
-            <div className="footer-nav-wrapper border-top">
-              <footer className="max-w-3xl mx-auto py-8 px-4 md:px-8 text-BaseBlackFull">
-                <Footer />
               </footer>
             </div>
           </>
