@@ -29,7 +29,7 @@ const FooterNav = () => (
           <ul className="list-reset text-sm footer-sublist">
             <li>
               <a
-                href="https://linode.com/linodes"
+                href="https://linode.flywheelsites.com/choosing-linode/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -38,7 +38,7 @@ const FooterNav = () => (
             </li>
             <li>
               <a
-                href="https://linode.com/linodes"
+                href="https://linode.flywheelsites.com/support-experience/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -47,7 +47,7 @@ const FooterNav = () => (
             </li>
             <li>
               <a
-                href="https://linode.com/linodes"
+                href="https://linode.flywheelsites.com/cloud-simplified/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -56,16 +56,7 @@ const FooterNav = () => (
             </li>
             <li>
               <a
-                href="https://linode.com/linodes"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Linode vs. AWS
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://linode.com/linodes"
+                href="https://linode.flywheelsites.com/global-infrastructure/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -74,7 +65,7 @@ const FooterNav = () => (
             </li>
             <li>
               <a
-                href="https://linode.com/about"
+                href="https://linode.flywheelsites.com/craft-of-code/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -83,7 +74,7 @@ const FooterNav = () => (
             </li>
             <li>
               <a
-                href="https://linode.com/about"
+                href="https://linode.flywheelsites.com/linode-for-business/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -92,7 +83,7 @@ const FooterNav = () => (
             </li>
             <li>
               <a
-                href="https://linode.com/about"
+                href="https://linode.flywheelsites.com/what-is-cloud-computing/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -101,7 +92,7 @@ const FooterNav = () => (
             </li>
             <li>
               <a
-                href="https://linode.com/about"
+                href="https://linode.flywheelsites.com/open-cloud/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -116,7 +107,7 @@ const FooterNav = () => (
         <ul className="list-reset text-sm footer-sublist">
           <li>
             <a
-              href="https://linode.com/linodes"
+              href="https://linode.flywheelsites.com/products/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -125,7 +116,7 @@ const FooterNav = () => (
           </li>
           <li>
             <a
-              href="https://linode.com/linodes"
+              href="https://linode.flywheelsites.com/products/kubernetes/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -134,7 +125,7 @@ const FooterNav = () => (
           </li>
           <li>
             <a
-              href="https://linode.com/linodes"
+              href="https://linode.flywheelsites.com/products/nanodes/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -143,7 +134,7 @@ const FooterNav = () => (
           </li>
           <li>
             <a
-              href="https://linode.com/linodes"
+              href="https://linode.flywheelsites.com/products/standard-linodes/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -152,7 +143,7 @@ const FooterNav = () => (
           </li>
           <li>
             <a
-              href="https://linode.com/linodes"
+              href="https://linode.flywheelsites.com/products/high-memory/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -161,7 +152,7 @@ const FooterNav = () => (
           </li>
           <li>
             <a
-              href="https://linode.com/linodes"
+              href="https://linode.flywheelsites.com/products/dedicated-cpu/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -170,7 +161,7 @@ const FooterNav = () => (
           </li>
           <li>
             <a
-              href="https://linode.com/linodes"
+              href="https://linode.flywheelsites.com/products/block-storage/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -179,7 +170,7 @@ const FooterNav = () => (
           </li>
           <li>
             <a
-              href="https://linode.com/linodes"
+              href="https://linode.flywheelsites.com/products/object-storage/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -188,7 +179,7 @@ const FooterNav = () => (
           </li>
           <li>
             <a
-              href="https://linode.com/linodes"
+              href="https://linode.flywheelsites.com/products/backups/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -197,7 +188,7 @@ const FooterNav = () => (
           </li>
           <li>
             <a
-              href="https://linode.com/linodes"
+              href="https://linode.flywheelsites.com/products/one-click-apps/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -206,7 +197,7 @@ const FooterNav = () => (
           </li>
           <li>
             <a
-              href="https://linode.com/linodes"
+              href="https://linode.flywheelsites.com/products/nodebalancers/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -215,7 +206,7 @@ const FooterNav = () => (
           </li>
           <li>
             <a
-              href="https://linode.com/linodes"
+              href="https://linode.flywheelsites.com/products/dns-manager/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -224,7 +215,7 @@ const FooterNav = () => (
           </li>
           <li>
             <a
-              href="https://linode.com/linodes"
+              href="https://linode.flywheelsites.com/products/managed/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -233,7 +224,7 @@ const FooterNav = () => (
           </li>
           <li>
             <a
-              href="https://linode.com/linodes"
+              href="https://linode.flywheelsites.com/products/pro-services/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -248,7 +239,7 @@ const FooterNav = () => (
           <ul className="list-reset text-sm footer-sublist">
             <li>
               <a
-                href="https://linode.com/docs"
+                href="https://linode.flywheelsites.com/solutions/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -261,7 +252,7 @@ const FooterNav = () => (
             <ul className="list-reset text-sm footer-sublist">
               <li>
                 <a
-                  href="https://linode.com/pricing"
+                  href="https://linode.flywheelsites.com/pricing/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -275,7 +266,7 @@ const FooterNav = () => (
             <ul className="list-reset text-sm footer-sublist">
               <li>
                 <a
-                  href="https://linode.com/agreement"
+                  href="https://linode.flywheelsites.com/company/about/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -284,7 +275,7 @@ const FooterNav = () => (
               </li>
               <li>
                 <a
-                  href="https://linode.com/tos"
+                  href="https://linode.flywheelsites.com/company/leadership/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -293,7 +284,7 @@ const FooterNav = () => (
               </li>
               <li>
                 <a
-                  href="https://linode.com/privacy"
+                  href="https://linode.flywheelsites.com/company/press/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -302,7 +293,7 @@ const FooterNav = () => (
               </li>
               <li>
                 <a
-                  href="https://linode.com/aup"
+                  href="https://linode.flywheelsites.com/company/careers/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -311,7 +302,7 @@ const FooterNav = () => (
               </li>
               <li>
                 <a
-                  href="https://linode.com/security"
+                  href="https://linode.flywheelsites.com/legal-security/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -327,7 +318,7 @@ const FooterNav = () => (
         <ul className="list-reset text-sm footer-sublist">
           <li>
             <a
-              href="https://linode.com/linodes"
+              href="https://linode.flywheelsites.com/community/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -336,7 +327,7 @@ const FooterNav = () => (
           </li>
           <li>
             <a
-              href="https://linode.com/linodes"
+              href="https://www.linode.com/community/questions/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -345,7 +336,7 @@ const FooterNav = () => (
           </li>
           <li>
             <a
-              href="https://linode.com/linodes"
+              href="https://linode.flywheelsites.com/developers/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -354,7 +345,7 @@ const FooterNav = () => (
           </li>
           <li>
             <a
-              href="https://linode.com/linodes"
+              href="https://linode.flywheelsites.com/blog/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -363,7 +354,7 @@ const FooterNav = () => (
           </li>
           <li>
             <a
-              href="https://linode.com/linodes"
+              href="https://linode.flywheelsites.com/events/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -372,7 +363,7 @@ const FooterNav = () => (
           </li>
           <li>
             <a
-              href="https://linode.com/linodes"
+              href="https://linode.flywheelsites.com/resources/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -380,8 +371,9 @@ const FooterNav = () => (
             </a>
           </li>
           <li>
+            {/* @todo update Swag Store link once we have it */}
             <a
-              href="https://linode.com/linodes"
+              href="https://linode.flywheelsites.com/swag-store/"
               target="_blank"
               rel="noopener noreferrer"
               href="https://facebook.com/linode"
@@ -400,7 +392,7 @@ const FooterNav = () => (
           </li>
           <li>
             <a
-              href="https://linode.com/linodes"
+              href="https://linode.flywheelsites.com/referral-program/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -409,7 +401,7 @@ const FooterNav = () => (
           </li>
           <li>
             <a
-              href="https://linode.com/linodes"
+              href="https://linode.flywheelsites.com/products/api/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -418,7 +410,7 @@ const FooterNav = () => (
           </li>
           <li>
             <a
-              href="https://linode.com/linodes"
+              href="https://linode.flywheelsites.com/docs/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -433,7 +425,7 @@ const FooterNav = () => (
           <ul className="list-reset text-sm footer-sublist">
             <li>
               <a
-                href="https://linode.com/docs"
+                href="https://linode.flywheelsites.com/company/contact/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -442,7 +434,7 @@ const FooterNav = () => (
             </li>
             <li>
               <a
-                href="https://linode.com/docs"
+                href="https://linode.flywheelsites.com/support/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -451,7 +443,7 @@ const FooterNav = () => (
             </li>
             <li>
               <a
-                href="https://linode.com/docs"
+                href="https://linode.flywheelsites.com/company/contact-sales/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -460,7 +452,7 @@ const FooterNav = () => (
             </li>
             <li>
               <a
-                href="https://linode.com/docs"
+                href="https://linode.flywheelsites.com/system-status/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -473,7 +465,7 @@ const FooterNav = () => (
             <ul className="list-reset text-sm footer-sublist">
               <li>
                 <a
-                  href="https://linode.com/pricing"
+                  href="https://twitter.com/linode/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="footer-social-a"
@@ -481,17 +473,19 @@ const FooterNav = () => (
                   <Twitter className="footer-social-icon" />
                 </a>
               </li>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer-social-a"
-                href="https://facebook.com/linode"
-              >
-                <Facebook className="footer-social-icon" />
-              </a>
               <li>
                 <a
-                  href="https://linode.com/pricing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-social-a"
+                  href="https://facebook.com/linode"
+                >
+                  <Facebook className="footer-social-icon" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/linode/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="footer-social-a"
@@ -501,7 +495,7 @@ const FooterNav = () => (
               </li>
               <li>
                 <a
-                  href="https://linode.com/pricing"
+                  href="https://www.youtube.com/linode/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="footer-social-a"
@@ -511,7 +505,7 @@ const FooterNav = () => (
               </li>
               <li>
                 <a
-                  href="https://linode.com/pricing"
+                  href="https://www.linkedin.com/company/linode/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="footer-social-a"
@@ -521,7 +515,7 @@ const FooterNav = () => (
               </li>
               <li>
                 <a
-                  href="https://linode.com/pricing"
+                  href="https://github.com/linode/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="footer-social-a"
