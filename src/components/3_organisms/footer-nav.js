@@ -2,7 +2,6 @@ import React from "react";
 
 import Facebook from "../../images/svgs/facebook.svg";
 import Twitter from "../../images/svgs/twitter.svg";
-import Googleplus from "../../images/svgs/googleplus.svg";
 import Linkedin from "../../images/svgs/linkedin.svg";
 import Github from "../../images/svgs/github.svg";
 
@@ -262,13 +261,6 @@ const FooterNav = () => (
               href="https://twitter.com/linode"
             >
               <Twitter />
-            </a>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://plus.google.com/+linode/"
-            >
-              <Googleplus />
             </a>
             <a
               target="_blank"
