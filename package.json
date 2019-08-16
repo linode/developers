@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "linode-developers",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "The Linode Developers site",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Alban Bailly <abailly@linode.com>",
   "dependencies": {
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.2.1",
     "axios": "^0.18.0",
@@ -57,16 +57,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/linode/developers"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/linode/developers/issues"
   },
   "devDependencies": {
     "algoliasearch": "^3.33.0",
     "dotenv": "^8.0.0",
     "lodash": "^4.17.11",
     "md5": "^2.2.1",
-    "randomstring": "^1.1.5"
+    "randomstring": "^1.1.5",
+    "yamljs": "^0.3.0"
   }
 }
