@@ -12,7 +12,7 @@ fi
 echo
 echo "${BLUE}Fetching API specs${NC}"
 cd -
-curl https://developers.linode.com/api/docs/v4/openapi.yaml > static/api/docs/v4/openapi.yaml
+curl https://raw.githubusercontent.com/linode/linode-api-docs/development/openapi.yaml > static/api/docs/v4/openapi.yaml
 
 echo
 echo "${BLUE}Removing faulty data${NC}"
