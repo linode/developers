@@ -12,13 +12,13 @@ fi
 echo
 echo "${BLUE}Fetching API specs${NC}"
 cd -
-curl https://developers.linode.com/api/docs/v4/openapi.yaml > src/data/openapi.yaml
+curl https://developers.linode.com/api/docs/v4/openapi.yaml > static/api/docs/v4/openapi.yaml
 
 echo
 echo "${BLUE}Removing faulty data${NC}"
-sed -i.bak '/backgroundColor:/d' src/data/openapi.yaml
-rm src/data/openapi.yaml.bak
+sed -i.bak '/backgroundColor:/d' static/api/docs/v4/openapi.yaml
+rm static/api/docs/v4/openapi.yaml.bak
 
 echo
 echo "${BLUE}Converting YAML to JSON${NC}"
-./node_modules/yamljs/bin/yaml2json src/data/openapi.yaml > src/data/spec.json
+./node_modules/yamljs/bin/yaml2json static/api/docs/v4/openapi.yaml > static/api/docs/v4/spec.json
