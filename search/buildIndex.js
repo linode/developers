@@ -5,7 +5,7 @@ const buildAlgolia = require("./buildAlgolia");
 require("dotenv").config();
 
 // This assumes the version of the spec in data/ is the current version
-const spec = require("../static/src/api/docs/v4/spec.json");
+const spec = require("../static/api/docs/v4/spec.json");
 
 const BASE_URL = "https://developers.linode.com/api/v4/";
 
