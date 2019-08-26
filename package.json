@@ -50,7 +50,7 @@
   ],
   "scripts": {
     "build": "./getDependencies.sh && gatsby build && node search/buildIndex.js",
-    "develop": "./getDependencies.sh && gatsby develop",
+    "develop": "./getDependenciesDevelop.sh && gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
