@@ -41,7 +41,7 @@ class APIDocs extends React.Component {
   }
 
   render() {
-    const n = this.props.data.allDataJson.edges[0].node;
+    const n = this.props.data.allV4Json.edges[0].node;
 
     return (
       <Layout
@@ -86,7 +86,7 @@ export default props => (
   <StaticQuery
     query={graphql`
       query {
-        allDataJson {
+        allV4Json {
           edges {
             node {
               info {

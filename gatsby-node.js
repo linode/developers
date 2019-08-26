@@ -3,7 +3,7 @@ const path = require("path");
 const _ = require("lodash");
 const fs = require("fs");
 
-const specs = require("./src/data/spec.json");
+const specs = require("./static/api/docs/v4/spec.json");
 const crypto = require("crypto");
 const parser = new JsonSchemaRefParser();
 
