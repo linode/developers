@@ -135,43 +135,7 @@ const rawQuery = properties => {
                                                               ? "{" +
                                                                 h.type.fields.map(
                                                                   i =>
-                                                                    i.name +
-                                                                    " " +
-                                                                    (i.type &&
-                                                                    i.type
-                                                                      .fields
-                                                                      ? "{" +
-                                                                        i.type.fields.map(
-                                                                          j =>
-                                                                            j.name +
-                                                                            " " +
-                                                                            (j.type &&
-                                                                            j
-                                                                              .type
-                                                                              .fields
-                                                                              ? "{" +
-                                                                                j.type.fields.map(
-                                                                                  k =>
-                                                                                    k.name +
-                                                                                    " " +
-                                                                                    (k.type &&
-                                                                                    k
-                                                                                      .type
-                                                                                      .fields
-                                                                                      ? "{" +
-                                                                                        k.type.fields.map(
-                                                                                          l =>
-                                                                                            l.name +
-                                                                                            " "
-                                                                                        ) +
-                                                                                        "}"
-                                                                                      : " ")
-                                                                                ) +
-                                                                                "}"
-                                                                              : " ")
-                                                                        ) +
-                                                                        "}"
-                                                                      : " ")
+                                                                    i.name + " "
                                                                 ) +
                                                                 "}"
                                                               : " ")
