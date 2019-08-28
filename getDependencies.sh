@@ -1,6 +1,12 @@
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
+SPEC_FILE=""
+if [ -n ${1} ]; then
+  SPEC_FILE=${1}
+  echo $([ -f $SPEC_FILE ])
+fi
+
 echo
 echo "${BLUE}Fetching base theme${NC}"
 if
@@ -9,10 +15,17 @@ if
   git clone https://github.com/linode/linode-hugo-theme.git;
 fi
 
-echo
-echo "${BLUE}Fetching API specs${NC}"
-cd -
-curl https://raw.githubusercontent.com/linode/linode-api-docs/master/openapi.yaml > static/api/docs/v4/openapi.yaml
+if [ -f "$SPEC_FILE" ]; then
+  echo
+  echo "${BLUE}Using local spec file at: ${SPEC_FILE}${NC}"
+  cat $SPEC_FILE > static/api/docs/v4/openapi.yaml;
+else
+  echo
+  echo "${BLUE}Fetching API specs${NC}"
+  cd -
+  curl https://raw.githubusercontent.com/linode/linode-api-docs/master/openapi.yaml > static/api/docs/v4/openapi.yaml;
+fi
+
 
 echo
 echo "${BLUE}Removing faulty data${NC}"
