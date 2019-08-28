@@ -55,13 +55,33 @@ export const ResponseSampleBody = props => {
                     .filter(v => l.items.properties[v] !== null)
                     .map(e => {
                       const data = l.items.properties[e];
+                      console.log(data.oneOf && data.oneOf);
                       return data &&
-                        (data.type !== "array" && data.type !== "object")
+                        (data.type !== "array" &&
+                          data.type !== "object" &&
+                          !data.oneOf)
                         ? `
                         "${e}": ${JSON.stringify(
                             data.example ? data.example : ""
                           )}
                       `
+                        : data && data && data.oneOf
+                        ? `"${e}": {
+                          ${data.oneOf.map(o => {
+                            return (
+                              o.properties &&
+                              Object.keys(o.properties)
+                                .filter(v => o.properties[v] !== null)
+                                .map(oo => {
+                                  const ro = o.properties[oo];
+                                  return ro
+                                    ? `"${oo}": ${JSON.stringify(
+                                        ro.example ? ro.example : ""
+                                      )}`
+                                    : "";
+                                })
+                            );
+                          })}}`
                         : data && data.properties && data.type === "object"
                         ? `"${e}": {
                       ${Object.keys(data.properties)
