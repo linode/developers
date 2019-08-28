@@ -15,6 +15,7 @@ export const ResponseItemElements = props => {
         Object.keys(context.content.application_json.schema.properties).map(
           (p, i) => {
             const l = context.content.application_json.schema.properties[p];
+
             return (
               l && (
                 <div key={i} className="response-wrapper">
@@ -199,6 +200,93 @@ export const ResponseItemElements = props => {
                                     </div>
                                   </div>
                                 </div>
+                                {data.oneOf && (
+                                  <div className="px-4 mt-4 mb-4 ml-4 subResponse">
+                                    {data.oneOf.map(o => {
+                                      return (
+                                        o.properties &&
+                                        Object.keys(o.properties).map(
+                                          (oo, i) => {
+                                            const ro = o.properties[oo];
+                                            return (
+                                              ro && (
+                                                <div
+                                                  key={i}
+                                                  className="lg:flex mb-4"
+                                                >
+                                                  <div className="w-full lg:w-1/4">
+                                                    <b
+                                                      className={
+                                                        ro.deprecated &&
+                                                        "line-through"
+                                                      }
+                                                    >
+                                                      {oo}
+                                                    </b>
+                                                    {ro.x_linode_filterable && (
+                                                      <div className="leading-xs">
+                                                        <span className="text-grey-dark text-sm">
+                                                          Filterable
+                                                        </span>
+                                                      </div>
+                                                    )}
+                                                  </div>
+                                                  <div className="w-full lg:w-3/4">
+                                                    <div>
+                                                      <div className="text-sm text-grey-darkest">
+                                                        {ro.type && ro.type}{" "}
+                                                        {ro.pattern && (
+                                                          <span className="tag">
+                                                            {ro.pattern}
+                                                          </span>
+                                                        )}
+                                                      </div>
+                                                      {ro.enum && (
+                                                        <div className="flex flex-wrap mb-2">
+                                                          <span className="text-sm mr-2">
+                                                            Enum:
+                                                          </span>
+                                                          {ro.enum.map(
+                                                            (e, i) => {
+                                                              return (
+                                                                <span
+                                                                  className="tag mr-2 mb-1 inline-block"
+                                                                  key={i}
+                                                                >
+                                                                  "{e}"
+                                                                </span>
+                                                              );
+                                                            }
+                                                          )}
+                                                        </div>
+                                                      )}
+                                                      {ro.deprecated && (
+                                                        <div>
+                                                          <span className="tag tag-deprecated">
+                                                            Deprecated
+                                                          </span>
+                                                        </div>
+                                                      )}
+                                                      <div>
+                                                        <Markdown
+                                                          source={
+                                                            ro.description
+                                                          }
+                                                          escapeHtml={false}
+                                                          className="api-desc"
+                                                        />
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              )
+                                            );
+                                          }
+                                        )
+                                      );
+                                    })}
+                                  </div>
+                                )}
                                 {data.properties && (
                                   <div className="px-4 mt-4 mb-4 ml-4 subResponse">
                                     {Object.keys(data.properties).map(
