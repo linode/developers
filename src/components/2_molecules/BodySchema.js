@@ -1,4 +1,4 @@
-import { getOr } from 'lodash/fp';
+import { getOr } from "lodash/fp";
 import React from "react";
 import Markdown from "react-markdown/with-html";
 
@@ -6,8 +6,17 @@ import CharDisplay from "./charDisplay";
 
 export const BodySchema = props => {
   const { data } = props;
-  const requiredProperties = getOr([], ['requestBody', 'content', 'application_json', 'schema', 'required'], data) || [];
-  const properties = getOr(null, ['requestBody', 'content', 'application_json', 'schema', 'properties'], data);
+  const requiredProperties =
+    getOr(
+      [],
+      ["requestBody", "content", "application_json", "schema", "required"],
+      data
+    ) || [];
+  const properties = getOr(
+    null,
+    ["requestBody", "content", "application_json", "schema", "properties"],
+    data
+  );
 
   const sortByRequired = (a, b) => {
     const r1 = requiredProperties.includes(a) ? 1 : 0;
@@ -26,7 +35,7 @@ export const BodySchema = props => {
       return -1;
     }
     return 0;
-  }
+  };
 
   return (
     <>
@@ -106,7 +115,6 @@ export const BodySchema = props => {
               s.properties &&
               Object.keys(s.properties).map((p, i) => {
                 const b = s.properties[p];
-                console.log(b)
                 return (
                   b &&
                   b.x_linode_cli_display !== 1 && (

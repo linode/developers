@@ -55,7 +55,6 @@ export const ResponseSampleBody = props => {
                     .filter(v => l.items.properties[v] !== null)
                     .map(e => {
                       const data = l.items.properties[e];
-                      console.log(data.oneOf && data.oneOf);
                       return data &&
                         (data.type !== "array" &&
                           data.type !== "object" &&
