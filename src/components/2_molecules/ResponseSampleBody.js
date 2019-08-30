@@ -73,7 +73,6 @@ export const ResponseSampleBody = props => {
                                 .filter(v => o.properties[v] !== null)
                                 .map(oo => {
                                   const ro = o.properties[oo];
-                                  console.log(ro);
                                   return ro &&
                                     (ro.type === "object" && ro.properties)
                                     ? `"${oo}": {
