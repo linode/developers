@@ -73,7 +73,23 @@ export const ResponseSampleBody = props => {
                                 .filter(v => o.properties[v] !== null)
                                 .map(oo => {
                                   const ro = o.properties[oo];
-                                  return ro
+                                  console.log(ro);
+                                  return ro &&
+                                    (ro.type === "object" && ro.properties)
+                                    ? `"${oo}": {
+                                      ${Object.keys(ro.properties)
+                                        .filter(
+                                          dp => ro.properties[dp] !== null
+                                        )
+                                        .map(s => {
+                                          const dps = ro.properties[s];
+                                          return dps
+                                            ? `"${s}": ${JSON.stringify(
+                                                dps.example ? dps.example : ""
+                                              )}`
+                                            : "";
+                                        })}}`
+                                    : ro.type !== "object"
                                     ? `"${oo}": ${JSON.stringify(
                                         ro.example ? ro.example : ""
                                       )}`
@@ -124,7 +140,7 @@ export const ResponseSampleBody = props => {
   }
 
   const finalSource = JSON.stringify(parsed, null, 2);
-  // const finalSource = sanitized;
+  //const finalSource = sanitized;
 
   return (
     context &&
