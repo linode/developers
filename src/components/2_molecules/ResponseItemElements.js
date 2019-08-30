@@ -1,7 +1,9 @@
 import React from "react";
 import Markdown from "react-markdown/with-html";
 
+import Deprecated from "./Deprecated";
 import Enum from "./Enum";
+import Filterable from "./Filterable";
 import SubResponse from "./SubResponse";
 import CharDisplay from "./charDisplay";
 
@@ -25,13 +27,7 @@ export const ResponseItemElements = props => {
                       <div>
                         <b className={l.deprecated && "line-through"}>{p}</b>
                       </div>
-                      {l.x_linode_filterable && (
-                        <div className="leading-xs">
-                          <span className="text-grey-dark text-sm">
-                            Filterable
-                          </span>
-                        </div>
-                      )}
+                      {l.x_linode_filterable && <Filterable />}
                     </div>
                     <div className="w-full lg:w-3/4">
                       <div>
@@ -47,11 +43,7 @@ export const ResponseItemElements = props => {
                         </div>
                       </div>
                       {l.enum && <Enum dataSource={l} />}
-                      {l.deprecated && (
-                        <div>
-                          <span className="tag tag-deprecated">Deprecated</span>
-                        </div>
-                      )}
+                      {l.deprecated && <Deprecated />}
                       <div>
                         <Markdown
                           source={l.description}
@@ -71,6 +63,7 @@ export const ResponseItemElements = props => {
                       {l.items.properties &&
                         Object.keys(l.items.properties).map((value, index) => {
                           const data = l.items.properties[value];
+                          // console.log(data && data.oneOf && data.oneOf);
                           return (
                             data && (
                               <div key={index} className="response-wrapper">
@@ -83,6 +76,7 @@ export const ResponseItemElements = props => {
                                     >
                                       {value}
                                     </b>
+                                    {data.x_linode_filterable && <Filterable />}
                                   </div>
                                   <div className="w-full lg:w-3/4">
                                     <div>
@@ -95,13 +89,7 @@ export const ResponseItemElements = props => {
                                         )}
                                       </div>
                                       {data.enum && <Enum dataSource={data} />}
-                                      {data.deprecated && (
-                                        <div>
-                                          <span className="tag tag-deprecated">
-                                            Deprecated
-                                          </span>
-                                        </div>
-                                      )}
+                                      {data.deprecated && <Deprecated />}
                                       <div>
                                         <Markdown
                                           source={data.description}
@@ -114,10 +102,11 @@ export const ResponseItemElements = props => {
                                 </div>
                                 {data.oneOf && (
                                   <div className="px-4 mt-4 mb-4 ml-4 subResponse">
-                                    {data.oneOf.map(data => {
+                                    {data.oneOf.map((data, i) => {
                                       return (
                                         <SubResponse
                                           dataSource={data.properties}
+                                          key={i}
                                         />
                                       );
                                     })}
