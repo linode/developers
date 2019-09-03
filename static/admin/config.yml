@@ -80,7 +80,7 @@ Some heuristics for which heading to put API reference updates under:
 <!-- Sample syntax - delete this before merging -->
 
 
-  - References to an endpoint should be in this format: `the Endpoint Name ([VERB /path/to/endpoint/{endpointVariable}](https://developers.linode.com/api/docs/v4#operation/endpointActionName)) endpoint`
+  - References to an endpoint should be in this format: `the Endpoint Name ([VERB /path/to/endpoint/{endpointVariable}](https://developers.linode.com/api/docs/v4/{endpoint}/{#endpointVariable})) endpoint`
     *Example*: `the Clone Linode ([POST /linode/instances/{linodeId}/clone](https://developers.linode.com/api/v4/linode-instances-linode-id-clone/#post)) endpoint`
 
 
