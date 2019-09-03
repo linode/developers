@@ -168,7 +168,7 @@
 
 .subResponse {
   border-left-width: 1px;
-  @apply border-grey-light;
+  @apply border-grey-light mb-8;
 }
 
 .search-header-wrapper {

@@ -21,30 +21,99 @@ const rawQuery = properties => {
                             " " +
                             (d.type && d.type.fields
                               ? "{" +
-                                d.type.fields.map(e =>
-                                  e.name === "allOf"
-                                    ? ""
-                                    : e.name === "oneOf"
-                                    ? ""
-                                    : e.name +
-                                      " " +
-                                      (e.type && e.type.fields
-                                        ? "{" +
-                                          e.type.fields.map(
-                                            f =>
-                                              f.name +
-                                              " " +
-                                              (f.type && f.type.fields
-                                                ? "{" +
-                                                  f.type.fields.map(
-                                                    g =>
-                                                      g.name +
-                                                      " " +
-                                                      (g.type && g.type.fields
-                                                        ? "{" +
-                                                          g.type.fields.map(
-                                                            h =>
-                                                              h.name +
+                                d.type.fields.map(
+                                  e =>
+                                    e.name +
+                                    " " +
+                                    (e.type && e.type.fields
+                                      ? "{" +
+                                        e.type.fields.map(
+                                          f =>
+                                            f.name +
+                                            " " +
+                                            (f.type && f.type.fields
+                                              ? "{" +
+                                                f.type.fields.map(
+                                                  g =>
+                                                    g.name +
+                                                    " " +
+                                                    (g.type && g.type.fields
+                                                      ? "{" +
+                                                        g.type.fields.map(
+                                                          h =>
+                                                            h.name +
+                                                            " " +
+                                                            (h.type &&
+                                                            h.type.fields
+                                                              ? "{" +
+                                                                h.type.fields.map(
+                                                                  i =>
+                                                                    i.name +
+                                                                    " " +
+                                                                    (i.type &&
+                                                                    i.type
+                                                                      .fields
+                                                                      ? "{" +
+                                                                        i.type.fields.map(
+                                                                          j =>
+                                                                            j.name +
+                                                                            " " +
+                                                                            (j.type &&
+                                                                            j
+                                                                              .type
+                                                                              .fields
+                                                                              ? "{" +
+                                                                                j.type.fields.map(
+                                                                                  k =>
+                                                                                    k.name +
+                                                                                    " " +
+                                                                                    (k.type &&
+                                                                                    k
+                                                                                      .type
+                                                                                      .fields
+                                                                                      ? "{" +
+                                                                                        k.type.fields.map(
+                                                                                          l =>
+                                                                                            l.name +
+                                                                                            " "
+                                                                                        ) +
+                                                                                        "}"
+                                                                                      : " ")
+                                                                                ) +
+                                                                                "}"
+                                                                              : " ")
+                                                                        ) +
+                                                                        "}"
+                                                                      : " ")
+                                                                ) +
+                                                                "}"
+                                                              : " ")
+                                                        ) +
+                                                        "}"
+                                                      : " ")
+                                                ) +
+                                                "}"
+                                              : " ")
+                                        ) +
+                                        "}"
+                                      : e.type.ofType && e.type.ofType.fields
+                                      ? "{" +
+                                        e.type.ofType.fields.map(
+                                          f =>
+                                            f.name +
+                                            " " +
+                                            (f.type && f.type.fields
+                                              ? "{" +
+                                                f.type.fields.map(
+                                                  g =>
+                                                    g.name +
+                                                    " " +
+                                                    (g.type && g.type.fields
+                                                      ? "{" +
+                                                        g.type.fields.map(h =>
+                                                          h.name === "allOf"
+                                                            ? ""
+                                                            : h.name +
                                                               " " +
                                                               (h.type &&
                                                               h.type.fields
@@ -58,26 +127,26 @@ const rawQuery = properties => {
                                                                         .fields
                                                                         ? "{" +
                                                                           i.type.fields.map(
-                                                                            j =>
-                                                                              j.name +
+                                                                            k =>
+                                                                              k.name +
                                                                               " " +
-                                                                              (j.type &&
-                                                                              j
+                                                                              (k.type &&
+                                                                              k
                                                                                 .type
                                                                                 .fields
                                                                                 ? "{" +
-                                                                                  j.type.fields.map(
-                                                                                    k =>
-                                                                                      k.name +
+                                                                                  k.type.fields.map(
+                                                                                    l =>
+                                                                                      l.name +
                                                                                       " " +
-                                                                                      (k.type &&
-                                                                                      k
+                                                                                      (l.type &&
+                                                                                      l
                                                                                         .type
                                                                                         .fields
                                                                                         ? "{" +
-                                                                                          k.type.fields.map(
-                                                                                            l =>
-                                                                                              l.name +
+                                                                                          l.type.fields.map(
+                                                                                            m =>
+                                                                                              m.name +
                                                                                               " "
                                                                                           ) +
                                                                                           "}"
@@ -90,17 +159,59 @@ const rawQuery = properties => {
                                                                         : " ")
                                                                   ) +
                                                                   "}"
+                                                                : h.type
+                                                                    .ofType &&
+                                                                  h.type.ofType
+                                                                    .fields
+                                                                ? "{" +
+                                                                  h.type.ofType.fields.map(
+                                                                    i =>
+                                                                      i.name +
+                                                                      " "
+                                                                  ) +
+                                                                  "}"
                                                                 : " ")
-                                                          ) +
-                                                          "}"
-                                                        : " ")
-                                                  ) +
-                                                  "}"
-                                                : " ")
-                                          ) +
-                                          "}"
-                                        : " ")
+                                                        ) +
+                                                        "}"
+                                                      : " ")
+                                                ) +
+                                                "}"
+                                              : f.type.ofType &&
+                                                f.type.ofType.fields
+                                              ? "{" +
+                                                f.type.ofType.fields.map(
+                                                  g =>
+                                                    g.name +
+                                                    " " +
+                                                    (g.type && g.type.fields
+                                                      ? "{" +
+                                                        g.type.fields.map(
+                                                          h =>
+                                                            h.name +
+                                                            " " +
+                                                            (h.type &&
+                                                            h.type.fields
+                                                              ? "{" +
+                                                                h.type.fields.map(
+                                                                  i =>
+                                                                    i.name + " "
+                                                                ) +
+                                                                "}"
+                                                              : " ")
+                                                        ) +
+                                                        "}"
+                                                      : " ")
+                                                ) +
+                                                "}"
+                                              : " ")
+                                        ) +
+                                        "}"
+                                      : " ")
                                 ) +
+                                "}"
+                              : d.type.ofType && d.type.ofType.fields
+                              ? "{" +
+                                d.type.ofType.fields.map(e => e.name + " ") +
                                 "}"
                               : " ")
                         ) +

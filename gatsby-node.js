@@ -320,9 +320,153 @@ exports.createPages = async ({ actions, graphql }) => {
                     fields {
                       name
                       type {
+                        ofType {
+                          name
+                          fields {
+                            name
+                            type {
+                              fields {
+                                name
+                                type {
+                                  fields {
+                                    name
+                                    type {
+                                      fields {
+                                        name
+                                        type {
+                                          fields {
+                                            name
+                                            type {
+                                              fields {
+                                                name
+                                                type {
+                                                  fields {
+                                                    name
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
                         fields {
                           name
                           type {
+                            ofType {
+                              name
+                              fields {
+                                name
+                                type {
+                                  ofType {
+                                    name
+                                    fields {
+                                      name
+                                      type {
+                                        fields {
+                                          name
+                                          type {
+                                            ofType {
+                                              name
+                                              fields {
+                                                name
+                                                type {
+                                                  fields {
+                                                    name
+                                                    type {
+                                                      fields {
+                                                        name
+                                                        type {
+                                                          fields {
+                                                            name
+                                                            type {
+                                                              fields {
+                                                                name
+                                                                type {
+                                                                  fields {
+                                                                    name
+                                                                    type {
+                                                                      fields {
+                                                                        name
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                            fields {
+                                              name
+                                              type {
+                                                fields {
+                                                  name
+                                                  type {
+                                                    fields {
+                                                      name
+                                                      type {
+                                                        fields {
+                                                          name
+                                                          type {
+                                                            fields {
+                                                              name
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                  fields {
+                                    name
+                                    type {
+                                      fields {
+                                        name
+                                        type {
+                                          fields {
+                                            name
+                                            type {
+                                              fields {
+                                                name
+                                                type {
+                                                  fields {
+                                                    name
+                                                    type {
+                                                      fields {
+                                                        name
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
                             fields {
                               name
                               type {
