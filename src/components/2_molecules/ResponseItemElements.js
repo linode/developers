@@ -4,6 +4,7 @@ import Markdown from "react-markdown/with-html";
 import Deprecated from "./Deprecated";
 import Enum from "./Enum";
 import Filterable from "./Filterable";
+import Nullable from "./Nullable";
 import SubResponse from "./SubResponse";
 import CharDisplay from "./charDisplay";
 
@@ -16,8 +17,11 @@ export const ResponseItemElements = props => {
         context.content.application_json &&
         context.content.application_json.schema &&
         context.content.application_json.schema.properties &&
-        Object.keys(context.content.application_json.schema.properties).map(
-          (p, i) => {
+        Object.keys(context.content.application_json.schema.properties)
+          .filter(
+            v => context.content.application_json.schema.properties[v] !== null
+          )
+          .map((p, i) => {
             const l = context.content.application_json.schema.properties[p];
             return (
               l && (
@@ -28,6 +32,7 @@ export const ResponseItemElements = props => {
                         <b className={l.deprecated && "line-through"}>{p}</b>
                       </div>
                       {l.x_linode_filterable && <Filterable />}
+                      {l.nullable && <Nullable />}
                     </div>
                     <div className="w-full lg:w-3/4">
                       <div>
@@ -63,7 +68,6 @@ export const ResponseItemElements = props => {
                       {l.items.properties &&
                         Object.keys(l.items.properties).map((value, index) => {
                           const data = l.items.properties[value];
-                          // console.log(data && data.oneOf && data.oneOf);
                           return (
                             data && (
                               <div key={index} className="response-wrapper">
@@ -77,6 +81,7 @@ export const ResponseItemElements = props => {
                                       {value}
                                     </b>
                                     {data.x_linode_filterable && <Filterable />}
+                                    {data.nullable && <Nullable />}
                                   </div>
                                   <div className="w-full lg:w-3/4">
                                     <div>
@@ -126,8 +131,7 @@ export const ResponseItemElements = props => {
                 </div>
               )
             );
-          }
-        )}
+          })}
     </div>
   );
 };
