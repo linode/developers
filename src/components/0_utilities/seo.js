@@ -10,7 +10,7 @@ function SEO({ description, lang, meta, keywords, title }) {
       render={data => {
         const metaDescription =
           description || data.site.siteMetadata.description;
-        const metaImage = `https://developers.linode.com/img/linode-logo_standard_light_medium.png`;
+        const metaImage = `https://developers.linode.com/assets/logo.png`;
         const metaUrl = `https://developers.linode.com/`;
         return (
           <Helmet
@@ -46,7 +46,7 @@ function SEO({ description, lang, meta, keywords, title }) {
               },
               {
                 name: `twitter:card`,
-                content: metaImage
+                content: "summary"
               },
               {
                 name: `twitter:image`,
