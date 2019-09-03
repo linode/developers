@@ -4,6 +4,7 @@ import Markdown from "react-markdown/with-html";
 import Deprecated from "./Deprecated";
 import Enum from "./Enum";
 import Filterable from "./Filterable";
+import Nullable from "./Nullable";
 
 const SubResponseMarkup = props => {
   const { property, value } = props;
@@ -23,6 +24,7 @@ const SubResponseMarkup = props => {
           </div>
           {property.enum && <Enum dataSource={property} />}
           {property.deprecated && <Deprecated />}
+          {property.nullable && <Nullable />}
           <div>
             <Markdown
               source={property.description}

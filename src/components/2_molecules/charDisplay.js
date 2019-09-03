@@ -11,10 +11,10 @@ export const CharDisplay = props => {
           {">"}
         </>
       )}
-      {data.type === "string" && data.maxLength && !data.minLength && (
+      {data.type === "string" && data.maxLength && !data.minLength ? (
         <span className="tag">{` <= ${data.maxLength}${" "} characters`}</span>
-      )}
-      {data.type === "string" &&
+      ) : (
+        data.type === "string" &&
         data.maxLength &&
         data.minLength &&
         (data.maxLength === data.minLength ? (
@@ -25,7 +25,8 @@ export const CharDisplay = props => {
               data.maxLength
             }${"] "} characters`}{" "}
           </span>
-        ))}
+        ))
+      )}
     </>
   );
 };
