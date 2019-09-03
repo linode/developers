@@ -56,12 +56,46 @@ export const ResponseSampleBody = props => {
                     .map(e => {
                       const data = l.items.properties[e];
                       return data &&
-                        (data.type !== "array" && data.type !== "object")
+                        (data.type !== "array" &&
+                          data.type !== "object" &&
+                          !data.oneOf)
                         ? `
                         "${e}": ${JSON.stringify(
                             data.example ? data.example : ""
                           )}
                       `
+                        : data && data && data.oneOf
+                        ? `"${e}": {
+                          ${data.oneOf.map(o => {
+                            return (
+                              o.properties &&
+                              Object.keys(o.properties)
+                                .filter(v => o.properties[v] !== null)
+                                .map(oo => {
+                                  const ro = o.properties[oo];
+                                  return ro &&
+                                    (ro.type === "object" && ro.properties)
+                                    ? `"${oo}": {
+                                      ${Object.keys(ro.properties)
+                                        .filter(
+                                          dp => ro.properties[dp] !== null
+                                        )
+                                        .map(s => {
+                                          const dps = ro.properties[s];
+                                          return dps
+                                            ? `"${s}": ${JSON.stringify(
+                                                dps.example ? dps.example : ""
+                                              )}`
+                                            : "";
+                                        })}}`
+                                    : ro.type !== "object"
+                                    ? `"${oo}": ${JSON.stringify(
+                                        ro.example ? ro.example : ""
+                                      )}`
+                                    : "";
+                                })
+                            );
+                          })}}`
                         : data && data.properties && data.type === "object"
                         ? `"${e}": {
                       ${Object.keys(data.properties)
@@ -105,7 +139,7 @@ export const ResponseSampleBody = props => {
   }
 
   const finalSource = JSON.stringify(parsed, null, 2);
-  // const finalSource = sanitized;
+  //const finalSource = sanitized;
 
   return (
     context &&
