@@ -32,7 +32,7 @@ export const ResponseSampleBody = props => {
                       : `${JSON.stringify(l.example ? l.example : "")}`
                   }`
                 : `"${p}" : [`) +
-                (l.example && l.type === "array"
+                (l.example && l.type === "array" && !l.items
                   ? Object.keys(l.example).map(v => {
                       const va = l.example[v];
                       return `"${va}"`;
@@ -139,7 +139,7 @@ export const ResponseSampleBody = props => {
   }
 
   const finalSource = JSON.stringify(parsed, null, 2);
-  //const finalSource = sanitized;
+  // const finalSource = sanitized;
 
   return (
     context &&
