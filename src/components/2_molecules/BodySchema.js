@@ -2,6 +2,9 @@ import { getOr } from "lodash/fp";
 import React from "react";
 import Markdown from "react-markdown/with-html";
 
+import Filterable from "./Filterable";
+import Nullable from "./Nullable";
+import SubResponse from "./SubResponse";
 import CharDisplay from "./charDisplay";
 
 export const BodySchema = props => {
@@ -44,6 +47,11 @@ export const BodySchema = props => {
       </div>
       {properties &&
         Object.keys(properties)
+          .filter(
+            v =>
+              data.requestBody.content.application_json.schema.properties[v] !==
+              null
+          )
           .sort(sortByRequired)
           .map((p, i) => {
             const b =
@@ -76,13 +84,8 @@ export const BodySchema = props => {
                             }
                           )}
                       </div>
-                      {b.x_linode_filterable && (
-                        <div className="leading-xs mt-1">
-                          <span className="text-grey-dark text-sm">
-                            Filterable
-                          </span>
-                        </div>
-                      )}
+                      {b.x_linode_filterable && <Filterable />}
+                      {b.nullable && <Nullable />}
                     </div>
                     <div className="w-full lg:w-3/4">
                       <div className="text-sm leading-text-sm text-grey-darkest">
@@ -101,6 +104,11 @@ export const BodySchema = props => {
                       />
                     </div>
                   </div>
+                  {b.properties && (
+                    <div className="px-4 mt-4 mb-4 ml-4 subResponse">
+                      <SubResponse dataSource={b.properties} />
+                    </div>
+                  )}
                 </div>
               )
             );
