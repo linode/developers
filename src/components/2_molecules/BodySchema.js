@@ -198,6 +198,11 @@ export const BodySchema = props => {
                             />
                           </div>
                         </div>
+                        {b.properties && (
+                          <div className="px-4 mt-4 mb-4 ml-4 subResponse">
+                            <SubResponse dataSource={b.properties} />
+                          </div>
+                        )}
                       </div>
                     )
                   );
