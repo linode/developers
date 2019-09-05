@@ -10,9 +10,9 @@ function SEO({ description, lang, meta, keywords, title }) {
       render={data => {
         const metaDescription =
           description || data.site.siteMetadata.description;
-        const metaImage = `https://developers.linode.com/assets/logo-h.png`;
-        const twitterCardImage =
-          "https://developers.linode.com/assets/logo.png";
+        // const metaImage = `https://developers.linode.com/assets/logo-h.png`;
+        const socialMediaCampaignImage = `https://developers.dev.linode.com/assets/linodeTwitter.png`;
+        // const twitterCardImage = "https://developers.linode.com/assets/logo.png";
         const metaUrl = `https://developers.linode.com/`;
         return (
           <Helmet
@@ -44,15 +44,15 @@ function SEO({ description, lang, meta, keywords, title }) {
               },
               {
                 property: `og:image`,
-                content: metaImage
+                content: socialMediaCampaignImage
               },
               {
                 name: `twitter:card`,
-                content: "summary"
+                content: "summary_large_image"
               },
               {
                 name: `twitter:image`,
-                content: twitterCardImage
+                content: socialMediaCampaignImage
               },
               {
                 name: `twitter:domain`,
