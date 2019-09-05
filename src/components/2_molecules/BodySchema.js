@@ -2,6 +2,9 @@ import { getOr } from "lodash/fp";
 import React from "react";
 import Markdown from "react-markdown/with-html";
 
+import Filterable from "./Filterable";
+import Nullable from "./Nullable";
+import SubResponse from "./SubResponse";
 import CharDisplay from "./charDisplay";
 
 export const BodySchema = props => {
@@ -44,6 +47,11 @@ export const BodySchema = props => {
       </div>
       {properties &&
         Object.keys(properties)
+          .filter(
+            v =>
+              data.requestBody.content.application_json.schema.properties[v] !==
+              null
+          )
           .sort(sortByRequired)
           .map((p, i) => {
             const b =
@@ -76,13 +84,8 @@ export const BodySchema = props => {
                             }
                           )}
                       </div>
-                      {b.x_linode_filterable && (
-                        <div className="leading-xs mt-1">
-                          <span className="text-grey-dark text-sm">
-                            Filterable
-                          </span>
-                        </div>
-                      )}
+                      {b.x_linode_filterable && <Filterable />}
+                      {b.nullable && <Nullable />}
                     </div>
                     <div className="w-full lg:w-3/4">
                       <div className="text-sm leading-text-sm text-grey-darkest">
@@ -101,6 +104,11 @@ export const BodySchema = props => {
                       />
                     </div>
                   </div>
+                  {b.properties && (
+                    <div className="px-4 mt-4 mb-4 ml-4 subResponse">
+                      <SubResponse dataSource={b.properties} />
+                    </div>
+                  )}
                 </div>
               )
             );
@@ -113,38 +121,29 @@ export const BodySchema = props => {
             const s = data.requestBody.content.application_json.schema.allOf[a];
             return (
               s.properties &&
-              Object.keys(s.properties).map((p, i) => {
-                const b = s.properties[p];
-                return (
-                  b &&
-                  b.x_linode_cli_display !== 1 && (
-                    <div key={i} className="response-wrapper">
-                      <div className="lg:flex pt-2 mb-4 initResponse">
-                        <div className="w-full lg:w-1/4">
-                          <div>
-                            <b>{p}</b>
-                          </div>
-                          <div className="leading-xs">
-                            {s.required &&
-                              s.required.map((req, i) => {
-                                if (p === req) {
-                                  return (
-                                    <span
-                                      className="text-BaseRed text-sm"
-                                      key={i}
-                                    >
-                                      Required
-                                    </span>
-                                  );
-                                }
-                                return false;
-                              })}
-                          </div>
-                          <div className="leading-xs">
-                            {data.requestBody.content.application_json.schema
-                              .required &&
-                              data.requestBody.content.application_json.schema.required.map(
-                                (req, i) => {
+              Object.keys(s.properties)
+                .filter(
+                  v =>
+                    data.requestBody.content.application_json.schema.allOf[
+                      v
+                    ] !== null
+                )
+                .sort(sortByRequired)
+                .map((p, i) => {
+                  const b = s.properties[p];
+                  return (
+                    b &&
+                    b.x_linode_cli_display !== 1 &&
+                    b.readOnly !== true && (
+                      <div key={i} className="response-wrapper">
+                        <div className="lg:flex pt-2 mb-4 initResponse">
+                          <div className="w-full lg:w-1/4">
+                            <div>
+                              <b>{p}</b>
+                            </div>
+                            <div className="leading-xs">
+                              {s.required &&
+                                s.required.map((req, i) => {
                                   if (p === req) {
                                     return (
                                       <span
@@ -156,35 +155,58 @@ export const BodySchema = props => {
                                     );
                                   }
                                   return false;
-                                }
+                                })}
+                            </div>
+                            <div className="leading-xs">
+                              {data.requestBody.content.application_json.schema
+                                .required &&
+                                data.requestBody.content.application_json.schema.required.map(
+                                  (req, i) => {
+                                    if (p === req) {
+                                      return (
+                                        <span
+                                          className="text-BaseRed text-sm"
+                                          key={i}
+                                        >
+                                          Required
+                                        </span>
+                                      );
+                                    }
+                                    return false;
+                                  }
+                                )}
+                            </div>
+                            <div className="leading-xs mt-1">
+                              {b.x_linode_filterable && (
+                                <span className="text-grey-dark text-sm">
+                                  Filterable
+                                </span>
                               )}
+                            </div>
                           </div>
-                          <div className="leading-xs mt-1">
-                            {b.x_linode_filterable && (
-                              <span className="text-grey-dark text-sm">
-                                Filterable
-                              </span>
-                            )}
+                          <div className="w-full lg:w-3/4">
+                            <div className="text-sm leading-text-sm text-grey-darkest">
+                              {b.type} <CharDisplay data={b} />
+                              {b.pattern && (
+                                <span className="tag">{b.pattern}</span>
+                              )}
+                            </div>
+                            <Markdown
+                              source={b.description}
+                              escapeHtml={false}
+                              className="api-desc"
+                            />
                           </div>
                         </div>
-                        <div className="w-full lg:w-3/4">
-                          <div className="text-sm leading-text-sm text-grey-darkest">
-                            {b.type} <CharDisplay data={b} />
-                            {b.pattern && (
-                              <span className="tag">{b.pattern}</span>
-                            )}
+                        {b.properties && (
+                          <div className="px-4 mt-4 mb-4 ml-4 subResponse">
+                            <SubResponse dataSource={b.properties} />
                           </div>
-                          <Markdown
-                            source={b.description}
-                            escapeHtml={false}
-                            className="api-desc"
-                          />
-                        </div>
+                        )}
                       </div>
-                    </div>
-                  )
-                );
-              })
+                    )
+                  );
+                })
             );
           }
         )}
