@@ -13,6 +13,7 @@ const SubResponseMarkup = props => {
       <div className="w-full lg:w-1/4">
         <b className={property.deprecated && "line-through"}>{value}</b>
         {property.x_linode_filterable && <Filterable />}
+        {property.nullable && <Nullable />}
       </div>
       <div className="w-full lg:w-3/4">
         <div>
@@ -24,7 +25,6 @@ const SubResponseMarkup = props => {
           </div>
           {property.enum && <Enum dataSource={property} />}
           {property.deprecated && <Deprecated />}
-          {property.nullable && <Nullable />}
           <div>
             <Markdown
               source={property.description}
