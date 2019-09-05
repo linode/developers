@@ -11,7 +11,7 @@ function SEO({ description, lang, meta, keywords, title }) {
         const metaDescription =
           description || data.site.siteMetadata.description;
         // const metaImage = `https://developers.linode.com/assets/logo-h.png`;
-        const socialMediaCampaignImage = `https://developers.dev.linode.com/assets/linodeTwitter.png`;
+        const socialMediaCampaignImage = `https://deploy-preview-59--developers-linode.netlify.com/assets/linodeTwitter.png`;
         // const twitterCardImage = "https://developers.linode.com/assets/logo.png";
         const metaUrl = `https://developers.linode.com/`;
         return (
