@@ -3,7 +3,7 @@ NC='\033[0m' # No Color
 
 SPEC_FILE=""
 if [ -n ${1} ]; then
-  SPEC_FILE=${1}
+  SPEC_FILE=../${1}
   echo $([ -f $SPEC_FILE ])
 fi
 
@@ -18,14 +18,14 @@ fi
 if [ -f "$SPEC_FILE" ]; then
   echo
   printf "${BLUE}Using local spec file at: ${SPEC_FILE}${NC}\n"
-  cat $SPEC_FILE > static/api/docs/v4/openapi.yaml;
+  cat $SPEC_FILE > ../static/api/docs/v4/openapi.yaml;
+  cd -
 else
   echo
   printf "${BLUE}Fetching API specs${NC}\n"
   cd -
   curl https://raw.githubusercontent.com/linode/linode-api-docs/master/openapi.yaml > static/api/docs/v4/openapi.yaml;
 fi
-
 
 echo
 printf "${BLUE}Removing faulty data${NC}\n"
