@@ -18,20 +18,20 @@ fi
 if [ -f "$SPEC_FILE" ]; then
   echo
   printf "${BLUE}Using local spec file at: ${SPEC_FILE}${NC}\n"
-  cat $SPEC_FILE > ../static/api/docs/v4/openapi.yaml;
+  cat $SPEC_FILE > static/api/docs/v4/openapi.yaml;
 else
   echo
   printf "${BLUE}Fetching API specs${NC}\n"
   cd -
-  curl https://raw.githubusercontent.com/linode/linode-api-docs/master/openapi.yaml > ../static/api/docs/v4/openapi.yaml;
+  curl https://raw.githubusercontent.com/linode/linode-api-docs/master/openapi.yaml > static/api/docs/v4/openapi.yaml;
 fi
 
 
 echo
 printf "${BLUE}Removing faulty data${NC}\n"
-sed -i.bak '/backgroundColor:/d' ../static/api/docs/v4/openapi.yaml
-rm ../static/api/docs/v4/openapi.yaml.bak
+sed -i.bak '/backgroundColor:/d' static/api/docs/v4/openapi.yaml
+rm static/api/docs/v4/openapi.yaml.bak
 
 echo
 printf "${BLUE}Converting YAML to JSON${NC}\n"
-../node_modules/yamljs/bin/yaml2json ../static/api/docs/v4/openapi.yaml > ../static/api/docs/v4/spec.json
+node_modules/yamljs/bin/yaml2json static/api/docs/v4/openapi.yaml > static/api/docs/v4/spec.json
