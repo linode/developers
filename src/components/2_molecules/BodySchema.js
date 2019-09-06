@@ -2,6 +2,7 @@ import { getOr } from "lodash/fp";
 import React from "react";
 import Markdown from "react-markdown/with-html";
 
+import Enum from "./Enum";
 import Filterable from "./Filterable";
 import Nullable from "./Nullable";
 import SubResponse from "./SubResponse";
@@ -97,6 +98,7 @@ export const BodySchema = props => {
                           <span className="tag tag-deprecated">Deprecated</span>
                         </div>
                       )}
+                      {b.enum && <Enum dataSource={b} />}
                       <Markdown
                         source={b.description}
                         escapeHtml={false}
