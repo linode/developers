@@ -1,22 +1,21 @@
+import { getOr } from "lodash/fp";
 import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 export const ResponseSampleBody = props => {
   const { context, response } = props;
+  const properties = getOr([], ['content', 'application_json', 'schema', 'properties'], context);
 
   const sampleSource = `
       {
-      ${context.content &&
-        context.content.application_json &&
-        context.content.application_json.schema &&
-        context.content.application_json.schema.properties &&
-        Object.keys(context.content.application_json.schema.properties)
+      ${properties &&
+        Object.keys(properties)
           .filter(
-            v => context.content.application_json.schema.properties[v] !== null
+            v => properties[v] !== null
           )
           .map(p => {
-            const l = context.content.application_json.schema.properties[p];
+            const l = properties[p];
             return (
               l &&
               (l.type !== "array" && l.type !== "object" && p !== "errors"
