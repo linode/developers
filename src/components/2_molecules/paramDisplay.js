@@ -17,13 +17,15 @@ export const ParamDisplay = props => {
         <div className="w-3/4">
           <div>
             <div>
-              {param.schema.type}{" "}
-              {param.schema.type === "integer" &&
+              {param.schema.type && param.schema.type}{" "}
+              {param.schema.type &&
+                param.schema.type === "integer" &&
                 param.schema.minimum &&
                 !param.schema.maximum && (
                   <span className="tag">> = {param.schema.minimum}</span>
                 )}
-              {param.schema.type === "integer" &&
+              {param.schema.type &&
+                param.schema.type === "integer" &&
                 param.schema.minimum &&
                 param.schema.maximum && (
                   <span className="tag">
