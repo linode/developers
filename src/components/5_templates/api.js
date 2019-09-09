@@ -120,18 +120,6 @@ class apiPage extends React.Component {
                           className="my-8 api-desc"
                         />
                         {m.security && <Security oauth={m.security[1].oauth} />}
-                        {m.parameters && (
-                          <div className="my-8">
-                            <h3 className="mb-2">Query Parameters</h3>
-                            {m.parameters.map((param, i) => (
-                              <ParamDisplay
-                                key={`param-item-${i}`}
-                                param={param}
-                                m={m}
-                              />
-                            ))}
-                          </div>
-                        )}
                         {n.parameters && (
                           <div className="my-8">
                             <h3 className="mb-2">Path Parameters</h3>
@@ -140,6 +128,18 @@ class apiPage extends React.Component {
                                 key={`param-item-${i}`}
                                 param={param}
                                 m={n}
+                              />
+                            ))}
+                          </div>
+                        )}
+                        {m.parameters && (
+                          <div className="my-8">
+                            <h3 className="mb-2">Query Parameters</h3>
+                            {m.parameters.map((param, i) => (
+                              <ParamDisplay
+                                key={`param-item-${i}`}
+                                param={param}
+                                m={m}
                               />
                             ))}
                           </div>
