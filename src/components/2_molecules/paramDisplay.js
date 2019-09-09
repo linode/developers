@@ -1,4 +1,5 @@
 import React from "react";
+import Markdown from "react-markdown/with-html";
 
 export const ParamDisplay = props => {
   const { param } = props;
@@ -38,7 +39,15 @@ export const ParamDisplay = props => {
                 <span className="tag tag-light">{param.schema.default}</span>
               </div>
             )}
-            {param.description && <div>{param.description}</div>}
+            {param.description && (
+              <div>
+                <Markdown
+                  source={param.description}
+                  escapeHtml={false}
+                  className="api-desc"
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>
