@@ -35,3 +35,6 @@ rm static/api/docs/v4/openapi.yaml.bak
 echo
 printf "${BLUE}Converting YAML to JSON${NC}\n"
 node_modules/yamljs/bin/yaml2json static/api/docs/v4/openapi.yaml > static/api/docs/v4/spec.json
+# some data manipulation to fix the result of the conversion above
+sed -i.bak 's@\\\\[[:space:]]@\\\\\\n @g' static/api/docs/v4/spec.json
+rm static/api/docs/v4/spec.json.bak
