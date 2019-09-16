@@ -506,6 +506,16 @@ export const query = graphql`
             servers {
               url
             }
+            parameters {
+              name
+              in
+              required
+              description
+              schema {
+                type
+                default
+              }
+            }
             responses {
               _200 {
                 description
