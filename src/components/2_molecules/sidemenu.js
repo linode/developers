@@ -68,14 +68,19 @@ class SideMenu extends React.Component {
         });
     });
 
+    const windowWidth = window.screen.width;
+    console.log(windowWidth);
+    const transitionDelay = windowWidth <= 480 ? 0 : 50;
+
     hash &&
       document.getElementById(hash.substr(1)) !== null &&
       window.setTimeout(
         () =>
-          document
-            .getElementById(hash.substr(1))
-            .scrollIntoView({ block: "start", behavior: "smooth" }),
-        50
+          document.getElementById(hash.substr(1)).scrollIntoView({
+            block: "start",
+            behavior: windowWidth <= 480 ? "auto" : "smooth"
+          }),
+        transitionDelay
       );
   }
 

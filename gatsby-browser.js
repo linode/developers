@@ -4,7 +4,8 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-const transitionDelay = 50;
+const windowWidth = window.screen.width;
+const transitionDelay = windowWidth <= 480 ? 0 : 50;
 
 exports.shouldUpdateScroll = ({ routerProps: { location } }) => {
   if (!location.hash || !document.getElementById(location.hash.substr(1))) {
@@ -12,9 +13,10 @@ exports.shouldUpdateScroll = ({ routerProps: { location } }) => {
   } else {
     window.setTimeout(
       () =>
-        document
-          .getElementById(location.hash.substr(1))
-          .scrollIntoView({ block: "start", behavior: "smooth" }),
+        document.getElementById(location.hash.substr(1)).scrollIntoView({
+          block: "start",
+          behavior: transitionDelay <= 480 ? "auto" : "smooth"
+        }),
       transitionDelay
     );
   }

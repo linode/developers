@@ -26,8 +26,14 @@
 
 .endpoint-anchor {
   position: relative;
-  top: -84px;
+  top: -154px;
   visibility: hidden;
+}
+
+@screen sm {
+  .endpoint-anchor {
+    top: -84px;
+  }
 }
 
 .list-group,
@@ -171,13 +177,19 @@
   @apply border-grey-light mb-8;
 }
 
+.search-header input {
+  max-width: 100%;
+}
+
 .search-header-wrapper {
   position: sticky;
   top: 65px;
   width: 100%;
   z-index: 1;
-  padding: 1rem 1rem 0;
+  padding: 1rem;
   background-color: #fff;
+  border-bottom-width: 1px;
+  @apply border-grey-light;
 }
 
 .search-results-list {
