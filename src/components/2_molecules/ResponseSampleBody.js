@@ -5,15 +5,17 @@ import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 export const ResponseSampleBody = props => {
   const { context, response } = props;
-  const properties = getOr([], ['content', 'application_json', 'schema', 'properties'], context);
+  const properties = getOr(
+    [],
+    ["content", "application_json", "schema", "properties"],
+    context
+  );
 
   const sampleSource = `
       {
       ${properties &&
         Object.keys(properties)
-          .filter(
-            v => properties[v] !== null
-          )
+          .filter(v => properties[v] !== null)
           .map(p => {
             const l = properties[p];
             return (
@@ -39,14 +41,17 @@ export const ResponseSampleBody = props => {
                   : "") +
                 (l.properties &&
                   `{` +
-                    Object.keys(l.properties).map(e => {
-                      const data = l.properties[e];
-                      return `
+                    Object.keys(l.properties)
+                      .filter(v => l.properties[v] !== null)
+                      .map(e => {
+                        console.log(l.properties);
+                        const data = l.properties[e];
+                        return `
                         "${e}": ${JSON.stringify(
-                        data.example ? data.example : ""
-                      )}
+                          data.example ? data.example : ""
+                        )}
                     `;
-                    }) +
+                      }) +
                     `}`) +
                 (l.items && l.items.properties
                   ? `{
