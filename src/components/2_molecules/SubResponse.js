@@ -17,6 +17,7 @@ const SubResponseMarkup = props => {
       </div>
       <div className="w-full lg:w-3/4">
         <div>
+          {}
           <div className="text-sm text-grey-darkest">
             {property.type && property.type}{" "}
             {property.pattern && (
@@ -39,7 +40,7 @@ const SubResponseMarkup = props => {
 };
 
 const SubResponse = props => {
-  const { dataSource } = props;
+  const { dataSource, allOfSource } = props;
   return (
     dataSource &&
     Object.keys(dataSource).map((value, index) => {
@@ -48,6 +49,10 @@ const SubResponse = props => {
         property && (
           <React.Fragment key={index}>
             <div className="lg:flex mb-4">
+              {allOfSource &&
+                allOfSource.map(e =>
+                  Object.keys(e.properties).map(v => console.log(v))
+                )}
               <SubResponseMarkup property={property} value={value} />
             </div>
             {property.properties && (

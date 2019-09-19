@@ -108,9 +108,15 @@ export const ResponseItemElements = props => {
                                 {data.oneOf && (
                                   <div className="px-4 mt-4 mb-4 ml-4 subResponse">
                                     {data.oneOf.map((data, i) => {
+                                      console.log(data);
                                       return (
                                         <SubResponse
                                           dataSource={data.properties}
+                                          allOfSource={
+                                            data.allOf !== null
+                                              ? data.allOf
+                                              : undefined
+                                          }
                                           key={i}
                                         />
                                       );
