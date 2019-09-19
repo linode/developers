@@ -44,12 +44,44 @@ export const ResponseSampleBody = props => {
                     Object.keys(l.properties)
                       .filter(v => l.properties[v] !== null)
                       .map(e => {
-                        console.log(l.properties);
                         const data = l.properties[e];
                         return `
-                        "${e}": ${JSON.stringify(
-                          data.example ? data.example : ""
-                        )}
+                        "${e}": ${
+                          data.example
+                            ? JSON.stringify(data.example)
+                            : data.type === "object" && data.properties
+                            ? `{
+                              ${Object.keys(data.properties)
+                                .filter(v => data.properties[v] !== null)
+                                .map(s => {
+                                  const dps = data.properties[s];
+                                  return dps
+                                    ? `"${s}": ${
+                                        dps.example
+                                          ? JSON.stringify(dps.example)
+                                          : dps.type === "object" &&
+                                            dps.properties
+                                          ? `{
+                                          ${Object.keys(dps.properties)
+                                            .filter(
+                                              v => dps.properties[v] !== null
+                                            )
+                                            .map(s2 => {
+                                              const dps2 = dps.properties[s2];
+                                              return dps2
+                                                ? `"${s2}": ${JSON.stringify(
+                                                    dps2.example
+                                                      ? dps2.example
+                                                      : ""
+                                                  )}`
+                                                : "";
+                                            })}}`
+                                          : ""
+                                      }`
+                                    : "";
+                                })}}`
+                            : ""
+                        }
                     `;
                       }) +
                     `}`) +

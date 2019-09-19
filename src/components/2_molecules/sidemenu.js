@@ -69,7 +69,6 @@ class SideMenu extends React.Component {
     });
 
     const windowWidth = window.screen.width;
-    console.log(windowWidth);
     const transitionDelay = windowWidth <= 480 ? 0 : 50;
 
     hash &&
