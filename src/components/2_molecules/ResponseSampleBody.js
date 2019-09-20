@@ -34,17 +34,18 @@ export const ResponseSampleBody = props => {
                   }`
                 : `"${p}" : [`) +
                 (l.example && l.type === "array" && !l.items
-                  ? Object.keys(l.example).map(v => {
-                      const va = l.example[v];
-                      return `"${va}"`;
-                    })
+                  ? Object.keys(l.example)
+                      .filter(v2 => l.example[v2] !== null)
+                      .map(v => {
+                        const va = l.example[v];
+                        return `"${va}"`;
+                      })
                   : "") +
                 (l.properties &&
                   `{` +
                     Object.keys(l.properties)
                       .filter(v => l.properties[v] !== null)
                       .map(e => {
-                        console.log(l.properties);
                         const data = l.properties[e];
                         return `
                         "${e}": ${JSON.stringify(

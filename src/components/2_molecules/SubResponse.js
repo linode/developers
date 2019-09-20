@@ -43,34 +43,38 @@ const SubResponse = props => {
   const { dataSource, allOfSource } = props;
   return (
     dataSource &&
-    Object.keys(dataSource).map((value, index) => {
-      const property = dataSource[value];
-      return (
-        property && (
-          <React.Fragment key={index}>
-            <div className="lg:flex mb-4">
-              {allOfSource &&
+    Object.keys(dataSource)
+      .filter(ofv => dataSource[ofv] !== null)
+      .map((value, index) => {
+        const property = dataSource[value];
+        return (
+          property && (
+            <React.Fragment key={index}>
+              <div className="lg:flex mb-4">
+                {/* {allOfSource &&
                 allOfSource.map(e =>
                   Object.keys(e.properties).map(v => console.log(v))
-                )}
-              <SubResponseMarkup property={property} value={value} />
-            </div>
-            {property.properties && (
-              <div className="px-4 mt-4 mb-4 ml-4 subResponse">
-                {Object.keys(property.properties).map((v, i) => {
-                  const property2 = property.properties[v];
-                  return (
-                    <div key={i} className="lg:flex mb-4">
-                      <SubResponseMarkup property={property2} value={v} />
-                    </div>
-                  );
-                })}
+                )} */}
+                <SubResponseMarkup property={property} value={value} />
               </div>
-            )}
-          </React.Fragment>
-        )
-      );
-    })
+              {property.properties && (
+                <div className="px-4 mt-4 mb-4 ml-4 subResponse">
+                  {Object.keys(property.properties)
+                    .filter(fv => property.properties[fv] !== null)
+                    .map((v, i) => {
+                      const property2 = property.properties[v];
+                      return (
+                        <div key={i} className="lg:flex mb-4">
+                          <SubResponseMarkup property={property2} value={v} />
+                        </div>
+                      );
+                    })}
+                </div>
+              )}
+            </React.Fragment>
+          )
+        );
+      })
   );
 };
 
