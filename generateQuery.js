@@ -1,3 +1,32 @@
+const printName = (name) => {
+  return name === 'allOf' ? '' : ' ' + name
+}
+
+const _query = property => {
+  if (!property.type) {
+    return printName(property.name);
+  }
+
+  if (property.type && !property.type.fields) {
+    // Base case
+    return printName(property.name);
+  }
+
+  if (property.type && property.type.fields) {
+    return `${printName(property.name)} { ${recursiveQuery(property.type.fields)} }`;
+  }
+
+  if (property.type && property.type.typeOf && property.type.typeOf.fields) {
+    return `${printName(property.name)} { ${recursiveQuery(property.type.typeOf.fields)} }`;
+  }
+  console.log('no cases matched', property);
+  return;
+}
+
+const recursiveQuery = properties => {
+  return properties.map(property => _query(property));
+}
+
 const rawQuery = properties => {
   return properties.map(a =>
     a.name
@@ -490,4 +519,4 @@ const rawQuery = properties => {
   );
 };
 
-module.exports = rawQuery;
+module.exports = { rawQuery, recursiveQuery };
