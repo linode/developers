@@ -1,8 +1,12 @@
 const printName = (name) => {
-  return name === 'allOf' ? '' : ' ' + name
+  return ' ' + name;
 }
 
 const _query = property => {
+  if (property.name === 'allOf') {
+    return 'allOf { ' + recursiveQuery(property.type.ofType.fields) + ' }'
+  }
+
   if (!property.type) {
     return printName(property.name);
   }
