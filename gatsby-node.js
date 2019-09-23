@@ -7,7 +7,7 @@ const specs = require("./static/api/docs/v4/spec.json");
 const crypto = require("crypto");
 const parser = new JsonSchemaRefParser();
 
-const { rawQuery, recursiveQuery } = require("./generateQuery.js");
+const { recursiveQuery } = require("./generateQuery.js");
 
 exports.sourceNodes = async ({ actions }) => {
   const { createNode, createTypes } = actions;
