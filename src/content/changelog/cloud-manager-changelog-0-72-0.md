@@ -15,7 +15,6 @@ changelog:
 
 ### Changed
 
-* Display Never for Managed credentials that have never been decrypted.
 * Use password input component for credential drawers
 * Don’t show DNS “Your Linodes are not being served” banner for restricted users
 
