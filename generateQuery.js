@@ -2,28 +2,28 @@ const printName = (name) => {
   return ' ' + name;
 }
 
+const handleNested = (fieldsPath, fieldType) => {
+  const fields = recursiveQuery(fieldsPath);
+  return fields
+    ? ` ${fieldType} { ${fields} }`
+    : '';
+}
+
 const _query = property => {
   // Special cases (nested values)
   if (property.name === 'allOf') {
     if (property.type.ofType) {
-      const fields = recursiveQuery(property.type.ofType.fields);
-      return fields 
-        ?' allOf { ' + fields + ' }'
-        : '';
+      return handleNested(property.type.ofType.fields, 'allOf');
     }
-    const fields = recursiveQuery(property.type.fields);
-    return fields
-      ? ' allOf { ' + fields + ' }'
-      : ''
+
+    return handleNested(property.type.fields, 'allOf');
   }
 
   if (property.name === 'oneOf') {
     if (property.type.ofType) {
-      const fields = recursiveQuery(property.type.ofType.fields);
-      return fields ? ' oneOf { ' + fields + ' }' : '';
+      return handleNested(property.type.ofType.fields, 'oneOf');
     }
-    const fields = recursiveQuery(property.type.fields);
-    return fields ? ' oneOf { ' + fields + ' }' : '';
+    return handleNested(property.type.fields, 'oneOf');
   }
 
   // Base cases
@@ -46,7 +46,7 @@ const _query = property => {
   if (property.type && property.type.typeOf && property.type.typeOf.fields) {
     return `${printName(property.name)} { ${recursiveQuery(property.type.typeOf.fields)} }`;
   }
-  
+
   // If we reach this point, there's a problem.
   throw new Error('No cases matched.');
 }
