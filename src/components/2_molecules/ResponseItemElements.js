@@ -70,6 +70,7 @@ export const ResponseItemElements = props => {
                           .filter(v => l.items.properties[v] !== null)
                           .map((value, index) => {
                             const data = l.items.properties[value];
+                            console.log(data);
                             return (
                               data && (
                                 <div key={index} className="response-wrapper">
@@ -111,12 +112,11 @@ export const ResponseItemElements = props => {
                                       </div>
                                     </div>
                                   </div>
-                                  {data.oneOf && (
+                                  {data.oneOf && data.discriminator && (
                                     <div className="px-4 mt-4 mb-4 ml-4 subResponse">
                                       {data.oneOf
                                         .filter(ov => data.oneOf[ov] !== null)
                                         .map((data, i) => {
-                                          // console.log(data);
                                           return (
                                             <SubResponse
                                               dataSource={data.properties}
