@@ -7,7 +7,7 @@ const specs = require("./static/api/docs/v4/spec.json");
 const crypto = require("crypto");
 const parser = new JsonSchemaRefParser();
 
-const { rawQuery } = require("./generateQuery.js");
+const { rawQuery, recursiveQuery } = require("./generateQuery.js");
 
 exports.sourceNodes = async ({ actions }) => {
   const { createNode, createTypes } = actions;
@@ -516,7 +516,7 @@ exports.createPages = async ({ actions, graphql }) => {
       const props = result.data.__type.fields;
       const file = fs.createWriteStream(fileName);
       
-      const query = rawQuery(props)
+      const query = recursiveQuery(props)
         .toString()
         .replace(/\,/g, "");
 

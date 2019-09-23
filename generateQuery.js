@@ -3,9 +3,30 @@ const printName = (name) => {
 }
 
 const _query = property => {
+  // Special cases (nested values)
   if (property.name === 'allOf') {
-    return 'allOf { ' + recursiveQuery(property.type.ofType.fields) + ' }'
+    if (property.type.ofType) {
+      const fields = recursiveQuery(property.type.ofType.fields);
+      return fields 
+        ?' allOf { ' + fields + ' }'
+        : '';
+    }
+    const fields = recursiveQuery(property.type.fields);
+    return fields
+      ? ' allOf { ' + fields + ' }'
+      : ''
   }
+
+  if (property.name === 'oneOf') {
+    if (property.type.ofType) {
+      const fields = recursiveQuery(property.type.ofType.fields);
+      return fields ? ' oneOf { ' + fields + ' }' : '';
+    }
+    const fields = recursiveQuery(property.type.fields);
+    return fields ? ' oneOf { ' + fields + ' }' : '';
+  }
+
+  // Base cases
 
   if (!property.type) {
     return printName(property.name);
@@ -16,6 +37,8 @@ const _query = property => {
     return printName(property.name);
   }
 
+  // Normal recursion
+
   if (property.type && property.type.fields) {
     return `${printName(property.name)} { ${recursiveQuery(property.type.fields)} }`;
   }
@@ -23,11 +46,13 @@ const _query = property => {
   if (property.type && property.type.typeOf && property.type.typeOf.fields) {
     return `${printName(property.name)} { ${recursiveQuery(property.type.typeOf.fields)} }`;
   }
-  console.log('no cases matched', property);
-  return;
+  
+  // If we reach this point, there's a problem.
+  throw new Error('No cases matched.');
 }
 
 const recursiveQuery = properties => {
+  if (properties === null) { return; }
   return properties.map(property => _query(property));
 }
 
