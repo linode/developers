@@ -1,22 +1,23 @@
+import { getOr } from "lodash/fp";
 import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 export const ResponseSampleBody = props => {
   const { context, response } = props;
+  const properties = getOr(
+    [],
+    ["content", "application_json", "schema", "properties"],
+    context
+  );
 
   const sampleSource = `
       {
-      ${context.content &&
-        context.content.application_json &&
-        context.content.application_json.schema &&
-        context.content.application_json.schema.properties &&
-        Object.keys(context.content.application_json.schema.properties)
-          .filter(
-            v => context.content.application_json.schema.properties[v] !== null
-          )
+      ${properties &&
+        Object.keys(properties)
+          .filter(v => properties[v] !== null)
           .map(p => {
-            const l = context.content.application_json.schema.properties[p];
+            const l = properties[p];
             return (
               l &&
               (l.type !== "array" && l.type !== "object" && p !== "errors"
@@ -40,14 +41,49 @@ export const ResponseSampleBody = props => {
                   : "") +
                 (l.properties &&
                   `{` +
-                    Object.keys(l.properties).map(e => {
-                      const data = l.properties[e];
-                      return `
-                        "${e}": ${JSON.stringify(
-                        data.example ? data.example : ""
-                      )}
+                    Object.keys(l.properties)
+                      .filter(v => l.properties[v] !== null)
+                      .map(e => {
+                        const data = l.properties[e];
+                        return `
+                        "${e}": ${
+                          data.example
+                            ? JSON.stringify(data.example)
+                            : data.type === "object" && data.properties
+                            ? `{
+                              ${Object.keys(data.properties)
+                                .filter(v => data.properties[v] !== null)
+                                .map(s => {
+                                  const dps = data.properties[s];
+                                  return dps
+                                    ? `"${s}": ${
+                                        dps.example
+                                          ? JSON.stringify(dps.example)
+                                          : dps.type === "object" &&
+                                            dps.properties
+                                          ? `{
+                                          ${Object.keys(dps.properties)
+                                            .filter(
+                                              v => dps.properties[v] !== null
+                                            )
+                                            .map(s2 => {
+                                              const dps2 = dps.properties[s2];
+                                              return dps2
+                                                ? `"${s2}": ${JSON.stringify(
+                                                    dps2.example
+                                                      ? dps2.example
+                                                      : ""
+                                                  )}`
+                                                : "";
+                                            })}}`
+                                          : ""
+                                      }`
+                                    : "";
+                                })}}`
+                            : ""
+                        }
                     `;
-                    }) +
+                      }) +
                     `}`) +
                 (l.items && l.items.properties
                   ? `{

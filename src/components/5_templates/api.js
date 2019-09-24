@@ -101,7 +101,7 @@ class apiPage extends React.Component {
                             <span className="tag big bold mr-2 uppercase">
                               {mode}
                             </span>
-                            <pre className="whitespace-pre-line">
+                            <pre className="whitespace-pre-line break-word">
                               {m.servers
                                 ? m.servers[0].url
                                 : "https://api.linode.com/v4"}
@@ -505,6 +505,16 @@ export const query = graphql`
             }
             servers {
               url
+            }
+            parameters {
+              name
+              in
+              required
+              description
+              schema {
+                type
+                default
+              }
             }
             responses {
               _200 {

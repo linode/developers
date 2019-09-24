@@ -10,17 +10,14 @@ import CharDisplay from "./charDisplay";
 
 export const BodySchema = props => {
   const { data } = props;
-  const requiredProperties =
-    getOr(
-      [],
-      ["requestBody", "content", "application_json", "schema", "required"],
-      data
-    ) || [];
-  const properties = getOr(
-    null,
-    ["requestBody", "content", "application_json", "schema", "properties"],
+  const schema = getOr(
+    [],
+    ["requestBody", "content", "application_json", "schema"],
     data
   );
+
+  const requiredProperties = schema.required || [];
+  const properties = schema.properties;
 
   const sortByRequired = (a, b) => {
     const r1 = requiredProperties.includes(a) ? 1 : 0;
@@ -50,13 +47,13 @@ export const BodySchema = props => {
         Object.keys(properties)
           .filter(
             v =>
-              data.requestBody.content.application_json.schema.properties[v] !==
+              properties[v] !==
               null
           )
           .sort(sortByRequired)
           .map((p, i) => {
             const b =
-              data.requestBody.content.application_json.schema.properties[p];
+              properties[p];
             return (
               b &&
               b.readOnly !== true && (
@@ -67,9 +64,8 @@ export const BodySchema = props => {
                         <b className={b.deprecated && "line-through"}>{p}</b>
                       </div>
                       <div className="leading-xs">
-                        {data.requestBody.content.application_json.schema
-                          .required &&
-                          data.requestBody.content.application_json.schema.required.map(
+                        {requiredProperties &&
+                          requiredProperties.map(
                             (req, i) => {
                               if (p === req) {
                                 return (
@@ -115,18 +111,16 @@ export const BodySchema = props => {
               )
             );
           })}
-      {data.requestBody.content.application_json &&
-        data.requestBody.content.application_json.schema &&
-        data.requestBody.content.application_json.schema.allOf &&
-        Object.keys(data.requestBody.content.application_json.schema.allOf).map(
+      {schema.allOf &&
+        Object.keys(schema.allOf).map(
           a => {
-            const s = data.requestBody.content.application_json.schema.allOf[a];
+            const s = schema.allOf[a];
             return (
               s.properties &&
               Object.keys(s.properties)
                 .filter(
                   v =>
-                    data.requestBody.content.application_json.schema.allOf[
+                    schema.allOf[
                       v
                     ] !== null
                 )
@@ -144,8 +138,8 @@ export const BodySchema = props => {
                               <b>{p}</b>
                             </div>
                             <div className="leading-xs">
-                              {s.required &&
-                                s.required.map((req, i) => {
+                              {s.requiredProperties &&
+                                s.requiredProperties.map((req, i) => {
                                   if (p === req) {
                                     return (
                                       <span
@@ -160,9 +154,8 @@ export const BodySchema = props => {
                                 })}
                             </div>
                             <div className="leading-xs">
-                              {data.requestBody.content.application_json.schema
-                                .required &&
-                                data.requestBody.content.application_json.schema.required.map(
+                              {requiredProperties &&
+                                requiredProperties.map(
                                   (req, i) => {
                                     if (p === req) {
                                       return (
