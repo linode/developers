@@ -47,7 +47,7 @@ export const ResponseSampleBody = props => {
                         const data = l.properties[e];
                         return `
                         "${e}": ${
-                          data.example
+                          data.example !== undefined
                             ? JSON.stringify(data.example)
                             : data.type === "object" && data.properties
                             ? `{
@@ -72,15 +72,15 @@ export const ResponseSampleBody = props => {
                                                 ? `"${s2}": ${JSON.stringify(
                                                     dps2.example
                                                       ? dps2.example
-                                                      : ""
+                                                      : '""'
                                                   )}`
-                                                : "";
+                                                : '""';
                                             })}}`
-                                          : ""
+                                          : '""'
                                       }`
-                                    : "";
+                                    : '""';
                                 })}}`
-                            : ""
+                            : '""'
                         }
                     `;
                       }) +

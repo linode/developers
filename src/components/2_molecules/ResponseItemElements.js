@@ -23,6 +23,7 @@ export const ResponseItemElements = props => {
           )
           .map((p, i) => {
             const l = context.content.application_json.schema.properties[p];
+            // console.log(l);
             return (
               l && (
                 <div key={i} className="response-wrapper">
@@ -64,69 +65,92 @@ export const ResponseItemElements = props => {
                     </div>
                   )}
                   {l.items && (
-                    <div className="px-4 mt-4 mb-4 ml-4 subResponse">
-                      {l.items.properties &&
-                        Object.keys(l.items.properties).map((value, index) => {
-                          const data = l.items.properties[value];
-                          return (
-                            data && (
-                              <div key={index} className="response-wrapper">
-                                <div className="lg:flex mb-4">
-                                  <div className="w-full lg:w-1/4">
-                                    <b
-                                      className={
-                                        data.deprecated && "line-through"
-                                      }
-                                    >
-                                      {value}
-                                    </b>
-                                    {data.x_linode_filterable && <Filterable />}
-                                    {data.nullable && <Nullable />}
-                                  </div>
-                                  <div className="w-full lg:w-3/4">
-                                    <div>
-                                      <div className="text-sm text-grey-darkest leading-text-sm">
-                                        {data.type && data.type}
-                                        {data.pattern && (
-                                          <span className="tag">
-                                            {data.pattern}
-                                          </span>
+                    <>
+                      <div className="px-4 mt-4 mb-4 ml-4 subResponse">
+                        {l.items.properties &&
+                          Object.keys(l.items.properties).map(
+                            (value, index) => {
+                              const data = l.items.properties[value];
+                              // console.log(data);
+                              return (
+                                data && (
+                                  <div key={index} className="response-wrapper">
+                                    <div className="lg:flex mb-4">
+                                      <div className="w-full lg:w-1/4">
+                                        <b
+                                          className={
+                                            data.deprecated && "line-through"
+                                          }
+                                        >
+                                          {value}
+                                        </b>
+                                        {data.x_linode_filterable && (
+                                          <Filterable />
                                         )}
+                                        {data.nullable && <Nullable />}
                                       </div>
-                                      {data.enum && <Enum dataSource={data} />}
-                                      {data.deprecated && <Deprecated />}
-                                      <div>
-                                        <Markdown
-                                          source={data.description}
-                                          escapeHtml={false}
-                                          className="api-desc"
-                                        />
+                                      <div className="w-full lg:w-3/4">
+                                        <div>
+                                          <div className="text-sm text-grey-darkest leading-text-sm">
+                                            {data.type && data.type}
+                                            {data.pattern && (
+                                              <span className="tag">
+                                                {data.pattern}
+                                              </span>
+                                            )}
+                                          </div>
+                                          {data.enum && (
+                                            <Enum dataSource={data} />
+                                          )}
+                                          {data.deprecated && <Deprecated />}
+                                          <div>
+                                            <Markdown
+                                              source={data.description}
+                                              escapeHtml={false}
+                                              className="api-desc"
+                                            />
+                                          </div>
+                                        </div>
                                       </div>
                                     </div>
-                                  </div>
-                                </div>
-                                {data.oneOf && (
-                                  <div className="px-4 mt-4 mb-4 ml-4 subResponse">
-                                    {data.oneOf.map((data, i) => {
-                                      return (
+                                    {data.oneOf && (
+                                      <div className="px-4 mt-4 mb-4 ml-4 subResponse">
+                                        {data.oneOf.map((data, i) => {
+                                          return (
+                                            <SubResponse
+                                              dataSource={data.properties}
+                                              key={i}
+                                            />
+                                          );
+                                        })}
+                                      </div>
+                                    )}
+                                    {data.properties && (
+                                      <div className="px-4 mt-4 mb-4 ml-4 subResponse">
                                         <SubResponse
                                           dataSource={data.properties}
-                                          key={i}
                                         />
-                                      );
-                                    })}
+                                      </div>
+                                    )}
                                   </div>
-                                )}
-                                {data.properties && (
-                                  <div className="px-4 mt-4 mb-4 ml-4 subResponse">
-                                    <SubResponse dataSource={data.properties} />
-                                  </div>
-                                )}
-                              </div>
-                            )
-                          );
-                        })}
-                    </div>
+                                )
+                              );
+                            }
+                          )}
+                      </div>
+                      {l.items.allOf && (
+                        <div className="px-4 mt-4 mb-4 ml-4 subResponse">
+                          {l.items.allOf.map((data, i) => {
+                            return (
+                              <SubResponse
+                                dataSource={data.properties}
+                                key={i}
+                              />
+                            );
+                          })}
+                        </div>
+                      )}
+                    </>
                   )}
                 </div>
               )
