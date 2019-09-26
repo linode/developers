@@ -376,7 +376,6 @@ const FooterNav = () => (
               href="https://linode.flywheelsites.com/swag-store/"
               target="_blank"
               rel="noopener noreferrer"
-              href="https://facebook.com/linode"
             >
               Newsletter
             </a>
@@ -471,6 +470,7 @@ const FooterNav = () => (
                   className="footer-social-a"
                 >
                   <Twitter className="footer-social-icon" />
+                  Twitter
                 </a>
               </li>
               <li>
@@ -481,6 +481,7 @@ const FooterNav = () => (
                   href="https://facebook.com/linode"
                 >
                   <Facebook className="footer-social-icon" />
+                  Facebook
                 </a>
               </li>
               <li>
@@ -491,6 +492,7 @@ const FooterNav = () => (
                   className="footer-social-a"
                 >
                   <Instagram className="footer-social-icon" />
+                  Instagram
                 </a>
               </li>
               <li>
@@ -501,6 +503,7 @@ const FooterNav = () => (
                   className="footer-social-a"
                 >
                   <Youtube className="footer-social-icon" />
+                  YouTube
                 </a>
               </li>
               <li>
@@ -511,6 +514,7 @@ const FooterNav = () => (
                   className="footer-social-a"
                 >
                   <Linkedin className="footer-social-icon" />
+                  LinkedIn
                 </a>
               </li>
               <li>
@@ -521,6 +525,7 @@ const FooterNav = () => (
                   className="footer-social-a"
                 >
                   <Github className="footer-social-icon" />
+                  GitHub
                 </a>
               </li>
             </ul>

@@ -69,6 +69,12 @@
 }
 
 .top-menu-anchor {
+  position: relative;
+  top: -64px;
+  visibility: hidden;
+  display: block;
+}
+
 .response-200 {
   border-left-width: 5px;
   @apply border-BaseGreen;
@@ -138,52 +144,6 @@
 
 .back-to-top__caret svg {
   transform: rotate(270deg);
-}
-
-@screen md {
-  .search-header .search-results-list {
-    max-height: none;
-    overflow-y: auto;
-    box-shadow: none;
-  }
-
-  .sidemenu-button {
-    padding: 6px 0;
-  }
-
-  .mobile-sidebar {
-    width: auto;
-    border: none;
-    cursor: auto;
-  }
-
-  .mobile-sidebar__list {
-    display: block;
-  }
-
-  .list-container {
-    display: block;
-    margin-bottom: 0;
-  }
-
-  .api-navigation-wrapper {
-    margin-right: 1rem;
-    width: 300px;
-    padding: 2rem;
-  }
-
-  .search-results-list {
-    box-shadow: none;
-    background-color: none;
-  }
-
-  .active-group .list-group {
-    border-left: 1px solid #ddd;
-  }
-
-  .active-group .list-group li {
-    padding: 5px 0;
-  }
 }
 
 @screen lg {

@@ -204,7 +204,6 @@ export default props => (
               id
               title
               url
-              toggle
             }
           }
         }
