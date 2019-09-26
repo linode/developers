@@ -2,6 +2,7 @@ import { getOr } from "lodash/fp";
 import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { allOf } from "./allOf";
 
 export const ResponseSampleBody = props => {
   const { context, response } = props;
@@ -59,6 +60,8 @@ export const ResponseSampleBody = props => {
                                     ? `"${s}": ${
                                         dps.example
                                           ? JSON.stringify(dps.example)
+                                          : dps.type === "array"
+                                          ? `[]`
                                           : dps.type === "object" &&
                                             dps.properties
                                           ? `{
@@ -155,6 +158,12 @@ export const ResponseSampleBody = props => {
                           : `"${e}": ${"[ ]"}`
                         : "";
                     })}}`
+                  : "") +
+                (l.items && l.items.allOf && l.items.allOf[0].properties
+                  ? allOf(
+                      l.items.allOf[0].properties,
+                      l.items.allOf[1].properties
+                    )
                   : "") +
                 (l.type === "array" || l.type === "object" || p === "errors"
                   ? `]`
