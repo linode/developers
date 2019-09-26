@@ -123,11 +123,11 @@ class MainSiteNav extends React.Component {
                   key={node.id}
                   href={node.url ? node.url : "#"}
                   className={`header__link primary-nav__link ${
-                    node.toggle ? "dropdown" : ""
+                    node.switch_on ? "dropdown" : ""
                   } ${_.kebabCase(node.title)}`}
                   role="menuitem"
                   data-submenu={
-                    node.toggle ? _.kebabCase(node.toggle) : undefined
+                    node.switch_on ? _.kebabCase(node.switch_on) : undefined
                   }
                   onClick={
                     node.title === "Mobile"
@@ -163,7 +163,7 @@ class MainSiteNav extends React.Component {
                     node.title
                   )}
                 </a>
-                {node.toggle && node.title !== "Mobile" && (
+                {node.switch_on && node.title !== "Mobile" && (
                   <span className="primary-nav__caret">
                     <Caret />
                   </span>
@@ -173,17 +173,17 @@ class MainSiteNav extends React.Component {
           })}
           <div id="sub-menus">
             <SubMenus
-              id="js-tab-why-linode"
+              id="js-submenu-why-linode"
               menus={<WhyMenus />}
               subMenuOpen={subMenuOpen}
             />
             <SubMenus
-              id="js-tab-products"
+              id="js-submenu-products"
               menus={<ProductsMenus />}
               subMenuOpen={subMenuOpen}
             />
             <SubMenus
-              id="js-tab-community"
+              id="js-submenu-community"
               menus={<CommunityMenus />}
               subMenuOpen={subMenuOpen}
             />
@@ -204,6 +204,7 @@ export default props => (
               id
               title
               url
+              switch_on
             }
           }
         }

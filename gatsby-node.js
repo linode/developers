@@ -149,7 +149,7 @@ exports.sourceNodes = async ({ actions }) => {
         children: [],
         title: menuItem.title,
         url: menuItem.url,
-        toggle: menuItem.toggle ? menuItem.toggle : undefined,
+        switch_on: menuItem.switch_on ? menuItem.switch_on : undefined,
         description: menuItem.description ? menuItem.description : undefined,
         icon: menuItem.icon ? menuItem.icon : undefined
       };
