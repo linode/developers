@@ -334,7 +334,7 @@ body.m-oh {
 
 .sub-menu__item--reg {
   margin-top: 18px;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
 }
 
 .nav__wrapper:last-child .sub-menu__item--reg {
@@ -449,14 +449,15 @@ body.m-oh {
 
 @media only screen and (max-width: 560px) {
   .mobile__link {
-    font-size: 18px;
+    font-size: 22px;
   }
   .mobile__link--small {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 
 .header-search-form {
+  margin: 62px 0 32px;
   padding: 0 8px;
 }
 

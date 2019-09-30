@@ -41,7 +41,7 @@ const Header = () => (
             <input
               type="search"
               className="search-form__search-field"
-              placeholder="Search …"
+              placeholder="Search Linode"
             />
           </label>
           <input
@@ -53,10 +53,14 @@ const Header = () => (
         <PrimaryMobile />
         <UtilityMobile />
         <div className="mobile-sign-up">
-          <a href="https://login.linode.com/signup" target="_self" className="mobile-sign-up__button">
+          <a
+            href="https://login.linode.com/signup"
+            target="_self"
+            className="mobile-sign-up__button"
+          >
             Sign Up
           </a>
-      </div>
+        </div>
       </div>
     </header>
   </div>
