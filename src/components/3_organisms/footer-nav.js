@@ -22,7 +22,7 @@ const FooterNav = () => (
           </div>
         </div>
       </div>
-      <div className="w-full md:w-1/6 px-4">
+      <div className="hidden md:inline-block w-full md:w-1/6 px-4">
         <div>
           <h4 className="footer-nav-header mb-4">Why Linode</h4>
           <ul className="list-reset text-sm footer-sublist">
@@ -101,7 +101,7 @@ const FooterNav = () => (
           </ul>
         </div>
       </div>
-      <div className="w-full md:w-1/6 px-4">
+      <div className="hidden md:inline-block w-full md:w-1/6 px-4">
         <h4 className="footer-nav-header mb-4">Products</h4>
         <ul className="list-reset text-sm footer-sublist">
           <li>
@@ -232,7 +232,7 @@ const FooterNav = () => (
           </li>
         </ul>
       </div>
-      <div className="w-full md:w-1/6 px-4">
+      <div className="hidden md:inline-block w-full md:w-1/6 px-4">
         <div>
           <h4 className="footer-nav-header mb-4">Solutions</h4>
           <ul className="list-reset text-sm footer-sublist">
@@ -312,7 +312,7 @@ const FooterNav = () => (
           </div>
         </div>
       </div>
-      <div className="w-full md:w-1/6 px-4">
+      <div className="hidden md:inline-block w-full md:w-1/6 px-4">
         <h4 className="footer-nav-header mb-4">Community</h4>
         <ul className="list-reset text-sm footer-sublist">
           <li>
@@ -417,7 +417,7 @@ const FooterNav = () => (
         </ul>
       </div>
       <div className="w-full md:w-1/6 px-4">
-        <div>
+        <div className="hidden md:inline-block">
           <h4 className="footer-nav-header mb-4">Contact</h4>
           <ul className="list-reset text-sm footer-sublist">
             <li>
@@ -457,66 +457,73 @@ const FooterNav = () => (
               </a>
             </li>
           </ul>
-          <div>
-            <h4 className="footer-nav-header mb-4">Follow Us</h4>
-            <ul className="list-reset text-sm footer-sublist">
-              <li>
-                <a
-                  href="https://twitter.com/linode/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="footer-social-a"
-                >
-                  <Twitter className="footer-social-icon" />
-                  Twitter
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.instagram.com/linode/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="footer-social-a"
-                >
-                  <Instagram className="footer-social-icon" />
-                  Instagram
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.youtube.com/linode/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="footer-social-a"
-                >
-                  <Youtube className="footer-social-icon" />
-                  YouTube
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.linkedin.com/company/linode/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="footer-social-a"
-                >
-                  <Linkedin className="footer-social-icon" />
-                  LinkedIn
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://github.com/linode/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="footer-social-a"
-                >
-                  <Github className="footer-social-icon" />
-                  GitHub
-                </a>
-              </li>
-            </ul>
-          </div>
+        </div>
+        <div className="footer-social-outer">
+          <h4 className="hidden md:inline-block footer-nav-header mb-4">
+            Follow Us
+          </h4>
+          <ul className="flex md:block list-reset text-sm footer-sublist">
+            <li>
+              <a
+                href="https://twitter.com/linode/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-social-a"
+                title="Twitter"
+              >
+                <Twitter className="footer-social-icon" />
+                <span className="footer-social-label">Twitter</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/linode/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-social-a"
+                title="Instagram"
+              >
+                <Instagram className="footer-social-icon" />
+                <span className="footer-social-label">Instagram</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.youtube.com/linode/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-social-a"
+                title="YouTube"
+              >
+                <Youtube className="footer-social-icon" />
+                <span className="footer-social-label">YouTube</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/company/linode/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-social-a"
+                title="LinkedIn"
+              >
+                <Linkedin className="footer-social-icon" />
+                <span className="footer-social-label">LinkedIn</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/linode/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-social-a"
+                title="Github"
+              >
+                <Github className="footer-social-icon" />
+                <span className="footer-social-label">Github</span>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
