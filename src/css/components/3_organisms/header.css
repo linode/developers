@@ -203,7 +203,7 @@ body.m-oh {
 
 .primary-nav__link {
   cursor: pointer;
-  margin: 0 20px;
+  margin: 0 5px;
   font-size: 18px;
   line-height: 24px;
   font-weight: 600;
@@ -228,6 +228,12 @@ body.m-oh {
   }
 }
 
+@media only screen and (min-width: 960px) {
+  .primary-nav__link {
+    margin: 0 20px;
+  }
+}
+
 .primary-nav__link:hover {
   border-bottom-color: #02b159;
 }
@@ -241,14 +247,20 @@ body.m-oh {
   width: 7px;
   position: relative;
   top: 0px;
-  left: -10px;
-  margin-right: 10px;
+  left: -3px;
   transform: translateY(0.5px);
 }
 
 @media only screen and (min-width: 768px) {
   .primary-nav__caret {
     display: inline-block;
+  }
+}
+
+@media only screen and (min-width: 960px) {
+  .primary-nav__caret {
+    margin-right: 10px;
+    left: -10px;
   }
 }
 
