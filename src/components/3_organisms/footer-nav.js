@@ -1,7 +1,6 @@
 import React from "react";
 
 import Logo from "../../images/svgs/new-logo.svg";
-import Facebook from "../../images/svgs/facebook.svg";
 import Github from "../../images/svgs/github.svg";
 import Instagram from "../../images/svgs/instagram.svg";
 import Linkedin from "../../images/svgs/linkedin.svg";
@@ -12,7 +11,7 @@ const FooterNav = () => (
   <div className="footer-nav mx-auto">
     <div className="flex flex-wrap justify-between mb-4">
       <div className="w-full md:w-1/6 px-4">
-        <div className="footer-logo-outer ml-4">
+        <div className="footer-logo-outer">
           <div>
             <Logo className="footer-logo" />
           </div>
@@ -367,26 +366,16 @@ const FooterNav = () => (
               target="_blank"
               rel="noopener noreferrer"
             >
-              Resources
-            </a>
-          </li>
-          <li>
-            {/* @todo update Swag Store link once we have it */}
-            <a
-              href="https://linode.flywheelsites.com/swag-store/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Newsletter
+              Content Resources
             </a>
           </li>
           <li>
             <a
-              href="https://linode.com/linodes"
+              href="https://linode.flywheelsites.com/products/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Startup Program
+              Swag Store
             </a>
           </li>
           <li>
@@ -416,6 +405,15 @@ const FooterNav = () => (
               Documentation
             </a>
           </li>
+          <li>
+            <a
+              href="https://linode.flywheelsites.com/cloud-computing-terms/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Cloud Computing Terms
+            </a>
+          </li>
         </ul>
       </div>
       <div className="w-full md:w-1/6 px-4">
@@ -442,7 +440,7 @@ const FooterNav = () => (
             </li>
             <li>
               <a
-                href="https://linode.flywheelsites.com/company/contact-sales/"
+                href="https://linode.flywheelsites.com/company/contact/?tab=sales-inquiries"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -451,7 +449,7 @@ const FooterNav = () => (
             </li>
             <li>
               <a
-                href="https://linode.flywheelsites.com/system-status/"
+                href="https://status.linode.com"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -471,17 +469,6 @@ const FooterNav = () => (
                 >
                   <Twitter className="footer-social-icon" />
                   Twitter
-                </a>
-              </li>
-              <li>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="footer-social-a"
-                  href="https://facebook.com/linode"
-                >
-                  <Facebook className="footer-social-icon" />
-                  Facebook
                 </a>
               </li>
               <li>

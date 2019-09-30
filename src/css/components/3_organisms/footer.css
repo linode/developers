@@ -1,7 +1,3 @@
-.footer-nav {
-  padding: 0.5rem 0;
-}
-
 .footer-wrapper {
   background-color: #fafafc;
 }
@@ -9,24 +5,23 @@
 .footer-nav a,
 .footer-wrapper a {
   text-decoration: none;
-  color: #32363b;
+  color: #616266;
 }
 
 .footer-nav-header {
   margin-top: 0;
   font-size: 18px;
-  line-height: 24px;
   font-weight: 600;
   color: #32363b;
 }
 
 .footer-nav a:hover {
-  color: #32363b;
+  color: #616266;
   text-decoration: none;
 }
 
 .footer-wrapper a:hover {
-  color: #32363b;
+  color: #616266;
   text-decoration: underline;
 }
 
@@ -40,17 +35,17 @@
 }
 
 .footer-nav-social a:hover {
-  color: #32363b;
+  color: #616266;
 }
 
 .footer-links a {
-  color: #32363b;
+  color: #616266;
 }
 
 .copyright {
   font-size: 0.8125rem;
   line-height: 1.30769;
-  color: #32363b;
+  color: #616266;
 }
 
 .footer-sublist {
@@ -58,8 +53,9 @@
 }
 
 .footer-nav li {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   font-size: 14px;
+  line-height: 1.4;
 }
 
 .footer-logo-outer {
@@ -82,5 +78,5 @@
 }
 
 .footer-logo {
-  max-width: 153px;
+  max-width: 145px;
 }
