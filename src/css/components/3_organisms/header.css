@@ -10,14 +10,14 @@ body.m-oh {
 }
 
 .logo svg {
-  width: 100px;
-  margin: 8px 0;
+  width: 104px;
+  margin: 12px 0 12px;
 }
 
 @media only screen and (min-width: 768px) {
   .logo svg {
     width: 145px;
-    margin: 4px 0;
+    margin: 8px 0;
   }
 }
 
@@ -171,13 +171,26 @@ body.m-oh {
 .primary-nav__wrapper {
   padding: 0 16px;
   display: flex;
+  background-color: #fafafc;
+}
+
+@screen sm {
+  .primary-nav__wrapper {
+    background-color: #fff;
+  }
 }
 
 .primary-nav__container {
   max-width: 1296px;
-  margin: 8px auto;
+  margin: 4px auto;
   padding: 0 8px;
   width: 100%;
+}
+
+@screen sm {
+  .primary-nav__container {
+    margin: 8px auto;
+  }
 }
 
 .primary-nav__inner {
@@ -428,12 +441,13 @@ body.m-oh {
 .mobile-menus__wrapper {
   position: absolute;
   width: 100%;
-  background: #fff;
+  background: #fafafc;
   padding: 16px;
   visibility: hidden;
   z-index: -1;
   overflow-y: auto;
   height: calc(100vh - 56px);
+  border-top: 1px solid rgb(237, 237, 244);
 }
 
 .mobile-menus__wrapper.active {
@@ -457,7 +471,7 @@ body.m-oh {
 }
 
 .header-search-form {
-  margin: 62px 0 32px;
+  margin: 70px 0 32px;
   padding: 0 8px;
 }
 
