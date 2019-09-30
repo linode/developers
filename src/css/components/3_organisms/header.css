@@ -17,7 +17,7 @@ body.m-oh {
 @media only screen and (min-width: 768px) {
   .logo svg {
     width: 145px;
-    margin: 8px 0;
+    margin: 4px 0;
   }
 }
 
@@ -174,7 +174,7 @@ body.m-oh {
   background-color: #fafafc;
 }
 
-@screen sm {
+@media only screen and (min-width: 768px) {
   .primary-nav__wrapper {
     background-color: #fff;
   }
@@ -187,7 +187,7 @@ body.m-oh {
   width: 100%;
 }
 
-@screen sm {
+@media only screen and (min-width: 768px) {
   .primary-nav__container {
     margin: 8px auto;
   }
