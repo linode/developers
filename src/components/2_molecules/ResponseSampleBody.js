@@ -162,6 +162,7 @@ export const ResponseSampleBody = props => {
                 (l.items &&
                 l.items.allOf &&
                 l.items.allOf[0].properties &&
+                l.items.allOf[1] &&
                 l.items.allOf[1].properties
                   ? allOf(
                       l.items.allOf[0].properties,
