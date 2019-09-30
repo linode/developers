@@ -12,7 +12,7 @@ const IndexPage = () => {
         description="Linode API Documentation, Guides, and Tools"
       />
       <div className="row-full relative -mt-2 px-2">
-        <section className="header max-w-3xl mx-auto px-4 py-12 relative z-10">
+        <section className="max-w-3xl mx-auto px-4 py-12 relative z-10">
           <h2 className="text-center font-normal text-BaseGreenDark">
             Manage your Account with the Linode CLI
           </h2>
