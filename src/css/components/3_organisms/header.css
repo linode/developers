@@ -101,6 +101,8 @@ body.m-oh {
   font-weight: 600;
   letter-spacing: -0.5px;
   margin-bottom: 16px;
+  display: inline-block;
+  line-height: 24px;
 }
 
 .sub-menu__header-link--w-icon {
@@ -311,7 +313,7 @@ body.m-oh {
 }
 
 .primary-nav__link.mobile {
-  display: block;
+  display: inline-block;
   margin: 0;
   padding: 5px 10px;
   margin-right: -14px;
@@ -325,6 +327,10 @@ body.m-oh {
 .primary-nav__link .header-mobile-icon {
   position: relative;
   top: 5px;
+}
+
+.primary-nav__link .header-mobile-icon svg {
+  opacity: 1;
 }
 
 .primary-nav__link.mobile svg {
