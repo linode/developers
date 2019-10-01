@@ -1,13 +1,11 @@
 ---
-title: Cloud Manager Changelog
+title: Cloud Manager Changelog v.0.73.0
 date: 2019-10-01T04:00:00.000Z
 version: 0.73.0
 changelog:
   - Cloud Manager
 ---
-Cloud Manager v0.73.0
-
-**Added**:
+### Added:
 
 - One-Click App support for feature flags
 
@@ -17,7 +15,7 @@ Cloud Manager v0.73.0
 
 - Firewall Landing and Table
 
-**Changed**:
+### Changed:
 
 - Update manifest.json to allow for iOS and Android “pin-to-home-screen” functionality
 
@@ -41,6 +39,6 @@ Cloud Manager v0.73.0
 
 - Linode JS SDK Documentation usage guide with examples
 
-**Fixed:**
+### Fixed:
 
 - Overflow-x in select drop downs on compact mode
