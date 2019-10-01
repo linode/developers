@@ -37,7 +37,7 @@ const Layout = ({ children, title, subtitle, fullWidth, noFooter }) => (
         {!fullWidth && !noFooter && (
           <>
             <div className="footer-wrapper">
-              <footer className="max-w-3xl mx-auto pt-16 pb-4 px-4 md:px-0">
+              <footer className="footer-wrapper-inner">
                 <FooterNav />
               </footer>
             </div>

@@ -8,9 +8,9 @@ import Twitter from "../../images/svgs/twitter.svg";
 import Youtube from "../../images/svgs/youtube.svg";
 
 const FooterNav = () => (
-  <div className="footer-nav mx-auto">
-    <div className="flex flex-wrap justify-between mb-4">
-      <div className="w-full md:w-1/6 px-4">
+  <div className="footer-nav">
+    <div className="footer-nav-inner">
+      <div className="footer-nav-grid">
         <div className="footer-logo-outer">
           <div>
             <Logo className="footer-logo" />
@@ -22,10 +22,10 @@ const FooterNav = () => (
           </div>
         </div>
       </div>
-      <div className="hidden md:inline-block w-full md:w-1/6 px-4">
+      <div className="sm-down-hidden footer-nav-grid">
         <div>
-          <h4 className="footer-nav-header mb-4">Why Linode</h4>
-          <ul className="list-reset text-sm footer-sublist">
+          <h4 className="footer-nav-header">Why Linode</h4>
+          <ul className="footer-sublist">
             <li>
               <a
                 href="https://linode.flywheelsites.com/choosing-linode/"
@@ -101,9 +101,9 @@ const FooterNav = () => (
           </ul>
         </div>
       </div>
-      <div className="hidden md:inline-block w-full md:w-1/6 px-4">
-        <h4 className="footer-nav-header mb-4">Products</h4>
-        <ul className="list-reset text-sm footer-sublist">
+      <div className="sm-down-hidden footer-nav-grid">
+        <h4 className="footer-nav-header">Products</h4>
+        <ul className="footer-sublist">
           <li>
             <a
               href="https://linode.flywheelsites.com/products/"
@@ -232,7 +232,7 @@ const FooterNav = () => (
           </li>
         </ul>
       </div>
-      <div className="hidden md:inline-block w-full md:w-1/6 px-4">
+      <div className="sm-down-hidden footer-nav-grid">
         <div>
           <h4 className="footer-nav-header mb-4">Solutions</h4>
           <ul className="list-reset text-sm footer-sublist">
@@ -312,9 +312,9 @@ const FooterNav = () => (
           </div>
         </div>
       </div>
-      <div className="hidden md:inline-block w-full md:w-1/6 px-4">
-        <h4 className="footer-nav-header mb-4">Community</h4>
-        <ul className="list-reset text-sm footer-sublist">
+      <div className="sm-down-hidden footer-nav-grid">
+        <h4 className="footer-nav-header">Community</h4>
+        <ul className="footer-sublist">
           <li>
             <a
               href="https://linode.flywheelsites.com/community/"
@@ -416,10 +416,10 @@ const FooterNav = () => (
           </li>
         </ul>
       </div>
-      <div className="w-full md:w-1/6 px-4">
-        <div className="hidden md:inline-block">
-          <h4 className="footer-nav-header mb-4">Contact</h4>
-          <ul className="list-reset text-sm footer-sublist">
+      <div className="footer-nav-grid">
+        <div className="sm-down-hidden">
+          <h4 className="footer-nav-header">Contact</h4>
+          <ul className="footer-sublist">
             <li>
               <a
                 href="https://linode.flywheelsites.com/company/contact/"
@@ -459,10 +459,10 @@ const FooterNav = () => (
           </ul>
         </div>
         <div className="footer-social-outer">
-          <h4 className="hidden md:inline-block footer-nav-header mb-4">
+          <h4 className="footer-nav-header footer-nav-header--social">
             Follow Us
           </h4>
-          <ul className="flex md:block list-reset text-sm footer-sublist">
+          <ul className="footer-sublist">
             <li>
               <a
                 href="https://twitter.com/linode/"

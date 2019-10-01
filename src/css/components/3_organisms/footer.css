@@ -2,6 +2,28 @@
   background-color: #fafafc;
 }
 
+.footer-wrapper-inner {
+  max-width: 1296px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 4rem;
+  padding-bottom: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.footer-nav {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-nav-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 16px; 
+}
+
 .footer-nav a,
 .footer-wrapper a {
   text-decoration: none;
@@ -10,6 +32,7 @@
 
 .footer-nav-header {
   margin-top: 0;
+  margin-bottom: 16px;
   font-size: 18px;
   font-weight: 600;
   color: #32363b;
@@ -28,7 +51,7 @@
 .footer-nav-social a {
   display: inline-block;
   width: 24px;
-  margin-right: 3rem;
+  margin-right: 48px;
   border: 1px solid currentColor;
   padding: 0 6px;
   border-radius: 4px;
@@ -43,7 +66,7 @@
 }
 
 .copyright {
-  font-size: 0.8125rem;
+  font-size: 13px;
   line-height: 1.30769;
   color: #616266;
 }
@@ -55,7 +78,7 @@
 }
 
 .footer-logo-outer {
-  margin-bottom: 2rem;
+  margin-bottom: 32px;
   text-align: center;
 }
 
@@ -66,7 +89,7 @@
 .footer-social-icon {
   height: 24px;
   color: #32363b;
-  margin: 0 0.5rem;
+  margin: 0 8px;
 }
 
 .footer-social-a {
@@ -87,7 +110,37 @@
   justify-content: center;
 }
 
+.footer-nav-header--social {
+  display: none;
+}
+
+.footer-nav-grid {
+  width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.sm-down-hidden {
+  display: none;
+}
+
+.footer-sublist {
+  margin-bottom: 32px;
+  font-size: 14px;
+  list-style: none;
+  padding: 0;
+}
+
+.footer-social-outer .footer-sublist {
+  display: flex;
+}
+
 @screen md {
+  .footer-wrapper-inner {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   .footer-logo {
     max-width: 145px;
   }
@@ -98,18 +151,31 @@
 
   .footer-social-icon {
     height: 14px;
-    margin: 0 0.666em 0 0;
-  }
-
-  .footer-sublist {
-    margin-bottom: 2rem;
+    margin: 0 10px 0 0;
   }
 
   .footer-social-outer {
     display: block;
   }
 
+  .footer-social-outer .footer-sublist {
+    display: block;
+  }
+
   .footer-social-label {
+    display: inline-block;
+  }
+
+  .footer-nav-header--social {
+    display: inline-block;
+  }
+
+  .footer-nav-grid {
+    /* Taken from Tailwind styles for w-1/6 */
+    width: 16.66667%;
+  }
+
+  .sm-down-hidden {
     display: inline-block;
   }
 }
