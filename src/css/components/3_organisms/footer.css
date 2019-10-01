@@ -135,7 +135,7 @@
   display: flex;
 }
 
-@screen md {
+@media only screen and (min-width: 768px) {
   .footer-wrapper-inner {
     padding-left: 0;
     padding-right: 0;
