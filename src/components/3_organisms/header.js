@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "gatsby";
 import UtilityNav from "../2_molecules/navigation/utilityNav";
 import PrimaryNav from "../2_molecules/navigation/primaryNav";
 import PrimaryMobile from "../2_molecules/navigation/primaryMobile";
@@ -17,9 +16,9 @@ const Header = () => (
         <div className="primary-nav__container">
           <div className="primary-nav__inner">
             <div className="logo">
-              <Link to="/" className="logo__link">
+              <a href="https://linode.com" className="logo__link">
                 <Logo />
-              </Link>
+              </a>
             </div>
             <div>
               <PrimaryNav />
