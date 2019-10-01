@@ -19,6 +19,7 @@ export const ResponseSampleBody = props => {
           .filter(v => properties[v] !== null)
           .map(p => {
             const l = properties[p];
+            console.log(l);
             return (
               l &&
               (l.type !== "array" && l.type !== "object" && p !== "errors"
@@ -40,6 +41,23 @@ export const ResponseSampleBody = props => {
                       return `"${va}"`;
                     })
                   : "") +
+                (l.oneOf &&
+                  l.oneOf.map(oo =>
+                    oo.properties
+                      ? Object.keys(oo.properties).map(oop => {
+                          const data = oo.properties[oop];
+                          // console.log(data);
+                          return `
+                        "${oop}": ${
+                            data.example
+                              ? JSON.stringify(data.example)
+                              : data.type === "object" && data.items
+                              ? ""
+                              : '""'
+                          }`;
+                        })
+                      : ""
+                  )) +
                 (l.properties &&
                   `{` +
                     Object.keys(l.properties)
@@ -187,8 +205,8 @@ export const ResponseSampleBody = props => {
     console.log(e);
   }
 
-  const finalSource = JSON.stringify(parsed, null, 2);
-  // const finalSource = sanitized;
+  // const finalSource = JSON.stringify(parsed, null, 2);
+  const finalSource = sanitized;
 
   return (
     context &&
