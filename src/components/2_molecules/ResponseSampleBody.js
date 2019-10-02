@@ -19,9 +19,10 @@ export const ResponseSampleBody = props => {
           .filter(v => properties[v] !== null)
           .map(p => {
             const l = properties[p];
+            // console.log(l);
             return (
               l &&
-              (l.type !== "array" && l.type !== "object" && p !== "errors"
+              (l.type !== "array" && p !== "errors" && l.type !== "object"
                 ? `"${p}": ${
                     p === "id"
                       ? "1234"
@@ -33,13 +34,37 @@ export const ResponseSampleBody = props => {
                         }`
                       : `${JSON.stringify(l.example ? l.example : "")}`
                   }`
-                : `"${p}" : [`) +
+                : l.type === "object" && !l.properties
+                ? `"${p}" : {`
+                : l.type === "array"
+                ? `"${p}" : [`
+                : `"${p}" :`) +
                 (l.example && l.type === "array" && !l.items
                   ? Object.keys(l.example).map(v => {
                       const va = l.example[v];
                       return `"${va}"`;
                     })
                   : "") +
+                (l.oneOf &&
+                  Object.keys(l.oneOf[0].properties).map(oop => {
+                    const data = l.oneOf[0].properties[oop];
+                    return `
+                            "${oop}": ${
+                      data.example
+                        ? JSON.stringify(data.example)
+                        : data.type === "array" && data.items.type === "object"
+                        ? "[{" +
+                          Object.keys(data.items.properties).map(di => {
+                            const dis = data.items.properties[di];
+                            return `
+                                        "${di}": ${JSON.stringify(
+                              dis.example ? dis.example : ""
+                            )}`;
+                          }) +
+                          "}]"
+                        : '""'
+                    }`;
+                  })) +
                 (l.properties &&
                   `{` +
                     Object.keys(l.properties)
@@ -169,8 +194,10 @@ export const ResponseSampleBody = props => {
                       l.items.allOf[1].properties
                     )
                   : "") +
-                (l.type === "array" || l.type === "object" || p === "errors"
+                (l.type === "array" || p === "errors"
                   ? `]`
+                  : l.type === "object" && !l.properties
+                  ? `}`
                   : "")
             );
           })}

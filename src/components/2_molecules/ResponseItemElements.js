@@ -152,6 +152,15 @@ export const ResponseItemElements = props => {
                       )}
                     </>
                   )}
+                  {l.oneOf && (
+                    <div className="px-4 mt-4 mb-4 ml-4 subResponse">
+                      {l.oneOf.map((data, i) => {
+                        return (
+                          <SubResponse dataSource={data.properties} key={i} />
+                        );
+                      })}
+                    </div>
+                  )}
                 </div>
               )
             );
