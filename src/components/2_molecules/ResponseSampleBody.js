@@ -22,7 +22,7 @@ export const ResponseSampleBody = props => {
             // console.log(l);
             return (
               l &&
-              (l.type !== "array" && l.type !== "object" && p !== "errors"
+              (l.type !== "array" && p !== "errors" && l.type !== "object"
                 ? `"${p}": ${
                     p === "id"
                       ? "1234"
@@ -34,7 +34,11 @@ export const ResponseSampleBody = props => {
                         }`
                       : `${JSON.stringify(l.example ? l.example : "")}`
                   }`
-                : `"${p}" : [`) +
+                : l.type === "object" && !l.properties
+                ? `"${p}" : {`
+                : l.type === "array"
+                ? `"${p}" : [`
+                : `"${p}" :`) +
                 (l.example && l.type === "array" && !l.items
                   ? Object.keys(l.example).map(v => {
                       const va = l.example[v];
@@ -42,33 +46,25 @@ export const ResponseSampleBody = props => {
                     })
                   : "") +
                 (l.oneOf &&
-                  l.oneOf.map(oo =>
-                    oo.properties
-                      ? Object.keys(oo.properties).map(oop => {
-                          const data = oo.properties[oop];
-                          return `
-                        "${oop}": ${
-                            data.example
-                              ? JSON.stringify(data.example)
-                              : data.type === "array" && data.items
-                              ? "[" +
-                                Object.keys(data.items.properties).map(di => {
-                                  const dis = data.items.properties[di];
-                                  console.log(data.items);
-                                  return `
-                                    "${di}": ${
-                                    dis.example
-                                      ? JSON.stringify(dis.example)
-                                      : '""'
-                                  }
-                                `;
-                                }) +
-                                "]"
-                              : '""'
-                          }`;
-                        })
-                      : ""
-                  )) +
+                  Object.keys(l.oneOf[0].properties).map(oop => {
+                    const data = l.oneOf[0].properties[oop];
+                    return `
+                            "${oop}": ${
+                      data.example
+                        ? JSON.stringify(data.example)
+                        : data.type === "array" && data.items.type === "object"
+                        ? "[{" +
+                          Object.keys(data.items.properties).map(di => {
+                            const dis = data.items.properties[di];
+                            return `
+                                        "${di}": ${JSON.stringify(
+                              dis.example ? dis.example : ""
+                            )}`;
+                          }) +
+                          "}]"
+                        : '""'
+                    }`;
+                  })) +
                 (l.properties &&
                   `{` +
                     Object.keys(l.properties)
@@ -198,8 +194,10 @@ export const ResponseSampleBody = props => {
                       l.items.allOf[1].properties
                     )
                   : "") +
-                (l.type === "array" || l.type === "object" || p === "errors"
+                (l.type === "array" || p === "errors"
                   ? `]`
+                  : l.type === "object" && !l.properties
+                  ? `}`
                   : "")
             );
           })}
@@ -216,8 +214,8 @@ export const ResponseSampleBody = props => {
     console.log(e);
   }
 
-  // const finalSource = JSON.stringify(parsed, null, 2);
-  const finalSource = sanitized;
+  const finalSource = JSON.stringify(parsed, null, 2);
+  // const finalSource = sanitized;
 
   return (
     context &&
