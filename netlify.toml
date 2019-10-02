@@ -1,2 +1,3 @@
 [build.environment]
   TZ = "America/New_York"
+  YARN_VERSION = "1.19.0"
