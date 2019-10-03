@@ -225,6 +225,16 @@ exports.createPages = async ({ actions, graphql }) => {
                                     type {
                                       fields {
                                         name
+                                        type {
+                                          fields {
+                                            name
+                                            type {
+                                              fields {
+                                                name
+                                              }
+                                            }
+                                          }
+                                        }
                                       }
                                     }
                                   }
@@ -264,6 +274,16 @@ exports.createPages = async ({ actions, graphql }) => {
                                         type {
                                           fields {
                                             name
+                                            type {
+                                              fields {
+                                                name
+                                                type {
+                                                  fields {
+                                                    name
+                                                  }
+                                                }
+                                              }
+                                            }
                                           }
                                         }
                                       }
@@ -303,6 +323,16 @@ exports.createPages = async ({ actions, graphql }) => {
                                             type {
                                               fields {
                                                 name
+                                                type {
+                                                  fields {
+                                                    name
+                                                    type {
+                                                      fields {
+                                                        name
+                                                      }
+                                                    }
+                                                  }
+                                                }
                                               }
                                             }
                                           }
@@ -342,6 +372,16 @@ exports.createPages = async ({ actions, graphql }) => {
                                                 type {
                                                   fields {
                                                     name
+                                                    type {
+                                                      fields {
+                                                        name
+                                                        type {
+                                                          fields {
+                                                            name
+                                                          }
+                                                        }
+                                                      }
+                                                    }
                                                   }
                                                 }
                                               }
@@ -422,6 +462,21 @@ exports.createPages = async ({ actions, graphql }) => {
                                                           type {
                                                             fields {
                                                               name
+                                                              type {
+                                                                fields {
+                                                                  name
+                                                                  type {
+                                                                    fields {
+                                                                      name
+                                                                      type {
+                                                                        fields {
+                                                                          name
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
                                                             }
                                                           }
                                                         }
@@ -453,6 +508,16 @@ exports.createPages = async ({ actions, graphql }) => {
                                                     type {
                                                       fields {
                                                         name
+                                                        type {
+                                                          fields {
+                                                            name
+                                                            type {
+                                                              fields {
+                                                                name
+                                                              }
+                                                            }
+                                                          }
+                                                        }
                                                       }
                                                     }
                                                   }
@@ -484,6 +549,16 @@ exports.createPages = async ({ actions, graphql }) => {
                                               type {
                                                 fields {
                                                   name
+                                                  type {
+                                                    fields {
+                                                      name
+                                                      type {
+                                                        fields {
+                                                          name
+                                                        }
+                                                      }
+                                                    }
+                                                  }
                                                 }
                                               }
                                             }
@@ -515,7 +590,7 @@ exports.createPages = async ({ actions, graphql }) => {
       const fileName = `./src/components/0_fragments/api/${q.name}.jsx`;
       const props = result.data.__type.fields;
       const file = fs.createWriteStream(fileName);
-      
+
       const query = recursiveQuery(props)
         .toString()
         .replace(/\,/g, "");
