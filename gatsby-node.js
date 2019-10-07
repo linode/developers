@@ -70,7 +70,7 @@ exports.sourceNodes = async ({ actions }) => {
     });
 
   const baseUrl =
-    "https://linodeteam:pleasegoaway@linode.flywheelsites.com/wp-json/menus/v1/menus";
+    "https://linode.com/wp-json/menus/v1/menus";
 
   // CREATING MENU NODES FROM WP API
   const wpMenus = [
