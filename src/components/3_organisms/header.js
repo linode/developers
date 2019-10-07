@@ -31,7 +31,7 @@ const Header = () => (
           role="search"
           method="get"
           className="header-search-form"
-          action="https://linode.flywheelsites.com/"
+          action="https://linode.com/"
         >
           <label className="header-search-form__label">
             <span className="search-form__placeholder visually-hidden">

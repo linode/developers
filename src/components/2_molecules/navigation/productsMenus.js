@@ -31,7 +31,7 @@ const ProductMenus = () => (
     </div>
     <div className="all-products-link">
       <a
-        href="https://linode.flywheelsites.com/products/"
+        href="https://linode.com/products/"
         className="header__link primary-nav__link"
       >
         View All Products
