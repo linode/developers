@@ -2,6 +2,7 @@ import { getOr } from "lodash/fp";
 import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { allOf } from "./allOf";
 
 export const ResponseSampleBody = props => {
   const { context, response } = props;
@@ -18,9 +19,10 @@ export const ResponseSampleBody = props => {
           .filter(v => properties[v] !== null)
           .map(p => {
             const l = properties[p];
+            // console.log(l);
             return (
               l &&
-              (l.type !== "array" && l.type !== "object" && p !== "errors"
+              (l.type !== "array" && p !== "errors" && l.type !== "object"
                 ? `"${p}": ${
                     p === "id"
                       ? "1234"
@@ -32,13 +34,37 @@ export const ResponseSampleBody = props => {
                         }`
                       : `${JSON.stringify(l.example ? l.example : "")}`
                   }`
-                : `"${p}" : [`) +
+                : l.type === "object" && !l.properties
+                ? `"${p}" : {`
+                : l.type === "array"
+                ? `"${p}" : [`
+                : `"${p}" :`) +
                 (l.example && l.type === "array" && !l.items
                   ? Object.keys(l.example).map(v => {
                       const va = l.example[v];
                       return `"${va}"`;
                     })
                   : "") +
+                (l.oneOf &&
+                  Object.keys(l.oneOf[0].properties).map(oop => {
+                    const data = l.oneOf[0].properties[oop];
+                    return `
+                            "${oop}": ${
+                      data.example
+                        ? JSON.stringify(data.example)
+                        : data.type === "array" && data.items.type === "object"
+                        ? "[{" +
+                          Object.keys(data.items.properties).map(di => {
+                            const dis = data.items.properties[di];
+                            return `
+                                        "${di}": ${JSON.stringify(
+                              dis.example ? dis.example : ""
+                            )}`;
+                          }) +
+                          "}]"
+                        : '""'
+                    }`;
+                  })) +
                 (l.properties &&
                   `{` +
                     Object.keys(l.properties)
@@ -47,7 +73,7 @@ export const ResponseSampleBody = props => {
                         const data = l.properties[e];
                         return `
                         "${e}": ${
-                          data.example
+                          data.example !== undefined
                             ? JSON.stringify(data.example)
                             : data.type === "object" && data.properties
                             ? `{
@@ -59,6 +85,8 @@ export const ResponseSampleBody = props => {
                                     ? `"${s}": ${
                                         dps.example
                                           ? JSON.stringify(dps.example)
+                                          : dps.type === "array"
+                                          ? `[]`
                                           : dps.type === "object" &&
                                             dps.properties
                                           ? `{
@@ -72,15 +100,15 @@ export const ResponseSampleBody = props => {
                                                 ? `"${s2}": ${JSON.stringify(
                                                     dps2.example
                                                       ? dps2.example
-                                                      : ""
+                                                      : '""'
                                                   )}`
-                                                : "";
+                                                : '""';
                                             })}}`
-                                          : ""
+                                          : '""'
                                       }`
-                                    : "";
+                                    : '""';
                                 })}}`
-                            : ""
+                            : '""'
                         }
                     `;
                       }) +
@@ -156,8 +184,20 @@ export const ResponseSampleBody = props => {
                         : "";
                     })}}`
                   : "") +
-                (l.type === "array" || l.type === "object" || p === "errors"
+                (l.items &&
+                l.items.allOf &&
+                l.items.allOf[0].properties &&
+                l.items.allOf[1] &&
+                l.items.allOf[1].properties
+                  ? allOf(
+                      l.items.allOf[0].properties,
+                      l.items.allOf[1].properties
+                    )
+                  : "") +
+                (l.type === "array" || p === "errors"
                   ? `]`
+                  : l.type === "object" && !l.properties
+                  ? `}`
                   : "")
             );
           })}
