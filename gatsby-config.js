@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Linode Developer Tools`,
     description: `Linode API Documentation, Guides, and Tools`,
-    menuLinks: [
+    dlcLinks: [
       {
         name: "API Documentation",
         link: "/api/v4"
@@ -95,7 +95,9 @@ module.exports = {
       options: {
         tailwind: true,
         whitelist: [
+          "mobile",
           "mobile-nav",
+          "sign-up",
           "active",
           "active-item",
           "error",

@@ -10,12 +10,23 @@
   color: #777;
 }
 
-html {
-  height: inherit;
-  width: inherit;
-  overflow: inherit;
+html,
+body {
+  height: initial;
+  width: initial;
+  overflow: initial;
 }
 
 .entry-point > div {
   box-shadow: none;
+}
+
+.main-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.layout-fixed .banner__wrapper,
+.layout-fixed .dlc-nav {
+  /* margin-left: 300px; */
 }
