@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
 
+import DLCMenu from "../2_molecules/DLCMenu";
 import Banner from "../3_organisms/banner";
 import Header from "../3_organisms/header";
-import Footer from "../3_organisms/footer";
 import FooterNav from "../3_organisms/footer-nav";
 import "../../css/main.css";
 
@@ -15,10 +15,6 @@ const Layout = ({ children, title, subtitle, fullWidth, noFooter }) => (
         site {
           siteMetadata {
             title
-            menuLinks {
-              name
-              link
-            }
           }
         }
       }
@@ -27,31 +23,24 @@ const Layout = ({ children, title, subtitle, fullWidth, noFooter }) => (
       <div className={`content ${fullWidth ? "layout-fixed" : ""}`}>
         <Header
           siteTitle={data.site.siteMetadata.title}
-          menuLinks={data.site.siteMetadata.menuLinks}
+          dlcLinks={data.site.siteMetadata.dlcLinks}
         />
-        {title && subtitle && <Banner title={title} subtitle={subtitle} />}
+        {(title || subtitle) && <Banner title={title} subtitle={subtitle} />}
+        <DLCMenu />
         <div
-          className={`main-wrapper ${!fullWidth &&
-            "max-w-3xl mx-auto px-4 md:px-8 py-2"}`}
+          className={`main-wrapper ${
+            !fullWidth ? "max-w-3xl mx-auto px-4 py-2" : ""
+          }`}
         >
           <main className="main">{children}</main>
         </div>
-        {!noFooter && (
+        {!fullWidth && !noFooter && (
           <>
-            {!fullWidth && (
-              <div className="footer-wrapper bg-BaseBlackFull">
-                <footer className="max-w-3xl mx-auto py-8 px-4 md:px-8 text-white">
-                  <FooterNav />
-                </footer>
-              </div>
-            )}
-            {!fullWidth && (
-              <div className="footer-nav-wrapper bg-black">
-                <footer className="max-w-3xl mx-auto py-8 px-4 md:px-8 text-white">
-                  <Footer />
-                </footer>
-              </div>
-            )}
+            <div className="footer-wrapper">
+              <footer className="footer-wrapper-inner">
+                <FooterNav />
+              </footer>
+            </div>
           </>
         )}
       </div>
