@@ -27,76 +27,38 @@ const FooterNav = () => (
           <h4 className="footer-nav-header">Why Linode</h4>
           <ul className="footer-sublist">
             <li>
-              <a
-                href="https://linode.com/choosing-linode/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Choosing Linode
-              </a>
+              <a href="https://linode.com/choosing-linode/">Choosing Linode</a>
             </li>
             <li>
-              <a
-                href="https://linode.com/support-experience/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="https://linode.com/support-experience/">
                 Support Experience
               </a>
             </li>
             <li>
-              <a
-                href="https://linode.com/cloud-simplified/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="https://linode.com/cloud-simplified/">
                 Cloud Simplified
               </a>
             </li>
             <li>
-              <a
-                href="https://linode.com/global-infrastructure/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="https://linode.com/global-infrastructure/">
                 Global Infrastructure
               </a>
             </li>
             <li>
-              <a
-                href="https://linode.com/craft-of-code/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Craft of Code
-              </a>
+              <a href="https://linode.com/craft-of-code/">Craft of Code</a>
             </li>
             <li>
-              <a
-                href="https://linode.com/linode-for-business/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="https://linode.com/linode-for-business/">
                 Linode for Business
               </a>
             </li>
             <li>
-              <a
-                href="https://linode.com/what-is-cloud-computing/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="https://linode.com/what-is-cloud-computing/">
                 What is Cloud Computing
               </a>
             </li>
             <li>
-              <a
-                href="https://linode.com/open-cloud/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Open Cloud
-              </a>
+              <a href="https://linode.com/open-cloud/">Open Cloud</a>
             </li>
           </ul>
         </div>
@@ -105,128 +67,60 @@ const FooterNav = () => (
         <h4 className="footer-nav-header">Products</h4>
         <ul className="footer-sublist">
           <li>
-            <a
-              href="https://linode.com/products/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Products
-            </a>
+            <a href="https://linode.com/products/">Products</a>
           </li>
           <li>
-            <a
-              href="https://linode.com/products/kubernetes/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Kubernetes
-            </a>
+            <a href="https://linode.com/products/kubernetes/">Kubernetes</a>
           </li>
           <li>
-            <a
-              href="https://linode.com/products/nanodes/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Nanodes
-            </a>
+            <a href="https://linode.com/products/nanodes/">Nanodes</a>
           </li>
           <li>
-            <a
-              href="https://linode.com/products/standard-linodes/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="https://linode.com/products/standard-linodes/">
               Standard Linodes
             </a>
           </li>
           <li>
-            <a
-              href="https://linode.com/products/high-memory/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="https://linode.com/products/high-memory/">
               High Memory Linodes
             </a>
           </li>
           <li>
-            <a
-              href="https://linode.com/products/dedicated-cpu/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="https://linode.com/products/dedicated-cpu/">
               Dedicated CPU
             </a>
           </li>
           <li>
-            <a
-              href="https://linode.com/products/block-storage/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="https://linode.com/products/block-storage/">
               Block Storage
             </a>
           </li>
           <li>
-            <a
-              href="https://linode.com/products/object-storage/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="https://linode.com/products/object-storage/">
               Object Storage
             </a>
           </li>
           <li>
-            <a
-              href="https://linode.com/products/backups/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Backups
-            </a>
+            <a href="https://linode.com/products/backups/">Backups</a>
           </li>
           <li>
-            <a
-              href="https://linode.com/products/one-click-apps/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="https://linode.com/products/one-click-apps/">
               One-Click Apps
             </a>
           </li>
           <li>
-            <a
-              href="https://linode.com/products/nodebalancers/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="https://linode.com/products/nodebalancers/">
               NodeBalancers
             </a>
           </li>
           <li>
-            <a
-              href="https://linode.com/products/dns-manager/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              DNS Manager
-            </a>
+            <a href="https://linode.com/products/dns-manager/">DNS Manager</a>
           </li>
           <li>
-            <a
-              href="https://linode.com/products/managed/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Managed
-            </a>
+            <a href="https://linode.com/products/managed/">Managed</a>
           </li>
           <li>
-            <a
-              href="https://linode.com/products/pro-services/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="https://linode.com/products/pro-services/">
               Professional Services
             </a>
           </li>
@@ -237,26 +131,14 @@ const FooterNav = () => (
           <h4 className="footer-nav-header mb-4">Solutions</h4>
           <ul className="list-reset text-sm footer-sublist">
             <li>
-              <a
-                href="https://linode.com/solutions/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Solutions Overview
-              </a>
+              <a href="https://linode.com/solutions/">Solutions Overview</a>
             </li>
           </ul>
           <div>
             <h4 className="footer-nav-header mb-4">Pricing</h4>
             <ul className="list-reset text-sm footer-sublist">
               <li>
-                <a
-                  href="https://linode.com/pricing/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Pricing
-                </a>
+                <a href="https://linode.com/pricing/">Pricing</a>
               </li>
             </ul>
           </div>
@@ -264,47 +146,19 @@ const FooterNav = () => (
             <h4 className="footer-nav-header mb-4">Company</h4>
             <ul className="list-reset text-sm footer-sublist">
               <li>
-                <a
-                  href="https://linode.com/company/about/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  About
-                </a>
+                <a href="https://linode.com/company/about/">About</a>
               </li>
               <li>
-                <a
-                  href="https://linode.com/company/leadership/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Leadership
-                </a>
+                <a href="https://linode.com/company/leadership/">Leadership</a>
               </li>
               <li>
-                <a
-                  href="https://linode.com/company/press/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Press
-                </a>
+                <a href="https://linode.com/company/press/">Press</a>
               </li>
               <li>
-                <a
-                  href="https://linode.com/company/careers/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Careers
-                </a>
+                <a href="https://linode.com/company/careers/">Careers</a>
               </li>
               <li>
-                <a
-                  href="https://linode.com/legal-security/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href="https://linode.com/legal-security/">
                   Legal &amp; Security
                 </a>
               </li>
@@ -316,101 +170,37 @@ const FooterNav = () => (
         <h4 className="footer-nav-header">Community</h4>
         <ul className="footer-sublist">
           <li>
-            <a
-              href="https://linode.com/community/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Community Overview
-            </a>
+            <a href="https://linode.com/community/">Community Overview</a>
           </li>
           <li>
-            <a
-              href="https://www.linode.com/community/questions/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Q&amp;A
-            </a>
+            <a href="https://www.linode.com/community/questions/">Q&amp;A</a>
           </li>
           <li>
-            <a
-              href="https://linode.com/developers/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Developer Portal
-            </a>
+            <a href="https://linode.com/developers/">Developer Portal</a>
           </li>
           <li>
-            <a
-              href="https://linode.com/blog/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Blog
-            </a>
+            <a href="https://linode.com/blog/">Blog</a>
           </li>
           <li>
-            <a
-              href="https://linode.com/events/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Events
-            </a>
+            <a href="https://linode.com/events/">Events</a>
           </li>
           <li>
-            <a
-              href="https://linode.com/resources/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Content Resources
-            </a>
+            <a href="https://linode.com/resources/">Content Resources</a>
           </li>
           <li>
-            <a
-              href="https://linode.com/products/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Swag Store
-            </a>
+            <a href="https://linode.com/products/">Swag Store</a>
           </li>
           <li>
-            <a
-              href="https://linode.com/referral-program/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Referral Program
-            </a>
+            <a href="https://linode.com/referral-program/">Referral Program</a>
           </li>
           <li>
-            <a
-              href="https://linode.com/products/api/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              API
-            </a>
+            <a href="https://linode.com/products/api/">API</a>
           </li>
           <li>
-            <a
-              href="https://linode.com/docs/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Documentation
-            </a>
+            <a href="https://linode.com/docs/">Documentation</a>
           </li>
           <li>
-            <a
-              href="https://linode.com/cloud-computing-terms/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="https://linode.com/cloud-computing-terms/">
               Cloud Computing Terms
             </a>
           </li>
@@ -421,40 +211,18 @@ const FooterNav = () => (
           <h4 className="footer-nav-header">Contact</h4>
           <ul className="footer-sublist">
             <li>
-              <a
-                href="https://linode.com/company/contact/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Contact
-              </a>
+              <a href="https://linode.com/company/contact/">Contact</a>
             </li>
             <li>
-              <a
-                href="https://linode.com/support/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Support
-              </a>
+              <a href="https://linode.com/support/">Support</a>
             </li>
             <li>
-              <a
-                href="https://linode.com/company/contact/?tab=sales-inquiries"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="https://linode.com/company/contact/?tab=sales-inquiries">
                 Contact Sales
               </a>
             </li>
             <li>
-              <a
-                href="https://status.linode.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                System Status
-              </a>
+              <a href="https://status.linode.com">System Status</a>
             </li>
           </ul>
         </div>
@@ -466,8 +234,6 @@ const FooterNav = () => (
             <li>
               <a
                 href="https://twitter.com/linode/"
-                target="_blank"
-                rel="noopener noreferrer"
                 className="footer-social-a"
                 title="Twitter"
               >
@@ -478,8 +244,6 @@ const FooterNav = () => (
             <li>
               <a
                 href="https://www.instagram.com/linode/"
-                target="_blank"
-                rel="noopener noreferrer"
                 className="footer-social-a"
                 title="Instagram"
               >
@@ -490,8 +254,6 @@ const FooterNav = () => (
             <li>
               <a
                 href="https://www.youtube.com/linode/"
-                target="_blank"
-                rel="noopener noreferrer"
                 className="footer-social-a"
                 title="YouTube"
               >
@@ -502,8 +264,6 @@ const FooterNav = () => (
             <li>
               <a
                 href="https://www.linkedin.com/company/linode/"
-                target="_blank"
-                rel="noopener noreferrer"
                 className="footer-social-a"
                 title="LinkedIn"
               >
@@ -514,8 +274,6 @@ const FooterNav = () => (
             <li>
               <a
                 href="https://github.com/linode/"
-                target="_blank"
-                rel="noopener noreferrer"
                 className="footer-social-a"
                 title="Github"
               >
