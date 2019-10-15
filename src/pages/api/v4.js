@@ -2,6 +2,8 @@ import React from "react";
 // import PropTypes from "prop-types";
 import { graphql, StaticQuery } from "gatsby";
 import Markdown from "react-markdown/with-html";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 import Layout from "../../components/4_layouts/layout";
 import SEO from "../../components/0_utilities/seo";
@@ -26,6 +28,24 @@ const HeadingRenderer = props => {
   const Heading = Markdown.renderers.heading;
   return <Heading {...props} />;
 };
+
+class CodeBlock extends React.PureComponent {
+  render() {
+    const { value } = this.props;
+
+    return (
+      <SyntaxHighlighter
+        language="bash"
+        style={atomDark}
+        codeTagProps={{
+          style: { whiteSpace: "pre-wrap" }
+        }}
+      >
+        {value}
+      </SyntaxHighlighter>
+    );
+  }
+}
 
 class APIDocs extends React.Component {
   componentDidMount() {
@@ -58,7 +78,7 @@ class APIDocs extends React.Component {
               <Markdown
                 source={n.info.description}
                 escapeHtml={false}
-                renderers={{ heading: HeadingRenderer }}
+                renderers={{ heading: HeadingRenderer, code: CodeBlock }}
                 className="md:mt-8 api-body"
               />
             </div>
