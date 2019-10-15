@@ -2,7 +2,7 @@ import React from "react";
 // import PropTypes from "prop-types";
 import { graphql, StaticQuery } from "gatsby";
 import Markdown from "react-markdown/with-html";
-import SyntaxHighlighter from "react-syntax-highlighter";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 import Layout from "../../components/4_layouts/layout";
@@ -35,8 +35,9 @@ class CodeBlock extends React.PureComponent {
 
     return (
       <SyntaxHighlighter
-        language="bash"
+        language="shell"
         style={atomDark}
+        className="api-samples"
         codeTagProps={{
           style: { whiteSpace: "pre-wrap" }
         }}
