@@ -22,15 +22,6 @@ input[type="text"] {
   @apply p-4 mt-2 mb-2 bg-ThemeBeige block;
 }
 
-.api-body pre code {
-  @apply p-2 mt-2 mb-4 bg-ThemeBeige block;
-  overflow-x: auto;
-}
-
-.api-body code {
-  @apply p-1 bg-ThemeBeige;
-}
-
 .api-desc code {
   @apply font-normal px-1 bg-ThemeTagGrey inline text-xs relative;
   padding-top: 4px;
