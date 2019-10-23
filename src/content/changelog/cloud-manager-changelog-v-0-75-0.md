@@ -5,7 +5,7 @@ version: 0.75.0
 changelog:
   - Cloud Manager
 ---
-\### Added:
+### Added:
 
 * Ability to view, add, edit, and delete Longview Clients
 * Interactive flag for Linode card
@@ -13,7 +13,7 @@ changelog:
 * Maintenance status to Linodes Dashboard Card
 * Confirmation modal when creating new backup snapshot
 
-\### Changed:
+### Changed:
 
 * Add helper text to Kubernetes Node Pool rows if not all Nodes are accounted for
 * Adjust display of expiring credit in expandable panel header
@@ -22,7 +22,7 @@ changelog:
 * Update Managed dashboard graphs
 * Update Access Key creation message (Object Storage)
 
-\### Fixed:
+### Fixed:
 
 * Sort by status (Linodes)
 * Consistency with display of charts legend units
