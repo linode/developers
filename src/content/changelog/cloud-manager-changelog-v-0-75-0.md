@@ -1,6 +1,6 @@
 ---
 title: Cloud Manager Changelog v.0.75.0
-date: 2019-10-22T04:00:00.000Z
+date: 2019-10-22T16:00:00.000Z
 version: 0.75.0
 changelog:
   - Cloud Manager
