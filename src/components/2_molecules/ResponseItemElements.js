@@ -140,14 +140,24 @@ export const ResponseItemElements = props => {
                       </div>
                       {l.items.allOf && (
                         <div className="px-4 mt-4 mb-4 ml-4 subResponse">
-                          {l.items.allOf.map((data, i) => {
-                            return (
-                              <SubResponse
-                                dataSource={data.properties}
-                                key={i}
-                              />
-                            );
-                          })}
+                          {l.items.allOf
+                            .filter(v => {
+                              return (
+                                l.items.properties &&
+                                Object.keys(l.items.properties)
+                                  .filter(v3 => l.items.properties[v3] !== null)
+                                  .map(value => value) !==
+                                  Object.keys(v.properties).map(v2 => v2)
+                              );
+                            })
+                            .map((data, i) => {
+                              return (
+                                <SubResponse
+                                  dataSource={data.properties}
+                                  key={i}
+                                />
+                              );
+                            })}
                         </div>
                       )}
                     </>
