@@ -2,6 +2,7 @@
 title: "terraform-provider-linode"
 description: terraform-provider-linode
 author: linode
+origin: linode
 external_url: https://terraform.io/docs/providers/linode/
 weight: 1
 ---
