@@ -21,7 +21,6 @@ const topMenuItems = [
   "Pagination",
   "Filtering and Sorting",
   "CLI (Command Line Interface)",
-  "APIv3"
 ];
 
 class SideMenu extends React.Component {
