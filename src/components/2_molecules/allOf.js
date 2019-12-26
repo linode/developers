@@ -1,3 +1,10 @@
+/* 
+  __TODO__ May need rework
+  1. We worked out what allOfs and oneOfs are supposed to do, but did not get a chance to get to it
+     This component has more complexion we need to address
+  2. We need to handle more recursion here, deep nested data may not show
+*/
+
 const accumulator = (or, ov) => {
   return Object.keys(or).reduce((acc, currentKey) => {
     if (!!ov[currentKey]) {
