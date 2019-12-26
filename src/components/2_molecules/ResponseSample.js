@@ -2,6 +2,12 @@ import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
+/* 
+  __TODO__ needs better scripting. 
+  Ideally we should generate this in a much more dynamic way
+  We are missing data at times, and missing deeply nested data.
+*/
+
 export const ResponseItem = props => {
   const { response, r } = props;
   return (
@@ -62,42 +68,41 @@ export const ResponseItem = props => {
                               </div>
                             );
                           })}
-                        {l.items &&
-                          (l.items.properties && (
-                            <div>
-                              {"  {"}
-                              {Object.keys(l.items.properties).map((e, i) => {
-                                const data = l.items.properties[e];
-                                const rowLen3 = Object.keys(l.items).length;
-                                return (
-                                  data && (
-                                    <div key={i} className="ml-8">
-                                      <div>
-                                        "{e}":{" "}
-                                        <span style={{ color: "#3BB878" }}>
-                                          "{data.example}"
-                                          {rowLen3 === i + 1 && ","}
-                                        </span>
-                                      </div>
+                        {l.items && l.items.properties && (
+                          <div>
+                            {"  {"}
+                            {Object.keys(l.items.properties).map((e, i) => {
+                              const data = l.items.properties[e];
+                              const rowLen3 = Object.keys(l.items).length;
+                              return (
+                                data && (
+                                  <div key={i} className="ml-8">
+                                    <div>
+                                      "{e}":{" "}
+                                      <span style={{ color: "#3BB878" }}>
+                                        "{data.example}"
+                                        {rowLen3 === i + 1 && ","}
+                                      </span>
                                     </div>
-                                  )
-                                );
-                              })}
-                              {"  }"}
-                              {l.type !== "array" && (
-                                <div>
-                                  {"]"}
-                                  {rowLen !== i + 1 && ","}
-                                </div>
-                              )}
-                              {p !== "errors" && (
-                                <div>
-                                  {"]"}
-                                  {rowLen !== i + 1 && ","}
-                                </div>
-                              )}
-                            </div>
-                          ))}
+                                  </div>
+                                )
+                              );
+                            })}
+                            {"  }"}
+                            {l.type !== "array" && (
+                              <div>
+                                {"]"}
+                                {rowLen !== i + 1 && ","}
+                              </div>
+                            )}
+                            {p !== "errors" && (
+                              <div>
+                                {"]"}
+                                {rowLen !== i + 1 && ","}
+                              </div>
+                            )}
+                          </div>
+                        )}
                       </div>
                     )
                   );

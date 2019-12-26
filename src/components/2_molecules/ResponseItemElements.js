@@ -8,6 +8,12 @@ import Nullable from "./Nullable";
 import SubResponse from "./SubResponse";
 import CharDisplay from "./charDisplay";
 
+/* 
+  __TODO__ needs better scripting. 
+  Ideally we should generate this in a much more dynamic way
+  We are missing data at times, and missing deeply nested data.
+*/
+
 export const ResponseItemElements = props => {
   const { context } = props;
   return (
@@ -23,7 +29,6 @@ export const ResponseItemElements = props => {
           )
           .map((p, i) => {
             const l = context.content.application_json.schema.properties[p];
-            // console.log(l);
             return (
               l && (
                 <div key={i} className="response-wrapper">
@@ -71,7 +76,6 @@ export const ResponseItemElements = props => {
                           Object.keys(l.items.properties).map(
                             (value, index) => {
                               const data = l.items.properties[value];
-                              // console.log(data);
                               return (
                                 data && (
                                   <div key={index} className="response-wrapper">

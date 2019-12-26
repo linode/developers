@@ -1,5 +1,7 @@
+// We import the tailwind settings from the base theme
 const config = require("./linode-hugo-theme/tailwind");
 
+// We override (merge) or add specific settings to DLC
 config.colors["ThemeCell"] = "#f4f4f4";
 config.colors["ThemeBeige"] = "#eCeCeC";
 config.colors["ThemeTagGrey"] = "#e1e8eC";

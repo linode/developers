@@ -32,6 +32,7 @@ export const ResponseSamples = props => {
           return (
             response !== null && (
               <TabPanel key={i}>
+                {/* __TODO__ This below needs work. Logic is not sound */}
                 {(mode === "put" || mode === "post") && response["default"] ? (
                   <ResponseSampleBody
                     response={options[e]}
