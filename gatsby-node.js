@@ -35,7 +35,7 @@ exports.sourceNodes = async ({ actions }) => {
   createTypes(typeDefs);
 
   const allSpecs =
-    // crate endpoint smap
+    // create endpoints map
     Object.keys(res.paths).map(async (path, i) => {
       // Create your node object
       const pathNode = {
