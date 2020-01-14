@@ -9,6 +9,10 @@ class TailwindExtractor {
   }
 }
 
+// The css setup uses TailwindCSS as a utility library (https://tailwindcss.com/#what-is-tailwind).
+// We imports tailwind, then purge CSS classes that are not used
+// See gatsby-config.js for details
+
 module.exports = {
   plugins: [
     atImport,

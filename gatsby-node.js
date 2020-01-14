@@ -12,9 +12,15 @@ const { recursiveQuery } = require("./generateQuery.js");
 
 exports.sourceNodes = async ({ actions }) => {
   const { createNode, createTypes } = actions;
+
+  // This parser allows compiling the JSON object into a valid
+  // OpenAPI object (parsing $refs etc)
   const res = await parser.dereference(specs);
 
   // CREATING NODES FROM API SPECS
+
+  // Type definitions for GraphQL
+  // We force define these types to avoid build errors
   const typeDefs = `
     type MarkdownRemark implements Node {
       frontmatter: Frontmatter!
@@ -29,7 +35,7 @@ exports.sourceNodes = async ({ actions }) => {
   createTypes(typeDefs);
 
   const allSpecs =
-    // map into these results and create nodes
+    // create endpoints map
     Object.keys(res.paths).map(async (path, i) => {
       // Create your node object
       const pathNode = {
@@ -37,7 +43,7 @@ exports.sourceNodes = async ({ actions }) => {
         id: `${i}`,
         parent: `__SOURCE__`,
         internal: {
-          type: `Paths` // name of the graphQL query --> allRandomUser {}
+          type: `Paths` // name of the graphQL query --> allPaths {}
         },
         children: [],
 
@@ -69,10 +75,9 @@ exports.sourceNodes = async ({ actions }) => {
       createNode(pathNode);
     });
 
-  const baseUrl =
-    "https://linode.com/wp-json/menus/v1/menus";
-
   // CREATING MENU NODES FROM WP API
+  // This will gather the WP API from linode.com to build the header menu items
+  const baseUrl = "https://linode.com/wp-json/menus/v1/menus";
   const wpMenus = [
     {
       path: `${baseUrl}/header-utility`,
@@ -170,6 +175,7 @@ exports.sourceNodes = async ({ actions }) => {
   return Promise.all(allMenus, allSpecs);
 };
 
+// GENERATE CHANGELOG ENTRIES
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
   const changelogTemplate = path.resolve(
@@ -207,7 +213,7 @@ exports.createPages = async ({ actions, graphql }) => {
     // Eliminate duplicate tags
     tags = _.uniq(tags);
 
-    // Make tag pages
+    // Make changelog pages
     tags.forEach(changelog => {
       createPage({
         path: `/changelog/${_.kebabCase(changelog)}/`,
@@ -253,6 +259,7 @@ exports.createPages = async ({ actions, graphql }) => {
     });
   });
 
+  // CREATE FRAGMENTS
   const fragmentQueries = [
     {
       path: "PathsGetResponses_200ContentApplication_jsonSchemaProperties",
@@ -286,6 +293,9 @@ exports.createPages = async ({ actions, graphql }) => {
 
   const fragments = [];
 
+  // GraphQL introspection query
+  // Not sure if there's a better way top generate a recursive pattern here,
+  // but this code makes sure we good deep enough into the data
   await fragmentQueries.map(q => {
     let partialFragments = graphql(`
     {
@@ -688,6 +698,7 @@ exports.createPages = async ({ actions, graphql }) => {
         .toString()
         .replace(/\,/g, "");
 
+      // Write REACT files for each fragment
       return (
         fragments.push(partialFragments),
         file.write(`

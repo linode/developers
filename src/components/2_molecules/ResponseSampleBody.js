@@ -12,6 +12,16 @@ export const ResponseSampleBody = props => {
     context
   );
 
+  {
+    /* 
+      __TODO__ Sample source need better scripting. 
+      Kinda hand coded for speed, not very scalable and missing info.
+      Ideally we should generate this in a much more dynamic way
+      We are missing data at times, and missing deeply nested data.
+      Additionally, allOf & oneOf need better handling
+    */
+  }
+
   const sampleSource = `
       {
       ${properties &&
@@ -19,7 +29,6 @@ export const ResponseSampleBody = props => {
           .filter(v => properties[v] !== null)
           .map(p => {
             const l = properties[p];
-            // console.log(l);
             return (
               l &&
               (l.type !== "array" && p !== "errors" && l.type !== "object"
@@ -120,9 +129,9 @@ export const ResponseSampleBody = props => {
                     .map(e => {
                       const data = l.items.properties[e];
                       return data &&
-                        (data.type !== "array" &&
-                          data.type !== "object" &&
-                          !data.oneOf)
+                        data.type !== "array" &&
+                        data.type !== "object" &&
+                        !data.oneOf
                         ? `
                         "${e}": ${JSON.stringify(
                             data.example ? data.example : ""
@@ -138,7 +147,8 @@ export const ResponseSampleBody = props => {
                                 .map(oo => {
                                   const ro = o.properties[oo];
                                   return ro &&
-                                    (ro.type === "object" && ro.properties)
+                                    ro.type === "object" &&
+                                    ro.properties
                                     ? `"${oo}": {
                                       ${Object.keys(ro.properties)
                                         .filter(
@@ -213,6 +223,9 @@ export const ResponseSampleBody = props => {
   } catch (e) {
     console.log(e);
   }
+
+  // Switch constants for testing if data does not show up for instance
+  // `sanitized` will output unformatted data to test it
 
   const finalSource = JSON.stringify(parsed, null, 2);
   // const finalSource = sanitized;
