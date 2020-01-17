@@ -27,7 +27,7 @@ const KubernetesPage = () => {
                 <article class="p-8 h-full bg-ThemeCell tile">
                   <p>
                     The k8s-alpha CLI is deprecated. On <strong>March 31st, 2020</strong>, it will be <strong>removed</strong> from the linode-cli.
-                    After March 31, 2020, you will no longer be able to create or manage clusters created by the linode-cli.
+                    After March 31, 2020, you will no longer be able to create or manage clusters created by the k8s-alpha CLI plugin.
                   </p><p>
                     However, you will still be able to successfully manage your clusters using&nbsp;
                     <a
