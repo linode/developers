@@ -19,6 +19,57 @@ const KubernetesPage = () => {
             <h2 className="font-normal text-BaseGreenDark text-center">
               Create a Kubernetes Cluster with One Command
             </h2>
+            <div>
+              &nbsp;
+            </div>
+            <div className="flex mb-8 mt-6 md:mt-0">
+              <div className="container md:ml-10">
+                <article class="p-8 h-full bg-ThemeCell tile">
+                  <p>
+                    The k8s-alpha CLI is deprecated. On <strong>March 31st, 2020</strong>, it will be <strong>removed</strong> from the linode-cli.
+                    After March 31, 2020, you will no longer be able to create or manage clusters created by the k8s-alpha CLI plugin.
+                  </p><p>
+                    However, you will still be able to successfully manage your clusters using&nbsp;
+                    <a
+                      href="http://www.linode.com/docs/applications/configuration-management/beginners-guide-to-terraform/"
+                      target="blank"
+                      rel="noopener noreferrer"
+                    >
+                      Terraform
+                    </a>
+                      , which is how the k8s-alpha CLI itself is implemented. The Terraform configuration files that the
+                      k8s-alpha CLI creates are stored in your computer's home folder, under the
+                      <pre className="bg-ThemeBeige inline p-1 ">.k8s-alpha-linode/</pre> directory.
+                  </p><p>
+                  </p><p>
+                    Other alternatives for creating and managing clusters include:
+                    <ul>
+                      <li>
+                        The&nbsp;
+                        <a
+                          href="http://www.linode.com/docs/kubernetes/deploy-and-manage-a-cluster-with-linode-kubernetes-engine-a-tutorial/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Linode Kubernetes Engine (LKE)
+                        </a>
+                          , which creates clusters managed by Linode.
+                      </li>
+                      <li>
+                        <a
+                          href="http://www.linode.com/docs/kubernetes/how-to-deploy-kubernetes-on-linode-with-rancher-2-x/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Rancher
+                        </a>
+                          , which provides a graphical user interface for managing clusters.
+                      </li>
+                    </ul>
+                  </p>
+                </article>
+              </div>
+            </div>
             <div className="flex justify-center mt-4">
               <CodeBox
                 line1="pip install linode-cli"
