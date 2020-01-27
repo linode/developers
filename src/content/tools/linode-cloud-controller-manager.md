@@ -2,6 +2,7 @@
 title: "linode-cloud-controller-manager"
 description: linode-cloud-controller-manager
 author: linode
+origin: linode
 external_url: https://github.com/linode/linode-cloud-controller-manager
 weight: 8
 ---
