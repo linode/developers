@@ -1,7 +1,7 @@
 ---
 title: "terraform-provider-acme"
 description: terraform-provider-acme
-author: linode
+origin: community
 external_url: https://www.terraform.io/docs/providers/acme/dns_providers/linode.html
 weight: 12
 ---

@@ -2,6 +2,7 @@
 title: "Pulumi"
 description: Pulumi
 author: linode
+origin: linode
 external_url: https://github.com/pulumi/pulumi-linode
 weight: 4
 ---

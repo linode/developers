@@ -1,16 +1,24 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 
-const Tools = ({ data }) => (
+const Library = ({ data }) => (
   <React.Fragment>
     {data.allMarkdownRemark.edges.map(edge => {
       const { frontmatter } = edge.node;
       return (
         <article
           key={edge.node.id}
-          className="item lib-item w-full md:w-1/2 px-4 mb-4 md:mb-8"
+          className={`item lib-item w-full md:w-1/2 px-4 mb-4 md:mb-8 ${
+            frontmatter.origin
+          }`}
         >
           <div className="p-8 h-full bg-ThemeCell tile">
+            <div
+              className={`origin mb-2 text-xs uppercase font-semibold ${frontmatter.origin ===
+                "linode" && "text-BaseGreen"}`}
+            >
+              {frontmatter.origin}
+            </div>
             <header>
               <h3 className="mt-0">
                 <a
@@ -50,6 +58,7 @@ export default props => (
               html
               frontmatter {
                 title
+                origin
                 external_url
               }
             }
@@ -57,6 +66,6 @@ export default props => (
         }
       }
     `}
-    render={data => <Tools data={data} {...props} />}
+    render={data => <Library data={data} {...props} />}
   />
 );

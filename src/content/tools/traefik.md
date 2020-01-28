@@ -2,7 +2,8 @@
 title: "traefik"
 description: traefik
 author: linode
-external_url: https://docs.traefik.io/configuration/acme/#acme-challenge
+origin: community
+external_url: https://docs.traefik.io/v1.4/configuration/acme/ 
 weight: 13
 ---
 

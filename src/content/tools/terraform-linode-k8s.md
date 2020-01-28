@@ -2,6 +2,7 @@
 title: "terraform-linode-k8s"
 description: terraform-linode-k8s
 author: linode
+origin: linode
 external_url: https://github.com/linode/terraform-linode-k8s
 weight: 7
 ---

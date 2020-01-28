@@ -1,7 +1,7 @@
 ---
 title: "Kubernetes External-DNS"
 description: Kubernetes External-DNS
-author: linode
+origin: community
 external_url: https://github.com/kubernetes-incubator/external-dns/blob/master/docs/tutorials/linode.md
 weight: 9
 ---

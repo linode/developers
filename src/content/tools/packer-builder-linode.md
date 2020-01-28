@@ -2,6 +2,7 @@
 title: "packer-builder-linode"
 description: packer-builder-linode
 author: linode
+origin: linode
 external_url: https://github.com/linode/packer-builder-linode
 weight: 5
 ---
