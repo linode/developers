@@ -29,12 +29,11 @@ const KubernetesPage = () => {
                     The k8s-alpha CLI is deprecated. On <strong>March 31st, 2020</strong>, it will be <strong>removed</strong> from the linode-cli.
                     After March 31, 2020, you will no longer be able to create or manage clusters using the k8s-alpha CLI plugin.
                   </p><p>
-                    However, you will still be able to create and manage these clusters using&nbsp;
-                    <a
+                    However, you will still be able to <a
                       href="http://www.linode.com/docs/kubernetes/how-to-migrate-from-k8s-alpha-to-terraform/"
                       target="blank"
                       rel="noopener noreferrer"
-                    >
+                    >create and manage these clusters using
                       Terraform
                     </a>
                       . The&nbsp;
