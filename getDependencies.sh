@@ -1,5 +1,12 @@
+#!/usr/bin/env bash
+
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
+
+SPEC_BRANCH="master"
+if [[ "$GIT_LOCAL_BRANCH" =~ ^(master|development)$ ]]; then
+  SPEC_BRANCH="${GIT_LOCAL_BRANCH}"
+fi
 
 SPEC_FILE=""
 if [ -n ${1} ]; then
@@ -24,7 +31,7 @@ else
   echo
   printf "${BLUE}Fetching API specs${NC}\n"
   cd -
-  curl https://raw.githubusercontent.com/linode/linode-api-docs/master/openapi.yaml > static/api/docs/v4/openapi.yaml;
+  curl "https://raw.githubusercontent.com/linode/linode-api-docs/${SPEC_BRANCH}/openapi.yaml" > static/api/docs/v4/openapi.yaml;
 fi
 
 echo
