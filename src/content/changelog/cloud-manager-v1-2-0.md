@@ -8,11 +8,11 @@ changelog:
 ### Added:
 
 Cloud Firewalls:
-            - Firewall Linode view
-	- Add Device drawer in Firewall Linodes view
-	- Remove device modal in Firewall Linodes view
-            - Firewall Rule Table
-            - Firewall Rule Drawer
+- Firewall Linode view
+- Add Device drawer in Firewall Linodes view
+- Remove device modal in Firewall Linodes view
+- Firewall Rule Table
+- Firewall Rule Drawer
 - Remove devices from Firewall Devices action menu
 
 ### Changed:
