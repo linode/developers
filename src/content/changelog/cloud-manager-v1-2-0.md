@@ -1,0 +1,30 @@
+---
+title: Cloud Manager v1.2.0
+date: 2020-02-13T05:00:00.000Z
+version: 1.2.0
+changelog:
+  - Cloud Manager
+---
+### Added:
+
+Cloud Firewalls:
+- Firewall Linode view
+- Add Device drawer in Firewall Linodes view
+- Remove device modal in Firewall Linodes view
+- Firewall Rule Table
+- Firewall Rule Drawer
+- Remove devices from Firewall Devices action menu
+
+### Changed:
+- Make Linode links in Firewall rows clickable
+- Pin GitHub release link to linode-manager tag
+- Add support for secondary promo button
+- Delay data request until user types in Search bar
+- Display invalid StackScript errors on Linode rebuild
+- Show error when request to /pools fails in LKE
+- Respond to linode_config events
+
+### Fixed:
+- Uptime calculation in Longview
+- Sorting by Object Storage region
+- Sorting the OBJ Bucket table resulted in duplicate rows when there were multiple buckets with the same name
