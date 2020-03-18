@@ -1,6 +1,6 @@
 ---
 title: Cloud Manager v1.2.0
-date: 2020-02-13T05:00:00.000Z
+date: 2020-03-09T05:00:00.000Z
 version: 1.2.0
 changelog:
   - Cloud Manager
