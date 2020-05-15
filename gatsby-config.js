@@ -16,10 +16,6 @@ module.exports = {
         link: "/libraries-tools"
       },
       {
-        name: "Kubernetes",
-        link: "/kubernetes"
-      },
-      {
         name: "Changelog",
         link: "/changelog/"
       }
