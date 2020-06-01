@@ -1,46 +1,38 @@
 import React from "react";
 
-import ProductFeatured from "./productsFeatured";
 import ProductsCompute from "./productsCompute";
 import ProductsStorage from "./productsStorage";
 import ProductsServices from "./productsServices";
 import ProductsNetworking from "./productsNetworking";
 import ProductsDevTools from "./productsDevTools";
-
-import Caret from "../../../images/svgs/angle-down-regular.svg";
+import ProductBlogPreview from "./productBlogPreview";
 
 const ProductMenus = () => (
-  <>
-    <div className="sub-menu__col">
-      <div className="sub-menu__content">
-        <ProductFeatured />
-      </div>
-    </div>
-    <div className="sub-menu__col">
-      <div className="sub-menu__content">
+  <div className="o-layout__row c-sub-menu c-sub-menu--products" id="sub-menu--products">
+    <div className="o-layout__colset">
+      <div className="o-layout__col">
         <ProductsCompute />
         <ProductsStorage />
         <ProductsServices />
       </div>
-    </div>
-    <div className="sub-menu__col">
-      <div className="sub-menu__content">
+      <div className="o-layout__col">
         <ProductsNetworking />
         <ProductsDevTools />
       </div>
+      <div className="o-layout__col">
+
+      </div>
     </div>
-    <div className="all-products-link">
-      <a
-        href="https://linode.com/products/"
-        className="header__link primary-nav__link"
-      >
-        View All Products
-        <span className="all-products-link__caret">
-          <Caret />
-        </span>
-      </a>
+    <div className="o-layout__colset">
+      <div className="o-layout__col">
+        <div className="o-layout__module">
+          <a href="https://linode.com/products/" className="o-button o-button--link">
+            View All Products
+          </a>
+        </div>
+      </div>
     </div>
-  </>
+  </div>
 );
 
 export default ProductMenus;

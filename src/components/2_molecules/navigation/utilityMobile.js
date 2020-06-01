@@ -1,26 +1,33 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-
-import Col from "./col";
+const _ = require("lodash");
 
 const UtilityMobileNav = ({ data }) => {
   return (
-    <Col name="utility-mobile" header="">
-      {data.allUtilityMobile.edges.map(link => {
-        const node = link.node;
-        return (
-          <li className="sub-menu__li sub-menu__header-li" key={node.id}>
-            <a
-              href={node.url ? node.url : null}
-              className="header__link sub-menu__link mobile__link--small"
-              role="menuitem"
-            >
-              {node.title}
-            </a>
-          </li>
-        );
-      })}
-    </Col>
+    <nav className="o-menu o-menu--2col">
+      <div className="menu-submenu-mobile-utility-container">
+        <ul id="menu-submenu-mobile-utility" className="o-menu__list">
+        {data.allUtilityMobile.edges.map(link => {
+          const node = link.node;
+          return (
+            <li className={`o-menu__item o-menu__item--${_.kebabCase(node.title)}`} key={node.id}>
+              <a
+                href={node.url ? node.url : null}
+                className="o-menu__link"
+                role="menuitem"
+              >
+                <span className="o-menu__title">
+                  <span className="title">
+                    {node.title}
+                  </span>
+                </span>
+              </a>
+            </li>
+          );
+        })}
+        </ul>
+      </div>
+    </nav>
   );
 };
 

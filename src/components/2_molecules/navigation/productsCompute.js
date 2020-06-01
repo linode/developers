@@ -10,18 +10,18 @@ const ProductsCompute = ({ data }) => {
       {data.allProductsCompute.edges.map((link, i) => {
         const node = link.node;
         return (
-          <li className="sub-menu__li" key={i}>
+          <li className={`o-menu__item o-menu__item--${_.kebabCase(node.title)}`} key={i}>
             <a
               key={node.id}
               href={node.url ? node.url : null}
-              className={`
-                header__link
-                sub-menu__link
-                ${_.kebabCase(node.title)}
-              `}
+              className="o-menu__link"
               role="menuitem"
             >
-              {node.title}
+              <span className="o-menu__title">
+                <span className="title">
+                  {node.title}
+                </span>
+              </span>
             </a>
           </li>
         );

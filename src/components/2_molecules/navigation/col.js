@@ -1,19 +1,20 @@
 import React from "react";
+const _ = require("lodash");
 
 const Col = props => (
-  <div className="nav__wrapper">
-    <ul
-      role="menu"
-      className={`
-            sub-menu__item
-            sub-menu__item--reg
-            ${props.name}-nav
-          `}
-      aria-expanded="false"
-    >
-      <h6 className="sub-menu__header">{props.header}</h6>
-      {props.children}
-    </ul>
+  <div className="o-layout__module">
+    <h6>{props.header}</h6>
+    <nav className="o-menu">
+      <div className={`menu-submenu-${_.kebabCase(props.name)}-container`}>
+        <ul
+            role="menu"
+            id={`menu-submenu-${_.kebabCase(props.name)}`}
+            className="o-menu__list"
+          >
+            {props.children}
+        </ul>
+      </div>
+    </nav>
   </div>
 );
 

@@ -2,20 +2,22 @@ import React from "react";
 
 import WhyPrimary from "./whyPrimary";
 import WhyServices from "./whyServices";
+import WhyBlogPreview from "./whyBlogPreview";
 
-const ProductMenus = () => (
-  <>
-    <div className="sub-menu__col">
-      <div className="sub-menu__content">
+const whyMenus = () => (
+  <div className="o-layout__row c-sub-menu c-sub-menu--why-linode" id="sub-menu--why-linode">
+    <div className="o-layout__colset">
+      <div className="o-layout__col">
         <WhyPrimary />
       </div>
-    </div>
-    <div className="sub-menu__col">
-      <div className="sub-menu__content">
+      <div className="o-layout__col">
         <WhyServices />
       </div>
+      <div className="o-layout__col">
+
+      </div>
     </div>
-  </>
+  </div>
 );
 
-export default ProductMenus;
+export default whyMenus;
