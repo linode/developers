@@ -65,13 +65,13 @@ const Header = () => (
                 className="c-search"
                 action="https://linode.com/"
               >
-                <label for="s">
+                <label htmlFor="s">
                     Search
                 </label>
                 <input
                     type="search"
                     placeholder="Search Linode"
-                    value=""
+                    defaultValue=""
                     name="s"
                 ></input>
                 <input

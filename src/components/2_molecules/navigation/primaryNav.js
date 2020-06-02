@@ -1,8 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 
-//import Caret from "../../../images/svgs/angle-down-regular.svg";
-
 const _ = require("lodash");
 
 class MainSiteNav extends React.Component {
@@ -28,9 +26,7 @@ class MainSiteNav extends React.Component {
   // do this on initial page render/re-render
   componentDidMount() {
     const subMenus = document.getElementsByClassName("c-sub-menu");
-    const otherMenus = document.getElementsByClassName("o-menu__switch");
     const header = document.getElementById("menu-header-primary");
-    //const mainMenu = document.getElementsByClassName("c-main-menu");
 
     const hideAll = () => {
       Object.keys(subMenus).map(d => {
@@ -84,23 +80,7 @@ class MainSiteNav extends React.Component {
     };
   }
 
-  openMobileNav = () => {
-    const target = document.getElementById("mobile-menus");
-
-    this.setState({
-      mobileNavOpen: !this.state.mobileNavOpen
-    });
-
-    target.classList.toggle("active");
-    target.classList.contains("active")
-      ? document.body.classList.add("active")
-      : document.body.classList.remove("active");
-  };
-
-
   render() {
-    //const data = this.props.data;
-    //const { mobileNavOpen } = this.state;
     return (
       <div className="o-layout__col">
         <div className="o-layout__module c-main-menu">
@@ -183,10 +163,10 @@ class MainSiteNav extends React.Component {
                     </span>
                   </a>
                 </li>
-                <li className="o-menu__item o-menu__item--mobile">
-                  <a className="o-menu__link" href="#sub-menu--mobile">
-                    <span className="o-menu__title">
-                      <span className="title">
+                <li className="o-menu__item o-menu__item--mobile" data-submenu="sub-menu--mobile">
+                  <a className="o-menu__link" href="#sub-menu--mobile" data-submenu="sub-menu--mobile">
+                    <span className="o-menu__title" data-submenu="sub-menu--mobile">
+                      <span className="title" data-submenu="sub-menu--mobile">
                         Mobile
                       </span>
                     </span>
