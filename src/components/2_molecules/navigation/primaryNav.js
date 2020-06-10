@@ -31,7 +31,7 @@ class MainSiteNav extends React.Component {
         const em = subMenus[d];
         return (
           em.classList.add("visually-hidden", "visibility-hidden") +
-          document.body.classList.remove("oh")
+          document.body.classList.remove("active")
         );
       });
     };
