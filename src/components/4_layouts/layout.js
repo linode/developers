@@ -7,8 +7,6 @@ import Banner from "../3_organisms/banner";
 import Header from "../3_organisms/header";
 import FooterNav from "../3_organisms/footer-nav";
 import "../../css/main.css";
-//import "../2_molecules/navigation/newHeader.js";
-//import HeaderJS from "../../../src/js/header-not-minified.js";
 
 const Layout = ({ children, title, subtitle, fullWidth, noFooter }) => (
   <StaticQuery
