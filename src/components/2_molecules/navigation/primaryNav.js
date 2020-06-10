@@ -1,8 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 
-const _ = require("lodash");
-
 class MainSiteNav extends React.Component {
   constructor(props) {
     super(props);
@@ -44,7 +42,7 @@ class MainSiteNav extends React.Component {
       const target = e.target.getAttribute("data-submenu");
       const subMenuContainer = document.getElementById(target);
 
-      const hideAll = () => {
+      const hideSubMenus = () => {
         Object.keys(otherMenus).map(e => {
           const om = otherMenus[e];
           return (
@@ -55,7 +53,7 @@ class MainSiteNav extends React.Component {
         });
       };
 
-      hideAll();
+      hideSubMenus();
 
       if (subMenuContainer !== null) { // if this subcontainer exists
         if (!subMenuContainer.classList.contains("visually-hidden")) { // if this submenu is currently active
