@@ -2,7 +2,6 @@ import React from "react";
 
 import CommunityPrimary from "./communityPrimary";
 import CommunityServices from "./communityServices";
-import CommunityBlogPreview from "./communityBlogPreview";
 
 const CommunityMenus = () => (
   <div className="o-layout__row c-sub-menu c-sub-menu--community" id="sub-menu--community">

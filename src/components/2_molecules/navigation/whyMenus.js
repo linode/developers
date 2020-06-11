@@ -2,7 +2,6 @@ import React from "react";
 
 import WhyPrimary from "./whyPrimary";
 import WhyServices from "./whyServices";
-import WhyBlogPreview from "./whyBlogPreview";
 
 const whyMenus = () => (
   <div className="o-layout__row c-sub-menu c-sub-menu--why-linode" id="sub-menu--why-linode">
