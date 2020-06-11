@@ -401,7 +401,7 @@ const FooterNav = () => (
         <div className="o-layout__col">
           <div className="o-layout__module">
             <nav className="o-menu">
-              <h4 className="footer-nav-header">Community</h4>
+              <h4 className="o-menu__heading">Community</h4>
               <div className="menu-footer-community-container">
                 <ul id="menu-footer-community" className="o-menu__list">
                   <li className="o-menu__item o-menu__item--community-overview">
