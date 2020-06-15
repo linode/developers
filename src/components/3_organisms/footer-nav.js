@@ -84,7 +84,7 @@ const FooterNav = () => (
           </li>
           <li>
             <a href="https://linode.com/products/shared-linodes/">
-              Shared Linodes
+              Shared
             </a>
           </li>
           <li>
