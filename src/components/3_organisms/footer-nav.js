@@ -83,7 +83,7 @@ const FooterNav = () => (
             <a href="https://linode.com/products/kubernetes/">Kubernetes</a>
           </li>
           <li>
-            <a href="https://linode.com/products/shared-linodes/">
+            <a href="https://linode.com/products/shared/">
               Shared
             </a>
           </li>
