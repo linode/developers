@@ -77,7 +77,7 @@ const FooterNav = () => (
         <h4 className="footer-nav-header">Products</h4>
         <ul className="footer-sublist">
           <li>
-            <a href="https://linode.com/products/">Products</a>
+            <a href="https://linode.com/products/">Products Overview</a>
           </li>
           <li>
             <a href="https://linode.com/products/kubernetes/">Kubernetes</a>
