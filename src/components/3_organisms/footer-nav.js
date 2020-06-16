@@ -77,27 +77,24 @@ const FooterNav = () => (
         <h4 className="footer-nav-header">Products</h4>
         <ul className="footer-sublist">
           <li>
-            <a href="https://linode.com/products/">Products</a>
+            <a href="https://linode.com/products/">Products Overview</a>
           </li>
           <li>
             <a href="https://linode.com/products/kubernetes/">Kubernetes</a>
           </li>
           <li>
-            <a href="https://linode.com/products/nanodes/">Nanodes</a>
-          </li>
-          <li>
-            <a href="https://linode.com/products/standard-linodes/">
-              Standard Linodes
-            </a>
-          </li>
-          <li>
-            <a href="https://linode.com/products/high-memory/">
-              High Memory Linodes
+            <a href="https://linode.com/products/shared/">
+              Shared
             </a>
           </li>
           <li>
             <a href="https://linode.com/products/dedicated-cpu/">
               Dedicated CPU
+            </a>
+          </li>
+          <li>
+            <a href="https://linode.com/products/high-memory/">
+              High Memory
             </a>
           </li>
           <li>
