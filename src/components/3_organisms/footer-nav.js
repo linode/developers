@@ -123,16 +123,16 @@ const FooterNav = () => (
                     </a>
                   </li>
                   <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://linode.com/products/high-memory/">
+                    <a className="o-menu__link" href="https://linode.com/products/dedicated-cpu/">
                       <span className="o-menu__title">
-                        High Memory Linodes
+                        Dedicated CPU
                       </span>
                     </a>
                   </li>
                   <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://linode.com/products/dedicated-cpu/">
+                    <a className="o-menu__link" href="https://linode.com/products/high-memory/">
                       <span className="o-menu__title">
-                        Dedicated CPU
+                        High Memory
                       </span>
                     </a>
                   </li>
