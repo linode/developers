@@ -88,13 +88,13 @@ const FooterNav = () => (
             </a>
           </li>
           <li>
-            <a href="https://linode.com/products/high-memory/">
-              High Memory Linodes
+            <a href="https://linode.com/products/dedicated-cpu/">
+              Dedicated CPU
             </a>
           </li>
           <li>
-            <a href="https://linode.com/products/dedicated-cpu/">
-              Dedicated CPU
+            <a href="https://linode.com/products/high-memory/">
+              High Memory Linodes
             </a>
           </li>
           <li>
