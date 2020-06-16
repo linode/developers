@@ -104,7 +104,7 @@ const FooterNav = () => (
                   <li className="o-menu__item">
                     <a className="o-menu__link" href="https://linode.com/products/">
                       <span className="o-menu__title">
-                        Products
+                        Products Overview
                       </span>
                     </a>
                   </li>
