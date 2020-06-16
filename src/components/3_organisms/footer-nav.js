@@ -94,7 +94,7 @@ const FooterNav = () => (
           </li>
           <li>
             <a href="https://linode.com/products/high-memory/">
-              High Memory Linodes
+              High Memory
             </a>
           </li>
           <li>
