@@ -10,6 +10,7 @@ import CommunityMenus from "../2_molecules/navigation/communityMenus";
 
 const Header = () => (
   <header className="c-site-header" itemScope="itemscope" itemType="http://schema.org/WPHeader">
+    <div id="teconsent"></div>
       <div className="o-layout__row c-site-header__topbar">
         <div className="o-layout__colset">
           <div className="o-layout__col">
@@ -25,7 +26,6 @@ const Header = () => (
           </div>
         </div>
       </div>
-      <div id="teconsent"></div>
       <div className="o-layout__row c-site-header__primary">
         <div className="o-layout__colset">
           <div className="o-layout__col">
