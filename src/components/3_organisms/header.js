@@ -20,12 +20,12 @@ const Header = () => (
               </a>
             </div>
           </div>
-          <div id="teconsent"></div>
           <div className="o-layout__col">
             <UtilityNav />
           </div>
         </div>
       </div>
+      <div id="teconsent"></div>
       <div className="o-layout__row c-site-header__primary">
         <div className="o-layout__colset">
           <div className="o-layout__col">
