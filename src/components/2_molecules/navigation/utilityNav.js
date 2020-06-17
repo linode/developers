@@ -1,8 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 
-const _ = require("lodash");
-
 const MainSiteGlobalMenu = ({ data }) => {
   return (
     <div className="o-layout__module c-utility-nav">

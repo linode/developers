@@ -34,6 +34,7 @@ const Layout = ({ children, title, subtitle, fullWidth, noFooter }) => (
         >
           <main className="main">{children}</main>
         </div>
+        <div id="consent_blackbar"></div>
         {!fullWidth && !noFooter && (
           <FooterNav />
         )}
