@@ -15,7 +15,7 @@ function HTML(props) {
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600"
           rel="stylesheet"
         />
-        <script async="async" src="//consent.trustarc.com/notice?domain=linode.com&c=teconsent&js=nj&noticeType=bb&text=true&gtm=1" crossOrigin=""></script>
+        <script async="async" src="//consent.trustarc.com/notice?domain=linode.com&c=teconsent&country=us&state=ca&js=nj&noticeType=bb&text=true&gtm=1" crossOrigin=""></script>
       </head>
       <body>
         <div
