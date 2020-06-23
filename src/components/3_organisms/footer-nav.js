@@ -471,34 +471,38 @@ const FooterNav = () => (
           </div>
           <div className="o-layout__module c-social">
             <nav className="o-menu">
-              <h4 className="o-menu__heading">Follow Us</h4>
-                <ul className="o-menu__list">
-                  <li className="o-menu__item">
-                    <a href="https://twitter.com/linode/" className="o-menu__link">
-                      <span className="o-menu__title">Twitter</span>
-                    </a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a href="https://www.instagram.com/linode/" className="o-menu__link">
-                      <span className="o-menu__title">Instagram</span>
-                    </a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a href="https://www.youtube.com/linode/" className="o-menu__link">
-                      <span className="o-menu__title">YouTube</span>
-                    </a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a href="https://www.linkedin.com/company/linode/" className="o-menu__link">
-                      <span className="o-menu__title">LinkedIn</span>
-                    </a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a href="https://github.com/linode/" className="o-menu__link">
-                      <span className="o-menu__title">Github</span>
-                    </a>
-                  </li>
-                </ul>
+              <ul className="o-menu__list">
+                <li className="o-menu__item">
+                  <a href="https://twitter.com/linode/" className="o-menu__link">
+                    <i className="fab fa-twitter"></i>
+                    <span className="o-menu__title">Twitter</span>
+                  </a>
+                </li>
+                <li className="o-menu__item">
+                  <a href="https://www.instagram.com/linode/" className="o-menu__link">
+                    <i className="fab fa-instagram"></i>
+                    <span className="o-menu__title">Instagram</span>
+                  </a>
+                </li>
+                <li className="o-menu__item">
+                  <a href="https://www.youtube.com/linode/" className="o-menu__link">
+                    <i className="fab fa-youtube"></i>
+                    <span className="o-menu__title">YouTube</span>
+                  </a>
+                </li>
+                <li className="o-menu__item">
+                  <a href="https://www.linkedin.com/company/linode/" className="o-menu__link">
+                    <i className="fab fa-linkedin"></i>
+                    <span className="o-menu__title">LinkedIn</span>
+                  </a>
+                </li>
+                <li className="o-menu__item">
+                  <a href="https://github.com/linode/" className="o-menu__link">
+                    <i className="fab fa-github"></i>
+                    <span className="o-menu__title">Github</span>
+                  </a>
+                </li>
+              </ul>
             </nav>
           </div>
         </div>

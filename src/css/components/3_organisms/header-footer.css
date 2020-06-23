@@ -808,10 +808,6 @@
     width: 100%;
   }
 
-  .c-sub-menu--mobile .c-search input[type="search"]::-webkit-input-placeholder {
-    color: #32363b;
-  }
-
   .c-sub-menu--mobile .c-search input[type="search"]::-moz-placeholder {
     color: #32363b;
   }
@@ -833,10 +829,6 @@
     border-radius: 0px;
     -webkit-border-radius: 0px;
     outline: none;
-  }
-
-  .c-sub-menu--mobile .c-search input[type="search"]:focus::-webkit-input-placeholder {
-    color: #8c8e90;
   }
 
   .c-sub-menu--mobile .c-search input[type="search"]:focus::-moz-placeholder {
@@ -1105,16 +1097,70 @@
     text-decoration: inherit;
   }
 
-  .c-site-footer__primary .c-social i {
+  .c-site-footer__primary .c-social ul {
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .c-site-footer__primary .c-social i, .c-site-footer__primary .c-social svg {
     color: #32363b;
     margin-right: .666em;
+    width: 1em;
+  }
+
+  .c-site-footer__primary .c-social a {
+    align-items: center;
+    display: flex;
+  }
+
+  .c-site-footer__primary .c-social a:hover {
+    text-decoration: none;
+  }
+
+  .c-site-footer__primary .c-social a:hover .o-menu__title {
+    text-decoration: underline;
+  }
+
+  .c-site-footer__primary .o-layout__col:first-child .c-social {
+    display: none;
   }
 
   @media (max-width: 47.99em) {
-    .c-site-footer__primary .o-layout__col {
+    .c-site-footer__primary .o-layout__col:first-child .c-social {
+      display: block;
+    }
+    .c-site-footer__primary .o-layout__col:nth-child(n+2) {
       display: none;
     }
-    .c-site-footer__primary .o-layout__col:first-child {
-      display: block;
+    .c-site-footer__primary .c-social {
+      font-size: 24px;
+    }
+    .c-site-footer__primary .c-social ul {
+      display: flex;
+      justify-content: center;
+    }
+    .c-site-footer__primary .c-social li {
+      margin: 0;
+      padding: 0;
+    }
+    .c-site-footer__primary .c-social a {
+      padding: 8px 12px;
+    }
+    .c-site-footer__primary .c-social .o-menu__title {
+      border: 0 !important;
+      clip: rect(0 0 0 0) !important;
+      -webkit-clip-path: inset(50%) !important;
+              clip-path: inset(50%) !important;
+      height: 1px !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      padding: 0 !important;
+      position: absolute !important;
+      white-space: nowrap !important;
+      width: 1px !important;
+    }
+    .c-site-footer__primary .c-social i, .c-site-footer__primary .c-social svg {
+      margin: 0;
     }
   }
