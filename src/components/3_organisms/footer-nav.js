@@ -314,6 +314,9 @@ const FooterNav = () => (
                       </span>
                     </a>
                   </li>
+                  <li className="o-menu__item">
+                    <div id="teconsent"></div>
+                  </li>
                 </ul>
               </div>
             </nav>
