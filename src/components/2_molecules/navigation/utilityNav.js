@@ -5,32 +5,30 @@ const MainSiteGlobalMenu = ({ data }) => {
   return (
     <div className="o-layout__module c-utility-nav">
       <div className="o-menu o-menu--flex">
-        <div className="menu-header-utility-container">
-          <ul
-            id="menu-header-utility"
-            role="menu"
-            className="o-menu__list"
-            aria-expanded="false"
-          >
-            {data.allHeaderUtility.edges.map(link => {
-              const node = link.node;
-              return (
-                <li className="o-menu__item" key={node.id}>
-                  <a
-                    key={node.id}
-                    href={node.url ? node.url : null}
-                    className="o-menu__link"
-                    role="menuitem"
-                  >
-                    <span className="o-menu__title">
-                      {node.title}
-                    </span>
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+        <ul
+          id="menu-header-utility"
+          role="menu"
+          className="o-menu__list"
+          aria-expanded="false"
+        >
+          {data.allHeaderUtility.edges.map(link => {
+            const node = link.node;
+            return (
+              <li className="o-menu__item" key={node.id}>
+                <a
+                  key={node.id}
+                  href={node.url ? node.url : null}
+                  className="o-menu__link"
+                  role="menuitem"
+                >
+                  <span className="o-menu__title">
+                    {node.title}
+                  </span>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </div>
   );

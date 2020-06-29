@@ -87,73 +87,71 @@ class MainSiteNav extends React.Component {
             className="o-menu o-menu--flex"
             aria-expanded="false"
           >
-            <div className="menu-header-primary-container">
-              <ul id="menu-header-primary" className="o-menu__list">
-                <li className="o-menu__item" data-submenu="sub-menu--why-linode">
-                  <a className="o-menu__link" href="#sub-menu--why-linode" target="_self" data-submenu="sub-menu--why-linode">
-                    <span className="o-menu__title" data-submenu="sub-menu--why-linode">
-                      Why Linode
-                    </span>
-                  </a>
-                </li>
-                <li className="o-menu__item" data-submenu="sub-menu--products">
-                  <a className="o-menu__link" href="#sub-menu--products" data-submenu="sub-menu--products">
-                    <span className="o-menu__title" data-submenu="sub-menu--products">
-                      Products
-                    </span>
-                  </a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/solutions">
-                    <span className="o-menu__title">
-                      Solutions
-                    </span>
-                  </a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/marketplace">
-                    <span className="o-menu__title">
-                      Marketplace
-                    </span>
-                  </a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/pricing">
-                    <span className="o-menu__title">
-                      Pricing
-                    </span>
-                  </a>
-                </li>
-                <li className="o-menu__item" data-submenu="sub-menu--community">
-                  <a className="o-menu__link" href="#sub-menu--community" data-submenu="sub-menu--community">
-                    <span className="o-menu__title" data-submenu="sub-menu--community">
-                      Community
-                    </span>
-                  </a>
-                </li>
-                <li className="o-menu__item o-menu__item--sign-up">
-                  <a className="o-menu__link" href="https://login.linode.com/signup">
-                    <span className="o-menu__title">
-                      Sign Up
-                    </span>
-                  </a>
-                </li>
-                <li className="o-menu__item o-menu__item--search">
-                  <a className="o-menu__link" href="https://linode.com/search">
-                    <span className="o-menu__title">
-                      Search
-                    </span>
-                  </a>
-                </li>
-                <li className="o-menu__item o-menu__item--mobile" data-submenu="sub-menu--mobile">
-                  <a className="o-menu__link" href="#sub-menu--mobile" data-submenu="sub-menu--mobile">
-                    <span className="o-menu__title" data-submenu="sub-menu--mobile">
-                      Mobile
-                    </span>
-                  </a>
-                </li>
-              </ul>
-            </div>
+            <ul id="menu-header-primary" className="o-menu__list">
+              <li className="o-menu__item" data-submenu="sub-menu--why-linode">
+                <a className="o-menu__link" href="#sub-menu--why-linode" target="_self" data-submenu="sub-menu--why-linode">
+                  <span className="o-menu__title" data-submenu="sub-menu--why-linode">
+                    Why Linode
+                  </span>
+                </a>
+              </li>
+              <li className="o-menu__item" data-submenu="sub-menu--products">
+                <a className="o-menu__link" href="#sub-menu--products" data-submenu="sub-menu--products">
+                  <span className="o-menu__title" data-submenu="sub-menu--products">
+                    Products
+                  </span>
+                </a>
+              </li>
+              <li className="o-menu__item">
+                <a className="o-menu__link" href="https://linode.com/solutions">
+                  <span className="o-menu__title">
+                    Solutions
+                  </span>
+                </a>
+              </li>
+              <li className="o-menu__item">
+                <a className="o-menu__link" href="https://linode.com/marketplace">
+                  <span className="o-menu__title">
+                    Marketplace
+                  </span>
+                </a>
+              </li>
+              <li className="o-menu__item">
+                <a className="o-menu__link" href="https://linode.com/pricing">
+                  <span className="o-menu__title">
+                    Pricing
+                  </span>
+                </a>
+              </li>
+              <li className="o-menu__item" data-submenu="sub-menu--community">
+                <a className="o-menu__link" href="#sub-menu--community" data-submenu="sub-menu--community">
+                  <span className="o-menu__title" data-submenu="sub-menu--community">
+                    Community
+                  </span>
+                </a>
+              </li>
+              <li className="o-menu__item o-menu__item--sign-up">
+                <a className="o-menu__link" href="https://login.linode.com/signup">
+                  <span className="o-menu__title">
+                    Sign Up
+                  </span>
+                </a>
+              </li>
+              <li className="o-menu__item o-menu__item--search">
+                <a className="o-menu__link" href="https://linode.com/search">
+                  <span className="o-menu__title">
+                    Search
+                  </span>
+                </a>
+              </li>
+              <li className="o-menu__item o-menu__item--mobile" data-submenu="sub-menu--mobile">
+                <a className="o-menu__link" href="#sub-menu--mobile" data-submenu="sub-menu--mobile">
+                  <span className="o-menu__title" data-submenu="sub-menu--mobile">
+                    Mobile
+                  </span>
+                </a>
+              </li>
+            </ul>
           </nav>
         </div>
       </div>
