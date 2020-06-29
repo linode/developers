@@ -152,7 +152,7 @@ class MainSiteNav extends React.Component {
                 </a>
               </li>
               <li className="o-menu__item o-menu__item--mobile" data-submenu="sub-menu--mobile">
-                <a id="o-menu__link--mobile" className="o-menu__link mobile-link" href="#sub-menu--mobile" data-submenu="sub-menu--mobile">
+                <a id="o-menu__link--mobile" className="o-menu__link" href="#sub-menu--mobile" data-submenu="sub-menu--mobile">
                   <span className="o-menu__title" data-submenu="sub-menu--mobile">
                     Mobile
                   </span>
