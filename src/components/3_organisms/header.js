@@ -40,7 +40,7 @@ const Header = () => (
       <WhyMenus />
       <ProductsMenus />
       <CommunityMenus />
-      <div className="o-layout__row c-sub-menu c-sub-menu__mobile" id="sub-menu--mobile">
+      <div className="o-layout__row c-sub-menu c-sub-menu--mobile" id="sub-menu--mobile">
         <div className="o-layout__colset">
           <div className="o-layout__col">
             <div className="o-layout__module">
