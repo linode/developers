@@ -483,7 +483,7 @@ const FooterNav = () => (
                 <li className="o-menu__item">
                   <a href="https://github.com/linode/" className="o-menu__link">
                     <i className="fab fa-github"></i>
-                    <span className="o-menu__title">Github</span>
+                    <span className="o-menu__title">GitHub</span>
                   </a>
                 </li>
               </ul>
