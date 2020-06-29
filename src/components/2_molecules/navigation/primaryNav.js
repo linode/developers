@@ -25,6 +25,7 @@ class MainSiteNav extends React.Component {
   componentDidMount() {
     const subMenus = document.getElementsByClassName("c-sub-menu");
     const header = document.getElementById("menu-header-primary");
+    const mobileMenu = document.getElementById("o-menu__link--mobile");
 
     const hideAll = () => {
       Object.keys(subMenus).map(d => {
@@ -59,6 +60,9 @@ class MainSiteNav extends React.Component {
         if (!subMenuContainer.classList.contains("visually-hidden")) { // if this submenu is currently active
           subMenuContainer.classList.add("visually-hidden", "visibility-hidden");
           subMenuContainer.classList.remove("active");
+          if (target === "sub-menu--mobile") {
+            document.getElementById("o-menu__link--mobile").classList.remove("active");
+          }
         } else { // if this submenu is not currently active
           subMenuContainer.classList.remove(
             "visually-hidden",
@@ -66,6 +70,9 @@ class MainSiteNav extends React.Component {
           );
 
           subMenuContainer.classList.add("active");
+          if (target === "sub-menu--mobile") {
+            document.getElementById("o-menu__link--mobile").classList.add("active");
+          }
         }
       }
     });
@@ -145,7 +152,7 @@ class MainSiteNav extends React.Component {
                 </a>
               </li>
               <li className="o-menu__item o-menu__item--mobile" data-submenu="sub-menu--mobile">
-                <a className="o-menu__link" href="#sub-menu--mobile" data-submenu="sub-menu--mobile">
+                <a id="o-menu__link--mobile" className="o-menu__link mobile-link" href="#sub-menu--mobile" data-submenu="sub-menu--mobile">
                   <span className="o-menu__title" data-submenu="sub-menu--mobile">
                     Mobile
                   </span>
