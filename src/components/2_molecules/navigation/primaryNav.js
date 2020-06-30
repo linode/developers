@@ -1,15 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 
-import SubMenus from "./subMenus";
-import WhyMenus from "./whyMenus";
-import ProductsMenus from "./productsMenus";
-import CommunityMenus from "./communityMenus";
-
-import Caret from "../../../images/svgs/angle-down-regular.svg";
-
-const _ = require("lodash");
-
 class MainSiteNav extends React.Component {
   constructor(props) {
     super(props);
@@ -30,25 +21,60 @@ class MainSiteNav extends React.Component {
     return false;
   }
 
+  // do this on initial page render/re-render
   componentDidMount() {
-    const subMenus = document.getElementById("sub-menus");
-    const otherMenus = document.getElementsByClassName("sub-menu");
-    const header = document.getElementById("header");
+    const subMenus = document.getElementsByClassName("c-sub-menu");
+    const header = document.getElementById("menu-header-primary");
+    const mobileMenu = document.getElementById("o-menu__link--mobile");
 
     const hideAll = () => {
-      Object.keys(otherMenus).map(e => {
-        const om = otherMenus[e];
+      Object.keys(subMenus).map(d => {
+        const em = subMenus[d];
         return (
-          om.classList.add("visually-hidden", "visibility-hidden") +
-          document.body.classList.remove("oh")
+          em.classList.add("visually-hidden", "visibility-hidden") +
+          document.body.classList.remove("active")
         );
       });
     };
+    hideAll(); //hide all when page first loads
 
     header.addEventListener("click", e => {
-      !e.target.classList.contains("primary-nav__link") &&
-        !this.isDescendant(subMenus, e.target) &&
-        hideAll();
+      const otherMenus = document.getElementsByClassName("c-sub-menu");
+      const target = e.target.getAttribute("data-submenu");
+      const subMenuContainer = document.getElementById(target);
+
+      const hideSubMenus = () => {
+        Object.keys(otherMenus).map(e => {
+          const om = otherMenus[e];
+          return (
+            om !== subMenuContainer &&
+            om.classList.add("visually-hidden", "visibility-hidden") +
+              document.body.classList.remove("active")
+          );
+        });
+      };
+
+      hideSubMenus();
+
+      if (subMenuContainer !== null) { // if this subcontainer exists
+        if (!subMenuContainer.classList.contains("visually-hidden")) { // if this submenu is currently active
+          subMenuContainer.classList.add("visually-hidden", "visibility-hidden");
+          subMenuContainer.classList.remove("active");
+          if (target === "sub-menu--mobile") {
+            document.getElementById("o-menu__link--mobile").classList.remove("active");
+          }
+        } else { // if this submenu is not currently active
+          subMenuContainer.classList.remove(
+            "visually-hidden",
+            "visibility-hidden"
+          );
+
+          subMenuContainer.classList.add("active");
+          if (target === "sub-menu--mobile") {
+            document.getElementById("o-menu__link--mobile").classList.add("active");
+          }
+        }
+      }
     });
 
     document.onkeydown = function(evt) {
@@ -59,137 +85,83 @@ class MainSiteNav extends React.Component {
     };
   }
 
-  openSubMenu = e => {
-    const otherMenus = document.getElementsByClassName("sub-menu");
-    const target = e.target.getAttribute("data-submenu");
-    const subMenuContainer = document.getElementById(target);
-
-    const hideAll = () => {
-      Object.keys(otherMenus).map(e => {
-        const om = otherMenus[e];
-        return (
-          om !== subMenuContainer &&
-          om.classList.add("visually-hidden", "visibility-hidden") +
-            document.body.classList.remove("oh")
-        );
-      });
-    };
-
-    hideAll();
-
-    if (subMenuContainer !== null) {
-      if (!subMenuContainer.classList.contains("visually-hidden")) {
-        subMenuContainer.classList.add("visually-hidden", "visibility-hidden");
-        document.body.classList.remove("oh");
-      } else {
-        subMenuContainer.classList.remove(
-          "visually-hidden",
-          "visibility-hidden"
-        );
-        document.body.classList.add("oh");
-      }
-    }
-  };
-
-  openMobileNav = () => {
-    const target = document.getElementById("mobile-menus");
-
-    this.setState({
-      mobileNavOpen: !this.state.mobileNavOpen
-    });
-
-    target.classList.toggle("active");
-    target.classList.contains("active")
-      ? document.body.classList.add("oh")
-      : document.body.classList.remove("oh");
-  };
-
   render() {
-    const data = this.props.data;
-    const { subMenuOpen, mobileNavOpen } = this.state;
     return (
-      <>
-        <nav
-          id="primary-nav"
-          role="menu"
-          className="primary-nav"
-          aria-expanded="false"
-        >
-          {data.allHeaderPrimary.edges.map((link, i) => {
-            const node = link.node;
-            return (
-              <React.Fragment key={i}>
-                <a
-                  key={node.id}
-                  href={node.url ? node.url : "#"}
-                  className={`header__link primary-nav__link ${
-                    node.switch_on ? "dropdown" : ""
-                  } ${_.kebabCase(node.title)}`}
-                  role="menuitem"
-                  data-submenu={
-                    node.switch_on ? _.kebabCase(node.switch_on) : undefined
-                  }
-                  onClick={
-                    node.title === "Mobile"
-                      ? this.openMobileNav
-                      : this.openSubMenu
-                  }
-                  tabIndex={0}
-                >
-                  {node.title === "Search" ? (
-                    <span className="header-search-icon">
-                      <span className="visually-hidden">{node.title}</span>
-                    </span>
-                  ) : node.title === "Mobile" ? (
-                    <span className="header-mobile-icon">
-                      {mobileNavOpen === true ? (
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 320 512"
-                        >
-                          <path d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z" />
-                        </svg>
-                      ) : (
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 448 512"
-                        >
-                          <path d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z" />
-                        </svg>
-                      )}
-                      <span className="visually-hidden">Menu</span>
-                    </span>
-                  ) : (
-                    node.title
-                  )}
-                </a>
-                {node.switch_on && node.title !== "Mobile" && (
-                  <span className="primary-nav__caret">
-                    <Caret />
+      <div className="o-layout__col">
+        <div className="o-layout__module c-main-menu">
+          <nav
+            role="menu"
+            className="o-menu o-menu--flex"
+            aria-expanded="false"
+          >
+            <ul id="menu-header-primary" className="o-menu__list">
+              <li className="o-menu__item" data-submenu="sub-menu--why-linode">
+                <a className="o-menu__link" href="#sub-menu--why-linode" target="_self" data-submenu="sub-menu--why-linode">
+                  <span className="o-menu__title" data-submenu="sub-menu--why-linode">
+                    Why Linode
                   </span>
-                )}
-              </React.Fragment>
-            );
-          })}
-          <div id="sub-menus">
-            <SubMenus
-              id="js-submenu-why-linode"
-              menus={<WhyMenus />}
-              subMenuOpen={subMenuOpen}
-            />
-            <SubMenus
-              id="js-submenu-products"
-              menus={<ProductsMenus />}
-              subMenuOpen={subMenuOpen}
-            />
-            <SubMenus
-              id="js-submenu-community"
-              menus={<CommunityMenus />}
-              subMenuOpen={subMenuOpen}
-            />
-          </div>
-        </nav>
-      </>
+                </a>
+              </li>
+              <li className="o-menu__item" data-submenu="sub-menu--products">
+                <a className="o-menu__link" href="#sub-menu--products" data-submenu="sub-menu--products">
+                  <span className="o-menu__title" data-submenu="sub-menu--products">
+                    Products
+                  </span>
+                </a>
+              </li>
+              <li className="o-menu__item">
+                <a className="o-menu__link" href="https://linode.com/solutions">
+                  <span className="o-menu__title">
+                    Solutions
+                  </span>
+                </a>
+              </li>
+              <li className="o-menu__item">
+                <a className="o-menu__link" href="https://linode.com/marketplace">
+                  <span className="o-menu__title">
+                    Marketplace
+                  </span>
+                </a>
+              </li>
+              <li className="o-menu__item">
+                <a className="o-menu__link" href="https://linode.com/pricing">
+                  <span className="o-menu__title">
+                    Pricing
+                  </span>
+                </a>
+              </li>
+              <li className="o-menu__item" data-submenu="sub-menu--community">
+                <a className="o-menu__link" href="#sub-menu--community" data-submenu="sub-menu--community">
+                  <span className="o-menu__title" data-submenu="sub-menu--community">
+                    Community
+                  </span>
+                </a>
+              </li>
+              <li className="o-menu__item o-menu__item--sign-up">
+                <a className="o-menu__link" href="https://login.linode.com/signup">
+                  <span className="o-menu__title">
+                    Sign Up
+                  </span>
+                </a>
+              </li>
+              <li className="o-menu__item o-menu__item--search">
+                <a className="o-menu__link" href="https://linode.com/search">
+                  <span className="o-menu__title">
+                    Search
+                  </span>
+                </a>
+              </li>
+              <li className="o-menu__item o-menu__item--mobile" data-submenu="sub-menu--mobile">
+                <a id="o-menu__link--mobile" className="o-menu__link" href="#sub-menu--mobile" data-submenu="sub-menu--mobile">
+                  <span className="o-menu__title" data-submenu="sub-menu--mobile">
+                    Mobile
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
     );
   }
 }
