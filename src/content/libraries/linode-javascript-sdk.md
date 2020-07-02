@@ -1,8 +1,8 @@
 ---
 title: "Linode JavaScript SDK"
 description: "Linode JavaScript SDK"
-author: Linode
-origin: Linode
+author: linode
+origin: linode
 languages:
   - JavaScript
 external_url: https://github.com/linode/manager/tree/develop/packages/api-v4
