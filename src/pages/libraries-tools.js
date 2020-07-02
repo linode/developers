@@ -33,7 +33,7 @@ const LibToolsPage = () => {
                 </div>
                 <div className="mt-4 md:hidden flex w-full justify-center">
                   <a
-                    href="https://www.linode.com/cli"
+                    href="https://github.com/linode/linode-cli"
                     target="_blank"
                     className="btn text-sm"
                     rel="noopener noreferrer"
@@ -51,7 +51,7 @@ const LibToolsPage = () => {
                 </div>
                 <div className="pt-3 hidden md:block">
                   <a
-                    href="https://www.linode.com/cli"
+                    href="https://github.com/linode/linode-cli"
                     target="_blank"
                     className="btn text-sm"
                     rel="noopener noreferrer"
