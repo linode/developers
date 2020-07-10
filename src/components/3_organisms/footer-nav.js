@@ -57,18 +57,69 @@ const FooterNav = () => (
         <path fill="currentColor" d={getD("icon--twitter")}></path>
       </symbol>
     </svg>
+
     <div className="o-layout__row c-site-footer__primary">
       <div className="o-layout__colset">
         <div className="o-layout__col">
           <div className="o-layout__module c-identity">
-            <a className="c-identity__link" href="https://www.linode.com/" itemProp="url">
-              <img alt="Linode Logo" className="c-identity__image" src="https://www.linode.com/wp-content/uploads/2018/10/linode-logo-blk-rgb-minified.svg" itemProp="image" data-no-lazy="1"></img>
+            <a className="c-identity__link" target="_self" href="https://www.linode.com/" itemProp="url">
+              <img alt="Linode Logo" className="c-identity__image" src="https://www.linode.com/wp-content/uploads/2018/10/linode-logo-blk-rgb-minified.svg" alt="linode-logo-blk-rgb-minified" itemProp="image" data-no-lazy="1"></img>
             </a>
           </div>
           <div className="o-layout__module c-copyright">
             &copy; {new Date().getFullYear()} All rights reserved.
           </div>
+          <div className="o-layout__module c-social">
+            <nav className="o-menu">
+              <h4 className="o-menu__heading">Follow Us</h4>
+              <ul className="o-menu__list">
+                <li className="o-menu__item">
+                  <a href="https://twitter.com/linode/" className="o-menu__link">
+                    <svg className="o-menu__icon">
+                      <use xlinkHref="#icon--twitter"></use>
+                    </svg>
+                    <span className="o-menu__title">Twitter</span>
+                  </a>
+                </li>
+                <li className="o-menu__item">
+                  <a href="https://www.instagram.com/linode/" className="o-menu__link">
+                    <svg className="o-menu__icon">
+                      <use xlinkHref="#icon--instagram"></use>
+                    </svg>
+                    <span className="o-menu__title">Instagram</span>
+                  </a>
+                </li>
+                <li className="o-menu__item">
+                  <a href="https://www.youtube.com/linode/" className="o-menu__link">
+                    <svg className="o-menu__icon">
+                      <use xlinkHref="#icon--youtube"></use>
+                    </svg>
+                    <span className="o-menu__title">YouTube</span>
+                  </a>
+                </li>
+                <li className="o-menu__item">
+                  <a href="https://www.linkedin.com/company/linode/" className="o-menu__link">
+                    <svg className="o-menu__icon">
+                      <use xlinkHref="#icon--linkedin"></use>
+                    </svg>
+                    <span className="o-menu__title">LinkedIn</span>
+                  </a>
+                </li>
+                <li className="o-menu__item">
+                  <a href="https://github.com/linode/" className="o-menu__link">
+                    <svg className="o-menu__icon">
+                      <use xlinkHref="#icon--github"></use>
+                    </svg>
+                    <span className="o-menu__title">GitHub</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
         </div>
+
+
+
         <div className="o-layout__col">
           <div className="o-layout__module">
             <nav className="o-menu">
