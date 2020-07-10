@@ -20,6 +20,7 @@ const topMenuItems = [
   "Errors",
   "Pagination",
   "Filtering and Sorting",
+  "Rate Limiting",
   "CLI (Command Line Interface)",
 ];
 
