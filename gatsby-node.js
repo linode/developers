@@ -92,7 +92,7 @@ exports.sourceNodes = async ({ actions }) => {
       name: "WhyPrimary"
     },
     {
-      path: `${baseUrl}/submenu-why-linode-services`,
+      path: `${baseUrl}/submenu-why-linode-secondary`,
       name: "WhyServices"
     },
     {
