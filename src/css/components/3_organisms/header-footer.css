@@ -33,6 +33,12 @@
     text-decoration: none;
   }
 
+  .o-menu__icon {
+    height: 1em;
+    margin-right: .5em;
+    width: 1em;
+  }
+
   .o-menu__title {
     display: inline-block;
     white-space: nowrap;
@@ -355,7 +361,7 @@
     position: -webkit-sticky;
     position: sticky;
     top: -37px;
-    z-index: 10;
+    z-index: 1000;
     transform: none;
   }
 
@@ -369,12 +375,8 @@
     max-width: none;
   }
 
-  .c-site-header a {
+  .c-site-header a, .c-site-header a:hover, .c-site-header a:focus {
     color: inherit;
-    text-decoration: none;
-  }
-
-  .c-site-header a:hover, .c-site-header a:focus {
     text-decoration: none;
   }
 
@@ -398,7 +400,6 @@
     letter-spacing: 0;
     background-color: white;
     border-bottom: 1px solid #ededf4;
-    font-weight: 600;
     overflow: visible;
     padding-bottom: 0;
     padding-top: 0;
@@ -473,6 +474,7 @@
   .c-site-header__primary .o-menu__title {
     border: 0 solid transparent;
     border-width: 2px 0;
+    font-weight: 600;
     padding: 10px 0;
   }
 
@@ -685,6 +687,20 @@
 
   .c-sub-menu .o-menu--featured .o-menu__item + .o-menu__item {
     margin-top: 24px;
+  }
+
+  .c-sub-menu .o-link--arrow {
+    align-items: center;
+    display: flex;
+    font-weight: 600;
+  }
+
+  .c-sub-menu .o-link--arrow:after {
+    content: url("data:image/svg+xml;utf8,<svg viewBox='0 0 7 12' version='1.1' xmlns='http://www.w3.org/2000/svg'><path d='M6.87 6.319l-5.39 5.549a.435.435 0 0 1-.624 0l-.727-.743a.457.457 0 0 1 0-.637L4.48 6 .13 1.512a.457.457 0 0 1 0-.637L.855.132a.435.435 0 0 1 .625 0l5.39 5.55a.457.457 0 0 1 0 .637z' fill='%2302b159' fill-rule='nonzero'/></svg>");
+    display: inline-block;
+    height: auto;
+    margin-left: .5em;
+    width: 7px;
   }
 
   .c-sub-menu .c-post-preview .c-post-preview__permalink {
@@ -907,6 +923,7 @@
   .c-site-header__topbar .c-notification__link {
     align-items: center;
     display: flex;
+    font-weight: 600;
   }
 
   .c-site-header__topbar .c-notification__tag, .c-site-header__topbar .c-notification__message {
@@ -941,7 +958,6 @@
   .c-site-header__topbar .o-menu__link {
     border: 0 solid transparent;
     border-width: 2px 0;
-    font-weight: 600;
     margin: 0 12px;
   }
 
@@ -950,6 +966,7 @@
   }
 
   .c-site-header__topbar .o-menu__title {
+    font-weight: 600;
     padding: 8px 0;
   }
 
@@ -1105,12 +1122,6 @@
     padding-left: 0;
   }
 
-  .c-site-footer__primary .c-social i, .c-site-footer__primary .c-social svg {
-    color: #32363b;
-    margin-right: .666em;
-    width: 1em;
-  }
-
   .c-site-footer__primary .c-social a {
     align-items: center;
     display: flex;
@@ -1124,8 +1135,27 @@
     text-decoration: underline;
   }
 
+  .c-site-footer__primary .c-social svg {
+    color: #32363b;
+    flex: none;
+  }
+
   .c-site-footer__primary .o-layout__col:first-child .c-social {
     display: none;
+  }
+
+  .c-site-footer__primary .o-layout__col:first-child .o-menu__heading {
+    border: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    -webkit-clip-path: inset(50%) !important;
+            clip-path: inset(50%) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    width: 1px !important;
   }
 
   @media (max-width: 47.99em) {
