@@ -123,9 +123,9 @@ class MainSiteNav extends React.Component {
                   </span>
                 </a>
               </li>
-              <li className="o-menu__item">
-                <a className="o-menu__link" href="https://linode.com/pricing">
-                  <span className="o-menu__title">
+              <li className="o-menu__item" data-submenu="sub-menu--pricing">
+                <a className="o-menu__link" href="#sub-menu--pricing" data-submenu="sub-menu--pricing">
+                  <span className="o-menu__title" data-submenu="sub-menu--pricing">
                     Pricing
                   </span>
                 </a>
@@ -141,13 +141,6 @@ class MainSiteNav extends React.Component {
                 <a className="o-menu__link" href="https://login.linode.com/signup">
                   <span className="o-menu__title">
                     Sign Up
-                  </span>
-                </a>
-              </li>
-              <li className="o-menu__item o-menu__item--search">
-                <a className="o-menu__link" href="https://linode.com/search">
-                  <span className="o-menu__title">
-                    Search
                   </span>
                 </a>
               </li>
@@ -176,7 +169,6 @@ export default props => (
               id
               title
               url
-              switch_on
             }
           }
         }
