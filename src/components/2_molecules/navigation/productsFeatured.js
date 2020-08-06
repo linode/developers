@@ -54,7 +54,6 @@ export default props => (
               title
               url
               description
-              icon
             }
           }
         }

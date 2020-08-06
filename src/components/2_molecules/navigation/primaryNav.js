@@ -176,7 +176,6 @@ export default props => (
               id
               title
               url
-              switch_on
             }
           }
         }
