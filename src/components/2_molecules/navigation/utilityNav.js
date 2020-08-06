@@ -11,6 +11,18 @@ const MainSiteGlobalMenu = ({ data }) => {
           className="o-menu__list"
           aria-expanded="false"
         >
+          <li className="o-menu__item o-menu__item--search">
+            <a
+              className="o-menu__link"
+              href="https://www.linode.com/search/"
+            >
+              <span
+                className="o-menu__title"
+              >
+                Search
+              </span>
+            </a>
+          </li>
           {data.allHeaderUtility.edges.map(link => {
             const node = link.node;
             return (

@@ -6,6 +6,7 @@ import UtilityMobile from "../2_molecules/navigation/utilityMobile";
 
 import WhyMenus from "../2_molecules/navigation/whyMenus";
 import ProductsMenus from "../2_molecules/navigation/productsMenus";
+import PricingMenus from "../2_molecules/navigation/pricingMenus";
 import CommunityMenus from "../2_molecules/navigation/communityMenus";
 
 const Header = () => (
@@ -39,6 +40,7 @@ const Header = () => (
       </div>
       <WhyMenus />
       <ProductsMenus />
+      <PricingMenus />
       <CommunityMenus />
       <div className="o-layout__row c-sub-menu c-sub-menu--mobile" id="sub-menu--mobile">
         <div className="o-layout__colset">
