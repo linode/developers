@@ -1,6 +1,6 @@
 import React from "react";
 
-import CommunityFeatured from "./CommunityFeatured";
+import CommunityFeatured from "./communityFeatured";
 import CommunityPrimary from "./communityPrimary";
 import CommunityServices from "./communityServices";
 

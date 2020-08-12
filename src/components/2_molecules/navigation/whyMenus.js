@@ -1,5 +1,5 @@
 import React from "react";
-import WhyFeatured from "./WhyFeatured";
+import WhyFeatured from "./whyFeatured";
 import WhyPrimary from "./whyPrimary";
 import WhyServices from "./whyServices";
 
