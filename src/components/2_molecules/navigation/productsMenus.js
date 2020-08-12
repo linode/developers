@@ -1,6 +1,6 @@
 import React from "react";
 
-import ProductsFeatured from "./ProductsFeatured";
+import ProductsFeatured from "./productsFeatured";
 import ProductsCompute from "./productsCompute";
 import ProductsStorage from "./productsStorage";
 import ProductsServices from "./productsServices";
