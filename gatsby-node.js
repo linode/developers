@@ -120,6 +120,10 @@ exports.sourceNodes = async ({ actions }) => {
       name: "ProductsDevTools"
     },
     {
+      path: `${baseUrl}/submenu-pricing-primary`,
+      name: "PricingPrimary"
+    },
+    {
       path: `${baseUrl}/submenu-community-primary`,
       name: "CommunityPrimary"
     },

@@ -349,14 +349,21 @@ const FooterNav = () => (
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://linode.com/pricing/">
                     <span className="o-menu__title">
-                      Pricing
+                      Pricing List
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://linode.com/estimator/">
                     <span className="o-menu__title">
-                      Pricing Estimator
+                      Cloud Estimator
+                    </span>
+                  </a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://linode.com/cloud-pricing-calculator/">
+                    <span className="o-menu__title">
+                      TCO Calculator
                     </span>
                   </a>
                 </li>
@@ -439,6 +446,13 @@ const FooterNav = () => (
                   <a className="o-menu__link" href="https://linode.com/developers/">
                     <span className="o-menu__title">
                       Developer Portal
+                    </span>
+                  </a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://linode.com/green-light/">
+                    <span className="o-menu__title">
+                      Beta Program
                     </span>
                   </a>
                 </li>

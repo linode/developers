@@ -1,65 +1,50 @@
 import React from "react";
-import { StaticQuery, graphql } from "gatsby";
-import Col from "./col";
-
-const _ = require("lodash");
-
-const ProductsFeaturedNav = ({ data }) => {
-  return (
-    <Col name="products-featured" header="Featured">
-      {data.allProductsFeatured.edges.map((link, i) => {
-        const node = link.node;
-        return (
-          <li className="sub-menu__li sub-menu__header-li" key={i}>
-            <a
-              key={node.id}
-              href={node.url ? node.url : null}
-              className={`
-                  header__link
-                  sub-menu__link
-                  sub-menu__header-link
-                  sub-menu__header-link--w-icon
-                  why-primary-nav__link
-                  ${_.kebabCase(node.title)}
-                `}
-              role="menuitem"
-            >
-              <img
-                src={node.icon}
-                className="sub-menu__icon"
-                alt={node.title}
-              />
-              <span className="sub-menu__body">
-                <span className="sub-menu__title">{node.title}</span>
-                <span className="sub-menu__description">
-                  {node.description}
-                </span>
-              </span>
-            </a>
-          </li>
-        );
-      })}
-    </Col>
-  );
+const styles1 = {
+  borderWidth: 2,
+  borderColor: '#ededf4'
+};
+const styles2 = {
+  alignSelf: 'flex-end',
+  marginBottom: -24,
+  marginLeft: -24,
+  marginRight: -24,
+  maxWidth: '50%'
 };
 
-export default props => (
-  <StaticQuery
-    query={graphql`
-      query productsFeatured {
-        allProductsFeatured {
-          edges {
-            node {
-              id
-              title
-              url
-              description
-              icon
-            }
-          }
-        }
-      }
-    `}
-    render={data => <ProductsFeaturedNav data={data} {...props} />}
-  />
+const ProductsFeaturedNav = () => (
+
+    <div className="o-layout__module">
+      <h6>Featured</h6>
+      <a
+        id="c-featured--products"
+        className="c-featured"
+        href="https://www.linode.com/products/gpu/"
+        style={styles1}
+      >
+        <img
+          width="400"
+          height="339"
+          src="https://www.linode.com/wp-content/uploads/2020/08/mum-fg.png"
+          className="c-featured__image"
+          alt=""
+          style={styles2}
+        />
+        <div className="c-featured__text">
+          <div className="c-featured__headline">
+            <b>GPUs have landed in Mumbai!</b>
+          </div>
+          <div className="c-featured__excerpt">
+            On-demand GPUs for machine learning, scientific computing, and video processing.
+          </div>
+          <span
+            className="c-featured__button"
+            href="https://www.linode.com/products/gpu/"
+          >
+            Try Today
+          </span>
+        </div>
+      </a>
+    </div>
 );
+
+export default ProductsFeaturedNav;
