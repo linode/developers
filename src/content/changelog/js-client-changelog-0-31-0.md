@@ -1,7 +1,7 @@
 ---
-title: Linode APIv4 JS Client v0.31.0 (alpha)
+title: Linode APIv4 JS Client v0.31.0
 date: 2020-08-13T05:00:00.000Z
-version: 0.31.0-alpha.0
+version: 0.31.0
 changelog:
   - APIv4 JS Client
 ---
