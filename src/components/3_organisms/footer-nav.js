@@ -268,6 +268,13 @@ const FooterNav = () => (
                   </a>
                 </li>
                 <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/products/cloud-firewall/">
+                    <span className="o-menu__title">
+                      Cloud Firewall
+                    </span>
+                  </a>
+                </li>
+                <li className="o-menu__item">
                   <a className="o-menu__link" href="https://linode.com/products/ddos/">
                     <span className="o-menu__title">
                       DDoS Protection
@@ -417,6 +424,13 @@ const FooterNav = () => (
                   </a>
                 </li>
                 <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/subscription-center/">
+                    <span className="o-menu__title">
+                      Subscription Center
+                    </span>
+                  </a>
+                </li>
+                <li className="o-menu__item">
                   <div id="teconsent"></div>
                 </li>
               </ul>
@@ -485,9 +499,16 @@ const FooterNav = () => (
                   </a>
                 </li>
                 <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/lp/affiliate-program/">
+                    <span className="o-menu__title">
+                      Affiliate Program
+                    </span>
+                  </a>
+                </li>
+                <li className="o-menu__item">
                   <a className="o-menu__link" href="https://linode.com/referral-program/">
                     <span className="o-menu__title">
-                      Referral Program
+                      Customer Referral Program
                     </span>
                   </a>
                 </li>
