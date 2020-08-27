@@ -126,14 +126,14 @@ const FooterNav = () => (
               <h4 className="o-menu__heading">Why Linode</h4>
               <ul id="menu-footer-why-linode" className="o-menu__list">
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/choosing-linode/">
+                  <a className="o-menu__link" href="https://www.linode.com/choosing-linode/">
                     <span className="o-menu__title">
                       Choosing Linode
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/support-experience/">
+                  <a className="o-menu__link" href="https://www.linode.com/support-experience/">
                     <span className="o-menu__title">
                       Support Experience
                     </span>
@@ -147,49 +147,49 @@ const FooterNav = () => (
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/cloud-simplified/">
+                  <a className="o-menu__link" href="https://www.linode.com/cloud-simplified/">
                     <span className="o-menu__title">
                       Cloud Simplified
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/global-infrastructure/">
+                  <a className="o-menu__link" href="https://www.linode.com/global-infrastructure/">
                     <span className="o-menu__title">
                       Global Infrastructure
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/craft-of-code/">
+                  <a className="o-menu__link" href="https://www.linode.com/craft-of-code/">
                     <span className="o-menu__title">
                       Customer Stories
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/linode-for-business/">
+                  <a className="o-menu__link" href="https://www.linode.com/linode-for-business/">
                     <span className="o-menu__title">
                       Linode for Business
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/linode-vs-aws/">
+                  <a className="o-menu__link" href="https://www.linode.com/linode-vs-aws/">
                     <span className="o-menu__title">
                       Linode vs. AWS
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/open-cloud/">
+                  <a className="o-menu__link" href="https://www.linode.com/open-cloud/">
                     <span className="o-menu__title">
                       Open Cloud
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/what-is-cloud-computing/">
+                  <a className="o-menu__link" href="https://www.linode.com/what-is-cloud-computing/">
                     <span className="o-menu__title">
                       What is Cloud Computing?
                     </span>
@@ -205,98 +205,105 @@ const FooterNav = () => (
               <h4 className="o-menu__heading">Products</h4>
               <ul id="menu-footer-products" className="o-menu__list">
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/products/">
+                  <a className="o-menu__link" href="https://www.linode.com/products/">
                     <span className="o-menu__title">
                       Products Overview
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/products/kubernetes/">
+                  <a className="o-menu__link" href="https://www.linode.com/products/kubernetes/">
                     <span className="o-menu__title">
                       Kubernetes
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/products/shared/">
+                  <a className="o-menu__link" href="https://www.linode.com/products/shared/">
                     <span className="o-menu__title">
                       Shared
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/products/dedicated-cpu/">
+                  <a className="o-menu__link" href="https://www.linode.com/products/dedicated-cpu/">
                     <span className="o-menu__title">
                       Dedicated CPU
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/products/high-memory/">
+                  <a className="o-menu__link" href="https://www.linode.com/products/high-memory/">
                     <span className="o-menu__title">
                       High Memory
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/products/gpu/">
+                  <a className="o-menu__link" href="https://www.linode.com/products/gpu/">
                     <span className="o-menu__title">
                       GPU
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/products/block-storage/">
+                  <a className="o-menu__link" href="https://www.linode.com/products/block-storage/">
                     <span className="o-menu__title">
                       Block Storage
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/products/object-storage/">
+                  <a className="o-menu__link" href="https://www.linode.com/products/object-storage/">
                     <span className="o-menu__title">
                       Object Storage
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/products/backups/">
+                  <a className="o-menu__link" href="https://www.linode.com/products/backups/">
                     <span className="o-menu__title">
                       Backups
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/products/ddos/">
+                  <a className="o-menu__link" href="https://www.linode.com/products/firewall/">
+                    <span className="o-menu__title">
+                      Cloud Firewall
+                    </span>
+                  </a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/products/ddos/">
                     <span className="o-menu__title">
                       DDoS Protection
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/products/nodebalancers/">
+                  <a className="o-menu__link" href="https://www.linode.com/products/nodebalancers/">
                     <span className="o-menu__title">
                       NodeBalancers
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/products/dns-manager/">
+                  <a className="o-menu__link" href="https://www.linode.com/products/dns-manager/">
                     <span className="o-menu__title">
                       DNS Manager
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/products/managed/">
+                  <a className="o-menu__link" href="https://www.linode.com/products/managed/">
                     <span className="o-menu__title">
                       Managed
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/products/pro-services/">
+                  <a className="o-menu__link" href="https://www.linode.com/products/pro-services/">
                     <span className="o-menu__title">
                       Professional Services
                     </span>
@@ -312,7 +319,7 @@ const FooterNav = () => (
               <h4 className="o-menu__heading">Solutions</h4>
               <ul id="menu-footer-solutions" className="o-menu__list">
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/solutions/">
+                  <a className="o-menu__link" href="https://www.linode.com/solutions/">
                     <span className="o-menu__title">
                       Solutions Overview
                     </span>
@@ -326,14 +333,14 @@ const FooterNav = () => (
               <h4 className="o-menu__heading">Marketplace</h4>
               <ul id="menu-footer-marketplace" className="o-menu__list">
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/marketplace/">
+                  <a className="o-menu__link" href="https://www.linode.com/marketplace/">
                     <span className="o-menu__title">
                       Browse Marketplace
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/marketplace/app-partners/">
+                  <a className="o-menu__link" href="https://www.linode.com/marketplace/app-partners/">
                     <span className="o-menu__title">
                       Marketplace App Partners
                     </span>
@@ -347,21 +354,21 @@ const FooterNav = () => (
               <h4 className="o-menu__heading">Pricing</h4>
               <ul id="menu-footer-pricing" className="o-menu__list">
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/pricing/">
+                  <a className="o-menu__link" href="https://www.linode.com/pricing/">
                     <span className="o-menu__title">
                       Pricing List
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/estimator/">
+                  <a className="o-menu__link" href="https://www.linode.com/estimator/">
                     <span className="o-menu__title">
                       Cloud Estimator
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/cloud-pricing-calculator/">
+                  <a className="o-menu__link" href="https://www.linode.com/cloud-pricing-calculator/">
                     <span className="o-menu__title">
                       TCO Calculator
                     </span>
@@ -375,44 +382,51 @@ const FooterNav = () => (
               <h4 className="o-menu__heading">Company</h4>
               <ul id="menu-footer-company" className="o-menu__list">
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/company/about/">
+                  <a className="o-menu__link" href="https://www.linode.com/company/about/">
                     <span className="o-menu__title">
                       About
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/company/leadership/">
+                  <a className="o-menu__link" href="https://www.linode.com/company/leadership/">
                     <span className="o-menu__title">
                       Leadership
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/partners/">
+                  <a className="o-menu__link" href="https://www.linode.com/partners/">
                     <span className="o-menu__title">
                       Partners
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/company/press/">
+                  <a className="o-menu__link" href="https://www.linode.com/company/press/">
                     <span className="o-menu__title">
                       Press Center
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/company/careers/">
+                  <a className="o-menu__link" href="https://www.linode.com/company/careers/">
                     <span className="o-menu__title">
                       Careers
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/legal/">
+                  <a className="o-menu__link" href="https://www.linode.com/legal/">
                     <span className="o-menu__title">
                       Legal
+                    </span>
+                  </a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/subscription-center/">
+                    <span className="o-menu__title">
+                      Subscription Center
                     </span>
                   </a>
                 </li>
@@ -429,7 +443,7 @@ const FooterNav = () => (
               <h4 className="o-menu__heading">Community</h4>
               <ul id="menu-footer-community" className="o-menu__list">
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/community/">
+                  <a className="o-menu__link" href="https://www.linode.com/community/">
                     <span className="o-menu__title">
                       Community Overview
                     </span>
@@ -443,91 +457,98 @@ const FooterNav = () => (
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/developers/">
+                  <a className="o-menu__link" href="https://www.linode.com/developers/">
                     <span className="o-menu__title">
                       Developer Portal
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/green-light/">
+                  <a className="o-menu__link" href="https://www.linode.com/green-light/">
                     <span className="o-menu__title">
                       Beta Program
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/blog/">
+                  <a className="o-menu__link" href="https://www.linode.com/blog/">
                     <span className="o-menu__title">
                       Blog
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/events/">
+                  <a className="o-menu__link" href="https://www.linode.com/events/">
                     <span className="o-menu__title">
                       Events
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/resources/">
+                  <a className="o-menu__link" href="https://www.linode.com/resources/">
                     <span className="o-menu__title">
                       Content Resources
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/video-channel/">
+                  <a className="o-menu__link" href="https://www.linode.com/video-channel/">
                     <span className="o-menu__title">
                       Linode Video Channel
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/referral-program/">
+                  <a className="o-menu__link" href="https://www.linode.com/lp/affiliate-program/">
                     <span className="o-menu__title">
-                      Referral Program
+                      Affiliate Program
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/products/">
+                  <a className="o-menu__link" href="https://www.linode.com/referral-program/">
+                    <span className="o-menu__title">
+                      Customer Referral Program
+                    </span>
+                  </a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/products/">
                     <span className="o-menu__title">
                       Swag Store
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/products/cloud-manager/">
+                  <a className="o-menu__link" href="https://www.linode.com/products/cloud-manager/">
                     <span className="o-menu__title">
                       Cloud Manager
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/products/api/">
+                  <a className="o-menu__link" href="https://www.linode.com/products/api/">
                     <span className="o-menu__title">
                       API
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/docs/">
+                  <a className="o-menu__link" href="https://www.linode.com/docs/">
                     <span className="o-menu__title">
                       Documentation
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/distributions/">
+                  <a className="o-menu__link" href="https://www.linode.com/distributions/">
                     <span className="o-menu__title">
                       Distributions
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/cloud-computing-terms/">
+                  <a className="o-menu__link" href="https://www.linode.com/cloud-computing-terms/">
                     <span className="o-menu__title">
                       Cloud Computing Terms
                     </span>
@@ -543,14 +564,14 @@ const FooterNav = () => (
               <h4 className="o-menu__heading">Contact</h4>
               <ul id="menu-footer-contact" className="o-menu__list">
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/support/">
+                  <a className="o-menu__link" href="https://www.linode.com/support/">
                     <span className="o-menu__title">
                       Support
                     </span>
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linode.com/company/contact/?tab=sales-inquiries">
+                  <a className="o-menu__link" href="https://www.linode.com/company/contact/?tab=sales-inquiries">
                     <span className="o-menu__title">
                       Contact Sales
                     </span>
