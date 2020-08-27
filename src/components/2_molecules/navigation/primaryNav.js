@@ -38,6 +38,47 @@ class MainSiteNav extends React.Component {
     };
     hideAll(); //hide all when page first loads
 
+    for (let i = 0; i < subMenus.length; i++) {
+      const otherMenus = document.getElementsByClassName("c-sub-menu");
+      const target = subMenus[i].getAttribute("data-submenu");
+      const subMenuContainer = document.getElementById(target);
+
+      subMenus[i].addEventListener("click", target => {
+        const hideSubMenus = () => {
+          Object.keys(otherMenus).map(target => {
+            const om = otherMenus[target];
+            return (
+              om !== subMenuContainer &&
+              om.classList.add("visually-hidden", "visibility-hidden") +
+                document.body.classList.remove("active")
+            );
+          });
+        };
+
+        hideSubMenus();
+
+        if (subMenuContainer !== null) { // if this subcontainer exists
+          if (!subMenuContainer.classList.contains("visually-hidden")) { // if this submenu is currently active
+            subMenuContainer.classList.add("visually-hidden", "visibility-hidden");
+            subMenuContainer.classList.remove("active");
+            if (target === "sub-menu--mobile") {
+              document.getElementById("o-menu__link--mobile").classList.remove("active");
+            }
+          } else { // if this submenu is not currently active
+            subMenuContainer.classList.remove(
+              "visually-hidden",
+              "visibility-hidden"
+            );
+
+            subMenuContainer.classList.add("active");
+            if (target === "sub-menu--mobile") {
+              document.getElementById("o-menu__link--mobile").classList.add("active");
+            }
+          }
+        }
+      });
+    }
+
     header.addEventListener("click", e => {
       const otherMenus = document.getElementsByClassName("c-sub-menu");
       const target = e.target.getAttribute("data-submenu");
