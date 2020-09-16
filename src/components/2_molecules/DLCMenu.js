@@ -21,16 +21,16 @@ const DLCMenu = ({ data }) => {
       >
         <div className="max-w-3xl mx-auto px-4 py-4">
           {dlcLinks.map(link => (
-            <Link
-              key={link.name}
-              to={link.link}
-              className="dlc-nav__link relative mx-4"
-              role="menuitem"
-              activeClassName="active"
-              getProps={link === "/" ? undefined : isPartiallyActive}
-            >
-              {link.name}
-            </Link>
+              <a
+                key={link.name}
+                href={link.link}
+                className={`dlc-nav__link mx-4 ${link.name === "API Documentation" ? "" : "relative "}`}
+                role="menuitem"
+                activeClassName="active"
+                getProps={link === "/" ? undefined : isPartiallyActive}
+              >
+                {link.name}
+              </a>
           ))}
         </div>
       </nav>

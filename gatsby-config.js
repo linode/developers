@@ -5,7 +5,7 @@ module.exports = {
     dlcLinks: [
       {
         name: "API Documentation",
-        link: "/api/v4"
+        link: "http://www.linode.com/docs/api"
       },
       {
         name: "Guides",
