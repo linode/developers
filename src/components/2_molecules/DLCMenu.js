@@ -26,8 +26,6 @@ const DLCMenu = ({ data }) => {
               href={link.link}
               className={`dlc-nav__link mx-4 ${link.name === "API Documentation" ? "" : "relative "}`}
               role="menuitem"
-              activeClassName="active"
-              getProps={link === "/" ? undefined : isPartiallyActive}
             >
               {link.name}
             </a>
