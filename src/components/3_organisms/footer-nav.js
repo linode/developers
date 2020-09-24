@@ -175,6 +175,13 @@ const FooterNav = () => (
                   </a>
                 </li>
                 <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/alternative-cloud-provider/">
+                    <span className="o-menu__title">
+                      Alternative Cloud
+                    </span>
+                  </a>
+                </li>
+                <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/linode-vs-aws/">
                     <span className="o-menu__title">
                       Linode vs. AWS
