@@ -41,7 +41,7 @@ const IndexPage = () => {
         <article className="w-full md:w-1/2 px-4 mb-4 md:mb-8">
           <div className="px-8 py-20 h-full bg-ThemeCell tile flex flex-col justify-center items-center">
             <h2 className="mt-0 font-normal text-center">
-              <a href="/api/v4" className="text-black tile-link">
+              <a href="https://www.linode.com/docs/api" className="text-black tile-link">
                 API Documentation
               </a>
             </h2>
