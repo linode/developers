@@ -7,6 +7,8 @@
 const windowWidth = window.screen.width;
 const transitionDelay = windowWidth <= 480 ? 0 : 50;
 
+exports.disableCorePrefetching = () => true
+
 exports.shouldUpdateScroll = ({ routerProps: { location } }) => {
   if (!location.hash || !document.getElementById(location.hash.substr(1))) {
     window.setTimeout(() => window.scrollTo(0, 0), transitionDelay);
