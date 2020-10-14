@@ -1,5 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
+import {PageView, initGA} from "../tracking";
 
 class MainSiteNav extends React.Component {
   constructor(props) {
@@ -26,6 +27,9 @@ class MainSiteNav extends React.Component {
     const subMenus = document.getElementsByClassName("c-sub-menu");
     const header = document.getElementById("menu-header-primary");
     const mobileMenu = document.getElementById("o-menu__link--mobile");
+
+    initGA(['UA-177150-1', 'UA-177150-30']);
+    PageView();
 
     const hideAll = () => {
       Object.keys(subMenus).map(d => {
@@ -78,6 +82,7 @@ class MainSiteNav extends React.Component {
         }
       });
     }
+
 
     header.addEventListener("click", e => {
       const otherMenus = document.getElementsByClassName("c-sub-menu");

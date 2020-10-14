@@ -1,4 +1,6 @@
 import React from "react";
+import { Event } from "../tracking";
+
 const styles = {
   borderWidth: 2,
   borderColor: '#ededf4'
@@ -12,6 +14,9 @@ const PricingFeaturedNav = () => (
           className="c-featured"
           href="https://www.linode.com/lp/tco-calculator/"
           style={styles}
+          onClick={()=>
+            Event('Navigation','click','TCO')
+          }
         >
           <img
             width="416"
