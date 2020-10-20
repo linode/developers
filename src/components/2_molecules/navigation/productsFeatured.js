@@ -1,4 +1,6 @@
 import React from "react";
+import { Event } from "../tracking";
+
 const styles1 = {
   borderWidth: 2,
   borderColor: '#ededf4'
@@ -20,6 +22,9 @@ const ProductsFeaturedNav = () => (
         className="c-featured"
         href="https://www.linode.com/products/gpu/"
         style={styles1}
+        onClick={()=>
+          Event('Navigation','click','gpus-mumbai')
+        }
       >
         <img
           width="400"
