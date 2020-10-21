@@ -1,4 +1,5 @@
 import React from "react";
+import { Event } from "../tracking";
 
 const styles = {
   color: '#ffffff'
@@ -12,6 +13,9 @@ const WhyFeaturedNav = () => (
         className="c-featured"
         href="https://www.linode.com/spotlight/cloudnet/"
         style={styles}
+        onClick={()=>
+          Event('Navigation','click','cloudnet')
+        }
       >
         <img
           width="632"

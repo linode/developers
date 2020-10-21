@@ -1,4 +1,5 @@
 import React from "react";
+import { Event } from "../tracking";
 
 const styles = {
   color: '#ffffff'
@@ -12,6 +13,9 @@ const CommunityFeaturedNav = () => (
         className="c-featured"
         href="https://www.linode.com/marketplace/apps/linode/nextcloud/"
         style={styles}
+        onClick={()=>
+          Event('Navigation','click','nextcloud')
+        }
       >
         <img
           width="632"
