@@ -219,13 +219,6 @@ const FooterNav = () => (
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/products/kubernetes/">
-                    <span className="o-menu__title">
-                      Kubernetes
-                    </span>
-                  </a>
-                </li>
-                <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/products/shared/">
                     <span className="o-menu__title">
                       Shared
@@ -250,6 +243,20 @@ const FooterNav = () => (
                   <a className="o-menu__link" href="https://www.linode.com/products/gpu/">
                     <span className="o-menu__title">
                       GPU
+                    </span>
+                  </a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/products/bare-metal/">
+                    <span className="o-menu__title">
+                      Bare Metal
+                    </span>
+                  </a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/products/kubernetes/">
+                    <span className="o-menu__title">
+                      Kubernetes
                     </span>
                   </a>
                 </li>
@@ -289,6 +296,13 @@ const FooterNav = () => (
                   </a>
                 </li>
                 <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/products/dns-manager/">
+                    <span className="o-menu__title">
+                      DNS Manager
+                    </span>
+                  </a>
+                </li>
+                <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/products/nodebalancers/">
                     <span className="o-menu__title">
                       NodeBalancers
@@ -296,9 +310,9 @@ const FooterNav = () => (
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/products/dns-manager/">
+                  <a className="o-menu__link" href="https://www.linode.com/products/vlan/">
                     <span className="o-menu__title">
-                      DNS Manager
+                      VLAN
                     </span>
                   </a>
                 </li>
