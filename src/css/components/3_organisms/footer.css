@@ -1,5 +1,5 @@
 /* ==========================================================================
-   FOOTER CSS STYLES
+   HEADER + FOOTER CSS STYLES
    USES INUITCSS... see in theme /node_modules/inuitcss
    ========================================================================== */
    #consent_blackbar {
@@ -112,6 +112,10 @@
     color: #65686c;
     padding-top: 24px;
     padding-bottom: 56px;
+  }
+
+  .c-site-footer__primary .o-layout__colset {
+    max-width: none;
   }
 
   .c-site-footer__primary .c-identity {
