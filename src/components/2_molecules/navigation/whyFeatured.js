@@ -18,13 +18,14 @@ const WhyFeaturedNav = () => (
         }
       >
         <img
-          width="632"
-          height="279"
-          src="https://www.linode.com/wp-content/uploads/2020/08/cloudnet-hero-1-scaled-1-632x279.jpg"
+          width="565"
+          height="249"
+          src="https://www.linode.com/wp-content/uploads/2020/11/cloudnet-menu-feature-bg-MIN.jpg"
           className="c-featured__background"
           alt=""
-          srcSet="https://www.linode.com/wp-content/uploads/2020/08/cloudnet-hero-1-scaled-1-632x279.jpg 632w, https://www.linode.com/wp-content/uploads/2020/08/cloudnet-hero-1-scaled-1-1064x470.jpg 1064w, https://www.linode.com/wp-content/uploads/2020/08/cloudnet-hero-1-scaled-1-416x184.jpg 416w, https://www.linode.com/wp-content/uploads/2020/08/cloudnet-hero-1-scaled-1-768x339.jpg 768w, https://www.linode.com/wp-content/uploads/2020/08/cloudnet-hero-1-scaled-1-1536x678.jpg 1536w, https://www.linode.com/wp-content/uploads/2020/08/cloudnet-hero-1-scaled-1-2048x904.jpg 2048w"
-          sizes="(max-width: 632px) 100vw, 632px"
+          loading="lazy"
+          srcSet="https://www.linode.com/wp-content/uploads/2020/11/cloudnet-menu-feature-bg-MIN.jpg 565w, data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 1w"
+          sizes="(max-width:991px) 1px, 565px"
         />
         <div className="c-featured__text">
           <div className="c-featured__headline">

@@ -18,13 +18,14 @@ const CommunityFeaturedNav = () => (
         }
       >
         <img
-          width="632"
-          height="418"
-          src="https://www.linode.com/wp-content/uploads/2020/08/nextcloud-gradient-632x418.png"
+          width="565"
+          height="374"
+          src="https://www.linode.com/wp-content/uploads/2020/11/nextcloud-menu-feature-bg-MIN.jpg"
           className="c-featured__background"
           alt=""
-          srcSet="https://www.linode.com/wp-content/uploads/2020/08/nextcloud-gradient-632x418.png 632w, https://www.linode.com/wp-content/uploads/2020/08/nextcloud-gradient-416x275.png 416w, https://www.linode.com/wp-content/uploads/2020/08/nextcloud-gradient-768x508.png 768w, https://www.linode.com/wp-content/uploads/2020/08/nextcloud-gradient.png 1000w"
-          sizes="(max-width: 632px) 100vw, 632px"
+          loading="lazy"
+          srcSet="https://www.linode.com/wp-content/uploads/2020/11/nextcloud-menu-feature-bg-MIN.jpg 565w, data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 1w"
+          sizes="(max-width:991px) 1px, 565px"
         />
         <img
           width="416"
@@ -32,8 +33,9 @@ const CommunityFeaturedNav = () => (
           src="https://www.linode.com/wp-content/uploads/2020/05/linode-nextcloud-white.svg"
           className="c-featured__image"
           alt=""
-          srcSet="https://www.linode.com/wp-content/uploads//2020/05/linode-nextcloud-white.svg 416w, https://www.linode.com/wp-content/uploads//2020/05/linode-nextcloud-white.svg 632w, https://www.linode.com/wp-content/uploads//2020/05/linode-nextcloud-white.svg 1064w"
-          sizes="(max-width: 416px) 100vw, 416px"
+          loading="lazy"
+          srcSet="https://www.linode.com/wp-content/uploads/2020/05/linode-nextcloud-white.svg 632w, https://www.linode.com/wp-content/uploads/2020/05/linode-nextcloud-white.svg 1064w, data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 1w"
+          sizes="(max-width:991px) 1px, 416px"
         />
         <div className="c-featured__text">
           <div className="c-featured__headline">
