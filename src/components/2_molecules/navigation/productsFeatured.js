@@ -29,9 +29,10 @@ const ProductsFeaturedNav = () => (
         <img
           width="400"
           height="339"
-          src="https://www.linode.com/wp-content/uploads/2020/08/mum-fg.png"
+          src="https://www.linode.com/wp-content/uploads/2020/11/mumbai-menu-feature-fg-MIN.png"
           className="c-featured__image"
           alt=""
+          loading="lazy"
           style={styles2}
         />
         <div className="c-featured__text">
