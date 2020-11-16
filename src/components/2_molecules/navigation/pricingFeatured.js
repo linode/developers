@@ -19,13 +19,12 @@ const PricingFeaturedNav = () => (
           }
         >
           <img
-            width="416"
-            height="376"
-            src="https://www.linode.com/wp-content/uploads/2020/08/TCOReport_MockUp2-416x376.png"
+            width="290"
+            height="262"
+            src="https://www.linode.com/wp-content/uploads/2020/11/tco-report-menu-feature-fg-MIN.png"
             className="c-featured__image"
             alt=""
-            srcSet="https://www.linode.com/wp-content/uploads/2020/08/TCOReport_MockUp2-416x376.png 416w, https://www.linode.com/wp-content/uploads/2020/08/TCOReport_MockUp2.png 620w"
-            sizes="(max-width: 416px) 100vw, 416px"
+            loading="lazy"
           />
           <div className="c-featured__text">
             <div className="c-featured__headline">
