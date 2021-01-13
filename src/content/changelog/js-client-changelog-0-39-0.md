@@ -8,4 +8,4 @@ changelog:
 
 ### Changed:
 
-“updated” field added to Image interface
+- “updated” field added to Image interface
