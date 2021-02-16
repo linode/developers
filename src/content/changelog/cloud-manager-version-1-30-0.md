@@ -1,7 +1,7 @@
 ---
 title: Cloud Manager v1.30.0
 date: 2021-02-15T00:00:00.000Z
-version: 1.28.3
+version: 1.30.0
 changelog:
   - Cloud Manager
 ---
