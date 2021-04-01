@@ -1,16 +1,9 @@
 import React from "react";
 import { Event } from "../tracking";
 
-const styles1 = {
+const styles = {
   borderWidth: 2,
   borderColor: '#ededf4'
-};
-const styles2 = {
-  alignSelf: 'flex-end',
-  marginBottom: -24,
-  marginLeft: -24,
-  marginRight: -24,
-  maxWidth: '50%'
 };
 
 const ProductsFeaturedNav = () => (
@@ -20,33 +13,34 @@ const ProductsFeaturedNav = () => (
       <a
         id="c-featured--products"
         className="c-featured"
-        href="https://www.linode.com/products/gpu/"
-        style={styles1}
+        href="https://www.linode.com/blog/linode/cloud-firewall-beta-open/"
+        style={styles}
         onClick={()=>
-          Event('Navigation','click','gpus-mumbai')
+          Event('Navigation','click','cloud-firewall-beta')
         }
       >
         <img
-          width="400"
-          height="339"
-          src="https://www.linode.com/wp-content/uploads/2020/11/mumbai-menu-feature-fg-MIN.png"
-          className="c-featured__image"
+          width="571"
+          height="200"
+          src="https://www.linode.com/wp-content/uploads/2020/12/cloud-firewall-all-together-now-background-MIN.jpg"
+          className="c-featured__background"
           alt=""
           loading="lazy"
-          style={styles2}
+          srcset="https://www.linode.com/wp-content/uploads/2020/12/cloud-firewall-all-together-now-background-MIN.jpg 571w, data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 1w"
+          sizes="(max-width:991px) 1px, 571px"
         />
         <div className="c-featured__text">
           <div className="c-featured__headline">
-            <b>GPUs have landed in Mumbai!</b>
+            <b>Now In Beta:<br/>Linode Cloud Firewall</b>
           </div>
           <div className="c-featured__excerpt">
-            On-demand GPUs for machine learning, scientific computing, and video processing.
+            Simple, Scalable Network Security
           </div>
           <span
             className="c-featured__button"
-            href="https://www.linode.com/products/gpu/"
+            href="https://www.linode.com/blog/linode/cloud-firewall-beta-open/"
           >
-            Try Today
+            Register for the Beta
           </span>
         </div>
       </a>

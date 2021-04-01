@@ -11,36 +11,36 @@ const WhyFeaturedNav = () => (
       <a
         id="c-featured--why_linode"
         className="c-featured"
-        href="https://www.linode.com/spotlight/cloudnet/"
+        href="https://www.linode.com/spotlight/data-machines-brian-dennis/"
         style={styles}
         onClick={()=>
-          Event('Navigation','click','cloudnet')
+          Event('Navigation','click','datamachines')
         }
       >
         <img
           width="565"
           height="249"
-          src="https://www.linode.com/wp-content/uploads/2020/11/cloudnet-menu-feature-bg-MIN.jpg"
+          src="https://www.linode.com/wp-content/uploads/2020/12/brian-data-machines-background-MIN.jpg"
           className="c-featured__background"
           alt=""
           loading="lazy"
-          srcSet="https://www.linode.com/wp-content/uploads/2020/11/cloudnet-menu-feature-bg-MIN.jpg 565w, data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 1w"
+          srcSet="https://www.linode.com/wp-content/uploads/2020/12/brian-data-machines-background-MIN.jpg 565w, data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 1w"
           sizes="(max-width:991px) 1px, 565px"
         />
         <div className="c-featured__text">
           <div className="c-featured__headline">
             <b>Craft of Code:</b>
             <br/>
-            Cloudnet
+            Dr. Brian Dennis
           </div>
           <div className="c-featured__excerpt">
-            Reliability Allows Customers (and Cloudnet) To Do What They Love
+            How Data Machines Does Big Data
           </div>
           <span
             className="c-featured__button"
-            href="https://www.linode.com/spotlight/cloudnet/"
+            href="https://www.linode.com/spotlight/data-machines-brian-dennis/"
           >
-              Read Cloudnet's Story
+              Read Dr. Dennis' Story
           </span>
         </div>
       </a>
