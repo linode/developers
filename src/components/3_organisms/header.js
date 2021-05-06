@@ -31,7 +31,7 @@ const Header = () => (
           <div className="o-layout__col">
             <div className="o-layout__module c-identity">
               <a href="https://linode.com" className="c-identity__link" itemProp="url" target="_self">
-                <img alt="Linode Logo" className="c-identity__image" src="https://www.linode.com/wp-content/uploads/2018/10/linode-logo-blk-rgb-minified.svg" itemProp="image" data-no-lazy="1"></img>
+                <img alt="Linode Logo" className="c-identity__image" src="https://www.linode.com/wp-content/uploads/2021/01/Linode-Logo-Black.svg" itemProp="image" data-no-lazy="1"></img>
               </a>
             </div>
           </div>
