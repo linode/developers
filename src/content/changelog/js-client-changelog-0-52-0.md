@@ -10,10 +10,10 @@ changelog:
 
 - TPA Provider types
 
+Validation Library:
+
+- Add README
+
 ### Changed:
 
 - Move validation schemas into separate library
-
-## Validation Library
-
-- Add README
