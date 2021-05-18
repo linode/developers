@@ -1,0 +1,18 @@
+## [2021-05-18] - v1.41.0
+
+### Added:
+- Link to documentation on Linode Rescue Modal
+
+### Changed:
+- Create LKE Cluster UI buttons and change default number of nodes to 3
+- Hide Trusted Devices table if no devices are selected and rename “Untrust” to “Revoke”
+- Update keyboard shortcuts for Windows and Linux
+
+Images:
+- Rename sections
+- Rename dropdown option “Deploy to Existing Linode” to “Rebuild an Existing Linode”
+
+### Fixed:
+- Create Cluster plan panel buttons flickering
+- IP sharing display for large accounts
+
