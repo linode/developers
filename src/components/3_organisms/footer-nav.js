@@ -67,7 +67,7 @@ const FooterNav = () => (
             </a>
           </div>
           <div className="o-layout__module c-copyright">
-            &copy; {new Date().getFullYear()} All rights reserved.
+            &copy; 2003-{new Date().getFullYear()} Linode LLC. <br />All rights reserved.
           </div>
           <div className="o-layout__module c-social">
             <nav className="o-menu">
@@ -182,9 +182,9 @@ const FooterNav = () => (
                   </a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/linode-vs-aws/">
+                  <a className="o-menu__link" href="https://www.linode.com/compare/">
                     <span className="o-menu__title">
-                      Linode vs. AWS
+                      Linode vs. Competitors
                     </span>
                   </a>
                 </li>

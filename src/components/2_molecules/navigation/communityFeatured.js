@@ -11,43 +11,40 @@ const CommunityFeaturedNav = () => (
       <a
         id="c-featured--community"
         className="c-featured"
-        href="https://www.linode.com/marketplace/apps/linode/nextcloud/"
+        href="https://www.linode.com/content/cloud-cpu-benchmarking-report/"
         style={styles}
         onClick={()=>
-          Event('Navigation','click','nextcloud')
+          Event('Navigation','click','cpu-benchmark-report')
         }
       >
         <img
-          width="565"
-          height="374"
-          src="https://www.linode.com/wp-content/uploads/2020/11/nextcloud-menu-feature-bg-MIN.jpg"
+          width="632"
+          height="316"
+          src="https://www.linode.com/wp-content/uploads/2021/02/CPUBenchmark-LP-Hero-632x316.jpg"
           className="c-featured__background"
-          alt=""
+          alt="CPU Benchmark Report"
           loading="lazy"
-          srcSet="https://www.linode.com/wp-content/uploads/2020/11/nextcloud-menu-feature-bg-MIN.jpg 565w, data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 1w"
-          sizes="(max-width:991px) 1px, 565px"
+          srcSet="https://www.linode.com/wp-content/uploads/2021/02/CPUBenchmark-LP-Hero-632x316.jpg 632w, https://www.linode.com/wp-content/uploads/2021/02/CPUBenchmark-LP-Hero-1064x531.jpg 1064w, https://www.linode.com/wp-content/uploads/2021/02/CPUBenchmark-LP-Hero.jpg 1922w, data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 1w"
+          sizes="(max-width:991px) 1px, 632px"
         />
         <img
-          width="416"
-          height="416"
-          src="https://www.linode.com/wp-content/uploads/2020/05/linode-nextcloud-white.svg"
+          width="273"
+          height="163"
+          src="https://www.linode.com/wp-content/uploads/2021/03/CPUBenchmark-Slider-Small.png"
           className="c-featured__image"
-          alt=""
+          alt="Cloud CPU Benchmark Report"
           loading="lazy"
-          srcSet="https://www.linode.com/wp-content/uploads/2020/05/linode-nextcloud-white.svg 632w, https://www.linode.com/wp-content/uploads/2020/05/linode-nextcloud-white.svg 1064w, data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 1w"
-          sizes="(max-width:991px) 1px, 416px"
         />
         <div className="c-featured__text">
           <div className="c-featured__headline">
-            New One Click App:<br/>
-            <b>Nextcloud</b>
+            Cloud CPU Benchmarks
           </div>
-          <div className="c-featured__excerpt">Open source productivity and storage management platform.</div>
+          <div className="c-featured__excerpt">Benchmarking and analysis from Cloud Spectator includes Linode, AWS, Azure, Google Compute Engine, Alibaba, and DigitalOcean.</div>
           <span
             className="c-featured__button"
-            href="https://www.linode.com/marketplace/apps/linode/nextcloud/"
+            href="https://www.linode.com/content/cloud-cpu-benchmarking-report/"
           >
-            Deploy App
+              Download
           </span>
         </div>
       </a>
