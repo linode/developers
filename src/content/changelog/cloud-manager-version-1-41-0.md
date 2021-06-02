@@ -1,4 +1,10 @@
-## [2021-05-18] - v1.41.0
+---
+title: Cloud Manager v1.41.0
+date: 2021-05-18T00:00:00.000Z
+version: 1.41.0
+changelog:
+  - Cloud Manager
+---
 
 ### Added:
 - Link to documentation on Linode Rescue Modal
@@ -15,4 +21,3 @@ Images:
 ### Fixed:
 - Create Cluster plan panel buttons flickering
 - IP sharing display for large accounts
-
