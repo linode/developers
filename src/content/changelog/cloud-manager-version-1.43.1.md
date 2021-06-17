@@ -8,6 +8,4 @@ changelog:
 
 ### Added:
 
-### Added:
-
 - Notice to the Referrals page to highlight upcoming changes to the program
