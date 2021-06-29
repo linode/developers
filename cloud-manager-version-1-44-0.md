@@ -1,0 +1,16 @@
+## [2021-06-28] - v1.44.0
+
+### Added:
+- Dedicated Maintenance Table at `/account/maintenance`
+- Use React Query query to populate account network transfer
+
+### Changed:
+- Referral page changes
+- Update Virtualmin and Webmin Marketplace links
+- EntityTables and Tables CMR cleanup
+
+### Fixed:
+- Console warning for Divider custom props
+- Object Storage landing table UI bugs
+- Ability to access /dev/sdh Block Device in Configuration modal
+
