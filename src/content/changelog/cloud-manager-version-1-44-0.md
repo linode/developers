@@ -1,4 +1,10 @@
-## [2021-06-28] - v1.44.0
+---
+title: Cloud Manager v1.44.0
+date: 2021-06-29T00:00:00.000Z
+version: 1.44.0
+changelog:
+  - Cloud Manager
+---
 
 ### Added:
 - Dedicated Maintenance Table at `/account/maintenance`
