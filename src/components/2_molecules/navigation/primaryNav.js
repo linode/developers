@@ -155,9 +155,9 @@ class MainSiteNav extends React.Component {
                   </span>
                 </a>
               </li>
-              <li className="o-menu__item">
-                <a className="o-menu__link" href="https://linode.com/solutions">
-                  <span className="o-menu__title">
+              <li className="o-menu__item" data-submenu="sub-menu--solutions">
+                <a className="o-menu__link" href="#sub-menu--solutions" data-submenu="sub-menu--solutions">
+                  <span className="o-menu__title" data-submenu="sub-menu--solutions">
                     Solutions
                   </span>
                 </a>
