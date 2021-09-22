@@ -6,7 +6,7 @@
   "author": "Alban Bailly <abailly@linode.com>",
   "dependencies": {
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.2.1",
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "crypto": "^1.0.1",
     "gatsby": "^2.24.83",
     "gatsby-cli": "^2.12.77",
