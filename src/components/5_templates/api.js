@@ -349,7 +349,6 @@ export const query = graphql`
                     description
                     required
                     allOf {
-                      required
                       properties {
                         ...allOfPostRequestBody
                       }
