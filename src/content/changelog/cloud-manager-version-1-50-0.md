@@ -1,4 +1,10 @@
-## [2021-09-17] - v1.50.0
+---
+title: Cloud Manager v1.50.0
+date: 2021-09-17T00:00:00.000Z
+version: 1.50.0
+changelog:
+  - Cloud Manager
+---
 
 ### Added:
 - GDPR Compliance notification, banner, and checkboxes
@@ -12,4 +18,3 @@
 
 ### Fixed:
 - Bug preventing Linode Configuration changes
-
