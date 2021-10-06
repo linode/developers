@@ -10,4 +10,5 @@ changelog:
 - NodeBalancer validation error messages
 
 ### Changed:
-- Allow non-VLAN interface labels to be null 
+- Allow non-VLAN interface labels to be null
+
