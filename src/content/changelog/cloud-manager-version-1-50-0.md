@@ -18,3 +18,4 @@ changelog:
 
 ### Fixed:
 - Bug preventing Linode Configuration changes
+
