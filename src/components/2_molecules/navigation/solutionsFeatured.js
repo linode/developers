@@ -34,7 +34,7 @@ const SolutionsFeaturedNav = () => (
               <b>Higher Ed: The University of Oklahoma</b>
             </div>
             <div className="c-featured__excerpt">
-              Developing Innovative Approaches to Understanding Social and Natural Risks
+              Developing Innovative Approaches <br/> to Understanding Social and Natural Risks
             </div>
             <span
               className="c-featured__button"
