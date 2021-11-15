@@ -275,10 +275,8 @@ li.weglot-hide,
   font-size: 18px;
   line-height: 1.33333;
   font-family: "Source Sans Pro", sans-serif;
-  font-weight: 400;
   letter-spacing: 0;
   color: #32363b;
-  font-weight: 400;
   overflow: visible;
   position: -webkit-sticky;
   position: sticky;
@@ -318,7 +316,6 @@ body.admin-bar .c-site-header {
   font-size: 16px;
   line-height: 1.25;
   font-family: "Source Sans Pro", sans-serif;
-  font-weight: 400;
   letter-spacing: 0;
   background-color: white;
   border-bottom: 1px solid #ededf4;
@@ -486,7 +483,6 @@ body.admin-bar .c-site-header {
   font-size: 16px;
   line-height: 1.25;
   font-family: "Source Sans Pro", sans-serif;
-  font-weight: 400;
   letter-spacing: 0;
   margin-left: 0;
   padding-left: 8px;
@@ -575,7 +571,6 @@ body.admin-bar .c-site-header {
   font-size: 12px;
   line-height: 1.33333;
   font-family: "Source Sans Pro", sans-serif;
-  font-weight: 400;
   letter-spacing: 0;
   color: #999b9d;
   letter-spacing: 2px;
@@ -632,7 +627,6 @@ body.admin-bar .c-site-header {
   font-size: 14px;
   line-height: 1.42857;
   font-family: "Source Sans Pro", sans-serif;
-  font-weight: 400;
   letter-spacing: 0;
 }
 
@@ -698,7 +692,6 @@ body.admin-bar .c-site-header {
   font-size: 14px;
   line-height: 1.42857;
   font-family: "Source Sans Pro", sans-serif;
-  font-weight: 400;
   letter-spacing: 0;
   margin-bottom: 16px;
 }
@@ -748,7 +741,6 @@ body.admin-bar .c-site-header {
   font-size: 18px;
   line-height: 1.33333;
   font-family: "Source Sans Pro", sans-serif;
-  font-weight: 400;
   letter-spacing: 0;
 }
 
