@@ -54,26 +54,6 @@ export const ResponseSampleBody = props => {
                       return `"${va}"`;
                     })
                   : "") +
-                (l.oneOf &&
-                  Object.keys(l.oneOf[0].properties).map(oop => {
-                    const data = l.oneOf[0].properties[oop];
-                    return `
-                            "${oop}": ${
-                      data.example
-                        ? JSON.stringify(data.example)
-                        : data.type === "array" && data.items.type === "object"
-                        ? "[{" +
-                          Object.keys(data.items.properties).map(di => {
-                            const dis = data.items.properties[di];
-                            return `
-                                        "${di}": ${JSON.stringify(
-                              dis.example ? dis.example : ""
-                            )}`;
-                          }) +
-                          "}]"
-                        : '""'
-                    }`;
-                  })) +
                 (l.properties &&
                   `{` +
                     Object.keys(l.properties)
