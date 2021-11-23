@@ -1,2 +1,5 @@
 [build.environment]
   TZ = "America/New_York"
+
+[context.deploy-preview]
+  environment = { NODE_VERSION = "12.20.2" }
