@@ -27,7 +27,7 @@ const ProductsFeaturedNav = () => (
           className="c-featured__background"
           alt="Free Services from Linode"
           loading="lazy"
-          srcset="https://www.linode.com/wp-content/uploads/2021/10/benefits-bg-632x316.png 632w, https://www.linode.com/wp-content/uploads/2021/10/benefits-bg-1064x532.png 1064w, https://www.linode.com/wp-content/uploads/2021/10/benefits-bg.png 1350w, data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 1w"
+          srcSet="https://www.linode.com/wp-content/uploads/2021/10/benefits-bg-632x316.png 632w, https://www.linode.com/wp-content/uploads/2021/10/benefits-bg-1064x532.png 1064w, https://www.linode.com/wp-content/uploads/2021/10/benefits-bg.png 1350w, data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 1w"
           sizes="(max-width:991px) 1px, 632px"
         />
         <img
