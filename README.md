@@ -4,7 +4,7 @@ The developers.linode.com website built with Gatsby and including the API Docs
 
 ## Setup
 
-DLC currently needs `node v12.8.1` to build properly. You may want to use NVM to manage your versions (https://github.com/nvm-sh/nvm/blob/master/README.md)
+DLC currently needs `node v12.20.2` to build properly. You may want to use NVM to manage your versions (https://github.com/nvm-sh/nvm/blob/master/README.md)
 
 `yarn`
 

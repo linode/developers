@@ -24,7 +24,7 @@ const WhyFeaturedNav = () => (
           className="c-featured__background"
           alt="Cloud Spectator Cloud Storage Benchmark Report"
           loading="lazy"
-          srcset="https://www.linode.com/wp-content/uploads/2021/11/site-preview-pill-632x217.jpg 632w, https://www.linode.com/wp-content/uploads/2021/11/site-preview-pill-1064x366.jpg 1064w, https://www.linode.com/wp-content/uploads/2021/11/site-preview-pill.jpg 1070w, data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 1w"
+          srcSet="https://www.linode.com/wp-content/uploads/2021/11/site-preview-pill-632x217.jpg 632w, https://www.linode.com/wp-content/uploads/2021/11/site-preview-pill-1064x366.jpg 1064w, https://www.linode.com/wp-content/uploads/2021/11/site-preview-pill.jpg 1070w, data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 1w"
           sizes="(max-width:991px) 1px, 632px"
         />
         <div className="c-featured__text">
