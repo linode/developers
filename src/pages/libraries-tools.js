@@ -26,10 +26,10 @@ const LibToolsPage = () => {
               <div className="px-4 flex flex-wrap">
                 <div style={{ width: 300 }}>
                   <CodeBox
-                    line1="pip install linode-cli"
+                    line1="pip3 install linode-cli"
                     line2="linode-cli linodes create"
                   />
-                  {/* {{ partial "2_molecules/code-box.html" ( dict "Line1" "pip install linode-cli" "Line2" "linode-cli linodes create") }} */}
+                  {/* {{ partial "2_molecules/code-box.html" ( dict "Line1" "pip3 install linode-cli" "Line2" "linode-cli linodes create") }} */}
                 </div>
                 <div className="mt-4 md:hidden flex w-full justify-center">
                   <a

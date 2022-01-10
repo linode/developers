@@ -20,10 +20,10 @@ const IndexPage = () => {
             All of the functionality of the Manager from the command line.
           </div>
           <CodeBox
-            line1="pip install linode-cli"
+            line1="pip3 install linode-cli"
             line2="linode-cli linodes create"
           />
-          {/* {{ partial "2_molecules/code-box.html" ( dict "Line1" "pip install linode-cli" "Line2" "linode-cli linodes create") }} */}
+          {/* {{ partial "2_molecules/code-box.html" ( dict "Line1" "pip3 install linode-cli" "Line2" "linode-cli linodes create") }} */}
           <div className="mt-6 text-center">
             <a
               href="https://www.linode.com/cli"
