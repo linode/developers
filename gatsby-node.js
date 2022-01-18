@@ -108,6 +108,10 @@ exports.sourceNodes = async ({ actions }) => {
       name: "ProductsStorage"
     },
     {
+      path: `${baseUrl}/submenu-products-databases`,
+      name: "ProductsDatabases"
+    },
+    {
       path: `${baseUrl}/submenu-products-services`,
       name: "ProductsServices"
     },
