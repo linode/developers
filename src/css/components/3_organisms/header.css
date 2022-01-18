@@ -1,3 +1,25 @@
+:root {
+  --site-top-offset: 0px;
+  --site-topbar-height: 37px;
+  --site-header-height: 69px;
+}
+
+@media (max-width: 61.99em) {
+  :root {
+    --site-topbar-height: 0px;
+  }
+}
+@media (min-width: 48em) and (max-width: 61.99em) {
+  :root {
+    --site-header-height: 62px;
+  }
+}
+@media (max-width: 47.99em) {
+  :root {
+    --site-header-height: 52px;
+  }
+}
+
 .o-layout__row {
   padding: 16px;
 }
@@ -273,8 +295,9 @@ li.weglot-hide,
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-size: 18px;
-  line-height: 1.33333;
+  line-height: 1.3333333333;
   font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
   letter-spacing: 0;
   color: #32363b;
   overflow: visible;
@@ -316,6 +339,7 @@ body.admin-bar .c-site-header {
   font-size: 16px;
   line-height: 1.25;
   font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
   letter-spacing: 0;
   background-color: white;
   border-bottom: 1px solid #ededf4;
@@ -483,8 +507,10 @@ body.admin-bar .c-site-header {
   font-size: 16px;
   line-height: 1.25;
   font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
   letter-spacing: 0;
   margin-left: 0;
+  min-width: 87.25px;
   padding-left: 8px;
 }
 
@@ -511,7 +537,7 @@ body.admin-bar .c-site-header {
   transition: opacity .175s ease-out, transform .25s ease-out;
   will-change: position, transform;
   display: initial;
-  padding-top: 108px;
+  padding-top: calc(var(--site-top-offset) + var(--site-topbar-height) + var(--site-header-height));
 }
 
 @media (max-width: 61.99em) {
@@ -571,6 +597,7 @@ body.admin-bar .c-site-header {
   font-size: 12px;
   line-height: 1.33333;
   font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
   letter-spacing: 0;
   color: #999b9d;
   letter-spacing: 2px;
@@ -986,9 +1013,9 @@ body.admin-bar .c-sub-menu {
 
 .c-site-header__topbar .c-weglot-nav {
   font-size: 13px;
-  line-height: 1.30769;
-  border-left: 1px solid #ededf4;
-  margin-left: 0;
+  line-height: 1.2307692308;
+  margin-left: -8px;
+  min-width: 68.83px;
 }
 
 .c-site-header__topbar .c-weglot-nav .weglot_here {
