@@ -174,6 +174,7 @@ const FooterNav = () => (
               <li class="o-menu__item"><a class="o-menu__link" href="https://www.linode.com/products/block-storage/"><span class="o-menu__title">Block Storage</span></a></li>
               <li class="o-menu__item"><a class="o-menu__link" href="https://www.linode.com/products/object-storage/"><span class="o-menu__title">Object Storage</span></a></li>
               <li class="o-menu__item"><a class="o-menu__link" href="https://www.linode.com/products/backups/"><span class="o-menu__title">Backups</span></a></li>
+              <li class="o-menu__item"><a class="o-menu__link" href="https://www.linode.com/products/databases/"><span class="o-menu__title">Databases</span></a></li>
               <li class="o-menu__item"><a class="o-menu__link" href="https://www.linode.com/products/cloud-firewall/"><span class="o-menu__title">Cloud Firewall</span></a></li>
               <li class="o-menu__item"><a class="o-menu__link" href="https://www.linode.com/products/ddos/"><span class="o-menu__title">DDoS Protection</span></a></li>
               <li class="o-menu__item"><a class="o-menu__link" href="https://www.linode.com/products/dns-manager/"><span class="o-menu__title">DNS Manager</span></a></li>
@@ -184,6 +185,7 @@ const FooterNav = () => (
               <li class="o-menu__item"><a class="o-menu__link" href="https://www.linode.com/products/cloud-manager/"><span class="o-menu__title">Cloud Manager</span></a></li>
               <li class="o-menu__item"><a class="o-menu__link" href="https://www.linode.com/products/linode-api/"><span class="o-menu__title">API</span></a></li>
               <li class="o-menu__item"><a class="o-menu__link" href="https://www.linode.com/products/cli/"><span class="o-menu__title">CLI</span></a></li>
+              <li class="o-menu__item"><a class="o-menu__link" href="https://www.linode.com/products/linode-terraform-provider/"><span class="o-menu__title">Terraform Provider</span></a></li>
             </ul>
          </nav>
         </div>
