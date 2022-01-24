@@ -3,6 +3,7 @@ import React from "react";
 import ProductsFeatured from "./productsFeatured";
 import ProductsCompute from "./productsCompute";
 import ProductsStorage from "./productsStorage";
+import ProductsDatabases from "./productsDatabases";
 import ProductsServices from "./productsServices";
 import ProductsNetworking from "./productsNetworking";
 import ProductsDevTools from "./productsDevTools";
@@ -21,6 +22,7 @@ const ProductMenus = () => (
       <div className="o-layout__col">
         <ProductsCompute />
         <ProductsStorage />
+        <ProductsDatabases />
         <ProductsServices />
       </div>
       <div className="o-layout__col">
