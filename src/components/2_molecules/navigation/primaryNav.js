@@ -184,7 +184,7 @@ class MainSiteNav extends React.Component {
                 </a>
               </li>
               <li className="o-menu__item o-menu__item--sign-up">
-                <a className="o-menu__link" href="https://login.linode.com/signup">
+                <a className="o-menu__link" href="https://login.linode.com/signup?promo=signup100"  data-promo-override>
                   <span className="o-menu__title">
                     Sign Up
                   </span>
