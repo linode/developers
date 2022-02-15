@@ -957,14 +957,12 @@ body.admin-bar .c-sub-menu {
   border-radius: 3px;
   color: white;
   flex: none;
+  margin-right: 6px;
   padding-right: .666em;
   padding-left: .666em;
   text-transform: uppercase;
 }
 
-.c-site-header__topbar .c-notification__message {
-  margin-left: 6px;
-}
 
 .c-site-header__topbar .c-utility-nav {
   font-size: 13px;

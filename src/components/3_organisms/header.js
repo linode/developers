@@ -16,9 +16,9 @@ const Header = () => (
         <div className="o-layout__colset">
           <div className="o-layout__col">
             <div className="o-layout__module c-notification">
-              <a href="https://www.linode.com/lp/free-migration/" className="c-notification__link" target="_self">
-                  <span className="c-notification__tag">Free Cloud Migration</span>
-                  <span className="c-notification__message">Limited Time Free Migration Service</span>
+              <a href="https://www.linode.com/press-release/akamai-to-acquire-linode/" className="c-notification__link" target="_self">
+                  <span className="c-notification__tag">Latest News</span>
+                  <span className="c-notification__message">Linode to become part of Akamai. LEARN MORE ❯</span>
               </a>
             </div>
           </div>
