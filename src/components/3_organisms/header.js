@@ -15,10 +15,10 @@ const Header = () => (
       <div className="o-layout__row c-site-header__topbar">
         <div className="o-layout__colset">
           <div className="o-layout__col">
-            <div class="o-layout__module c-notification u-hidden">
-              <a href="#" class="c-notification__link" target="_self">
-                <span class="c-notification__tag"></span>
-                <span class="c-notification__message"></span>
+            <div className="o-layout__module c-notification">
+              <a href="https://www.linode.com/press-release/akamai-to-acquire-linode/" className="c-notification__link" target="_self">
+                  <span className="c-notification__tag">Latest News</span>
+                  <span className="c-notification__message">Linode to become part of Akamai. LEARN MORE ❯</span>
               </a>
             </div>
           </div>
