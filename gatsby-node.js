@@ -77,7 +77,7 @@ exports.sourceNodes = async ({ actions }) => {
 
   // CREATING MENU NODES FROM WP API
   // This will gather the WP API from linode.com to build the header menu items
-  const baseUrl = "https://linode.com/wp-json/menus/v1/menus";
+  const baseUrl = "https://www.linode.com/wp-json/menus/v1/menus";
   const wpMenus = [
     {
       path: `${baseUrl}/header-utility`,
