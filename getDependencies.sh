@@ -10,8 +10,8 @@ fi
 
 SPEC_FILE=""
 if [ -n ${1} ]; then
-  SPEC_FILE=../${1}
-  echo $([ -f $SPEC_FILE ])
+  SPEC_FILE=${1}
+  [[ -f $SPEC_FILE ]] && echo "$SPEC_FILE"
 fi
 
 echo
@@ -22,7 +22,7 @@ if
   git clone https://github.com/linode/linode-hugo-theme.git;
 fi
 
-if [ -f "$SPEC_FILE" ]; then
+if [[ -f "$SPEC_FILE" ]]; then
   echo
   printf "${BLUE}Using local spec file at: ${SPEC_FILE}${NC}\n"
   cat $SPEC_FILE > ../static/api/docs/v4/openapi.yaml;
