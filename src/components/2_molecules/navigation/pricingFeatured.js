@@ -12,26 +12,26 @@ const PricingFeaturedNav = () => (
         <a
           id="c-featured--pricing"
           className="c-featured"
-          href="https://www.linode.com/lp/tco-calculator/"
+          href="https://www.linode.com/cloud-pricing-calculator/"
           style={styles}
           onClick={()=>
-            Event('Navigation','click','TCO')
+            Event('Navigation','click','Calculator')
           }
         >
           <img
-            width="290"
-            height="262"
-            src="https://www.linode.com/wp-content/uploads/2020/11/tco-report-menu-feature-fg-MIN.png"
+            width="416"
+            height="376"
+            src="https://www.linode.com/wp-content/uploads/2020/02/Cloud_Pricing_MockUp2-416x376.png"
             className="c-featured__image"
-            alt=""
+            alt="Cloud Pricing Calculator"
             loading="lazy"
           />
           <div className="c-featured__text">
             <div className="c-featured__headline">
-              Total Cost of Ownership Calculator
+              Cloud Pricing Calculator
             </div>
             <div className="c-featured__excerpt">
-              Migrating from on-premises or between cloud providers for hosting, cloud storage, or cloud computing?
+              Estimate your cloud costs. Price and configure Linode features to match your needs.
             </div>
             <span
               className="c-featured__button"
