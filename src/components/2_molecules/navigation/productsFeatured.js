@@ -45,10 +45,7 @@ const ProductsFeaturedNav = () => (
           <div className="c-featured__excerpt">
             Discover our no-cost security, networking, maintenance, and monitoring solutions.
           </div>
-          <span
-            className="c-featured__button"
-            href="https://www.linode.com/free-bundled-services/"
-          >
+          <span className="c-featured__button">
             Learn More
           </span>
         </div>
