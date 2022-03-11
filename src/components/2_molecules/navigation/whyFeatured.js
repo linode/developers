@@ -36,11 +36,8 @@ const WhyFeaturedNav = () => (
           <div className="c-featured__excerpt">
             Cloud Block Storage
           </div>
-          <span
-            className="c-featured__button"
-            href="https://www.linode.com/content/cloud-block-storage-benchmarks/"
-          >
-              Access Report
+          <span className="c-featured__button">
+            Access Report
           </span>
         </div>
       </a>
