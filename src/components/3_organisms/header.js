@@ -55,7 +55,7 @@ const Header = () => (
             </div>
             <div className="o-layout__module">
               <ul class="o-menu__list">
-                <li class="o-menu__item o-menu__item--sign-up"><a class="o-menu__link" href="https://login.linode.com/signup?promo=signup100-2"><span class="o-menu__title">Sign Up</span></a></li>
+                <li class="o-menu__item o-menu__item--sign-up"><a class="o-menu__link" href="https://login.linode.com/signup?promo=signup100-3"><span class="o-menu__title">Sign Up</span></a></li>
               </ul>
             </div>
             <div className="o-layout__module">
