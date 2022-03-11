@@ -255,6 +255,7 @@ const FooterNav = () => (
               <li class="o-menu__item"><a class="o-menu__link" href="https://www.linode.com/docs/"><span class="o-menu__title">Documentation</span></a></li>
               <li class="o-menu__item"><a class="o-menu__link" href="https://www.linode.com/distributions/"><span class="o-menu__title">Distributions</span></a></li>
               <li class="o-menu__item"><a class="o-menu__link" href="https://www.linode.com/cloud-computing-terms/"><span class="o-menu__title">Cloud Computing Terms</span></a></li>
+              <li class="o-menu__item"><a class="o-menu__link" href="https://www.linode.com/promotions/"><span class="o-menu__title">Promotional Offers</span></a></li>
             </ul>
           </nav>
         </div>
