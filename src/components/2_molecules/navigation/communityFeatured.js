@@ -31,11 +31,8 @@ const CommunityFeaturedNav = () => (
             The MSP's Guide<br/>to Modern Cloud Infrastructure
           </div>
           <div className="c-featured__excerpt">Discover one of the best-kept secrets in building a scalable,<br/> thriving, modern Managed Service Provider business.</div>
-          <span
-            className="c-featured__button"
-            href="https://www.linode.com/content/msps-guide-to-modern-cloud-infrastructure/"
-          >
-              Download
+          <span className="c-featured__button">
+            Download
           </span>
         </div>
       </a>

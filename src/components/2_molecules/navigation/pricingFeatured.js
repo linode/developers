@@ -33,10 +33,7 @@ const PricingFeaturedNav = () => (
             <div className="c-featured__excerpt">
               Estimate your cloud costs. Price and configure Linode features to match your needs.
             </div>
-            <span
-              className="c-featured__button"
-              href="https://www.linode.com/lp/tco-calculator/"
-            >
+            <span className="c-featured__button">
               Launch Calculator
             </span>
           </div>
