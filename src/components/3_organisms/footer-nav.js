@@ -268,7 +268,6 @@ const FooterNav = () => (
             <h4 class="o-menu__heading">Contact</h4>
             <ul class="o-menu__list">
               <li class="o-menu__item"><a class="o-menu__link" href="https://www.linode.com/support/"><span class="o-menu__title">Support</span></a></li>
-              <li class="o-menu__item"><a class="o-menu__link" href="https://www.linode.com/company/contact/"><span class="o-menu__title">Contact Sales</span></a></li>
               <li class="o-menu__item"><a class="o-menu__link" href="https://status.linode.com"><span class="o-menu__title">System Status</span></a></li>
               <li class="o-menu__item"><a class="o-menu__link" href="https://login.linode.com/login"><span class="o-menu__title">Log in</span></a></li>
             </ul>
