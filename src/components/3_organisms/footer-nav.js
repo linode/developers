@@ -116,6 +116,9 @@ const FooterNav = () => (
               </ul>
             </nav>
           </div>
+          <div class="o-layout__module c-extra">
+            <div id="teconsent"></div>
+          </div>
         </div>
 
 
@@ -152,7 +155,6 @@ const FooterNav = () => (
               <li class="o-menu__item"><a class="o-menu__link" href="https://www.linode.com/company/press/"><span class="o-menu__title">Press Center</span></a></li>
               <li class="o-menu__item"><a class="o-menu__link" href="https://www.linode.com/company/careers/"><span class="o-menu__title">Careers</span></a></li>
               <li class="o-menu__item"><a class="o-menu__link" href="https://www.linode.com/legal/"><span class="o-menu__title">Legal</span></a></li>
-              <li class="o-menu__item"><div id="teconsent"></div></li>
             </ul>
           </nav>
         </div>
