@@ -116,6 +116,9 @@ const FooterNav = () => (
               </ul>
             </nav>
           </div>
+          <div class="o-layout__module c-extra">
+            <div id="teconsent"></div>
+          </div>
         </div>
 
 
@@ -152,7 +155,6 @@ const FooterNav = () => (
               <li class="o-menu__item"><a class="o-menu__link" href="https://www.linode.com/company/press/"><span class="o-menu__title">Press Center</span></a></li>
               <li class="o-menu__item"><a class="o-menu__link" href="https://www.linode.com/company/careers/"><span class="o-menu__title">Careers</span></a></li>
               <li class="o-menu__item"><a class="o-menu__link" href="https://www.linode.com/legal/"><span class="o-menu__title">Legal</span></a></li>
-              <li class="o-menu__item"><div id="teconsent"></div></li>
             </ul>
           </nav>
         </div>
@@ -268,7 +270,6 @@ const FooterNav = () => (
             <h4 class="o-menu__heading">Contact</h4>
             <ul class="o-menu__list">
               <li class="o-menu__item"><a class="o-menu__link" href="https://www.linode.com/support/"><span class="o-menu__title">Support</span></a></li>
-              <li class="o-menu__item"><a class="o-menu__link" href="https://www.linode.com/company/contact/"><span class="o-menu__title">Contact Sales</span></a></li>
               <li class="o-menu__item"><a class="o-menu__link" href="https://status.linode.com"><span class="o-menu__title">System Status</span></a></li>
               <li class="o-menu__item"><a class="o-menu__link" href="https://login.linode.com/login"><span class="o-menu__title">Log in</span></a></li>
             </ul>
