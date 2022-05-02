@@ -13,31 +13,31 @@ const SolutionsFeaturedNav = () => (
         <a
           id="c-featured--solutions"
           className="c-featured"
-          href="https://www.linode.com/content/dev-mukherjee/"
+          href="https://www.linode.com/content/cloudways/"
           style={styles}
           onClick={()=>
-            Event('Navigation','click','ou')
+            Event('Navigation','click','cloudways')
           }
         >
           <img
             width="632"
-            height="279"
-            src="https://www.linode.com/wp-content/uploads/2021/10/anomaly-ltd-header-632x279.jpg"
+            height="235"
+            src="https://www.linode.com/wp-content/uploads/2022/04/cloudways-2-632x235.jpg"
             className="c-featured__background"
-            alt="Dev Mukherjee"
+            alt="Cloudways Customer Story"
             loading="lazy"
-            srcSet="https://www.linode.com/wp-content/uploads/2021/10/anomaly-ltd-header-632x279.jpg 632w, https://www.linode.com/wp-content/uploads/2021/10/anomaly-ltd-header-1064x470.jpg 1064w, https://www.linode.com/wp-content/uploads/2021/10/anomaly-ltd-header-1944x858.jpg 1944w, data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 1w"
+            srcSet="https://www.linode.com/wp-content/uploads/2022/04/cloudways-2-632x235.jpg 632w, https://www.linode.com/wp-content/uploads/2022/04/cloudways-2-1064x395.jpg 1064w, https://www.linode.com/wp-content/uploads/2022/04/cloudways-2.jpg 1215w, data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 1w"
             sizes="(max-width:991px) 1px, 632px"
           />
           <div className="c-featured__text">
             <div className="c-featured__headline">
-              Dev Mukherjee <br/>@ Anomaly
+              Cloudways
             </div>
             <div className="c-featured__excerpt">
-              Innovation Down Under and Beyond:<br/> From Virtualization to Electric Vehicles
+              Turning a Partnership into Profit
             </div>
             <span className="c-featured__button">
-              Read Dev's Story
+              Read Story
             </span>
           </div>
         </a>
