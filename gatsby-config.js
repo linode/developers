@@ -90,7 +90,12 @@ module.exports = {
       resolve: `gatsby-plugin-purgecss`,
       options: {
         tailwind: true,
-        whitelistPatternsChildren: [/consent_blackbar/],
+        whitelistPatternsChildren: [
+          /consent_blackbar/,
+          /c-featured/,
+          /c-notification/,
+          /o-menu/
+        ],
         whitelist: [
           "mobile",
           "mobile-nav",

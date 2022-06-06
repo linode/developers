@@ -25,20 +25,22 @@ const MainSiteGlobalMenu = ({ data }) => {
           </li>
           {data.allHeaderUtility.edges.map(link => {
             const node = link.node;
-            return (
-              <li className="o-menu__item" key={node.id}>
-                <a
-                  key={node.id}
-                  href={node.url ? node.url : null}
-                  className="o-menu__link"
-                  role="menuitem"
-                >
-                  <span className="o-menu__title">
-                    {node.title}
-                  </span>
-                </a>
-              </li>
-            );
+            if ( node.title !== 'Search' ) {
+              return (
+                <li className="o-menu__item" key={node.id}>
+                  <a
+                    key={node.id}
+                    href={node.url ? node.url : null}
+                    className="o-menu__link"
+                    role="menuitem"
+                  >
+                    <span className="o-menu__title">
+                      {node.title}
+                    </span>
+                  </a>
+                </li>
+              );
+            }
           })}
         </ul>
       </div>
