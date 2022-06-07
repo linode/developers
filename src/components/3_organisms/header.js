@@ -64,7 +64,7 @@ class Header extends React.Component {
                 </div>
                 <div className="o-layout__module">
                   <ul className="o-menu__list">
-                    <li className="o-menu__item o-menu__item--sign-up"><a className="o-menu__link" href="https://login.linode.com/signup?promo=signup100-3"><span className="o-menu__title">Sign Up</span></a></li>
+                    <li className="o-menu__item o-menu__item--sign-up"><a className="o-menu__link" href="https://login.linode.com/signup"><span className="o-menu__title">Sign Up</span></a></li>
                   </ul>
                 </div>
                 <div className="o-layout__module">
