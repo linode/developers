@@ -218,6 +218,7 @@ class FooterNav extends React.Component {
                   <li className="o-menu__item"><a className="o-menu__link" href="https://www.linode.com/mgd-hosting-solutions/"><span className="o-menu__title">Managed Hosting</span></a></li>
                   <li className="o-menu__item"><a className="o-menu__link" href="https://www.linode.com/multicloud/"><span className="o-menu__title">Multicloud</span></a></li>
                   <li className="o-menu__item"><a className="o-menu__link" href="https://www.linode.com/linode-for-saas/"><span className="o-menu__title">SaaS</span></a></li>
+                  <li className="o-menu__item"><a className="o-menu__link" href="https://www.linode.com/security-solutions/"><span className="o-menu__title">Security Solutions</span></a></li>
                   <li className="o-menu__item"><a className="o-menu__link" href="https://www.linode.com/video-streaming-solutions/"><span className="o-menu__title">Video Streaming</span></a></li>
                   <li className="o-menu__item"><a className="o-menu__link" href="https://www.linode.com/linode-for-website-hosting/"><span className="o-menu__title">Website Hosting</span></a></li>
                 </ul>
