@@ -14,7 +14,7 @@ const ProductMenus = () => (
       <div className="o-layout__col">
         <ProductsFeatured />
         <div className="o-layout__module">
-          <a href="https://linode.com/products/" className="o-link--arrow">
+          <a href="https://www.linode.com/products/" className="o-link--arrow">
             View All Products
           </a>
         </div>

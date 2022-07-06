@@ -9,7 +9,7 @@ const SolutionsMenus = () => (
       <div className="o-layout__col">
         <SolutionsFeatured />
         <div className="o-layout__module">
-          <a href="https://linode.com/solutions/" className="o-link--arrow">
+          <a href="https://www.linode.com/solutions/" className="o-link--arrow">
             View All Solutions
           </a>
         </div>

@@ -54,7 +54,7 @@ const GuidesPage = ({ data }) => {
         </div>
         <div className="text-center mt-4 md:mt-0 md:mb-12">
           <a
-            href="https://linode.com/docs/platform"
+            href="https://www.linode.com/docs/guides/platform/"
             target="_blank"
             className="btn mx-auto"
             rel="noopener noreferrer"
@@ -83,7 +83,7 @@ const GuidesPage = ({ data }) => {
             </p>
             <div className="flex">
               <a
-                href="https://linode.com/community/questions"
+                href="https://www.linode.com/community/questions/"
                 target="_blank"
                 className="btn mt-4"
                 rel="noopener noreferrer"
@@ -112,7 +112,7 @@ const GuidesPage = ({ data }) => {
             Create an Account
           </a>
           <a
-            href="https://www.linode.com/linodes"
+            href="https://www.linode.com/choosing-linode/"
             target="_blank"
             className="btn mt-4 ml-2"
             rel="noopener noreferrer"
