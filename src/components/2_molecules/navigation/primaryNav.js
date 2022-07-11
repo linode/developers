@@ -61,7 +61,7 @@ class MainSiteNav extends React.Component {
                 </a>
               </li>
               <li className="o-menu__item">
-                <a className="o-menu__link" href="https://linode.com/marketplace">
+                <a className="o-menu__link" href="https://www.linode.com/marketplace/">
                   <span className="o-menu__title">
                     Marketplace
                   </span>

@@ -26,7 +26,7 @@ const IndexPage = () => {
           {/* {{ partial "2_molecules/code-box.html" ( dict "Line1" "pip3 install linode-cli" "Line2" "linode-cli linodes create") }} */}
           <div className="mt-6 text-center">
             <a
-              href="https://www.linode.com/cli"
+              href="https://www.linode.com/products/cli/"
               target="_blank"
               rel="noopener noreferrer"
               className="btn mt-3"
@@ -41,7 +41,7 @@ const IndexPage = () => {
         <article className="w-full md:w-1/2 px-4 mb-4 md:mb-8">
           <div className="px-8 py-20 h-full bg-ThemeCell tile flex flex-col justify-center items-center">
             <h2 className="mt-0 font-normal text-center">
-              <a href="https://www.linode.com/docs/api" className="text-black tile-link">
+              <a href="https://www.linode.com/docs/api/" className="text-black tile-link">
                 API Documentation
               </a>
             </h2>
@@ -100,7 +100,7 @@ const IndexPage = () => {
           </div>
           <a
             className="btn mx-auto mt-6"
-            href="https://www.linode.com/careers"
+            href="https://www.linode.com/company/careers/"
             target="_blank"
             rel="noopener noreferrer"
           >
