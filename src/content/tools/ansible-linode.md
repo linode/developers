@@ -1,9 +1,10 @@
 ---
-title: "Ansible linode_v4 module"
-description: Ansible linode_v4 module
-origin: community
-external_url: https://docs.ansible.com/ansible/latest/modules/linode_v4_module.html 
+title: "Linode Ansible Collection"
+description: Linode Ansible Collection
+author: linode
+origin: linode
+external_url: https://galaxy.ansible.com/linode/cloud
 weight: 2
 ---
 
-Ansible includes a "linode_v4" module for automating Linode instance provisioning by [Luke Murphy](https://github.com/lwm)
+The Ansible Linode Collection allows for provisioning Linode infrastructure through Ansible.
