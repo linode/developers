@@ -71,7 +71,7 @@ class FooterNav extends React.Component {
             <div className="o-layout__col">
               <div className="o-layout__module c-identity">
                 <a className="c-identity__link" target="_self" href="https://www.linode.com/" itemProp="url">
-                  <img alt="Linode Logo" className="c-identity__image" src="https://www.linode.com/wp-content/uploads/2018/10/linode-logo-blk-rgb-minified.svg" alt="linode-logo-blk-rgb-minified" itemProp="image" data-no-lazy="1"></img>
+                  <img width="160" height="55" alt="Linode - Akamai Cloud Computing Logo" className="c-identity__image" src="https://www.linode.com/wp-content/themes/linode-website-theme/images/linode-akamai-logo.svg?ver=1661285658" itemprop="image" data-no-lazy="1"></img>
                 </a>
               </div>
               <div className="o-layout__module c-copyright">
@@ -143,7 +143,7 @@ class FooterNav extends React.Component {
                   <li className="o-menu__item"><a className="o-menu__link" href="https://www.linode.com/cloud-simplified/"><span className="o-menu__title">Cloud Simplified</span></a></li>
                   <li className="o-menu__item"><a className="o-menu__link" href="https://www.linode.com/free-bundled-services/"><span className="o-menu__title">Free Bundled Services</span></a></li>
                   <li className="o-menu__item"><a className="o-menu__link" href="https://www.linode.com/global-infrastructure/"><span className="o-menu__title">Global Infrastructure</span></a></li>
-                  <li className="o-menu__item"><a className="o-menu__link" href="https://www.linode.com/craft-of-code/"><span className="o-menu__title">Customer Stories</span></a></li>
+                  <li className="o-menu__item"><a className="o-menu__link" href="https://www.linode.com/series/craft-of-code/"><span className="o-menu__title">Customer Stories</span></a></li>
                   <li className="o-menu__item"><a className="o-menu__link" href="https://www.linode.com/linode-for-business/"><span className="o-menu__title">Linode for Business</span></a></li>
                   <li className="o-menu__item"><a className="o-menu__link" href="https://www.linode.com/alternative-cloud-provider/"><span className="o-menu__title">Alternative Cloud</span></a></li>
                   <li className="o-menu__item"><a className="o-menu__link" href="https://www.linode.com/compare/"><span className="o-menu__title">Linode vs. Competitors</span></a></li>
