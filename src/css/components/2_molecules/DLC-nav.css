@@ -5,7 +5,7 @@
 @media only screen and (min-width: 768px) {
   .dlc-nav {
     position: sticky;
-    top: 70px;
+    top: 76px;
     z-index: 2;
   }
 }

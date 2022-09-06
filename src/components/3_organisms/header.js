@@ -41,7 +41,7 @@ class Header extends React.Component {
               <div className="o-layout__col">
                 <div className="o-layout__module c-identity">
                   <a href="https://www.linode.com" className="c-identity__link" itemProp="url" target="_self">
-                    <img alt="Linode Logo" className="c-identity__image" src="https://www.linode.com/wp-content/uploads/2021/01/Linode-Logo-Black.svg" itemProp="image" data-no-lazy="1"></img>
+                    <img width="160" height="55" alt="Linode - Akamai Cloud Computing Logo" className="c-identity__image" src="https://www.linode.com/wp-content/themes/linode-website-theme/images/linode-akamai-logo.svg?ver=1661285658" itemprop="image" data-no-lazy="1"></img>
                   </a>
                 </div>
               </div>

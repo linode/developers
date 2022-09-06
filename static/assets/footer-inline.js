@@ -118,11 +118,15 @@
   } else if (localPromoCode || cookies2.promoCode) {
     updatePromoCodes(localPromoCode || cookies2.promoCode, true);
   } else {
-    fetch("https://www.linode.com/wp-json/linode/v1/promo-codes").then((response) => {
+    fetch("https://www.linode.com/wp-json/linode/v1/promo-data").then((response) => {
       if (!response.ok)
         throw new Error("");
       return response;
-    }).then((response) => response.json()).then((data) => updatePromoCodes(data.promo_code, false)).catch((error) => {
+    }).then((response) => response.json()).then((data) => {
+      if (data.global && data.global.promo_code) {
+        updatePromoCodes(data.global.promo_code, false);
+      }
+    }).catch((error) => {
     });
   }
 })();
