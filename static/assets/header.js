@@ -43,7 +43,9 @@
     } else if (current_path.match(/^\/award|media\-coverage|press\-release\/.+/)) {
       current_path = "/company/press/";
     }
-    $current_links = $header.querySelectorAll(':scope a.o-menu__link[href*="' + current_path + '"');
+    var $current_links = $header.querySelectorAll(':scope a.o-menu__link[href*="' + current_path + '"');
+    if (!$current_links)
+      return;
     Array.from($current_links).forEach(($link) => {
       if (!$link.getAttribute("href").split(/[?#]/)[0].endsWith(current_path))
         return;
@@ -213,6 +215,8 @@
   var handleClick = function(e) {
     const $anchor = e.target.closest("a"), $trigger = e.target.closest("[data-toggle]");
     if ($trigger === null)
+      return;
+    if (e.target.closest("form") !== null)
       return;
     if ($anchor && $anchor !== $trigger)
       return;
