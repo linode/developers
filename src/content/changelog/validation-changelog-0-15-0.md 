@@ -1,0 +1,10 @@
+---
+title: Linode Validation v0.15.0
+date: 2022-10-04T05:00:00.000Z
+version: 0.15.0
+changelog:
+  - Validation
+---
+
+### Changed:
+- validFirewallRuleProtocol and FirewallRuleTypeSchema updated to account for IPENCAP
