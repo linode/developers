@@ -426,7 +426,7 @@ class Header extends React.Component {
                     <a className="o-menu__link" href="https://www.linode.com/cloud-computing-community/"><span className="o-menu__title">Community Overview</span></a>
                   </li>
                   <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linnode.com/community/questions/"><span className="o-menu__title">Q&amp;A</span></a>
+                    <a className="o-menu__link" href="https://www.linode.com/community/questions/"><span className="o-menu__title">Q&amp;A</span></a>
                   </li>
                   <li className="o-menu__item">
                     <a className="o-menu__link" href="https://www.linode.com/developers/"><span className="o-menu__title">Developer Portal</span></a>
