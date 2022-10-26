@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Linode Developer Tools`,
@@ -25,11 +29,11 @@ module.exports = {
     {
       resolve: "gatsby-plugin-google-tagmanager",
       options: {
-        id: "GTM-T5FXXG9",
+        id: ( process.env.GTM_CONTAINER_ID || 'GTM-T5FXXG9' ),
 
         // Include GTM in development.
         // Defaults to false meaning GTM will only be loaded in production.
-        includeInDevelopment: false,
+        includeInDevelopment: true,
 
         // datalayer to be set before GTM is loaded
         // should be an object or a function that is executed in the browser
