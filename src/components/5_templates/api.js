@@ -119,7 +119,6 @@ class apiPage extends React.Component {
                           escapeHtml={false}
                           className="my-8 api-desc"
                         />
-                        {m.security && <Security oauth={m.security[1].oauth} />}
                         {n.parameters && (
                           <div className="my-8">
                             <h3 className="mb-2">Path Parameters</h3>
