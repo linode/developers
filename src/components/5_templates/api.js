@@ -247,7 +247,6 @@ export const query = graphql`
             summary
             description
             operationId
-            x_linode_cli_action
             x_linode_cli_skip
             x_linode_redoc_load_ids
             x_linode_cli_command
@@ -326,7 +325,6 @@ export const query = graphql`
             tags
             description
             operationId
-            x_linode_cli_action
             x_linode_cli_command
             x_linode_charge
             x_linode_cli_skip
@@ -412,7 +410,6 @@ export const query = graphql`
             tags
             description
             operationId
-            x_linode_cli_action
             x_linode_cli_skip
             security {
               oauth
@@ -493,7 +490,6 @@ export const query = graphql`
             summary
             description
             operationId
-            x_linode_cli_action
             x_linode_grant
             security {
               oauth
