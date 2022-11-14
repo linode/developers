@@ -119,7 +119,6 @@ class apiPage extends React.Component {
                           escapeHtml={false}
                           className="my-8 api-desc"
                         />
-                        {m.security && <Security oauth={m.security[1].oauth} />}
                         {n.parameters && (
                           <div className="my-8">
                             <h3 className="mb-2">Path Parameters</h3>
@@ -247,7 +246,6 @@ export const query = graphql`
             summary
             description
             operationId
-            x_linode_cli_action
             x_linode_cli_skip
             x_linode_redoc_load_ids
             x_linode_cli_command
@@ -326,7 +324,6 @@ export const query = graphql`
             tags
             description
             operationId
-            x_linode_cli_action
             x_linode_cli_command
             x_linode_charge
             x_linode_cli_skip
@@ -412,7 +409,6 @@ export const query = graphql`
             tags
             description
             operationId
-            x_linode_cli_action
             x_linode_cli_skip
             security {
               oauth
@@ -493,7 +489,6 @@ export const query = graphql`
             summary
             description
             operationId
-            x_linode_cli_action
             x_linode_grant
             security {
               oauth
