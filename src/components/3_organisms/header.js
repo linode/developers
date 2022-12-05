@@ -221,7 +221,7 @@ class Header extends React.Component {
                     <a className="o-menu__link" href="https://www.linode.com/compare/"><span className="o-menu__title">Linode vs. Competitors</span></a>
                   </li>
                   <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/open-cloud/"><span className="o-menu__title">Open Cloud</span></a>
+                    <a className="o-menu__link" href="https://www.linode.com/approach/"><span className="o-menu__title">Our Approach</span></a>
                   </li>
                   <li className="o-menu__item">
                     <a className="o-menu__link" href="https://www.linode.com/what-is-cloud-computing/"><span className="o-menu__title">What is Cloud Computing?</span></a>
@@ -250,10 +250,10 @@ class Header extends React.Component {
                       <a className="o-menu__link" href="https://www.linode.com/products/gpu/"><span className="o-menu__title">GPU</span></a>
                     </li>
                     <li className="o-menu__item">
-                      <a className="o-menu__link" href="https://www.linode.com/products/bare-metal/"><span className="o-menu__title">Bare Metal</span></a>
+                      <a className="o-menu__link" href="https://www.linode.com/products/kubernetes/"><span className="o-menu__title">Kubernetes</span></a>
                     </li>
                     <li className="o-menu__item">
-                      <a className="o-menu__link" href="https://www.linode.com/products/kubernetes/"><span className="o-menu__title">Kubernetes</span></a>
+                      <a className="o-menu__link" href="https://www.linode.com/products/akamai-products-and-solutions/#edgeworkers"><span className="o-menu__title">EdgeWorkers</span></a>
                     </li>
                     </ul>
                   </li>
@@ -351,6 +351,46 @@ class Header extends React.Component {
                     </li>
                     <li className="o-menu__item">
                       <a className="o-menu__link" href="https://www.linode.com/products/users-permissions/"><span className="o-menu__title">Users &#038; Permissions</span></a>
+                    </li>
+                    </ul>
+                  </li>
+                  <li className="o-menu__item o-menu__parent" id="submenu-mobile-primary-full--52611" data-group="submenu-mobile-primary-full--level-1">
+                    <button className="o-menu__link o-menu__toggle"data-group="submenu-mobile-primary-full--level-1" data-toggle="#submenu-mobile-primary-full--52611"><span className="o-menu__title">Delivery</span></button>
+                    <ul className="o-menu__list o-menu__child --d2">
+                    <li className="o-menu__item">
+                      <a className="o-menu__link" href="https://www.linode.com/products/akamai-products-and-solutions/#adaptive-media-delivery"><span className="o-menu__title">Adaptive Media</span></a>
+                    </li>
+                    <li className="o-menu__item">
+                      <a className="o-menu__link" href="https://www.linode.com/products/akamai-products-and-solutions/#download-delivery"><span className="o-menu__title">Download Delivery</span></a>
+                    </li>
+                    <li className="o-menu__item">
+                      <a className="o-menu__link" href="https://www.linode.com/products/akamai-products-and-solutions/#ion"><span className="o-menu__title">Ion</span></a>
+                    </li>
+                    <li className="o-menu__item">
+                      <a className="o-menu__link" href="https://www.linode.com/products/akamai-products-and-solutions/#global-traffic-management"><span className="o-menu__title">Global Traffic</span></a>
+                    </li>
+                    </ul>
+                  </li>
+                  <li className="o-menu__item o-menu__parent" id="submenu-mobile-primary-full--52612" data-group="submenu-mobile-primary-full--level-1">
+                    <button className="o-menu__link o-menu__toggle"data-group="submenu-mobile-primary-full--level-1" data-toggle="#submenu-mobile-primary-full--52612"><span className="o-menu__title">Security</span></button>
+                    <ul className="o-menu__list o-menu__child --d2">
+                    <li className="o-menu__item">
+                      <a className="o-menu__link" href="https://www.linode.com/products/akamai-products-and-solutions/#guardicore-segmentation"><span className="o-menu__title">Guardicore</span></a>
+                    </li>
+                    <li className="o-menu__item">
+                      <a className="o-menu__link" href="https://www.linode.com/products/akamai-products-and-solutions/#kona-site-defender"><span className="o-menu__title">Kona Site Defender</span></a>
+                    </li>
+                    <li className="o-menu__item">
+                      <a className="o-menu__link" href="https://www.linode.com/products/akamai-products-and-solutions/#app-api-protector"><span className="o-menu__title">App &amp; API Protector</span></a>
+                    </li>
+                    <li className="o-menu__item">
+                      <a className="o-menu__link" href="https://www.linode.com/products/akamai-products-and-solutions/#bot-manager"><span className="o-menu__title">Bot Manager</span></a>
+                    </li>
+                    <li className="o-menu__item">
+                      <a className="o-menu__link" href="https://www.linode.com/products/akamai-products-and-solutions/#account-protector"><span className="o-menu__title">Account Protector</span></a>
+                    </li>
+                    <li className="o-menu__item">
+                      <a className="o-menu__link" href="https://www.linode.com/products/akamai-products-and-solutions/#enterprise-application-access"><span className="o-menu__title">EAA</span></a>
                     </li>
                     </ul>
                   </li>
@@ -563,7 +603,7 @@ class Header extends React.Component {
     </div>
 
 
-    <div className="o-layout__row c-submenu c-submenu--why-linode" data-toggle data-group="sub-menu" id="sub-menu--why-linode">
+    <div className="o-layout__row c-submenu c-submenu--3col c-submenu--why-linode" data-toggle data-group="sub-menu" id="sub-menu--why-linode">
       <div className="o-layout__colset">
         <div className="o-layout__col">
 
@@ -623,7 +663,7 @@ class Header extends React.Component {
                   <a className="o-menu__link" href="https://www.linode.com/compare/"><span className="o-menu__title">Linode vs. Competitors</span></a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/open-cloud/"><span className="o-menu__title">Open Cloud</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/approach/"><span className="o-menu__title">Our Approach</span></a>
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/what-is-cloud-computing/"><span className="o-menu__title">What is Cloud Computing?</span></a>
@@ -637,7 +677,7 @@ class Header extends React.Component {
     </div>
 
 
-    <div className="o-layout__row c-submenu c-submenu--products" data-toggle data-group="sub-menu" id="sub-menu--products">
+    <div className="o-layout__row c-submenu c-submenu--4col c-submenu--products" data-toggle data-group="sub-menu" id="sub-menu--products">
       <div className="o-layout__colset">
         <div className="o-layout__col">
 
@@ -669,10 +709,10 @@ class Header extends React.Component {
                   <a className="o-menu__link" href="https://www.linode.com/products/gpu/"><span className="o-menu__title">GPU</span></a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/products/bare-metal/"><span className="o-menu__title">Bare Metal</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/products/kubernetes/"><span className="o-menu__title">Kubernetes</span></a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/products/kubernetes/"><span className="o-menu__title">Kubernetes</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/products/akamai-products-and-solutions/#edgeworkers"><span className="o-menu__title">EdgeWorkers</span></a>
                 </li>
               </ul>
             </nav>
@@ -794,6 +834,55 @@ class Header extends React.Component {
           </div>
 
         </div>
+        <div className="o-layout__col">
+
+          <div className="o-layout__module">
+            <h6>Delivery</h6>
+            <nav className="o-menu">
+              <ul className="o-menu__list --d0">
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/products/akamai-products-and-solutions/#adaptive-media-delivery"><span className="o-menu__title">Adaptive Media</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/products/akamai-products-and-solutions/#download-delivery"><span className="o-menu__title">Download Delivery</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/products/akamai-products-and-solutions/#ion"><span className="o-menu__title">Ion</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/products/akamai-products-and-solutions/#global-traffic-management"><span className="o-menu__title">Global Traffic</span></a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+
+          <div className="o-layout__module">
+            <h6>Security</h6>
+            <nav className="o-menu">
+              <ul className="o-menu__list --d0">
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/products/akamai-products-and-solutions/#guardicore-segmentation"><span className="o-menu__title">Guardicore</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/products/akamai-products-and-solutions/#kona-site-defender"><span className="o-menu__title">Kona Site Defender</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/products/akamai-products-and-solutions/#app-api-protector"><span className="o-menu__title">App &amp; API Protector</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/products/akamai-products-and-solutions/#bot-manager"><span className="o-menu__title">Bot Manager</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/products/akamai-products-and-solutions/#account-protector"><span className="o-menu__title">Account Protector</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/products/akamai-products-and-solutions/#enterprise-application-access"><span className="o-menu__title">EAA</span></a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -889,7 +978,7 @@ class Header extends React.Component {
     </div>
 
 
-    <div className="o-layout__row c-submenu c-submenu--community" data-toggle data-group="sub-menu" id="sub-menu--community">
+    <div className="o-layout__row c-submenu c-submenu--3col c-submenu--community" data-toggle data-group="sub-menu" id="sub-menu--community">
       <div className="o-layout__colset">
         <div className="o-layout__col">
 
