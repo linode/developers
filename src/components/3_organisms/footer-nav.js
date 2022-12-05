@@ -141,7 +141,7 @@ class FooterNav extends React.Component {
                   <a className="o-menu__link" href="https://www.linode.com/compare/"><span className="o-menu__title">Linode vs. Competitors</span></a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/open-cloud/"><span className="o-menu__title">Open Cloud</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/approach/"><span className="o-menu__title">Our Approach</span></a>
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/what-is-cloud-computing/"><span className="o-menu__title">What is Cloud Computing?</span></a>
@@ -199,9 +199,6 @@ class FooterNav extends React.Component {
                   <a className="o-menu__link" href="https://www.linode.com/products/gpu/"><span className="o-menu__title">GPU</span></a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/products/bare-metal/"><span className="o-menu__title">Bare Metal</span></a>
-                </li>
-                <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/products/kubernetes/"><span className="o-menu__title">Kubernetes</span></a>
                 </li>
                 <li className="o-menu__item">
@@ -215,15 +212,6 @@ class FooterNav extends React.Component {
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/products/databases/"><span className="o-menu__title">Managed Databases</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/products/mongodb/"><span className="o-menu__title">MongoDB</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/products/mysql/"><span className="o-menu__title">MySQL</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/products/postgresql/"><span className="o-menu__title">PostgreSQL</span></a>
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/products/cloud-firewall/"><span className="o-menu__title">Cloud Firewall</span></a>
