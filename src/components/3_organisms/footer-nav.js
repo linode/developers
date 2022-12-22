@@ -44,8 +44,8 @@ class FooterNav extends React.Component {
         <div className="o-layout__col">
 
           <div className="o-layout__module c-identity">
-            <a className="c-identity__link" href="https://www.linode.com" target="_self" itemprop="url">
-              <img width="160" height="55" alt="Linode - Akamai Cloud Computing Logo" className="c-identity__image" src="https://www.linode.com/wp-content/themes/linode-website-theme/images/linode-akamai-logo.svg?ver=1663187393" itemprop="image" data-no-lazy="1" />
+            <a className="c-identity__link" href="https://www.linode.com" target="_self" itemProp="url">
+              <img width="160" height="55" alt="Linode - Akamai Cloud Computing Logo" className="c-identity__image" src="https://www.linode.com/wp-content/themes/linode-website-theme/images/linode-akamai-logo.svg?ver=1663187393" itemProp="image" data-no-lazy="1" />
             </a>
           </div>
 

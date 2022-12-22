@@ -25,44 +25,44 @@ class Header extends React.Component {
       <symbol id="menu-icon--toggle" viewBox="0 0 320 512"><path fill="currentColor" d="M151.5 347.8L3.5 201c-4.7-4.7-4.7-12.3 0-17l19.8-19.8c4.7-4.7 12.3-4.7 17 0L160 282.7l119.7-118.5c4.7-4.7 12.3-4.7 17 0l19.8 19.8c4.7 4.7 4.7 12.3 0 17l-148 146.8c-4.7 4.7-12.3 4.7-17 0z"></path></symbol>
 
       <symbol id="menu-icon--search" viewBox="0 0 30 30">
-        <circle cx="17.5" cy="11.9" r="6.6" fill="#03b159" stroke="#fff" stroke-width="2" stroke-miterlimit="10"/>
+        <circle cx="17.5" cy="11.9" r="6.6" fill="#03b159" stroke="#fff" strokeWidth="2" strokeMiterlimit="10"/>
         <path d="M17.5 3.4C12.8 3.4 9 7.2 9 11.9c0 1.8.6 3.5 1.5 4.9-.2.1-.3.2-.5.4l-5.9 5.9c-.8.8-.8 2.2 0 3 .4.4 1 .6 1.5.6s1.1-.2 1.5-.6l5.9-5.9c.2-.2.4-.5.5-.7 1.2.6 2.5 1 3.9 1 4.7 0 8.5-3.8 8.5-8.5.1-4.8-3.7-8.6-8.4-8.6zm0 15.1c-3.6 0-6.6-3-6.6-6.6s3-6.6 6.6-6.6c3.6 0 6.6 3 6.6 6.6s-2.9 6.6-6.6 6.6z"/>
       </symbol>
 
       <symbol id="menu-icon--docs" viewBox="0 0 30 30">
-        <path fill="#03b159" stroke="#fff" stroke-width="2" stroke-miterlimit="10" d="M7.4 6.2h15.2v17.5H7.4z"/>
+        <path fill="#03b159" stroke="#fff" strokeWidth="2" strokeMiterlimit="10" d="M7.4 6.2h15.2v17.5H7.4z"/>
         <path d="M24.4 25.5H5.6v-21h18.8v21zm-17-1.8h15.2V6.2H7.4v17.5z"/>
         <path fill="#fff" d="M18.7 11.7h-7.4c-.4 0-.8-.4-.8-.9s.3-.9.8-.9h7.4c.4 0 .8.4.8.9s-.3.9-.8.9zM18.7 15.8h-7.4c-.4 0-.8-.4-.8-.9s.3-.9.8-.9h7.4c.4 0 .8.4.8.9s-.3.9-.8.9zM18.7 20h-7.4c-.4 0-.8-.4-.8-.9s.3-.9.8-.9h7.4c.4 0 .8.4.8.9s-.3.9-.8.9z"/>
       </symbol>
 
       <symbol id="menu-icon--blog" viewBox="0 0 30 30">
         <path fill="#fff" d="M7.3 5.9c-.7 0-1.3.6-1.3 1.3s.6 1.3 1.3 1.3c7.8 0 14.2 6.4 14.2 14.2 0 .7.6 1.3 1.3 1.3s1.3-.6 1.3-1.3c.1-9.2-7.5-16.8-16.8-16.8z"/>
-        <circle cx="7.3" cy="22.8" r="2.2" fill="#fff" stroke="#000" stroke-width="1.75" stroke-miterlimit="10"/>
-        <path fill="#03b159" fill-rule="evenodd" clip-rule="evenodd" d="M7.3 6.8c-.2 0-.4.2-.4.4s.2.4.4.4c8.3 0 15 6.8 15 15.1 0 .2.2.5.5.5s.5-.2.5-.5c-.1-8.8-7.2-15.9-16-15.9z"/>
+        <circle cx="7.3" cy="22.8" r="2.2" fill="#fff" stroke="#000" strokeWidth="1.75" strokeMiterlimit="10"/>
+        <path fill="#03b159" fillRule="evenodd" clipRule="evenodd" d="M7.3 6.8c-.2 0-.4.2-.4.4s.2.4.4.4c8.3 0 15 6.8 15 15.1 0 .2.2.5.5.5s.5-.2.5-.5c-.1-8.8-7.2-15.9-16-15.9z"/>
         <path d="M22.8 25.9c-1.7 0-3.1-1.4-3.1-3.1 0-6.9-5.6-12.5-12.5-12.5-1.7 0-3.1-1.4-3.1-3.1s1.4-3.1 3.1-3.1c10.3 0 18.6 8.4 18.7 18.7 0 1.7-1.4 3.1-3.1 3.1zM7.3 5.9c-.7 0-1.3.6-1.3 1.3s.6 1.3 1.3 1.3c7.8 0 14.2 6.4 14.2 14.2 0 .7.6 1.3 1.3 1.3s1.3-.6 1.3-1.3c.1-9.2-7.5-16.8-16.8-16.8z"/>
         <path d="M15 25.9c-1.7 0-3.1-1.4-3.1-3.1 0-2.6-2.1-4.7-4.7-4.7-1.7 0-3.1-1.4-3.1-3.1s1.4-3.1 3.1-3.1c6 0 10.9 4.9 10.9 10.9 0 1.7-1.3 3.1-3.1 3.1z"/>
         <path fill="#fff" d="M7.3 13.7c-.7 0-1.3.6-1.3 1.3s.6 1.3 1.3 1.3c3.5 0 6.4 2.9 6.4 6.4 0 .7.6 1.3 1.3 1.3s1.3-.6 1.3-1.3c.1-4.9-4-9-9-9z"/>
-        <path fill="#03b159" fill-rule="evenodd" clip-rule="evenodd" d="M15.5 22.8c0-4.5-3.7-8.2-8.2-8.2-.2 0-.4.2-.4.5s.2.5.4.5c4.1 0 7.4 3.3 7.4 7.3 0 .2.2.5.5.5.1-.2.3-.4.3-.6z"/>
+        <path fill="#03b159" fillRule="evenodd" clipRule="evenodd" d="M15.5 22.8c0-4.5-3.7-8.2-8.2-8.2-.2 0-.4.2-.4.5s.2.5.4.5c4.1 0 7.4 3.3 7.4 7.3 0 .2.2.5.5.5.1-.2.3-.4.3-.6z"/>
       </symbol>
 
       <symbol id="menu-icon--resources" viewBox="0 0 30 30">
-        <path fill="#03b159" stroke="#fff" stroke-width="1.75" stroke-miterlimit="10" d="m15 15.4 5.4 5.3v-14H9.7v14z"/>
+        <path fill="#03b159" stroke="#fff" strokeWidth="1.75" strokeMiterlimit="10" d="m15 15.4 5.4 5.3v-14H9.7v14z"/>
         <path d="M22.1 25 15 17.9 7.9 25V5h14.2v20zM15 15.4l5.3 5.3V6.6H9.7v14.1l5.3-5.3z"/>
       </symbol>
 
       <symbol id="menu-icon--pricing" viewBox="0 0 30 30">
-        <path fill="#03b159" stroke="#fff" stroke-width="2" stroke-miterlimit="10" d="M21.2 24.2H8.9V12.6L15 9.1l6.2 3.5z"/>
+        <path fill="#03b159" stroke="#fff" strokeWidth="2" strokeMiterlimit="10" d="M21.2 24.2H8.9V12.6L15 9.1l6.2 3.5z"/>
         <path d="M15.9 7.6V4.1h-1.8v3.5l-7 4V26h15.8V11.6l-7-4zm5.3 16.6H8.9V12.6L15 9.1l6.1 3.5.1 11.6z"/>
         <path d="M17.5 18.5c0-1.1-.6-1.7-2.1-2.1-1.1-.3-1.3-.5-1.3-1 0-.3.2-.7.8-.7.8 0 .9.5 1 .7h1.4c-.1-.8-.5-1.6-1.8-1.8V13h-1.2v.7c-1 .2-1.7.8-1.7 1.9 0 1 .5 1.6 2.2 2.1.9.3 1.2.5 1.2 1 0 .4-.2.8-1 .8-.6 0-1-.3-1.1-.9h-1.4c.1 1 .8 1.7 1.9 1.9v.8h1.2v-.8c1.2-.2 1.9-.9 1.9-2z" fill="#fff"/>
       </symbol>
 
       <symbol id="menu-icon--partners" viewBox="0 0 30 30">
-        <path d="M19.5 24h4.6v-3.7h-.4c-2.1 0-3.8-1.7-3.8-3.8s1.7-3.8 3.8-3.8h.4V9.9h-5.8V8.1c0-1.1-.9-2-2-2s-2 .9-2 2v1.8H10v4.2H7.2c-.8 0-1.4.6-1.4 1.4 0 .8.6 1.4 1.4 1.4H10v7.2h2v-.5c0-2.1 1.7-3.8 3.8-3.8s3.8 1.7 3.8 3.8v.4h-.1z" fill="#03b159" stroke="#fff" stroke-width="2" stroke-miterlimit="10"/>
+        <path d="M19.5 24h4.6v-3.7h-.4c-2.1 0-3.8-1.7-3.8-3.8s1.7-3.8 3.8-3.8h.4V9.9h-5.8V8.1c0-1.1-.9-2-2-2s-2 .9-2 2v1.8H10v4.2H7.2c-.8 0-1.4.6-1.4 1.4 0 .8.6 1.4 1.4 1.4H10v7.2h2v-.5c0-2.1 1.7-3.8 3.8-3.8s3.8 1.7 3.8 3.8v.4h-.1z" fill="#03b159" stroke="#fff" strokeWidth="2" strokeMiterlimit="10"/>
         <path d="M25.8 25.8h-8.1v-2.2c0-1.1-.9-2-2-2s-2 .9-2 2v2.2H8.2v-7.2h-1c-1.7 0-3.1-1.4-3.1-3.1s1.4-3.1 3.1-3.1h1V8.2h4.3v-.1c0-2.1 1.7-3.8 3.8-3.8s3.8 1.7 3.8 3.8v.1h5.8v6.4h-2.1c-1.1 0-2 .9-2 2s.9 2 2 2h2.1v7.2h-.1zM19.5 24h4.6v-3.7h-.4c-2.1 0-3.8-1.7-3.8-3.8s1.7-3.8 3.8-3.8h.4V9.9h-5.8V8.1c0-1.1-.9-2-2-2s-2 .9-2 2v1.8H10v4.2H7.2c-.8 0-1.4.6-1.4 1.4 0 .8.6 1.4 1.4 1.4H10v7.2h2v-.5c0-2.1 1.7-3.8 3.8-3.8s3.8 1.7 3.8 3.8v.4h-.1z"/>
       </symbol>
 
       <symbol id="menu-icon--support" viewBox="0 0 30 30">
-        <path d="M15 5.9c-4.6 0-8.4 3.7-8.4 8.4 0 2.1.8 4.1 2.2 5.6l.2.3v.3l-.2 2.3 2.5-1.1.3.1c1.1.5 2.2.7 3.4.7 4.6 0 8.4-3.7 8.4-8.4S19.6 5.9 15 5.9z" fill="#03b159" stroke="#fff" stroke-width="2" stroke-miterlimit="10"/>
+        <path d="M15 5.9c-4.6 0-8.4 3.7-8.4 8.4 0 2.1.8 4.1 2.2 5.6l.2.3v.3l-.2 2.3 2.5-1.1.3.1c1.1.5 2.2.7 3.4.7 4.6 0 8.4-3.7 8.4-8.4S19.6 5.9 15 5.9z" fill="#03b159" stroke="#fff" strokeWidth="2" strokeMiterlimit="10"/>
         <path d="m6.9 25.8.4-4.9c-1.6-1.8-2.4-4.1-2.4-6.5C4.9 8.8 9.4 4.2 15 4.2s10.1 4.5 10.1 10.1S20.6 24.5 15 24.5c-1.3 0-2.6-.2-3.8-.7l-4.3 2zM15 5.9c-4.6 0-8.4 3.7-8.4 8.4 0 2.1.8 4.1 2.2 5.6l.2.3v.3l-.2 2.3 2.5-1.1.3.1c1.1.5 2.2.7 3.4.7 4.6 0 8.4-3.7 8.4-8.4S19.6 5.9 15 5.9z"/>
         <g>
           <path d="M13.9 16.1v-.2c0-.9.4-1.6 1.3-2.4.6-.5.7-.9.7-1.4 0-.5-.3-.9-.9-.9-.8 0-1 .5-1.1 1.2H12c.1-1.1.8-2.7 3-2.6 2.2 0 2.8 1.4 2.8 2.5 0 .8-.3 1.4-1.2 2.3-.6.5-.8 1-.8 1.5v.1h-1.9zm0 2.9v-2.2h2V19h-2z" fill="#fff"/>
@@ -70,8 +70,8 @@ class Header extends React.Component {
       </symbol>
 
       <symbol id="menu-icon--sales" viewBox="0 0 30 30">
-        <path fill="none" stroke="currentColor" stroke-width="1.75" stroke-miterlimit="10" d="M24.5 24h-19V6"/>
-        <path d="M9 20.7h-.2c-.3-.1-.5-.5-.3-.8l3-7c.1-.2.2-.3.4-.4.2 0 .4 0 .5.1l4.3 3.5 3.7-9.2c.1-.3.5-.5.8-.3.3.1.5.5.4.8l-4 10c-.1.2-.2.3-.4.4-.2.1-.4 0-.6-.1l-4.4-3.5-2.7 6.2c0 .2-.3.3-.5.3z" fill="#fff" stroke="currentColor" stroke-width="2.5" stroke-miterlimit="10"/>
+        <path fill="none" stroke="currentColor" strokeWidth="1.75" strokeMiterlimit="10" d="M24.5 24h-19V6"/>
+        <path d="M9 20.7h-.2c-.3-.1-.5-.5-.3-.8l3-7c.1-.2.2-.3.4-.4.2 0 .4 0 .5.1l4.3 3.5 3.7-9.2c.1-.3.5-.5.8-.3.3.1.5.5.4.8l-4 10c-.1.2-.2.3-.4.4-.2.1-.4 0-.6-.1l-4.4-3.5-2.7 6.2c0 .2-.3.3-.5.3z" fill="#fff" stroke="currentColor" strokeWidth="2.5" strokeMiterlimit="10"/>
         <path d="M9 20.7h-.2c-.3-.1-.5-.5-.3-.8l3-7c.1-.2.2-.3.4-.4.2 0 .4 0 .5.1l4.3 3.5 3.7-9.2c.1-.3.5-.5.8-.3.3.1.5.5.4.8l-4 10c-.1.2-.2.3-.4.4-.2.1-.4 0-.6-.1l-4.4-3.5-2.7 6.2c0 .2-.3.3-.5.3z" fill="#03b159"/>
         <path d="M9 21c-.1 0-.2 0-.3-.1-.4-.2-.7-.7-.5-1.2l3-7c.1-.2.3-.4.6-.5.3-.1.5 0 .8.2l4.1 3.3 3.6-8.9c.2-.4.7-.7 1.1-.5.4.2.6.7.4 1.1l-4 10c-.1.3-.3.5-.6.5-.3.1-.5 0-.8-.2l-4.1-3.3-2.5 5.9c-.1.5-.5.7-.8.7zm3-8.3s-.1 0 0 0c-.2 0-.3.1-.3.2l-3 7c-.1.2 0 .4.2.5.2.1.4 0 .5-.2l2.8-6.5 4.6 3.7c.1.1.2.1.3.1.1 0 .2-.1.3-.2l4-10c.1-.2 0-.4-.2-.5-.2-.1-.4 0-.5.2l-3.8 9.5-4.6-3.7c-.1 0-.2-.1-.3-.1z" fill="#fff"/>
       </symbol>
@@ -138,8 +138,8 @@ class Header extends React.Component {
         <div className="o-layout__col">
 
           <div className="o-layout__module c-identity">
-            <a className="c-identity__link" href="https://www.linode.com" target="_self" itemprop="url">
-              <img width="160" height="55" alt="Linode - Akamai Cloud Computing Logo" className="c-identity__image" src="https://www.linode.com/wp-content/themes/linode-website-theme/images/linode-akamai-logo.svg?ver=1663187393" itemprop="image" data-no-lazy="1" />
+            <a className="c-identity__link" href="https://www.linode.com" target="_self" itemProp="url">
+              <img width="160" height="55" alt="Linode - Akamai Cloud Computing Logo" className="c-identity__image" src="https://www.linode.com/wp-content/themes/linode-website-theme/images/linode-akamai-logo.svg?ver=1663187393" itemProp="image" data-no-lazy="1" />
             </a>
           </div>
 
@@ -575,7 +575,7 @@ class Header extends React.Component {
 
       <div className="o-layout__module" id="submenu-mobile-search" data-group="mobile-search">
         <form role="search" method="get" action="https://www.linode.com" className="c-search">
-          <label for="s">Search</label>
+          <label htmlFor="s">Search</label>
           <input type="search" placeholder="Search Linode" name="s" />
           <input type="submit" value="Search" />
         </form>
