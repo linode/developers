@@ -6,6 +6,7 @@ import DLCMenu from "../2_molecules/DLCMenu";
 import Banner from "../3_organisms/banner";
 import Header from "../3_organisms/header";
 import FooterNav from "../3_organisms/footer-nav";
+import TrustArcElements from "../3_organisms/trustarc-elements";
 import "../../css/main.css";
 
 const Layout = ({ children, title, subtitle, fullWidth, noFooter }) => (
@@ -37,7 +38,7 @@ const Layout = ({ children, title, subtitle, fullWidth, noFooter }) => (
         {!fullWidth && !noFooter && (
           <FooterNav />
         )}
-        <div id="consent_blackbar"></div>
+        <TrustArcElements />
       </div>
     )}
   />

@@ -96,6 +96,7 @@ module.exports = {
         tailwind: true,
         whitelistPatternsChildren: [
           /consent_blackbar/,
+          /cookie-prefs-icon/,
           /c-featured/,
           /c-notification/,
           /o-menu/
