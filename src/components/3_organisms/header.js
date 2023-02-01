@@ -139,7 +139,7 @@ class Header extends React.Component {
 
           <div className="o-layout__module c-identity">
             <a className="c-identity__link" href="https://www.linode.com" target="_self" itemProp="url">
-              <img width="160" height="55" alt="Linode - Akamai Cloud Computing Logo" className="c-identity__image" src="https://www.linode.com/wp-content/themes/linode-website-theme/images/linode-akamai-logo.svg?ver=1663187393" itemProp="image" data-no-lazy="1" />
+              <img width="160" height="55" alt="Linode - Akamai Cloud Computing Logo" className="c-identity__image" src="https://www.linode.com/wp-content/themes/linode-website-theme/images/linode-akamai-logo.svg?ver=1669127815" itemProp="image" data-no-lazy="1" />
             </a>
           </div>
 
@@ -150,7 +150,7 @@ class Header extends React.Component {
             <nav className="o-menu o-menu--h">
               <ul className="o-menu__list --d0">
                 <li className="o-menu__item">
-                  <button className="o-menu__link o-menu__toggle"data-toggle="#sub-menu--why-linode" data-group="sub-menu"><span className="o-menu__title">Why Linode</span></button>
+                  <button className="o-menu__link o-menu__toggle"data-toggle="#sub-menu--why-linode" data-group="sub-menu"><span className="o-menu__title">Why Choose Us</span></button>
                 </li>
                 <li className="o-menu__item">
                   <button className="o-menu__link o-menu__toggle"data-toggle="#sub-menu--products" data-group="sub-menu"><span className="o-menu__title">Products</span></button>
@@ -187,53 +187,53 @@ class Header extends React.Component {
       <div className="o-layout__module" id="submenu-mobile-primary">
         <nav className="o-menu">
           <ul className="o-menu__list --d0">
-                <li className="o-menu__item o-menu__parent" id="submenu-mobile-primary-full--46170" data-group="submenu-mobile-primary-full">
-                  <button className="o-menu__link o-menu__toggle"data-group="submenu-mobile-primary-full" data-toggle="#submenu-mobile-primary-full--46170"><span className="o-menu__title">Why Linode</span></button>
-                  <ul className="o-menu__list o-menu__child --d1">
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/choosing-linode/"><span className="o-menu__title">Choosing Linode</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/support-experience/"><span className="o-menu__title">Support Experience</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/predictable-pricing/"><span className="o-menu__title">Predictable Pricing</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/cloud-simplified/"><span className="o-menu__title">Cloud Simplified</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/free-bundled-services/"><span className="o-menu__title">Free Bundled Services</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/global-infrastructure/"><span className="o-menu__title">Global Infrastructure</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/series/craft-of-code/"><span className="o-menu__title">Customer Stories</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/linode-for-business/"><span className="o-menu__title">Linode for Business</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/compare/"><span className="o-menu__title">Linode vs. Competitors</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/approach/"><span className="o-menu__title">Our Approach</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/what-is-cloud-computing/"><span className="o-menu__title">What is Cloud Computing?</span></a>
-                  </li>
-                  </ul>
+            <li className="o-menu__item o-menu__parent" id="submenu-mobile-primary-full--46170" data-group="submenu-mobile-primary-full">
+              <button className="o-menu__link o-menu__toggle"data-group="submenu-mobile-primary-full" data-toggle="#submenu-mobile-primary-full--46170"><span className="o-menu__title">Why Choose Us</span></button>
+              <ul className="o-menu__list o-menu__child --d1">
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/choosing-linode/"><span className="o-menu__title">Why Choose Us</span></a>
                 </li>
-                <li className="o-menu__item o-menu__parent" id="submenu-mobile-primary-full--46171" data-group="submenu-mobile-primary-full">
-                  <button className="o-menu__link o-menu__toggle"data-group="submenu-mobile-primary-full" data-toggle="#submenu-mobile-primary-full--46171"><span className="o-menu__title">Products</span></button>
-                  <ul className="o-menu__list o-menu__child --d1">
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/products/"><span className="o-menu__title">Products Overview</span></a>
-                  </li>
-                  <li className="o-menu__item o-menu__parent" id="submenu-mobile-primary-full--46172" data-group="submenu-mobile-primary-full--level-1">
-                    <button className="o-menu__link o-menu__toggle"data-group="submenu-mobile-primary-full--level-1" data-toggle="#submenu-mobile-primary-full--46172"><span className="o-menu__title">Compute</span></button>
-                    <ul className="o-menu__list o-menu__child --d2">
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/global-infrastructure/"><span className="o-menu__title">Global Infrastructure</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/cloud-simplified/"><span className="o-menu__title">Cloud Simplified</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/predictable-pricing/"><span className="o-menu__title">Predictable Pricing</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/support-experience/"><span className="o-menu__title">Support Experience</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/free-bundled-services/"><span className="o-menu__title">Free Bundled Services</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/series/craft-of-code/"><span className="o-menu__title">Customer Stories</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/linode-for-business/"><span className="o-menu__title">Cloud for Business</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/compare/"><span className="o-menu__title">Cloud Comparisons</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/approach/"><span className="o-menu__title">Our Approach</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/what-is-cloud-computing/"><span className="o-menu__title">What is Cloud Computing?</span></a>
+                </li>
+              </ul>
+            </li>
+            <li className="o-menu__item o-menu__parent" id="submenu-mobile-primary-full--46171" data-group="submenu-mobile-primary-full">
+              <button className="o-menu__link o-menu__toggle"data-group="submenu-mobile-primary-full" data-toggle="#submenu-mobile-primary-full--46171"><span className="o-menu__title">Products</span></button>
+              <ul className="o-menu__list o-menu__child --d1">
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/products/"><span className="o-menu__title">Products Overview</span></a>
+                </li>
+                <li className="o-menu__item o-menu__parent" id="submenu-mobile-primary-full--46172" data-group="submenu-mobile-primary-full--level-1">
+                  <button className="o-menu__link o-menu__toggle"data-group="submenu-mobile-primary-full--level-1" data-toggle="#submenu-mobile-primary-full--46172"><span className="o-menu__title">Compute</span></button>
+                  <ul className="o-menu__list o-menu__child --d2">
                     <li className="o-menu__item">
                       <a className="o-menu__link" href="https://www.linode.com/products/dedicated-cpu/"><span className="o-menu__title">Dedicated CPU</span></a>
                     </li>
@@ -252,11 +252,11 @@ class Header extends React.Component {
                     <li className="o-menu__item">
                       <a className="o-menu__link" href="https://www.linode.com/products/akamai-products-and-solutions/#edgeworkers"><span className="o-menu__title">EdgeWorkers</span></a>
                     </li>
-                    </ul>
-                  </li>
-                  <li className="o-menu__item o-menu__parent" id="submenu-mobile-primary-full--46173" data-group="submenu-mobile-primary-full--level-1">
-                    <button className="o-menu__link o-menu__toggle"data-group="submenu-mobile-primary-full--level-1" data-toggle="#submenu-mobile-primary-full--46173"><span className="o-menu__title">Storage</span></button>
-                    <ul className="o-menu__list o-menu__child --d2">
+                  </ul>
+                </li>
+                <li className="o-menu__item o-menu__parent" id="submenu-mobile-primary-full--46173" data-group="submenu-mobile-primary-full--level-1">
+                  <button className="o-menu__link o-menu__toggle"data-group="submenu-mobile-primary-full--level-1" data-toggle="#submenu-mobile-primary-full--46173"><span className="o-menu__title">Storage</span></button>
+                  <ul className="o-menu__list o-menu__child --d2">
                     <li className="o-menu__item">
                       <a className="o-menu__link" href="https://www.linode.com/products/block-storage/"><span className="o-menu__title">Block Storage</span></a>
                     </li>
@@ -266,16 +266,13 @@ class Header extends React.Component {
                     <li className="o-menu__item">
                       <a className="o-menu__link" href="https://www.linode.com/products/backups/"><span className="o-menu__title">Backups</span></a>
                     </li>
-                    </ul>
-                  </li>
-                  <li className="o-menu__item o-menu__parent" id="submenu-mobile-primary-full--46174" data-group="submenu-mobile-primary-full--level-1">
-                    <button className="o-menu__link o-menu__toggle"data-group="submenu-mobile-primary-full--level-1" data-toggle="#submenu-mobile-primary-full--46174"><span className="o-menu__title">Databases</span></button>
-                    <ul className="o-menu__list o-menu__child --d2">
+                  </ul>
+                </li>
+                <li className="o-menu__item o-menu__parent" id="submenu-mobile-primary-full--46174" data-group="submenu-mobile-primary-full--level-1">
+                  <button className="o-menu__link o-menu__toggle"data-group="submenu-mobile-primary-full--level-1" data-toggle="#submenu-mobile-primary-full--46174"><span className="o-menu__title">Databases</span></button>
+                  <ul className="o-menu__list o-menu__child --d2">
                     <li className="o-menu__item">
                       <a className="o-menu__link" href="https://www.linode.com/products/databases/"><span className="o-menu__title">Managed Databases</span></a>
-                    </li>
-                    <li className="o-menu__item">
-                      <a className="o-menu__link" href="https://www.linode.com/products/mongodb/"><span className="o-menu__title">MongoDB</span></a>
                     </li>
                     <li className="o-menu__item">
                       <a className="o-menu__link" href="https://www.linode.com/products/mysql/"><span className="o-menu__title">MySQL</span></a>
@@ -283,22 +280,22 @@ class Header extends React.Component {
                     <li className="o-menu__item">
                       <a className="o-menu__link" href="https://www.linode.com/products/postgresql/"><span className="o-menu__title">PostgreSQL</span></a>
                     </li>
-                    </ul>
-                  </li>
-                  <li className="o-menu__item o-menu__parent" id="submenu-mobile-primary-full--46175" data-group="submenu-mobile-primary-full--level-1">
-                    <button className="o-menu__link o-menu__toggle"data-group="submenu-mobile-primary-full--level-1" data-toggle="#submenu-mobile-primary-full--46175"><span className="o-menu__title">Services</span></button>
-                    <ul className="o-menu__list o-menu__child --d2">
+                  </ul>
+                </li>
+                <li className="o-menu__item o-menu__parent" id="submenu-mobile-primary-full--46175" data-group="submenu-mobile-primary-full--level-1">
+                  <button className="o-menu__link o-menu__toggle"data-group="submenu-mobile-primary-full--level-1" data-toggle="#submenu-mobile-primary-full--46175"><span className="o-menu__title">Services</span></button>
+                  <ul className="o-menu__list o-menu__child --d2">
                     <li className="o-menu__item">
                       <a className="o-menu__link" href="https://www.linode.com/products/managed/"><span className="o-menu__title">Managed</span></a>
                     </li>
                     <li className="o-menu__item">
                       <a className="o-menu__link" href="https://www.linode.com/products/pro-services/"><span className="o-menu__title">Professional Services</span></a>
                     </li>
-                    </ul>
-                  </li>
-                  <li className="o-menu__item o-menu__parent" id="submenu-mobile-primary-full--46176" data-group="submenu-mobile-primary-full--level-1">
-                    <button className="o-menu__link o-menu__toggle"data-group="submenu-mobile-primary-full--level-1" data-toggle="#submenu-mobile-primary-full--46176"><span className="o-menu__title">Networking</span></button>
-                    <ul className="o-menu__list o-menu__child --d2">
+                  </ul>
+                </li>
+                <li className="o-menu__item o-menu__parent" id="submenu-mobile-primary-full--46176" data-group="submenu-mobile-primary-full--level-1">
+                  <button className="o-menu__link o-menu__toggle"data-group="submenu-mobile-primary-full--level-1" data-toggle="#submenu-mobile-primary-full--46176"><span className="o-menu__title">Networking</span></button>
+                  <ul className="o-menu__list o-menu__child --d2">
                     <li className="o-menu__item">
                       <a className="o-menu__link" href="https://www.linode.com/products/cloud-firewall/"><span className="o-menu__title">Cloud Firewall</span></a>
                     </li>
@@ -314,11 +311,11 @@ class Header extends React.Component {
                     <li className="o-menu__item">
                       <a className="o-menu__link" href="https://www.linode.com/products/vlan/"><span className="o-menu__title">VLAN</span></a>
                     </li>
-                    </ul>
-                  </li>
-                  <li className="o-menu__item o-menu__parent" id="submenu-mobile-primary-full--46177" data-group="submenu-mobile-primary-full--level-1">
-                    <button className="o-menu__link o-menu__toggle"data-group="submenu-mobile-primary-full--level-1" data-toggle="#submenu-mobile-primary-full--46177"><span className="o-menu__title">Developer Tools</span></button>
-                    <ul className="o-menu__list o-menu__child --d2">
+                  </ul>
+                </li>
+                <li className="o-menu__item o-menu__parent" id="submenu-mobile-primary-full--46177" data-group="submenu-mobile-primary-full--level-1">
+                  <button className="o-menu__link o-menu__toggle"data-group="submenu-mobile-primary-full--level-1" data-toggle="#submenu-mobile-primary-full--46177"><span className="o-menu__title">Developer Tools</span></button>
+                  <ul className="o-menu__list o-menu__child --d2">
                     <li className="o-menu__item">
                       <a className="o-menu__link" href="https://www.linode.com/products/cloud-manager/"><span className="o-menu__title">Cloud Manager</span></a>
                     </li>
@@ -349,11 +346,11 @@ class Header extends React.Component {
                     <li className="o-menu__item">
                       <a className="o-menu__link" href="https://www.linode.com/products/users-permissions/"><span className="o-menu__title">Users &#038; Permissions</span></a>
                     </li>
-                    </ul>
-                  </li>
-                  <li className="o-menu__item o-menu__parent" id="submenu-mobile-primary-full--52611" data-group="submenu-mobile-primary-full--level-1">
-                    <button className="o-menu__link o-menu__toggle"data-group="submenu-mobile-primary-full--level-1" data-toggle="#submenu-mobile-primary-full--52611"><span className="o-menu__title">Delivery</span></button>
-                    <ul className="o-menu__list o-menu__child --d2">
+                  </ul>
+                </li>
+                <li className="o-menu__item o-menu__parent" id="submenu-mobile-primary-full--52611" data-group="submenu-mobile-primary-full--level-1">
+                  <button className="o-menu__link o-menu__toggle"data-group="submenu-mobile-primary-full--level-1" data-toggle="#submenu-mobile-primary-full--52611"><span className="o-menu__title">Delivery</span></button>
+                  <ul className="o-menu__list o-menu__child --d2">
                     <li className="o-menu__item">
                       <a className="o-menu__link" href="https://www.linode.com/products/akamai-products-and-solutions/#adaptive-media-delivery"><span className="o-menu__title">Adaptive Media</span></a>
                     </li>
@@ -366,11 +363,11 @@ class Header extends React.Component {
                     <li className="o-menu__item">
                       <a className="o-menu__link" href="https://www.linode.com/products/akamai-products-and-solutions/#global-traffic-management"><span className="o-menu__title">Global Traffic</span></a>
                     </li>
-                    </ul>
-                  </li>
-                  <li className="o-menu__item o-menu__parent" id="submenu-mobile-primary-full--52612" data-group="submenu-mobile-primary-full--level-1">
-                    <button className="o-menu__link o-menu__toggle"data-group="submenu-mobile-primary-full--level-1" data-toggle="#submenu-mobile-primary-full--52612"><span className="o-menu__title">Security</span></button>
-                    <ul className="o-menu__list o-menu__child --d2">
+                  </ul>
+                </li>
+                <li className="o-menu__item o-menu__parent" id="submenu-mobile-primary-full--52612" data-group="submenu-mobile-primary-full--level-1">
+                  <button className="o-menu__link o-menu__toggle"data-group="submenu-mobile-primary-full--level-1" data-toggle="#submenu-mobile-primary-full--52612"><span className="o-menu__title">Security</span></button>
+                  <ul className="o-menu__list o-menu__child --d2">
                     <li className="o-menu__item">
                       <a className="o-menu__link" href="https://www.linode.com/products/akamai-products-and-solutions/#guardicore-segmentation"><span className="o-menu__title">Guardicore</span></a>
                     </li>
@@ -389,187 +386,184 @@ class Header extends React.Component {
                     <li className="o-menu__item">
                       <a className="o-menu__link" href="https://www.linode.com/products/akamai-products-and-solutions/#enterprise-application-access"><span className="o-menu__title">EAA</span></a>
                     </li>
-                    </ul>
-                  </li>
-                  </ul>
-                </li>
-                <li className="o-menu__item o-menu__parent" id="submenu-mobile-primary-full--46178" data-group="submenu-mobile-primary-full">
-                  <button className="o-menu__link o-menu__toggle"data-group="submenu-mobile-primary-full" data-toggle="#submenu-mobile-primary-full--46178"><span className="o-menu__title">Solutions</span></button>
-                  <ul className="o-menu__list o-menu__child --d1">
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/solutions/"><span className="o-menu__title">Solutions Overview</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/linode-for-digital-agencies/"><span className="o-menu__title">Digital Agencies</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/elearning-solutions/"><span className="o-menu__title">eLearning</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/linode-for-higher-education/"><span className="o-menu__title">Higher Education</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/machine-learning-solutions/"><span className="o-menu__title">Machine Learning</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/mgd-hosting-solutions/"><span className="o-menu__title">Managed Hosting</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/multicloud/"><span className="o-menu__title">Multicloud</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/linode-for-saas/"><span className="o-menu__title">SaaS</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/security-solutions/"><span className="o-menu__title">Security Solutions</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/video-streaming-solutions/"><span className="o-menu__title">Video Streaming</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/linode-for-website-hosting/"><span className="o-menu__title">Website Hosting</span></a>
-                  </li>
-                  </ul>
-                </li>
-                <li className="o-menu__item o-menu__parent" id="submenu-mobile-primary-full--46237" data-group="submenu-mobile-primary-full">
-                  <button className="o-menu__link o-menu__toggle"data-group="submenu-mobile-primary-full" data-toggle="#submenu-mobile-primary-full--46237"><span className="o-menu__title">Marketplace</span></button>
-                  <ul className="o-menu__list o-menu__child --d1">
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/marketplace/"><span className="o-menu__title">Browse Marketplace</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/marketplace/app-partners/"><span className="o-menu__title">Submit Marketplace App</span></a>
-                  </li>
-                  </ul>
-                </li>
-                <li className="o-menu__item o-menu__parent" id="submenu-mobile-primary-full--46179" data-group="submenu-mobile-primary-full">
-                  <button className="o-menu__link o-menu__toggle"data-group="submenu-mobile-primary-full" data-toggle="#submenu-mobile-primary-full--46179"><span className="o-menu__title">Pricing</span></button>
-                  <ul className="o-menu__list o-menu__child --d1">
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/pricing/"><span className="o-menu__title">Pricing List</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/estimator/"><span className="o-menu__title">Cloud Estimator</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://cloud-estimator.linode.com"><span className="o-menu__title">Cloud Pricing Calculator</span></a>
-                  </li>
-                  </ul>
-                </li>
-                <li className="o-menu__item o-menu__parent" id="submenu-mobile-primary-full--46180" data-group="submenu-mobile-primary-full">
-                  <button className="o-menu__link o-menu__toggle"data-group="submenu-mobile-primary-full" data-toggle="#submenu-mobile-primary-full--46180"><span className="o-menu__title">Community</span></button>
-                  <ul className="o-menu__list o-menu__child --d1">
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/cloud-computing-community/"><span className="o-menu__title">Community Overview</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/community/questions/"><span className="o-menu__title">Q&amp;A</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/developers/"><span className="o-menu__title">Developer Portal</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/blog/"><span className="o-menu__title">Blog</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/events/"><span className="o-menu__title">Events</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/hackathons/"><span className="o-menu__title">Hackathons</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/newsletter/"><span className="o-menu__title">Newsletter</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/content/"><span className="o-menu__title">Content Resources</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/lp/affiliate-program/"><span className="o-menu__title">Affiliate Program</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/green-light/"><span className="o-menu__title">Beta Program</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/referral-program/"><span className="o-menu__title">Customer Referral Program</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/linode-for-startups/"><span className="o-menu__title">Startups Solutions</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://linodestore.com/products"><span className="o-menu__title">Swag Store</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/docs/"><span className="o-menu__title">Documentation</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/distributions/"><span className="o-menu__title">Distributions</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/cloud-computing-terms/"><span className="o-menu__title">Cloud Computing Terms</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/promotions/"><span className="o-menu__title">Promotional Offers</span></a>
-                  </li>
-                  </ul>
-                </li>
-                <li className="o-menu__item o-menu__parent" id="submenu-mobile-primary-full--46181" data-group="submenu-mobile-primary-full">
-                  <button className="o-menu__link o-menu__toggle"data-group="submenu-mobile-primary-full" data-toggle="#submenu-mobile-primary-full--46181"><span className="o-menu__title">Company</span></button>
-                  <ul className="o-menu__list o-menu__child --d1">
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/company/about/"><span className="o-menu__title">About Linode</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/partners/"><span className="o-menu__title">Partners</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/company/press/"><span className="o-menu__title">Press Center</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/company/careers/"><span className="o-menu__title">Careers</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/legal/"><span className="o-menu__title">Legal</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://www.linode.com/company/contact/"><span className="o-menu__title">Sales</span></a>
-                  </li>
-                  <li className="o-menu__item">
-                    <a className="o-menu__link" href="https://status.linode.com"><span className="o-menu__title">System Status</span></a>
-                  </li>
                   </ul>
                 </li>
               </ul>
+            </li>
+            <li className="o-menu__item o-menu__parent" id="submenu-mobile-primary-full--46178" data-group="submenu-mobile-primary-full">
+              <button className="o-menu__link o-menu__toggle"data-group="submenu-mobile-primary-full" data-toggle="#submenu-mobile-primary-full--46178"><span className="o-menu__title">Solutions</span></button>
+              <ul className="o-menu__list o-menu__child --d1">
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/solutions/"><span className="o-menu__title">Solutions Overview</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/linode-for-digital-agencies/"><span className="o-menu__title">Digital Agencies</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/elearning-solutions/"><span className="o-menu__title">eLearning</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/linode-for-higher-education/"><span className="o-menu__title">Higher Education</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/machine-learning-solutions/"><span className="o-menu__title">Machine Learning</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/mgd-hosting-solutions/"><span className="o-menu__title">Managed Hosting</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/multicloud/"><span className="o-menu__title">Multicloud</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/linode-for-saas/"><span className="o-menu__title">SaaS</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/security-solutions/"><span className="o-menu__title">Security Solutions</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/video-streaming-solutions/"><span className="o-menu__title">Video Streaming</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/linode-for-website-hosting/"><span className="o-menu__title">Website Hosting</span></a>
+                </li>
+              </ul>
+            </li>
+            <li className="o-menu__item o-menu__parent" id="submenu-mobile-primary-full--46237" data-group="submenu-mobile-primary-full">
+              <button className="o-menu__link o-menu__toggle"data-group="submenu-mobile-primary-full" data-toggle="#submenu-mobile-primary-full--46237"><span className="o-menu__title">Marketplace</span></button>
+              <ul className="o-menu__list o-menu__child --d1">
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/marketplace/"><span className="o-menu__title">Browse Marketplace</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/marketplace/app-partners/"><span className="o-menu__title">Submit Marketplace App</span></a>
+                </li>
+              </ul>
+            </li>
+            <li className="o-menu__item o-menu__parent" id="submenu-mobile-primary-full--46179" data-group="submenu-mobile-primary-full">
+              <button className="o-menu__link o-menu__toggle"data-group="submenu-mobile-primary-full" data-toggle="#submenu-mobile-primary-full--46179"><span className="o-menu__title">Pricing</span></button>
+              <ul className="o-menu__list o-menu__child --d1">
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/pricing/"><span className="o-menu__title">Pricing List</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/estimator/"><span className="o-menu__title">Cloud Estimator</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://cloud-estimator.linode.com"><span className="o-menu__title">Cloud Pricing Calculator</span></a>
+                </li>
+              </ul>
+            </li>
+            <li className="o-menu__item o-menu__parent" id="submenu-mobile-primary-full--46180" data-group="submenu-mobile-primary-full">
+              <button className="o-menu__link o-menu__toggle"data-group="submenu-mobile-primary-full" data-toggle="#submenu-mobile-primary-full--46180"><span className="o-menu__title">Community</span></button>
+              <ul className="o-menu__list o-menu__child --d1">
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/cloud-computing-community/"><span className="o-menu__title">Community Overview</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/community/questions/"><span className="o-menu__title">Q&amp;A</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/developers/"><span className="o-menu__title">Developer Portal</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/blog/"><span className="o-menu__title">Blog</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/events/"><span className="o-menu__title">Events</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/newsletter/"><span className="o-menu__title">Newsletter</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/content/"><span className="o-menu__title">Content Resources</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/lp/affiliate-program/"><span className="o-menu__title">Affiliate Program</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/green-light/"><span className="o-menu__title">Beta Program</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/referral-program/"><span className="o-menu__title">Customer Referral Program</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/linode-for-startups/"><span className="o-menu__title">Startups Solutions</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://linodestore.com/products"><span className="o-menu__title">Swag Store</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/docs/"><span className="o-menu__title">Documentation</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/distributions/"><span className="o-menu__title">Distributions</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/cloud-computing-terms/"><span className="o-menu__title">Cloud Computing Terms</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/promotions/"><span className="o-menu__title">Promotional Offers</span></a>
+                </li>
+              </ul>
+            </li>
+            <li className="o-menu__item o-menu__parent" id="submenu-mobile-primary-full--46181" data-group="submenu-mobile-primary-full">
+              <button className="o-menu__link o-menu__toggle"data-group="submenu-mobile-primary-full" data-toggle="#submenu-mobile-primary-full--46181"><span className="o-menu__title">Company</span></button>
+              <ul className="o-menu__list o-menu__child --d1">
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/company/about/"><span className="o-menu__title">About Us</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/partners/"><span className="o-menu__title">Partners</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/company/press/"><span className="o-menu__title">Press Center</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/company/careers/"><span className="o-menu__title">Careers</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/legal/"><span className="o-menu__title">Legal</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/company/contact/"><span className="o-menu__title">Sales</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://status.linode.com"><span className="o-menu__title">System Status</span></a>
+                </li>
+              </ul>
+            </li>
+          </ul>
         </nav>
       </div>
 
       <div className="o-layout__module" id="submenu-mobile-quicklinks">
         <nav className="o-menu o-menu--h">
           <ul className="o-menu__list --d0">
-                <li className="o-menu__item">
-                  <button className="o-menu__link o-menu__toggle"data-toggle="#submenu-mobile-search" data-group="mobile-search"><svg className="o-menu__icon" alt="Search Icon"><use xlinkHref="#menu-icon--search"></use></svg><span className="o-menu__title">Search</span></button>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/docs/"><svg className="o-menu__icon" alt="Docs Icon"><use xlinkHref="#menu-icon--docs"></use></svg><span className="o-menu__title">Docs</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/blog/"><svg className="o-menu__icon" alt="Blog Icon"><use xlinkHref="#menu-icon--blog"></use></svg><span className="o-menu__title">Blog</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/content/"><svg className="o-menu__icon" alt="Resources Icon"><use xlinkHref="#menu-icon--resources"></use></svg><span className="o-menu__title">Resources</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/pricing/"><svg className="o-menu__icon" alt="Pricing Icon"><use xlinkHref="#menu-icon--pricing"></use></svg><span className="o-menu__title">Pricing</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/partners/"><svg className="o-menu__icon" alt="Partners Icon"><use xlinkHref="#menu-icon--partners"></use></svg><span className="o-menu__title">Partners</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/support/"><svg className="o-menu__icon" alt="Support Icon"><use xlinkHref="#menu-icon--support"></use></svg><span className="o-menu__title">Support</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/company/contact/"><svg className="o-menu__icon" alt="Sales Icon"><use xlinkHref="#menu-icon--sales"></use></svg><span className="o-menu__title">Sales</span></a>
-                </li>
-              </ul>
+            <li className="o-menu__item">
+              <button className="o-menu__link o-menu__toggle"data-toggle="#submenu-mobile-search" data-group="mobile-search"><svg className="o-menu__icon" alt="Search Icon"><use xlinkHref="#menu-icon--search"></use></svg><span className="o-menu__title">Search</span></button>
+            </li>
+            <li className="o-menu__item">
+              <a className="o-menu__link" href="https://www.linode.com/docs/"><svg className="o-menu__icon" alt="Docs Icon"><use xlinkHref="#menu-icon--docs"></use></svg><span className="o-menu__title">Docs</span></a>
+            </li>
+            <li className="o-menu__item">
+              <a className="o-menu__link" href="https://www.linode.com/blog/"><svg className="o-menu__icon" alt="Blog Icon"><use xlinkHref="#menu-icon--blog"></use></svg><span className="o-menu__title">Blog</span></a>
+            </li>
+            <li className="o-menu__item">
+              <a className="o-menu__link" href="https://www.linode.com/content/"><svg className="o-menu__icon" alt="Resources Icon"><use xlinkHref="#menu-icon--resources"></use></svg><span className="o-menu__title">Resources</span></a>
+            </li>
+            <li className="o-menu__item">
+              <a className="o-menu__link" href="https://www.linode.com/pricing/"><svg className="o-menu__icon" alt="Pricing Icon"><use xlinkHref="#menu-icon--pricing"></use></svg><span className="o-menu__title">Pricing</span></a>
+            </li>
+            <li className="o-menu__item">
+              <a className="o-menu__link" href="https://www.linode.com/partners/"><svg className="o-menu__icon" alt="Partners Icon"><use xlinkHref="#menu-icon--partners"></use></svg><span className="o-menu__title">Partners</span></a>
+            </li>
+            <li className="o-menu__item">
+              <a className="o-menu__link" href="https://www.linode.com/support/"><svg className="o-menu__icon" alt="Support Icon"><use xlinkHref="#menu-icon--support"></use></svg><span className="o-menu__title">Support</span></a>
+            </li>
+            <li className="o-menu__item">
+              <a className="o-menu__link" href="https://www.linode.com/company/contact/"><svg className="o-menu__icon" alt="Sales Icon"><use xlinkHref="#menu-icon--sales"></use></svg><span className="o-menu__title">Sales</span></a>
+            </li>
+          </ul>
         </nav>
       </div>
 
@@ -584,13 +578,13 @@ class Header extends React.Component {
       <div className="o-layout__module" id="submenu-mobile-signup">
         <nav className="o-menu">
           <ul className="o-menu__list --d0">
-              <li className="o-menu__item o-menu__item--button">
-                <a className="o-menu__link" href="https://login.linode.com/login"><span className="o-menu__title">Log In</span></a>
-              </li>
-              <li className="o-menu__item o-menu__item--button">
-                <a className="o-menu__link" href="https://login.linode.com/signup"><span className="o-menu__title">Sign Up</span></a>
-              </li>
-            </ul>
+            <li className="o-menu__item o-menu__item--button">
+              <a className="o-menu__link" href="https://login.linode.com/login"><span className="o-menu__title">Log In</span></a>
+            </li>
+            <li className="o-menu__item o-menu__item--button">
+              <a className="o-menu__link" href="https://login.linode.com/signup"><span className="o-menu__title">Sign Up</span></a>
+            </li>
+          </ul>
         </nav>
       </div>
 
@@ -609,26 +603,25 @@ class Header extends React.Component {
         <div className="o-layout__col">
 
           <div className="o-layout__module">
-            <h6>Why Linode</h6>
             <nav className="o-menu">
               <ul className="o-menu__list --d0">
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/choosing-linode/"><span className="o-menu__title">Choosing Linode</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/choosing-linode/"><span className="o-menu__title">Why Choose Us</span></a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/support-experience/"><span className="o-menu__title">Support Experience</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/predictable-pricing/"><span className="o-menu__title">Predictable Pricing</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/global-infrastructure/"><span className="o-menu__title">Global Infrastructure</span></a>
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/cloud-simplified/"><span className="o-menu__title">Cloud Simplified</span></a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/free-bundled-services/"><span className="o-menu__title">Free Bundled Services</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/predictable-pricing/"><span className="o-menu__title">Predictable Pricing</span></a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/global-infrastructure/"><span className="o-menu__title">Global Infrastructure</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/support-experience/"><span className="o-menu__title">Support Experience</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/free-bundled-services/"><span className="o-menu__title">Free Bundled Services</span></a>
                 </li>
               </ul>
             </nav>
@@ -638,20 +631,19 @@ class Header extends React.Component {
         <div className="o-layout__col">
 
           <div className="o-layout__module">
-            <h6>Get to Know Us Better</h6>
             <nav className="o-menu">
               <ul className="o-menu__list --d0">
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/company/about/"><span className="o-menu__title">About Linode</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/company/about/"><span className="o-menu__title">About Us</span></a>
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/series/craft-of-code/"><span className="o-menu__title">Customer Stories</span></a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/linode-for-business/"><span className="o-menu__title">Linode for Business</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/linode-for-business/"><span className="o-menu__title">Cloud for Business</span></a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/compare/"><span className="o-menu__title">Linode vs. Competitors</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/compare/"><span className="o-menu__title">Cloud Comparisons</span></a>
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/approach/"><span className="o-menu__title">Our Approach</span></a>
@@ -732,9 +724,6 @@ class Header extends React.Component {
               <ul className="o-menu__list --d0">
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/products/databases/"><span className="o-menu__title">Managed Databases</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/products/mongodb/"><span className="o-menu__title">MongoDB</span></a>
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/products/mysql/"><span className="o-menu__title">MySQL</span></a>
@@ -1015,9 +1004,6 @@ class Header extends React.Component {
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/events/"><span className="o-menu__title">Events</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/hackathons/"><span className="o-menu__title">Hackathons</span></a>
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/newsletter/"><span className="o-menu__title">Newsletter</span></a>

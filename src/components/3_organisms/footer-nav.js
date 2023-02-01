@@ -45,12 +45,12 @@ class FooterNav extends React.Component {
 
           <div className="o-layout__module c-identity">
             <a className="c-identity__link" href="https://www.linode.com" target="_self" itemProp="url">
-              <img width="160" height="55" alt="Linode - Akamai Cloud Computing Logo" className="c-identity__image" src="https://www.linode.com/wp-content/themes/linode-website-theme/images/linode-akamai-logo.svg?ver=1663187393" itemProp="image" data-no-lazy="1" />
+              <img width="160" height="55" alt="Linode - Akamai Cloud Computing Logo" className="c-identity__image" src="https://www.linode.com/wp-content/themes/linode-website-theme/images/linode-akamai-logo.svg?ver=1669127815" itemProp="image" data-no-lazy="1" />
             </a>
           </div>
 
           <div className="o-layout__module c-copyright">
-            © 2003-2022 Linode LLC. <br />All rights reserved.
+            © 2003-2023 Linode LLC. <br />All rights reserved.
           </div>
 
           <div className="o-layout__module c-consent">
@@ -108,34 +108,34 @@ class FooterNav extends React.Component {
 
           <div className="o-layout__module">
             <nav className="o-menu">
-              <h4 className="o-menu__heading">Why Linode</h4>
+              <h4 className="o-menu__heading">Why Choose Us</h4>
               <ul className="o-menu__list --d0">
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/choosing-linode/"><span className="o-menu__title">Choosing Linode</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/support-experience/"><span className="o-menu__title">Support Experience</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/predictable-pricing/"><span className="o-menu__title">Predictable Pricing</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/cloud-simplified/"><span className="o-menu__title">Cloud Simplified</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/free-bundled-services/"><span className="o-menu__title">Free Bundled Services</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/choosing-linode/"><span className="o-menu__title">Why Choose Us</span></a>
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/global-infrastructure/"><span className="o-menu__title">Global Infrastructure</span></a>
                 </li>
                 <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/cloud-simplified/"><span className="o-menu__title">Cloud Simplified</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/predictable-pricing/"><span className="o-menu__title">Predictable Pricing</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/support-experience/"><span className="o-menu__title">Support Experience</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/free-bundled-services/"><span className="o-menu__title">Free Bundled Services</span></a>
+                </li>
+                <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/series/craft-of-code/"><span className="o-menu__title">Customer Stories</span></a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/linode-for-business/"><span className="o-menu__title">Linode for Business</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/linode-for-business/"><span className="o-menu__title">Cloud for Business</span></a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/compare/"><span className="o-menu__title">Linode vs. Competitors</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/compare/"><span className="o-menu__title">Cloud Comparisons</span></a>
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/approach/"><span className="o-menu__title">Our Approach</span></a>
@@ -343,9 +343,6 @@ class FooterNav extends React.Component {
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/events/"><span className="o-menu__title">Events</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/hackathons/"><span className="o-menu__title">Hackathons</span></a>
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/content/"><span className="o-menu__title">Content Resources</span></a>
