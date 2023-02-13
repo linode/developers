@@ -6,7 +6,7 @@
   transform: none;
 }
 body.has-banner .c-message {
-  display: block;
+  display: flex !important;
 }
 :root {
   --site-top-offset: 0px;
@@ -291,6 +291,7 @@ body.om-position-floating-top {
 .c-message__x {
   background-color: transparent;
   border: 0;
+  color: #ffffff;
   cursor: pointer;
   padding: 0;
 }
