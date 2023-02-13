@@ -5,6 +5,9 @@
   z-index: 1000;
   transform: none;
 }
+body.has-banner .c-message {
+  display: block;
+}
 :root {
   --site-top-offset: 0px;
   --site-banner-height: 0px;
