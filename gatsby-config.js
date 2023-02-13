@@ -99,6 +99,7 @@ module.exports = {
           /cookie-prefs-icon/,
           /c-featured/,
           /c-notification/,
+          /has-banner/,
           /o-menu/
         ],
         whitelist: [
