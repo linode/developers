@@ -13,7 +13,7 @@ class FooterNav extends React.Component {
   }
   render() {
     return (
-<footer itemScope="itemscope" itemType="http://schema.org/WPFooter">
+<footer>
   <div className="c-site-footer">
 
     <svg xmlns="http://www.w3.org/2000/svg" style={styles}>
@@ -45,7 +45,7 @@ class FooterNav extends React.Component {
 
           <div className="o-layout__module c-identity">
             <a className="c-identity__link" href="https://www.linode.com" target="_self" itemProp="url">
-              <img width="160" height="55" alt="Linode - Akamai Cloud Computing Logo" className="c-identity__image" src="https://www.linode.com/wp-content/themes/linode-website-theme/images/linode-akamai-logo.svg?ver=1669127815" itemProp="image" data-no-lazy="1" />
+              <img width="160" height="55" alt="Logo" className="c-identity__image" src="https://www.linode.com/wp-content/themes/linode-website-theme/images/logo.svg?ver=1675714738" itemProp="image" data-no-lazy="1" />
             </a>
           </div>
 
