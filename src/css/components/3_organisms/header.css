@@ -294,7 +294,9 @@ body.om-position-floating-top {
   color: #ffffff;
   cursor: pointer;
   font-size: 18px;
+  height: 18px;
   padding: 0;
+  width: 18px;
 }
 .c-message__x svg {
   aspect-ratio: 1;
