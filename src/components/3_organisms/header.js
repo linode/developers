@@ -83,7 +83,7 @@ class Header extends React.Component {
     </svg>
 
 
-    <div className="o-layout__row c-site-header__banner c-message" id="x-banner-2023-23-13">
+    <div className="o-layout__row c-site-header__banner c-message" id="x-banner-2023-23-13" style={{display:'none'}}>
       <div className="c-message__body">
         <div className="c-notification">
           <a href="#" className="c-notification__link" target="_self">
