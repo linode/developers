@@ -5,7 +5,7 @@
   z-index: 1000;
   transform: none;
 }
-body.has-banner .c-message {
+.has-banner .c-message {
   display: flex !important;
 }
 :root {
@@ -30,11 +30,11 @@ body.has-banner .c-message {
   }
 }
 
-body.has-banner {
+.has-banner {
   --site-banner-height: 48px;
 }
 @media (max-width: 61.99em) {
-  body.has-banner {
+  .has-banner {
     --site-banner-height: 50px;
   }
 }
