@@ -92,7 +92,7 @@ class Header extends React.Component {
           </a>
         </div>
       </div>
-      <button className="c-message__x">
+      <button type="button" className="c-message__x" aria-label="Dismiss message">
         <svg viewBox="0 0 320 512"><path fill="currentcolor" d="M207.6 256l107.72-107.72c6.23-6.23 6.23-16.34.0-22.58l-25.03-25.03c-6.23-6.23-16.34-6.23-22.58.0L160 208.4 52.28 100.68c-6.23-6.23-16.34-6.23-22.58.0L4.68 125.7c-6.23 6.23-6.23 16.34.0 22.58L112.4 256 4.68 363.72c-6.23 6.23-6.23 16.34.0 22.58l25.03 25.03c6.23 6.23 16.34 6.23 22.58.0L160 303.6l107.72 107.72c6.23 6.23 16.34 6.23 22.58.0l25.03-25.03c6.23-6.23 6.23-16.34.0-22.58L207.6 256z"/></svg>
       </button>
     </div>
@@ -477,18 +477,6 @@ class Header extends React.Component {
                   <a className="o-menu__link" href="https://www.linode.com/developers/"><span className="o-menu__title">Developer Portal</span></a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/blog/"><span className="o-menu__title">Blog</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/events/"><span className="o-menu__title">Events</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/newsletter/"><span className="o-menu__title">Newsletter</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/content/"><span className="o-menu__title">Content Resources</span></a>
-                </li>
-                <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/lp/affiliate-program/"><span className="o-menu__title">Affiliate Program</span></a>
                 </li>
                 <li className="o-menu__item">
@@ -498,22 +486,34 @@ class Header extends React.Component {
                   <a className="o-menu__link" href="https://www.linode.com/referral-program/"><span className="o-menu__title">Customer Referral Program</span></a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/linode-for-startups/"><span className="o-menu__title">Startups Solutions</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/partners/"><span className="o-menu__title">Partner Program</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/linode-for-startups/"><span className="o-menu__title">Startup Program</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/blog/"><span className="o-menu__title">Blog</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/content/"><span className="o-menu__title">Content Resources</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/events/"><span className="o-menu__title">Events</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/newsletter/"><span className="o-menu__title">Newsletter</span></a>
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://linodestore.com/products"><span className="o-menu__title">Swag Store</span></a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/docs/"><span className="o-menu__title">Documentation</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/promotions/"><span className="o-menu__title">Promotional Offers</span></a>
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/distributions/"><span className="o-menu__title">Distributions</span></a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/cloud-computing-terms/"><span className="o-menu__title">Cloud Computing Terms</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/promotions/"><span className="o-menu__title">Promotional Offers</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/kernels/"><span className="o-menu__title">Kernels</span></a>
                 </li>
               </ul>
             </li>
@@ -522,9 +522,6 @@ class Header extends React.Component {
               <ul className="o-menu__list o-menu__child --d1">
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/company/about/"><span className="o-menu__title">About Us</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/partners/"><span className="o-menu__title">Partners</span></a>
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/company/press/"><span className="o-menu__title">Press Center</span></a>
@@ -994,10 +991,19 @@ class Header extends React.Component {
                   <a className="o-menu__link" href="https://www.linode.com/developers/"><span className="o-menu__title">Developer Portal</span></a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/blog/"><span className="o-menu__title">Blog</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/lp/affiliate-program/"><span className="o-menu__title">Affiliate Program</span></a>
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/green-light/"><span className="o-menu__title">Beta Program</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/referral-program/"><span className="o-menu__title">Customer Referral Program</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/partners/"><span className="o-menu__title">Partner Program</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/linode-for-startups/"><span className="o-menu__title">Startup Program</span></a>
                 </li>
               </ul>
             </nav>
@@ -1011,6 +1017,9 @@ class Header extends React.Component {
             <nav className="o-menu">
               <ul className="o-menu__list --d0">
                 <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/blog/"><span className="o-menu__title">Blog</span></a>
+                </li>
+                <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/content/"><span className="o-menu__title">Content Resources</span></a>
                 </li>
                 <li className="o-menu__item">
@@ -1023,19 +1032,13 @@ class Header extends React.Component {
                   <a className="o-menu__link" href="https://www.linode.com/company/press/"><span className="o-menu__title">Press Center</span></a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/lp/affiliate-program/"><span className="o-menu__title">Affiliate Program</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/referral-program/"><span className="o-menu__title">Customer Referral Program</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/linode-for-startups/"><span className="o-menu__title">Startup Program</span></a>
-                </li>
-                <li className="o-menu__item">
                   <a className="o-menu__link" href="https://linodestore.com/products"><span className="o-menu__title">Swag Store</span></a>
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/promotions/"><span className="o-menu__title">Promotional Offers</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://partner-directory.linode.com/s/"><span className="o-menu__title">Find a Partner</span></a>
                 </li>
               </ul>
             </nav>
