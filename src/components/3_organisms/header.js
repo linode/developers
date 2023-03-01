@@ -83,7 +83,7 @@ class Header extends React.Component {
     </svg>
 
 
-    <div className="o-layout__row c-site-header__banner c-message" id="x-banner-2023-23-13" style={{display:'none'}}>
+    <div className="o-layout__row c-site-header__banner c-message" id="x-banner-2023-23-13">
       <div className="c-message__body">
         <div className="c-notification">
           <a href="#" className="c-notification__link" target="_self">
@@ -92,7 +92,7 @@ class Header extends React.Component {
           </a>
         </div>
       </div>
-      <button className="c-message__x">
+      <button type="button" className="c-message__x" aria-label="Dismiss message">
         <svg viewBox="0 0 320 512"><path fill="currentcolor" d="M207.6 256l107.72-107.72c6.23-6.23 6.23-16.34.0-22.58l-25.03-25.03c-6.23-6.23-16.34-6.23-22.58.0L160 208.4 52.28 100.68c-6.23-6.23-16.34-6.23-22.58.0L4.68 125.7c-6.23 6.23-6.23 16.34.0 22.58L112.4 256 4.68 363.72c-6.23 6.23-6.23 16.34.0 22.58l25.03 25.03c6.23 6.23 16.34 6.23 22.58.0L160 303.6l107.72 107.72c6.23 6.23 16.34 6.23 22.58.0l25.03-25.03c6.23-6.23 6.23-16.34.0-22.58L207.6 256z"/></svg>
       </button>
     </div>
