@@ -339,15 +339,6 @@ class FooterNav extends React.Component {
                   <a className="o-menu__link" href="https://www.linode.com/developers/"><span className="o-menu__title">Developer Portal</span></a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/blog/"><span className="o-menu__title">Blog</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/events/"><span className="o-menu__title">Events</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/content/"><span className="o-menu__title">Content Resources</span></a>
-                </li>
-                <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/lp/affiliate-program/"><span className="o-menu__title">Affiliate Program</span></a>
                 </li>
                 <li className="o-menu__item">
@@ -357,22 +348,31 @@ class FooterNav extends React.Component {
                   <a className="o-menu__link" href="https://www.linode.com/referral-program/"><span className="o-menu__title">Customer Referral Program</span></a>
                 </li>
                 <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/partners/"><span className="o-menu__title">Partner Program</span></a>
+                </li>
+                <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/linode-for-startups/"><span className="o-menu__title">Startup Program</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/blog/"><span className="o-menu__title">Blog</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/content/"><span className="o-menu__title">Content Resources</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/events/"><span className="o-menu__title">Events</span></a>
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://linodestore.com/products"><span className="o-menu__title">Swag Store</span></a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/docs/"><span className="o-menu__title">Documentation</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/promotions/"><span className="o-menu__title">Promotional Offers</span></a>
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/distributions/"><span className="o-menu__title">Distributions</span></a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/cloud-computing-terms/"><span className="o-menu__title">Cloud Computing Terms</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/promotions/"><span className="o-menu__title">Promotional Offers</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/kernels/"><span className="o-menu__title">Kernels</span></a>
                 </li>
               </ul>
             </nav>
