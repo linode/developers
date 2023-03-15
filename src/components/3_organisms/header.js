@@ -150,7 +150,7 @@ class Header extends React.Component {
 
           <div className="o-layout__module c-identity">
             <a className="c-identity__link" href="https://www.linode.com" target="_self" itemProp="url">
-              <img width="160" height="55" alt="Logo" className="c-identity__image" src="https://www.linode.com/wp-content/themes/linode-website-theme/images/logo.svg?ver=1675714738" itemProp="image" data-no-lazy="1" />
+              <img width="160" height="55" alt="Logo" className="c-identity__image" src="https://www.linode.com/wp-content/themes/linode-website-theme/images/logo.svg?ver=1678132180" itemProp="image" data-no-lazy="1" />
             </a>
           </div>
 
@@ -167,7 +167,7 @@ class Header extends React.Component {
                   <button className="o-menu__link o-menu__toggle"data-toggle="#sub-menu--products" data-group="sub-menu"><span className="o-menu__title">Products</span></button>
                 </li>
                 <li className="o-menu__item">
-                  <button className="o-menu__link o-menu__toggle"data-toggle="#sub-menu--solutions" data-group="sub-menu"><span className="o-menu__title">Solutions</span></button>
+                  <button className="o-menu__link o-menu__toggle"data-toggle="#sub-menu--solutions" data-group="sub-menu"><span className="o-menu__title">Industries</span></button>
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/marketplace/"><span className="o-menu__title">Marketplace</span></a>
@@ -224,9 +224,6 @@ class Header extends React.Component {
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/linode-for-business/"><span className="o-menu__title">Cloud for Business</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/compare/"><span className="o-menu__title">Cloud Comparisons</span></a>
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/approach/"><span className="o-menu__title">Our Approach</span></a>
@@ -402,40 +399,22 @@ class Header extends React.Component {
               </ul>
             </li>
             <li className="o-menu__item o-menu__parent" id="submenu-mobile-primary-full--46178" data-group="submenu-mobile-primary-full">
-              <button className="o-menu__link o-menu__toggle"data-group="submenu-mobile-primary-full" data-toggle="#submenu-mobile-primary-full--46178"><span className="o-menu__title">Solutions</span></button>
+              <button className="o-menu__link o-menu__toggle"data-group="submenu-mobile-primary-full" data-toggle="#submenu-mobile-primary-full--46178"><span className="o-menu__title">Industries</span></button>
               <ul className="o-menu__list o-menu__child --d1">
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/solutions/"><span className="o-menu__title">Solutions Overview</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/digital-agencies-industry-solutions/"><span className="o-menu__title">Digital Agencies</span></a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/linode-for-digital-agencies/"><span className="o-menu__title">Digital Agencies</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/education-industry-solutions/"><span className="o-menu__title">Education</span></a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/elearning-solutions/"><span className="o-menu__title">eLearning</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/managed-hosting-industry-solutions/"><span className="o-menu__title">Managed Hosting</span></a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/linode-for-higher-education/"><span className="o-menu__title">Higher Education</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/video-streaming-solutions/"><span className="o-menu__title">Media</span></a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/machine-learning-solutions/"><span className="o-menu__title">Machine Learning</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/mgd-hosting-solutions/"><span className="o-menu__title">Managed Hosting</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/multicloud/"><span className="o-menu__title">Multicloud</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/linode-for-saas/"><span className="o-menu__title">SaaS</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/security-solutions/"><span className="o-menu__title">Security Solutions</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/video-streaming-solutions/"><span className="o-menu__title">Video Streaming</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/linode-for-website-hosting/"><span className="o-menu__title">Website Hosting</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/saas-industry-solutions/"><span className="o-menu__title">SaaS</span></a>
                 </li>
               </ul>
             </li>
@@ -649,9 +628,6 @@ class Header extends React.Component {
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/linode-for-business/"><span className="o-menu__title">Cloud for Business</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/compare/"><span className="o-menu__title">Cloud Comparisons</span></a>
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/approach/"><span className="o-menu__title">Our Approach</span></a>
@@ -883,46 +859,27 @@ class Header extends React.Component {
             <div data-featured="solutions"></div>
           </div>
 
-          <div className="o-layout__module c-submenu__view_all">
-            <a href="/solutions/" className="o-link--arrow">View All Solutions</a>
-          </div>
-
         </div>
         <div className="o-layout__col">
 
           <div className="o-layout__module">
-            <h6>Solutions</h6>
+            <h6>Industries</h6>
             <nav className="o-menu">
               <ul className="o-menu__list --d0">
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/linode-for-digital-agencies/"><span className="o-menu__title">Digital Agencies</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/digital-agencies-industry-solutions/"><span className="o-menu__title">Digital Agencies</span></a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/elearning-solutions/"><span className="o-menu__title">eLearning</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/education-industry-solutions/"><span className="o-menu__title">Education</span></a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/linode-for-higher-education/"><span className="o-menu__title">Higher Education</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/managed-hosting-industry-solutions/"><span className="o-menu__title">Managed Hosting</span></a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/machine-learning-solutions/"><span className="o-menu__title">Machine Learning</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/video-streaming-solutions/"><span className="o-menu__title">Media</span></a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/mgd-hosting-solutions/"><span className="o-menu__title">Managed Hosting</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/multicloud/"><span className="o-menu__title">Multicloud</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/linode-for-saas/"><span className="o-menu__title">SaaS</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/security-solutions/"><span className="o-menu__title">Security Solutions</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/video-streaming-solutions/"><span className="o-menu__title">Video Streaming</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/linode-for-website-hosting/"><span className="o-menu__title">Website Hosting</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/saas-industry-solutions/"><span className="o-menu__title">SaaS</span></a>
                 </li>
               </ul>
             </nav>
