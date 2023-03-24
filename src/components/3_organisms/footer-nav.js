@@ -45,7 +45,7 @@ class FooterNav extends React.Component {
 
           <div className="o-layout__module c-identity">
             <a className="c-identity__link" href="https://www.linode.com" target="_self" itemProp="url">
-              <img width="160" height="55" alt="Logo" className="c-identity__image" src="https://www.linode.com/wp-content/themes/linode-website-theme/images/logo.svg?ver=1678132180" itemProp="image" data-no-lazy="1" />
+              <img width="113.84" height="50" alt="Akamai Logo" className="c-identity__image" src="https://assets.linode.com/akamai-logo.svg" itemProp="image" data-no-lazy="1" />
             </a>
           </div>
 
@@ -340,9 +340,6 @@ class FooterNav extends React.Component {
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/events/"><span className="o-menu__title">Events</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linodestore.com/products"><span className="o-menu__title">Swag Store</span></a>
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/promotions/"><span className="o-menu__title">Promotional Offers</span></a>
