@@ -405,10 +405,19 @@ class Header extends React.Component {
                   <a className="o-menu__link" href="https://www.linode.com/digital-agencies-industry-solutions/"><span className="o-menu__title">Digital Agencies</span></a>
                 </li>
                 <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/ecommerce-industry-solutions/"><span className="o-menu__title">Ecommerce</span></a>
+                </li>
+                <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/education-industry-solutions/"><span className="o-menu__title">Education</span></a>
                 </li>
                 <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/gaming-industry-solutions/"><span className="o-menu__title">Gaming</span></a>
+                </li>
+                <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/managed-hosting-industry-solutions/"><span className="o-menu__title">Managed Hosting</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/managed-service-providers-industry-solutions/"><span className="o-menu__title">Managed Service Providers</span></a>
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/video-streaming-solutions/"><span className="o-menu__title">Media</span></a>
@@ -867,10 +876,19 @@ class Header extends React.Component {
                   <a className="o-menu__link" href="https://www.linode.com/digital-agencies-industry-solutions/"><span className="o-menu__title">Digital Agencies</span></a>
                 </li>
                 <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/ecommerce-industry-solutions/"><span className="o-menu__title">Ecommerce</span></a>
+                </li>
+                <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/education-industry-solutions/"><span className="o-menu__title">Education</span></a>
                 </li>
                 <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/gaming-industry-solutions/"><span className="o-menu__title">Gaming</span></a>
+                </li>
+                <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/managed-hosting-industry-solutions/"><span className="o-menu__title">Managed Hosting</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/managed-service-providers-industry-solutions/"><span className="o-menu__title">Managed Service Providers</span></a>
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/video-streaming-solutions/"><span className="o-menu__title">Media</span></a>
