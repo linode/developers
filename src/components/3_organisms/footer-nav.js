@@ -45,7 +45,7 @@ class FooterNav extends React.Component {
 
           <div className="o-layout__module c-identity">
             <a className="c-identity__link" href="https://www.linode.com" target="_self" itemProp="url">
-              <img width="160" height="55" alt="Logo" className="c-identity__image" src="https://www.linode.com/wp-content/themes/linode-website-theme/images/logo.svg?ver=1678132180" itemProp="image" data-no-lazy="1" />
+              <img width="113.84" height="50" alt="Akamai Logo" className="c-identity__image" src="https://assets.linode.com/akamai-logo.svg" itemProp="image" data-no-lazy="1" />
             </a>
           </div>
 
@@ -89,6 +89,9 @@ class FooterNav extends React.Component {
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/company/careers/"><span className="o-menu__title">Careers</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/accessibility/"><span className="o-menu__title">Accessibility Commitment</span></a>
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/company/press/"><span className="o-menu__title">Press Center</span></a>
@@ -150,6 +153,9 @@ class FooterNav extends React.Component {
               <ul className="o-menu__list --d0">
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/company/about/"><span className="o-menu__title">About</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/accessibility/"><span className="o-menu__title">Accessibility Commitment</span></a>
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/partners/"><span className="o-menu__title">Partners</span></a>
@@ -255,10 +261,19 @@ class FooterNav extends React.Component {
                   <a className="o-menu__link" href="https://www.linode.com/digital-agencies-industry-solutions/"><span className="o-menu__title">Digital Agencies</span></a>
                 </li>
                 <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/ecommerce-industry-solutions/"><span className="o-menu__title">Ecommerce</span></a>
+                </li>
+                <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/education-industry-solutions/"><span className="o-menu__title">Education</span></a>
                 </li>
                 <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/gaming-industry-solutions/"><span className="o-menu__title">Gaming</span></a>
+                </li>
+                <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/managed-hosting-industry-solutions/"><span className="o-menu__title">Managed Hosting</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/managed-service-providers-industry-solutions/"><span className="o-menu__title">Managed Service Providers</span></a>
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/video-streaming-solutions/"><span className="o-menu__title">Media</span></a>
@@ -340,9 +355,6 @@ class FooterNav extends React.Component {
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/events/"><span className="o-menu__title">Events</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://linodestore.com/products"><span className="o-menu__title">Swag Store</span></a>
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/promotions/"><span className="o-menu__title">Promotional Offers</span></a>
