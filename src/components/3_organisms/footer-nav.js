@@ -91,6 +91,9 @@ class FooterNav extends React.Component {
                   <a className="o-menu__link" href="https://www.linode.com/company/careers/"><span className="o-menu__title">Careers</span></a>
                 </li>
                 <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/accessibility/"><span className="o-menu__title">Accessibility Commitment</span></a>
+                </li>
+                <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/company/press/"><span className="o-menu__title">Press Center</span></a>
                 </li>
                 <li className="o-menu__item">
@@ -150,6 +153,9 @@ class FooterNav extends React.Component {
               <ul className="o-menu__list --d0">
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/company/about/"><span className="o-menu__title">About</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/accessibility/"><span className="o-menu__title">Accessibility Commitment</span></a>
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/partners/"><span className="o-menu__title">Partners</span></a>
