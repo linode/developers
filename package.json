@@ -11,7 +11,7 @@
     "@types/react": ">=16",
     "axios": "^0.21.2",
     "crypto": "^1.0.1",
-    "gatsby": "^2.32.13",
+    "gatsby": "^4.25.7",
     "gatsby-cli": "^3.14.2",
     "gatsby-image": "^2.0.29",
     "gatsby-plugin-catch-links": "^2.1.2",
