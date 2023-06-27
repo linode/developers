@@ -252,6 +252,9 @@ class Header extends React.Component {
                       <a className="o-menu__link" href="https://www.linode.com/products/high-memory/"><span className="o-menu__title">High Memory</span></a>
                     </li>
                     <li className="o-menu__item">
+                      <a className="o-menu__link" href="https://www.linode.com/products/premium-cpu/"><span className="o-menu__title">Premium CPU</span></a>
+                    </li>
+                    <li className="o-menu__item">
                       <a className="o-menu__link" href="https://www.linode.com/products/gpu/"><span className="o-menu__title">GPU</span></a>
                     </li>
                     <li className="o-menu__item">
@@ -477,7 +480,7 @@ class Header extends React.Component {
                   <a className="o-menu__link" href="https://www.linode.com/partners/"><span className="o-menu__title">Partner Program</span></a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/linode-for-startups/"><span className="o-menu__title">Startup Program</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/startup-programs/"><span className="o-menu__title">Startup Programs</span></a>
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/blog/"><span className="o-menu__title">Blog</span></a>
@@ -563,7 +566,7 @@ class Header extends React.Component {
       <div className="o-layout__module" id="submenu-mobile-search" data-group="mobile-search">
         <form role="search" method="get" action="https://www.linode.com" className="c-search">
           <label htmlFor="s">Search</label>
-          <input type="search" placeholder="Search Linode" name="s" />
+          <input type="search" placeholder="Search Linode" name="s" id="s" />
           <input type="submit" value="Search" />
         </form>
       </div>
@@ -679,6 +682,9 @@ class Header extends React.Component {
                   <a className="o-menu__link" href="https://www.linode.com/products/high-memory/"><span className="o-menu__title">High Memory</span></a>
                 </li>
                 <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/products/premium-cpu/"><span className="o-menu__title">Premium CPU</span></a>
+                </li>
+                <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/products/gpu/"><span className="o-menu__title">GPU</span></a>
                 </li>
                 <li className="o-menu__item">
@@ -720,20 +726,6 @@ class Header extends React.Component {
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/products/postgresql/"><span className="o-menu__title">PostgreSQL</span></a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-
-          <div className="o-layout__module">
-            <h6>Services</h6>
-            <nav className="o-menu">
-              <ul className="o-menu__list --d0">
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/products/managed/"><span className="o-menu__title">Managed</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/products/pro-services/"><span className="o-menu__title">Professional Services</span></a>
                 </li>
               </ul>
             </nav>
@@ -851,6 +843,21 @@ class Header extends React.Component {
               </ul>
             </nav>
           </div>
+
+          <div className="o-layout__module">
+            <h6>Services</h6>
+            <nav className="o-menu">
+              <ul className="o-menu__list --d0">
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/products/managed/"><span className="o-menu__title">Managed</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/products/pro-services/"><span className="o-menu__title">Professional Services</span></a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+
         </div>
 
       </div>
@@ -975,7 +982,7 @@ class Header extends React.Component {
                   <a className="o-menu__link" href="https://www.linode.com/partners/"><span className="o-menu__title">Partner Program</span></a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/linode-for-startups/"><span className="o-menu__title">Startup Program</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/startup-programs/"><span className="o-menu__title">Startup Programs</span></a>
                 </li>
               </ul>
             </nav>
