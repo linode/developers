@@ -58,19 +58,19 @@ class FooterNav extends React.Component {
           </div>
 
           <div className="o-layout__module c-social --mobile">
-            <a href="https://twitter.com/linode">
+            <a href="https://twitter.com/linode" aria-label="Twitter">
               <svg className="o-icon" alt="Twitter Logo"><use xlinkHref="#icon--twitter"></use></svg>
             </a>
-            <a href="https://www.instagram.com/linode/">
+            <a href="https://www.instagram.com/linode/" aria-label="Instagram">
               <svg className="o-icon" alt="Instagram Logo"><use xlinkHref="#icon--instagram"></use></svg>
             </a>
-            <a href="https://www.youtube.com/linode">
+            <a href="https://www.youtube.com/linode" aria-label="YouTube">
               <svg className="o-icon" alt="YouTube Logo"><use xlinkHref="#icon--youtube"></use></svg>
             </a>
-            <a href="https://www.linkedin.com/company/linode/">
+            <a href="https://www.linkedin.com/company/linode/" aria-label="LinkedIn">
               <svg className="o-icon" alt="LinkedIn Logo"><use xlinkHref="#icon--linkedin"></use></svg>
             </a>
-            <a href="https://github.com/linode/">
+            <a href="https://github.com/linode/" aria-label="GitHub">
               <svg className="o-icon" alt="Github Logo"><use xlinkHref="#icon--github"></use></svg>
             </a>
           </div>
@@ -191,6 +191,9 @@ class FooterNav extends React.Component {
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/products/high-memory/"><span className="o-menu__title">High Memory</span></a>
+                </li>
+                <li className="o-menu__item">
+                  <a className="o-menu__link" href="https://www.linode.com/products/premium-cpu/"><span className="o-menu__title">Premium CPU</span></a>
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/products/gpu/"><span className="o-menu__title">GPU</span></a>
@@ -345,7 +348,7 @@ class FooterNav extends React.Component {
                   <a className="o-menu__link" href="https://www.linode.com/partners/"><span className="o-menu__title">Partner Program</span></a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/linode-for-startups/"><span className="o-menu__title">Startup Program</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/startup-programs/"><span className="o-menu__title">Startup Programs</span></a>
                 </li>
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/blog/"><span className="o-menu__title">Blog</span></a>
