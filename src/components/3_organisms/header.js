@@ -451,7 +451,7 @@ class Header extends React.Component {
                   <a className="o-menu__link" href="https://www.linode.com/estimator/"><span className="o-menu__title">Cloud Estimator</span></a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://cloud-estimator.linode.com"><span className="o-menu__title">Cloud Pricing Calculator</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/cloud-computing-calculator/"><span className="o-menu__title">Cloud Computing Calculator</span></a>
                 </li>
               </ul>
             </li>
@@ -934,7 +934,7 @@ class Header extends React.Component {
                   <a className="o-menu__link" href="https://www.linode.com/estimator/"><span className="o-menu__title">Cloud Estimator</span></a>
                 </li>
                 <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/cloud-pricing-calculator/"><span className="o-menu__title">Cloud Pricing Calculator</span></a>
+                  <a className="o-menu__link" href="https://www.linode.com/cloud-computing-calculator/"><span className="o-menu__title">Cloud Computing Calculator</span></a>
                 </li>
               </ul>
             </nav>
