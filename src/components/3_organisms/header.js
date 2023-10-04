@@ -83,6 +83,8 @@ class Header extends React.Component {
     </svg>
 
 
+
+
     <div className="o-layout__row c-site-header__banner c-message" id="x-banner-2023-23-13" style={{display:'none'}}>
       <div className="c-message__body">
         <div className="c-notification">
@@ -284,12 +286,6 @@ class Header extends React.Component {
                   <ul className="o-menu__list o-menu__child --d2">
                     <li className="o-menu__item">
                       <a className="o-menu__link" href="https://www.linode.com/products/databases/"><span className="o-menu__title">Managed Databases</span></a>
-                    </li>
-                    <li className="o-menu__item">
-                      <a className="o-menu__link" href="https://www.linode.com/products/mysql/"><span className="o-menu__title">MySQL</span></a>
-                    </li>
-                    <li className="o-menu__item">
-                      <a className="o-menu__link" href="https://www.linode.com/products/postgresql/"><span className="o-menu__title">PostgreSQL</span></a>
                     </li>
                   </ul>
                 </li>
@@ -720,12 +716,6 @@ class Header extends React.Component {
               <ul className="o-menu__list --d0">
                 <li className="o-menu__item">
                   <a className="o-menu__link" href="https://www.linode.com/products/databases/"><span className="o-menu__title">Managed Databases</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/products/mysql/"><span className="o-menu__title">MySQL</span></a>
-                </li>
-                <li className="o-menu__item">
-                  <a className="o-menu__link" href="https://www.linode.com/products/postgresql/"><span className="o-menu__title">PostgreSQL</span></a>
                 </li>
               </ul>
             </nav>
