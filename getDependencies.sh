@@ -31,7 +31,7 @@ else
   echo
   printf "${BLUE}Fetching API specs${NC}\n"
   cd -
-  curl "https://raw.githubusercontent.com/linode/linode-api-docs/${SPEC_BRANCH}/openapi.yaml" > static/api/docs/v4/openapi.yaml;
+  curl "https://raw.githubusercontent.com/linode/linode-api-docs/release-4.163.0/openapi.yaml" > static/api/docs/v4/openapi.yaml;
 fi
 
 echo
