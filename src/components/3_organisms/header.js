@@ -152,7 +152,7 @@ class Header extends React.Component {
 
           <div className="o-layout__module c-identity">
             <a className="c-identity__link" href="https://www.linode.com" target="_self" itemProp="url">
-              <img width="113.84" height="50" alt="Akamai Logo" className="c-identity__image" src="https://assets.linode.com/akamai-logo.svg" itemProp="image" data-no-lazy="1" />
+              <img width="113.84" height="50" alt="Akamai Logo" className="c-identity__image" src="https://assets.linode.com/akamai-logo.svg" itemProp="image" fetchpriority="high" data-no-lazy="1" />
             </a>
           </div>
 
